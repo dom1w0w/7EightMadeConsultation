@@ -458,6 +458,211 @@
       line-height: 1.7;
     }
     .pkg-card__cta { margin-top: 28px; width: 100%; }
+    /* ── OPENCLAW PACKAGES ──────────────────────────────────── */
+    .openclaw-header { margin-top: 52px; margin-bottom: 24px; scroll-margin-top: 72px; }
+    .openclaw-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .openclaw-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .openclaw-tag {
+      font-size: 12px;
+      color: var(--text-3);
+      letter-spacing: .02em;
+    }
+    .openclaw-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      max-width: 760px;
+    }
+
+    /* ── OPENCLAW SECTION ────────────────────────────────────── */
+    .oc-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+    .oc-intro__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
+    .oc-intro__title em { font-style: italic; color: var(--gold-light); }
+    .oc-intro__body {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .oc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 4px;
+    }
+    .oc-compare {
+      display: grid;
+      gap: 10px;
+    }
+    .oc-compare__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .oc-compare__cell {
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .oc-compare__cell.bad {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.05);
+      color: var(--text-2);
+    }
+    .oc-compare__cell.bad strong {
+      display: block;
+      color: var(--text-3);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .oc-compare__cell.good {
+      background: var(--gold-faint);
+      border: 1px solid var(--gold-dim);
+      color: var(--text-2);
+    }
+    .oc-compare__cell.good strong {
+      display: block;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    /* What we install grid */
+    .oc-install__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .oc-install__card {
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .oc-install__card:hover {
+      border-color: var(--gold-dim);
+      box-shadow: 0 0 30px rgba(201,168,76,.06);
+    }
+    .oc-install__icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--gold-faint);
+      border: 1px solid var(--gold-dim);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+    .oc-install__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .oc-install__desc {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    /* How it works steps */
+    .oc-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .oc-steps::before {
+      content: '';
+      position: absolute;
+      top: 18px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold-dim), transparent);
+    }
+    .oc-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      padding: 0 8px;
+      position: relative;
+    }
+    .oc-step__num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-2, #0c0c16);
+      border: 1px solid var(--gold-dim);
+      display: grid;
+      place-items: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .oc-step__text {
+      font-size: 12px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .oc-intro        { grid-template-columns: 1fr; gap: 36px; }
+      .oc-install__grid { grid-template-columns: 1fr 1fr; }
+      .oc-steps        { grid-template-columns: 1fr; gap: 16px; }
+      .oc-steps::before { display: none; }
+      .oc-step         { flex-direction: row; text-align: left; }
+      .oc-compare__row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .oc-install__grid { grid-template-columns: 1fr; }
+    }
+
     .pkg-note {
       margin-top: 20px;
       font-size: 13px;
@@ -747,6 +952,7 @@
       <div class="nav__links" id="navLinks">
         <a class="nav__link" href="#services">Services</a>
         <a class="nav__link" href="#packages">Packages</a>
+        <a class="nav__link" href="#what-is-openclaw">OpenClaw</a>
         <a class="nav__link" href="#stacks">Stacks</a>
         <a class="nav__link" href="#about">About</a>
         <a class="nav__link" href="#faq">FAQ</a>
@@ -924,6 +1130,215 @@
         </div>
 
         <p class="pkg-note fade-in">Enterprise needs? <a href="mailto:contact@7eightmade.com">Email us directly</a> and we'll put together a custom scope.</p>
+
+        <!-- ── OpenClaw Packages ── -->
+        <div class="openclaw-header fade-in" id="openclaw">
+          <div class="openclaw-divider">
+            <span class="openclaw-label">
+              <svg width="16" height="16" viewBox="0 0 100 100" fill="none" style="flex-shrink:0" aria-hidden="true">
+                <polygon points="50,2 92,26 50,50 8,26" fill="#E4C97A"/>
+                <polygon points="92,26 92,74 50,98 50,50" fill="#C9A84C"/>
+                <polygon points="8,26 50,50 50,98 8,74" fill="#6A4E14"/>
+                <line x1="50" y1="2" x2="92" y2="26" stroke="#08080f" stroke-width="1.5"/>
+                <line x1="50" y1="2" x2="8" y2="26" stroke="#08080f" stroke-width="1.5"/>
+                <line x1="92" y1="26" x2="92" y2="74" stroke="#08080f" stroke-width="1.5"/>
+                <line x1="8" y1="26" x2="8" y2="74" stroke="#08080f" stroke-width="1.5"/>
+                <line x1="92" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1.5"/>
+                <line x1="8" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1.5"/>
+                <line x1="50" y1="50" x2="50" y2="98" stroke="#08080f" stroke-width="1.5"/>
+              </svg>
+              OpenClaw
+            </span>
+            <span class="openclaw-tag">Local AI — runs fully on your hardware. Zero data leaves your network.</span>
+          </div>
+        </div>
+
+        <div class="packages__grid openclaw-grid">
+
+          <!-- OpenClaw — Software Only -->
+          <div class="card fade-in">
+            <div class="pkg-card__label">Software Only</div>
+            <div class="price-num">$2,500</div>
+            <p class="pkg-card__desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Local model installation & configuration</div></li>
+              <li><span class="check-icon">✓</span><div>Custom prompt & workflow setup</div></li>
+              <li><span class="check-icon">✓</span><div>Integrated into your existing stack</div></li>
+              <li><span class="check-icon">✓</span><div>Zero data leaves your network</div></li>
+              <li><span class="check-icon">✓</span><div>2 weeks of tuning & support</div></li>
+            </ul>
+            <div class="pkg-card__cta">
+              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=OpenClaw%20Software%20—%207EightMade" style="width:100%;display:flex;">Get OpenClaw</a>
+            </div>
+          </div>
+
+          <!-- OpenClaw — With Mac Mini -->
+          <div class="card card--featured fade-in delay-1">
+            <div class="card-badge">Recommended</div>
+            <div class="pkg-card__label">With Mac Mini</div>
+            <div class="price-num">$3,500<span class="price-period">+</span></div>
+            <p class="pkg-card__desc">Everything in Software, plus a pre-configured Mac Mini M‑series. Plug in and run from day one.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Mac Mini M‑series — included & pre‑built</div></li>
+              <li><span class="check-icon">✓</span><div>Ships ready to run, zero setup on your end</div></li>
+              <li><span class="check-icon">✓</span><div>Local model installation & configuration</div></li>
+              <li><span class="check-icon">✓</span><div>Custom prompt & workflow setup</div></li>
+              <li><span class="check-icon">✓</span><div>Integrated into your existing stack</div></li>
+              <li><span class="check-icon">✓</span><div>Zero data leaves your network</div></li>
+              <li><span class="check-icon">✓</span><div>2 weeks of tuning & support</div></li>
+            </ul>
+            <div class="pkg-card__cta">
+              <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=OpenClaw%20%2B%20Mac%20Mini%20—%207EightMade" style="width:100%;display:flex;">Get OpenClaw + Mac Mini</a>
+            </div>
+          </div>
+
+        </div><!-- end openclaw-grid -->
+
+        <p class="pkg-note fade-in" style="margin-top:12px">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:contact@7eightmade.com">Email us</a> for a hardware quote.</p>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ OPENCLAW ════════════════════════════ -->
+    <section class="section" id="what-is-openclaw">
+      <div class="container">
+
+        <!-- Intro split -->
+        <div class="oc-intro">
+          <div class="fade-in">
+            <span class="label">OpenClaw</span>
+            <h2 class="oc-intro__title">Your AI.<br>Your hardware.<br><em>Your rules.</em></h2>
+            <p class="oc-intro__body">
+              OpenClaw is a fully local AI stack we install and configure for your team. Every model, every conversation, every document — processed on hardware you own, inside your network. Nothing reaches a cloud server. Nothing is logged by a third party.
+            </p>
+            <p class="oc-intro__body">
+              Think of it as a private ChatGPT — trained on your SOPs, your tone, and your workflows — that only you can access. We handle the installation, configuration, integration, and training so your team can start using it immediately.
+            </p>
+            <span class="oc-badge">100% Air-gappable</span>
+          </div>
+
+          <!-- Cloud vs OpenClaw comparison -->
+          <div class="oc-compare fade-in delay-1">
+            <div class="oc-compare__row">
+              <div class="oc-compare__cell bad">
+                <strong>Cloud AI</strong>
+                Your data sent to external servers
+              </div>
+              <div class="oc-compare__cell good">
+                <strong>OpenClaw</strong>
+                Data never leaves your network
+              </div>
+            </div>
+            <div class="oc-compare__row">
+              <div class="oc-compare__cell bad">
+                <strong>Cloud AI</strong>
+                Monthly subscription, price hikes
+              </div>
+              <div class="oc-compare__cell good">
+                <strong>OpenClaw</strong>
+                One-time setup, no ongoing fees
+              </div>
+            </div>
+            <div class="oc-compare__row">
+              <div class="oc-compare__cell bad">
+                <strong>Cloud AI</strong>
+                Rate limits & API downtime
+              </div>
+              <div class="oc-compare__cell good">
+                <strong>OpenClaw</strong>
+                Runs 24/7 on your own hardware
+              </div>
+            </div>
+            <div class="oc-compare__row">
+              <div class="oc-compare__cell bad">
+                <strong>Cloud AI</strong>
+                Generic, un-trained model
+              </div>
+              <div class="oc-compare__cell good">
+                <strong>OpenClaw</strong>
+                Fine-tuned on your docs & SOPs
+              </div>
+            </div>
+            <div class="oc-compare__row">
+              <div class="oc-compare__cell bad">
+                <strong>Cloud AI</strong>
+                Vendor lock-in
+              </div>
+              <div class="oc-compare__cell good">
+                <strong>OpenClaw</strong>
+                Open-source stack, fully yours
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What we install -->
+        <div class="section__header fade-in" style="margin-bottom:32px">
+          <span class="label">What We Install</span>
+          <h3 class="section__title" style="font-size:clamp(24px,3vw,36px)">Everything you need.<br>Nothing you don't.</h3>
+        </div>
+
+        <div class="oc-install__grid">
+          <div class="oc-install__card fade-in">
+            <div class="oc-install__icon">🧠</div>
+            <div class="oc-install__name">Local Language Model</div>
+            <div class="oc-install__desc">We select and install the best open-source LLM for your use case — Llama 3, Mistral, Qwen, or others — optimised for your hardware.</div>
+          </div>
+          <div class="oc-install__card fade-in delay-1">
+            <div class="oc-install__icon">💬</div>
+            <div class="oc-install__name">Chat Interface</div>
+            <div class="oc-install__desc">A clean, private web UI your team can access from any device on your network. Conversations are stored locally, never externally.</div>
+          </div>
+          <div class="oc-install__card fade-in delay-2">
+            <div class="oc-install__icon">📚</div>
+            <div class="oc-install__name">Document Knowledge Base</div>
+            <div class="oc-install__desc">We set up a local vector database so the model can search and answer from your internal docs, SOPs, manuals, and files.</div>
+          </div>
+          <div class="oc-install__card fade-in">
+            <div class="oc-install__icon">⚙️</div>
+            <div class="oc-install__name">API Gateway</div>
+            <div class="oc-install__desc">A local REST API so your existing tools — Slack, Notion, CRMs, custom scripts — can call OpenClaw just like any other AI service.</div>
+          </div>
+          <div class="oc-install__card fade-in delay-1">
+            <div class="oc-install__icon">🎯</div>
+            <div class="oc-install__name">Custom Personas & Prompts</div>
+            <div class="oc-install__desc">We configure system prompts, assistants, and tone so the AI responds exactly like a member of your team — not like a generic chatbot.</div>
+          </div>
+          <div class="oc-install__card fade-in delay-2">
+            <div class="oc-install__icon">🔄</div>
+            <div class="oc-install__name">Automated Maintenance</div>
+            <div class="oc-install__desc">Scheduled backup scripts, model update pipelines, and health monitoring so OpenClaw stays current and reliable without manual intervention.</div>
+          </div>
+        </div>
+
+        <!-- How it works steps -->
+        <div class="section__header fade-in" style="margin-bottom:32px">
+          <span class="label">How It Works</span>
+        </div>
+
+        <div class="oc-steps fade-in">
+          <div class="oc-step">
+            <div class="oc-step__num">1</div>
+            <div class="oc-step__text">We assess your hardware or ship a pre-configured Mac Mini M‑series</div>
+          </div>
+          <div class="oc-step">
+            <div class="oc-step__num">2</div>
+            <div class="oc-step__text">We install the full OpenClaw stack — remotely or on-site</div>
+          </div>
+          <div class="oc-step">
+            <div class="oc-step__num">3</div>
+            <div class="oc-step__text">We train it on your documents, SOPs, and workflows</div>
+          </div>
+          <div class="oc-step">
+            <div class="oc-step__num">4</div>
+            <div class="oc-step__text">We connect OpenClaw to your existing tools via API</div>
+          </div>
+          <div class="oc-step">
+            <div class="oc-step__num">5</div>
+            <div class="oc-step__text">We hand off with documentation and a live training session</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
