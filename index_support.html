@@ -5,281 +5,1146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>7EightMade — AI Micro‑Consulting & Automation</title>
   <meta name="description" content="We build AI assistants, workflow automations, and lightweight integrations across the tools you already use—including Salesforce.">
-  <meta name="theme-color" content="#3b82f6">
+  <meta name="theme-color" content="#C9A84C">
   <meta property="og:title" content="7EightMade — AI Micro‑Consulting & Automation">
   <meta property="og:description" content="Prompt systems, workflow automation, and dashboards. We support Salesforce, Google Workspace, Notion, Airtable, and more.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://7eightmade.example">
-  <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg: #0f172a;
-      --fg: #e5e7eb;
-      --muted: #a1a1aa;
-      --card: rgba(2,6,23,.55);
-      --card-2: rgba(2,6,23,.7);
-      --border: rgba(148,163,184,.18);
-      --brand: #3b82f6;
-      --brand-2: #22c55e;
-      --accent: #a78bfa;
-      --radius: 16px;
-      --shadow: 0 22px 70px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
-      --ring: 0 0 0 3px rgba(59,130,246,.22);
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg:          #08080f;
+      --bg-2:        #0c0c16;
+      --bg-3:        #111120;
+      --surface:     rgba(255,255,255,.025);
+      --surface-2:   rgba(255,255,255,.04);
+      --gold:        #C9A84C;
+      --gold-light:  #E4C97A;
+      --gold-dim:    rgba(201,168,76,.30);
+      --gold-faint:  rgba(201,168,76,.07);
+      --gold-glow:   rgba(201,168,76,.18);
+      --text:        #F0EDE6;
+      --text-2:      #9A9690;
+      --text-3:      #4A4840;
+      --border:      rgba(201,168,76,.13);
+      --border-2:    rgba(255,255,255,.06);
+      --radius-sm:   6px;
+      --radius:      12px;
+      --radius-lg:   20px;
+      --transition:  .28s cubic-bezier(.4,0,.2,1);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      color:var(--fg);
+
+    /* ── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ── BACKGROUND ATMOSPHERE ──────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.20), transparent 50%),
-        radial-gradient(1000px 500px at 95% 10%, rgba(167,139,250,.18), transparent 55%),
-        radial-gradient(900px 400px at 40% 120%, rgba(34,197,94,.14), transparent 50%),
-        var(--bg);
-      line-height:1.6;
+        radial-gradient(ellipse 900px 500px at 15% -5%,  rgba(201,168,76,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 700px 400px at 85% 10%,  rgba(201,168,76,.04) 0%, transparent 60%),
+        radial-gradient(ellipse 600px 600px at 50% 100%, rgba(201,168,76,.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
     }
-    a{color:#93c5fd;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:28px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      position:sticky;top:0;background: rgba(2,6,23,.65);backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--border);z-index:10;
+
+    /* ── UTILITY ────────────────────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .muted { color: var(--text-2); }
+    .gold  { color: var(--gold); }
+
+    /* Gold rule */
+    .rule {
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin-bottom: 24px;
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-    .logo{
-      width:38px;height:38px;border-radius:12px;
-      background: conic-gradient(from 0deg, var(--brand), var(--brand-2), var(--accent), var(--brand));
-      box-shadow: 0 8px 18px rgba(59,130,246,.35);
+
+    /* Section label */
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 18px;border-radius:12px;border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(2,6,23,.9), rgba(2,6,23,.75));
-      color:var(--fg);font-weight:700;cursor:pointer;
-      box-shadow: var(--shadow);transition: transform .15s ease, box-shadow .2s ease;
+    .label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 60px;
     }
-    .btn:hover{transform:translateY(-2px);}
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(59,130,246,.95), rgba(59,130,246,.85));
-      color:white;border-color: rgba(59,130,246,.8);
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
     }
-    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.35);color:#c7d2fe;font-weight:700;letter-spacing:.2px}
-    .hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
-    .hero h1{font-size:clamp(32px,4.4vw,54px);line-height:1.08;margin:10px 0 16px}
-    .hero p.lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted);margin:0 0 22px}
-    .glass{background:var(--card);backdrop-filter: blur(10px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .glass-2{background:var(--card-2);backdrop-filter: blur(10px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .pad{padding:22px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-    .list li{display:flex;gap:10px;align-items:flex-start}
-    .check{width:22px;height:22px;flex:0 0 22px;border-radius:8px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.45);display:grid;place-items:center}
-    .muted{color:var(--muted)}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;color:#86efac;background:rgba(16,185,129,.10);padding:2px 6px;border-radius:7px;border:1px solid rgba(16,185,129,.25)}
-    .price{font-size:34px;font-weight:900;letter-spacing:.2px}
-    .section{padding:42px 0}
-    .section h2{font-size:28px;margin:0 0 12px}
-    .kbd{padding:2px 6px;border-radius:8px;border:1px solid var(--border);background:rgba(148,163,184,.08);color:#cbd5e1}
-    .faq details{background:rgba(148,163,184,.08);border:1px solid var(--border);border-radius:12px;padding:14px}
-    .faq summary{cursor:pointer;font-weight:700}
-    .footer{padding:26px 0;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
-    input, textarea{outline:none;border:1px solid var(--border);border-radius:12px;background:rgba(2,6,23,.65);padding:12px;color:var(--fg)}
-    input:focus, textarea:focus{box-shadow: var(--ring)}
-    @media(max-width:980px){.hero{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} .grid-2{grid-template-columns:1fr}}
-    /* Supported stack chips */
-    .stack-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(148,163,184,.10);border:1px solid var(--border);color:#cbd5e1;font-weight:700}
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--gold-faint);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .card:hover::before  { opacity: 1; }
+    .card:hover {
+      border-color: var(--gold-dim);
+      box-shadow: 0 0 40px rgba(201,168,76,.08), 0 8px 32px rgba(0,0,0,.4);
+      transform: translateY(-3px);
+    }
+
+    /* Card featured */
+    .card--featured {
+      border-color: var(--gold-dim);
+      background: linear-gradient(145deg, rgba(201,168,76,.06), rgba(255,255,255,.02));
+    }
+    .card--featured .card-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: .02em;
+      transition: all var(--transition);
+      border: none;
+      white-space: nowrap;
+    }
+    .btn--gold {
+      background: var(--gold);
+      color: #080808;
+    }
+    .btn--gold:hover {
+      background: var(--gold-light);
+      box-shadow: 0 0 24px rgba(201,168,76,.35);
+      transform: translateY(-1px);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-2);
+    }
+    .btn--outline:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .btn--ghost {
+      background: transparent;
+      color: var(--gold);
+      padding-left: 0; padding-right: 0;
+      border: none;
+    }
+    .btn--ghost::after {
+      content: '→';
+      transition: transform var(--transition);
+    }
+    .btn--ghost:hover::after { transform: translateX(4px); }
+
+    /* Check list */
+    .checklist { list-style: none; display: grid; gap: 12px; }
+    .checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--text-2); }
+    .check-icon {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-dim);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    /* Price */
+    .price-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+    .price-period { font-size: 14px; color: var(--text-2); font-weight: 400; }
+
+    /* Scroll fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .fade-in.delay-1 { transition-delay: .1s; }
+    .fade-in.delay-2 { transition-delay: .2s; }
+    .fade-in.delay-3 { transition-delay: .3s; }
+    .fade-in.delay-4 { transition-delay: .4s; }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,15,.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .nav__brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav__brand span { color: var(--gold); }
+    .nav__brand svg { flex-shrink: 0; }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav__link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+      letter-spacing: .02em;
+    }
+    .nav__link:hover {
+      color: var(--text);
+      background: var(--surface-2);
+    }
+
+    /* Mobile nav toggle */
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      padding: 4px;
+    }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 120px 0 80px;
+      scroll-margin-top: 72px;
+    }
+    .hero__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hero__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
+      max-width: 820px;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero__lead {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--text-2);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+    .hero__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-2);
+      padding: 6px 14px;
+      border: 1px solid var(--border-2);
+      border-radius: 999px;
+      letter-spacing: .03em;
+    }
+    .hero__card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(201,168,76,.12), transparent 70%);
+      pointer-events: none;
+    }
+    .hero__card h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .hero__split {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero__stacks {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-2);
+      font-size: 12px;
+      color: var(--text-3);
+    }
+
+    /* ── SECTION BASE ───────────────────────────────────────── */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 96px 0;
+      border-top: 1px solid var(--border-2);
+      scroll-margin-top: 72px;
+    }
+    .section__header {
+      margin-bottom: 60px;
+    }
+    .section__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin-top: 14px;
+    }
+    .section__sub {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--text-2);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ── SERVICES ───────────────────────────────────────────── */
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .service-card__num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--gold-faint);
+      line-height: 1;
+      margin-bottom: 12px;
+      transition: color var(--transition);
+      -webkit-text-stroke: 1px var(--gold-dim);
+      color: transparent;
+    }
+    .card:hover .service-card__num { -webkit-text-stroke-color: var(--gold); }
+    .service-card__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .service-card__desc {
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    /* ── PACKAGES ───────────────────────────────────────────── */
+    .packages__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .pkg-card__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .pkg-card__desc {
+      font-size: 14px;
+      color: var(--text-2);
+      margin: 14px 0 24px;
+      line-height: 1.7;
+    }
+    .pkg-card__cta { margin-top: 28px; width: 100%; }
+    .pkg-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-3);
+    }
+    .pkg-note a { color: var(--gold); }
+
+    /* ── STACKS ─────────────────────────────────────────────── */
+    .stacks__wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .stack-pill {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      padding: 9px 18px;
+      border: 1px solid var(--border-2);
+      border-radius: 999px;
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+    .stack-pill:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold-light);
+      background: var(--gold-faint);
+    }
+
+    /* ── ABOUT ──────────────────────────────────────────────── */
+    .about__split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
+    }
+    .about__title em { font-style: italic; color: var(--gold-light); }
+    .about__body {
+      font-size: 15px;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about__values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .value-item {
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+    }
+    .value-item__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .value-item__text {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* ── FAQ ────────────────────────────────────────────────── */
+    .faq__grid {
+      display: grid;
+      gap: 8px;
+    }
+    .faq-item {
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .faq-item:hover { border-color: var(--border); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--gold);
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item[open] { border-color: var(--border); }
+    .faq-item__body {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT ────────────────────────────────────────────── */
+    .contact__split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .contact__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .contact__sub {
+      font-size: 14px;
+      color: var(--text-2);
+      margin-bottom: 28px;
+    }
+    .contact__sub a { color: var(--gold); }
+    .form-group { display: grid; gap: 12px; }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text-2);
+    }
+    .form-input {
+      background: var(--surface);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      resize: vertical;
+    }
+    .form-input::placeholder { color: var(--text-3); }
+    .form-input:focus {
+      border-color: var(--gold-dim);
+      box-shadow: 0 0 0 3px rgba(201,168,76,.08);
+    }
+    .calendly-wrap {
+      height: 480px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-2);
+    }
+    .calendly-wrap iframe {
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border-2);
+      padding: 36px 0;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer__brand {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .footer__brand span { color: var(--gold); }
+    .footer__copy {
+      font-size: 13px;
+      color: var(--text-3);
+    }
+    .footer__links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-3);
+    }
+    .footer__links a { transition: color var(--transition); }
+    .footer__links a:hover { color: var(--gold); }
+
+    /* ── DIVIDER ────────────────────────────────────────────── */
+    .gold-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero__split      { grid-template-columns: 1fr; }
+      .services__grid   { grid-template-columns: 1fr; }
+      .packages__grid   { grid-template-columns: 1fr; }
+      .about__split     { grid-template-columns: 1fr; gap: 40px; }
+      .contact__split   { grid-template-columns: 1fr; }
+      .hero { padding: 80px 0 60px; }
+      .section { padding: 72px 0; }
+      .nav__links { display: none; }
+      .nav__toggle { display: block; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .nav__inner { padding: 16px 20px; }
+      .about__values { grid-template-columns: 1fr; }
+    }
+
+    /* Mobile nav open state */
+    .nav--open .nav__links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: rgba(8,8,15,.97);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      gap: 4px;
+    }
+    .nav--open .nav__link { display: block; width: 100%; }
   </style>
 </head>
 <body>
-  <nav class="nav container">
-    <div class="brand">
-      <div class="logo" aria-hidden="true"></div>
-      <div>7EightMade</div>
-    </div>
-    <div style="display:flex; gap:10px; align-items:center">
-      <a class="btn" href="#services">Services</a>
-      <a class="btn" href="#packages">Packages</a>
-      <a class="btn" href="#stacks">Stacks</a>
-      <a class="btn" href="#contact">Contact</a>
-      <a class="btn primary" href="mailto:contact@7eightmade.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+
+  <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand">
+        <!-- Prism Logo Mark -->
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="navTop" x1="50" y1="2" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#F0D988"/>
+              <stop offset="100%" stop-color="#D4AE50"/>
+            </linearGradient>
+            <linearGradient id="navRight" x1="92" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#C9A84C"/>
+              <stop offset="100%" stop-color="#A8892E"/>
+            </linearGradient>
+            <linearGradient id="navLeft" x1="8" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#6A4E14"/>
+              <stop offset="100%" stop-color="#4A3408"/>
+            </linearGradient>
+          </defs>
+          <polygon points="50,2 92,26 50,50 8,26" fill="url(#navTop)"/>
+          <polygon points="92,26 92,74 50,98 50,50" fill="url(#navRight)"/>
+          <polygon points="8,26 50,50 50,98 8,74" fill="url(#navLeft)"/>
+          <line x1="50" y1="2"  x2="92" y2="26" stroke="#08080f" stroke-width="1"/>
+          <line x1="50" y1="2"  x2="8"  y2="26" stroke="#08080f" stroke-width="1"/>
+          <line x1="92" y1="26" x2="92" y2="74" stroke="#08080f" stroke-width="1"/>
+          <line x1="8"  y1="26" x2="8"  y2="74" stroke="#08080f" stroke-width="1"/>
+          <line x1="92" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+          <line x1="8"  y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+          <line x1="50" y1="50" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+        </svg>
+        <span>7</span>EightMade
+      </a>
+
+      <div class="nav__links" id="navLinks">
+        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="#packages">Packages</a>
+        <a class="nav__link" href="#stacks">Stacks</a>
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=Free%20AI%20Audit" style="margin-left:8px;font-size:13px;padding:10px 18px;">Book Free AI Audit</a>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
-  <header class="container hero">
-    <div>
-      <span class="tag">Automation & Assistants for Teams that Ship</span>
-      <h1>Less busywork. More signal.<br>Ship smarter in days, not months.</h1>
-      <p class="lead">We design prompt systems, automate workflows, and connect the tools you already use—including Salesforce. No fluff, just working ops.</p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap">
-        <a class="btn primary" href="mailto:contact@7eightmade.com?subject=Project%20Inquiry">Start a project</a>
-        <a class="btn" href="#packages">See pricing</a>
+  <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero__split">
+        <!-- Left -->
+        <div>
+          <p class="hero__eyebrow fade-in">Automation & Assistants for Teams that Ship</p>
+          <h1 class="hero__title fade-in delay-1">
+            Less busywork.<br><em>More signal.</em><br>Ship smarter.
+          </h1>
+          <p class="hero__lead fade-in delay-2">
+            We design prompt systems, automate workflows, and connect the tools you already use—including Salesforce. No fluff, just working ops.
+          </p>
+          <div class="hero__ctas fade-in delay-3">
+            <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=Project%20Inquiry">Start a project</a>
+            <a class="btn btn--outline" href="#packages">See pricing</a>
+          </div>
+          <div class="hero__chips fade-in delay-4">
+            <span class="chip">24–72h Pilot</span>
+            <span class="chip">No Lock‑in</span>
+            <span class="chip">Your Data, Your Stack</span>
+            <span class="chip">Privacy‑first</span>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="hero__card fade-in delay-2">
+          <h3>What we build</h3>
+          <ul class="checklist">
+            <li>
+              <span class="check-icon">✓</span>
+              <div><strong style="color:var(--text)">Chat assistants</strong> trained on your SOPs, docs, and tone.</div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div><strong style="color:var(--text)">Workflow automations</strong> across email, sheets, CRMs, and helpdesks.</div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div><strong style="color:var(--text)">Dashboards</strong> for KPIs, dealflow, and ops rituals.</div>
+            </li>
+            <li>
+              <span class="check-icon">✓</span>
+              <div><strong style="color:var(--text)">Lightweight integrations</strong> that sit on top of your stack.</div>
+            </li>
+          </ul>
+          <div class="hero__stacks">
+            Salesforce · Google Workspace · Microsoft 365 · Notion · Airtable · HubSpot · Slack · Zapier / Make
+          </div>
+        </div>
       </div>
-      <div class="muted" style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-        <span class="kbd">24–72h Pilot</span>
-        <span class="kbd">No Lock-in</span>
-        <span class="kbd">Your Data, Your Stack</span>
-        <span class="kbd">Privacy-first</span>
-      </div>
-    </div>
-    <div class="glass pad">
-      <h3 style="margin:0 0 8px">What we build</h3>
-      <ul class="list">
-        <li><span class="check">✓</span><div><strong>Chat assistants</strong> trained on your SOPs, docs, and tone.</div></li>
-        <li><span class="check">✓</span><div><strong>Workflow automations</strong> across email, sheets, CRMs, and helpdesks.</div></li>
-        <li><span class="check">✓</span><div><strong>Dashboards</strong> for KPIs, dealflow, and ops rituals.</div></li>
-        <li><span class="check">✓</span><div><strong>Lightweight integrations</strong> that sit on top of your stack.</div></li>
-      </ul>
-      <div class="muted" style="margin-top:12px">We support Salesforce, Google Workspace, Microsoft 365, Notion, Airtable, HubSpot, Slack, Zapier/Make, and custom webhooks.</div>
     </div>
   </header>
 
+  <div class="gold-divider"></div>
+
   <main>
-    <section class="container section" id="services">
-      <h2>Services</h2>
-      <div class="grid-3">
-        <div class="glass-2 pad">
-          <h3>Discovery Sprint</h3>
-          <p class="muted">Map workflows, score automation ROI, and blueprint the first wins.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div>Process audit & KPI targets</div></li>
-            <li><span class="check">✓</span><div>Data & tool access plan</div></li>
-            <li><span class="check">✓</span><div>90‑day automation roadmap</div></li>
-          </ul>
+
+    <!-- ════════════════════════════ SERVICES ════════════════════════════ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__header fade-in">
+          <span class="label">What we do</span>
+          <h2 class="section__title">Three phases.<br>One continuous loop.</h2>
+          <p class="section__sub">From mapping your workflows to shipping and sustaining them—we cover the full lifecycle.</p>
         </div>
-        <div class="glass-2 pad">
-          <h3>Build & Ship</h3>
-          <p class="muted">We implement: assistants, zaps, prompts, dashboards.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div>Weekly drops, working demos</div></li>
-            <li><span class="check">✓</span><div>Versioned prompts & docs</div></li>
-            <li><span class="check">✓</span><div>Secure handoff & training</div></li>
-          </ul>
-        </div>
-        <div class="glass-2 pad">
-          <h3>Operate & Improve</h3>
-          <p class="muted">Monitoring, prompt tuning, edge‑case fixes, and new experiments.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div>Monthly review & metrics</div></li>
-            <li><span class="check">✓</span><div>Error triage & fixes</div></li>
-            <li><span class="check">✓</span><div>New use‑cases & iteration</div></li>
-          </ul>
+
+        <div class="services__grid">
+          <div class="card fade-in">
+            <div class="service-card__num">01</div>
+            <h3 class="service-card__title">Discovery Sprint</h3>
+            <p class="service-card__desc">Map workflows, score automation ROI, and blueprint the first wins.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Process audit & KPI targets</div></li>
+              <li><span class="check-icon">✓</span><div>Data & tool access plan</div></li>
+              <li><span class="check-icon">✓</span><div>90‑day automation roadmap</div></li>
+            </ul>
+          </div>
+
+          <div class="card fade-in delay-1">
+            <div class="service-card__num">02</div>
+            <h3 class="service-card__title">Build & Ship</h3>
+            <p class="service-card__desc">We implement: assistants, zaps, prompts, and dashboards that work.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Weekly drops, working demos</div></li>
+              <li><span class="check-icon">✓</span><div>Versioned prompts & docs</div></li>
+              <li><span class="check-icon">✓</span><div>Secure handoff & training</div></li>
+            </ul>
+          </div>
+
+          <div class="card fade-in delay-2">
+            <div class="service-card__num">03</div>
+            <h3 class="service-card__title">Operate & Improve</h3>
+            <p class="service-card__desc">Monitoring, prompt tuning, edge‑case fixes, and new experiments.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Monthly review & metrics</div></li>
+              <li><span class="check-icon">✓</span><div>Error triage & fixes</div></li>
+              <li><span class="check-icon">✓</span><div>New use‑cases & iteration</div></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="container section" id="packages">
-      <h2>Packages</h2>
-      <div class="grid-3">
-        <div class="glass pad">
-          <div class="tag">Starter</div>
-          <div class="price" style="margin:8px 0">$1,250</div>
-          <p class="muted">One focused use‑case, shipped in 72h.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div>Discovery mini‑sprint</div></li>
-            <li><span class="check">✓</span><div>One assistant or automation</div></li>
-            <li><span class="check">✓</span><div>1 week of tweaks</div></li>
-          </ul>
-          <a class="btn primary" href="mailto:contact@7eightmade.com?subject=Starter%20Package%20—%207EightMade">Get Starter</a>
+    <!-- ════════════════════════════ PACKAGES ════════════════════════════ -->
+    <section class="section" id="packages">
+      <div class="container">
+        <div class="section__header fade-in">
+          <span class="label">Pricing</span>
+          <h2 class="section__title">Transparent packages.<br>No surprises.</h2>
+          <p class="section__sub">Fixed-scope, fixed-price. You always know exactly what you're getting.</p>
         </div>
-        <div class="glass pad" style="border:1px solid rgba(59,130,246,.35)">
-          <div class="tag">Team</div>
-          <div class="price" style="margin:8px 0">$3,500</div>
-          <p class="muted">Three automations or a full assistant + dashboard.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div>Full discovery sprint</div></li>
-            <li><span class="check">✓</span><div>3 build cycles</div></li>
-            <li><span class="check">✓</span><div>30 days support</div></li>
-          </ul>
-          <a class="btn primary" href="mailto:contact@7eightmade.com?subject=Team%20Package%20—%207EightMade">Get Team</a>
-        </div>
-        <div class="glass pad">
-          <div class="tag">Operator</div>
-          <div class="price" style="margin:8px 0">$1,250/mo</div>
-          <p class="muted">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
-          <ul class="list">
-            <li><span class="check">✓</span><div>Monthly priorities</div></li>
-            <li><span class="check">✓</span><div>On‑call improvements</div></li>
-            <li><span class="check">✓</span><div>Quarterly review</div></li>
-          </ul>
-          <a class="btn" href="mailto:contact@7eightmade.com?subject=Operator%20Plan%20—%207EightMade">Join Waitlist</a>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:10px">Enterprise needs? Email <a href="mailto:contact@7eightmade.com">contact@7eightmade.com</a>.</p>
-    </section>
 
-    <section class="container section" id="stacks">
-      <h2>Supported stacks</h2>
-      <div class="glass pad">
-        <p class="muted">We plug into the tools you already run. Salesforce is one of the platforms we support, alongside modern SaaS and simple custom glue.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px">
-          <span class="stack-chip">Salesforce</span>
-          <span class="stack-chip">Google Workspace</span>
-          <span class="stack-chip">Microsoft 365</span>
-          <span class="stack-chip">HubSpot</span>
-          <span class="stack-chip">Notion</span>
-          <span class="stack-chip">Airtable</span>
-          <span class="stack-chip">Slack</span>
-          <span class="stack-chip">Zapier</span>
-          <span class="stack-chip">Make</span>
-          <span class="stack-chip">Webhooks</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="container section faq">
-      <h2>FAQ</h2>
-      <div class="grid-2">
-        <details class="glass"><summary>Do you replace our CRM?</summary><div class="pad">No. We build assistants and automations that sit beside your stack. Keep your CRM; we help it work harder.</div></details>
-        <details class="glass"><summary>What about data privacy?</summary><div class="pad">Least‑privilege access, your credential vault, optional self‑hosting, and short‑lived tokens.</div></details>
-        <details class="glass"><summary>How fast is a pilot?</summary><div class="pad">24–72 hours once access is granted. Smaller scope → faster ship.</div></details>
-        <details class="glass"><summary>Can you train our team?</summary><div class="pad">Yes. Short training + living SOP doc is included in most builds.</div></details>
-      </div>
-    </section>
-
-    <section class="container section" id="contact">
-      <div class="grid-2">
-        <div class="glass pad">
-          <h2>Contact</h2>
-          <p class="muted">Email <a href="mailto:contact@7eightmade.com">contact@7eightmade.com</a> or book a slot.</p>
-          <form action="https://formspree.io/f/xbldzknn" method="POST">
-            <div style="display:grid;gap:10px">
-              <input type="text" name="name" placeholder="Your name" required>
-              <input type="email" name="email" placeholder="Your email" required>
-              <textarea name="message" placeholder="What do you want to automate?" rows="4" required></textarea>
-              <button class="btn primary" type="submit">Send message</button>
+        <div class="packages__grid">
+          <!-- Starter -->
+          <div class="card fade-in">
+            <div class="pkg-card__label">Starter</div>
+            <div class="price-num">$1,250</div>
+            <p class="pkg-card__desc">One focused use‑case, shipped in 72 hours.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Discovery mini‑sprint</div></li>
+              <li><span class="check-icon">✓</span><div>One assistant or automation</div></li>
+              <li><span class="check-icon">✓</span><div>1 week of tweaks</div></li>
+            </ul>
+            <div class="pkg-card__cta">
+              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=Starter%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Starter</a>
             </div>
-          </form>
-          <p class="muted" style="margin-top:8px">Prefer mailto only? Remove the form and keep the buttons.</p>
-        </div>
-        <div class="glass pad">
-          <h2>Book a call</h2>
-          <p class="muted">Pick a time that works for you.</p>
-          <div class="glass pad" style="height:520px;overflow:hidden;border:1px solid var(--border)">
-            <iframe title="Calendly" src="https://calendly.com/" style="width:100%;height:100%;border:0;border-radius:12px"></iframe>
           </div>
-          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" href="https://calendly.com/">Open Calendly</a>
-            <a class="btn" href="mailto:contact@7eightmade.com?subject=Free%20AI%20Audit">Email instead</a>
+
+          <!-- Team (featured) -->
+          <div class="card card--featured fade-in delay-1">
+            <div class="card-badge">Most Popular</div>
+            <div class="pkg-card__label">Team</div>
+            <div class="price-num">$3,500</div>
+            <p class="pkg-card__desc">Three automations or a full assistant plus dashboard.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Full discovery sprint</div></li>
+              <li><span class="check-icon">✓</span><div>3 build cycles</div></li>
+              <li><span class="check-icon">✓</span><div>30 days of support</div></li>
+            </ul>
+            <div class="pkg-card__cta">
+              <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=Team%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Team</a>
+            </div>
+          </div>
+
+          <!-- Operator -->
+          <div class="card fade-in delay-2">
+            <div class="pkg-card__label">Operator</div>
+            <div class="price-num">$1,250<span class="price-period">/mo</span></div>
+            <p class="pkg-card__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
+            <ul class="checklist">
+              <li><span class="check-icon">✓</span><div>Monthly priorities</div></li>
+              <li><span class="check-icon">✓</span><div>On‑call improvements</div></li>
+              <li><span class="check-icon">✓</span><div>Quarterly review</div></li>
+            </ul>
+            <div class="pkg-card__cta">
+              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=Operator%20Plan%20—%207EightMade" style="width:100%;display:flex;">Join Waitlist</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="pkg-note fade-in">Enterprise needs? <a href="mailto:contact@7eightmade.com">Email us directly</a> and we'll put together a custom scope.</p>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════ STACKS ═════════════════════════════ -->
+    <section class="section" id="stacks">
+      <div class="container">
+        <div class="section__header fade-in">
+          <span class="label">Integrations</span>
+          <h2 class="section__title">Built on your stack,<br>not a new one.</h2>
+          <p class="section__sub">We plug into the tools you already run. No rip-and-replace, no migration headaches.</p>
+        </div>
+
+        <div class="stacks__wrap fade-in">
+          <span class="stack-pill">Salesforce</span>
+          <span class="stack-pill">Google Workspace</span>
+          <span class="stack-pill">Microsoft 365</span>
+          <span class="stack-pill">HubSpot</span>
+          <span class="stack-pill">Notion</span>
+          <span class="stack-pill">Airtable</span>
+          <span class="stack-pill">Slack</span>
+          <span class="stack-pill">Zapier</span>
+          <span class="stack-pill">Make</span>
+          <span class="stack-pill">Custom Webhooks</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about__split">
+          <div class="fade-in">
+            <span class="label">About</span>
+            <h2 class="about__title">We believe great ops<br>should be <em>invisible.</em></h2>
+            <p class="about__body">
+              7EightMade was built on a simple conviction: the best automation is the kind your team doesn't have to think about. It just works—quietly, reliably, in the background.
+            </p>
+            <p class="about__body">
+              We're a lean micro-consulting shop specializing in AI assistants, workflow automation, and smart integrations. We work closely with each client, move fast, and leave you with systems that are yours to own.
+            </p>
+            <a class="btn btn--ghost" href="mailto:contact@7eightmade.com">Get in touch</a>
+          </div>
+          <div class="about__values fade-in delay-1">
+            <div class="value-item">
+              <div class="value-item__label">Speed</div>
+              <div class="value-item__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
+            </div>
+            <div class="value-item">
+              <div class="value-item__label">Ownership</div>
+              <div class="value-item__text">Everything we build is yours. No vendor lock-in, ever.</div>
+            </div>
+            <div class="value-item">
+              <div class="value-item__label">Privacy</div>
+              <div class="value-item__text">Least-privilege access. Your credentials stay in your vault.</div>
+            </div>
+            <div class="value-item">
+              <div class="value-item__label">Clarity</div>
+              <div class="value-item__text">Fixed scope, fixed price. You always know what you're paying for.</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section__header fade-in">
+          <span class="label">FAQ</span>
+          <h2 class="section__title">Common questions.</h2>
+        </div>
+        <div class="faq__grid fade-in">
+          <details class="faq-item">
+            <summary>Do you replace our CRM?</summary>
+            <div class="faq-item__body">No. We build assistants and automations that sit beside your stack. Keep your CRM—we help it work harder without touching your existing data architecture.</div>
+          </details>
+          <details class="faq-item">
+            <summary>What about data privacy?</summary>
+            <div class="faq-item__body">We use least-privilege access, your credential vault, optional self-hosting, and short-lived tokens. Your data stays where it belongs.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How fast is a pilot?</summary>
+            <div class="faq-item__body">24–72 hours once access is granted. Smaller scope means faster ship. We scope carefully so we can move quickly.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Can you train our team?</summary>
+            <div class="faq-item__body">Yes. A short training session plus a living SOP document is included in most builds. We want your team to be self-sufficient.</div>
+          </details>
+          <details class="faq-item">
+            <summary>What if we only need one small thing?</summary>
+            <div class="faq-item__body">The Starter package is built exactly for that—one focused use-case, scoped tightly, shipped fast. No overselling, no unnecessary scope.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you work with enterprise teams?</summary>
+            <div class="faq-item__body">Yes. For larger or more complex needs, reach out directly at <a href="mailto:contact@7eightmade.com" style="color:var(--gold)">contact@7eightmade.com</a> and we'll put together a custom scope and proposal.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__header fade-in">
+          <span class="label">Contact</span>
+          <h2 class="section__title">Let's build something<br>that actually works.</h2>
+        </div>
+
+        <div class="contact__split">
+          <!-- Form -->
+          <div class="fade-in">
+            <h3 class="contact__title">Send a message</h3>
+            <p class="contact__sub">Or email us at <a href="mailto:contact@7eightmade.com">contact@7eightmade.com</a></p>
+            <form action="https://formspree.io/f/xbldzknn" method="POST">
+              <div class="form-group">
+                <div class="form-field">
+                  <label class="form-label" for="name">Name</label>
+                  <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="message">What do you want to automate?</label>
+                  <textarea class="form-input" id="message" name="message" rows="5" placeholder="Describe your workflow, tool stack, or pain point..." required></textarea>
+                </div>
+                <button class="btn btn--gold" type="submit" style="justify-content:center;width:100%">Send message</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Calendly -->
+          <div class="fade-in delay-1">
+            <h3 class="contact__title">Book a call</h3>
+            <p class="contact__sub">Pick a time that works for you.</p>
+            <div class="calendly-wrap">
+              <iframe title="Calendly booking" src="https://calendly.com/"></iframe>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn btn--outline" href="https://calendly.com/">Open Calendly ↗</a>
+              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=Free%20AI%20Audit">Email instead</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="container footer">
-    <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
-      <div>© <span id="year"></span> 7EightMade • All rights reserved.</div>
-      <div class="muted">Assistants + Automations • Built on your stack</div>
+  <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand" style="display:flex;align-items:center;gap:10px;">
+          <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="ftTop" x1="50" y1="2" x2="50" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F0D988"/><stop offset="100%" stop-color="#D4AE50"/></linearGradient>
+              <linearGradient id="ftRight" x1="92" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#A8892E"/></linearGradient>
+              <linearGradient id="ftLeft" x1="8" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#6A4E14"/><stop offset="100%" stop-color="#4A3408"/></linearGradient>
+            </defs>
+            <polygon points="50,2 92,26 50,50 8,26" fill="url(#ftTop)"/>
+            <polygon points="92,26 92,74 50,98 50,50" fill="url(#ftRight)"/>
+            <polygon points="8,26 50,50 50,98 8,74" fill="url(#ftLeft)"/>
+            <line x1="50" y1="2" x2="92" y2="26" stroke="#08080f" stroke-width="1"/>
+            <line x1="50" y1="2" x2="8" y2="26" stroke="#08080f" stroke-width="1"/>
+            <line x1="50" y1="50" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+            <line x1="8" y1="26" x2="8" y2="74" stroke="#08080f" stroke-width="1"/>
+            <line x1="92" y1="26" x2="92" y2="74" stroke="#08080f" stroke-width="1"/>
+            <line x1="8" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+            <line x1="92" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+          </svg>
+          <span>7</span>EightMade
+        </div>
+        <div class="footer__copy">© <span id="year"></span> 7EightMade · All rights reserved.</div>
+        <div class="footer__links">
+          <a href="#services">Services</a>
+          <a href="#packages">Packages</a>
+          <a href="#about">About</a>
+          <a href="mailto:contact@7eightmade.com">Contact</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
+    // ── Year ──────────────────────────────────────────────────
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Smooth scroll with sticky-nav offset ──────────────────
+    const NAV_HEIGHT = 72;
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        // Close mobile nav if open
+        document.getElementById('nav').classList.remove('nav--open');
+      });
+    });
+
+    // ── Scroll fade-in ────────────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Mobile nav toggle ─────────────────────────────────────
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('nav').classList.toggle('nav--open');
+    });
   </script>
 </body>
 </html>
