@@ -1,3 +1,4 @@
+<!-- 7EightMade redesign v2 — Signal system — Dom review only, do not ship -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>7EightMade — AI Micro‑Consulting & Automation</title>
   <meta name="description" content="We build AI assistants, workflow automations, and lightweight integrations across the tools you already use—including Salesforce.">
-  <meta name="theme-color" content="#C9A84C">
+  <meta name="theme-color" content="#2563FF">
   <meta property="og:title" content="7EightMade — AI Micro‑Consulting & Automation">
   <meta property="og:description" content="Prompt systems, workflow automation, and dashboards. We support Salesforce, Google Workspace, Notion, Airtable, and more.">
   <meta property="og:type" content="website">
@@ -13,1135 +14,671 @@
   <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── TOKENS ─────────────────────────────────────────────── */
-    :root {
-      --bg:          #08080f;
-      --bg-2:        #0c0c16;
-      --bg-3:        #111120;
-      --surface:     rgba(255,255,255,.025);
-      --surface-2:   rgba(255,255,255,.04);
-      --gold:        #C9A84C;
-      --gold-light:  #E4C97A;
-      --gold-dim:    rgba(201,168,76,.30);
-      --gold-faint:  rgba(201,168,76,.07);
-      --gold-glow:   rgba(201,168,76,.18);
-      --text:        #F0EDE6;
-      --text-2:      #9A9690;
-      --text-3:      #4A4840;
-      --border:      rgba(201,168,76,.13);
-      --border-2:    rgba(255,255,255,.06);
-      --radius-sm:   6px;
-      --radius:      12px;
-      --radius-lg:   20px;
-      --transition:  .28s cubic-bezier(.4,0,.2,1);
-    }
 
-    /* ── RESET ──────────────────────────────────────────────── */
+    :root {
+      --paper: #F3EFE6;
+      --paper-2: #E8E2D6;
+      --sand: #DDD5C5;
+      --surface: #FBF8F2;
+      --ink: #0B0B0F;
+      --ink-soft: #2A2A32;
+      --muted: #5C5C66;
+      --line: rgba(60,45,20,.12);
+      --cobalt: #2563FF;
+      --cobalt-ink: #0B0B0F;
+      --cobalt-soft: rgba(37,99,255,.10);
+      --emerald: #0F766E;
+      --emerald-soft: rgba(15,118,110,.10);
+      --white: #FFFFFF;
+      --radius-sm: 10px;
+      --radius: 16px;
+      --radius-lg: 28px;
+      --shadow: 0 1px 2px rgba(60,45,20,.04), 0 8px 24px rgba(60,45,20,.06);
+      --shadow-lg: 0 2px 4px rgba(60,45,20,.04), 0 16px 40px rgba(60,45,20,.08);
+      --transition: .25s cubic-bezier(.4,0,.2,1);
+      --nav-h: 72px;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--paper);
+      color: var(--ink);
       line-height: 1.65;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Faint sand grain — paper texture, does not muddy type */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px 180px;
+      mix-blend-mode: multiply;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    .muted { color: var(--muted); }
 
-    /* ── BACKGROUND ATMOSPHERE ──────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 900px 500px at 15% -5%,  rgba(201,168,76,.07) 0%, transparent 60%),
-        radial-gradient(ellipse 700px 400px at 85% 10%,  rgba(201,168,76,.04) 0%, transparent 60%),
-        radial-gradient(ellipse 600px 600px at 50% 100%, rgba(201,168,76,.05) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── UTILITY ────────────────────────────────────────────── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
-    .serif { font-family: 'Playfair Display', Georgia, serif; }
-    .muted { color: var(--text-2); }
-    .gold  { color: var(--gold); }
-
-    /* Gold rule */
-    .rule {
-      display: block;
-      width: 40px; height: 1px;
-      background: var(--gold);
-      margin-bottom: 24px;
-    }
-
-    /* Section label */
-    .label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-      max-width: 60px;
-    }
-
-    /* Cards */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition), transform var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: var(--gold-faint);
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-    .card:hover::before  { opacity: 1; }
-    .card:hover {
-      border-color: var(--gold-dim);
-      box-shadow: 0 0 40px rgba(201,168,76,.08), 0 8px 32px rgba(0,0,0,.4);
-      transform: translateY(-3px);
-    }
-
-    /* Card featured */
-    .card--featured {
-      border-color: var(--gold-dim);
-      background: linear-gradient(145deg, rgba(201,168,76,.06), rgba(255,255,255,.02));
-    }
-    .card--featured .card-badge {
-      position: absolute;
-      top: 20px; right: 20px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--gold);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    /* Buttons */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 24px;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: .02em;
-      transition: all var(--transition);
-      border: none;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px; border-radius: var(--radius-sm);
+      font-weight: 600; font-size: 14px; letter-spacing: .01em;
+      transition: all var(--transition); white-space: nowrap;
+      border: 1.5px solid transparent;
     }
-    .btn--gold {
-      background: var(--gold);
-      color: #080808;
-    }
-    .btn--gold:hover {
-      background: var(--gold-light);
-      box-shadow: 0 0 24px rgba(201,168,76,.35);
-      transform: translateY(-1px);
-    }
-    .btn--outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border-2);
-    }
-    .btn--outline:hover {
-      border-color: var(--gold-dim);
-      color: var(--gold-light);
-      transform: translateY(-1px);
-    }
-    .btn--ghost {
-      background: transparent;
-      color: var(--gold);
-      padding-left: 0; padding-right: 0;
-      border: none;
-    }
-    .btn--ghost::after {
-      content: '→';
-      transition: transform var(--transition);
-    }
+    .btn--cobalt { background: var(--cobalt); color: var(--white); border-color: var(--cobalt); }
+    .btn--cobalt:hover { background: #1a4fd9; border-color: #1a4fd9; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(37,99,255,.25); }
+    .btn--outline { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn--outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+    .btn--ghost { background: transparent; color: var(--cobalt); padding-left: 0; padding-right: 0; border: none; font-weight: 600; }
+    .btn--ghost::after { content: '→'; transition: transform var(--transition); }
     .btn--ghost:hover::after { transform: translateX(4px); }
+    .btn--emerald { background: var(--emerald); color: var(--white); border-color: var(--emerald); }
+    .btn--emerald:hover { background: #0c635c; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15,118,110,.3); }
+    .btn--outline-light { background: transparent; color: rgba(243,239,230,.85); border-color: rgba(243,239,230,.2); }
+    .btn--outline-light:hover { border-color: rgba(243,239,230,.5); color: var(--paper); }
+    .btn--full { width: 100%; }
 
-    /* Check list */
     .checklist { list-style: none; display: grid; gap: 12px; }
-    .checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--text-2); }
-    .check-icon {
-      width: 18px; height: 18px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      border-radius: 50%;
-      border: 1px solid var(--gold-dim);
-      display: grid;
-      place-items: center;
-      color: var(--gold);
-      font-size: 10px;
+    .checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--muted); line-height: 1.55; }
+    .check {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; border-radius: 50%;
+      background: var(--cobalt-soft); color: var(--cobalt);
+      display: grid; place-items: center; font-size: 11px; font-weight: 700;
     }
+    .check--light { background: rgba(243,239,230,.1); color: #5EEAD4; }
 
-    /* Price */
-    .price-num {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1;
-    }
-    .price-period { font-size: 14px; color: var(--text-2); font-weight: 400; }
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .fade-in.d1 { transition-delay: .06s; }
+    .fade-in.d2 { transition-delay: .12s; }
+    .fade-in.d3 { transition-delay: .18s; }
 
-    /* Scroll fade-in */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
+    .section { padding: 100px 0; scroll-margin-top: var(--nav-h); }
+    .section--tight { padding: 72px 0; }
+    .section--paper2 { background: var(--paper-2); }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--cobalt); margin-bottom: 14px; display: block;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
+    .eyebrow--emerald { color: #5EEAD4; }
+    .section__title {
+      font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
+      font-size: clamp(32px, 4.5vw, 52px); font-weight: 600; letter-spacing: -.03em;
+      line-height: 1.08; color: var(--ink); max-width: 16ch;
     }
-    .fade-in.delay-1 { transition-delay: .1s; }
-    .fade-in.delay-2 { transition-delay: .2s; }
-    .fade-in.delay-3 { transition-delay: .3s; }
-    .fade-in.delay-4 { transition-delay: .4s; }
+    .section__sub { margin-top: 16px; font-size: 16px; color: var(--muted); max-width: 48ch; line-height: 1.7; }
+    .section__head { margin-bottom: 56px; }
 
-    /* ── NAV ────────────────────────────────────────────────── */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(8,8,15,.82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(243,239,230,.84);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
     }
     .nav__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 32px;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 32px; max-width: 1120px; margin: 0 auto;
     }
     .nav__brand {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600;
+      letter-spacing: -.02em; color: var(--ink);
     }
-    .nav__brand span { color: var(--gold); }
-    .nav__brand svg { flex-shrink: 0; }
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .nav__brand .mark-7 { color: var(--cobalt); }
+    .nav__links { display: flex; align-items: center; gap: 4px; }
     .nav__link {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-2);
-      padding: 7px 14px;
-      border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      padding: 8px 12px; border-radius: 8px;
       transition: color var(--transition), background var(--transition);
-      letter-spacing: .02em;
     }
-    .nav__link:hover {
-      color: var(--text);
-      background: var(--surface-2);
-    }
+    .nav__link:hover { color: var(--ink); background: rgba(60,45,20,.05); }
+    .nav__cta { margin-left: 8px; padding: 10px 18px; font-size: 13px; }
+    .nav__toggle { display: none; color: var(--ink); padding: 6px; }
+    .nav__cta-mobile { display: none; }
 
-    /* Mobile nav toggle */
-    .nav__toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text);
-      padding: 4px;
-    }
-
-    /* ── HERO ───────────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      z-index: 1;
-      padding: 120px 0 80px;
-      scroll-margin-top: 72px;
-    }
-    .hero__eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
+    .hero { padding: 88px 0 72px; scroll-margin-top: var(--nav-h); }
+    .hero__grid {
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center;
     }
     .hero__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(44px, 6vw, 80px);
-      font-weight: 600;
-      line-height: 1.06;
-      letter-spacing: -.02em;
-      margin-bottom: 24px;
-      max-width: 820px;
+      font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
+      font-size: clamp(48px, 7vw, 84px); font-weight: 600; letter-spacing: -.035em;
+      line-height: 1.02; margin-bottom: 24px; color: var(--ink);
     }
-    .hero__title em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
+    .hero__title em { font-style: italic; color: var(--cobalt); font-weight: 500; }
     .hero__lead {
-      font-size: clamp(16px, 2vw, 18px);
-      color: var(--text-2);
-      max-width: 560px;
-      margin-bottom: 40px;
-      line-height: 1.75;
+      font-size: 17px; color: var(--muted); max-width: 38ch; line-height: 1.7; margin-bottom: 32px;
     }
-    .hero__ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 52px;
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 36px; }
+    .hero__secondary {
+      font-size: 14px; font-weight: 600; color: var(--ink-soft); padding: 14px 8px;
+      transition: color var(--transition);
     }
-    .hero__chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .hero__secondary:hover { color: var(--cobalt); }
+    .hero__chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-2);
-      padding: 6px 14px;
-      border: 1px solid var(--border-2);
-      border-radius: 999px;
-      letter-spacing: .03em;
+      font-size: 12px; font-weight: 500; color: var(--muted);
+      padding: 6px 14px; background: var(--surface); border: 1px solid var(--sand); border-radius: 999px;
     }
     .hero__card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero__card::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 180px; height: 180px;
-      background: radial-gradient(circle, rgba(201,168,76,.12), transparent 70%);
-      pointer-events: none;
+      background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-lg);
+      padding: 36px 32px; box-shadow: var(--shadow-lg);
     }
     .hero__card h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 20px;
-      color: var(--text);
+      font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 20px;
     }
-    .hero__split {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 48px;
-      align-items: center;
-    }
+    .hero__card .checklist li strong { color: var(--ink); font-weight: 600; }
     .hero__stacks {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-2);
-      font-size: 12px;
-      color: var(--text-3);
+      margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line);
+      font-size: 12px; color: var(--muted); line-height: 1.6;
     }
 
-    /* ── SECTION BASE ───────────────────────────────────────── */
-    .section {
-      position: relative;
-      z-index: 1;
-      padding: 96px 0;
-      border-top: 1px solid var(--border-2);
-      scroll-margin-top: 72px;
+    .proof {
+      background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 64px 0;
     }
-    .section__header {
-      margin-bottom: 60px;
+    .proof__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
+    .proof__stat {
+      font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
+      font-size: clamp(40px, 6vw, 64px); font-weight: 600; letter-spacing: -.04em;
+      color: var(--ink); line-height: 1; margin-bottom: 8px;
     }
-    .section__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(32px, 4vw, 50px);
-      font-weight: 600;
-      letter-spacing: -.02em;
-      line-height: 1.1;
-      margin-top: 14px;
-    }
-    .section__sub {
-      margin-top: 16px;
-      font-size: 16px;
-      color: var(--text-2);
-      max-width: 560px;
-      line-height: 1.75;
-    }
+    .proof__label { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: .02em; }
 
-    /* ── SERVICES ───────────────────────────────────────────── */
-    .services__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .tracks__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .track {
+      display: block; background: var(--surface); border: 1px solid var(--sand);
+      border-radius: var(--radius-lg); padding: 40px 36px; position: relative; overflow: hidden;
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      box-shadow: var(--shadow);
     }
-    .service-card__num {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--gold-faint);
-      line-height: 1;
-      margin-bottom: 12px;
-      transition: color var(--transition);
-      -webkit-text-stroke: 1px var(--gold-dim);
-      color: transparent;
+    .track:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .track--consulting { border-top: 4px solid var(--cobalt); }
+    .track--consulting:hover { border-color: rgba(37,99,255,.35); border-top-color: var(--cobalt); }
+    .track--openclaw { border-top: 4px solid var(--emerald); }
+    .track--openclaw:hover { border-color: rgba(15,118,110,.35); border-top-color: var(--emerald); }
+    .track__badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
     }
-    .card:hover .service-card__num { -webkit-text-stroke-color: var(--gold); }
-    .service-card__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 10px;
+    .track__badge--cobalt { background: var(--cobalt-soft); color: var(--cobalt); }
+    .track__badge--emerald { background: var(--emerald-soft); color: var(--emerald); }
+    .track__title {
+      font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
+      letter-spacing: -.02em; margin-bottom: 12px; color: var(--ink);
     }
-    .service-card__desc {
-      font-size: 14px;
-      color: var(--text-2);
-      margin-bottom: 24px;
-      line-height: 1.7;
-    }
+    .track__desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; max-width: 36ch; }
+    .track__cta { font-size: 14px; font-weight: 600; color: var(--cobalt); display: inline-flex; align-items: center; gap: 6px; }
+    .track--openclaw .track__cta { color: var(--emerald); }
+    .track__cta::after { content: '→'; transition: transform var(--transition); }
+    .track:hover .track__cta::after { transform: translateX(4px); }
 
-    /* ── PACKAGES ───────────────────────────────────────────── */
-    .packages__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      align-items: start;
+    .process__rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+    .process__rail::before {
+      content: ''; position: absolute; top: 28px; left: 8%; right: 8%; height: 2px; background: var(--line);
     }
-    .pkg-card__label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
+    .process__step { padding: 0 20px; position: relative; text-align: left; }
+    .process__marker {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--surface);
+      border: 2px solid var(--cobalt); display: grid; place-items: center;
+      font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--cobalt);
+      margin-bottom: 24px; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--paper-2);
     }
-    .pkg-card__desc {
-      font-size: 14px;
-      color: var(--text-2);
-      margin: 14px 0 24px;
-      line-height: 1.7;
+    .process__name {
+      font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600;
+      letter-spacing: -.02em; margin-bottom: 10px; color: var(--ink);
     }
-    .pkg-card__cta { margin-top: 28px; width: 100%; }
-    /* ── OPENCLAW PACKAGES ──────────────────────────────────── */
-    .openclaw-header { margin-top: 52px; margin-bottom: 24px; scroll-margin-top: 72px; }
-    .openclaw-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .openclaw-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--gold);
-      white-space: nowrap;
-    }
-    .openclaw-tag {
-      font-size: 12px;
-      color: var(--text-3);
-      letter-spacing: .02em;
-    }
-    .openclaw-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      max-width: 760px;
-    }
+    .process__desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
 
-    /* ── OPENCLAW SECTION ────────────────────────────────────── */
-    .oc-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-      margin-bottom: 64px;
+    .build__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .build-card {
+      background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius);
+      padding: 32px 28px; box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
-    .oc-intro__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -.02em;
-      margin-top: 14px;
-      margin-bottom: 20px;
+    .build-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .build-card__icon {
+      width: 40px; height: 40px; border-radius: 10px; background: var(--cobalt-soft); color: var(--cobalt);
+      display: grid; place-items: center; margin-bottom: 16px; font-size: 18px;
     }
-    .oc-intro__title em { font-style: italic; color: var(--gold-light); }
-    .oc-intro__body {
-      font-size: 15px;
-      color: var(--text-2);
-      line-height: 1.8;
-      margin-bottom: 14px;
+    .build-card__title {
+      font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600;
+      letter-spacing: -.02em; margin-bottom: 8px; color: var(--ink);
     }
-    .oc-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--gold);
-      padding: 5px 12px;
-      border-radius: 999px;
-      margin-bottom: 4px;
+    .build-card__desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    .pricing__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+    .pkg {
+      background: var(--surface); border: 1.5px solid var(--sand); border-radius: var(--radius);
+      padding: 32px 28px; display: flex; flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition); position: relative;
     }
-    .oc-compare {
-      display: grid;
-      gap: 10px;
+    .pkg:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .pkg--featured { border-color: var(--cobalt); box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt); }
+    .pkg--featured:hover { transform: translateY(-3px); }
+    .pkg__badge {
+      position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; background: var(--cobalt); color: var(--white);
+      padding: 4px 10px; border-radius: 999px;
     }
-    .oc-compare__row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    .pkg__label {
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--cobalt); margin-bottom: 12px;
     }
-    .oc-compare__cell {
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      font-size: 13px;
-      line-height: 1.6;
+    .pkg__price {
+      font-family: 'Fraunces', Georgia, serif; font-size: 48px; font-weight: 600;
+      letter-spacing: -.03em; color: var(--ink); line-height: 1;
     }
+    .pkg__period { font-size: 15px; font-weight: 500; color: var(--muted); font-family: 'Inter', sans-serif; letter-spacing: 0; }
+    .pkg__desc { font-size: 14px; color: var(--muted); margin: 14px 0 24px; line-height: 1.6; }
+    .pkg .checklist { flex: 1; margin-bottom: 28px; }
+    .pkg-note { margin-top: 24px; font-size: 13px; color: var(--muted); }
+    .pkg-note a { color: var(--cobalt); font-weight: 500; }
+
+    .openclaw { background: var(--ink); color: var(--paper); padding: 112px 0; scroll-margin-top: var(--nav-h); }
+    .openclaw .section__title { color: var(--paper); }
+    .openclaw .section__sub { color: rgba(243,239,230,.6); }
+    .oc__intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 72px; }
+    .oc__title {
+      font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
+      font-size: clamp(36px, 5vw, 56px); font-weight: 600; letter-spacing: -.035em;
+      line-height: 1.05; margin-bottom: 24px; color: var(--paper);
+    }
+    .oc__title em { font-style: italic; color: #5EEAD4; font-weight: 500; }
+    .oc__body { font-size: 15px; color: rgba(243,239,230,.65); line-height: 1.75; margin-bottom: 14px; max-width: 42ch; }
+    .oc__airgap {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; background: var(--emerald); color: var(--white);
+      padding: 6px 14px; border-radius: 999px; margin-top: 8px;
+    }
+    .oc-compare { display: grid; gap: 10px; }
+    .oc-compare__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .oc-compare__cell { padding: 18px 20px; border-radius: var(--radius-sm); font-size: 13px; line-height: 1.55; }
     .oc-compare__cell.bad {
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.05);
-      color: var(--text-2);
+      background: rgba(243,239,230,.04); border: 1px solid rgba(243,239,230,.08); color: rgba(243,239,230,.5);
     }
     .oc-compare__cell.bad strong {
-      display: block;
-      color: var(--text-3);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
+      display: block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(243,239,230,.35); margin-bottom: 6px;
     }
     .oc-compare__cell.good {
-      background: var(--gold-faint);
-      border: 1px solid var(--gold-dim);
-      color: var(--text-2);
+      background: var(--emerald-soft); border: 1px solid rgba(15,118,110,.4); color: rgba(243,239,230,.75);
     }
     .oc-compare__cell.good strong {
-      display: block;
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
+      display: block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: #5EEAD4; margin-bottom: 6px;
     }
-    /* What we install grid */
-    .oc-install__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .oc-install__card {
-      background: var(--surface);
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-    .oc-install__card:hover {
-      border-color: var(--gold-dim);
-      box-shadow: 0 0 30px rgba(201,168,76,.06);
-    }
-    .oc-install__icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--gold-faint);
-      border: 1px solid var(--gold-dim);
-      display: grid;
-      place-items: center;
-      margin-bottom: 14px;
-      font-size: 16px;
-    }
-    .oc-install__name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .oc-install__desc {
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.65;
-    }
-    /* How it works steps */
     .oc-steps {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0;
-      position: relative;
-      margin-bottom: 16px;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 80px; position: relative;
     }
     .oc-steps::before {
-      content: '';
-      position: absolute;
-      top: 18px; left: 10%; right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold-dim), transparent);
+      content: ''; position: absolute; top: 22px; left: 6%; right: 6%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(15,118,110,.5), rgba(15,118,110,.5), transparent);
     }
-    .oc-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 10px;
-      padding: 0 8px;
-      position: relative;
-    }
+    .oc-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 0 8px; position: relative; }
     .oc-step__num {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--bg-2, #0c0c16);
-      border: 1px solid var(--gold-dim);
-      display: grid;
-      place-items: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gold);
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
+      width: 44px; height: 44px; border-radius: 50%; background: var(--ink); border: 1.5px solid var(--emerald);
+      display: grid; place-items: center; font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 600;
+      color: #5EEAD4; position: relative; z-index: 1;
     }
-    .oc-step__text {
-      font-size: 12px;
-      color: var(--text-2);
-      line-height: 1.5;
+    .oc-step__text { font-size: 13px; color: rgba(243,239,230,.6); line-height: 1.5; }
+    .oc-pkgs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; }
+    .oc-pkg {
+      background: rgba(243,239,230,.04); border: 1.5px solid rgba(243,239,230,.1);
+      border-radius: var(--radius); padding: 36px 32px; display: flex; flex-direction: column; position: relative;
     }
-    @media (max-width: 900px) {
-      .oc-intro        { grid-template-columns: 1fr; gap: 36px; }
-      .oc-install__grid { grid-template-columns: 1fr 1fr; }
-      .oc-steps        { grid-template-columns: 1fr; gap: 16px; }
-      .oc-steps::before { display: none; }
-      .oc-step         { flex-direction: row; text-align: left; }
-      .oc-compare__row { grid-template-columns: 1fr; }
+    .oc-pkg--featured { background: rgba(15,118,110,.12); border-color: var(--emerald); }
+    .oc-pkg__badge {
+      position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; background: var(--emerald); color: var(--white);
+      padding: 4px 10px; border-radius: 999px;
     }
-    @media (max-width: 600px) {
-      .oc-install__grid { grid-template-columns: 1fr; }
+    .oc-pkg__label {
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: #5EEAD4; margin-bottom: 12px;
     }
+    .oc-pkg__price {
+      font-family: 'Fraunces', Georgia, serif; font-size: 44px; font-weight: 600;
+      letter-spacing: -.03em; color: var(--paper); line-height: 1;
+    }
+    .oc-pkg__desc { font-size: 14px; color: rgba(243,239,230,.55); margin: 14px 0 24px; line-height: 1.6; }
+    .oc-pkg .checklist { flex: 1; margin-bottom: 28px; }
+    .oc-pkg .checklist li { color: rgba(243,239,230,.6); }
+    .oc-note { margin-top: 20px; font-size: 13px; color: rgba(243,239,230,.4); max-width: 860px; }
+    .oc-note a { color: #5EEAD4; }
 
-    .pkg-note {
-      margin-top: 20px;
-      font-size: 13px;
-      color: var(--text-3);
-    }
-    .pkg-note a { color: var(--gold); }
-
-    /* ── STACKS ─────────────────────────────────────────────── */
-    .stacks__wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .stacks__wrap { display: flex; flex-wrap: wrap; gap: 10px; }
     .stack-pill {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-2);
-      padding: 9px 18px;
-      border: 1px solid var(--border-2);
-      border-radius: 999px;
+      font-size: 13px; font-weight: 500; color: var(--ink-soft);
+      padding: 10px 18px; background: var(--surface); border: 1px solid var(--sand); border-radius: 999px;
       transition: border-color var(--transition), color var(--transition), background var(--transition);
     }
-    .stack-pill:hover {
-      border-color: var(--gold-dim);
-      color: var(--gold-light);
-      background: var(--gold-faint);
-    }
+    .stack-pill:hover { border-color: var(--cobalt); color: var(--cobalt); background: var(--cobalt-soft); }
 
-    /* ── ABOUT ──────────────────────────────────────────────── */
-    .about__split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
+    .about__split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
     .about__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -.02em;
-      margin-bottom: 24px;
+      font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 600;
+      letter-spacing: -.03em; line-height: 1.1; margin-bottom: 20px; color: var(--ink);
     }
-    .about__title em { font-style: italic; color: var(--gold-light); }
-    .about__body {
-      font-size: 15px;
-      color: var(--text-2);
-      line-height: 1.8;
-      margin-bottom: 16px;
+    .about__title em { font-style: italic; color: var(--cobalt); font-weight: 500; }
+    .about__body { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+    .about__values { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .value-chip { padding: 20px; background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-sm); }
+    .value-chip__label {
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--cobalt); margin-bottom: 6px;
     }
-    .about__values {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .value-item {
-      padding: 20px;
-      background: var(--surface);
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius);
-    }
-    .value-item__label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-    .value-item__text {
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.6;
-    }
+    .value-chip__text { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
-    /* ── FAQ ────────────────────────────────────────────────── */
-    .faq__grid {
-      display: grid;
-      gap: 8px;
-    }
+    .faq__grid { display: grid; gap: 10px; max-width: 720px; }
     .faq-item {
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color var(--transition);
+      background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-sm);
+      overflow: hidden; transition: border-color var(--transition), box-shadow var(--transition);
     }
-    .faq-item:hover { border-color: var(--border); }
+    .faq-item:hover { border-color: rgba(60,45,20,.22); }
+    .faq-item[open] { border-color: rgba(37,99,255,.3); box-shadow: var(--shadow); }
     .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 20px 24px;
-      font-weight: 600;
-      font-size: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      user-select: none;
+      list-style: none; cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 15px;
+      color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none;
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after {
-      content: '+';
-      font-size: 20px;
-      color: var(--gold);
-      font-weight: 300;
-      flex-shrink: 0;
+      content: '+'; font-size: 22px; color: var(--cobalt); font-weight: 300; flex-shrink: 0;
       transition: transform var(--transition);
     }
     .faq-item[open] summary::after { transform: rotate(45deg); }
-    .faq-item[open] { border-color: var(--border); }
-    .faq-item__body {
-      padding: 0 24px 20px;
-      font-size: 14px;
-      color: var(--text-2);
-      line-height: 1.75;
-    }
+    .faq-item__body { padding: 0 24px 20px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .faq-item__body a { color: var(--cobalt); font-weight: 500; }
 
-    /* ── CONTACT ────────────────────────────────────────────── */
-    .contact__split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
+    .contact__split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .contact__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 8px;
+      font-family: 'Fraunces', Georgia, serif; font-size: 26px; font-weight: 600;
+      letter-spacing: -.02em; margin-bottom: 8px; color: var(--ink);
     }
-    .contact__sub {
-      font-size: 14px;
-      color: var(--text-2);
-      margin-bottom: 28px;
-    }
-    .contact__sub a { color: var(--gold); }
-    .form-group { display: grid; gap: 12px; }
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+    .contact__sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .contact__sub a { color: var(--cobalt); font-weight: 500; }
+    .form-group { display: grid; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
     .form-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--text-2);
+      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
     }
     .form-input {
-      background: var(--surface);
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      font-family: inherit;
-      font-size: 14px;
-      color: var(--text);
-      outline: none;
-      transition: border-color var(--transition), box-shadow var(--transition);
-      resize: vertical;
+      background: var(--surface); border: 1.5px solid var(--sand); border-radius: var(--radius-sm);
+      padding: 13px 16px; font-family: inherit; font-size: 14px; color: var(--ink); outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition); resize: vertical;
     }
-    .form-input::placeholder { color: var(--text-3); }
-    .form-input:focus {
-      border-color: var(--gold-dim);
-      box-shadow: 0 0 0 3px rgba(201,168,76,.08);
+    .form-input::placeholder { color: #9A9AA3; }
+    .form-input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-soft); }
+    .contact-book {
+      height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+      padding: 40px 36px; background: var(--surface); border: 1.5px solid rgba(37,99,255,.25);
+      border-radius: var(--radius); box-shadow: var(--shadow); position: relative; overflow: hidden;
     }
-    .calendly-wrap {
-      height: 480px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      border: 1px solid var(--border-2);
+    .contact-book::before {
+      content: ''; position: absolute; top: -40%; right: -20%; width: 240px; height: 240px;
+      background: radial-gradient(circle, var(--cobalt-soft), transparent 70%); pointer-events: none;
     }
-    .calendly-wrap iframe {
-      width: 100%; height: 100%;
-      border: 0;
+    .contact-book__kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cobalt);
     }
+    .contact-book__title {
+      font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
+      letter-spacing: -.02em; line-height: 1.15; color: var(--ink);
+    }
+    .contact-book__body { font-size: 15px; color: var(--muted); max-width: 32ch; line-height: 1.6; }
 
-    /* ── FOOTER ─────────────────────────────────────────────── */
-    .footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border-2);
-      padding: 36px 0;
-    }
-    .footer__inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .footer { border-top: 1px solid var(--line); padding: 32px 0; background: var(--paper); }
+    .footer__inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer__brand {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 16px;
-      font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 600; letter-spacing: -.02em;
     }
-    .footer__brand span { color: var(--gold); }
-    .footer__copy {
-      font-size: 13px;
-      color: var(--text-3);
-    }
-    .footer__links {
-      display: flex;
-      gap: 20px;
-      font-size: 13px;
-      color: var(--text-3);
-    }
-    .footer__links a { transition: color var(--transition); }
-    .footer__links a:hover { color: var(--gold); }
+    .footer__brand .mark-7 { color: var(--cobalt); }
+    .footer__copy { font-size: 13px; color: var(--muted); }
+    .footer__links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); }
+    .footer__links a:hover { color: var(--cobalt); }
 
-    /* ── DIVIDER ────────────────────────────────────────────── */
-    .gold-divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-      margin: 0;
-    }
-
-    /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .hero__split      { grid-template-columns: 1fr; }
-      .services__grid   { grid-template-columns: 1fr; }
-      .packages__grid   { grid-template-columns: 1fr; }
-      .about__split     { grid-template-columns: 1fr; gap: 40px; }
-      .contact__split   { grid-template-columns: 1fr; }
-      .hero { padding: 80px 0 60px; }
-      .section { padding: 72px 0; }
+      .hero__grid, .tracks__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs, .build__grid { grid-template-columns: 1fr; }
+      .pricing__grid { grid-template-columns: 1fr; }
+      .proof__grid { grid-template-columns: 1fr; gap: 28px; }
+      .process__rail { grid-template-columns: 1fr; gap: 36px; }
+      .process__rail::before { display: none; }
+      .oc-steps { grid-template-columns: 1fr; gap: 20px; }
+      .oc-steps::before { display: none; }
+      .oc-step { flex-direction: row; text-align: left; align-items: flex-start; }
+      .oc-compare__row { grid-template-columns: 1fr; }
       .nav__links { display: none; }
       .nav__toggle { display: block; }
+      .nav__cta { display: none !important; }
+      .hero { padding: 64px 0 56px; }
+      .section { padding: 72px 0; }
+      .openclaw { padding: 80px 0; }
+      .pkg--featured { box-shadow: var(--shadow); }
     }
     @media (max-width: 600px) {
       .container { padding: 0 20px; }
-      .nav__inner { padding: 16px 20px; }
+      .nav__inner { padding: 14px 20px; }
       .about__values { grid-template-columns: 1fr; }
+      .hero__title { font-size: clamp(40px, 11vw, 56px); }
+      .proof__stat { font-size: 40px; }
     }
-
-    /* Mobile nav open state */
     .nav--open .nav__links {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%; left: 0; right: 0;
-      background: rgba(8,8,15,.97);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 32px;
-      gap: 4px;
+      display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(243,239,230,.98); border-bottom: 1px solid var(--line);
+      padding: 16px 32px 24px; gap: 4px; box-shadow: var(--shadow-lg);
     }
-    .nav--open .nav__link { display: block; width: 100%; }
-
-    /* ── VISUAL POLISH 2026-09 ───────────────────────────────── */
-    :root {
-      --text-2: #B0ABA3;
-      --text-3: #6A665C;
-      --border: rgba(201,168,76,.08);
-    }
-    .section {
-      padding: 96px 0;
-      position: relative;
-    }
-    .section--alt {
-      background: var(--bg-2);
-      border-top: 1px solid var(--border-2);
-      border-bottom: 1px solid var(--border-2);
-    }
-    .section__title {
-      max-width: 16ch;
-      letter-spacing: -0.02em;
-    }
-    .section__sub { max-width: 52ch; color: var(--text-2); }
-    .label::after { background: rgba(255,255,255,.08); max-width: 40px; }
-    .label { color: var(--gold-light); opacity: .85; }
-    .rule { background: rgba(201,168,76,.35); width: 28px; }
-
-    .checklist li { color: var(--text-2); font-size: 15px; line-height: 1.55; }
-    .check-icon {
-      border-color: rgba(255,255,255,.12);
-      color: var(--gold-light);
-      background: transparent;
-    }
-
-    .btn--outline {
-      border-color: rgba(255,255,255,.14);
-      color: var(--text);
-      font-weight: 500;
-    }
-    .btn--outline:hover {
-      border-color: rgba(201,168,76,.45);
-      color: var(--gold-light);
-      box-shadow: none;
-    }
-    .btn--gold {
-      box-shadow: 0 0 0 1px rgba(201,168,76,.25);
-    }
-    .btn--gold:hover {
-      box-shadow: 0 0 28px rgba(201,168,76,.28);
-    }
-
-    .card {
-      transform: none;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(0,0,0,.35);
-      border-color: rgba(255,255,255,.12);
-    }
-    .card:hover::before { opacity: .5; }
-    .card--quiet {
-      border-color: rgba(255,255,255,.05);
-      background: rgba(255,255,255,.015);
-    }
-    .card--quiet:hover {
-      border-color: rgba(255,255,255,.1);
-      box-shadow: 0 8px 24px rgba(0,0,0,.3);
-    }
-    .card--featured {
-      border-color: rgba(201,168,76,.45);
-      background: linear-gradient(160deg, rgba(201,168,76,.1), rgba(255,255,255,.02) 55%);
-      box-shadow: 0 0 0 1px rgba(201,168,76,.12), 0 20px 50px rgba(0,0,0,.35);
-      transform: scale(1.02);
-      z-index: 1;
-    }
-    .card--featured:hover {
-      transform: scale(1.02) translateY(-2px);
-      border-color: rgba(201,168,76,.55);
-    }
-
-    .packages__grid {
-      align-items: stretch;
-      gap: 20px;
-    }
-    .openclaw-grid .card {
-      transform: none;
-    }
-    .openclaw-grid .card--featured {
-      transform: none;
-      scale: 1;
-      box-shadow: none;
-      border-color: rgba(201,168,76,.28);
-      background: linear-gradient(145deg, rgba(201,168,76,.04), rgba(255,255,255,.02));
-    }
-    .openclaw-grid .price-num { font-size: 40px; }
-    .openclaw-header { opacity: .92; margin-top: 56px; }
-
-    .hero { padding: 112px 0 88px; }
-    .hero__title { max-width: 12ch; line-height: 1.05; }
-    .hero__lead { max-width: 38ch; font-size: 17px; color: var(--text-2); }
-    .hero__proof {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin: 18px 0 0;
-    }
-    .hero__proof .chip {
-      font-size: 12px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--gold-light);
-      border: 1px solid rgba(201,168,76,.25);
-      background: rgba(201,168,76,.06);
-      padding: 6px 12px;
-      border-radius: 999px;
-    }
-    .hero__card {
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      box-shadow: none;
-    }
-    .hero__card h3 {
-      font-size: 13px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--text-2);
-      font-weight: 600;
-      font-family: inherit;
-    }
-    .hero__stacks {
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      color: var(--text-3);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-    .hero__chips { display: none; } /* moved to proof under H1 */
-
-    .contact-book {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 16px;
-      padding: 36px 32px;
-      border: 1px solid rgba(201,168,76,.28);
-      border-radius: var(--radius);
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,168,76,.12), transparent 60%),
-        rgba(255,255,255,.03);
-    }
-    .contact-book__kicker {
-      font-size: 11px; font-weight: 600; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--gold-light);
-    }
-    .contact-book__title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px; line-height: 1.2; color: var(--text);
-    }
-    .contact-book__body { color: var(--text-2); font-size: 15px; max-width: 36ch; }
-
-    .fade-in { transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
-    .fade-in.delay-1 { transition-delay: .04s; }
-    .fade-in.delay-2 { transition-delay: .08s; }
-    .fade-in.delay-3 { transition-delay: .12s; }
-    .fade-in.delay-4 { transition-delay: .16s; }
-
-    .nav__cta-desktop { margin-left: 8px; font-size: 13px; padding: 10px 18px; }
-    .nav__cta-mobile { display: none; width: 100%; justify-content: center; margin-top: 8px; }
-
-    @media (max-width: 900px) {
-      .card--featured { transform: none; }
-      .card--featured:hover { transform: translateY(-2px); }
-      .nav__cta-desktop { display: none !important; }
-      .nav--open .nav__cta-mobile { display: inline-flex; }
-      .section { padding: 72px 0; }
-      .hero { padding: 88px 0 64px; }
-    }
+    .nav--open .nav__link { display: block; width: 100%; padding: 12px 14px; }
+    .nav--open .nav__cta-mobile { display: inline-flex; width: 100%; justify-content: center; margin-top: 8px; }
     @media (hover: none) {
-      .card:hover, .card--featured:hover { transform: none; }
+      .track:hover, .pkg:hover, .build-card:hover { transform: none; }
     }
 
+    /* Shared brand mark — swap #brand-cube symbol paths later; sizes via .brand-mark */
+    .brand-mark { display: block; flex-shrink: 0; }
+    .brand-mark--nav { width: 30px; height: 30px; }
+    .brand-mark--footer { width: 20px; height: 20px; }
+    .brand-mark--intro { width: 140px; height: 140px; }
+
+    /* ── Intro transition (Signal cinematic) ── */
+    body.intro-active { overflow: hidden; }
+    #intro {
+      position: fixed; inset: 0; z-index: 100000;
+      background: #F3EFE6;
+      display: grid; place-items: center;
+      overflow: hidden; pointer-events: auto;
+      clip-path: circle(150% at 50% 42%);
+    }
+    #intro[hidden] { display: none !important; }
+    #intro.is-done {
+      pointer-events: none;
+      visibility: hidden;
+    }
+    #intro.is-wiping {
+      animation: introIris 0.85s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+    @keyframes introIris {
+      0%   { clip-path: circle(150% at 50% 42%); }
+      100% { clip-path: circle(0% at 50% 42%); }
+    }
+    .intro__stage {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; position: relative;
+      padding: 24px; perspective: 900px;
+    }
+    .intro__progress {
+      position: absolute; top: -48px; left: 50%;
+      width: 72px; height: 2px; margin-left: -36px;
+      background: rgba(37,99,255,.18); border-radius: 2px; overflow: hidden;
+      opacity: 0;
+    }
+    .intro__progress::after {
+      content: ''; position: absolute; inset: 0; width: 40%;
+      background: #2563FF; border-radius: 2px;
+      transform: translateX(-120%);
+    }
+    .intro__loading {
+      position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+      font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); opacity: 0; white-space: nowrap;
+    }
+    .intro__mark {
+      margin-bottom: 28px;
+      opacity: 0; transform: scale(.72) rotateX(18deg) rotateY(-22deg);
+      transform-style: preserve-3d; will-change: transform, opacity;
+    }
+    .intro__mark .brand-mark {
+      filter: drop-shadow(0 18px 32px rgba(37,99,255,.18));
+    }
+    .intro__wordmark {
+      font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
+      font-size: clamp(36px, 6vw, 56px); font-weight: 600; letter-spacing: -.03em;
+      color: var(--ink); line-height: 1; margin: 0;
+      clip-path: inset(100% 0 0 0); opacity: 0;
+      transform: translateY(12px);
+    }
+    .intro__wordmark .mark-7 { color: #2563FF; }
+    .intro__tag {
+      margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--muted);
+      opacity: 0; transform: translateY(8px);
+    }
+    .intro__skip {
+      position: absolute; bottom: 28px; right: 28px; z-index: 2;
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      color: var(--muted); padding: 8px 14px; border-radius: 8px;
+      border: 1px solid var(--line); background: rgba(251,248,242,.7);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: color .2s, border-color .2s, background .2s;
+      opacity: 0;
+    }
+    .intro__skip:hover { color: var(--ink); border-color: rgba(60,45,20,.28); }
+    .intro__skip:focus-visible { outline: 2px solid #2563FF; outline-offset: 2px; }
+
+    #intro.is-playing .intro__progress { animation: introFadeIn .35s ease forwards; }
+    #intro.is-playing .intro__progress::after { animation: introProg 1.5s cubic-bezier(.4,0,.2,1) .05s forwards; }
+    #intro.is-playing .intro__loading { animation: introFadeIn .4s ease .05s forwards; }
+    #intro.is-playing .intro__mark {
+      animation: introCube .7s cubic-bezier(.22,1,.36,1) .3s forwards;
+    }
+    #intro.is-playing .intro__wordmark {
+      animation: introWord .65s cubic-bezier(.22,1,.36,1) .9s forwards;
+    }
+    #intro.is-playing .intro__tag {
+      animation: introTag .5s ease 1.4s forwards;
+    }
+    #intro.is-playing .intro__skip {
+      animation: introFadeIn .4s ease .5s forwards;
+    }
+    @keyframes introFadeIn { to { opacity: 1; } }
+    @keyframes introProg { to { transform: translateX(180%); } }
+    @keyframes introCube {
+      to { opacity: 1; transform: scale(1) rotateX(0deg) rotateY(0deg); }
+    }
+    @keyframes introWord {
+      to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
+    }
+    @keyframes introTag {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #intro.is-wiping .intro__stage,
+    #intro.is-wiping .intro__skip {
+      animation: introContentOut .35s ease forwards;
+    }
+    @keyframes introContentOut {
+      to { opacity: 0; transform: scale(.96); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #intro.is-playing .intro__progress,
+      #intro.is-playing .intro__progress::after,
+      #intro.is-playing .intro__loading,
+      #intro.is-playing .intro__mark,
+      #intro.is-playing .intro__wordmark,
+      #intro.is-playing .intro__tag,
+      #intro.is-playing .intro__skip,
+      #intro.is-wiping {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
 <body id="top">
 
-  <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+  <!-- Brand mark sprite: edit #brand-cube paths once; nav / footer / intro all use .brand-mark + <use> -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="cubeTop" x1="50" y1="2" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#5B8AFF"/>
+        <stop offset="100%" stop-color="#2563FF"/>
+      </linearGradient>
+      <linearGradient id="cubeRight" x1="92" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#2563FF"/>
+        <stop offset="100%" stop-color="#1A3FB8"/>
+      </linearGradient>
+      <linearGradient id="cubeLeft" x1="8" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#1A2A4A"/>
+        <stop offset="100%" stop-color="#0B0B0F"/>
+      </linearGradient>
+    </defs>
+    <symbol id="brand-cube" viewBox="0 0 100 100">
+      <polygon points="50,2 92,26 50,50 8,26" fill="url(#cubeTop)"/>
+      <polygon points="92,26 92,74 50,98 50,50" fill="url(#cubeRight)"/>
+      <polygon points="8,26 50,50 50,98 8,74" fill="url(#cubeLeft)"/>
+      <line x1="50" y1="2"  x2="92" y2="26" stroke="#0B0B0F" stroke-width="1.2"/>
+      <line x1="50" y1="2"  x2="8"  y2="26" stroke="#0B0B0F" stroke-width="1.2"/>
+      <line x1="92" y1="26" x2="92" y2="74" stroke="#0B0B0F" stroke-width="1.2"/>
+      <line x1="8"  y1="26" x2="8"  y2="74" stroke="#0B0B0F" stroke-width="1.2"/>
+      <line x1="92" y1="74" x2="50" y2="98" stroke="#0B0B0F" stroke-width="1.2"/>
+      <line x1="8"  y1="74" x2="50" y2="98" stroke="#0B0B0F" stroke-width="1.2"/>
+      <line x1="50" y1="50" x2="50" y2="98" stroke="#0B0B0F" stroke-width="1.2"/>
+    </symbol>
+  </svg>
+
+  <!-- Cinematic intro — sand + cobalt; once per session via sessionStorage 78-intro-seen -->
+  <div id="intro" role="dialog" aria-modal="true" aria-label="7EightMade loading" hidden>
+    <div class="intro__stage">
+      <div class="intro__progress" aria-hidden="true"></div>
+      <p class="intro__loading" aria-hidden="true">Loading</p>
+      <div class="intro__mark" aria-hidden="true">
+        <svg class="brand-mark brand-mark--intro" viewBox="0 0 100 100" width="140" height="140" aria-hidden="true">
+          <use href="#brand-cube"/>
+        </svg>
+      </div>
+      <h1 class="intro__wordmark"><span class="mark-7">7</span>EightMade</h1>
+      <p class="intro__tag">AI micro-consulting</p>
+    </div>
+    <button type="button" class="intro__skip" id="introSkip">Skip</button>
+  </div>
+
+
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#top" class="nav__brand">
-        <!-- Prism Logo Mark -->
-        <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="navTop" x1="50" y1="2" x2="50" y2="50" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#F0D988"/>
-              <stop offset="100%" stop-color="#D4AE50"/>
-            </linearGradient>
-            <linearGradient id="navRight" x1="92" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#C9A84C"/>
-              <stop offset="100%" stop-color="#A8892E"/>
-            </linearGradient>
-            <linearGradient id="navLeft" x1="8" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#6A4E14"/>
-              <stop offset="100%" stop-color="#4A3408"/>
-            </linearGradient>
-          </defs>
-          <polygon points="50,2 92,26 50,50 8,26" fill="url(#navTop)"/>
-          <polygon points="92,26 92,74 50,98 50,50" fill="url(#navRight)"/>
-          <polygon points="8,26 50,50 50,98 8,74" fill="url(#navLeft)"/>
-          <line x1="50" y1="2"  x2="92" y2="26" stroke="#08080f" stroke-width="1"/>
-          <line x1="50" y1="2"  x2="8"  y2="26" stroke="#08080f" stroke-width="1"/>
-          <line x1="92" y1="26" x2="92" y2="74" stroke="#08080f" stroke-width="1"/>
-          <line x1="8"  y1="26" x2="8"  y2="74" stroke="#08080f" stroke-width="1"/>
-          <line x1="92" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
-          <line x1="8"  y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
-          <line x1="50" y1="50" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+        <svg class="brand-mark brand-mark--nav" width="30" height="30" viewBox="0 0 100 100" aria-hidden="true">
+          <use href="#brand-cube"/>
         </svg>
-        <span>7</span>EightMade
+        <span><span class="mark-7">7</span>EightMade</span>
       </a>
-
       <div class="nav__links" id="navLinks">
         <a class="nav__link" href="#services">Services</a>
-        <a class="nav__link" href="#packages">Packages</a>
-        <a class="nav__link" href="#what-is-openclaw">OpenClaw</a>
-        <a class="nav__link" href="#stacks">Stacks</a>
-        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#process">Process</a>
+        <a class="nav__link" href="#pricing">Pricing</a>
+        <a class="nav__link" href="#openclaw">OpenClaw</a>
         <a class="nav__link" href="#faq">FAQ</a>
-        <a class="nav__link" href="#contact">Contact</a>
-        <a class="btn btn--gold nav__cta-desktop" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
-        <a class="btn btn--gold nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+        <a class="btn btn--cobalt nav__cta" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+        <a class="btn btn--cobalt nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
       </div>
-
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
         <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -1150,50 +687,35 @@
     </div>
   </nav>
 
-  <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
   <header class="hero">
     <div class="container">
-      <div class="hero__split">
-        <!-- Left -->
+      <div class="hero__grid">
         <div>
-          <p class="hero__eyebrow fade-in">Automation & Assistants for Teams that Ship</p>
-          <h1 class="hero__title fade-in delay-1">
-            Less busywork.<br><em>More signal.</em><br>Ship smarter.
+          <h1 class="hero__title fade-in">
+            Less busywork<br>
+            <em>More signal</em><br>
+            Ship smarter
           </h1>
-          <p class="hero__lead fade-in delay-2">
+          <p class="hero__lead fade-in d1">
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
-          <div class="hero__proof fade-in delay-2">
+          <div class="hero__ctas fade-in d2">
+            <a class="btn btn--cobalt" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+            <a class="hero__secondary" href="#pricing">See packages</a>
+          </div>
+          <div class="hero__chips fade-in d3">
             <span class="chip">Pilots in 24–72h</span>
             <span class="chip">No lock-in</span>
             <span class="chip">Your data, your stack</span>
           </div>
-          <div class="hero__ctas fade-in delay-3">
-            <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Project%20Inquiry">Start a project</a>
-            <a class="btn btn--outline" href="#packages">See pricing</a>
-          </div>
         </div>
-
-        <!-- Right -->
-        <div class="hero__card fade-in delay-2">
-          <h3>What we build</h3>
+        <div class="hero__card fade-in d2">
+          <h3>What we ship</h3>
           <ul class="checklist">
-            <li>
-              <span class="check-icon">✓</span>
-              <div><strong style="color:var(--text)">Chat assistants</strong> trained on your SOPs, docs, and tone.</div>
-            </li>
-            <li>
-              <span class="check-icon">✓</span>
-              <div><strong style="color:var(--text)">Workflow automations</strong> across email, sheets, CRMs, and helpdesks.</div>
-            </li>
-            <li>
-              <span class="check-icon">✓</span>
-              <div><strong style="color:var(--text)">Dashboards</strong> for KPIs, dealflow, and ops rituals.</div>
-            </li>
-            <li>
-              <span class="check-icon">✓</span>
-              <div><strong style="color:var(--text)">Lightweight integrations</strong> that sit on top of your stack.</div>
-            </li>
+            <li><span class="check">✓</span><div><strong>Chat assistants</strong> trained on your SOPs, docs, and tone.</div></li>
+            <li><span class="check">✓</span><div><strong>Workflow automations</strong> across email, sheets, CRMs, and helpdesks.</div></li>
+            <li><span class="check">✓</span><div><strong>Dashboards</strong> for KPIs, dealflow, and ops rituals.</div></li>
+            <li><span class="check">✓</span><div><strong>Lightweight integrations</strong> that sit on top of your stack.</div></li>
           </ul>
           <div class="hero__stacks">
             Salesforce · Google Workspace · Microsoft 365 · Notion · Airtable · HubSpot · Slack · Zapier / Make
@@ -1203,245 +725,204 @@
     </div>
   </header>
 
-  <div class="gold-divider"></div>
+  <div class="proof">
+    <div class="container">
+      <div class="proof__grid">
+        <div class="fade-in">
+          <div class="proof__stat">24–72h</div>
+          <div class="proof__label">pilots</div>
+        </div>
+        <div class="fade-in d1">
+          <div class="proof__stat">No lock-in</div>
+          <div class="proof__label">you own everything</div>
+        </div>
+        <div class="fade-in d2">
+          <div class="proof__stat">Your stack</div>
+          <div class="proof__label">no rip-and-replace</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main>
 
-    <!-- ════════════════════════════ SERVICES ════════════════════════════ -->
     <section class="section" id="services">
       <div class="container">
-        <div class="section__header fade-in">
-          <span class="label">What we do</span>
+        <div class="section__head fade-in">
+          <span class="eyebrow">Services</span>
+          <h2 class="section__title">Two ways to ship.</h2>
+          <p class="section__sub">Cloud-native consulting on your tools — or a fully private AI stack on your hardware.</p>
+        </div>
+        <div class="tracks__grid">
+          <a href="#pricing" class="track track--consulting fade-in">
+            <span class="track__badge track__badge--cobalt">Consulting</span>
+            <h3 class="track__title">AI Micro‑Consulting</h3>
+            <p class="track__desc">Assistants, automations, and dashboards built on Salesforce, Workspace, Notion, and the rest of your stack.</p>
+            <span class="track__cta">See packages</span>
+          </a>
+          <a href="#openclaw" class="track track--openclaw fade-in d1">
+            <span class="track__badge track__badge--emerald">Local / private</span>
+            <h3 class="track__title">OpenClaw</h3>
+            <p class="track__desc">A fully local AI stack on hardware you own. Zero data leaves your network. No cloud. No subscriptions.</p>
+            <span class="track__cta">Explore OpenClaw</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--paper2" id="process">
+      <div class="container">
+        <div class="section__head fade-in">
+          <span class="eyebrow">Process</span>
           <h2 class="section__title">Three phases.<br>One continuous loop.</h2>
           <p class="section__sub">From mapping your workflows to shipping and sustaining them—we cover the full lifecycle.</p>
         </div>
-
-        <div class="services__grid">
-          <div class="card fade-in">
-            <div class="service-card__num">01</div>
-            <h3 class="service-card__title">Discovery Sprint</h3>
-            <p class="service-card__desc">Map workflows, score automation ROI, and blueprint the first wins.</p>
+        <div class="process__rail">
+          <div class="process__step fade-in">
+            <div class="process__marker">01</div>
+            <h3 class="process__name">Discovery</h3>
+            <p class="process__desc">Map workflows, score automation ROI, and blueprint the first wins.</p>
             <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Process audit & KPI targets</div></li>
-              <li><span class="check-icon">✓</span><div>Data & tool access plan</div></li>
-              <li><span class="check-icon">✓</span><div>90‑day automation roadmap</div></li>
+              <li><span class="check">✓</span><div>Process audit & KPI targets</div></li>
+              <li><span class="check">✓</span><div>Data & tool access plan</div></li>
+              <li><span class="check">✓</span><div>90‑day automation roadmap</div></li>
             </ul>
           </div>
-
-          <div class="card fade-in delay-1">
-            <div class="service-card__num">02</div>
-            <h3 class="service-card__title">Build & Ship</h3>
-            <p class="service-card__desc">We implement: assistants, zaps, prompts, and dashboards that work.</p>
+          <div class="process__step fade-in d1">
+            <div class="process__marker">02</div>
+            <h3 class="process__name">Build</h3>
+            <p class="process__desc">We implement: assistants, zaps, prompts, and dashboards that work.</p>
             <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Weekly drops, working demos</div></li>
-              <li><span class="check-icon">✓</span><div>Versioned prompts & docs</div></li>
-              <li><span class="check-icon">✓</span><div>Secure handoff & training</div></li>
+              <li><span class="check">✓</span><div>Weekly drops, working demos</div></li>
+              <li><span class="check">✓</span><div>Versioned prompts & docs</div></li>
+              <li><span class="check">✓</span><div>Secure handoff & training</div></li>
             </ul>
           </div>
-
-          <div class="card fade-in delay-2">
-            <div class="service-card__num">03</div>
-            <h3 class="service-card__title">Operate & Improve</h3>
-            <p class="service-card__desc">Monitoring, prompt tuning, edge‑case fixes, and new experiments.</p>
+          <div class="process__step fade-in d2">
+            <div class="process__marker">03</div>
+            <h3 class="process__name">Operate</h3>
+            <p class="process__desc">Monitoring, prompt tuning, edge‑case fixes, and new experiments.</p>
             <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Monthly review & metrics</div></li>
-              <li><span class="check-icon">✓</span><div>Error triage & fixes</div></li>
-              <li><span class="check-icon">✓</span><div>New use‑cases & iteration</div></li>
+              <li><span class="check">✓</span><div>Monthly review & metrics</div></li>
+              <li><span class="check">✓</span><div>Error triage & fixes</div></li>
+              <li><span class="check">✓</span><div>New use‑cases & iteration</div></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════ PACKAGES ════════════════════════════ -->
-    <section class="section section--alt" id="packages">
+    <section class="section section--tight" id="build">
       <div class="container">
-        <div class="section__header fade-in">
-          <span class="label">Pricing</span>
+        <div class="section__head fade-in">
+          <span class="eyebrow">Deliverables</span>
+          <h2 class="section__title">What we build.</h2>
+        </div>
+        <div class="build__grid">
+          <div class="build-card fade-in">
+            <div class="build-card__icon">💬</div>
+            <h3 class="build-card__title">Chat assistants</h3>
+            <p class="build-card__desc">Trained on your SOPs, docs, and tone — ready for your team to use day one.</p>
+          </div>
+          <div class="build-card fade-in d1">
+            <div class="build-card__icon">⚡</div>
+            <h3 class="build-card__title">Workflow automations</h3>
+            <p class="build-card__desc">Across email, sheets, CRMs, and helpdesks — quietly doing the busywork.</p>
+          </div>
+          <div class="build-card fade-in d2">
+            <div class="build-card__icon">📊</div>
+            <h3 class="build-card__title">Dashboards</h3>
+            <p class="build-card__desc">For KPIs, dealflow, and ops rituals — visibility without the spreadsheet chase.</p>
+          </div>
+          <div class="build-card fade-in d3">
+            <div class="build-card__icon">🔗</div>
+            <h3 class="build-card__title">Lightweight integrations</h3>
+            <p class="build-card__desc">That sit on top of your stack — no rip-and-replace, no migration headaches.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--paper2" id="pricing">
+      <div class="container">
+        <div class="section__head fade-in">
+          <span class="eyebrow">Pricing</span>
           <h2 class="section__title">Transparent packages.<br>No surprises.</h2>
           <p class="section__sub">Fixed-scope, fixed-price. You always know exactly what you're getting.</p>
         </div>
-
-        <div class="packages__grid">
-          <!-- Starter -->
-          <div class="card card--quiet fade-in">
-            <div class="pkg-card__label">Starter</div>
-            <div class="price-num">$1,250</div>
-            <p class="pkg-card__desc">One focused use‑case, shipped in 72 hours.</p>
+        <div class="pricing__grid">
+          <div class="pkg fade-in">
+            <div class="pkg__label">Starter</div>
+            <div class="pkg__price">$1,250</div>
+            <p class="pkg__desc">One focused use‑case, shipped in 72 hours.</p>
             <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Discovery mini‑sprint</div></li>
-              <li><span class="check-icon">✓</span><div>One assistant or automation</div></li>
-              <li><span class="check-icon">✓</span><div>1 week of tweaks</div></li>
+              <li><span class="check">✓</span><div>Discovery mini‑sprint</div></li>
+              <li><span class="check">✓</span><div>One assistant or automation</div></li>
+              <li><span class="check">✓</span><div>1 week of tweaks</div></li>
             </ul>
-            <div class="pkg-card__cta">
-              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Starter%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Starter</a>
-            </div>
+            <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Starter%20Package%20—%207EightMade">Get Starter</a>
           </div>
-
-          <!-- Team (featured) -->
-          <div class="card card--featured fade-in delay-1">
-            <div class="card-badge">Most Popular</div>
-            <div class="pkg-card__label">Team</div>
-            <div class="price-num">$3,500</div>
-            <p class="pkg-card__desc">Three automations or a full assistant plus dashboard.</p>
+          <div class="pkg pkg--featured fade-in d1">
+            <div class="pkg__badge">Most Popular</div>
+            <div class="pkg__label">Team</div>
+            <div class="pkg__price">$3,500</div>
+            <p class="pkg__desc">Three automations or a full assistant plus dashboard.</p>
             <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Full discovery sprint</div></li>
-              <li><span class="check-icon">✓</span><div>3 build cycles</div></li>
-              <li><span class="check-icon">✓</span><div>30 days of support</div></li>
+              <li><span class="check">✓</span><div>Full discovery sprint</div></li>
+              <li><span class="check">✓</span><div>3 build cycles</div></li>
+              <li><span class="check">✓</span><div>30 days of support</div></li>
             </ul>
-            <div class="pkg-card__cta">
-              <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Team%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Team</a>
-            </div>
+            <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Team%20Package%20—%207EightMade">Get Team</a>
           </div>
-
-          <!-- Operator -->
-          <div class="card card--quiet fade-in delay-2">
-            <div class="pkg-card__label">Operator</div>
-            <div class="price-num">$1,250<span class="price-period">/mo</span></div>
-            <p class="pkg-card__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
+          <div class="pkg fade-in d2">
+            <div class="pkg__label">Operator</div>
+            <div class="pkg__price">$1,250<span class="pkg__period">/mo</span></div>
+            <p class="pkg__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
             <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Monthly priorities</div></li>
-              <li><span class="check-icon">✓</span><div>On‑call improvements</div></li>
-              <li><span class="check-icon">✓</span><div>Quarterly review</div></li>
+              <li><span class="check">✓</span><div>Monthly priorities</div></li>
+              <li><span class="check">✓</span><div>On‑call improvements</div></li>
+              <li><span class="check">✓</span><div>Quarterly review</div></li>
             </ul>
-            <div class="pkg-card__cta">
-              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Operator%20Plan%20—%207EightMade" style="width:100%;display:flex;">Join Waitlist</a>
-            </div>
+            <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Operator%20Plan%20—%207EightMade">Join Waitlist</a>
           </div>
         </div>
-
         <p class="pkg-note fade-in">Enterprise needs? <a href="mailto:nuguidd@icloud.com">Email us directly</a> and we'll put together a custom scope.</p>
-
-        <!-- ── OpenClaw Packages ── -->
-        <div class="openclaw-header fade-in" id="openclaw">
-          <div class="openclaw-divider">
-            <span class="openclaw-label">
-              <svg width="16" height="16" viewBox="0 0 100 100" fill="none" style="flex-shrink:0" aria-hidden="true">
-                <polygon points="50,2 92,26 50,50 8,26" fill="#E4C97A"/>
-                <polygon points="92,26 92,74 50,98 50,50" fill="#C9A84C"/>
-                <polygon points="8,26 50,50 50,98 8,74" fill="#6A4E14"/>
-                <line x1="50" y1="2" x2="92" y2="26" stroke="#08080f" stroke-width="1.5"/>
-                <line x1="50" y1="2" x2="8" y2="26" stroke="#08080f" stroke-width="1.5"/>
-                <line x1="92" y1="26" x2="92" y2="74" stroke="#08080f" stroke-width="1.5"/>
-                <line x1="8" y1="26" x2="8" y2="74" stroke="#08080f" stroke-width="1.5"/>
-                <line x1="92" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1.5"/>
-                <line x1="8" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1.5"/>
-                <line x1="50" y1="50" x2="50" y2="98" stroke="#08080f" stroke-width="1.5"/>
-              </svg>
-              OpenClaw
-            </span>
-            <span class="openclaw-tag">Local AI — runs fully on your hardware. Zero data leaves your network.</span>
-          </div>
-        </div>
-
-        <div class="packages__grid openclaw-grid">
-
-          <!-- OpenClaw — Software Only -->
-          <div class="card card--quiet fade-in">
-            <div class="pkg-card__label">Software Only</div>
-            <div class="price-num">$2,500</div>
-            <p class="pkg-card__desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
-            <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Local model installation & configuration</div></li>
-              <li><span class="check-icon">✓</span><div>Custom prompt & workflow setup</div></li>
-              <li><span class="check-icon">✓</span><div>Integrated into your existing stack</div></li>
-              <li><span class="check-icon">✓</span><div>Zero data leaves your network</div></li>
-              <li><span class="check-icon">✓</span><div>2 weeks of tuning & support</div></li>
-            </ul>
-            <div class="pkg-card__cta">
-              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=OpenClaw%20Software%20—%207EightMade" style="width:100%;display:flex;">Get OpenClaw</a>
-            </div>
-          </div>
-
-          <!-- OpenClaw — With Mac Mini -->
-          <div class="card card--featured fade-in delay-1">
-            <div class="card-badge">Recommended</div>
-            <div class="pkg-card__label">With Mac Mini</div>
-            <div class="price-num">$3,500<span class="price-period">+</span></div>
-            <p class="pkg-card__desc">Everything in Software, plus a pre-configured Mac Mini M‑series. Plug in and run from day one.</p>
-            <ul class="checklist">
-              <li><span class="check-icon">✓</span><div>Mac Mini M‑series — included & pre‑built</div></li>
-              <li><span class="check-icon">✓</span><div>Ships ready to run, zero setup on your end</div></li>
-              <li><span class="check-icon">✓</span><div>Local model installation & configuration</div></li>
-              <li><span class="check-icon">✓</span><div>Custom prompt & workflow setup</div></li>
-              <li><span class="check-icon">✓</span><div>Integrated into your existing stack</div></li>
-              <li><span class="check-icon">✓</span><div>Zero data leaves your network</div></li>
-              <li><span class="check-icon">✓</span><div>2 weeks of tuning & support</div></li>
-            </ul>
-            <div class="pkg-card__cta">
-              <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=OpenClaw%20%2B%20Mac%20Mini%20—%207EightMade" style="width:100%;display:flex;">Get OpenClaw + Mac Mini</a>
-            </div>
-          </div>
-
-        </div><!-- end openclaw-grid -->
-
-        <p class="pkg-note fade-in" style="margin-top:12px">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com">Email us</a> for a hardware quote.</p>
-
       </div>
     </section>
 
-    <!-- ════════════════════════════ OPENCLAW ════════════════════════════ -->
-    <section class="section" id="what-is-openclaw">
+    <section class="openclaw" id="openclaw">
       <div class="container">
-
-        <!-- Intro split -->
-        <div class="oc-intro">
+        <div class="oc__intro">
           <div class="fade-in">
-            <span class="label">OpenClaw</span>
-            <h2 class="oc-intro__title">Your AI.<br>Your hardware.<br><em>Your rules.</em></h2>
-            <p class="oc-intro__body">
+            <span class="eyebrow eyebrow--emerald">OpenClaw</span>
+            <h2 class="oc__title">Your AI<br>Your hardware<br><em>Your rules</em></h2>
+            <p class="oc__body">
               OpenClaw is a fully local AI stack we install and configure for your team. Every model, every conversation, every document — processed on hardware you own, inside your network. Nothing reaches a cloud server. Nothing is logged by a third party.
             </p>
-            <p class="oc-intro__body">
+            <p class="oc__body">
               A private ChatGPT analogue — trained on your SOPs and tone — installed, integrated, and handed off ready for your team.
             </p>
-            <span class="oc-badge">100% Air-gappable</span>
+            <span class="oc__airgap">100% Air-gappable</span>
           </div>
-
-          <!-- Cloud vs OpenClaw comparison -->
-          <div class="oc-compare fade-in delay-1"><div class="oc-compare__row">
-              <div class="oc-compare__cell bad">
-                <strong>Cloud AI</strong>
-                Your data sent to external servers
-              </div>
-              <div class="oc-compare__cell good">
-                <strong>OpenClaw</strong>
-                Data never leaves your network
-              </div>
+          <div class="oc-compare fade-in d1">
+            <div class="oc-compare__row">
+              <div class="oc-compare__cell bad"><strong>Cloud AI</strong>Your data sent to external servers</div>
+              <div class="oc-compare__cell good"><strong>OpenClaw</strong>Data never leaves your network</div>
             </div>
             <div class="oc-compare__row">
-              <div class="oc-compare__cell bad">
-                <strong>Cloud AI</strong>
-                Monthly subscription, price hikes
-              </div>
-              <div class="oc-compare__cell good">
-                <strong>OpenClaw</strong>
-                One-time setup, no ongoing fees
-              </div>
+              <div class="oc-compare__cell bad"><strong>Cloud AI</strong>Monthly subscription, price hikes</div>
+              <div class="oc-compare__cell good"><strong>OpenClaw</strong>One-time setup, no ongoing fees</div>
             </div>
             <div class="oc-compare__row">
-              <div class="oc-compare__cell bad">
-                <strong>Cloud AI</strong>
-                Rate limits & API downtime
-              </div>
-              <div class="oc-compare__cell good">
-                <strong>OpenClaw</strong>
-                Runs 24/7 on your own hardware
-              </div>
+              <div class="oc-compare__cell bad"><strong>Cloud AI</strong>Rate limits & API downtime</div>
+              <div class="oc-compare__cell good"><strong>OpenClaw</strong>Runs 24/7 on your own hardware</div>
             </div>
-            </div>
+          </div>
         </div>
 
-        <!-- What we install -->
-        <div class="section__header fade-in" style="margin-bottom:24px">
-          <span class="label">What We Install</span>
-          <h3 class="section__title" style="font-size:clamp(24px,3vw,36px)">Local stack, end to end.</h3>
-          <p class="section__sub" style="margin-top:12px">Model, private chat UI, doc knowledge base, API gateway, personas, and maintenance — configured on your hardware.</p>
-        </div>
-
-        <!-- How it works steps -->
-        <div class="section__header fade-in" style="margin-bottom:32px">
-          <span class="label">How It Works</span>
+        <div class="section__head fade-in" style="margin-bottom:40px">
+          <span class="eyebrow eyebrow--emerald">How it works</span>
+          <h3 class="section__title" style="font-size:clamp(24px,3vw,36px);color:var(--paper)">Local stack, end to end.</h3>
         </div>
 
         <div class="oc-steps fade-in">
@@ -1467,18 +948,48 @@
           </div>
         </div>
 
+        <div class="oc-pkgs">
+          <div class="oc-pkg fade-in">
+            <div class="oc-pkg__label">Software Only</div>
+            <div class="oc-pkg__price">$2,500</div>
+            <p class="oc-pkg__desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
+            <ul class="checklist">
+              <li><span class="check check--light">✓</span><div>Local model installation & configuration</div></li>
+              <li><span class="check check--light">✓</span><div>Custom prompt & workflow setup</div></li>
+              <li><span class="check check--light">✓</span><div>Integrated into your existing stack</div></li>
+              <li><span class="check check--light">✓</span><div>Zero data leaves your network</div></li>
+              <li><span class="check check--light">✓</span><div>2 weeks of tuning & support</div></li>
+            </ul>
+            <a class="btn btn--outline-light btn--full" href="mailto:nuguidd@icloud.com?subject=OpenClaw%20Software%20—%207EightMade">Get OpenClaw</a>
+          </div>
+          <div class="oc-pkg oc-pkg--featured fade-in d1">
+            <div class="oc-pkg__badge">Recommended</div>
+            <div class="oc-pkg__label">With Mac Mini</div>
+            <div class="oc-pkg__price">$3,500<span class="pkg__period" style="color:rgba(243,239,230,.5)">+</span></div>
+            <p class="oc-pkg__desc">Everything in Software, plus a pre-configured Mac Mini M‑series. Plug in and run from day one.</p>
+            <ul class="checklist">
+              <li><span class="check check--light">✓</span><div>Mac Mini M‑series — included & pre‑built</div></li>
+              <li><span class="check check--light">✓</span><div>Ships ready to run, zero setup on your end</div></li>
+              <li><span class="check check--light">✓</span><div>Local model installation & configuration</div></li>
+              <li><span class="check check--light">✓</span><div>Custom prompt & workflow setup</div></li>
+              <li><span class="check check--light">✓</span><div>Integrated into your existing stack</div></li>
+              <li><span class="check check--light">✓</span><div>Zero data leaves your network</div></li>
+              <li><span class="check check--light">✓</span><div>2 weeks of tuning & support</div></li>
+            </ul>
+            <a class="btn btn--emerald btn--full" href="mailto:nuguidd@icloud.com?subject=OpenClaw%20%2B%20Mac%20Mini%20—%207EightMade">Get OpenClaw + Mac Mini</a>
+          </div>
+        </div>
+        <p class="oc-note fade-in">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com">Email us</a> for a hardware quote.</p>
       </div>
     </section>
 
-    <!-- ═════════════════════════════ STACKS ═════════════════════════════ -->
-    <section class="section section--alt" id="stacks">
+    <section class="section" id="stacks">
       <div class="container">
-        <div class="section__header fade-in">
-          <span class="label">Integrations</span>
+        <div class="section__head fade-in">
+          <span class="eyebrow">Integrations</span>
           <h2 class="section__title">Built on your stack,<br>not a new one.</h2>
           <p class="section__sub">We plug into the tools you already run. No rip-and-replace, no migration headaches.</p>
         </div>
-
         <div class="stacks__wrap fade-in">
           <span class="stack-pill">Salesforce</span>
           <span class="stack-pill">Google Workspace</span>
@@ -1494,12 +1005,11 @@
       </div>
     </section>
 
-    <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
-    <section class="section" id="about">
+    <section class="section section--paper2" id="about">
       <div class="container">
         <div class="about__split">
           <div class="fade-in">
-            <span class="label">About</span>
+            <span class="eyebrow">About</span>
             <h2 class="about__title">We believe great ops<br>should be <em>invisible.</em></h2>
             <p class="about__body">
               7EightMade was built on a simple conviction: the best automation is the kind your team doesn't have to think about. It just works—quietly, reliably, in the background.
@@ -1509,33 +1019,32 @@
             </p>
             <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com">Get in touch</a>
           </div>
-          <div class="about__values fade-in delay-1">
-            <div class="value-item">
-              <div class="value-item__label">Speed</div>
-              <div class="value-item__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
+          <div class="about__values fade-in d1">
+            <div class="value-chip">
+              <div class="value-chip__label">Speed</div>
+              <div class="value-chip__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
             </div>
-            <div class="value-item">
-              <div class="value-item__label">Ownership</div>
-              <div class="value-item__text">Everything we build is yours. No vendor lock-in, ever.</div>
+            <div class="value-chip">
+              <div class="value-chip__label">Ownership</div>
+              <div class="value-chip__text">Everything we build is yours. No vendor lock-in, ever.</div>
             </div>
-            <div class="value-item">
-              <div class="value-item__label">Privacy</div>
-              <div class="value-item__text">Least-privilege access. Your credentials stay in your vault.</div>
+            <div class="value-chip">
+              <div class="value-chip__label">Privacy</div>
+              <div class="value-chip__text">Least-privilege access. Your credentials stay in your vault.</div>
             </div>
-            <div class="value-item">
-              <div class="value-item__label">Clarity</div>
-              <div class="value-item__text">Fixed scope, fixed price. You always know what you're paying for.</div>
+            <div class="value-chip">
+              <div class="value-chip__label">Clarity</div>
+              <div class="value-chip__text">Fixed scope, fixed price. You always know what you're paying for.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
-    <section class="section section--alt" id="faq">
+    <section class="section" id="faq">
       <div class="container">
-        <div class="section__header fade-in">
-          <span class="label">FAQ</span>
+        <div class="section__head fade-in">
+          <span class="eyebrow">FAQ</span>
           <h2 class="section__title">Common questions.</h2>
         </div>
         <div class="faq__grid fade-in">
@@ -1561,22 +1070,19 @@
           </details>
           <details class="faq-item">
             <summary>Do you work with enterprise teams?</summary>
-            <div class="faq-item__body">Yes. For larger or more complex needs, reach out directly at <a href="mailto:nuguidd@icloud.com" style="color:var(--gold)">nuguidd@icloud.com</a> and we'll put together a custom scope and proposal.</div>
+            <div class="faq-item__body">Yes. For larger or more complex needs, reach out directly at <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a> and we'll put together a custom scope and proposal.</div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
-    <section class="section section--alt" id="contact">
+    <section class="section section--paper2" id="contact">
       <div class="container">
-        <div class="section__header fade-in">
-          <span class="label">Contact</span>
+        <div class="section__head fade-in">
+          <span class="eyebrow">Contact</span>
           <h2 class="section__title">Let's build something<br>that actually works.</h2>
         </div>
-
         <div class="contact__split">
-          <!-- Form -->
           <div class="fade-in">
             <h3 class="contact__title">Send a message</h3>
             <p class="contact__sub">Or email us at <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a></p>
@@ -1594,19 +1100,17 @@
                   <label class="form-label" for="message">What do you want to automate?</label>
                   <textarea class="form-input" id="message" name="message" rows="5" placeholder="Describe your workflow, tool stack, or pain point..." required></textarea>
                 </div>
-                <button class="btn btn--gold" type="submit" style="justify-content:center;width:100%">Send message</button>
+                <button class="btn btn--cobalt btn--full" type="submit">Send message</button>
               </div>
             </form>
           </div>
-
-          <!-- Book a call -->
-          <div class="fade-in delay-1">
+          <div class="fade-in d1">
             <div class="contact-book">
               <div class="contact-book__kicker">Book a call</div>
               <div class="contact-book__title">Tell us what to automate.</div>
-              <p class="contact-book__body">Share a few times that work and what you want shipped. We’ll confirm a slot quickly.</p>
-              <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Book%20a%20call%20—%207EightMade" style="width:100%;display:flex;justify-content:center;">Email to book a call</a>
-              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit" style="width:100%;display:flex;justify-content:center;">Book Free AI Audit</a>
+              <p class="contact-book__body">Share a few times that work and what you want shipped. We'll confirm a slot quickly.</p>
+              <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Book%20a%20call%20—%207EightMade">Email to book a call</a>
+              <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
             </div>
           </div>
         </div>
@@ -1615,34 +1119,19 @@
 
   </main>
 
-  <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__brand" style="display:flex;align-items:center;gap:10px;">
-          <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="ftTop" x1="50" y1="2" x2="50" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F0D988"/><stop offset="100%" stop-color="#D4AE50"/></linearGradient>
-              <linearGradient id="ftRight" x1="92" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#A8892E"/></linearGradient>
-              <linearGradient id="ftLeft" x1="8" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#6A4E14"/><stop offset="100%" stop-color="#4A3408"/></linearGradient>
-            </defs>
-            <polygon points="50,2 92,26 50,50 8,26" fill="url(#ftTop)"/>
-            <polygon points="92,26 92,74 50,98 50,50" fill="url(#ftRight)"/>
-            <polygon points="8,26 50,50 50,98 8,74" fill="url(#ftLeft)"/>
-            <line x1="50" y1="2" x2="92" y2="26" stroke="#08080f" stroke-width="1"/>
-            <line x1="50" y1="2" x2="8" y2="26" stroke="#08080f" stroke-width="1"/>
-            <line x1="50" y1="50" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
-            <line x1="8" y1="26" x2="8" y2="74" stroke="#08080f" stroke-width="1"/>
-            <line x1="92" y1="26" x2="92" y2="74" stroke="#08080f" stroke-width="1"/>
-            <line x1="8" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
-            <line x1="92" y1="74" x2="50" y2="98" stroke="#08080f" stroke-width="1"/>
+        <div class="footer__brand">
+          <svg class="brand-mark brand-mark--footer" width="20" height="20" viewBox="0 0 100 100" aria-hidden="true">
+            <use href="#brand-cube"/>
           </svg>
-          <span>7</span>EightMade
+          <span><span class="mark-7">7</span>EightMade</span>
         </div>
         <div class="footer__copy">© <span id="year"></span> 7EightMade · All rights reserved.</div>
         <div class="footer__links">
           <a href="#services">Services</a>
-          <a href="#packages">Packages</a>
+          <a href="#pricing">Pricing</a>
           <a href="#about">About</a>
           <a href="mailto:nuguidd@icloud.com">Contact</a>
         </div>
@@ -1651,12 +1140,8 @@
   </footer>
 
   <script>
-    // ── Year ──────────────────────────────────────────────────
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ── Smooth scroll with sticky-nav offset ──────────────────
     const NAV_HEIGHT = 72;
-
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -1666,26 +1151,76 @@
         e.preventDefault();
         const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-        // Close mobile nav if open
         document.getElementById('nav').classList.remove('nav--open');
       });
     });
-
-    // ── Scroll fade-in ────────────────────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ── Mobile nav toggle ─────────────────────────────────────
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('nav').classList.toggle('nav--open');
     });
+
+    /* Intro cinematic — play once per session (78-intro-seen) */
+    (function() {
+      const intro = document.getElementById('intro');
+      const skipBtn = document.getElementById('introSkip');
+      if (!intro) return;
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let seen = false;
+      try { seen = sessionStorage.getItem('78-intro-seen') === '1'; } catch (e) {}
+
+      let finished = false;
+      function finishIntro() {
+        if (finished) return;
+        finished = true;
+        document.body.classList.remove('intro-active');
+        intro.classList.remove('is-playing', 'is-wiping');
+        intro.classList.add('is-done');
+        intro.setAttribute('aria-hidden', 'true');
+        intro.setAttribute('hidden', '');
+        intro.setAttribute('inert', '');
+        try { sessionStorage.setItem('78-intro-seen', '1'); } catch (e) {}
+      }
+
+      function startWipe() {
+        if (finished || intro.classList.contains('is-wiping')) return;
+        intro.classList.add('is-wiping');
+        const onEnd = (e) => {
+          if (e.target !== intro) return;
+          intro.removeEventListener('animationend', onEnd);
+          finishIntro();
+        };
+        intro.addEventListener('animationend', onEnd);
+        setTimeout(finishIntro, 1000);
+      }
+
+      function playIntro() {
+        intro.removeAttribute('hidden');
+        intro.removeAttribute('aria-hidden');
+        document.body.classList.add('intro-active');
+        void intro.offsetWidth;
+        intro.classList.add('is-playing');
+        const wipeTimer = setTimeout(startWipe, 1900);
+        const hardTimer = setTimeout(finishIntro, 3200);
+        function skip() {
+          clearTimeout(wipeTimer);
+          clearTimeout(hardTimer);
+          startWipe();
+        }
+        skipBtn.addEventListener('click', skip, { once: true });
+      }
+
+      if (reduce || seen) {
+        finishIntro();
+      } else {
+        playIntro();
+      }
+    })();
   </script>
 </body>
 </html>
