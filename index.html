@@ -40,7 +40,7 @@
       --shadow: 0 1px 2px rgba(60,45,20,.04), 0 8px 24px rgba(60,45,20,.06);
       --shadow-lg: 0 2px 4px rgba(60,45,20,.04), 0 16px 40px rgba(60,45,20,.08);
       --transition: .25s cubic-bezier(.4,0,.2,1);
-      --nav-h: 72px;
+      --nav-h: 88px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -106,7 +106,7 @@
     .fade-in.d2 { transition-delay: .12s; }
     .fade-in.d3 { transition-delay: .18s; }
 
-    .section { padding: 100px 0; scroll-margin-top: calc(var(--nav-h) + 12px); }
+    .section { padding: 100px 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .section--tight { padding: 72px 0; }
     .section--paper2 { background: var(--paper-2); }
     .eyebrow {
@@ -155,7 +155,7 @@
     .nav__toggle:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
     .nav__cta-mobile { display: none; }
 
-    .hero { padding: 88px 0 72px; scroll-margin-top: calc(var(--nav-h) + 12px); }
+    .hero { padding: 88px 0 72px; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .hero__grid {
       display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center;
     }
@@ -204,6 +204,18 @@
       color: var(--ink); line-height: 1; margin-bottom: 8px;
     }
     .proof__label { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: .02em; }
+    .proof__trust {
+      margin-top: 40px; padding-top: 28px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--muted); line-height: 1.7;
+    }
+    .proof__trust-caption {
+      display: block; margin-bottom: 8px;
+      font-size: 10px; font-weight: 700; letter-spacing: .2em;
+      color: rgba(92,92,102,.7);
+    }
 
     .tracks__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .track {
@@ -296,7 +308,7 @@
     .pkg-note { margin-top: 24px; font-size: 13px; color: var(--muted); }
     .pkg-note a { color: var(--cobalt); font-weight: 500; }
 
-    .openclaw { background: var(--ink); color: var(--paper); padding: 112px 0; scroll-margin-top: calc(var(--nav-h) + 12px); }
+    .openclaw { background: var(--ink); color: var(--paper); padding: 112px 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .openclaw .section__title { color: var(--paper); }
     .openclaw .section__sub { color: rgba(243,239,230,.6); }
     .oc__intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 72px; }
@@ -316,14 +328,14 @@
     .oc-compare__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .oc-compare__cell { padding: 18px 20px; border-radius: var(--radius-sm); font-size: 13px; line-height: 1.55; }
     .oc-compare__cell.bad {
-      background: rgba(243,239,230,.04); border: 1px solid rgba(243,239,230,.08); color: rgba(243,239,230,.5);
+      background: rgba(243,239,230,.045); border: 1px solid rgba(243,239,230,.1); color: rgba(243,239,230,.72);
     }
     .oc-compare__cell.bad strong {
       display: block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: rgba(243,239,230,.35); margin-bottom: 6px;
+      color: rgba(243,239,230,.52); margin-bottom: 6px;
     }
     .oc-compare__cell.good {
-      background: var(--emerald-soft); border: 1px solid rgba(15,118,110,.4); color: rgba(243,239,230,.75);
+      background: var(--emerald-soft); border: 1px solid rgba(94,234,212,.35); color: rgba(243,239,230,.94);
     }
     .oc-compare__cell.good strong {
       display: block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
@@ -539,6 +551,8 @@
       .proof__grid { grid-template-columns: 1fr; gap: 24px; text-align: left; }
       .proof__stat { font-size: clamp(36px, 11vw, 44px); margin-bottom: 6px; }
       .proof__label { font-size: 13px; }
+      .proof__trust { margin-top: 32px; padding-top: 24px; letter-spacing: .12em; font-size: 10px; }
+      .proof__trust-caption { letter-spacing: .16em; }
       .section { padding: 56px 0; }
       .section__title { font-size: clamp(28px, 8vw, 36px); max-width: none; }
       .section__sub { font-size: 15px; }
@@ -619,7 +633,7 @@
       visibility: hidden;
     }
     #intro.is-wiping {
-      animation: introIris 0.85s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+      animation: introIris 0.68s cubic-bezier(0.83, 0, 0.17, 1) forwards;
     }
     @keyframes introIris {
       0%   { clip-path: circle(150% at 50% 42%); }
@@ -679,20 +693,20 @@
     .intro__skip:hover { color: var(--ink); border-color: rgba(60,45,20,.28); }
     .intro__skip:focus-visible { outline: 2px solid #2563FF; outline-offset: 2px; }
 
-    #intro.is-playing .intro__progress { animation: introFadeIn .35s ease forwards; }
-    #intro.is-playing .intro__progress::after { animation: introProg 1.5s cubic-bezier(.4,0,.2,1) .05s forwards; }
-    #intro.is-playing .intro__loading { animation: introFadeIn .4s ease .05s forwards; }
+    #intro.is-playing .intro__progress { animation: introFadeIn .28s ease forwards; }
+    #intro.is-playing .intro__progress::after { animation: introProg 1.05s cubic-bezier(.4,0,.2,1) .04s forwards; }
+    #intro.is-playing .intro__loading { animation: introFadeIn .3s ease .04s forwards; }
     #intro.is-playing .intro__mark {
-      animation: introCube .7s cubic-bezier(.22,1,.36,1) .3s forwards;
+      animation: introCube .55s cubic-bezier(.22,1,.36,1) .18s forwards;
     }
     #intro.is-playing .intro__wordmark {
-      animation: introWord .65s cubic-bezier(.22,1,.36,1) .9s forwards;
+      animation: introWord .5s cubic-bezier(.22,1,.36,1) .58s forwards;
     }
     #intro.is-playing .intro__tag {
-      animation: introTag .5s ease 1.4s forwards;
+      animation: introTag .35s ease .98s forwards;
     }
     #intro.is-playing .intro__skip {
-      animation: introFadeIn .4s ease .5s forwards;
+      animation: introFadeIn .32s ease .35s forwards;
     }
     @keyframes introFadeIn { to { opacity: 1; } }
     @keyframes introProg { to { transform: translateX(180%); } }
@@ -707,7 +721,7 @@
     }
     #intro.is-wiping .intro__stage,
     #intro.is-wiping .intro__skip {
-      animation: introContentOut .35s ease forwards;
+      animation: introContentOut .28s ease forwards;
     }
     @keyframes introContentOut {
       to { opacity: 0; transform: scale(.96); }
@@ -888,6 +902,10 @@
           <div class="proof__label">no rip-and-replace</div>
         </div>
       </div>
+      <p class="proof__trust fade-in d2">
+        <span class="proof__trust-caption">Built on your stack</span>
+        Salesforce · Google Workspace · Slack · HubSpot
+      </p>
     </div>
   </div>
 
@@ -1360,7 +1378,7 @@
           finishIntro();
         };
         intro.addEventListener('animationend', onEnd);
-        setTimeout(finishIntro, 1000);
+        setTimeout(finishIntro, 800);
       }
 
       function playIntro() {
@@ -1369,8 +1387,8 @@
         document.body.classList.add('intro-active');
         void intro.offsetWidth;
         intro.classList.add('is-playing');
-        const wipeTimer = setTimeout(startWipe, 1900);
-        const hardTimer = setTimeout(finishIntro, 3200);
+        const wipeTimer = setTimeout(startWipe, 1400);
+        const hardTimer = setTimeout(finishIntro, 2200);
         function skip() {
           clearTimeout(wipeTimer);
           clearTimeout(hardTimer);
