@@ -1,62 +1,66 @@
-# Brand handoff — 7EightMade Signal mark
+# Brand handoff — 7EightMade Option A
 
 **For:** Web Architect (wire nav / favicon / OG, merge to Pages)  
 **Do not push from this box** — parent ships.
+
+## Proverb
+
+**Fall 7 rise 8** (七転び八起き) — fall down seven times, get up eight.  
+Resilience is the brand: the oversized **7** is the fall; **Eight** + **MADE** is the rise and the craft.
+
+## Locked design — Option A (horizontal)
+
+Horizontal lockup on transparent (or sand preview):
+
+1. Oversized cobalt `#2563FF` numeral **7** — Fraunces display (outlined paths), ball-terminal editorial serif  
+2. Word **Eight** — ink `#0B0B0F` Fraunces serif, capital E + lowercase ight, optically centered to the right of the 7  
+3. Small rounded **MADE** badge — cobalt fill, white uppercase Inter-style sans with tracking, thin white inset stroke, vertically centered to Eight  
+
+**No** cube, **no** gold, **no** interlocking 78 monogram.
 
 ## Assets
 
 | File | Use |
 |------|-----|
-| `/workspace/7eight-redesign/brand/mark.svg` | Icon-only mark (100×100) |
-| `/workspace/7eight-redesign/brand/logo-horizontal.svg` | Mark + Fraunces wordmark (420×100; text uses Google Fonts import — outline if needed for OG) |
-| `/workspace/7eight-redesign/brand/favicon.svg` | Same geometry as mark |
-| `/workspace/7eight-redesign/index.html` | Full live reference (sprite `#brand-mark` + mobile CSS) |
+| `brand/logo-horizontal.svg` | Full lockup (transparent). **Nav / headers.** |
+| `brand/logo-horizontal-sand.svg` | Same lockup on sand `#F3EFE6` rect — previews / decks |
+| `brand/mark.svg` | App / intro icon: cobalt rounded square + sand **7** only |
+| `brand/favicon.svg` | Same as mark |
+| `brand/logo-A-final-preview.png` | Raster preview of sand lockup |
+| `brand/logo-A-horizontal.png` | Locked design reference (mock) |
+| `index.html` | Live reference: nav = horizontal lockup; intro/footer = mark |
 
-## Mark description
+## Colors
 
-Geometric interlocking **7** + **8** monogram inside a **rounded square** (corner radius ≈ **22%** of size).
+| Token | Hex | Role |
+|-------|-----|------|
+| Cobalt | `#2563FF` | 7, MADE badge, mark field |
+| Ink | `#0B0B0F` | Eight wordmark |
+| Sand / paper | `#F3EFE6` | Surfaces, mark glyph, sand preview |
+| White | `#FFFFFF` | MADE type + badge inset stroke |
 
-- **Fill:** cobalt `#2563FF`
-- **Glyphs:** sand/surface `#FBF8F2`
-- Flat / tech-editorial — **no cube, no gold, no gradients**
-- Legible at **16px** and **140px**
+## Usage
 
-## Wordmark
+| Context | Asset |
+|---------|--------|
+| **Nav** | `logo-horizontal.svg` (7 + Eight + MADE). On viewports ≤400px hide MADE / use compact 7+Eight. |
+| **Intro icon / favicon / app** | `mark.svg` / `favicon.svg` |
+| **Footer** | Small mark + text wordmark (reference HTML) |
+| **OG / social** | Prefer rasterizing sand lockup or mark — paths are already outlined (no live font dependency) |
 
-- Font: **Fraunces** 600
-- Text: `7EightMade` with **7** in cobalt (`#2563FF`), rest ink (`#0B0B0F`)
+## Technical notes
 
-## Sizes (CSS)
+- Production SVGs use **outlined Fraunces / Inter paths** (no `@import` fonts required).  
+- Mark corner radius **22** on a **100×100** viewBox (~22%).  
+- Glyph in mark: sand `#F3EFE6` (not the older `#FBF8F2` surface token).  
+- Reference HTML sprites: `#brand-mark`, `#brand-lockup` (see `index.html`).
 
-| Context | Class | Size |
-|---------|-------|------|
-| Nav | `.brand-mark--nav` | **32px** (28px ≤600px) |
-| Footer | `.brand-mark--footer` | **22px** |
-| Intro | `.brand-mark--intro` | **140px** → 112px @900 → 88px @600 |
+## Mobile pass (site)
 
-Sprite in `index.html`: `<symbol id="brand-mark">` + `<use href="#brand-mark"/>`.  
-Inline data-URI favicon already in reference HTML.
-
-## Palette touchpoints
-
-| Token | Hex |
-|-------|-----|
-| Cobalt | `#2563FF` |
-| Ink | `#0B0B0F` |
-| Sand surface (glyph) | `#FBF8F2` |
-| Paper | `#F3EFE6` |
-
-## Mobile pass (what changed)
-
-- Hamburger → full-width drawer; Escape/link closes; CTA full-width ≥48px
-- Hero title wrap + full-width stacked CTAs; chips wrap; card padding
-- Proof: 3-col tablet → stacked left-align phone
-- Side padding 24→16px; touch targets ≥44px (FAQ, buttons, footer links)
-- OpenClaw compare rows stack; pricing/Team featured border kept
-- Intro mark/wordmark scale; skip reachable + safe-area
-- `scroll-margin-top: calc(var(--nav-h) + 12px)`; body `overflow-x: clip`
-- Mentally validated for ~375 / 390 widths
+- Nav lockup scales down; ≤400px swaps to compact (no MADE badge)  
+- Intro mark scales 140 → 112 → 88px  
+- Existing drawer / touch-target / safe-area rules unchanged  
 
 ## Note for OG
 
-Prefer rasterizing `mark.svg` or outlined `logo-horizontal.svg` for `og:image` — live text in horizontal SVG depends on Fraunces loading.
+Rasterize `logo-horizontal-sand.svg` or `mark.svg` for `og:image`. Outlined paths are OG-safe.
