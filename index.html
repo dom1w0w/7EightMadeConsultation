@@ -1,4 +1,4 @@
-<!-- 7EightMade redesign v2 — Signal system — Dom review only, do not ship -->
+<!-- 7EightMade Signal v2 — logo system + mobile pass -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,10 +7,14 @@
   <title>7EightMade — AI Micro‑Consulting & Automation</title>
   <meta name="description" content="We build AI assistants, workflow automations, and lightweight integrations across the tools you already use—including Salesforce.">
   <meta name="theme-color" content="#2563FF">
+  <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='2' y='2' width='96' height='96' rx='22' fill='%232563FF'/%3E%3Cg fill='%23FBF8F2'%3E%3Cpath d='M15 22h44v13H42L33.5 78H19.5L28 35H15V22z'/%3E%3Cpath fill-rule='evenodd' d='M63 23c-11.6 0-19.2 6.9-19.2 15.6 0 5.3 2.9 9.7 7.5 12.3-5.7 2.8-9 7.9-9 14.1C42.3 75.6 50.8 82 64 82c13.2 0 21.7-6.4 21.7-16.9 0-6.2-3.3-11.3-9-14.1 4.6-2.6 7.5-7 7.5-12.3C84.2 29.9 76.6 23 63 23zm0 11.5c4.9 0 8.1 3 8.1 6.8s-3.2 6.8-8.1 6.8-8.1-3-8.1-6.8 3.2-6.8 8.1-6.8zm1 19.2c5.7 0 9.5 3.5 9.5 8s-3.8 8-9.5 8-9.5-3.5-9.5-8 3.8-8 9.5-8z'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
   <meta property="og:title" content="7EightMade — AI Micro‑Consulting & Automation">
   <meta property="og:description" content="Prompt systems, workflow automation, and dashboards. We support Salesforce, Google Workspace, Notion, Airtable, and more.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/brand/og-mark.png">
+  <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,8 +51,11 @@
       background: var(--paper);
       color: var(--ink);
       line-height: 1.65;
-      overflow-x: hidden;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
+    }
+    @supports not (overflow-x: clip) {
+      body { overflow-x: hidden; }
     }
     /* Faint sand grain — paper texture, does not muddy type */
     body::before {
@@ -101,7 +108,7 @@
     .fade-in.d2 { transition-delay: .12s; }
     .fade-in.d3 { transition-delay: .18s; }
 
-    .section { padding: 100px 0; scroll-margin-top: var(--nav-h); }
+    .section { padding: 100px 0; scroll-margin-top: calc(var(--nav-h) + 12px); }
     .section--tight { padding: 72px 0; }
     .section--paper2 { background: var(--paper-2); }
     .eyebrow {
@@ -126,6 +133,7 @@
     .nav__inner {
       display: flex; align-items: center; justify-content: space-between; gap: 16px;
       padding: 16px 32px; max-width: 1120px; margin: 0 auto;
+      position: relative;
     }
     .nav__brand {
       display: flex; align-items: center; gap: 10px;
@@ -141,10 +149,15 @@
     }
     .nav__link:hover { color: var(--ink); background: rgba(60,45,20,.05); }
     .nav__cta { margin-left: 8px; padding: 10px 18px; font-size: 13px; }
-    .nav__toggle { display: none; color: var(--ink); padding: 6px; }
+    .nav__toggle {
+      display: none; color: var(--ink); padding: 10px; margin: -4px -4px -4px 0;
+      min-width: 44px; min-height: 44px; border-radius: 10px;
+      align-items: center; justify-content: center;
+    }
+    .nav__toggle:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
     .nav__cta-mobile { display: none; }
 
-    .hero { padding: 88px 0 72px; scroll-margin-top: var(--nav-h); }
+    .hero { padding: 88px 0 72px; scroll-margin-top: calc(var(--nav-h) + 12px); }
     .hero__grid {
       display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center;
     }
@@ -285,7 +298,7 @@
     .pkg-note { margin-top: 24px; font-size: 13px; color: var(--muted); }
     .pkg-note a { color: var(--cobalt); font-weight: 500; }
 
-    .openclaw { background: var(--ink); color: var(--paper); padding: 112px 0; scroll-margin-top: var(--nav-h); }
+    .openclaw { background: var(--ink); color: var(--paper); padding: 112px 0; scroll-margin-top: calc(var(--nav-h) + 12px); }
     .openclaw .section__title { color: var(--paper); }
     .openclaw .section__sub { color: rgba(243,239,230,.6); }
     .oc__intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 72px; }
@@ -388,7 +401,7 @@
     .faq-item:hover { border-color: rgba(60,45,20,.22); }
     .faq-item[open] { border-color: rgba(37,99,255,.3); box-shadow: var(--shadow); }
     .faq-item summary {
-      list-style: none; cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 15px;
+      list-style: none; cursor: pointer; padding: 18px 20px; min-height: 44px; font-weight: 600; font-size: 15px;
       color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none;
     }
     .faq-item summary::-webkit-details-marker { display: none; }
@@ -448,46 +461,140 @@
     .footer__links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); }
     .footer__links a:hover { color: var(--cobalt); }
 
-    @media (max-width: 900px) {
-      .hero__grid, .tracks__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs, .build__grid { grid-template-columns: 1fr; }
-      .pricing__grid { grid-template-columns: 1fr; }
-      .proof__grid { grid-template-columns: 1fr; gap: 28px; }
-      .process__rail { grid-template-columns: 1fr; gap: 36px; }
-      .process__rail::before { display: none; }
-      .oc-steps { grid-template-columns: 1fr; gap: 20px; }
-      .oc-steps::before { display: none; }
-      .oc-step { flex-direction: row; text-align: left; align-items: flex-start; }
-      .oc-compare__row { grid-template-columns: 1fr; }
-      .nav__links { display: none; }
-      .nav__toggle { display: block; }
-      .nav__cta { display: none !important; }
-      .hero { padding: 64px 0 56px; }
-      .section { padding: 72px 0; }
-      .openclaw { padding: 80px 0; }
-      .pkg--featured { box-shadow: var(--shadow); }
-    }
-    @media (max-width: 600px) {
-      .container { padding: 0 20px; }
-      .nav__inner { padding: 14px 20px; }
-      .about__values { grid-template-columns: 1fr; }
-      .hero__title { font-size: clamp(40px, 11vw, 56px); }
-      .proof__stat { font-size: 40px; }
-    }
+    /* ── Mobile / tablet pass ── */
     .nav--open .nav__links {
       display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
-      background: rgba(243,239,230,.98); border-bottom: 1px solid var(--line);
-      padding: 16px 32px 24px; gap: 4px; box-shadow: var(--shadow-lg);
+      width: 100%; background: rgba(243,239,230,.98); border-bottom: 1px solid var(--line);
+      padding: 12px 20px 20px; gap: 2px; box-shadow: var(--shadow-lg);
+      z-index: 120; max-height: calc(100dvh - var(--nav-h)); overflow-y: auto;
     }
-    .nav--open .nav__link { display: block; width: 100%; padding: 12px 14px; }
-    .nav--open .nav__cta-mobile { display: inline-flex; width: 100%; justify-content: center; margin-top: 8px; }
+    .nav--open .nav__link {
+      display: flex; align-items: center; width: 100%; min-height: 44px;
+      padding: 12px 14px; font-size: 15px; color: var(--ink);
+    }
+    .nav--open .nav__cta-mobile {
+      display: inline-flex; width: 100%; justify-content: center; margin-top: 10px;
+      min-height: 48px; padding: 14px 18px;
+    }
     @media (hover: none) {
       .track:hover, .pkg:hover, .build-card:hover { transform: none; }
     }
 
-    /* Shared brand mark — swap #brand-cube symbol paths later; sizes via .brand-mark */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .nav__inner { padding: 12px 24px; }
+      .hero__grid, .tracks__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs, .build__grid { grid-template-columns: 1fr; }
+      .pricing__grid { grid-template-columns: 1fr; gap: 16px; }
+      .proof__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .process__rail { grid-template-columns: 1fr; gap: 36px; }
+      .process__rail::before { display: none; }
+      .process__step { padding: 0; }
+      .oc-steps { grid-template-columns: 1fr; gap: 16px; }
+      .oc-steps::before { display: none; }
+      .oc-step { flex-direction: row; text-align: left; align-items: flex-start; padding: 0; gap: 14px; }
+      .oc-compare__row { grid-template-columns: 1fr; gap: 8px; }
+      .oc-compare__cell { padding: 16px 16px; font-size: 13px; }
+      .nav__links { display: none; }
+      .nav__toggle { display: inline-flex; }
+      .nav__cta { display: none !important; }
+      .hero { padding: 56px 0 48px; }
+      .hero__title { font-size: clamp(40px, 8vw, 64px); overflow-wrap: anywhere; }
+      .hero__ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero__ctas .btn { width: 100%; min-height: 48px; }
+      .hero__ctas .hero__secondary { text-align: center; padding: 12px 8px; min-height: 44px; }
+      .hero__card { padding: 28px 24px; }
+      .hero__chips { gap: 8px; }
+      .section { padding: 64px 0; }
+      .section__head { margin-bottom: 40px; }
+      .openclaw { padding: 72px 0; }
+      .oc__intro { gap: 36px; margin-bottom: 48px; }
+      .track { padding: 32px 28px; }
+      .pkg { padding: 28px 24px; }
+      .pkg--featured { box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt); }
+      .pkg__price { font-size: 42px; }
+      .build-card { padding: 28px 24px; }
+      .oc-pkg { padding: 28px 24px; }
+      .faq-item summary { padding: 16px 18px; }
+      .faq-item__body { padding: 0 18px 18px; }
+      .footer__inner { gap: 16px; }
+      .brand-mark--intro { width: 112px; height: 112px; }
+      .intro__skip { bottom: 20px; right: 16px; left: auto; min-height: 44px; padding: 10px 16px; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .nav__inner { padding: 10px 16px; gap: 10px; }
+      .nav__brand { font-size: 17px; gap: 8px; }
+      .nav__brand .brand-mark--nav { width: 28px; height: 28px; }
+      .nav--open .nav__links { padding: 10px 16px 18px; }
+      .about__values { grid-template-columns: 1fr; }
+      .hero { padding: 44px 0 40px; }
+      .hero__title {
+        font-size: clamp(34px, 10.5vw, 48px); letter-spacing: -.03em; line-height: 1.05;
+        margin-bottom: 18px;
+      }
+      .hero__lead { font-size: 15px; margin-bottom: 24px; max-width: none; }
+      .hero__ctas { margin-bottom: 28px; }
+      .hero__card { padding: 24px 18px; border-radius: 20px; }
+      .chip { font-size: 11px; padding: 6px 12px; }
+      .proof { padding: 40px 0; }
+      .proof__grid { grid-template-columns: 1fr; gap: 24px; text-align: left; }
+      .proof__stat { font-size: clamp(36px, 11vw, 44px); margin-bottom: 6px; }
+      .proof__label { font-size: 13px; }
+      .section { padding: 56px 0; }
+      .section__title { font-size: clamp(28px, 8vw, 36px); max-width: none; }
+      .section__sub { font-size: 15px; }
+      .section__head { margin-bottom: 32px; }
+      .track { padding: 28px 20px; border-radius: 20px; }
+      .track__title { font-size: 24px; }
+      .process__marker { width: 48px; height: 48px; font-size: 16px; margin-bottom: 16px; }
+      .process__name { font-size: 20px; }
+      .build__grid { gap: 14px; }
+      .build-card { padding: 24px 18px; }
+      .pricing__grid { gap: 14px; }
+      .pkg { padding: 24px 18px; }
+      .pkg__price { font-size: 40px; }
+      .pkg .btn, .oc-pkg .btn { min-height: 48px; }
+      .openclaw { padding: 56px 0; }
+      .oc__title { font-size: clamp(30px, 9vw, 40px); }
+      .oc__intro { gap: 28px; margin-bottom: 40px; }
+      .oc-compare { gap: 8px; }
+      .oc-compare__cell { padding: 14px 14px; font-size: 12.5px; line-height: 1.5; }
+      .oc-steps { margin-bottom: 48px; gap: 14px; }
+      .oc-pkgs { gap: 14px; }
+      .oc-pkg { padding: 24px 18px; }
+      .oc-pkg__price { font-size: 36px; }
+      .stacks__wrap { gap: 8px; }
+      .stack-pill { padding: 10px 14px; font-size: 12px; }
+      .about__split { gap: 36px; }
+      .value-chip { padding: 16px; }
+      .contact__split { gap: 28px; }
+      .form-input { padding: 14px 14px; font-size: 16px; min-height: 48px; }
+      .btn { min-height: 44px; }
+      .footer { padding: 28px 0; }
+      .footer__inner { flex-direction: column; align-items: flex-start; }
+      .footer__links { flex-wrap: wrap; gap: 12px 16px; }
+      .footer__links a { min-height: 44px; display: inline-flex; align-items: center; }
+      .brand-mark--intro { width: 88px; height: 88px; }
+      .intro__wordmark { font-size: clamp(28px, 9vw, 40px); }
+      .intro__stage { padding: 16px; max-width: 100%; }
+      .intro__skip {
+        bottom: max(16px, env(safe-area-inset-bottom));
+        right: max(12px, env(safe-area-inset-right));
+        left: auto; min-height: 44px; min-width: 64px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero__title { font-size: 32px; }
+      .proof__stat { font-size: 34px; }
+      .nav__brand span { letter-spacing: -.03em; }
+    }
+
+    /* Shared brand mark — #brand-mark geometric 78 monogram; sizes via .brand-mark */
     .brand-mark { display: block; flex-shrink: 0; }
-    .brand-mark--nav { width: 30px; height: 30px; }
-    .brand-mark--footer { width: 20px; height: 20px; }
+    .brand-mark--nav { width: 32px; height: 32px; }
+    .brand-mark--footer { width: 22px; height: 22px; }
     .brand-mark--intro { width: 140px; height: 140px; }
 
     /* ── Intro transition (Signal cinematic) ── */
@@ -534,8 +641,8 @@
     }
     .intro__mark {
       margin-bottom: 28px;
-      opacity: 0; transform: scale(.72) rotateX(18deg) rotateY(-22deg);
-      transform-style: preserve-3d; will-change: transform, opacity;
+      opacity: 0; transform: scale(.78);
+      will-change: transform, opacity;
     }
     .intro__mark .brand-mark {
       filter: drop-shadow(0 18px 32px rgba(37,99,255,.18));
@@ -583,7 +690,7 @@
     @keyframes introFadeIn { to { opacity: 1; } }
     @keyframes introProg { to { transform: translateX(180%); } }
     @keyframes introCube {
-      to { opacity: 1; transform: scale(1) rotateX(0deg) rotateY(0deg); }
+      to { opacity: 1; transform: scale(1); }
     }
     @keyframes introWord {
       to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
@@ -615,33 +722,16 @@
 </head>
 <body id="top">
 
-  <!-- Brand mark sprite: edit #brand-cube paths once; nav / footer / intro all use .brand-mark + <use> -->
+  <!-- Brand mark sprite: edit #brand-mark once; nav / footer / intro all use .brand-mark + <use> -->
   <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
-    <defs>
-      <linearGradient id="cubeTop" x1="50" y1="2" x2="50" y2="50" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#5B8AFF"/>
-        <stop offset="100%" stop-color="#2563FF"/>
-      </linearGradient>
-      <linearGradient id="cubeRight" x1="92" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#2563FF"/>
-        <stop offset="100%" stop-color="#1A3FB8"/>
-      </linearGradient>
-      <linearGradient id="cubeLeft" x1="8" y1="26" x2="50" y2="98" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#1A2A4A"/>
-        <stop offset="100%" stop-color="#0B0B0F"/>
-      </linearGradient>
-    </defs>
-    <symbol id="brand-cube" viewBox="0 0 100 100">
-      <polygon points="50,2 92,26 50,50 8,26" fill="url(#cubeTop)"/>
-      <polygon points="92,26 92,74 50,98 50,50" fill="url(#cubeRight)"/>
-      <polygon points="8,26 50,50 50,98 8,74" fill="url(#cubeLeft)"/>
-      <line x1="50" y1="2"  x2="92" y2="26" stroke="#0B0B0F" stroke-width="1.2"/>
-      <line x1="50" y1="2"  x2="8"  y2="26" stroke="#0B0B0F" stroke-width="1.2"/>
-      <line x1="92" y1="26" x2="92" y2="74" stroke="#0B0B0F" stroke-width="1.2"/>
-      <line x1="8"  y1="26" x2="8"  y2="74" stroke="#0B0B0F" stroke-width="1.2"/>
-      <line x1="92" y1="74" x2="50" y2="98" stroke="#0B0B0F" stroke-width="1.2"/>
-      <line x1="8"  y1="74" x2="50" y2="98" stroke="#0B0B0F" stroke-width="1.2"/>
-      <line x1="50" y1="50" x2="50" y2="98" stroke="#0B0B0F" stroke-width="1.2"/>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <!-- Rounded square — radius ~22% of size; cobalt fill -->
+      <rect x="2" y="2" width="96" height="96" rx="22" ry="22" fill="#2563FF"/>
+      <!-- Geometric interlocking 7 + 8 in sand/surface -->
+      <g fill="#FBF8F2">
+        <path d="M15 22h44v13H42L33.5 78H19.5L28 35H15V22z"/>
+        <path fill-rule="evenodd" d="M63 23c-11.6 0-19.2 6.9-19.2 15.6 0 5.3 2.9 9.7 7.5 12.3-5.7 2.8-9 7.9-9 14.1C42.3 75.6 50.8 82 64 82c13.2 0 21.7-6.4 21.7-16.9 0-6.2-3.3-11.3-9-14.1 4.6-2.6 7.5-7 7.5-12.3C84.2 29.9 76.6 23 63 23zm0 11.5c4.9 0 8.1 3 8.1 6.8s-3.2 6.8-8.1 6.8-8.1-3-8.1-6.8 3.2-6.8 8.1-6.8zm1 19.2c5.7 0 9.5 3.5 9.5 8s-3.8 8-9.5 8-9.5-3.5-9.5-8 3.8-8 9.5-8z"/>
+      </g>
     </symbol>
   </svg>
 
@@ -652,7 +742,7 @@
       <p class="intro__loading" aria-hidden="true">Loading</p>
       <div class="intro__mark" aria-hidden="true">
         <svg class="brand-mark brand-mark--intro" viewBox="0 0 100 100" width="140" height="140" aria-hidden="true">
-          <use href="#brand-cube"/>
+          <use href="#brand-mark"/>
         </svg>
       </div>
       <h1 class="intro__wordmark"><span class="mark-7">7</span>EightMade</h1>
@@ -665,8 +755,8 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#top" class="nav__brand">
-        <svg class="brand-mark brand-mark--nav" width="30" height="30" viewBox="0 0 100 100" aria-hidden="true">
-          <use href="#brand-cube"/>
+        <svg class="brand-mark brand-mark--nav" width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
+          <use href="#brand-mark"/>
         </svg>
         <span><span class="mark-7">7</span>EightMade</span>
       </a>
@@ -1123,8 +1213,8 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <svg class="brand-mark brand-mark--footer" width="20" height="20" viewBox="0 0 100 100" aria-hidden="true">
-            <use href="#brand-cube"/>
+          <svg class="brand-mark brand-mark--footer" width="22" height="22" viewBox="0 0 100 100" aria-hidden="true">
+            <use href="#brand-mark"/>
           </svg>
           <span><span class="mark-7">7</span>EightMade</span>
         </div>
@@ -1141,7 +1231,7 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    const NAV_HEIGHT = 72;
+    const NAV_HEIGHT = 84;
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -1151,7 +1241,10 @@
         e.preventDefault();
         const top = target.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-        document.getElementById('nav').classList.remove('nav--open');
+        const navEl = document.getElementById('nav');
+        navEl.classList.remove('nav--open');
+        const t = document.getElementById('navToggle');
+        if (t) { t.setAttribute('aria-expanded', 'false'); t.setAttribute('aria-label', 'Open menu'); }
       });
     });
     const observer = new IntersectionObserver((entries) => {
@@ -1160,9 +1253,23 @@
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('nav').classList.toggle('nav--open');
-    });
+    (function() {
+      const nav = document.getElementById('nav');
+      const toggle = document.getElementById('navToggle');
+      if (!nav || !toggle) return;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-controls', 'navLinks');
+      function setOpen(open) {
+        nav.classList.toggle('nav--open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('nav--open')));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+      document.querySelectorAll('#navLinks a').forEach(a => {
+        a.addEventListener('click', () => setOpen(false));
+      });
+    })();
 
     /* Intro cinematic — play once per session (78-intro-seen) */
     (function() {
