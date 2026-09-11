@@ -9,7 +9,8 @@
   <meta property="og:title" content="7EightMade — AI Micro‑Consulting & Automation">
   <meta property="og:description" content="Prompt systems, workflow automation, and dashboards. We support Salesforce, Google Workspace, Notion, Airtable, and more.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://7eightmade.example">
+  <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -706,14 +707,194 @@
       gap: 4px;
     }
     .nav--open .nav__link { display: block; width: 100%; }
+
+    /* ── VISUAL POLISH 2026-09 ───────────────────────────────── */
+    :root {
+      --text-2: #B0ABA3;
+      --text-3: #6A665C;
+      --border: rgba(201,168,76,.08);
+    }
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
+    .section--alt {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border-2);
+      border-bottom: 1px solid var(--border-2);
+    }
+    .section__title {
+      max-width: 16ch;
+      letter-spacing: -0.02em;
+    }
+    .section__sub { max-width: 52ch; color: var(--text-2); }
+    .label::after { background: rgba(255,255,255,.08); max-width: 40px; }
+    .label { color: var(--gold-light); opacity: .85; }
+    .rule { background: rgba(201,168,76,.35); width: 28px; }
+
+    .checklist li { color: var(--text-2); font-size: 15px; line-height: 1.55; }
+    .check-icon {
+      border-color: rgba(255,255,255,.12);
+      color: var(--gold-light);
+      background: transparent;
+    }
+
+    .btn--outline {
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+      font-weight: 500;
+    }
+    .btn--outline:hover {
+      border-color: rgba(201,168,76,.45);
+      color: var(--gold-light);
+      box-shadow: none;
+    }
+    .btn--gold {
+      box-shadow: 0 0 0 1px rgba(201,168,76,.25);
+    }
+    .btn--gold:hover {
+      box-shadow: 0 0 28px rgba(201,168,76,.28);
+    }
+
+    .card {
+      transform: none;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.35);
+      border-color: rgba(255,255,255,.12);
+    }
+    .card:hover::before { opacity: .5; }
+    .card--quiet {
+      border-color: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.015);
+    }
+    .card--quiet:hover {
+      border-color: rgba(255,255,255,.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    }
+    .card--featured {
+      border-color: rgba(201,168,76,.45);
+      background: linear-gradient(160deg, rgba(201,168,76,.1), rgba(255,255,255,.02) 55%);
+      box-shadow: 0 0 0 1px rgba(201,168,76,.12), 0 20px 50px rgba(0,0,0,.35);
+      transform: scale(1.02);
+      z-index: 1;
+    }
+    .card--featured:hover {
+      transform: scale(1.02) translateY(-2px);
+      border-color: rgba(201,168,76,.55);
+    }
+
+    .packages__grid {
+      align-items: stretch;
+      gap: 20px;
+    }
+    .openclaw-grid .card {
+      transform: none;
+    }
+    .openclaw-grid .card--featured {
+      transform: none;
+      scale: 1;
+      box-shadow: none;
+      border-color: rgba(201,168,76,.28);
+      background: linear-gradient(145deg, rgba(201,168,76,.04), rgba(255,255,255,.02));
+    }
+    .openclaw-grid .price-num { font-size: 40px; }
+    .openclaw-header { opacity: .92; margin-top: 56px; }
+
+    .hero { padding: 112px 0 88px; }
+    .hero__title { max-width: 12ch; line-height: 1.05; }
+    .hero__lead { max-width: 38ch; font-size: 17px; color: var(--text-2); }
+    .hero__proof {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin: 18px 0 0;
+    }
+    .hero__proof .chip {
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,.25);
+      background: rgba(201,168,76,.06);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+    .hero__card {
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      box-shadow: none;
+    }
+    .hero__card h3 {
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      font-weight: 600;
+      font-family: inherit;
+    }
+    .hero__stacks {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: var(--text-3);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .hero__chips { display: none; } /* moved to proof under H1 */
+
+    .contact-book {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      padding: 36px 32px;
+      border: 1px solid rgba(201,168,76,.28);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,168,76,.12), transparent 60%),
+        rgba(255,255,255,.03);
+    }
+    .contact-book__kicker {
+      font-size: 11px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold-light);
+    }
+    .contact-book__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; line-height: 1.2; color: var(--text);
+    }
+    .contact-book__body { color: var(--text-2); font-size: 15px; max-width: 36ch; }
+
+    .fade-in { transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+    .fade-in.delay-1 { transition-delay: .04s; }
+    .fade-in.delay-2 { transition-delay: .08s; }
+    .fade-in.delay-3 { transition-delay: .12s; }
+    .fade-in.delay-4 { transition-delay: .16s; }
+
+    .nav__cta-desktop { margin-left: 8px; font-size: 13px; padding: 10px 18px; }
+    .nav__cta-mobile { display: none; width: 100%; justify-content: center; margin-top: 8px; }
+
+    @media (max-width: 900px) {
+      .card--featured { transform: none; }
+      .card--featured:hover { transform: translateY(-2px); }
+      .nav__cta-desktop { display: none !important; }
+      .nav--open .nav__cta-mobile { display: inline-flex; }
+      .section { padding: 72px 0; }
+      .hero { padding: 88px 0 64px; }
+    }
+    @media (hover: none) {
+      .card:hover, .card--featured:hover { transform: none; }
+    }
+
   </style>
 </head>
-<body>
+<body id="top">
 
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__brand">
+      <a href="#top" class="nav__brand">
         <!-- Prism Logo Mark -->
         <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
@@ -751,7 +932,8 @@
         <a class="nav__link" href="#about">About</a>
         <a class="nav__link" href="#faq">FAQ</a>
         <a class="nav__link" href="#contact">Contact</a>
-        <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=Free%20AI%20Audit" style="margin-left:8px;font-size:13px;padding:10px 18px;">Book Free AI Audit</a>
+        <a class="btn btn--gold nav__cta-desktop" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+        <a class="btn btn--gold nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
       </div>
 
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
@@ -773,17 +955,16 @@
             Less busywork.<br><em>More signal.</em><br>Ship smarter.
           </h1>
           <p class="hero__lead fade-in delay-2">
-            We design prompt systems, automate workflows, and connect the tools you already use—including Salesforce. No fluff, just working ops.
+            Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
-          <div class="hero__ctas fade-in delay-3">
-            <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=Project%20Inquiry">Start a project</a>
-            <a class="btn btn--outline" href="#packages">See pricing</a>
+          <div class="hero__proof fade-in delay-2">
+            <span class="chip">Pilots in 24–72h</span>
+            <span class="chip">No lock-in</span>
+            <span class="chip">Your data, your stack</span>
           </div>
-          <div class="hero__chips fade-in delay-4">
-            <span class="chip">24–72h Pilot</span>
-            <span class="chip">No Lock‑in</span>
-            <span class="chip">Your Data, Your Stack</span>
-            <span class="chip">Privacy‑first</span>
+          <div class="hero__ctas fade-in delay-3">
+            <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Project%20Inquiry">Start a project</a>
+            <a class="btn btn--outline" href="#packages">See pricing</a>
           </div>
         </div>
 
@@ -867,7 +1048,7 @@
     </section>
 
     <!-- ════════════════════════════ PACKAGES ════════════════════════════ -->
-    <section class="section" id="packages">
+    <section class="section section--alt" id="packages">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">Pricing</span>
@@ -877,7 +1058,7 @@
 
         <div class="packages__grid">
           <!-- Starter -->
-          <div class="card fade-in">
+          <div class="card card--quiet fade-in">
             <div class="pkg-card__label">Starter</div>
             <div class="price-num">$1,250</div>
             <p class="pkg-card__desc">One focused use‑case, shipped in 72 hours.</p>
@@ -887,7 +1068,7 @@
               <li><span class="check-icon">✓</span><div>1 week of tweaks</div></li>
             </ul>
             <div class="pkg-card__cta">
-              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=Starter%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Starter</a>
+              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Starter%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Starter</a>
             </div>
           </div>
 
@@ -903,12 +1084,12 @@
               <li><span class="check-icon">✓</span><div>30 days of support</div></li>
             </ul>
             <div class="pkg-card__cta">
-              <a class="btn btn--gold" href="mailto:contact@7eightmade.com?subject=Team%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Team</a>
+              <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Team%20Package%20—%207EightMade" style="width:100%;display:flex;">Get Team</a>
             </div>
           </div>
 
           <!-- Operator -->
-          <div class="card fade-in delay-2">
+          <div class="card card--quiet fade-in delay-2">
             <div class="pkg-card__label">Operator</div>
             <div class="price-num">$1,250<span class="price-period">/mo</span></div>
             <p class="pkg-card__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
@@ -918,17 +1099,17 @@
               <li><span class="check-icon">✓</span><div>Quarterly review</div></li>
             </ul>
             <div class="pkg-card__cta">
-              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=Operator%20Plan%20—%207EightMade" style="width:100%;display:flex;">Join Waitlist</a>
+              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Operator%20Plan%20—%207EightMade" style="width:100%;display:flex;">Join Waitlist</a>
             </div>
           </div>
         </div>
 
-        <p class="pkg-note fade-in">Enterprise needs? <a href="mailto:contact@7eightmade.com">Email us directly</a> and we'll put together a custom scope.</p>
+        <p class="pkg-note fade-in">Enterprise needs? <a href="mailto:nuguidd@icloud.com">Email us directly</a> and we'll put together a custom scope.</p>
       </div>
     </section>
 
     <!-- ═════════════════════════════ STACKS ═════════════════════════════ -->
-    <section class="section" id="stacks">
+    <section class="section section--alt" id="stacks">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">Integrations</span>
@@ -964,7 +1145,7 @@
             <p class="about__body">
               We're a lean micro-consulting shop specializing in AI assistants, workflow automation, and smart integrations. We work closely with each client, move fast, and leave you with systems that are yours to own.
             </p>
-            <a class="btn btn--ghost" href="mailto:contact@7eightmade.com">Get in touch</a>
+            <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com">Get in touch</a>
           </div>
           <div class="about__values fade-in delay-1">
             <div class="value-item">
@@ -989,7 +1170,7 @@
     </section>
 
     <!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">FAQ</span>
@@ -1018,14 +1199,14 @@
           </details>
           <details class="faq-item">
             <summary>Do you work with enterprise teams?</summary>
-            <div class="faq-item__body">Yes. For larger or more complex needs, reach out directly at <a href="mailto:contact@7eightmade.com" style="color:var(--gold)">contact@7eightmade.com</a> and we'll put together a custom scope and proposal.</div>
+            <div class="faq-item__body">Yes. For larger or more complex needs, reach out directly at <a href="mailto:nuguidd@icloud.com" style="color:var(--gold)">nuguidd@icloud.com</a> and we'll put together a custom scope and proposal.</div>
           </details>
         </div>
       </div>
     </section>
 
     <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
-    <section class="section" id="contact">
+    <section class="section section--alt" id="contact">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">Contact</span>
@@ -1036,7 +1217,7 @@
           <!-- Form -->
           <div class="fade-in">
             <h3 class="contact__title">Send a message</h3>
-            <p class="contact__sub">Or email us at <a href="mailto:contact@7eightmade.com">contact@7eightmade.com</a></p>
+            <p class="contact__sub">Or email us at <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a></p>
             <form action="https://formspree.io/f/xbldzknn" method="POST">
               <div class="form-group">
                 <div class="form-field">
@@ -1056,16 +1237,14 @@
             </form>
           </div>
 
-          <!-- Calendly -->
+          <!-- Book a call -->
           <div class="fade-in delay-1">
-            <h3 class="contact__title">Book a call</h3>
-            <p class="contact__sub">Pick a time that works for you.</p>
-            <div class="calendly-wrap">
-              <iframe title="Calendly booking" src="https://calendly.com/"></iframe>
-            </div>
-            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn btn--outline" href="https://calendly.com/">Open Calendly ↗</a>
-              <a class="btn btn--outline" href="mailto:contact@7eightmade.com?subject=Free%20AI%20Audit">Email instead</a>
+            <div class="contact-book">
+              <div class="contact-book__kicker">Book a call</div>
+              <div class="contact-book__title">Tell us what to automate.</div>
+              <p class="contact-book__body">Share a few times that work and what you want shipped. We’ll confirm a slot quickly.</p>
+              <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Book%20a%20call%20—%207EightMade" style="width:100%;display:flex;justify-content:center;">Email to book a call</a>
+              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit" style="width:100%;display:flex;justify-content:center;">Book Free AI Audit</a>
             </div>
           </div>
         </div>
@@ -1103,7 +1282,7 @@
           <a href="#services">Services</a>
           <a href="#packages">Packages</a>
           <a href="#about">About</a>
-          <a href="mailto:contact@7eightmade.com">Contact</a>
+          <a href="mailto:nuguidd@icloud.com">Contact</a>
         </div>
       </div>
     </div>
