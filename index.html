@@ -915,6 +915,103 @@
         animation: none !important;
       }
     }
+
+    /* ── OpenClaw ink flood (sticky scene) ─────────────────── */
+    .oc-flood {
+      position: relative;
+      height: 235vh;
+      background: var(--ink);
+    }
+    .oc-flood .openclaw {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px 0 88px;
+      box-sizing: border-box;
+      /* flood progress driven by --flood 0→1 */
+      --flood: 0;
+    }
+    .oc-flood .openclaw > .container {
+      width: 100%;
+      transform: scale(calc(0.94 + (var(--flood) * 0.06)));
+      opacity: calc(0.35 + (var(--flood) * 0.65));
+      filter: saturate(calc(0.7 + var(--flood) * 0.3));
+      transition: none;
+    }
+    .oc-flood-ink {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% 40%, rgba(37,99,255,.18), transparent 58%),
+        radial-gradient(ellipse 70% 50% at 80% 80%, rgba(15,118,110,.16), transparent 55%),
+        var(--ink);
+      opacity: calc(0.55 + var(--flood, 0) * 0.45);
+    }
+    .oc-flood .openclaw > .container { position: relative; z-index: 1; }
+    /* Disable old one-shot clip when flooding */
+    .oc-flood .openclaw.oc-pending,
+    .oc-flood .openclaw.oc-pending.is-revealed {
+      clip-path: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+      filter: none !important;
+      scale: 1;
+    }
+    .oc-flood .openclaw.oc-pending::before,
+    .oc-flood .openclaw.oc-pending.is-revealed::before {
+      display: none !important;
+    }
+    .oc-flood.is-exit .openclaw {
+      /* hard wipe exit cue via overlay handled in JS */
+    }
+
+    /* ── Sand iris route / chapter transition ─────────────── */
+    #routeIris {
+      position: fixed; inset: 0; z-index: 200000;
+      background: #F3EFE6;
+      pointer-events: none;
+      clip-path: circle(0% at 50% 42%);
+      visibility: hidden;
+    }
+    #routeIris.is-armed {
+      visibility: visible;
+      pointer-events: auto;
+    }
+    #routeIris.is-closing {
+      animation: routeIrisClose 0.62s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+    }
+    #routeIris.is-opening {
+      animation: routeIrisOpen 0.72s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+    @keyframes routeIrisClose {
+      from { clip-path: circle(0% at 50% 42%); }
+      to   { clip-path: circle(150% at 50% 42%); }
+    }
+    @keyframes routeIrisOpen {
+      from { clip-path: circle(150% at 50% 42%); }
+      to   { clip-path: circle(0% at 50% 42%); }
+    }
+    @media (max-width: 900px) {
+      .oc-flood { height: 200vh; }
+      .oc-flood .openclaw { padding: 72px 0 64px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oc-flood { height: auto; }
+      .oc-flood .openclaw {
+        position: relative; min-height: 0;
+      }
+      .oc-flood .openclaw > .container {
+        transform: none; opacity: 1; filter: none;
+      }
+      #routeIris { display: none !important; }
+    }
+
   </style>
 </head>
 <body id="top">
@@ -968,6 +1065,7 @@
 
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div id="routeIris" aria-hidden="true"></div>
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
@@ -1234,7 +1332,9 @@
       </div>
     </section>
 
-    <section class="openclaw" id="openclaw">
+    <div class="oc-flood" id="ocFlood">
+      <div class="oc-flood-ink" aria-hidden="true"></div>
+      <section class="openclaw" id="openclaw">
       <div class="container">
         <div class="oc__intro">
           <div>
@@ -1326,6 +1426,8 @@
         <p class="oc-note">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com">Email us</a> for a hardware quote.</p>
       </div>
     </section>
+    </div><!-- /.oc-flood -->
+
 
     <section class="section" id="stacks">
       <div class="container">
@@ -1555,6 +1657,23 @@
         });
       }
 
+      const ocFlood = document.getElementById('ocFlood');
+      function inkFlood() {
+        if (!ocFlood || !openclaw) return;
+        if (reduceMotion) {
+          openclaw.style.setProperty('--flood', '1');
+          return;
+        }
+        const rect = ocFlood.getBoundingClientRect();
+        const vh = window.innerHeight || 1;
+        const travel = Math.max(1, ocFlood.offsetHeight - vh);
+        const scrolled = Math.min(travel, Math.max(0, -rect.top));
+        const p = scrolled / travel;
+        const eased = p < 0.55 ? Math.pow(p / 0.55, 0.85) : 1;
+        openclaw.style.setProperty('--flood', eased.toFixed(4));
+        ocFlood.classList.toggle('is-deep', eased > 0.72);
+      }
+
       function onScroll() {
         if (ticking) return;
         ticking = true;
@@ -1562,6 +1681,7 @@
           pageProgress();
           navDeepen();
           processLine();
+          inkFlood();
           ticking = false;
         });
       }
@@ -1605,34 +1725,81 @@
         }
       }
 
-      /* OpenClaw ink reveal — primary drama, one-shot with brief hold */
-      if (openclaw) {
-        if (reduceMotion) {
-          openclaw.classList.add('is-instant', 'is-revealed');
-        } else {
-          openclaw.classList.add('oc-pending');
-          let revealed = false;
-          const reveal = () => {
-            if (revealed) return;
-            revealed = true;
-            // Brief hold on sand veil before the wipe — scene change energy
-            setTimeout(() => openclaw.classList.add('is-revealed'), 220);
+    })();
+
+    /* ── Sand iris: chapter / page transitions ── */
+    (function routeIris() {
+      if (reduceMotion) return;
+      const iris = document.getElementById('routeIris');
+      if (!iris) return;
+
+      // Opening wipe when arriving from another page
+      try {
+        if (sessionStorage.getItem('78-iris-pending') === '1') {
+          sessionStorage.removeItem('78-iris-pending');
+          iris.classList.add('is-armed', 'is-opening');
+          const done = () => {
+            iris.classList.remove('is-armed', 'is-opening');
+            iris.removeEventListener('animationend', done);
           };
-          const rect = openclaw.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.78 && rect.bottom > 0) {
-            requestAnimationFrame(() => requestAnimationFrame(reveal));
-          } else {
-            const ocObs = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                reveal();
-                ocObs.disconnect();
-              });
-            }, { threshold: 0.14, rootMargin: '0px 0px -10% 0px' });
-            ocObs.observe(openclaw);
-          }
+          iris.addEventListener('animationend', done);
+          setTimeout(done, 900);
         }
+      } catch (e) {}
+
+      function playCloseThen(next) {
+        iris.classList.add('is-armed', 'is-closing');
+        const finish = () => {
+          iris.removeEventListener('animationend', finish);
+          next();
+        };
+        iris.addEventListener('animationend', finish);
+        setTimeout(finish, 700);
       }
+
+      // Same-origin HTML navigations
+      document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || this.target === '_blank') return;
+          const href = this.getAttribute('href');
+          if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) return;
+          // External absolute http already returned; allow relative .html
+          const isPage = /\.html(?:#.*)?$/.test(href) || href === '/' || href.endsWith('/');
+          const isHash = href.startsWith('#') && href.length > 1;
+          if (!isPage && !isHash) return;
+          // Major chapter hashes get iris; skip tiny in-page (#top)
+          const major = ['#services','#process','#pricing','#openclaw','#stacks','#about','#faq','#contact','#proof'];
+          if (isHash && !major.includes(href)) return;
+          if (isHash && href === '#top') return;
+
+          e.preventDefault();
+          e.stopImmediatePropagation();
+
+          playCloseThen(() => {
+            if (isPage) {
+              try { sessionStorage.setItem('78-iris-pending', '1'); } catch (err) {}
+              window.location.href = href;
+              return;
+            }
+            const target = document.querySelector(href);
+            if (!target) { iris.classList.remove('is-armed', 'is-closing'); return; }
+            const top = target.getBoundingClientRect().top + window.scrollY - 84;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+            // Open iris after jump
+            iris.classList.remove('is-closing');
+            void iris.offsetWidth;
+            iris.classList.add('is-opening');
+            const done = () => {
+              iris.classList.remove('is-armed', 'is-opening');
+              iris.removeEventListener('animationend', done);
+            };
+            iris.addEventListener('animationend', done);
+            setTimeout(done, 900);
+            const navEl = document.getElementById('nav');
+            if (navEl) navEl.classList.remove('nav--open');
+          });
+        }, true); // capture before smooth-scroll handler
+      });
     })();
     (function() {
       const nav = document.getElementById('nav');
