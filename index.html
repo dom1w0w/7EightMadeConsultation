@@ -1,4 +1,4 @@
-<!-- 7EightMade redesign v2 — Signal system — all-five luxury scroll suite -->
+<!-- 7EightMade Signal — editorial cinematic scroll (Dom B+C) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -100,36 +100,45 @@
     }
     .check--light { background: rgba(243,239,230,.1); color: #5EEAD4; }
 
-    /* Section veil — soft editorial fade */
-    .fade-in {
+    /* Signature motion only — stillness as luxury; no carpet fades */
+    .hero-enter {
       opacity: 0;
-      transform: translateY(14px);
+      transform: translateY(18px);
+      filter: blur(6px);
       transition:
-        opacity .78s cubic-bezier(.22, 1, .36, 1),
-        transform .78s cubic-bezier(.22, 1, .36, 1);
-      will-change: opacity, transform;
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.15s cubic-bezier(.22, 1, .36, 1),
+        filter 1.2s cubic-bezier(.22, 1, .36, 1);
+      will-change: opacity, transform, filter;
     }
-    .fade-in.visible { opacity: 1; transform: none; will-change: auto; }
-    .fade-in.d1 { transition-delay: .09s; }
-    .fade-in.d2 { transition-delay: .18s; }
-    .fade-in.d3 { transition-delay: .27s; }
-    /* Stagger sibling columns that share a grid without explicit delays */
-    .tracks__grid > .fade-in:nth-child(1),
-    .pricing__grid > .fade-in:nth-child(1),
-    .build__grid > .fade-in:nth-child(1),
-    .proof__grid > .fade-in:nth-child(1),
-    .oc-pkgs > .fade-in:nth-child(1) { transition-delay: 0s; }
-    .tracks__grid > .fade-in:nth-child(2),
-    .pricing__grid > .fade-in:nth-child(2),
-    .build__grid > .fade-in:nth-child(2),
-    .proof__grid > .fade-in:nth-child(2),
-    .oc-pkgs > .fade-in:nth-child(2) { transition-delay: .1s; }
-    .tracks__grid > .fade-in:nth-child(3),
-    .pricing__grid > .fade-in:nth-child(3),
-    .build__grid > .fade-in:nth-child(3),
-    .proof__grid > .fade-in:nth-child(3),
-    .oc-pkgs > .fade-in:nth-child(3) { transition-delay: .2s; }
-    .build__grid > .fade-in:nth-child(4) { transition-delay: .28s; }
+    .hero-enter.is-in {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+      will-change: auto;
+    }
+    .hero-enter--card {
+      transition-delay: .18s;
+    }
+    .proof-reveal {
+      opacity: 0;
+      filter: blur(8px);
+      clip-path: inset(8% 0 8% 0);
+      transform: translateY(10px);
+      transition:
+        opacity 1.2s cubic-bezier(.22, 1, .36, 1),
+        filter 1.35s cubic-bezier(.22, 1, .36, 1),
+        clip-path 1.25s cubic-bezier(.22, 1, .36, 1),
+        transform 1.2s cubic-bezier(.22, 1, .36, 1);
+      will-change: opacity, filter, clip-path, transform;
+    }
+    .proof-reveal.is-in {
+      opacity: 1;
+      filter: blur(0);
+      clip-path: inset(0 0 0 0);
+      transform: none;
+      will-change: auto;
+    }
 
     .section { padding: 100px 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .section--tight { padding: 72px 0; }
@@ -295,13 +304,15 @@
       position: absolute; top: 28px; left: 8%; height: 2px; width: calc(84% * var(--process-p, 0));
       background: linear-gradient(90deg, var(--cobalt), #5B8AFF);
       border-radius: 2px; z-index: 0; pointer-events: none;
-      box-shadow: 0 0 12px rgba(37,99,255,.25);
-      transition: width .12s linear;
+      box-shadow: 0 0 14px rgba(37,99,255,.28);
+      transition: width .08s linear;
     }
     .process__step {
       padding: 0 20px; position: relative; text-align: left;
-      transition: opacity .5s cubic-bezier(.22,1,.36,1);
+      opacity: .55;
+      transition: opacity .9s cubic-bezier(.22,1,.36,1);
     }
+    .process__step.is-lit { opacity: 1; }
     .process__step.is-lit .process__marker {
       background: var(--cobalt); color: var(--white);
       box-shadow: 0 0 0 6px var(--paper-2), 0 8px 20px rgba(37,99,255,.22);
@@ -312,7 +323,7 @@
       border: 2px solid var(--cobalt); display: grid; place-items: center;
       font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--cobalt);
       margin-bottom: 24px; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--paper-2);
-      transition: background .45s cubic-bezier(.22,1,.36,1), color .45s ease, box-shadow .45s ease;
+      transition: background .9s cubic-bezier(.22,1,.36,1), color .9s ease, box-shadow .9s ease;
     }
     .process__name {
       font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600;
@@ -347,22 +358,9 @@
     .pkg--featured {
       border-color: var(--cobalt);
       box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt);
-      transition:
-        transform .65s cubic-bezier(.22,1,.36,1),
-        box-shadow .65s cubic-bezier(.22,1,.36,1),
-        border-color .65s ease;
-      transform-origin: center center;
+      transition: box-shadow var(--transition), border-color var(--transition);
     }
-    .pkg--featured:hover { transform: translateY(-3px); }
-    .pkg--featured.is-lifted {
-      transform: scale(1.02);
-      border-color: #1a4fd9;
-      box-shadow:
-        var(--shadow-lg),
-        0 0 0 1.5px var(--cobalt),
-        0 18px 44px rgba(37,99,255,.16);
-    }
-    .pkg--featured.is-lifted:hover { transform: scale(1.02) translateY(-2px); }
+    .pkg--featured:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt); }
     .pkg__badge {
       position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase; background: var(--cobalt); color: var(--white);
@@ -390,35 +388,45 @@
     .openclaw::before {
       content: '';
       position: absolute; inset: 0; z-index: 3; pointer-events: none;
-      background: linear-gradient(180deg, var(--sand) 0%, #C9BFAE 28%, var(--ink) 72%);
+      /* denser sand→ink veil for scene-change contrast */
+      background:
+        linear-gradient(180deg,
+          #E8E2D6 0%,
+          var(--sand) 18%,
+          #C9BFAE 42%,
+          #3A342C 68%,
+          var(--ink) 88%);
       opacity: 0;
-      transform: translateY(-108%);
+      transform: translateY(-112%);
     }
     .openclaw > .container { position: relative; z-index: 1; }
-    /* Armed by JS (no-JS stays fully visible). Keep class through reveal so transitions persist. */
+    /* Armed by JS (no-JS stays fully visible). Longer cinematic wipe + brief hold feel. */
     .openclaw.oc-pending {
-      transform: scale(0.985);
-      opacity: .9;
-      clip-path: inset(14% 0 0 0);
+      transform: scale(0.978);
+      opacity: .72;
+      clip-path: inset(22% 0 0 0);
+      filter: saturate(.85) contrast(1.05);
       transition:
-        clip-path 1.15s cubic-bezier(.22,1,.36,1),
-        opacity .95s cubic-bezier(.22,1,.36,1),
-        transform 1.15s cubic-bezier(.22,1,.36,1);
+        clip-path 1.45s cubic-bezier(.19, 1, .22, 1) .12s,
+        opacity 1.25s cubic-bezier(.22, 1, .36, 1) .18s,
+        transform 1.4s cubic-bezier(.19, 1, .22, 1) .1s,
+        filter 1.3s cubic-bezier(.22, 1, .36, 1) .2s;
     }
     .openclaw.oc-pending::before {
-      opacity: .92;
+      opacity: 1;
       transform: translateY(0);
       transition:
-        transform 1.2s cubic-bezier(.22,1,.36,1),
-        opacity .9s cubic-bezier(.4,0,.2,1);
+        transform 1.55s cubic-bezier(.19, 1, .22, 1) .08s,
+        opacity 1.1s cubic-bezier(.4, 0, .2, 1) .55s;
     }
     .openclaw.oc-pending.is-revealed {
       clip-path: inset(0 0 0 0);
       opacity: 1;
       transform: scale(1);
+      filter: none;
     }
     .openclaw.oc-pending.is-revealed::before {
-      transform: translateY(-108%);
+      transform: translateY(-112%);
       opacity: 0;
     }
     .openclaw.is-instant,
@@ -427,6 +435,7 @@
       clip-path: none !important;
       opacity: 1 !important;
       transform: none !important;
+      filter: none !important;
     }
     .openclaw.is-instant::before { display: none; }
     .openclaw .section__title { color: var(--paper); }
@@ -628,8 +637,6 @@
       }
       .process__step { padding: 0 0 0 56px; }
       .process__marker { margin-left: -56px; }
-      .pkg--featured.is-lifted,
-      .pkg--featured.is-lifted:hover { transform: none; }
       .oc-steps { grid-template-columns: 1fr; gap: 16px; }
       .oc-steps::before { display: none; }
       .oc-step { flex-direction: row; text-align: left; align-items: flex-start; padding: 0; gap: 14px; }
@@ -870,17 +877,12 @@
       box-shadow: 0 0 8px rgba(37,99,255,.2);
     }
 
-    /* Soft hero parallax (desktop only) */
-    .hero__card {
-      will-change: transform;
-      transition: transform .2s linear;
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .fade-in {
-        opacity: 1; transform: none;
-        transition: none !important; will-change: auto;
+      .hero-enter,
+      .proof-reveal {
+        opacity: 1 !important; transform: none !important; filter: none !important;
+        clip-path: none !important; transition: none !important; will-change: auto;
       }
       .openclaw,
       .openclaw.oc-pending,
@@ -891,19 +893,14 @@
         clip-path: none !important;
         opacity: 1 !important;
         transform: none !important;
+        filter: none !important;
       }
       .openclaw::before,
       .openclaw.oc-pending::before { display: none !important; }
-      .pkg--featured.is-lifted,
-      .pkg--featured.is-lifted:hover { transform: none; }
       .process__progress { transition: none; }
+      .process__step { opacity: 1; transition: none; }
       .scroll-progress { display: none; }
-      .hero__card { transition: none; transform: none !important; }
       .nav { transition: none; }
-    }
-
-    @media (max-width: 900px) {
-      .hero__card { transform: none !important; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1033,25 +1030,25 @@
     <div class="container">
       <div class="hero__grid">
         <div>
-          <h1 class="hero__title fade-in">
+          <h1 class="hero__title hero-enter">
             Less busywork<br>
             <em>More signal</em><br>
             Ship smarter
           </h1>
-          <p class="hero__lead fade-in d1">
+          <p class="hero__lead">
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
-          <div class="hero__ctas fade-in d2">
+          <div class="hero__ctas">
             <a class="btn btn--cobalt" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
             <a class="hero__secondary" href="#pricing">See packages</a>
           </div>
-          <div class="hero__chips fade-in d3">
+          <div class="hero__chips">
             <span class="chip">Pilots in 24–72h</span>
             <span class="chip">No lock-in</span>
             <span class="chip">Your data, your stack</span>
           </div>
         </div>
-        <div class="hero__card fade-in d2">
+        <div class="hero__card hero-enter hero-enter--card">
           <h3>What we ship</h3>
           <ul class="checklist">
             <li><span class="check">✓</span><div><strong>Chat assistants</strong> trained on your SOPs, docs, and tone.</div></li>
@@ -1067,23 +1064,23 @@
     </div>
   </header>
 
-  <div class="proof">
-    <div class="container">
+  <div class="proof" id="proof">
+    <div class="container proof-reveal" id="proofReveal">
       <div class="proof__grid">
-        <div class="fade-in">
+        <div>
           <div class="proof__stat">24–72h</div>
           <div class="proof__label">pilots</div>
         </div>
-        <div class="fade-in d1">
+        <div>
           <div class="proof__stat">No lock-in</div>
           <div class="proof__label">you own everything</div>
         </div>
-        <div class="fade-in d2">
+        <div>
           <div class="proof__stat">Your stack</div>
           <div class="proof__label">no rip-and-replace</div>
         </div>
       </div>
-      <p class="proof__trust fade-in d2">
+      <p class="proof__trust">
         <span class="proof__trust-caption">Built on your stack</span>
         Salesforce · Google Workspace · Slack · HubSpot
       </p>
@@ -1094,19 +1091,19 @@
 
     <section class="section" id="services">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">Services</span>
           <h2 class="section__title">Two ways to ship.</h2>
           <p class="section__sub">Cloud-native consulting on your tools — or a fully private AI stack on your hardware.</p>
         </div>
         <div class="tracks__grid">
-          <a href="#pricing" class="track track--consulting fade-in">
+          <a href="#pricing" class="track track--consulting">
             <span class="track__badge track__badge--cobalt">Consulting</span>
             <h3 class="track__title">AI Micro‑Consulting</h3>
             <p class="track__desc">Assistants, automations, and dashboards built on Salesforce, Workspace, Notion, and the rest of your stack.</p>
             <span class="track__cta">See packages</span>
           </a>
-          <a href="#openclaw" class="track track--openclaw fade-in d1">
+          <a href="#openclaw" class="track track--openclaw">
             <span class="track__badge track__badge--emerald">Local / private</span>
             <h3 class="track__title">OpenClaw</h3>
             <p class="track__desc">A fully local AI stack on hardware you own. Zero data leaves your network. No cloud. No subscriptions.</p>
@@ -1118,14 +1115,14 @@
 
     <section class="section section--paper2 process" id="process">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">Process</span>
           <h2 class="section__title">Three phases.<br>One continuous loop.</h2>
           <p class="section__sub">From mapping your workflows to shipping and sustaining them—we cover the full lifecycle.</p>
         </div>
         <div class="process__rail" id="processRail">
           <div class="process__progress" aria-hidden="true"></div>
-          <div class="process__step fade-in">
+          <div class="process__step">
             <div class="process__marker">01</div>
             <h3 class="process__name">Discovery</h3>
             <p class="process__desc">Map workflows, score automation ROI, and blueprint the first wins.</p>
@@ -1135,7 +1132,7 @@
               <li><span class="check">✓</span><div>90‑day automation roadmap</div></li>
             </ul>
           </div>
-          <div class="process__step fade-in d1">
+          <div class="process__step">
             <div class="process__marker">02</div>
             <h3 class="process__name">Build</h3>
             <p class="process__desc">We implement: assistants, zaps, prompts, and dashboards that work.</p>
@@ -1145,7 +1142,7 @@
               <li><span class="check">✓</span><div>Secure handoff & training</div></li>
             </ul>
           </div>
-          <div class="process__step fade-in d2">
+          <div class="process__step">
             <div class="process__marker">03</div>
             <h3 class="process__name">Operate</h3>
             <p class="process__desc">Monitoring, prompt tuning, edge‑case fixes, and new experiments.</p>
@@ -1161,27 +1158,27 @@
 
     <section class="section section--tight" id="build">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">Deliverables</span>
           <h2 class="section__title">What we build.</h2>
         </div>
         <div class="build__grid">
-          <div class="build-card fade-in">
+          <div class="build-card">
             <div class="build-card__icon">💬</div>
             <h3 class="build-card__title">Chat assistants</h3>
             <p class="build-card__desc">Trained on your SOPs, docs, and tone — ready for your team to use day one.</p>
           </div>
-          <div class="build-card fade-in d1">
+          <div class="build-card">
             <div class="build-card__icon">⚡</div>
             <h3 class="build-card__title">Workflow automations</h3>
             <p class="build-card__desc">Across email, sheets, CRMs, and helpdesks — quietly doing the busywork.</p>
           </div>
-          <div class="build-card fade-in d2">
+          <div class="build-card">
             <div class="build-card__icon">📊</div>
             <h3 class="build-card__title">Dashboards</h3>
             <p class="build-card__desc">For KPIs, dealflow, and ops rituals — visibility without the spreadsheet chase.</p>
           </div>
-          <div class="build-card fade-in d3">
+          <div class="build-card">
             <div class="build-card__icon">🔗</div>
             <h3 class="build-card__title">Lightweight integrations</h3>
             <p class="build-card__desc">That sit on top of your stack — no rip-and-replace, no migration headaches.</p>
@@ -1192,13 +1189,13 @@
 
     <section class="section section--paper2" id="pricing">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">Pricing</span>
           <h2 class="section__title">Transparent packages.<br>No surprises.</h2>
           <p class="section__sub">Fixed-scope, fixed-price. You always know exactly what you're getting.</p>
         </div>
         <div class="pricing__grid">
-          <div class="pkg fade-in">
+          <div class="pkg">
             <div class="pkg__label">Starter</div>
             <div class="pkg__price">$1,250</div>
             <p class="pkg__desc">One focused use‑case, shipped in 72 hours.</p>
@@ -1209,7 +1206,7 @@
             </ul>
             <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Starter%20Package%20—%207EightMade">Get Starter</a>
           </div>
-          <div class="pkg pkg--featured fade-in d1">
+          <div class="pkg pkg--featured">
             <div class="pkg__badge">Most Popular</div>
             <div class="pkg__label">Team</div>
             <div class="pkg__price">$3,500</div>
@@ -1221,7 +1218,7 @@
             </ul>
             <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Team%20Package%20—%207EightMade">Get Team</a>
           </div>
-          <div class="pkg fade-in d2">
+          <div class="pkg">
             <div class="pkg__label">Operator</div>
             <div class="pkg__price">$1,250<span class="pkg__period">/mo</span></div>
             <p class="pkg__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
@@ -1233,14 +1230,14 @@
             <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Operator%20Plan%20—%207EightMade">Join Waitlist</a>
           </div>
         </div>
-        <p class="pkg-note fade-in">Enterprise needs? <a href="mailto:nuguidd@icloud.com">Email us directly</a> and we'll put together a custom scope.</p>
+        <p class="pkg-note">Enterprise needs? <a href="mailto:nuguidd@icloud.com">Email us directly</a> and we'll put together a custom scope.</p>
       </div>
     </section>
 
     <section class="openclaw" id="openclaw">
       <div class="container">
         <div class="oc__intro">
-          <div class="fade-in">
+          <div>
             <span class="eyebrow eyebrow--emerald">OpenClaw</span>
             <h2 class="oc__title">Your AI<br>Your hardware<br><em>Your rules</em></h2>
             <p class="oc__body">
@@ -1251,7 +1248,7 @@
             </p>
             <span class="oc__airgap">100% Air-gappable</span>
           </div>
-          <div class="oc-compare fade-in d1">
+          <div class="oc-compare">
             <div class="oc-compare__row">
               <div class="oc-compare__cell bad"><strong>Cloud AI</strong>Your data sent to external servers</div>
               <div class="oc-compare__cell good"><strong>OpenClaw</strong>Data never leaves your network</div>
@@ -1267,12 +1264,12 @@
           </div>
         </div>
 
-        <div class="section__head fade-in" style="margin-bottom:40px">
+        <div class="section__head" style="margin-bottom:40px">
           <span class="eyebrow eyebrow--emerald">How it works</span>
           <h3 class="section__title" style="font-size:clamp(24px,3vw,36px);color:var(--paper)">Local stack, end to end.</h3>
         </div>
 
-        <div class="oc-steps fade-in">
+        <div class="oc-steps">
           <div class="oc-step">
             <div class="oc-step__num">1</div>
             <div class="oc-step__text">We assess your hardware or ship a pre-configured Mac Mini M‑series</div>
@@ -1296,7 +1293,7 @@
         </div>
 
         <div class="oc-pkgs">
-          <div class="oc-pkg fade-in">
+          <div class="oc-pkg">
             <div class="oc-pkg__label">Software Only</div>
             <div class="oc-pkg__price">$2,500</div>
             <p class="oc-pkg__desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
@@ -1309,7 +1306,7 @@
             </ul>
             <a class="btn btn--outline-light btn--full" href="mailto:nuguidd@icloud.com?subject=OpenClaw%20Software%20—%207EightMade">Get OpenClaw</a>
           </div>
-          <div class="oc-pkg oc-pkg--featured fade-in d1">
+          <div class="oc-pkg oc-pkg--featured">
             <div class="oc-pkg__badge">Recommended</div>
             <div class="oc-pkg__label">With Mac Mini</div>
             <div class="oc-pkg__price">$3,500<span class="pkg__period" style="color:rgba(243,239,230,.5)">+</span></div>
@@ -1326,18 +1323,18 @@
             <a class="btn btn--emerald btn--full" href="mailto:nuguidd@icloud.com?subject=OpenClaw%20%2B%20Mac%20Mini%20—%207EightMade">Get OpenClaw + Mac Mini</a>
           </div>
         </div>
-        <p class="oc-note fade-in">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com">Email us</a> for a hardware quote.</p>
+        <p class="oc-note">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com">Email us</a> for a hardware quote.</p>
       </div>
     </section>
 
     <section class="section" id="stacks">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">Integrations</span>
           <h2 class="section__title">Built on your stack,<br>not a new one.</h2>
           <p class="section__sub">We plug into the tools you already run. No rip-and-replace, no migration headaches.</p>
         </div>
-        <div class="stacks__wrap fade-in">
+        <div class="stacks__wrap">
           <span class="stack-pill">Salesforce</span>
           <span class="stack-pill">Google Workspace</span>
           <span class="stack-pill">Microsoft 365</span>
@@ -1355,7 +1352,7 @@
     <section class="section section--paper2" id="about">
       <div class="container">
         <div class="about__split">
-          <div class="fade-in">
+          <div>
             <span class="eyebrow">About</span>
             <h2 class="about__title">We believe great ops<br>should be <em>invisible.</em></h2>
             <p class="about__body">
@@ -1366,7 +1363,7 @@
             </p>
             <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com">Get in touch</a>
           </div>
-          <div class="about__values fade-in d1">
+          <div class="about__values">
             <div class="value-chip">
               <div class="value-chip__label">Speed</div>
               <div class="value-chip__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
@@ -1390,11 +1387,11 @@
 
     <section class="section" id="faq">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">FAQ</span>
           <h2 class="section__title">Common questions.</h2>
         </div>
-        <div class="faq__grid fade-in">
+        <div class="faq__grid">
           <details class="faq-item">
             <summary>Do you replace our CRM?</summary>
             <div class="faq-item__body">No. We build assistants and automations that sit beside your stack. Keep your CRM—we help it work harder without touching your existing data architecture.</div>
@@ -1425,12 +1422,12 @@
 
     <section class="section section--paper2" id="contact">
       <div class="container">
-        <div class="section__head fade-in">
+        <div class="section__head">
           <span class="eyebrow">Contact</span>
           <h2 class="section__title">Let's build something<br>that actually works.</h2>
         </div>
         <div class="contact__split">
-          <div class="fade-in">
+          <div>
             <h3 class="contact__title">Send a message</h3>
             <p class="contact__sub">Or email us at <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a></p>
             <form action="https://formspree.io/f/xbldzknn" method="POST">
@@ -1451,7 +1448,7 @@
               </div>
             </form>
           </div>
-          <div class="fade-in d1">
+          <div>
             <div class="contact-book">
               <div class="contact-book__kicker">Book a call</div>
               <div class="contact-book__title">Tell us what to automate.</div>
@@ -1505,30 +1502,18 @@
       });
     });
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => {
-      if (reduceMotion) el.classList.add('visible');
-      else observer.observe(el);
-    });
-
-    /* ── Luxury scroll suite (vanilla) ───────────────────────── */
+    /* ── Quiet luxury scroll suite — signature moments only ── */
     (function luxScroll() {
       const nav = document.getElementById('nav');
       const progressEl = document.getElementById('scrollProgress');
       const hero = document.querySelector('.hero');
-      const heroCard = document.querySelector('.hero__card');
       const processSec = document.getElementById('process');
       const processRail = document.getElementById('processRail') || document.querySelector('.process__rail');
       const processSteps = processRail ? Array.from(processRail.querySelectorAll('.process__step')) : [];
       const openclaw = document.getElementById('openclaw');
-      const featured = document.querySelector('.pkg--featured');
-      const pricing = document.getElementById('pricing');
+      const proofReveal = document.getElementById('proofReveal');
+      const heroEnters = Array.from(document.querySelectorAll('.hero-enter'));
 
       let ticking = false;
 
@@ -1548,17 +1533,6 @@
         nav.classList.toggle('is-deep', pastHero || window.scrollY > 40);
       }
 
-      function softHeroParallax() {
-        if (!heroCard || reduceMotion || isMobile()) {
-          if (heroCard) heroCard.style.transform = '';
-          return;
-        }
-        const rect = hero.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-        const offset = Math.min(18, Math.max(-18, -rect.top * 0.06));
-        heroCard.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
-      }
-
       function processLine() {
         if (!processSec || !processRail) return;
         if (reduceMotion) {
@@ -1568,31 +1542,17 @@
         }
         const rect = processSec.getBoundingClientRect();
         const vh = window.innerHeight;
-        const start = vh * 0.72;
-        const end = vh * 0.28;
+        const start = vh * 0.75;
+        const end = vh * 0.22;
         const total = rect.height + (start - end);
         const scrolled = start - rect.top;
         let p = total > 0 ? scrolled / total : 0;
         p = Math.min(1, Math.max(0, p));
         processRail.style.setProperty('--process-p', p.toFixed(4));
-        const thresholds = [0.12, 0.45, 0.78];
+        const thresholds = [0.1, 0.42, 0.76];
         processSteps.forEach((step, i) => {
           step.classList.toggle('is-lit', p >= thresholds[i]);
         });
-      }
-
-      function pricingLift() {
-        if (!featured || !pricing) return;
-        if (reduceMotion || isMobile()) {
-          featured.classList.remove('is-lifted');
-          return;
-        }
-        const rect = pricing.getBoundingClientRect();
-        const mid = window.innerHeight * 0.5;
-        const center = rect.top + rect.height * 0.45;
-        const inCenter = Math.abs(center - mid) < Math.min(rect.height * 0.42, window.innerHeight * 0.38)
-          && rect.top < mid && rect.bottom > mid;
-        featured.classList.toggle('is-lifted', inCenter);
       }
 
       function onScroll() {
@@ -1601,9 +1561,7 @@
         requestAnimationFrame(() => {
           pageProgress();
           navDeepen();
-          softHeroParallax();
           processLine();
-          pricingLift();
           ticking = false;
         });
       }
@@ -1612,19 +1570,56 @@
       window.addEventListener('resize', onScroll, { passive: true });
       onScroll();
 
-      /* OpenClaw ink reveal — one-shot */
+      /* Hero — one refined load entrance (not scroll carpet) */
+      if (heroEnters.length) {
+        if (reduceMotion) {
+          heroEnters.forEach(el => el.classList.add('is-in'));
+        } else {
+          const run = () => heroEnters.forEach(el => el.classList.add('is-in'));
+          // Align with intro: first visit waits for iris wipe; return visits enter immediately
+          let introSeen = false;
+          try { introSeen = sessionStorage.getItem('78-intro-seen') === '1'; } catch (e) {}
+          setTimeout(run, introSeen ? 90 : 1680);
+        }
+      }
+
+      /* Proof strip — single elegant reveal */
+      if (proofReveal) {
+        if (reduceMotion) {
+          proofReveal.classList.add('is-in');
+        } else {
+          const revealProof = () => proofReveal.classList.add('is-in');
+          const pr = proofReveal.getBoundingClientRect();
+          if (pr.top < window.innerHeight * 0.92 && pr.bottom > 0) {
+            requestAnimationFrame(() => requestAnimationFrame(revealProof));
+          } else {
+            const proofObs = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                revealProof();
+                proofObs.disconnect();
+              });
+            }, { threshold: 0.28, rootMargin: '0px 0px -6% 0px' });
+            proofObs.observe(proofReveal);
+          }
+        }
+      }
+
+      /* OpenClaw ink reveal — primary drama, one-shot with brief hold */
       if (openclaw) {
         if (reduceMotion) {
           openclaw.classList.add('is-instant', 'is-revealed');
         } else {
-          // Arm pending state (no-JS stays fully visible)
           openclaw.classList.add('oc-pending');
+          let revealed = false;
           const reveal = () => {
-            openclaw.classList.add('is-revealed');
+            if (revealed) return;
+            revealed = true;
+            // Brief hold on sand veil before the wipe — scene change energy
+            setTimeout(() => openclaw.classList.add('is-revealed'), 220);
           };
-          // If already in view (hash jump / short viewport), reveal immediately
           const rect = openclaw.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+          if (rect.top < window.innerHeight * 0.78 && rect.bottom > 0) {
             requestAnimationFrame(() => requestAnimationFrame(reveal));
           } else {
             const ocObs = new IntersectionObserver((entries) => {
@@ -1633,7 +1628,7 @@
                 reveal();
                 ocObs.disconnect();
               });
-            }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+            }, { threshold: 0.14, rootMargin: '0px 0px -10% 0px' });
             ocObs.observe(openclaw);
           }
         }
