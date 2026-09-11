@@ -912,6 +912,186 @@
       gap: 4px;
     }
     .nav--open .nav__link { display: block; width: 100%; }
+
+    /* ── VISUAL POLISH 2026-09 ───────────────────────────────── */
+    :root {
+      --text-2: #B0ABA3;
+      --text-3: #6A665C;
+      --border: rgba(201,168,76,.08);
+    }
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
+    .section--alt {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border-2);
+      border-bottom: 1px solid var(--border-2);
+    }
+    .section__title {
+      max-width: 16ch;
+      letter-spacing: -0.02em;
+    }
+    .section__sub { max-width: 52ch; color: var(--text-2); }
+    .label::after { background: rgba(255,255,255,.08); max-width: 40px; }
+    .label { color: var(--gold-light); opacity: .85; }
+    .rule { background: rgba(201,168,76,.35); width: 28px; }
+
+    .checklist li { color: var(--text-2); font-size: 15px; line-height: 1.55; }
+    .check-icon {
+      border-color: rgba(255,255,255,.12);
+      color: var(--gold-light);
+      background: transparent;
+    }
+
+    .btn--outline {
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+      font-weight: 500;
+    }
+    .btn--outline:hover {
+      border-color: rgba(201,168,76,.45);
+      color: var(--gold-light);
+      box-shadow: none;
+    }
+    .btn--gold {
+      box-shadow: 0 0 0 1px rgba(201,168,76,.25);
+    }
+    .btn--gold:hover {
+      box-shadow: 0 0 28px rgba(201,168,76,.28);
+    }
+
+    .card {
+      transform: none;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.35);
+      border-color: rgba(255,255,255,.12);
+    }
+    .card:hover::before { opacity: .5; }
+    .card--quiet {
+      border-color: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.015);
+    }
+    .card--quiet:hover {
+      border-color: rgba(255,255,255,.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    }
+    .card--featured {
+      border-color: rgba(201,168,76,.45);
+      background: linear-gradient(160deg, rgba(201,168,76,.1), rgba(255,255,255,.02) 55%);
+      box-shadow: 0 0 0 1px rgba(201,168,76,.12), 0 20px 50px rgba(0,0,0,.35);
+      transform: scale(1.02);
+      z-index: 1;
+    }
+    .card--featured:hover {
+      transform: scale(1.02) translateY(-2px);
+      border-color: rgba(201,168,76,.55);
+    }
+
+    .packages__grid {
+      align-items: stretch;
+      gap: 20px;
+    }
+    .openclaw-grid .card {
+      transform: none;
+    }
+    .openclaw-grid .card--featured {
+      transform: none;
+      scale: 1;
+      box-shadow: none;
+      border-color: rgba(201,168,76,.28);
+      background: linear-gradient(145deg, rgba(201,168,76,.04), rgba(255,255,255,.02));
+    }
+    .openclaw-grid .price-num { font-size: 40px; }
+    .openclaw-header { opacity: .92; margin-top: 56px; }
+
+    .hero { padding: 112px 0 88px; }
+    .hero__title { max-width: 12ch; line-height: 1.05; }
+    .hero__lead { max-width: 38ch; font-size: 17px; color: var(--text-2); }
+    .hero__proof {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin: 18px 0 0;
+    }
+    .hero__proof .chip {
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,168,76,.25);
+      background: rgba(201,168,76,.06);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+    .hero__card {
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      box-shadow: none;
+    }
+    .hero__card h3 {
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      font-weight: 600;
+      font-family: inherit;
+    }
+    .hero__stacks {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: var(--text-3);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .hero__chips { display: none; } /* moved to proof under H1 */
+
+    .contact-book {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      padding: 36px 32px;
+      border: 1px solid rgba(201,168,76,.28);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,168,76,.12), transparent 60%),
+        rgba(255,255,255,.03);
+    }
+    .contact-book__kicker {
+      font-size: 11px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold-light);
+    }
+    .contact-book__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; line-height: 1.2; color: var(--text);
+    }
+    .contact-book__body { color: var(--text-2); font-size: 15px; max-width: 36ch; }
+
+    .fade-in { transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+    .fade-in.delay-1 { transition-delay: .04s; }
+    .fade-in.delay-2 { transition-delay: .08s; }
+    .fade-in.delay-3 { transition-delay: .12s; }
+    .fade-in.delay-4 { transition-delay: .16s; }
+
+    .nav__cta-desktop { margin-left: 8px; font-size: 13px; padding: 10px 18px; }
+    .nav__cta-mobile { display: none; width: 100%; justify-content: center; margin-top: 8px; }
+
+    @media (max-width: 900px) {
+      .card--featured { transform: none; }
+      .card--featured:hover { transform: translateY(-2px); }
+      .nav__cta-desktop { display: none !important; }
+      .nav--open .nav__cta-mobile { display: inline-flex; }
+      .section { padding: 72px 0; }
+      .hero { padding: 88px 0 64px; }
+    }
+    @media (hover: none) {
+      .card:hover, .card--featured:hover { transform: none; }
+    }
+
   </style>
 </head>
 <body id="top">
@@ -958,7 +1138,8 @@
         <a class="nav__link" href="#about">About</a>
         <a class="nav__link" href="#faq">FAQ</a>
         <a class="nav__link" href="#contact">Contact</a>
-        <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit" style="margin-left:8px;font-size:13px;padding:10px 18px;">Book Free AI Audit</a>
+        <a class="btn btn--gold nav__cta-desktop" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+        <a class="btn btn--gold nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
       </div>
 
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
@@ -980,17 +1161,16 @@
             Less busywork.<br><em>More signal.</em><br>Ship smarter.
           </h1>
           <p class="hero__lead fade-in delay-2">
-            We design prompt systems, automate workflows, and connect the tools you already use—including Salesforce. No fluff, just working ops.
+            Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
+          <div class="hero__proof fade-in delay-2">
+            <span class="chip">Pilots in 24–72h</span>
+            <span class="chip">No lock-in</span>
+            <span class="chip">Your data, your stack</span>
+          </div>
           <div class="hero__ctas fade-in delay-3">
             <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Project%20Inquiry">Start a project</a>
             <a class="btn btn--outline" href="#packages">See pricing</a>
-          </div>
-          <div class="hero__chips fade-in delay-4">
-            <span class="chip">24–72h Pilot</span>
-            <span class="chip">No Lock‑in</span>
-            <span class="chip">Your Data, Your Stack</span>
-            <span class="chip">Privacy‑first</span>
           </div>
         </div>
 
@@ -1074,7 +1254,7 @@
     </section>
 
     <!-- ════════════════════════════ PACKAGES ════════════════════════════ -->
-    <section class="section" id="packages">
+    <section class="section section--alt" id="packages">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">Pricing</span>
@@ -1084,7 +1264,7 @@
 
         <div class="packages__grid">
           <!-- Starter -->
-          <div class="card fade-in">
+          <div class="card card--quiet fade-in">
             <div class="pkg-card__label">Starter</div>
             <div class="price-num">$1,250</div>
             <p class="pkg-card__desc">One focused use‑case, shipped in 72 hours.</p>
@@ -1115,7 +1295,7 @@
           </div>
 
           <!-- Operator -->
-          <div class="card fade-in delay-2">
+          <div class="card card--quiet fade-in delay-2">
             <div class="pkg-card__label">Operator</div>
             <div class="price-num">$1,250<span class="price-period">/mo</span></div>
             <p class="pkg-card__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
@@ -1157,7 +1337,7 @@
         <div class="packages__grid openclaw-grid">
 
           <!-- OpenClaw — Software Only -->
-          <div class="card fade-in">
+          <div class="card card--quiet fade-in">
             <div class="pkg-card__label">Software Only</div>
             <div class="price-num">$2,500</div>
             <p class="pkg-card__desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
@@ -1291,7 +1471,7 @@
     </section>
 
     <!-- ═════════════════════════════ STACKS ═════════════════════════════ -->
-    <section class="section" id="stacks">
+    <section class="section section--alt" id="stacks">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">Integrations</span>
@@ -1352,7 +1532,7 @@
     </section>
 
     <!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">FAQ</span>
@@ -1388,7 +1568,7 @@
     </section>
 
     <!-- ════════════════════════════ CONTACT ════════════════════════════ -->
-    <section class="section" id="contact">
+    <section class="section section--alt" id="contact">
       <div class="container">
         <div class="section__header fade-in">
           <span class="label">Contact</span>
@@ -1421,12 +1601,12 @@
 
           <!-- Book a call -->
           <div class="fade-in delay-1">
-            <h3 class="contact__title">Book a call</h3>
-            <p class="contact__sub">Email us a few times that work — we’ll confirm a slot quickly.</p>
-            <div class="card" style="padding:28px;">
-              <p class="muted" style="margin-bottom:20px;font-size:15px;">Prefer email over a booking link for now. Tell us what you want to automate and when you’re free.</p>
+            <div class="contact-book">
+              <div class="contact-book__kicker">Book a call</div>
+              <div class="contact-book__title">Tell us what to automate.</div>
+              <p class="contact-book__body">Share a few times that work and what you want shipped. We’ll confirm a slot quickly.</p>
               <a class="btn btn--gold" href="mailto:nuguidd@icloud.com?subject=Book%20a%20call%20—%207EightMade" style="width:100%;display:flex;justify-content:center;">Email to book a call</a>
-              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit" style="width:100%;display:flex;justify-content:center;margin-top:10px;">Book Free AI Audit</a>
+              <a class="btn btn--outline" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit" style="width:100%;display:flex;justify-content:center;">Book Free AI Audit</a>
             </div>
           </div>
         </div>
