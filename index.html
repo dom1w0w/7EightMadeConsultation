@@ -1,4 +1,4 @@
-<!-- 7EightMade redesign v2 — Signal system — Dom review only, do not ship -->
+<!-- 7EightMade redesign v2 — Signal system — all-five luxury scroll suite -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -100,11 +100,36 @@
     }
     .check--light { background: rgba(243,239,230,.1); color: #5EEAD4; }
 
-    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
-    .fade-in.d1 { transition-delay: .06s; }
-    .fade-in.d2 { transition-delay: .12s; }
-    .fade-in.d3 { transition-delay: .18s; }
+    /* Section veil — soft editorial fade */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(14px);
+      transition:
+        opacity .78s cubic-bezier(.22, 1, .36, 1),
+        transform .78s cubic-bezier(.22, 1, .36, 1);
+      will-change: opacity, transform;
+    }
+    .fade-in.visible { opacity: 1; transform: none; will-change: auto; }
+    .fade-in.d1 { transition-delay: .09s; }
+    .fade-in.d2 { transition-delay: .18s; }
+    .fade-in.d3 { transition-delay: .27s; }
+    /* Stagger sibling columns that share a grid without explicit delays */
+    .tracks__grid > .fade-in:nth-child(1),
+    .pricing__grid > .fade-in:nth-child(1),
+    .build__grid > .fade-in:nth-child(1),
+    .proof__grid > .fade-in:nth-child(1),
+    .oc-pkgs > .fade-in:nth-child(1) { transition-delay: 0s; }
+    .tracks__grid > .fade-in:nth-child(2),
+    .pricing__grid > .fade-in:nth-child(2),
+    .build__grid > .fade-in:nth-child(2),
+    .proof__grid > .fade-in:nth-child(2),
+    .oc-pkgs > .fade-in:nth-child(2) { transition-delay: .1s; }
+    .tracks__grid > .fade-in:nth-child(3),
+    .pricing__grid > .fade-in:nth-child(3),
+    .build__grid > .fade-in:nth-child(3),
+    .proof__grid > .fade-in:nth-child(3),
+    .oc-pkgs > .fade-in:nth-child(3) { transition-delay: .2s; }
+    .build__grid > .fade-in:nth-child(4) { transition-delay: .28s; }
 
     .section { padding: 100px 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .section--tight { padding: 72px 0; }
@@ -127,6 +152,18 @@
       background: rgba(243,239,230,.84);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
+      transition:
+        background .4s cubic-bezier(.4,0,.2,1),
+        border-color .4s cubic-bezier(.4,0,.2,1),
+        box-shadow .4s cubic-bezier(.4,0,.2,1),
+        backdrop-filter .4s cubic-bezier(.4,0,.2,1),
+        -webkit-backdrop-filter .4s cubic-bezier(.4,0,.2,1);
+    }
+    .nav.is-deep {
+      background: rgba(243,239,230,.94);
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      border-bottom-color: rgba(60,45,20,.18);
+      box-shadow: 0 1px 0 rgba(60,45,20,.04), 0 10px 28px rgba(60,45,20,.05);
     }
     .nav__inner {
       display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -246,16 +283,36 @@
     .track__cta::after { content: '→'; transition: transform var(--transition); }
     .track:hover .track__cta::after { transform: translateX(4px); }
 
-    .process__rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+    .process__rail {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative;
+      --process-p: 0;
+    }
     .process__rail::before {
       content: ''; position: absolute; top: 28px; left: 8%; right: 8%; height: 2px; background: var(--line);
+      z-index: 0;
     }
-    .process__step { padding: 0 20px; position: relative; text-align: left; }
+    .process__progress {
+      position: absolute; top: 28px; left: 8%; height: 2px; width: calc(84% * var(--process-p, 0));
+      background: linear-gradient(90deg, var(--cobalt), #5B8AFF);
+      border-radius: 2px; z-index: 0; pointer-events: none;
+      box-shadow: 0 0 12px rgba(37,99,255,.25);
+      transition: width .12s linear;
+    }
+    .process__step {
+      padding: 0 20px; position: relative; text-align: left;
+      transition: opacity .5s cubic-bezier(.22,1,.36,1);
+    }
+    .process__step.is-lit .process__marker {
+      background: var(--cobalt); color: var(--white);
+      box-shadow: 0 0 0 6px var(--paper-2), 0 8px 20px rgba(37,99,255,.22);
+    }
+    .process__step.is-lit .process__name { color: var(--ink); }
     .process__marker {
       width: 56px; height: 56px; border-radius: 50%; background: var(--surface);
       border: 2px solid var(--cobalt); display: grid; place-items: center;
       font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--cobalt);
       margin-bottom: 24px; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--paper-2);
+      transition: background .45s cubic-bezier(.22,1,.36,1), color .45s ease, box-shadow .45s ease;
     }
     .process__name {
       font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600;
@@ -287,8 +344,25 @@
       transition: transform var(--transition), box-shadow var(--transition); position: relative;
     }
     .pkg:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .pkg--featured { border-color: var(--cobalt); box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt); }
+    .pkg--featured {
+      border-color: var(--cobalt);
+      box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt);
+      transition:
+        transform .65s cubic-bezier(.22,1,.36,1),
+        box-shadow .65s cubic-bezier(.22,1,.36,1),
+        border-color .65s ease;
+      transform-origin: center center;
+    }
     .pkg--featured:hover { transform: translateY(-3px); }
+    .pkg--featured.is-lifted {
+      transform: scale(1.02);
+      border-color: #1a4fd9;
+      box-shadow:
+        var(--shadow-lg),
+        0 0 0 1.5px var(--cobalt),
+        0 18px 44px rgba(37,99,255,.16);
+    }
+    .pkg--featured.is-lifted:hover { transform: scale(1.02) translateY(-2px); }
     .pkg__badge {
       position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase; background: var(--cobalt); color: var(--white);
@@ -308,7 +382,53 @@
     .pkg-note { margin-top: 24px; font-size: 13px; color: var(--muted); }
     .pkg-note a { color: var(--cobalt); font-weight: 500; }
 
-    .openclaw { background: var(--ink); color: var(--paper); padding: 112px 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
+    .openclaw {
+      background: var(--ink); color: var(--paper); padding: 112px 0;
+      scroll-margin-top: calc(var(--nav-h) + 24px);
+      position: relative; overflow: clip;
+    }
+    .openclaw::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 3; pointer-events: none;
+      background: linear-gradient(180deg, var(--sand) 0%, #C9BFAE 28%, var(--ink) 72%);
+      opacity: 0;
+      transform: translateY(-108%);
+    }
+    .openclaw > .container { position: relative; z-index: 1; }
+    /* Armed by JS (no-JS stays fully visible). Keep class through reveal so transitions persist. */
+    .openclaw.oc-pending {
+      transform: scale(0.985);
+      opacity: .9;
+      clip-path: inset(14% 0 0 0);
+      transition:
+        clip-path 1.15s cubic-bezier(.22,1,.36,1),
+        opacity .95s cubic-bezier(.22,1,.36,1),
+        transform 1.15s cubic-bezier(.22,1,.36,1);
+    }
+    .openclaw.oc-pending::before {
+      opacity: .92;
+      transform: translateY(0);
+      transition:
+        transform 1.2s cubic-bezier(.22,1,.36,1),
+        opacity .9s cubic-bezier(.4,0,.2,1);
+    }
+    .openclaw.oc-pending.is-revealed {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+      transform: scale(1);
+    }
+    .openclaw.oc-pending.is-revealed::before {
+      transform: translateY(-108%);
+      opacity: 0;
+    }
+    .openclaw.is-instant,
+    .openclaw.is-instant::before {
+      transition: none !important;
+      clip-path: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .openclaw.is-instant::before { display: none; }
     .openclaw .section__title { color: var(--paper); }
     .openclaw .section__sub { color: rgba(243,239,230,.6); }
     .oc__intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 72px; }
@@ -496,9 +616,20 @@
       .hero__grid, .tracks__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs, .build__grid { grid-template-columns: 1fr; }
       .pricing__grid { grid-template-columns: 1fr; gap: 16px; }
       .proof__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .process__rail { grid-template-columns: 1fr; gap: 36px; }
-      .process__rail::before { display: none; }
-      .process__step { padding: 0; }
+      .process__rail { grid-template-columns: 1fr; gap: 36px; padding-left: 8px; }
+      .process__rail::before {
+        display: block; top: 0; bottom: 0; left: 23px; right: auto;
+        width: 2px; height: auto; background: var(--line);
+      }
+      .process__progress {
+        top: 0; left: 23px; width: 2px; height: calc(100% * var(--process-p, 0));
+        background: linear-gradient(180deg, var(--cobalt), #5B8AFF);
+        transition: height .12s linear;
+      }
+      .process__step { padding: 0 0 0 56px; }
+      .process__marker { margin-left: -56px; }
+      .pkg--featured.is-lifted,
+      .pkg--featured.is-lifted:hover { transform: none; }
       .oc-steps { grid-template-columns: 1fr; gap: 16px; }
       .oc-steps::before { display: none; }
       .oc-step { flex-direction: row; text-align: left; align-items: flex-start; padding: 0; gap: 14px; }
@@ -559,7 +690,9 @@
       .section__head { margin-bottom: 32px; }
       .track { padding: 28px 20px; border-radius: 20px; }
       .track__title { font-size: 24px; }
-      .process__marker { width: 48px; height: 48px; font-size: 16px; margin-bottom: 16px; }
+      .process__marker { width: 48px; height: 48px; font-size: 16px; margin-bottom: 16px; margin-left: -52px; }
+      .process__step { padding-left: 52px; }
+      .process__rail::before, .process__progress { left: 19px; }
       .process__name { font-size: 20px; }
       .build__grid { gap: 14px; }
       .build-card { padding: 24px 18px; }
@@ -727,6 +860,52 @@
       to { opacity: 0; transform: scale(.96); }
     }
 
+
+    /* Page scroll progress — quiet cobalt hairline */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--cobalt), #5B8AFF);
+      z-index: 200; pointer-events: none;
+      transform-origin: left center;
+      box-shadow: 0 0 8px rgba(37,99,255,.2);
+    }
+
+    /* Soft hero parallax (desktop only) */
+    .hero__card {
+      will-change: transform;
+      transition: transform .2s linear;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-in {
+        opacity: 1; transform: none;
+        transition: none !important; will-change: auto;
+      }
+      .openclaw,
+      .openclaw.oc-pending,
+      .openclaw.oc-pending.is-revealed,
+      .openclaw::before,
+      .openclaw.oc-pending::before {
+        transition: none !important;
+        clip-path: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .openclaw::before,
+      .openclaw.oc-pending::before { display: none !important; }
+      .pkg--featured.is-lifted,
+      .pkg--featured.is-lifted:hover { transform: none; }
+      .process__progress { transition: none; }
+      .scroll-progress { display: none; }
+      .hero__card { transition: none; transform: none !important; }
+      .nav { transition: none; }
+    }
+
+    @media (max-width: 900px) {
+      .hero__card { transform: none !important; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       #intro.is-playing .intro__progress,
       #intro.is-playing .intro__progress::after,
@@ -790,6 +969,8 @@
     <button type="button" class="intro__skip" id="introSkip">Skip</button>
   </div>
 
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
@@ -935,14 +1116,15 @@
       </div>
     </section>
 
-    <section class="section section--paper2" id="process">
+    <section class="section section--paper2 process" id="process">
       <div class="container">
         <div class="section__head fade-in">
           <span class="eyebrow">Process</span>
           <h2 class="section__title">Three phases.<br>One continuous loop.</h2>
           <p class="section__sub">From mapping your workflows to shipping and sustaining them—we cover the full lifecycle.</p>
         </div>
-        <div class="process__rail">
+        <div class="process__rail" id="processRail">
+          <div class="process__progress" aria-hidden="true"></div>
           <div class="process__step fade-in">
             <div class="process__marker">01</div>
             <h3 class="process__name">Discovery</h3>
@@ -1322,12 +1504,141 @@
         if (t) { t.setAttribute('aria-expanded', 'false'); t.setAttribute('aria-label', 'Open menu'); }
       });
     });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => {
+      if (reduceMotion) el.classList.add('visible');
+      else observer.observe(el);
+    });
+
+    /* ── Luxury scroll suite (vanilla) ───────────────────────── */
+    (function luxScroll() {
+      const nav = document.getElementById('nav');
+      const progressEl = document.getElementById('scrollProgress');
+      const hero = document.querySelector('.hero');
+      const heroCard = document.querySelector('.hero__card');
+      const processSec = document.getElementById('process');
+      const processRail = document.getElementById('processRail') || document.querySelector('.process__rail');
+      const processSteps = processRail ? Array.from(processRail.querySelectorAll('.process__step')) : [];
+      const openclaw = document.getElementById('openclaw');
+      const featured = document.querySelector('.pkg--featured');
+      const pricing = document.getElementById('pricing');
+
+      let ticking = false;
+
+      function pageProgress() {
+        if (!progressEl) return;
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        const p = max > 0 ? (window.scrollY / max) * 100 : 0;
+        progressEl.style.width = Math.min(100, Math.max(0, p)).toFixed(2) + '%';
+      }
+
+      function navDeepen() {
+        if (!nav) return;
+        const pastHero = hero
+          ? window.scrollY > Math.max(40, hero.offsetHeight * 0.35)
+          : window.scrollY > 40;
+        nav.classList.toggle('is-deep', pastHero || window.scrollY > 40);
+      }
+
+      function softHeroParallax() {
+        if (!heroCard || reduceMotion || isMobile()) {
+          if (heroCard) heroCard.style.transform = '';
+          return;
+        }
+        const rect = hero.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        const offset = Math.min(18, Math.max(-18, -rect.top * 0.06));
+        heroCard.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
+      }
+
+      function processLine() {
+        if (!processSec || !processRail) return;
+        if (reduceMotion) {
+          processRail.style.setProperty('--process-p', '1');
+          processSteps.forEach(s => s.classList.add('is-lit'));
+          return;
+        }
+        const rect = processSec.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const start = vh * 0.72;
+        const end = vh * 0.28;
+        const total = rect.height + (start - end);
+        const scrolled = start - rect.top;
+        let p = total > 0 ? scrolled / total : 0;
+        p = Math.min(1, Math.max(0, p));
+        processRail.style.setProperty('--process-p', p.toFixed(4));
+        const thresholds = [0.12, 0.45, 0.78];
+        processSteps.forEach((step, i) => {
+          step.classList.toggle('is-lit', p >= thresholds[i]);
+        });
+      }
+
+      function pricingLift() {
+        if (!featured || !pricing) return;
+        if (reduceMotion || isMobile()) {
+          featured.classList.remove('is-lifted');
+          return;
+        }
+        const rect = pricing.getBoundingClientRect();
+        const mid = window.innerHeight * 0.5;
+        const center = rect.top + rect.height * 0.45;
+        const inCenter = Math.abs(center - mid) < Math.min(rect.height * 0.42, window.innerHeight * 0.38)
+          && rect.top < mid && rect.bottom > mid;
+        featured.classList.toggle('is-lifted', inCenter);
+      }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          pageProgress();
+          navDeepen();
+          softHeroParallax();
+          processLine();
+          pricingLift();
+          ticking = false;
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      onScroll();
+
+      /* OpenClaw ink reveal — one-shot */
+      if (openclaw) {
+        if (reduceMotion) {
+          openclaw.classList.add('is-instant', 'is-revealed');
+        } else {
+          // Arm pending state (no-JS stays fully visible)
+          openclaw.classList.add('oc-pending');
+          const reveal = () => {
+            openclaw.classList.add('is-revealed');
+          };
+          // If already in view (hash jump / short viewport), reveal immediately
+          const rect = openclaw.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
+            requestAnimationFrame(() => requestAnimationFrame(reveal));
+          } else {
+            const ocObs = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                reveal();
+                ocObs.disconnect();
+              });
+            }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+            ocObs.observe(openclaw);
+          }
+        }
+      }
+    })();
     (function() {
       const nav = document.getElementById('nav');
       const toggle = document.getElementById('navToggle');
