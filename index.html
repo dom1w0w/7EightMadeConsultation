@@ -920,7 +920,9 @@
     .oc-flood {
       position: relative;
       height: 235vh;
-      background: var(--ink);
+      /* starts lifted charcoal, deepens slightly then content brightens via --flood */
+      --flood: 0;
+      background: #16161f;
     }
     .oc-flood .openclaw {
       position: sticky;
@@ -932,14 +934,21 @@
       justify-content: center;
       padding: 96px 0 88px;
       box-sizing: border-box;
-      /* flood progress driven by --flood 0→1 */
-      --flood: 0;
+      background: transparent;
+      /* inherit flood from track */
+      --flood: inherit;
     }
     .oc-flood .openclaw > .container {
       width: 100%;
-      transform: scale(calc(0.94 + (var(--flood) * 0.06)));
-      opacity: calc(0.35 + (var(--flood) * 0.65));
-      filter: saturate(calc(0.7 + var(--flood) * 0.3));
+      position: relative;
+      z-index: 1;
+      transform: scale(calc(0.97 + (var(--flood) * 0.03)));
+      /* start readable, finish bright — was too dark at 0.35 */
+      opacity: calc(0.72 + (var(--flood) * 0.28));
+      filter:
+        saturate(calc(0.92 + var(--flood) * 0.2))
+        brightness(calc(1.08 + var(--flood) * 0.22))
+        contrast(calc(1.02 + var(--flood) * 0.04));
       transition: none;
     }
     .oc-flood-ink {
@@ -948,12 +957,28 @@
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(ellipse 90% 70% at 50% 40%, rgba(37,99,255,.18), transparent 58%),
-        radial-gradient(ellipse 70% 50% at 80% 80%, rgba(15,118,110,.16), transparent 55%),
-        var(--ink);
-      opacity: calc(0.55 + var(--flood, 0) * 0.45);
+        radial-gradient(ellipse 95% 75% at 50% 35%, rgba(94,234,212, calc(0.1 + var(--flood) * 0.16)), transparent 60%),
+        radial-gradient(ellipse 80% 60% at 18% 70%, rgba(37,99,255, calc(0.14 + var(--flood) * 0.18)), transparent 58%),
+        radial-gradient(ellipse 70% 50% at 85% 80%, rgba(15,118,110, calc(0.12 + var(--flood) * 0.14)), transparent 55%),
+        linear-gradient(180deg,
+          #1c1c28 0%,
+          #14141c calc(40% + var(--flood) * 10%),
+          #0f0f16 100%);
+      opacity: 1;
+      /* lift overall scene as you scroll */
+      filter: brightness(calc(1.12 + var(--flood) * 0.28));
     }
-    .oc-flood .openclaw > .container { position: relative; z-index: 1; }
+    /* text lifts with flood */
+    .oc-flood .oc__body,
+    .oc-flood .oc-step__text,
+    .oc-flood .oc-pkg__desc,
+    .oc-flood .oc-note {
+      color: rgba(243,239,230, calc(0.7 + var(--flood) * 0.28));
+    }
+    .oc-flood .oc__title,
+    .oc-flood .oc-pkg__price {
+      color: rgba(251,248,242, calc(0.88 + var(--flood) * 0.12));
+    }
     /* Disable old one-shot clip when flooding */
     .oc-flood .openclaw.oc-pending,
     .oc-flood .openclaw.oc-pending.is-revealed {
@@ -1007,8 +1032,9 @@
         position: relative; min-height: 0;
       }
       .oc-flood .openclaw > .container {
-        transform: none; opacity: 1; filter: none;
+        transform: none; opacity: 1; filter: brightness(1.2) saturate(1.05);
       }
+      .oc-flood-ink { filter: brightness(1.25); }
       #routeIris { display: none !important; }
     }
 
@@ -1661,6 +1687,7 @@
       function inkFlood() {
         if (!ocFlood || !openclaw) return;
         if (reduceMotion) {
+          ocFlood.style.setProperty('--flood', '1');
           openclaw.style.setProperty('--flood', '1');
           return;
         }
@@ -1670,6 +1697,7 @@
         const scrolled = Math.min(travel, Math.max(0, -rect.top));
         const p = scrolled / travel;
         const eased = p < 0.55 ? Math.pow(p / 0.55, 0.85) : 1;
+        ocFlood.style.setProperty('--flood', eased.toFixed(4));
         openclaw.style.setProperty('--flood', eased.toFixed(4));
         ocFlood.classList.toggle('is-deep', eased > 0.72);
       }
