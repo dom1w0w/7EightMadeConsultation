@@ -920,6 +920,8 @@
     .oc-flood {
       position: relative;
       height: 235vh;
+      isolation: isolate;
+      overflow: clip;
       /* starts lifted charcoal, deepens slightly then content brightens via --flood */
       --flood: 0;
       background: #16161f;
@@ -1023,8 +1025,26 @@
       to   { clip-path: circle(0% at 50% 42%); }
     }
     @media (max-width: 900px) {
-      .oc-flood { height: 200vh; }
-      .oc-flood .openclaw { padding: 72px 0 64px; }
+      /* Sticky flood bleeds over following sections on mobile when
+         OpenClaw content is taller than the viewport — disable scrub. */
+      .oc-flood {
+        height: auto;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .oc-flood .openclaw {
+        position: relative;
+        top: auto;
+        min-height: 0;
+        padding: 72px 0 64px;
+        background: var(--ink);
+      }
+      .oc-flood .openclaw > .container {
+        transform: none;
+        opacity: 1;
+        filter: brightness(1.18) saturate(1.08);
+      }
+      .oc-flood-ink { filter: brightness(1.2); opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) {
       .oc-flood { height: auto; }
