@@ -13,6 +13,13 @@
   <meta property="og:description" content="Prompt systems, workflow automation, and dashboards. We support Salesforce, Google Workspace, Notion, Airtable, and more.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/brand/og-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="7EightMade — AI Micro‑Consulting & Automation">
+  <meta name="twitter:description" content="Prompt systems, workflow automation, and dashboards on the stack you already run.">
+  <meta name="twitter:image" content="https://dom1w0w.github.io/7EightMadeConsultation/brand/og-share.png">
   <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -599,6 +606,31 @@
     .footer__copy { font-size: 13px; color: var(--muted); }
     .footer__links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); }
     .footer__links a:hover { color: var(--cobalt); }
+    .footer__proverb {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(37,99,255,.28);
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .bridge {
+      display: grid;
+      grid-template-columns: 1.4fr auto;
+      gap: 40px 64px;
+      align-items: end;
+    }
+    .bridge__copy .section__sub { margin-top: 12px; max-width: 52ch; }
+    .bridge__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px 28px;
+    }
 
     /* ── Mobile / tablet pass ── */
     .nav--open .nav__links {
@@ -623,6 +655,8 @@
       .container { padding: 0 24px; }
       .nav__inner { padding: 12px 24px; }
       .hero__grid, .tracks__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs, .build__grid { grid-template-columns: 1fr; }
+      .bridge { grid-template-columns: 1fr; gap: 28px; align-items: start; }
+      .bridge__actions { width: 100%; }
       .pricing__grid { grid-template-columns: 1fr; gap: 16px; }
       .proof__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
       .process__rail { grid-template-columns: 1fr; gap: 36px; padding-left: 8px; }
@@ -1474,6 +1508,22 @@
     </section>
     </div><!-- /.oc-flood -->
 
+    <section class="section section--paper2" id="bridge">
+      <div class="container">
+        <div class="bridge">
+          <div class="bridge__copy">
+            <span class="eyebrow">Two paths. One shop.</span>
+            <h2 class="section__title" style="font-size:clamp(28px,3.5vw,40px)">Need cloud-side ops instead?</h2>
+            <p class="section__sub">OpenClaw stays on your hardware. Consulting plugs into the stack you already run — assistants, automations, dashboards. Same team either way.</p>
+          </div>
+          <div class="bridge__actions">
+            <a class="btn btn--cobalt" href="#pricing">See consulting packages</a>
+            <a class="btn btn--ghost" href="#openclaw">Stay with OpenClaw</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section" id="stacks">
       <div class="container">
@@ -1628,6 +1678,7 @@
           <a href="mailto:nuguidd@icloud.com">Contact</a>
         </div>
       </div>
+      <p class="footer__proverb">Fall down seven. Stand up eight.</p>
     </div>
   </footer>
 
