@@ -382,7 +382,11 @@
       letter-spacing: -.03em; color: var(--ink); line-height: 1;
     }
     .pkg__period { font-size: 15px; font-weight: 500; color: var(--muted); font-family: 'Inter', sans-serif; letter-spacing: 0; }
-    .pkg__desc { font-size: 14px; color: var(--muted); margin: 14px 0 24px; line-height: 1.6; }
+    .pkg__desc { font-size: 14px; color: var(--muted); margin: 14px 0 8px; line-height: 1.6; }
+    .pkg__bestif {
+      font-size: 13px; color: var(--muted); margin: 0 0 24px; line-height: 1.5;
+      font-style: italic;
+    }
     .pkg .checklist { flex: 1; margin-bottom: 28px; }
     .pkg-note { margin-top: 24px; font-size: 13px; color: var(--muted); }
     .pkg-note a { color: var(--cobalt); font-weight: 500; }
@@ -510,7 +514,11 @@
       font-family: 'Fraunces', Georgia, serif; font-size: 44px; font-weight: 600;
       letter-spacing: -.03em; color: var(--paper); line-height: 1;
     }
-    .oc-pkg__desc { font-size: 14px; color: rgba(243,239,230,.55); margin: 14px 0 24px; line-height: 1.6; }
+    .oc-pkg__desc { font-size: 14px; color: rgba(243,239,230,.55); margin: 14px 0 8px; line-height: 1.6; }
+    .oc-pkg__bestif {
+      font-size: 13px; color: rgba(243,239,230,.45); margin: 0 0 24px; line-height: 1.5;
+      font-style: italic;
+    }
     .oc-pkg .checklist { flex: 1; margin-bottom: 28px; }
     .oc-pkg .checklist li { color: rgba(243,239,230,.6); }
     .oc-note { margin-top: 20px; font-size: 13px; color: rgba(243,239,230,.4); max-width: 860px; }
@@ -577,7 +585,38 @@
       transition: border-color var(--transition), box-shadow var(--transition); resize: vertical;
     }
     .form-input::placeholder { color: #9A9AA3; }
-    .form-input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-soft); }
+    .form-input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-soft); outline: none; }
+    .form-success {
+      display: none;
+      padding: 32px 28px;
+      background: var(--surface);
+      border: 1.5px solid var(--sand);
+      border-left: 3px solid var(--cobalt);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-success.is-visible { display: block !important; animation: formSuccessIn .55s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes formSuccessIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    .form-success__kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--cobalt); margin-bottom: 10px;
+    }
+    .form-success__title {
+      font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600;
+      letter-spacing: -.02em; line-height: 1.25; color: var(--ink); margin-bottom: 10px;
+    }
+    .form-success__body { font-size: 14px; color: var(--muted); line-height: 1.65; max-width: 36ch; }
+    .form-success__whisper {
+      margin-top: 18px; padding-top: 14px;
+      border-top: 1px solid rgba(37,99,255,.22);
+      font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--muted);
+    }
+    .contact-form.is-sent .form-group { display: none; }
     .contact-book {
       height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 16px;
       padding: 40px 36px; background: var(--surface); border: 1.5px solid rgba(37,99,255,.25);
@@ -935,6 +974,7 @@
       .process__step { opacity: 1; transition: none; }
       .scroll-progress { display: none; }
       .nav { transition: none; }
+      .form-success.is-visible { animation: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1008,8 +1048,12 @@
     .oc-flood .oc__body,
     .oc-flood .oc-step__text,
     .oc-flood .oc-pkg__desc,
+    .oc-flood .oc-pkg__bestif,
     .oc-flood .oc-note {
       color: rgba(243,239,230, calc(0.7 + var(--flood) * 0.28));
+    }
+    .oc-flood .oc-pkg__bestif {
+      color: rgba(243,239,230, calc(0.52 + var(--flood) * 0.28));
     }
     .oc-flood .oc__title,
     .oc-flood .oc-pkg__price {
@@ -1377,6 +1421,7 @@
             <div class="pkg__label">Starter</div>
             <div class="pkg__price">$1,250</div>
             <p class="pkg__desc">One focused use‑case, shipped in 72 hours.</p>
+            <p class="pkg__bestif">Best if you need one focused win, fast.</p>
             <ul class="checklist">
               <li><span class="check">✓</span><div>Discovery mini‑sprint</div></li>
               <li><span class="check">✓</span><div>One assistant or automation</div></li>
@@ -1389,17 +1434,19 @@
             <div class="pkg__label">Team</div>
             <div class="pkg__price">$3,500</div>
             <p class="pkg__desc">Three automations or a full assistant plus dashboard.</p>
+            <p class="pkg__bestif">Best if you want a full assistant or three automations.</p>
             <ul class="checklist">
               <li><span class="check">✓</span><div>Full discovery sprint</div></li>
               <li><span class="check">✓</span><div>3 build cycles</div></li>
               <li><span class="check">✓</span><div>30 days of support</div></li>
             </ul>
-            <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Team%20Package%20—%207EightMade">Get Team</a>
+            <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
           </div>
           <div class="pkg">
             <div class="pkg__label">Operator</div>
             <div class="pkg__price">$1,250<span class="pkg__period">/mo</span></div>
             <p class="pkg__desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
+            <p class="pkg__bestif">Best if you need ongoing ops and iteration.</p>
             <ul class="checklist">
               <li><span class="check">✓</span><div>Monthly priorities</div></li>
               <li><span class="check">✓</span><div>On‑call improvements</div></li>
@@ -1477,6 +1524,7 @@
             <div class="oc-pkg__label">Software Only</div>
             <div class="oc-pkg__price">$2,500</div>
             <p class="oc-pkg__desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
+            <p class="oc-pkg__bestif">Best if you already have hardware.</p>
             <ul class="checklist">
               <li><span class="check check--light">✓</span><div>Local model installation & configuration</div></li>
               <li><span class="check check--light">✓</span><div>Custom prompt & workflow setup</div></li>
@@ -1491,6 +1539,7 @@
             <div class="oc-pkg__label">With Mac Mini</div>
             <div class="oc-pkg__price">$3,500<span class="pkg__period" style="color:rgba(243,239,230,.5)">+</span></div>
             <p class="oc-pkg__desc">Everything in Software, plus a pre-configured Mac Mini M‑series. Plug in and run from day one.</p>
+            <p class="oc-pkg__bestif">Best if you want plug-and-play local AI.</p>
             <ul class="checklist">
               <li><span class="check check--light">✓</span><div>Mac Mini M‑series — included & pre‑built</div></li>
               <li><span class="check check--light">✓</span><div>Ships ready to run, zero setup on your end</div></li>
@@ -1628,21 +1677,27 @@
           <div>
             <h3 class="contact__title">Send a message</h3>
             <p class="contact__sub">Or email us at <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a></p>
-            <form action="https://formspree.io/f/xbldzknn" method="POST">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xbldzknn" method="POST">
               <div class="form-group">
                 <div class="form-field">
                   <label class="form-label" for="name">Name</label>
-                  <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+                  <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
                 </div>
                 <div class="form-field">
                   <label class="form-label" for="email">Email</label>
-                  <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
                 </div>
                 <div class="form-field">
                   <label class="form-label" for="message">What do you want to automate?</label>
                   <textarea class="form-input" id="message" name="message" rows="5" placeholder="Describe your workflow, tool stack, or pain point..." required></textarea>
                 </div>
-                <button class="btn btn--cobalt btn--full" type="submit">Send message</button>
+                <button class="btn btn--cobalt btn--full" type="submit" id="contactSubmit">Send message</button>
+              </div>
+              <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
+                <div class="form-success__kicker">Received</div>
+                <div class="form-success__title">Message sent — we’ll follow up soon.</div>
+                <p class="form-success__body">Thanks for reaching out. We’ll review what you want to automate and get back to you shortly.</p>
+                <p class="form-success__whisper">Fall down seven. Stand up eight.</p>
               </div>
             </form>
           </div>
@@ -1651,8 +1706,8 @@
               <div class="contact-book__kicker">Book a call</div>
               <div class="contact-book__title">Tell us what to automate.</div>
               <p class="contact-book__body">Share a few times that work and what you want shipped. We'll confirm a slot quickly.</p>
-              <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Book%20a%20call%20—%207EightMade">Email to book a call</a>
-              <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+              <a class="btn btn--cobalt btn--full" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+              <a class="btn btn--outline btn--full" href="mailto:nuguidd@icloud.com?subject=Book%20a%20call%20—%207EightMade">Email to book a call</a>
             </div>
           </div>
         </div>
@@ -1684,6 +1739,40 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function() {
+      const form = document.getElementById('contactForm');
+      const success = document.getElementById('formSuccess');
+      const submitBtn = document.getElementById('contactSubmit');
+      if (!form || !success) return;
+      async function onContactSubmit(e) {
+        e.preventDefault();
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (!res.ok) throw new Error('Formspree error');
+          form.classList.add('is-sent');
+          success.hidden = false;
+          success.classList.add('is-visible');
+          form.reset();
+        } catch (err) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send message';
+          }
+          form.removeEventListener('submit', onContactSubmit);
+          HTMLFormElement.prototype.submit.call(form);
+        }
+      }
+      form.addEventListener('submit', onContactSubmit);
+    })();
     const NAV_HEIGHT = 84;
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
