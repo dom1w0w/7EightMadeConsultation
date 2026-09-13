@@ -21,11 +21,12 @@
   <meta name="twitter:description" content="Prompt systems, workflow automation, and dashboards on the stack you already run.">
   <meta name="twitter:image" content="https://dom1w0w.github.io/7EightMadeConsultation/brand/og-share.png">
   <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="brand/fonts/inter-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="brand/fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="brand/fonts.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="brand/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="brand/icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="7EightMade">
   <style>
 
     :root {
@@ -537,7 +538,15 @@
     }
     .stack-pill:hover { border-color: var(--cobalt); color: var(--cobalt); background: var(--cobalt-soft); }
 
-    .about__split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about__split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
+    .about__still {
+      margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--sand); box-shadow: var(--shadow-lg);
+      background: var(--paper-2); aspect-ratio: 8 / 5;
+    }
+    .about__still img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
     .about__title {
       font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 600;
       letter-spacing: -.03em; line-height: 1.1; margin-bottom: 20px; color: var(--ink);
@@ -1125,9 +1134,22 @@
       .oc-flood .openclaw > .container {
         transform: none;
         opacity: 1;
-        filter: brightness(1.18) saturate(1.08);
+        filter: brightness(1.22) saturate(1.08);
       }
-      .oc-flood-ink { filter: brightness(1.2); opacity: 1; }
+      .oc-flood-ink { filter: brightness(1.22); opacity: 1; }
+      .oc-flood .oc__body,
+      .oc-flood .oc-step__text,
+      .oc-flood .oc-pkg__desc,
+      .oc-flood .oc-pkg__bestif,
+      .oc-flood .oc-note,
+      .openclaw .section__sub {
+        color: rgba(243,239,230,.88);
+      }
+      .oc-flood .oc__title,
+      .oc-flood .oc-pkg__price {
+        color: rgba(251,248,242,.98);
+      }
+      .oc__body { color: rgba(243,239,230,.82); }
     }
     @media (prefers-reduced-motion: reduce) {
       .oc-flood { height: auto; }
@@ -1615,7 +1637,11 @@
             </p>
             <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com">Get in touch</a>
           </div>
-          <div class="about__values">
+          <div>
+            <figure class="about__still">
+              <img src="brand/still-about.jpg" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+            </figure>
+          <div class="about__values" style="margin-top:20px">
             <div class="value-chip">
               <div class="value-chip__label">Speed</div>
               <div class="value-chip__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
@@ -1632,6 +1658,7 @@
               <div class="value-chip__label">Clarity</div>
               <div class="value-chip__text">Fixed scope, fixed price. You always know what you're paying for.</div>
             </div>
+          </div>
           </div>
         </div>
       </div>
