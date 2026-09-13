@@ -23,7 +23,9 @@
   <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
   <style>
 
     :root {
@@ -36,8 +38,9 @@
       --muted: #5C5C66;
       --line: rgba(60,45,20,.12);
       --cobalt: #2563FF;
+      --cobalt-text: #1D4ED8;
       --cobalt-ink: #0B0B0F;
-      --cobalt-soft: rgba(37,99,255,.10);
+      --cobalt-soft: rgba(37,99,255,.14);
       --emerald: #0F766E;
       --emerald-soft: rgba(15,118,110,.10);
       --white: #FFFFFF;
@@ -89,7 +92,7 @@
     .btn--cobalt:hover { background: #1a4fd9; border-color: #1a4fd9; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(37,99,255,.25); }
     .btn--outline { background: transparent; color: var(--ink); border-color: var(--line); }
     .btn--outline:hover { border-color: var(--ink); transform: translateY(-1px); }
-    .btn--ghost { background: transparent; color: var(--cobalt); padding-left: 0; padding-right: 0; border: none; font-weight: 600; }
+    .btn--ghost { background: transparent; color: var(--cobalt-text); padding-left: 0; padding-right: 0; border: none; font-weight: 600; }
     .btn--ghost::after { content: '→'; transition: transform var(--transition); }
     .btn--ghost:hover::after { transform: translateX(4px); }
     .btn--emerald { background: var(--emerald); color: var(--white); border-color: var(--emerald); }
@@ -152,7 +155,7 @@
     .section--paper2 { background: var(--paper-2); }
     .eyebrow {
       font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--cobalt); margin-bottom: 14px; display: block;
+      color: var(--cobalt-text); margin-bottom: 14px; display: block;
     }
     .eyebrow--emerald { color: #5EEAD4; }
     .section__title {
@@ -226,7 +229,7 @@
       font-size: 14px; font-weight: 600; color: var(--ink-soft); padding: 14px 8px;
       transition: color var(--transition);
     }
-    .hero__secondary:hover { color: var(--cobalt); }
+    .hero__secondary:hover { color: var(--cobalt-text); }
     .hero__chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
       font-size: 12px; font-weight: 500; color: var(--muted);
@@ -236,7 +239,7 @@
       background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-lg);
       padding: 36px 32px; box-shadow: var(--shadow-lg);
     }
-    .hero__card h3 {
+    .hero__card-title {
       font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 20px;
     }
@@ -287,14 +290,14 @@
       font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
       padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
     }
-    .track__badge--cobalt { background: var(--cobalt-soft); color: var(--cobalt); }
+    .track__badge--cobalt { background: var(--cobalt-soft); color: var(--cobalt-text); }
     .track__badge--emerald { background: var(--emerald-soft); color: var(--emerald); }
     .track__title {
       font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
       letter-spacing: -.02em; margin-bottom: 12px; color: var(--ink);
     }
     .track__desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; max-width: 36ch; }
-    .track__cta { font-size: 14px; font-weight: 600; color: var(--cobalt); display: inline-flex; align-items: center; gap: 6px; }
+    .track__cta { font-size: 14px; font-weight: 600; color: var(--cobalt-text); display: inline-flex; align-items: center; gap: 6px; }
     .track--openclaw .track__cta { color: var(--emerald); }
     .track__cta::after { content: '→'; transition: transform var(--transition); }
     .track:hover .track__cta::after { transform: translateX(4px); }
@@ -316,27 +319,29 @@
     }
     .process__step {
       padding: 0 20px; position: relative; text-align: left;
-      opacity: .55;
       transition: opacity .9s cubic-bezier(.22,1,.36,1);
     }
-    .process__step.is-lit { opacity: 1; }
     .process__step.is-lit .process__marker {
       background: var(--cobalt); color: var(--white);
       box-shadow: 0 0 0 6px var(--paper-2), 0 8px 20px rgba(37,99,255,.22);
     }
-    .process__step.is-lit .process__name { color: var(--ink); }
+    .process__step:not(.is-lit) .process__marker {
+      opacity: .72;
+    }
     .process__marker {
       width: 56px; height: 56px; border-radius: 50%; background: var(--surface);
       border: 2px solid var(--cobalt); display: grid; place-items: center;
-      font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--cobalt);
+      font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--cobalt-text);
       margin-bottom: 24px; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--paper-2);
-      transition: background .9s cubic-bezier(.22,1,.36,1), color .9s ease, box-shadow .9s ease;
+      transition: background .9s cubic-bezier(.22,1,.36,1), color .9s ease, box-shadow .9s ease, opacity .9s ease;
     }
     .process__name {
       font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600;
       letter-spacing: -.02em; margin-bottom: 10px; color: var(--ink);
     }
-    .process__desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .process__desc { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 16px; }
+    .process__step:not(.is-lit) .process__name { color: var(--ink-soft); }
+    .process__step:not(.is-lit) .process__desc { color: var(--muted); }
 
     .build__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .build-card {
@@ -375,7 +380,7 @@
     }
     .pkg__label {
       font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--cobalt); margin-bottom: 12px;
+      color: var(--cobalt-text); margin-bottom: 12px;
     }
     .pkg__price {
       font-family: 'Fraunces', Georgia, serif; font-size: 48px; font-weight: 600;
@@ -389,7 +394,7 @@
     }
     .pkg .checklist { flex: 1; margin-bottom: 28px; }
     .pkg-note { margin-top: 24px; font-size: 13px; color: var(--muted); }
-    .pkg-note a { color: var(--cobalt); font-weight: 500; }
+    .pkg-note a { color: var(--cobalt-text); font-weight: 500; }
 
     .openclaw {
       background: var(--ink); color: var(--paper); padding: 112px 0;
@@ -543,7 +548,7 @@
     .value-chip { padding: 20px; background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-sm); }
     .value-chip__label {
       font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--cobalt); margin-bottom: 6px;
+      color: var(--cobalt-text); margin-bottom: 6px;
     }
     .value-chip__text { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
@@ -565,7 +570,7 @@
     }
     .faq-item[open] summary::after { transform: rotate(45deg); }
     .faq-item__body { padding: 0 24px 20px; font-size: 14px; color: var(--muted); line-height: 1.7; }
-    .faq-item__body a { color: var(--cobalt); font-weight: 500; }
+    .faq-item__body a { color: var(--cobalt-text); font-weight: 500; }
 
     .contact__split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .contact__title {
@@ -573,7 +578,7 @@
       letter-spacing: -.02em; margin-bottom: 8px; color: var(--ink);
     }
     .contact__sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
-    .contact__sub a { color: var(--cobalt); font-weight: 500; }
+    .contact__sub a { color: var(--cobalt-text); font-weight: 500; }
     .form-group { display: grid; gap: 14px; }
     .form-field { display: flex; flex-direction: column; gap: 6px; }
     .form-label {
@@ -604,7 +609,7 @@
     }
     .form-success__kicker {
       font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--cobalt); margin-bottom: 10px;
+      color: var(--cobalt-text); margin-bottom: 10px;
     }
     .form-success__title {
       font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 600;
@@ -627,7 +632,7 @@
       background: radial-gradient(circle, var(--cobalt-soft), transparent 70%); pointer-events: none;
     }
     .contact-book__kicker {
-      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cobalt);
+      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cobalt-text);
     }
     .contact-book__title {
       font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
@@ -644,7 +649,7 @@
     .footer__brand .mark-7 { color: var(--cobalt); }
     .footer__copy { font-size: 13px; color: var(--muted); }
     .footer__links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); }
-    .footer__links a:hover { color: var(--cobalt); }
+    .footer__links a:hover { color: var(--cobalt-text); }
     .footer__proverb {
       margin-top: 20px;
       padding-top: 16px;
@@ -1271,7 +1276,7 @@
           </div>
         </div>
         <div class="hero__card hero-enter hero-enter--card">
-          <h3>What we ship</h3>
+          <p class="hero__card-title">What we ship</p>
           <ul class="checklist">
             <li><span class="check">✓</span><div><strong>Chat assistants</strong> trained on your SOPs, docs, and tone.</div></li>
             <li><span class="check">✓</span><div><strong>Workflow automations</strong> across email, sheets, CRMs, and helpdesks.</div></li>
