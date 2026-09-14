@@ -1,7 +1,7 @@
 {
   "_meta": {
     "note": "LIVE edition — Monday, September 14, 2026. Locale: Carpentersville, IL (America/Chicago).",
-    "generated": "2026-09-14T07:00:00-05:00",
+    "generated": "2026-09-14T05:55:00-05:00",
     "source": "live"
   },
   "masthead": {
@@ -9,84 +9,106 @@
     "tagline": "We checked your phone, so you don't have to.",
     "volume": "XII",
     "city": "Carpentersville, IL",
-    "asOf": "7:00 AM CT"
+    "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Direct Auto Canceled — Pay ~$199.43 by Mon. Sept. 21; Vegas Sept. 25; Dom Times Is Live",
-    "subhead": "CFA green-lights the savings bridge: paycheck Tue. Sept. 16 ($1,434), then the Sept. 23 stack clears the gate.",
+    "headline": "Direct Auto Still Canceled — Portal Confirm, Then ~$199.43 by Sept. 21",
+    "subhead": "Sep 8 cancel notice unread; new-device login overnight. Paycheck Tue. Bears open with a 59–37 statement.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "The money week on one page: reinstate, paycheck, Vegas.",
-      "alt": "Lead photo — money week ahead"
+      "caption": "Money week on one page: portal, reinstate, Vegas covered.",
+      "alt": "Lead photo — insurance gate and money week"
     }
   },
   "articles": [
     {
-      "hed": "Insurance Gate: Policy 2019407539 Canceled for Non-Payment",
-      "deck": "Direct Auto dropped coverage Sept. 8. Reinstate ~Sept. 21 (~$199.43); Sept. 23 is the hard backup before Vegas.",
-      "body": "Direct Auto canceled policy 2019407539 on Sept. 8 for non-payment. Dom’s working plan is to reinstate around Monday, Sept. 21, for approximately $199.43 — confirm the exact amount on directauto.com before you pay. Wednesday, Sept. 23 is the hard backup if the 21st slip. Vegas departs Thursday, Sept. 25; driving without coverage is not an option. CFA has green-lit the savings bridge so the reinstate does not starve the rest of the week. First move today: open the portal, confirm the balance, and put the payment on the calendar for the 21st.",
+      "hed": "Insurance Gate: Policy 2019407539 Still Needs the Portal",
+      "deck": "Sep 8 cancel notice sits unread. Reinstate hold is Mon. Sept. 21 (~$199.43 — confirm on directauto.com).",
+      "body": "Direct Auto canceled policy 2019407539 effective Sept. 8 for non-payment. The Important Notice of Policy Status is still unread in dominickurtmartin@gmail.com this morning — and a new-device login alert hit overnight (iPhone / Mobile Safari). First move: open the portal, confirm the exact reinstate amount (mail does not restate the figure), verify that login was you, then keep the Mon. Sept. 21 pay hold. Wed. Sept. 23 paycheck is the hard backup before Vegas Thu. Sept. 25. CFA already green-lit the savings bridge; do not skip reinstate for card payoff.",
       "column": "lead"
     },
     {
-      "hed": "Money Week Ahead: Paychecks, T-Mobile, Car Note, Then Reinstate",
-      "deck": "Tue. 16 paycheck lands; Thu. 18 T-Mobile + savings; Fri. 19 car note on calendar; Mon. 21 Direct Auto.",
-      "body": "Tuesday, Sept. 16 brings the $1,434 paycheck — the first cash pulse of the week. Thursday, Sept. 18: T-Mobile ~$180 plus the planned savings transfers. Friday, Sept. 19 the car note shows $309 on the calendar; CFA’s guidance is to pay $340.93 on the 23rd instead, aligned with the paycheck-and-commission stack. Monday, Sept. 21 is Direct Auto reinstate day (~$199.43, confirm portal). Wednesday, Sept. 23 stacks paycheck plus commission and covers the car-note CFA amount. Sequence beats scramble: insurance gate first, then the rest of the board.",
+      "hed": "Money Week on the Calendar: Paychecks, T-Mobile, Car Note, Reinstate",
+      "deck": "Tue. 16 paycheck $1,434.02; Thu. 18 T-Mobile + savings; Fri. 19 car note $309 on calendar; Mon. 21 Direct Auto.",
+      "body": "Primary calendar (nuguiddom@gmail.com) is clear for the week’s cash beats: Tuesday Sept. 16 paycheck $1,434.02; Thursday Sept. 18 T-Mobile $180 plus savings transfers ($420 / $300); Friday Sept. 19 car note $309 on the calendar (CFA guidance still points to paying the $340.93 CFA amount with the Sept. 23 stack); Monday Sept. 21 all-day reinstate hold (~$199.43). Tuesday Sept. 23 is the next paycheck. Vegas Thu. Sept. 25 is not a separate calendar event — it only appears in the reinstate description — so treat coverage as the real departure gate.",
       "column": "secondary"
     },
     {
-      "hed": "Evening Optional: Sigil at 9:30 P.M.",
-      "deck": "No fake meetings. Habits in the morning; optional magick work tonight.",
-      "body": "Monday’s calendar stays light on invented obligations. Morning Charge (box breathing) and the 3-minute opener are the only fixed habits on the board. Evening is optional: Sigil work at 9:30 p.m. if energy and focus are there — skip without guilt if the money gate and inbox take the day. The paper’s job is to clear the fog, not invent a schedule.",
+      "hed": "Inbox Security Sweep + Evening Optional Sigil",
+      "deck": "Grok Google-access alerts on all three Gmails; one adult-site login flag. Calendar: only 9:30 p.m. Sigil tonight.",
+      "body": "Beyond Direct Auto, skim the Google Security alerts granting Grok access on nuguiddom, dominickurtmartin, and dkmpnuguid — expected if the MCP connect was intentional; acknowledge and archive. Flag separately: Chaturbate new-login alert on dkmpnuguid (mikomikomiko23) — confirm it was you or change the password. iRacing renewal notice still sits for a Saturday in September. Today’s only timed calendar item is optional Sigil at 9:30 p.m. Morning Charge and the 3-minute opener are the fixed habits.",
       "column": "secondary"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 72,
-    "low": 51,
-    "summary": "Monday overcast — high 72 / low 51. As of late Sunday: 57°F, feels like 55, clear skies.",
+    "high": 74,
+    "low": 64,
+    "summary": "Monday: some sunshine giving way to clouds and a steady breeze — high 74 / low 64. Tuesday–Wednesday look stormy (heavy thunderstorms likely).",
     "unit": "F",
     "days": [
       {
-        "label": "Tue",
+        "label": "Mon",
         "high": 74,
-        "low": 63,
-        "icon": "rain"
+        "low": 64,
+        "icon": "partly"
+      },
+      {
+        "label": "Tue",
+        "high": 77,
+        "low": 61,
+        "icon": "storm"
+      },
+      {
+        "label": "Wed",
+        "high": 72,
+        "low": 65,
+        "icon": "storm"
+      },
+      {
+        "label": "Thu",
+        "high": 76,
+        "low": 61,
+        "icon": "cloud"
       }
     ]
   },
   "needsALook": [
     {
       "type": "ACTION",
-      "text": "Direct Auto reinstate ~$199.43 by Sept. 21"
+      "text": "Confirm Direct Auto portal amount + reinstate ~Sept. 21 (~$199.43)"
     },
     {
       "type": "ACTION",
-      "text": "Confirm amount on directauto.com"
+      "text": "Verify Direct Auto new-device login (Sep 14 iPhone) was you"
+    },
+    {
+      "type": "ACTION",
+      "text": "Verify Chaturbate new login (dkmpnuguid) — or change password"
     },
     {
       "type": "FYI",
-      "text": "Grok Google access security alerts (all 3 Gmails)"
+      "text": "Grok Google-access security alerts (all 3 Gmails)"
     },
     {
       "type": "FYI",
-      "text": "Direct Auto new device login Sept. 14"
+      "text": "Paycheck Tue. Sept. 16 ($1,434.02)"
     },
     {
       "type": "FYI",
-      "text": "Paycheck Tue. Sept. 16 ($1,434)"
+      "text": "iRacing renewal — check Saturday September date"
     }
   ],
   "timeline": [
     {
-      "time": "Morning",
+      "time": "~6:00 AM",
       "event": "Morning Charge (box breathing) + 3-min opener",
       "category": "habit"
     },
     {
       "time": "Open",
-      "event": "Confirm Direct Auto portal amount; calendar reinstate for Sept. 21",
+      "event": "Direct Auto portal: confirm amount, verify overnight login, keep Sept. 21 hold",
       "category": "focus"
     },
     {
@@ -96,12 +118,12 @@
     }
   ],
   "thisWeek": [
-    "Tue 16 — Paycheck $1,434",
-    "Wed–Thu — T-Mobile ~$180 + savings transfers (Thu 18)",
-    "Fri 19 — Car note $309 on calendar (CFA: pay $340.93 on the 23rd)",
-    "Mon 21 — Direct Auto reinstate ~$199.43 (confirm portal)",
-    "Wed 23 — Paycheck + commission stack; car-note CFA amount",
-    "Thu 25 — Vegas"
+    "Tue 16 — Paycheck $1,434.02",
+    "Thu 18 — T-Mobile $180 + savings transfers ($420 / $300)",
+    "Fri 19 — Car note $309 on calendar (CFA: prefer $340.93 with Sept. 23 stack)",
+    "Mon 21 — Direct Auto reinstate ~$199.43 (confirm portal) — before Vegas",
+    "Tue 23 — Paycheck $1,434.02 (hard backup for reinstate if unpaid)",
+    "Thu 25 — Vegas (not on calendar as a trip hold — coverage is the gate)"
   ],
   "stubs": {
     "comics": {
@@ -117,16 +139,16 @@
     "kicker": "From the Mystics",
     "items": [
       {
-        "hed": "The Seal Before the Work",
-        "body": "In Solomonic grimoires, nothing begins until the circle is drawn and the name is spoken. The ritual is not superstition — it is priority made visible. You do not summon until the gate is sealed. Diligence is the same art in daylight: name the binding obligation, close it, then open the lesser spirits of the inbox."
+        "hed": "Gnosis Is Not Gossip",
+        "body": "In classical Gnosticism, gnosis meant direct knowing of the divine spark — not scavenged lore or online mystique. Treat ‘forbidden knowledge’ as a call to inner clarity: what you actually know about your day, your debts, and your will — not what you scroll."
       },
       {
-        "hed": "Gnosis Is Not Information",
-        "body": "Gnostic teachers distinguished knowing-about from knowing-through. Catalogs of aeons and archons were maps, not the territory. The spark they pointed to was recognition under pressure — the moment attention stops performing and simply sees. A morning paper can feed facts; only practice turns them into sight."
+        "hed": "As Above, So Below — Ledger Edition",
+        "body": "The Hermetic axiom from the Emerald Tablet isn’t astrology cosplay; it’s correspondence. Outer order (bills paid, policy active) mirrors inner order (mind unset by surprise). Align the micro ledger with the macro plan and the ‘magic’ is simply coherence."
       },
       {
-        "hed": "Correspondence on a Money Week",
-        "body": "Hermetic correspondence teaches that outer order mirrors inner sequence. Pay the policy, then the phone, then the note — not because the cosmos invoices you, but because scattered will fragments the day. Align the ledger and the breath; the rest of the week follows the pattern you set on Monday."
+        "hed": "The Magician’s First Tool Is Timing",
+        "body": "Western ceremonial magick obsesses over hours and elections because will without timing dissipates. Same rule for a money week: cast the reinstate before the Vegas window, not during it. Timing is the circle; cash is the charge."
       }
     ]
   },
@@ -138,28 +160,28 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "Apple",
-            "hed": "Siri AI ships English beta with iOS 27 on Sept. 14",
-            "body": "Apple’s overhauled Siri lands today in English alongside iOS 27, with additional languages expected in October. Reporting ties Gemini to parts of the training stack; EU iPhone availability remains delayed while regulatory review continues. Server-side Apple Intelligence still carries daily usage caps.",
-            "url": "https://9to5mac.com/"
+            "source": "9to5Mac",
+            "hed": "Siri AI rolls out in English with iOS 27 today; five more languages in October",
+            "body": "Apple confirmed Siri AI launches with iOS 27 / iPadOS 27 on Monday, Sep 14, initially in English only, with French, Japanese, Korean, Portuguese, and Spanish due in October. The assistant stays in beta with daily server-side usage caps, EU/China limits, and a future paid tier for expanded access that Apple has not yet priced.",
+            "url": "https://9to5mac.com/2026/09/09/apple-confirms-siri-ai-launches-in-english-this-month-will-add-five-languages-in-october/"
           },
           {
-            "source": "OpenAI",
-            "hed": "Agents API public beta Sept. 10; GPT-Live-1 joins the roster",
-            "body": "OpenAI opened its Agents API to public beta on Sept. 10 and added GPT-Live-1 for full-duplex voice in the API. The company continues to navigate agent-safety fallout while leadership echoes calls to slow a reckless frontier pace.",
-            "url": "https://openai.com/"
+            "source": "CNBC",
+            "hed": "Altman joins Amodei and Musk in call to ‘pace the frontier’ — ‘we could lose control’",
+            "body": "On Monday OpenAI’s Sam Altman welcomed a federal safety framework for frontier labs after weekend alignment with Anthropic’s Dario Amodei and Elon Musk on slowing capability races. Altman said pacing is not stopping, warned of losing control of the future to AI or concentrating power in one company, and backed independent evaluators with employee-like access; Trump dismissed a slowdown as risking the U.S. lead over China.",
+            "url": "https://www.cnbc.com/2026/09/14/sam-altman-ai-slowdown-anthropic-amodei-musk.html"
           },
           {
-            "source": "xAI",
-            "hed": "Grok 4.7 delayed on RL length penalty; Grok Bot enterprise live",
-            "body": "xAI slipped Grok 4.7 past its roughly Sept. 12 target. Elon Musk cited an RL length penalty that encouraged early quit and weak self-check; Grok 4.6 remains current. Grok Bot for Enterprise launched in early September.",
-            "url": "https://x.ai/"
+            "source": "Temperature2",
+            "hed": "Musk delays Grok 4.7, blaming an RL length penalty that makes the model quit early",
+            "body": "Elon Musk said on Sep 11 that Grok 4.7 needs ‘a few more days to cook’ because xAI’s reinforcement-learning reward over-penalized response length, teaching the model to abandon hard but solvable tasks and skimp on self-checking. Grok 4.6 (shipped Aug 12) remains the current released flagship; no new ship date, model card, or API ID for 4.7 has been published.",
+            "url": "https://temperature2.com/p/2026-09-12-grok-4-7-delayed-rl-length-penalty/"
           },
           {
-            "source": "Anthropic",
-            "hed": "Fable / Mythos 5.1; Amodei urges slowing the frontier",
-            "body": "Anthropic’s Claude Fable 5.1 and Mythos 5.1 cut agentic costs via cheaper cache reads. Dario Amodei’s essay calls for restraint at the frontier; the company also published threat intel on Claude misuse campaigns.",
-            "url": "https://www.anthropic.com/"
+            "source": "CNBC",
+            "hed": "Anthropic says it blocked Claude misuse that could have aided bioweapons research",
+            "body": "Anthropic’s Sep 10 threat-intel report details disrupted misuse of Claude from Dec 2025–Aug 2026 across cyber ops, surveillance, scams, influence campaigns, and dual-use biological research — including a blocked grant-application request involving gain-of-function work on chikungunya. The company says it hardened safeguards on newer models and shared findings with authorities and industry partners.",
+            "url": "https://www.cnbc.com/2026/09/10/anthropic-blocked-misuse-of-claude-with-potential-bioweapons-support.html"
           }
         ]
       },
@@ -167,22 +189,22 @@
         "title": "NBA",
         "items": [
           {
-            "source": "NBA",
-            "hed": "Kawhi Clippers→Raptors trade still in limbo",
-            "body": "The Kawhi Leonard move from the Clippers to the Raptors remains unfinalized. Los Angeles is still sorting acting governance and basketball-ops leadership after suspensions.",
-            "url": "https://www.nba.com/"
+            "source": "Los Angeles Times",
+            "hed": "Ballmer apologizes, says Clippers will comply with NBA’s historic cap sanctions",
+            "body": "On Sunday Steve Ballmer reversed course and said L.A. will accept the league’s penalties — including a $30M fine, five forfeited first-round picks (2029–33), his one-year suspension, and executive bans — after Wachtell Lipton found $66M in cash/equity arrangements tied to Kawhi Leonard. Ballmer apologized to fans, staff, and owners and said the fine is paid and the chapter must close.",
+            "url": "https://www.latimes.com/sports/clippers/story/2026-09-13/steve-ballmer-says-clippers-will-comply-with-nba-sanctions"
           },
           {
-            "source": "NYT / Reuters",
-            "hed": "DOJ investigating Clippers’ Kawhi dealings",
-            "body": "Federal prosecutors are investigating the Clippers’ dealings involving Kawhi Leonard, per mid-September reporting from The New York Times and Reuters.",
-            "url": "https://www.reuters.com/"
+            "source": "BasketNews",
+            "hed": "Kawhi-to-Raptors trade still not filed as Clippers hunt interim governor",
+            "body": "Even after Ballmer’s compliance statement, the Clippers have not named an interim governor to authorize completing the Kawhi Leonard deal to Toronto. Both sides expect the trade; Leonard has worked Raptors minicamps but remains limited until paperwork clears.",
+            "url": "https://basketnews.com/news-255420-kawhi-leonard-raptors-trade-update-emerges-after-steve-ballmer-statement.html"
           },
           {
-            "source": "NBA",
-            "hed": "Training camps open ~Sept. 22",
-            "body": "Camps open around Sept. 22. The trade is expected to clear before tip-off of camp; Leonard has already joined Raptors player activities while paperwork catches up.",
-            "url": "https://www.nba.com/"
+            "source": "BasketNews",
+            "hed": "Udoka: Fred VanVleet ramping hard toward Rockets return after ACL year",
+            "body": "Houston coach Ime Udoka said VanVleet has stepped up rehab in San Diego with back-to-backs and contact work after missing all of 2025–26 with a torn right ACL. The veteran exercised his ~$25M player option to stay; Rockets won 52 without him last year but exited in the first round.",
+            "url": "https://basketnews.com/news-255373-fred-vanvleet-major-injury-update-emerges-ahead-of-rockets-season.html"
           }
         ]
       },
@@ -190,22 +212,22 @@
         "title": "NFL",
         "items": [
           {
-            "source": "NFL",
-            "hed": "Seahawks edge Patriots 13–10; Darnold hip injury",
-            "body": "Seattle beat New England 13–10 in Week 1. Patriots quarterback Sam Darnold left early with a hip injury.",
-            "url": "https://www.nfl.com/"
+            "source": "Chicago Bears",
+            "hed": "Bears set franchise opener record in 59–37 demolition of Panthers",
+            "body": "Caleb Williams threw for 269 and ran for 65 with four total TDs as Chicago piled up 552 yards and eight touchdowns in Charlotte. D’Andre Swift (124 rush, 3 TDs) and Kyle Monangai (100, 1 TD) powered a ground game that broke open a back-and-forth contest.",
+            "url": "https://www.chicagobears.com/news/game-recap-bears-offense-shines-in-season-opening-win-over-panthers"
           },
           {
-            "source": "NFL",
-            "hed": "Myles Garrett (Rams) to IR after knee scope path",
-            "body": "Rams edge rusher Myles Garrett is headed for arthroscopic knee work and injured reserve following Los Angeles’ loss to San Francisco.",
-            "url": "https://www.nfl.com/"
+            "source": "Reuters",
+            "hed": "Dart, Likely, Nabers lift Giants past Cowboys 28–20 in Harbaugh’s debut",
+            "body": "Jaxson Dart went 23-of-29 for 230 yards and three TDs as New York converted 9-of-10 third downs and held the ball nearly 37 minutes in John Harbaugh’s first game. Isaiah Likely had 8/78/2; Malik Nabers returned from ACL surgery with 6/69.",
+            "url": "https://www.reuters.com/sports/nfl/giants-control-ball-take-down-cowboys-season-opener--flm-2026-09-14/"
           },
           {
-            "source": "NFL",
-            "hed": "A.J. Brown out ~4 weeks",
-            "body": "Receiver A.J. Brown is expected out about four weeks after Week 1.",
-            "url": "https://www.nfl.com/"
+            "source": "NFL.com",
+            "hed": "MNF Week 1: Broncos at Chiefs — Mahomes and Nix both returning from major injuries",
+            "body": "Denver visits Kansas City tonight at 8:15 p.m. ET on ESPN/ABC. Patrick Mahomes is back after a Week 15 ACL tear; Bo Nix returns from a Divisional Round broken ankle. Storylines include KWIII as KC’s workhorse and remade secondaries on both sides.",
+            "url": "https://www.nfl.com/news/broncos-chiefs-three-must-know-storylines-monday-night-football-week-1"
           }
         ]
       },
@@ -213,16 +235,16 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "UFC",
-            "hed": "Noche UFC: Grasso tops Fiorot; Shevchenko vacates flyweight",
-            "body": "At Noche UFC, Alexa Grasso beat Manon Fiorot. Valentina Shevchenko vacated the flyweight title (ligament). Natalia Silva faces Wang Cong for the vacant belt on Oct. 3.",
-            "url": "https://www.ufc.com/"
+            "source": "BBC Sport",
+            "hed": "Garcia crushes Benn in two rounds, retains WBC welterweight title",
+            "body": "In Las Vegas on Sep 13, Ryan Garcia dropped Conor Benn with a right hand in round two and forced a stoppage at 1:25 of the round in his first WBC welterweight defense. Garcia then traded words with Teófimo López ringside.",
+            "url": "https://www.bbc.com/sport/boxing/articles/cr7dm1vk7pgo"
           },
           {
-            "source": "Boxing",
-            "hed": "Garcia TKO’s Benn in R2; retains WBC welter",
-            "body": "Ryan Garcia stopped Conor Benn in round two on Sept. 12, retaining the WBC welterweight title, and called out Teofimo Lopez.",
-            "url": "https://www.wbboxing.com/"
+            "source": "UFC.com",
+            "hed": "Noche UFC: Silva submits Delgado; Grasso outpoints Fiorot in Glendale",
+            "body": "On Sep 12 at Desert Diamond Arena, Jean Silva finished Jose Miguel Delgado via rear-naked choke at 2:57 of Round 3. Alexa Grasso took a unanimous decision over Manon Fiorot (29–28 x3) to stay in the flyweight title chase.",
+            "url": "https://www.ufc.com/news/noche-ufc-results-silva-vs-delgado"
           }
         ]
       }
@@ -231,7 +253,7 @@
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Monday’s gate is money and coverage — not noise. Four counts in, four hold, four out, four hold. Then open the portal.",
+    "intro": "Monday’s gate is coverage and confirmation — not noise. Four counts in, four hold, four out, four hold. Then open the portal.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -262,11 +284,11 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds clears the static. Eyes open. Shoulders down. Insurance first. Then the rest of the board."
+      "close": "Four rounds clears the static. Eyes open. Shoulders down. Portal first. Then the rest of the board."
     },
     "mindset": {
       "hed": "Fierce Calm, Ordered Edge",
-      "body": "Dom does not chase the week — he sequences it. Fierce calm is not soft; it is competitive composure under a real clock: reinstate by the 21st, ride the Sept. 16 paycheck, stack the 23rd, land Vegas covered. One gate, one confirmation, one transfer at a time. Competitors may arrive loud; he arrives prepared and solvent. When pressure rises, he slows the breath, names the next dollar move, and outlasts the noise. Today is not about proving anything. It is about executing the money week so cleanly that Vegas is just travel."
+      "body": "Dom does not chase the week — he sequences it. Fierce calm is competitive composure under a real clock: confirm the portal, reinstate by the 21st, ride the Sept. 16 paycheck, stack the 23rd, land Vegas covered. One gate, one confirmation, one transfer at a time. Competitors may arrive loud; he arrives prepared and solvent. When pressure rises, he slows the breath, names the next dollar move, and outlasts the noise. Today is not about proving anything. It is about executing the money week so cleanly that Vegas is just travel."
     }
   },
   "bodyOpener": {
@@ -301,49 +323,86 @@
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "Sep 14, 2026 · live morning edition",
+    "asOf": "Sep 14, 2026 · 5:55 AM CT",
     "urgent": [
       {
         "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — policy canceled / reinstate required",
-        "why": "Coverage gate before Vegas Sept. 25 — pay ~Sept. 21."
+        "text": "Direct Auto — Important Notice of Policy Status (Sep 8 cancel) still UNREAD",
+        "why": "Coverage gate before Vegas Sep 25 — confirm portal amount, pay ~Sep 21."
+      },
+      {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "Direct Auto — new device login Sep 14 (iPhone / Mobile Safari)",
+        "why": "Verify that was you before ignoring."
+      },
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "Chaturbate — new login alert (mikomikomiko23)",
+        "why": "Security — confirm it was you or change password."
       }
     ],
     "needsLook": [
       {
-        "account": "nuguiddom@gmail.com + dkmpnuguid@gmail.com",
-        "text": "Grok Google access security alerts",
-        "why": "Confirm the grant was intentional (also check third Gmail)."
+        "account": "nuguiddom@gmail.com + dominickurtmartin + dkmpnuguid",
+        "text": "Google Security alerts — Grok granted access (all 3 Gmails)",
+        "why": "Confirm intentional MCP connect, then archive."
       },
       {
         "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — new device login Sept. 14",
-        "why": "Verify that was you before ignoring."
+        "text": "Earlier Direct Auto Pay Now to Avoid Cancellation (Aug 29) still in inbox",
+        "why": "Insurance history — prior notice before Sep 8 cancel."
+      },
+      {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "iRacing subscription renewal notice (Sep 11)",
+        "why": "Check Saturday September renew date/cost."
       }
     ],
     "fyi": [
       {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "FACEIT order completed — Nickname Change",
+        "why": "Purchase receipt."
+      },
+      {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "Instagram notifications + Google News briefings",
+        "why": "Social / digest noise."
+      },
+      {
         "account": "dkmpnuguid@gmail.com",
-        "text": "Inbox cleaned to last ~16 hours",
-        "why": "Promo/noise cleared — skim only what remains."
+        "text": "Snapchat Stories notification",
+        "why": "Social noise."
       }
     ],
-    "cleanupNote": "dkmpnuguid trimmed to last 16h; Direct Auto + Grok alerts remain the only hard looks."
+    "cleanupNote": "Scanned recent inbox on all three accounts. No reinstate amount or payment receipt in live mail — ~$199.43 / ~Sep 21 still pending portal confirm. dkmpnuguid older-than-16h trash request not re-verified this pass."
   },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
     "items": [
       {
-        "id": "direct-auto-pay",
-        "text": "Pay Direct Auto ~Sept. 21 (~$199.43)",
+        "id": "direct-auto-confirm",
+        "text": "Confirm portal amount on directauto.com",
         "priority": "urgent",
         "done": false
       },
       {
-        "id": "direct-auto-confirm",
-        "text": "Confirm portal amount on directauto.com",
+        "id": "direct-auto-login",
+        "text": "Verify Direct Auto new-device login (Sep 14) was you",
         "priority": "urgent",
+        "done": false
+      },
+      {
+        "id": "direct-auto-pay",
+        "text": "Pay Direct Auto ~Sept. 21 (~$199.43 pending portal)",
+        "priority": "urgent",
+        "done": false
+      },
+      {
+        "id": "chaturbate-login",
+        "text": "Verify Chaturbate new login — or change password",
+        "priority": "high",
         "done": false
       },
       {
@@ -353,8 +412,14 @@
         "done": false
       },
       {
+        "id": "iracing",
+        "text": "Check iRacing renewal date/cost",
+        "priority": "normal",
+        "done": false
+      },
+      {
         "id": "tmobile",
-        "text": "T-Mobile ~Sept. 18 (~$180)",
+        "text": "T-Mobile ~Sept. 18 ($180)",
         "priority": "normal",
         "done": false
       },
@@ -370,8 +435,8 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "Solomon — Proverbs / wisdom tradition",
-    "hed": "First Things Bound, Then the Field",
-    "body": "“Go to the ant, O sluggard; consider her ways, and be wise. Without having any chief, officer, or ruler, she prepares her bread in summer and gathers her food in harvest.” (Proverbs 6:6–8) Solomon’s ant is not a hustle meme — it is ordered foresight. The colony does not debate every crumb; it stores against the season that will not wait. Your season is written on the calendar: Sept. 21 reinstate, Sept. 25 Vegas. Classical lore cast Solomon as a binder who named spirits before they spoke; you bind Monday the same way — name the insurance gate, confirm the sum, schedule the payment — then let lesser errands approach. Diligence is practical magick: sequence is the seal.",
-    "practice": "Before any other tab: open Direct Auto, write the exact amount, put Sept. 21 on the calendar. That is the seal."
+    "hed": "Count the Cost Before the Journey",
+    "body": "“The prudent sees danger and hides himself, but the simple go on and suffer for it.” (Proverbs 22:3) Solomon’s counsel is not fear — it is foresight with a price tag. This is an insurance-and-money week: reinstate Direct Auto by ~Sept. 21 (~$199.43 pending portal confirm), hard backup Sept. 23, Vegas Sept. 25. Paying the known cost now is wisdom; gambling that ‘later’ will be cheaper is the simple path. Classical lore cast Solomon as one who named what approached before it spoke; you name the gate the same way — amount, date, covered before the trip.",
+    "practice": "Before any discretionary spend today, write one line: ‘Is the car covered before the trip?’ If the answer isn’t yes with a date and amount, delay the spend and open the portal. Refuge first; celebration second."
   }
 }
