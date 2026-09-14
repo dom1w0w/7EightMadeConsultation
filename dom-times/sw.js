@@ -1,5 +1,5 @@
 /* The Dom Times — service worker (cache-first for shell, network-first for data) */
-const CACHE_NAME = "dom-times-v1";
+const CACHE_NAME = "dom-times-v2";
 const SHELL = [
   "./",
   "./index.html",

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "note": "LIVE edition — Monday, September 14, 2026. Locale: Carpentersville, IL (America/Chicago).",
+    "note": "LIVE edition — Monday, September 14, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
     "generated": "2026-09-14T05:55:00-05:00",
     "source": "live"
   },
@@ -12,32 +12,32 @@
     "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Direct Auto Still Canceled — Portal Confirm, Then ~$199.43 by Sept. 21",
-    "subhead": "Sep 8 cancel notice unread; new-device login overnight. Paycheck Tue. Bears open with a 59–37 statement.",
+    "headline": "Opening Bell Rings — Bears Drop a 59–37 Statement as Dom Times Goes Live",
+    "subhead": "Morning Charge is loaded. Chicago piled up 552 yards in Charlotte. Your briefing is ready — energy first.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Money week on one page: portal, reinstate, Vegas covered.",
-      "alt": "Lead photo — insurance gate and money week"
+      "caption": "Monday charge: breath, body, Bears — then the rest of the board.",
+      "alt": "Lead photo — Opening Bell and Bears opener energy"
     }
   },
   "articles": [
     {
-      "hed": "Insurance Gate: Policy 2019407539 Still Needs the Portal",
-      "deck": "Sep 8 cancel notice sits unread. Reinstate hold is Mon. Sept. 21 (~$199.43 — confirm on directauto.com).",
-      "body": "Direct Auto canceled policy 2019407539 effective Sept. 8 for non-payment. The Important Notice of Policy Status is still unread in dominickurtmartin@gmail.com this morning — and a new-device login alert hit overnight (iPhone / Mobile Safari). First move: open the portal, confirm the exact reinstate amount (mail does not restate the figure), verify that login was you, then keep the Mon. Sept. 21 pay hold. Wed. Sept. 23 paycheck is the hard backup before Vegas Thu. Sept. 25. CFA already green-lit the savings bridge; do not skip reinstate for card payoff.",
+      "hed": "Dom Times Live: The Monday Stack Starts With Charge, Not Noise",
+      "deck": "Box breathing, 3-minute opener, then news desks — security skim later, admin at the end.",
+      "body": "Edition XII is live from Carpentersville. The front of the paper is built for morning energy: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look keeps the real security flags (Chaturbate login, Grok access alerts). Anything that used to lead with insurance or cash beats now sits in a quiet Later / Admin block at the bottom — so the first scroll is charge, sports, and clarity.",
       "column": "lead"
     },
     {
-      "hed": "Money Week on the Calendar: Paychecks, T-Mobile, Car Note, Reinstate",
-      "deck": "Tue. 16 paycheck $1,434.02; Thu. 18 T-Mobile + savings; Fri. 19 car note $309 on calendar; Mon. 21 Direct Auto.",
-      "body": "Primary calendar (nuguiddom@gmail.com) is clear for the week’s cash beats: Tuesday Sept. 16 paycheck $1,434.02; Thursday Sept. 18 T-Mobile $180 plus savings transfers ($420 / $300); Friday Sept. 19 car note $309 on the calendar (CFA guidance still points to paying the $340.93 CFA amount with the Sept. 23 stack); Monday Sept. 21 all-day reinstate hold (~$199.43). Tuesday Sept. 23 is the next paycheck. Vegas Thu. Sept. 25 is not a separate calendar event — it only appears in the reinstate description — so treat coverage as the real departure gate.",
+      "hed": "Bears Open Loud: Franchise Opener Record in 59–37 Demolition",
+      "deck": "Caleb Williams four total TDs; Swift and Monangai both over 100 on the ground. MNF tonight: Broncos at Chiefs.",
+      "body": "Chicago set a franchise opener scoring mark in Charlotte — 552 yards, eight touchdowns, Williams throwing for 269 and running for 65. D’Andre Swift (124, 3 TDs) and Kyle Monangai (100, 1 TD) broke the game open. Elsewhere: Dart and the Giants beat Dallas in Harbaugh’s debut; Monday Night Football is Broncos at Chiefs (Mahomes and Nix both back from major injuries). Carry that energy into the Opening Bell.",
       "column": "secondary"
     },
     {
-      "hed": "Inbox Security Sweep + Evening Optional Sigil",
-      "deck": "Grok Google-access alerts on all three Gmails; one adult-site login flag. Calendar: only 9:30 p.m. Sigil tonight.",
-      "body": "Beyond Direct Auto, skim the Google Security alerts granting Grok access on nuguiddom, dominickurtmartin, and dkmpnuguid — expected if the MCP connect was intentional; acknowledge and archive. Flag separately: Chaturbate new-login alert on dkmpnuguid (mikomikomiko23) — confirm it was you or change the password. iRacing renewal notice still sits for a Saturday in September. Today’s only timed calendar item is optional Sigil at 9:30 p.m. Morning Charge and the 3-minute opener are the fixed habits.",
+      "hed": "AI Desk Pulse: Siri AI Ships English; Altman Calls to Pace the Frontier",
+      "deck": "iOS 27 Siri AI live in English today; OpenAI joins Amodei and Musk on slowing the race. Grok 4.7 still cooking.",
+      "body": "Apple confirmed Siri AI with iOS 27 / iPadOS 27 on Monday — English first, five more languages in October, still in beta with usage caps. Altman welcomed a federal safety framework after aligning with Amodei and Musk on pacing frontier labs. Musk delayed Grok 4.7 a few more days over an RL length penalty. Full desks below.",
       "column": "secondary"
     }
   ],
@@ -77,15 +77,11 @@
   "needsALook": [
     {
       "type": "ACTION",
-      "text": "Confirm Direct Auto portal amount + reinstate ~Sept. 21 (~$199.43)"
+      "text": "Verify Chaturbate new login (dkmpnuguid) — or change password"
     },
     {
       "type": "ACTION",
       "text": "Verify Direct Auto new-device login (Sep 14 iPhone) was you"
-    },
-    {
-      "type": "ACTION",
-      "text": "Verify Chaturbate new login (dkmpnuguid) — or change password"
     },
     {
       "type": "FYI",
@@ -93,11 +89,11 @@
     },
     {
       "type": "FYI",
-      "text": "Paycheck Tue. Sept. 16 ($1,434.02)"
+      "text": "iRacing renewal — check Saturday September date"
     },
     {
       "type": "FYI",
-      "text": "iRacing renewal — check Saturday September date"
+      "text": "Quiet admin block at bottom of edition (Later / Admin)"
     }
   ],
   "timeline": [
@@ -108,7 +104,7 @@
     },
     {
       "time": "Open",
-      "event": "Direct Auto portal: confirm amount, verify overnight login, keep Sept. 21 hold",
+      "event": "Security skim: Chaturbate + overnight device login flags",
       "category": "focus"
     },
     {
@@ -118,12 +114,11 @@
     }
   ],
   "thisWeek": [
-    "Tue 16 — Paycheck $1,434.02",
-    "Thu 18 — T-Mobile $180 + savings transfers ($420 / $300)",
-    "Fri 19 — Car note $309 on calendar (CFA: prefer $340.93 with Sept. 23 stack)",
-    "Mon 21 — Direct Auto reinstate ~$199.43 (confirm portal) — before Vegas",
-    "Tue 23 — Paycheck $1,434.02 (hard backup for reinstate if unpaid)",
-    "Thu 25 — Vegas (not on calendar as a trip hold — coverage is the gate)"
+    "Tue–Wed — Stormy stretch (heavy thunderstorms likely)",
+    "Mon night — MNF: Broncos at Chiefs",
+    "Thu 25 — Vegas trip window",
+    "Sat (Sept) — iRacing renewal date to confirm",
+    "Optional — Sigil nights as energy allows"
   ],
   "stubs": {
     "comics": {
@@ -140,15 +135,15 @@
     "items": [
       {
         "hed": "Gnosis Is Not Gossip",
-        "body": "In classical Gnosticism, gnosis meant direct knowing of the divine spark — not scavenged lore or online mystique. Treat ‘forbidden knowledge’ as a call to inner clarity: what you actually know about your day, your debts, and your will — not what you scroll."
+        "body": "In classical Gnosticism, gnosis meant direct knowing of the divine spark — not scavenged lore or online mystique. Treat ‘forbidden knowledge’ as a call to inner clarity: what you actually know about your day, your will, and your next clear move — not what you scroll."
       },
       {
-        "hed": "As Above, So Below — Ledger Edition",
-        "body": "The Hermetic axiom from the Emerald Tablet isn’t astrology cosplay; it’s correspondence. Outer order (bills paid, policy active) mirrors inner order (mind unset by surprise). Align the micro ledger with the macro plan and the ‘magic’ is simply coherence."
+        "hed": "As Above, So Below — Morning Edition",
+        "body": "The Hermetic axiom from the Emerald Tablet isn’t astrology cosplay; it’s correspondence. Outer order (breath steady, body woken, desk clear) mirrors inner order. Align the micro ritual with the macro intention and the ‘magic’ is simply coherence."
       },
       {
         "hed": "The Magician’s First Tool Is Timing",
-        "body": "Western ceremonial magick obsesses over hours and elections because will without timing dissipates. Same rule for a money week: cast the reinstate before the Vegas window, not during it. Timing is the circle; cash is the charge."
+        "body": "Western ceremonial magick obsesses over hours and elections because will without timing dissipates. Same rule for a Monday: cast the charge before the noise, not during it. Timing is the circle; attention is the charge."
       }
     ]
   },
@@ -253,7 +248,7 @@
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Monday’s gate is coverage and confirmation — not noise. Four counts in, four hold, four out, four hold. Then open the portal.",
+    "intro": "Monday’s gate is breath and clarity — not noise. Four counts in, four hold, four out, four hold. Then own the day.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -284,17 +279,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds clears the static. Eyes open. Shoulders down. Portal first. Then the rest of the board."
+      "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
       "hed": "Fierce Calm, Ordered Edge",
-      "body": "Dom does not chase the week — he sequences it. Fierce calm is competitive composure under a real clock: confirm the portal, reinstate by the 21st, ride the Sept. 16 paycheck, stack the 23rd, land Vegas covered. One gate, one confirmation, one transfer at a time. Competitors may arrive loud; he arrives prepared and solvent. When pressure rises, he slows the breath, names the next dollar move, and outlasts the noise. Today is not about proving anything. It is about executing the money week so cleanly that Vegas is just travel."
+      "body": "Dom does not chase the week — he sequences it. Fierce calm is competitive composure under a real clock: charge first, body second, security skim when ready, admin only when the morning has already won. One breath, one move, one clear next step. Competitors may arrive loud; he arrives prepared. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything. It is about starting clean so the rest of the week has room to land."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Run this after Morning Charge — box breathing first, then the body. Then Direct Auto portal.",
+    "note": "Run this after Morning Charge — box breathing first, then the body. Then news and the day.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -326,19 +321,14 @@
     "asOf": "Sep 14, 2026 · 5:55 AM CT",
     "urgent": [
       {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — Important Notice of Policy Status (Sep 8 cancel) still UNREAD",
-        "why": "Coverage gate before Vegas Sep 25 — confirm portal amount, pay ~Sep 21."
+        "account": "dkmpnuguid@gmail.com",
+        "text": "Chaturbate — new login alert (mikomikomiko23)",
+        "why": "Security — confirm it was you or change password."
       },
       {
         "account": "dominickurtmartin@gmail.com",
         "text": "Direct Auto — new device login Sep 14 (iPhone / Mobile Safari)",
-        "why": "Verify that was you before ignoring."
-      },
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "Chaturbate — new login alert (mikomikomiko23)",
-        "why": "Security — confirm it was you or change password."
+        "why": "Security — verify that was you before ignoring."
       }
     ],
     "needsLook": [
@@ -346,11 +336,6 @@
         "account": "nuguiddom@gmail.com + dominickurtmartin + dkmpnuguid",
         "text": "Google Security alerts — Grok granted access (all 3 Gmails)",
         "why": "Confirm intentional MCP connect, then archive."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Earlier Direct Auto Pay Now to Avoid Cancellation (Aug 29) still in inbox",
-        "why": "Insurance history — prior notice before Sep 8 cancel."
       },
       {
         "account": "dominickurtmartin@gmail.com",
@@ -375,33 +360,27 @@
         "why": "Social noise."
       }
     ],
-    "cleanupNote": "Scanned recent inbox on all three accounts. No reinstate amount or payment receipt in live mail — ~$199.43 / ~Sep 21 still pending portal confirm. dkmpnuguid older-than-16h trash request not re-verified this pass."
+    "cleanupNote": "Scanned recent inbox on all three accounts. Security flags above; money/insurance mail lives only in Later / Admin at end of edition. dkmpnuguid older-than-16h trash request not re-verified this pass."
   },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
     "items": [
       {
-        "id": "direct-auto-confirm",
-        "text": "Confirm portal amount on directauto.com",
-        "priority": "urgent",
-        "done": false
-      },
-      {
-        "id": "direct-auto-login",
-        "text": "Verify Direct Auto new-device login (Sep 14) was you",
-        "priority": "urgent",
-        "done": false
-      },
-      {
-        "id": "direct-auto-pay",
-        "text": "Pay Direct Auto ~Sept. 21 (~$199.43 pending portal)",
-        "priority": "urgent",
+        "id": "morning-charge",
+        "text": "Morning Charge + 3-min opener today",
+        "priority": "habit",
         "done": false
       },
       {
         "id": "chaturbate-login",
         "text": "Verify Chaturbate new login — or change password",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "device-login",
+        "text": "Verify overnight Direct Auto device login was you",
         "priority": "high",
         "done": false
       },
@@ -418,15 +397,9 @@
         "done": false
       },
       {
-        "id": "tmobile",
-        "text": "T-Mobile ~Sept. 18 ($180)",
+        "id": "admin-later",
+        "text": "Later: Direct Auto portal + reinstate (see Later / Admin)",
         "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "morning-charge",
-        "text": "Morning Charge + 3-min opener today",
-        "priority": "habit",
         "done": false
       }
     ]
@@ -435,8 +408,30 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "Solomon — Proverbs / wisdom tradition",
-    "hed": "Count the Cost Before the Journey",
-    "body": "“The prudent sees danger and hides himself, but the simple go on and suffer for it.” (Proverbs 22:3) Solomon’s counsel is not fear — it is foresight with a price tag. This is an insurance-and-money week: reinstate Direct Auto by ~Sept. 21 (~$199.43 pending portal confirm), hard backup Sept. 23, Vegas Sept. 25. Paying the known cost now is wisdom; gambling that ‘later’ will be cheaper is the simple path. Classical lore cast Solomon as one who named what approached before it spoke; you name the gate the same way — amount, date, covered before the trip.",
-    "practice": "Before any discretionary spend today, write one line: ‘Is the car covered before the trip?’ If the answer isn’t yes with a date and amount, delay the spend and open the portal. Refuge first; celebration second."
+    "hed": "Begin With the Breath, Not the Storm",
+    "body": "“A soft answer turns away wrath, but a harsh word stirs up anger.” (Proverbs 15:1) Solomon’s counsel is not passivity — it is order under pressure. A Monday that opens with charge and clarity outruns one that opens with alarm. Classical lore cast Solomon as one who named what approached before it spoke; you name the morning the same way — breath first, body second, then the board.",
+    "practice": "Before opening any inbox thread, finish Opening Bell and the 3-minute opener. Refuge first; reaction second."
+  },
+  "techDemo": {
+    "title": "Tech Demo",
+    "pick": "Coming soon",
+    "url": "",
+    "note": "Bookmark-to-demo pipeline — link will land here"
+  },
+  "moneyDesk": {
+    "title": "Later / Admin",
+    "kicker": "Quiet money block — handle when morning energy is banked",
+    "items": [
+      "Direct Auto policy 2019407539 — canceled Sep 8 for non-payment; Important Notice still unread (dominickurtmartin)",
+      "Portal: confirm exact reinstate amount on directauto.com (mail does not restate figure); target ~$199.43",
+      "Reinstate hold: Mon Sept. 21 — before Vegas Thu Sept. 25; hard backup paycheck Tue Sept. 23",
+      "Earlier Pay Now notice (Aug 29) still in inbox — insurance history only",
+      "Tue Sept. 16 — Paycheck $1,434.02",
+      "Thu Sept. 18 — T-Mobile $180 + savings transfers ($420 / $300)",
+      "Fri Sept. 19 — Car note $309 on calendar (CFA: prefer $340.93 with Sept. 23 stack)",
+      "Tue Sept. 23 — Paycheck $1,434.02",
+      "CFA already green-lit savings bridge — do not skip reinstate for card payoff",
+      "Vegas Thu Sept. 25 is not a separate calendar trip hold — coverage is the real departure gate"
+    ]
   }
 }

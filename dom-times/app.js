@@ -663,6 +663,42 @@
     `;
   }
 
+
+  function renderTechDemo(td) {
+    if (!td || !td.title) return "";
+    const pick = td.pick ? `<p class="tech-demo-pick">${esc(td.pick)}</p>` : "";
+    const link =
+      td.url
+        ? `<p class="tech-demo-link"><a href="${esc(td.url)}" target="_blank" rel="noopener noreferrer">${esc(td.url)}</a></p>`
+        : "";
+    const note = td.note ? `<p class="tech-demo-note">${esc(td.note)}</p>` : "";
+    return `
+      <section class="tech-demo-section" aria-label="${esc(td.title)}">
+        <h2 class="section-label">${esc(td.title)}</h2>
+        <article class="tech-demo-card">
+          ${pick}
+          ${link}
+          ${note}
+        </article>
+      </section>
+    `;
+  }
+
+  function renderMoneyDesk(md) {
+    if (!md || !md.items || !md.items.length) return "";
+    const list = md.items.map((i) => `<li>${esc(i)}</li>`).join("");
+    const kicker = md.kicker
+      ? `<p class="money-desk-kicker">${esc(md.kicker)}</p>`
+      : "";
+    return `
+      <section class="money-desk-section" aria-label="${esc(md.title || "Later / Admin")}">
+        <h2 class="section-label">${esc(md.title || "Later / Admin")}</h2>
+        ${kicker}
+        <ul class="money-desk-list">${list}</ul>
+      </section>
+    `;
+  }
+
   function renderFooter(online) {
     const cls = online ? "" : " offline";
     const label = online ? "Online · cached for offline" : "Offline · showing cached edition";
@@ -692,15 +728,17 @@
           ${renderNeedsALook(data.needsALook)}
         </aside>
       </div>
-      ${renderInboxSummary(data.inboxSummary)}
-      ${renderTodo(data.todo)}
-      ${renderTimeline(data.timeline)}
-      ${renderThisWeek(data.thisWeek)}
       ${renderOpeningBell(data.openingBell)}
       ${renderBodyOpener(data.bodyOpener)}
       ${renderNews(data.news)}
       ${renderBrainFood(data.brainFood)}
       ${renderGrimoire(data.grimoire)}
+      ${renderTimeline(data.timeline)}
+      ${renderThisWeek(data.thisWeek)}
+      ${renderInboxSummary(data.inboxSummary)}
+      ${renderTodo(data.todo)}
+      ${renderTechDemo(data.techDemo)}
+      ${renderMoneyDesk(data.moneyDesk)}
       ${renderStubs(data.stubs)}
       ${renderFooter(navigator.onLine)}
     `;
