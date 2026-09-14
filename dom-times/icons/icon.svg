@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="The Dom Times">
+  <rect width="512" height="512" fill="#f4f1e8"/>
+  <rect x="32" y="32" width="448" height="448" fill="none" stroke="#111" stroke-width="8"/>
+  <text x="256" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#111">THE</text>
+  <text x="256" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="96" font-weight="700" fill="#111">DOM</text>
+  <text x="256" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="64" font-weight="700" fill="#111">TIMES</text>
+  <line x1="80" y1="400" x2="432" y2="400" stroke="#111" stroke-width="3"/>
+  <line x1="80" y1="410" x2="432" y2="410" stroke="#111" stroke-width="1"/>
+</svg>
