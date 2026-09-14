@@ -161,24 +161,6 @@
     `;
   }
 
-  function renderStubs(stubs) {
-    if (!stubs) return "";
-    const order = ["inbox", "comics"];
-    const blocks = order
-      .filter((k) => stubs[k])
-      .map((k) => {
-        const s = stubs[k];
-        const items = (s.items || []).map((i) => `<li>${esc(i)}</li>`).join("");
-        return `
-          <div class="stub">
-            <h2 class="section-label">${esc(s.title)}</h2>
-            <ul>${items}</ul>
-          </div>`;
-      })
-      .join("");
-    return `<section class="stubs">${blocks}</section>`;
-  }
-
 
 
   function renderOpeningBell(ob) {
@@ -665,20 +647,42 @@
 
 
   function renderTechDemo(td) {
-    if (!td || !td.title) return "";
+    if (!td) return "";
+    const title = td.title || "Tech Demo";
+    const kicker = td.kicker
+      ? `<p class="tech-demo-kicker">${esc(td.kicker)}</p>`
+      : "";
     const pick = td.pick ? `<p class="tech-demo-pick">${esc(td.pick)}</p>` : "";
-    const link =
+    const author = td.author
+      ? `<p class="tech-demo-author">${esc(td.author)}</p>`
+      : "";
+    const primaryLabel = td.linkLabel || "Open demo / source";
+    const primary =
       td.url
-        ? `<p class="tech-demo-link"><a href="${esc(td.url)}" target="_blank" rel="noopener noreferrer">${esc(td.url)}</a></p>`
+        ? `<a class="tech-demo-cta" href="${esc(td.url)}" target="_blank" rel="noopener noreferrer">${esc(primaryLabel)}</a>`
+        : "";
+    const secondary =
+      td.bookmarkUrl
+        ? `<a class="tech-demo-secondary" href="${esc(td.bookmarkUrl)}" target="_blank" rel="noopener noreferrer">From your X bookmark</a>`
+        : "";
+    const links =
+      primary || secondary
+        ? `<p class="tech-demo-links">${primary}${secondary}</p>`
         : "";
     const note = td.note ? `<p class="tech-demo-note">${esc(td.note)}</p>` : "";
+    const skipped = td.skipped
+      ? `<p class="tech-demo-skipped">${esc(td.skipped)}</p>`
+      : "";
     return `
-      <section class="tech-demo-section" aria-label="${esc(td.title)}">
-        <h2 class="section-label">${esc(td.title)}</h2>
+      <section class="tech-demo-section" aria-label="${esc(title)}">
+        <h2 class="section-label">${esc(title)}</h2>
+        ${kicker}
         <article class="tech-demo-card">
           ${pick}
-          ${link}
+          ${author}
+          ${links}
           ${note}
+          ${skipped}
         </article>
       </section>
     `;
@@ -737,9 +741,8 @@
       ${renderThisWeek(data.thisWeek)}
       ${renderInboxSummary(data.inboxSummary)}
       ${renderTodo(data.todo)}
-      ${renderTechDemo(data.techDemo)}
       ${renderMoneyDesk(data.moneyDesk)}
-      ${renderStubs(data.stubs)}
+      ${renderTechDemo(data.techDemo)}
       ${renderFooter(navigator.onLine)}
     `;
     initBreathGuide();
