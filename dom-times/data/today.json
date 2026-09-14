@@ -120,15 +120,6 @@
     "Sat (Sept) — iRacing renewal date to confirm",
     "Optional — Sigil nights as energy allows"
   ],
-  "stubs": {
-    "comics": {
-      "title": "Comics",
-      "items": [
-        "Peanuts — classic strip placeholder",
-        "xkcd — today's panel placeholder"
-      ]
-    }
-  },
   "brainFood": {
     "title": "Brain Food",
     "kicker": "From the Mystics",
@@ -414,9 +405,14 @@
   },
   "techDemo": {
     "title": "Tech Demo",
-    "pick": "Coming soon",
-    "url": "",
-    "note": "Bookmark-to-demo pipeline — link will land here"
+    "kicker": "From your X bookmarks",
+    "pick": "Google’s free Graph & Loop engineering course — 1 prompt → 100 agents → loops → graphs",
+    "author": "@callanxai",
+    "url": "https://x.com/callanxai/status/2099232037655781462",
+    "bookmarkUrl": "https://x.com/callanxai/status/2099232037655781462",
+    "linkLabel": "Open bookmark",
+    "note": "Today’s pick from @mmmik000 bookmarks. Full bookmark→build→preview pipeline coming; for now the morning paper surfaces the pick here (comics slot retired).",
+    "skipped": "Skipped CS nade clips + wallpaper drop for a shippable tech pick."
   },
   "moneyDesk": {
     "title": "Later / Admin",
