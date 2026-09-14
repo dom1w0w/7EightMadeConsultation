@@ -1370,6 +1370,58 @@ a.news-link:hover .news-hed {
   margin: 0 0 0.65rem;
 }
 
+.tech-demo-visual {
+  margin: 0.15rem 0 0.75rem;
+  width: 100%;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.55rem 0;
+}
+
+.tech-demo-visual img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.tech-demo-lesson {
+  margin: 0 0 0.75rem;
+}
+
+.tech-demo-oneliner {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 0 0.45rem;
+}
+
+.tech-demo-beats {
+  margin: 0 0 0.5rem;
+  padding-left: 1.2rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.tech-demo-beats li {
+  margin: 0 0 0.28rem;
+}
+
+.tech-demo-beats li:last-child {
+  margin-bottom: 0;
+}
+
+.tech-demo-takeaway {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--ink);
+}
+
 .tech-demo-links {
   display: flex;
   flex-wrap: wrap;

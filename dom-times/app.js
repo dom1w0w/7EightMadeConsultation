@@ -656,6 +656,25 @@
     const author = td.author
       ? `<p class="tech-demo-author">${esc(td.author)}</p>`
       : "";
+    const img = td.image && td.image.src
+      ? `<figure class="tech-demo-visual"><img src="${esc(td.image.src)}" alt="${esc(td.image.alt || "")}" loading="lazy"/></figure>`
+      : "";
+    const lessonObj = td.lesson && typeof td.lesson === "object" ? td.lesson : null;
+    let lesson = "";
+    if (lessonObj) {
+      const oneLiner = lessonObj.oneLiner
+        ? `<p class="tech-demo-oneliner">${esc(lessonObj.oneLiner)}</p>`
+        : "";
+      const beats = Array.isArray(lessonObj.beats) && lessonObj.beats.length
+        ? `<ol class="tech-demo-beats">${lessonObj.beats.map((b) => `<li>${esc(b)}</li>`).join("")}</ol>`
+        : "";
+      const takeaway = lessonObj.takeaway
+        ? `<p class="tech-demo-takeaway">${esc(lessonObj.takeaway)}</p>`
+        : "";
+      if (oneLiner || beats || takeaway) {
+        lesson = `<div class="tech-demo-lesson">${oneLiner}${beats}${takeaway}</div>`;
+      }
+    }
     const primaryLabel = td.linkLabel || "Open demo / source";
     const primary =
       td.url
@@ -680,6 +699,8 @@
         <article class="tech-demo-card">
           ${pick}
           ${author}
+          ${img}
+          ${lesson}
           ${links}
           ${note}
           ${skipped}

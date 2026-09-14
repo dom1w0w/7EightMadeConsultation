@@ -405,13 +405,27 @@
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "From your X bookmarks",
+    "kicker": "Fast learn · from your X bookmarks",
     "pick": "Google’s free Graph & Loop engineering course — 1 prompt → 100 agents → loops → graphs",
     "author": "@callanxai",
     "url": "https://x.com/callanxai/status/2099232037655781462",
     "bookmarkUrl": "https://x.com/callanxai/status/2099232037655781462",
     "linkLabel": "Open bookmark",
-    "note": "Today’s pick from @mmmik000 bookmarks. Full bookmark→build→preview pipeline coming; for now the morning paper surfaces the pick here (comics slot retired).",
+    "image": {
+      "src": "assets/tech-demo-graph-loops.png",
+      "alt": "Prompts to agents to loops to graphs — four-stage diagram"
+    },
+    "lesson": {
+      "oneLiner": "Stop stuffing one mega-prompt. Promote the work one layer: prompt → agent → loop → graph.",
+      "beats": [
+        "Prompt = one clear job (inputs + done-when).",
+        "Agent = the worker that runs that job.",
+        "Loop = check → retry/route until the job is actually finished (closes work without you).",
+        "Graph = the map of many jobs: which exist, in what order, what carries into tomorrow’s run."
+      ],
+      "takeaway": "One-two dump: a loop finishes a single job; a graph decides which jobs exist and keeps accepted work moving overnight."
+    },
+    "note": "Bookmark surfaced for @mmmik000. Demo build pipeline still coming — learn the idea here first.",
     "skipped": "Skipped CS nade clips + wallpaper drop for a shippable tech pick."
   },
   "moneyDesk": {
