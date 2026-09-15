@@ -1,5 +1,5 @@
 /* The Dom Times — service worker (cache-first for shell, network-first for data) */
-const CACHE_NAME = "dom-times-v4";
+const CACHE_NAME = "dom-times-v5";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,7 +8,8 @@ const SHELL = [
   "./manifest.json",
   "./icons/icon.svg",
   "./data/today.json",
-  "./assets/tech-demo-graph-loops.png"
+  "./assets/tech-demo-graph-loops.png",
+  "./assets/tech-demo-grokbot-org.png"
 ];
 
 self.addEventListener("install", (event) => {
