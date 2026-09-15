@@ -1,76 +1,76 @@
 {
   "_meta": {
-    "note": "LIVE edition — Monday, September 14, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
-    "generated": "2026-09-14T05:55:00-05:00",
+    "note": "LIVE edition — Tuesday, September 15, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
+    "generated": "2026-09-15T06:49:24-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XII",
+    "volume": "XIII",
     "city": "Carpentersville, IL",
-    "asOf": "5:55 AM CT"
+    "asOf": "6:49 AM CT"
   },
   "lead": {
-    "headline": "Opening Bell Rings — Bears Drop a 59–37 Statement as Dom Times Goes Live",
-    "subhead": "Morning Charge is loaded. Chicago piled up 552 yards in Charlotte. Your briefing is ready — energy first.",
+    "headline": "Tuesday Charge Under Storm Skies — Chiefs Roll, Kawhi Lands, Siri AI Is Live",
+    "subhead": "NWS: showers and storms today (high 78 / low 60). Walker III torched Denver. Opening Bell first — then the board.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Monday charge: breath, body, Bears — then the rest of the board.",
-      "alt": "Lead photo — Opening Bell and Bears opener energy"
+      "caption": "Tuesday: breath, body, storms — sports and AI after the charge.",
+      "alt": "Lead photo — Tuesday Opening Bell energy under storm skies"
     }
   },
   "articles": [
     {
-      "hed": "Dom Times Live: The Monday Stack Starts With Charge, Not Noise",
-      "deck": "Box breathing, 3-minute opener, then news desks — security skim later, admin at the end.",
-      "body": "Edition XII is live from Carpentersville. The front of the paper is built for morning energy: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look keeps the real security flags (Chaturbate login, Grok access alerts). Anything that used to lead with insurance or cash beats now sits in a quiet Later / Admin block at the bottom — so the first scroll is charge, sports, and clarity.",
+      "hed": "Edition XIII: Same Stack, Sharper Tuesday Edge",
+      "deck": "Box breathing, 3-minute opener, then desks — security skim when ready, admin only at the bottom.",
+      "body": "Volume XIII is live from Carpentersville. Front of the paper stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look still carries real security flags (Chaturbate login, Direct Auto device login, Grok access alerts). Storms are the weather story; Chiefs and Kawhi are the sports pulse; Siri AI and the xAI–Apple lawsuit drop headline the AI desk. Quiet admin lives only in Later / Admin.",
       "column": "lead"
     },
     {
-      "hed": "Bears Open Loud: Franchise Opener Record in 59–37 Demolition",
-      "deck": "Caleb Williams four total TDs; Swift and Monangai both over 100 on the ground. MNF tonight: Broncos at Chiefs.",
-      "body": "Chicago set a franchise opener scoring mark in Charlotte — 552 yards, eight touchdowns, Williams throwing for 269 and running for 65. D’Andre Swift (124, 3 TDs) and Kyle Monangai (100, 1 TD) broke the game open. Elsewhere: Dart and the Giants beat Dallas in Harbaugh’s debut; Monday Night Football is Broncos at Chiefs (Mahomes and Nix both back from major injuries). Carry that energy into the Opening Bell.",
+      "hed": "Arrowhead Statement: Walker III 173 Rush as Chiefs Beat Broncos 31–10",
+      "deck": "Mahomes back from ACL; KWIII steals the show. Bears still riding 59–37 opener into Vikings at home.",
+      "body": "On Monday Night Football, Kenneth Walker III debuted for Kansas City with 173 rushing yards and two touchdowns in a 31–10 win over Denver. Patrick Mahomes returned from ACL surgery with 184 pass yards, two passing TDs, and a rushing score; Bo Nix and the Broncos managed just 176 total yards. Chicago’s 59–37 franchise-opener demolition of Carolina still echoes — Soldier Field hosts Minnesota this Sunday. Carry that tempo into the Opening Bell.",
       "column": "secondary"
     },
     {
-      "hed": "AI Desk Pulse: Siri AI Ships English; Altman Calls to Pace the Frontier",
-      "deck": "iOS 27 Siri AI live in English today; OpenAI joins Amodei and Musk on slowing the race. Grok 4.7 still cooking.",
-      "body": "Apple confirmed Siri AI with iOS 27 / iPadOS 27 on Monday — English first, five more languages in October, still in beta with usage caps. Altman welcomed a federal safety framework after aligning with Amodei and Musk on pacing frontier labs. Musk delayed Grok 4.7 a few more days over an RL length penalty. Full desks below.",
+      "hed": "AI Desk: Siri AI Ships; Hooks for Claude/ChatGPT Surface; xAI Drops Apple Suit",
+      "deck": "English beta live; private Model Delegation code; X/SpaceXAI dismiss Apple claims but keep OpenAI in the case.",
+      "body": "Apple’s Siri AI rolled out Monday in English beta with iOS/iPadOS 27-era software. AppleInsider found private hooks that can swap or extend Siri’s backend toward Claude or ChatGPT — not yet public. Separately, X Corp and SpaceXAI dismissed antitrust claims against Apple over ChatGPT integration while continuing the case against OpenAI. Full desks below.",
       "column": "secondary"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 74,
-    "low": 64,
-    "summary": "Monday: some sunshine giving way to clouds and a steady breeze — high 74 / low 64. Tuesday–Wednesday look stormy (heavy thunderstorms likely).",
+    "high": 78,
+    "low": 60,
+    "summary": "Tuesday: showers and thunderstorms (near 100% morning PoP) — high near 78 / low around 60. Gusty WSW winds early. Wet pattern continues Wed–Fri with more shower/storm chances.",
     "unit": "F",
     "days": [
       {
-        "label": "Mon",
-        "high": 74,
-        "low": 64,
-        "icon": "partly"
-      },
-      {
         "label": "Tue",
-        "high": 77,
-        "low": 61,
+        "high": 78,
+        "low": 60,
         "icon": "storm"
       },
       {
         "label": "Wed",
-        "high": 72,
-        "low": 65,
-        "icon": "storm"
+        "high": 71,
+        "low": 62,
+        "icon": "rain"
       },
       {
         "label": "Thu",
         "high": 76,
-        "low": 61,
-        "icon": "cloud"
+        "low": 60,
+        "icon": "storm"
+      },
+      {
+        "label": "Fri",
+        "high": 75,
+        "low": 62,
+        "icon": "rain"
       }
     ]
   },
@@ -104,7 +104,7 @@
     },
     {
       "time": "Open",
-      "event": "Security skim: Chaturbate + overnight device login flags",
+      "event": "Security skim: Chaturbate + Direct Auto device login flags",
       "category": "focus"
     },
     {
@@ -114,8 +114,9 @@
     }
   ],
   "thisWeek": [
-    "Tue–Wed — Stormy stretch (heavy thunderstorms likely)",
-    "Mon night — MNF: Broncos at Chiefs",
+    "Tue–Fri — Wet stretch (showers/storms likely on and off)",
+    "Sun — Bears host Vikings at Soldier Field (Week 2)",
+    "Sun night — Chiefs host Colts (SNF)",
     "Thu 25 — Vegas trip window",
     "Sat (Sept) — iRacing renewal date to confirm",
     "Optional — Sigil nights as energy allows"
@@ -125,16 +126,16 @@
     "kicker": "From the Mystics",
     "items": [
       {
-        "hed": "Gnosis Is Not Gossip",
-        "body": "In classical Gnosticism, gnosis meant direct knowing of the divine spark — not scavenged lore or online mystique. Treat ‘forbidden knowledge’ as a call to inner clarity: what you actually know about your day, your will, and your next clear move — not what you scroll."
+        "hed": "The Veil Is a Filter, Not a Wall",
+        "body": "Gnostic teachers spoke of the veil between the apparent world and the real as something that thins with attention — not a brick barrier. Tuesday’s storms are noise on the screen; the charge underneath is still yours. Practice seeing the filter for what it is: weather, inbox, feed — then choose what passes through."
       },
       {
-        "hed": "As Above, So Below — Morning Edition",
-        "body": "The Hermetic axiom from the Emerald Tablet isn’t astrology cosplay; it’s correspondence. Outer order (breath steady, body woken, desk clear) mirrors inner order. Align the micro ritual with the macro intention and the ‘magic’ is simply coherence."
+        "hed": "Hermetic Fire Under Water",
+        "body": "Classical Hermetica pairs the elements: water dissolves form; fire concentrates will. A wet forecast is not a soft day unless you let it be. Keep the inner fire (breath, plank, next clear move) while the outer water does its work. Coherence under weather is the real alchemy."
       },
       {
-        "hed": "The Magician’s First Tool Is Timing",
-        "body": "Western ceremonial magick obsesses over hours and elections because will without timing dissipates. Same rule for a Monday: cast the charge before the noise, not during it. Timing is the circle; attention is the charge."
+        "hed": "Names Bind Attention",
+        "body": "In esoteric practice, to name a force is to place it. Name the morning: charge, body, security skim, then the rest. Unnamed urgency owns you; named urgency becomes a task with a place on the page. Forbidden knowledge, stripped of theater, is often just precise naming."
       }
     ]
   },
@@ -146,28 +147,28 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "9to5Mac",
-            "hed": "Siri AI rolls out in English with iOS 27 today; five more languages in October",
-            "body": "Apple confirmed Siri AI launches with iOS 27 / iPadOS 27 on Monday, Sep 14, initially in English only, with French, Japanese, Korean, Portuguese, and Spanish due in October. The assistant stays in beta with daily server-side usage caps, EU/China limits, and a future paid tier for expanded access that Apple has not yet priced.",
-            "url": "https://9to5mac.com/2026/09/09/apple-confirms-siri-ai-launches-in-english-this-month-will-add-five-languages-in-october/"
+            "source": "Apple",
+            "hed": "Siri AI is here — English beta with next-gen Apple Intelligence",
+            "body": "Apple said Siri AI launched Monday as a more capable, conversational assistant with personal context, world knowledge, onscreen awareness, and deeper app actions. Rollout starts in English; French, Japanese, Korean, Portuguese, and Spanish are due next month across the 2027 software releases.",
+            "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/"
+          },
+          {
+            "source": "AppleInsider",
+            "hed": "iOS 27 code shows Siri AI can be swapped for Claude or ChatGPT",
+            "body": "Private hooks in iOS 27 / macOS Golden Gate betas reveal Model Delegation and Inference Providing paths that can run Claude as a Siri extension or replace Siri’s server model with ChatGPT — demos exist, but the features are not enabled for regular users yet.",
+            "url": "https://appleinsider.com/articles/26/09/14/siri-ai-is-built-to-be-replaceable-by-claude-or-chatgpt"
+          },
+          {
+            "source": "Al Jazeera",
+            "hed": "X Corp and SpaceXAI drop antitrust claims against Apple; OpenAI case continues",
+            "body": "Elon Musk’s X and SpaceXAI dismissed their Apple antitrust claims Monday without explaining why. The suit had accused Apple of favoring ChatGPT in iOS; claims against OpenAI remain active.",
+            "url": "https://www.aljazeera.com/news/2026/9/14/elon-musks-x-corp-and-spacexai-drop-antitrust-lawsuit-against-apple"
           },
           {
             "source": "CNBC",
-            "hed": "Altman joins Amodei and Musk in call to ‘pace the frontier’ — ‘we could lose control’",
-            "body": "On Monday OpenAI’s Sam Altman welcomed a federal safety framework for frontier labs after weekend alignment with Anthropic’s Dario Amodei and Elon Musk on slowing capability races. Altman said pacing is not stopping, warned of losing control of the future to AI or concentrating power in one company, and backed independent evaluators with employee-like access; Trump dismissed a slowdown as risking the U.S. lead over China.",
+            "hed": "Altman backs Amodei’s ‘pace the frontier’ — independent evaluators, federal safety frame",
+            "body": "OpenAI’s Sam Altman welcomed a federal safety framework after aligning with Anthropic’s Dario Amodei and Elon Musk on slowing capability races so safety can keep up. Altman backed independent evaluators with employee-like access; pacing is not a stop, he said.",
             "url": "https://www.cnbc.com/2026/09/14/sam-altman-ai-slowdown-anthropic-amodei-musk.html"
-          },
-          {
-            "source": "Temperature2",
-            "hed": "Musk delays Grok 4.7, blaming an RL length penalty that makes the model quit early",
-            "body": "Elon Musk said on Sep 11 that Grok 4.7 needs ‘a few more days to cook’ because xAI’s reinforcement-learning reward over-penalized response length, teaching the model to abandon hard but solvable tasks and skimp on self-checking. Grok 4.6 (shipped Aug 12) remains the current released flagship; no new ship date, model card, or API ID for 4.7 has been published.",
-            "url": "https://temperature2.com/p/2026-09-12-grok-4-7-delayed-rl-length-penalty/"
-          },
-          {
-            "source": "CNBC",
-            "hed": "Anthropic says it blocked Claude misuse that could have aided bioweapons research",
-            "body": "Anthropic’s Sep 10 threat-intel report details disrupted misuse of Claude from Dec 2025–Aug 2026 across cyber ops, surveillance, scams, influence campaigns, and dual-use biological research — including a blocked grant-application request involving gain-of-function work on chikungunya. The company says it hardened safeguards on newer models and shared findings with authorities and industry partners.",
-            "url": "https://www.cnbc.com/2026/09/10/anthropic-blocked-misuse-of-claude-with-potential-bioweapons-support.html"
           }
         ]
       },
@@ -175,22 +176,22 @@
         "title": "NBA",
         "items": [
           {
+            "source": "Reuters",
+            "hed": "Raptors complete Kawhi Leonard trade from Clippers after NBA probe",
+            "body": "Toronto finalized the Kawhi Leonard deal Monday after pausing it during the salary-cap investigation. In exchange, the Raptors sent Brandon Ingram, Gradey Dick, two first-round picks, a first-round swap, and two second-rounders to L.A.",
+            "url": "https://www.reuters.com/sports/raptors-acquire-leonard-clippers-following-nba-probe-2026-09-15/"
+          },
+          {
+            "source": "Sportsnet",
+            "hed": "Leonard returns to Toronto; media day expected Sept. 28",
+            "body": "After the NBA approved the trade, Kawhi is officially a Raptor again. The league had fined him $700k but did not suspend him or void his deal; he is expected to speak at Toronto’s media day on Sept. 28.",
+            "url": "https://www.sportsnet.ca/nba/article/raptors-officially-acquire-kawhi-leonard-from-clippers/"
+          },
+          {
             "source": "Los Angeles Times",
-            "hed": "Ballmer apologizes, says Clippers will comply with NBA’s historic cap sanctions",
-            "body": "On Sunday Steve Ballmer reversed course and said L.A. will accept the league’s penalties — including a $30M fine, five forfeited first-round picks (2029–33), his one-year suspension, and executive bans — after Wachtell Lipton found $66M in cash/equity arrangements tied to Kawhi Leonard. Ballmer apologized to fans, staff, and owners and said the fine is paid and the chapter must close.",
-            "url": "https://www.latimes.com/sports/clippers/story/2026-09-13/steve-ballmer-says-clippers-will-comply-with-nba-sanctions"
-          },
-          {
-            "source": "BasketNews",
-            "hed": "Kawhi-to-Raptors trade still not filed as Clippers hunt interim governor",
-            "body": "Even after Ballmer’s compliance statement, the Clippers have not named an interim governor to authorize completing the Kawhi Leonard deal to Toronto. Both sides expect the trade; Leonard has worked Raptors minicamps but remains limited until paperwork clears.",
-            "url": "https://basketnews.com/news-255420-kawhi-leonard-raptors-trade-update-emerges-after-steve-ballmer-statement.html"
-          },
-          {
-            "source": "BasketNews",
-            "hed": "Udoka: Fred VanVleet ramping hard toward Rockets return after ACL year",
-            "body": "Houston coach Ime Udoka said VanVleet has stepped up rehab in San Diego with back-to-backs and contact work after missing all of 2025–26 with a torn right ACL. The veteran exercised his ~$25M player option to stay; Rockets won 52 without him last year but exited in the first round.",
-            "url": "https://basketnews.com/news-255373-fred-vanvleet-major-injury-update-emerges-ahead-of-rockets-season.html"
+            "hed": "Ballmer’s acceptance of sanctions clears a path for Clippers to move on",
+            "body": "Steve Ballmer apologized and said L.A. will comply with the NBA’s historic penalties — $30M fine, five forfeited first-rounders (2029–33), and his one-year suspension — after the Kawhi-related cap probe. Analysts say stopping the fight was the franchise’s best path forward.",
+            "url": "https://www.latimes.com/sports/clippers/story/2026-09-14/steve-ballmers-acceptance-of-nba-penalties-bolsters-clippers"
           }
         ]
       },
@@ -198,22 +199,22 @@
         "title": "NFL",
         "items": [
           {
+            "source": "ESPN",
+            "hed": "Walker III’s dazzling debut leads Chiefs past Broncos 31–10",
+            "body": "Kenneth Walker III rushed for 173 yards and scored twice in his Chiefs debut as Kansas City beat Denver on MNF. Patrick Mahomes returned from ACL surgery with 184 pass yards, two pass TDs, and a rushing score; Denver managed 176 total yards.",
+            "url": "https://www.espn.com/nfl/story/_/id/49944600/2026-nfl-week-1-kansas-city-chiefs-denver-broncos-kenneth-walker-patrick-mahomes"
+          },
+          {
             "source": "Chicago Bears",
-            "hed": "Bears set franchise opener record in 59–37 demolition of Panthers",
-            "body": "Caleb Williams threw for 269 and ran for 65 with four total TDs as Chicago piled up 552 yards and eight touchdowns in Charlotte. D’Andre Swift (124 rush, 3 TDs) and Kyle Monangai (100, 1 TD) powered a ground game that broke open a back-and-forth contest.",
+            "hed": "Bears still buzzing after franchise-opener record 59–37 win",
+            "body": "Caleb Williams (269 pass / 65 rush, four total TDs), D’Andre Swift (124, 3 TDs), and Kyle Monangai (100, 1 TD) powered 552 yards in Charlotte. Next: Minnesota at Soldier Field for the home opener.",
             "url": "https://www.chicagobears.com/news/game-recap-bears-offense-shines-in-season-opening-win-over-panthers"
           },
           {
-            "source": "Reuters",
-            "hed": "Dart, Likely, Nabers lift Giants past Cowboys 28–20 in Harbaugh’s debut",
-            "body": "Jaxson Dart went 23-of-29 for 230 yards and three TDs as New York converted 9-of-10 third downs and held the ball nearly 37 minutes in John Harbaugh’s first game. Isaiah Likely had 8/78/2; Malik Nabers returned from ACL surgery with 6/69.",
-            "url": "https://www.reuters.com/sports/nfl/giants-control-ball-take-down-cowboys-season-opener--flm-2026-09-14/"
-          },
-          {
-            "source": "NFL.com",
-            "hed": "MNF Week 1: Broncos at Chiefs — Mahomes and Nix both returning from major injuries",
-            "body": "Denver visits Kansas City tonight at 8:15 p.m. ET on ESPN/ABC. Patrick Mahomes is back after a Week 15 ACL tear; Bo Nix returns from a Divisional Round broken ankle. Storylines include KWIII as KC’s workhorse and remade secondaries on both sides.",
-            "url": "https://www.nfl.com/news/broncos-chiefs-three-must-know-storylines-monday-night-football-week-1"
+            "source": "Denver Broncos",
+            "hed": "Broncos call 31–10 loss ‘disappointing’; home opener vs. Jaguars next",
+            "body": "Sean Payton’s side pointed to early turnovers, missed chances after a deep pick, and Walker’s 60-yard fourth-down TD. Bo Nix had an INT and a lost fumble; Denver hosts Jacksonville Sunday.",
+            "url": "https://www.denverbroncos.com/news/we-have-to-be-better-broncos-lament-mistakes-in-disappointing-season-opening-loss-to-chiefs"
           }
         ]
       },
@@ -221,16 +222,16 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "BBC Sport",
-            "hed": "Garcia crushes Benn in two rounds, retains WBC welterweight title",
-            "body": "In Las Vegas on Sep 13, Ryan Garcia dropped Conor Benn with a right hand in round two and forced a stoppage at 1:25 of the round in his first WBC welterweight defense. Garcia then traded words with Teófimo López ringside.",
-            "url": "https://www.bbc.com/sport/boxing/articles/cr7dm1vk7pgo"
+            "source": "Reuters",
+            "hed": "Aspinall vacates UFC heavyweight title amid ongoing eye issues",
+            "body": "Tom Aspinall relinquished the heavyweight belt Monday after further right-eye damage delayed his return from the Gane eye-poke no-contest. He is not retiring; Ciryl Gane is expected to be elevated to undisputed champion.",
+            "url": "https://www.reuters.com/sports/aspinall-vacates-ufc-heavyweight-title-amid-ongoing-eye-issues-2026-09-14/"
           },
           {
-            "source": "UFC.com",
-            "hed": "Noche UFC: Silva submits Delgado; Grasso outpoints Fiorot in Glendale",
-            "body": "On Sep 12 at Desert Diamond Arena, Jean Silva finished Jose Miguel Delgado via rear-naked choke at 2:57 of Round 3. Alexa Grasso took a unanimous decision over Manon Fiorot (29–28 x3) to stay in the flyweight title chase.",
-            "url": "https://www.ufc.com/news/noche-ufc-results-silva-vs-delgado"
+            "source": "Sky Sports",
+            "hed": "Benn confronts future after Garcia’s two-round stoppage",
+            "body": "After Ryan Garcia retained the WBC welterweight title by stopping Conor Benn in round two in Las Vegas, Benn said he does not yet know what’s next — a move back up in weight is the likely path when he returns.",
+            "url": "https://www.skysports.com/boxing/news/12183/13585732/conor-benn-confronts-his-future-options-after-crushing-loss-to-ryan-garcia-what-next-i-dont-have-the-answer"
           }
         ]
       }
@@ -239,7 +240,7 @@
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Monday’s gate is breath and clarity — not noise. Four counts in, four hold, four out, four hold. Then own the day.",
+    "intro": "Tuesday’s gate is breath under weather — not the forecast, not the feed. Four counts in, four hold, four out, four hold. Then own the day.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -273,14 +274,14 @@
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Fierce Calm, Ordered Edge",
-      "body": "Dom does not chase the week — he sequences it. Fierce calm is competitive composure under a real clock: charge first, body second, security skim when ready, admin only when the morning has already won. One breath, one move, one clear next step. Competitors may arrive loud; he arrives prepared. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything. It is about starting clean so the rest of the week has room to land."
+      "hed": "Storm Outside, Order Inside",
+      "body": "Dom does not wait for clear skies to start. Fierce calm is competitive composure when the radar is loud: charge first, body second, security skim when ready, admin only after the morning has already won. One breath, one move, one clear next step. Competitors may arrive loud; he arrives prepared. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything. It is about starting clean so the rest of the week has room to land."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Run this after Morning Charge — box breathing first, then the body. Then news and the day.",
+    "note": "Tuesday: run this after Morning Charge — box breathing first, then the body. Storms outside; heat inside. Then news and the day.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -309,7 +310,7 @@
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "Sep 14, 2026 · 5:55 AM CT",
+    "asOf": "Sep 15, 2026 · 6:49 AM CT",
     "urgent": [
       {
         "account": "dkmpnuguid@gmail.com",
@@ -336,22 +337,22 @@
     ],
     "fyi": [
       {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "FACEIT order completed — Nickname Change",
-        "why": "Purchase receipt."
+        "account": "nuguiddom@gmail.com",
+        "text": "Indeed — Senior Sales Consultant @ Protective",
+        "why": "Job alert noise."
       },
       {
         "account": "dominickurtmartin@gmail.com",
-        "text": "Instagram notifications + Google News briefings",
-        "why": "Social / digest noise."
+        "text": "FACEIT order completed — Nickname Change; IG/TikTok digests",
+        "why": "Purchase receipt + social noise."
       },
       {
         "account": "dkmpnuguid@gmail.com",
-        "text": "Snapchat Stories notification",
-        "why": "Social noise."
+        "text": "DoorDash Burger King order + tip adjustment; SHEIN/Aerotek promos",
+        "why": "Receipt / promo noise."
       }
     ],
-    "cleanupNote": "Scanned recent inbox on all three accounts. Security flags above; money/insurance mail lives only in Later / Admin at end of edition. dkmpnuguid older-than-16h trash request not re-verified this pass."
+    "cleanupNote": "Scanned in:inbox newer_than:2d plus security/money newer_than:7d on all three Gmails. Security flags above; money/insurance/admin lives only in Later / Admin. No fabricated threads."
   },
   "todo": {
     "title": "To-Do",
@@ -371,7 +372,7 @@
       },
       {
         "id": "device-login",
-        "text": "Verify overnight Direct Auto device login was you",
+        "text": "Verify Direct Auto device login (Sep 14 iPhone) was you",
         "priority": "high",
         "done": false
       },
@@ -389,7 +390,7 @@
       },
       {
         "id": "admin-later",
-        "text": "Later: Direct Auto portal + reinstate (see Later / Admin)",
+        "text": "Later: Direct Auto portal + reinstate + promo window (see Later / Admin)",
         "priority": "normal",
         "done": false
       }
@@ -399,46 +400,47 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "Solomon — Proverbs / wisdom tradition",
-    "hed": "Begin With the Breath, Not the Storm",
-    "body": "“A soft answer turns away wrath, but a harsh word stirs up anger.” (Proverbs 15:1) Solomon’s counsel is not passivity — it is order under pressure. A Monday that opens with charge and clarity outruns one that opens with alarm. Classical lore cast Solomon as one who named what approached before it spoke; you name the morning the same way — breath first, body second, then the board.",
-    "practice": "Before opening any inbox thread, finish Opening Bell and the 3-minute opener. Refuge first; reaction second."
+    "hed": "Establish Your Steps Before You Run",
+    "body": "“The heart of man plans his way, but the Lord establishes his steps.” (Proverbs 16:9) Solomon’s counsel is not against planning — it is against rushing an unestablished plan. A Tuesday that opens with charge and body establishes the steps; the inbox and the radar become secondary weather. Classical lore cast Solomon as one who ordered the court before the petition. Order the morning the same way — breath first, body second, then the board.",
+    "practice": "Finish Opening Bell and the 3-minute opener before any security skim. Establish the step; then walk it."
   },
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "Google’s free Graph & Loop engineering course — 1 prompt → 100 agents → loops → graphs",
-    "author": "@callanxai",
-    "url": "https://x.com/callanxai/status/2099232037655781462",
-    "bookmarkUrl": "https://x.com/callanxai/status/2099232037655781462",
+    "pick": "SpaceXAI engineer Lauren Tan — GrokBot as a team (Chief of Staff → Managers → Workers), not one chat window",
+    "author": "@Dmytroo_eth",
+    "url": "https://x.com/Dmytroo_eth/status/2099469355578696032",
+    "bookmarkUrl": "https://x.com/Dmytroo_eth/status/2099469355578696032",
     "linkLabel": "Open bookmark",
     "image": {
-      "src": "assets/tech-demo-graph-loops.png",
-      "alt": "Prompts to agents to loops to graphs — four-stage diagram"
+      "src": "assets/tech-demo-grokbot-org.png",
+      "alt": "GrokBot org chart — Chief of Staff to Managers to Workers to autonomous workflow"
     },
     "lesson": {
-      "oneLiner": "Stop stuffing one mega-prompt. Promote the work one layer: prompt → agent → loop → graph.",
+      "oneLiner": "Stop living in one chat. Promote the work: Chief of Staff routes → Managers own lanes → Workers execute → Skills + workflows run overnight.",
       "beats": [
-        "Prompt = one clear job (inputs + done-when).",
-        "Agent = the worker that runs that job.",
-        "Loop = check → retry/route until the job is actually finished (closes work without you).",
-        "Graph = the map of many jobs: which exist, in what order, what carries into tomorrow’s run."
+        "Chief of Staff = the router that prioritizes and assigns (not the doer of every task).",
+        "Managers = 3 lane owners who keep context and hand off clean jobs.",
+        "Workers = specialists that actually ship research / build / launch pieces.",
+        "Skills + autonomous workflows = the glue so accepted work keeps moving without you babysitting.",
+        "Tan’s punchline: 20+ agents organized beats one mega-thread wondering why everything is slow."
       ],
-      "takeaway": "One-two dump: a loop finishes a single job; a graph decides which jobs exist and keeps accepted work moving overnight."
+      "takeaway": "Under a minute: if you’re still one window deep, spend one evening standing up CoS → Managers → Workers — then Research → Build → Launch → Improve."
     },
-    "note": "Bookmark surfaced for @mmmik000. Demo build pipeline still coming — learn the idea here first.",
-    "skipped": "Skipped CS nade clips + wallpaper drop for a shippable tech pick."
+    "note": "Bookmark surfaced for @mmmik000. Demo build pipeline still coming — learn the org idea here first.",
+    "skipped": "Skipped CS nade clips, wallpaper drop, Dubby promo, and Monday’s Graph & Loop pick for a fresh GrokBot org lesson."
   },
   "moneyDesk": {
     "title": "Later / Admin",
     "kicker": "Quiet money block — handle when morning energy is banked",
     "items": [
-      "Direct Auto policy 2019407539 — canceled Sep 8 for non-payment; Important Notice still unread (dominickurtmartin)",
-      "Portal: confirm exact reinstate amount on directauto.com (mail does not restate figure); target ~$199.43",
+      "TODAY Tue Sept. 15 1:11 PM CT — AI Agent Basics $20/24h promo expires (Cash App $dom1w0w; PDF gate via CFA)",
+      "Direct Auto policy 2019407539 — canceled Sep 8 for non-payment; verify Sep 14 new-device login was you",
+      "Portal: confirm exact reinstate amount on directauto.com; target ~$199.43",
       "Reinstate hold: Mon Sept. 21 — before Vegas Thu Sept. 25; hard backup paycheck Tue Sept. 23",
-      "Earlier Pay Now notice (Aug 29) still in inbox — insurance history only",
       "Tue Sept. 16 — Paycheck $1,434.02",
-      "Thu Sept. 18 — T-Mobile $180 + savings transfers ($420 / $300)",
-      "Fri Sept. 19 — Car note $309 on calendar (CFA: prefer $340.93 with Sept. 23 stack)",
+      "Thu Sept. 18 — T-Mobile $180 + savings transfers ($420 / $300 at 9:00 AM)",
+      "Fri Sept. 19 — Car note $309 on calendar",
       "Tue Sept. 23 — Paycheck $1,434.02",
       "CFA already green-lit savings bridge — do not skip reinstate for card payoff",
       "Vegas Thu Sept. 25 is not a separate calendar trip hold — coverage is the real departure gate"
