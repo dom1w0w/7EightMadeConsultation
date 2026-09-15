@@ -1164,11 +1164,11 @@
     }
 
 
-    /* ── 24h AI Agent Basics drop band ─────────────────────── */
+    /* ── AI Agent Basics drop band (12h urgency) ───────────── */
     .drop-band {
-      background: #0B0B0F;
-      color: #F3EFE6;
-      border-bottom: 1px solid rgba(243,239,230,.1);
+      background: #F3EFE6;
+      color: #0B0B0F;
+      border-bottom: 1px solid rgba(180,120,40,.22);
     }
     .drop-band__inner {
       max-width: 1120px; margin: 0 auto; padding: 14px 32px;
@@ -1176,13 +1176,19 @@
       align-items: center; justify-content: space-between;
     }
     .drop-band__copy { font-size: 14px; line-height: 1.4; }
-    .drop-band__copy strong { color: #5EEAD4; font-weight: 700; }
-    .drop-band__meta { color: rgba(243,239,230,.55); font-size: 12px; margin-top: 2px; }
+    .drop-band__copy strong { color: #B45309; font-weight: 700; }
+    .drop-band__urgent {
+      display: inline-block; margin-right: 8px;
+      font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+      color: #92400E; background: #FDE68A; border: 1px solid #F59E0B;
+      padding: 3px 8px; border-radius: 999px;
+    }
+    .drop-band__meta { color: #5C5C66; font-size: 12px; margin-top: 2px; }
     .drop-band .btn {
-      background: #5EEAD4; color: #0B0B0F; border-color: #5EEAD4;
+      background: #B45309; color: #FBF8F2; border-color: #B45309;
       padding: 10px 18px; font-size: 13px; white-space: nowrap;
     }
-    .drop-band .btn:hover { background: #7af0dc; border-color: #7af0dc; transform: translateY(-1px); box-shadow: none; }
+    .drop-band .btn:hover { background: #92400E; border-color: #92400E; transform: translateY(-1px); box-shadow: none; }
     @media (max-width: 720px) {
       .drop-band__inner { padding: 16px 20px; align-items: stretch; }
       .drop-band .btn { width: 100%; }
@@ -1299,11 +1305,11 @@
     </div>
   </nav>
 
-  <aside class="drop-band" id="ai-agent-basics" aria-label="AI Agent Basics 24-hour offer">
+  <aside class="drop-band" id="ai-agent-basics" aria-label="AI Agent Basics — 12 hours left">
     <div class="drop-band__inner">
       <div class="drop-band__copy">
-        <div><strong>AI Agent Basics</strong> — PDF · $20 · 24 hours only</div>
-        <div class="drop-band__meta">Pay Cash App $dom1w0w · Request emails Dom (iCloud + Gmail)</div>
+        <div><span class="drop-band__urgent">12 hours left</span> <strong>AI Agent Basics</strong> — PDF · $20</div>
+        <div class="drop-band__meta">Then it’s gone · Pay Cash App $dom1w0w · Request emails Dom</div>
       </div>
       <a class="btn" href="ai-agent-basics/">Request PDF</a>
     </div>
@@ -1322,7 +1328,7 @@
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
           <div class="hero__ctas">
-            <a class="btn btn--cobalt" href="ai-agent-basics/">AI Agent Basics · $20</a>
+            <a class="btn btn--cobalt" href="ai-agent-basics/">AI Agent Basics · 12h left</a>
             <a class="hero__secondary" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
           </div>
           <div class="hero__chips">
