@@ -4,50 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>7EightMade — AI Micro‑Consulting & Automation</title>
-  <meta name="description" content="We build AI assistants, workflow automations, and lightweight integrations across the tools you already use—including Salesforce.">
   <meta name="theme-color" content="#2563FF">
   <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="brand/fonts.css">
-  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/">
-  <style>
-    :root {
-      --paper: #F3EFE6; --ink: #0B0B0F; --muted: #5C5C66;
-      --cobalt: #2563FF; --sand: #DDD5C5; --surface: #FBF8F2;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.65; }
-    .drop-band { background: #F3EFE6; border-bottom: 1px solid rgba(180,120,40,.22); }
-    .drop-band__inner { max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
-    .drop-band__copy { font-size: 14px; }
-    .drop-band__copy strong { color: #B45309; }
-    .drop-band__urgent { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #0B0B0F; background: #5EEAD4; border: 1px solid #2DD4BF; padding: 3px 8px; border-radius: 999px; }
-    .drop-band__meta { color: #5C5C66; font-size: 12px; margin-top: 2px; }
-    .drop-band .btn { background: #B45309; color: #FBF8F2; text-decoration: none; padding: 10px 18px; font-size: 13px; font-weight: 600; border-radius: 10px; }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 72px 32px 96px; }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #1D4ED8; margin-bottom: 14px; }
-    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(40px, 7vw, 72px); font-weight: 600; letter-spacing: -.035em; line-height: 1.05; margin-bottom: 20px; }
-    h1 em { font-style: italic; color: var(--cobalt); font-weight: 500; }
-    .lead { font-size: 17px; color: var(--muted); max-width: 38ch; margin-bottom: 28px; }
-    .cta { display: inline-flex; background: var(--cobalt); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 14px 24px; border-radius: 10px; }
-    .note { margin-top: 40px; font-size: 13px; color: var(--muted); max-width: 52ch; }
-  </style>
 </head>
-<body>
-  <aside class="drop-band" id="ai-agent-basics" aria-label="AI Agent Basics Part 2 dropping soon">
-    <div class="drop-band__inner">
-      <div class="drop-band__copy">
-        <div><span class="drop-band__urgent">Part 2</span> <strong>AI Agent Basics</strong> — dropping soon</div>
-        <div class="drop-band__meta">Part 1 stands. Next drop lands when it’s ready.</div>
-      </div>
-      <a class="btn" href="ai-agent-basics/">Details</a>
-    </div>
-  </aside>
-  <main class="wrap">
-    <p class="eyebrow">7EightMade</p>
-    <h1>Less busywork<br><em>More signal</em></h1>
-    <p class="lead">AI assistants, workflow automation, and lightweight integrations on the stack you already run—including Salesforce.</p>
-    <a class="cta" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
-    <p class="note">Full cinematic homepage is being restored from the previous commit. The 24-hour promo is off. Part 2 teaser is live.</p>
-  </main>
+<body style="margin:0;background:#F3EFE6;font-family:Inter,system-ui,sans-serif;color:#0B0B0F">
+  <p id="boot" style="padding:24px;color:#5C5C66;font-size:14px">Loading 7EightMade…</p>
+  <script>
+  (async function () {
+    const src = 'https://raw.githubusercontent.com/dom1w0w/7EightMadeConsultation/61f6e73dba2fb872cc04cb38c59f168216d10ba3/index.html';
+    const res = await fetch(src, { cache: 'no-store' });
+    if (!res.ok) throw new Error('restore fetch failed');
+    let html = await res.text();
+    html = html.replace(
+      'aria-label="AI Agent Basics — 12 hours left"',
+      'aria-label="AI Agent Basics Part 2 dropping soon"'
+    );
+    html = html.replace(
+      '<span class="drop-band__urgent">12 hours left</span> <strong>AI Agent Basics</strong> — PDF · $20',
+      '<span class="drop-band__urgent">Part 2</span> <strong>AI Agent Basics</strong> — dropping soon'
+    );
+    html = html.replace(
+      'Then it’s gone · Pay Cash App $dom1w0w · Request emails Dom',
+      'Part 1 stands. Next drop lands when it’s ready.'
+    );
+    html = html.replace(
+      '<a class="btn" href="ai-agent-basics/">Request PDF</a>',
+      '<a class="btn" href="ai-agent-basics/">Details</a>'
+    );
+    html = html.replace(
+      'AI Agent Basics · 12h left',
+      'AI Agent Basics · Part 2 soon'
+    );
+    html = html.replace(
+      'drop band (12h urgency)',
+      'drop band (Part 2 soon)'
+    );
+    document.open();
+    document.write(html);
+    document.close();
+  })().catch(function (err) {
+    document.getElementById('boot').textContent = 'Restore failed. Open GitHub and revert index.html to 61f6e73.';
+    console.error(err);
+  });
+  </script>
 </body>
 </html>
