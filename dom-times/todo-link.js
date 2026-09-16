@@ -1,5 +1,5 @@
 (function () {
-  var NOTES = "https://notes.grok.me/";
+  var NOTES = "https://autumn-dove-lagoon-forge.grok.me/";
   function wire() {
     var box = document.querySelector('input[data-todo-id="journal-gratitude"]');
     if (!box) return false;
