@@ -1,1 +1,129 @@
-{"_meta":{"note":"LIVE edition","source":"live"},"masthead":{"title":"The Dom Times","tagline":"We checked your phone, so you don't have to.","volume":"XV","city":"Carpentersville, IL"},"lead":{"headline":"SCENARIO D HOLDS \u2014 CHECKING THIN, CARDS FROZEN","subhead":"Live snapshot plus tonight's Tech Demo: Elon's How to use Grok Build.","byline":"By The Briefing Desk","photo":{"show":false}},"articles":[{"hed":"Money Snapshot Is the Board","deck":"Cash available and card credit left.","body":"Checking $186.67 / $71.50 avail. Savings $2,829.76. Platinum $776.80. T-Mobile Visa $819.94 (~$180 left on stated $1,000). Auto $1,689.98. Scenario D holds.","column":"lead"}],"weather":{"location":"Carpentersville / Chicago Area","high":70,"low":62,"summary":"Mostly cloudy. Showers/storms possible.","unit":"F","days":[{"label":"Wed","high":70,"low":62,"icon":"rain"},{"label":"Thu","high":76,"low":64,"icon":"storm"},{"label":"Fri","high":76,"low":66,"icon":"cloud"},{"label":"Sat","high":82,"low":65,"icon":"storm"}]},"needsALook":[{"type":"FYI","text":"Money snapshot \u2014 see Money Desk"},{"type":"FYI","text":"Tech Demo \u2014 Elon Grok Build RT"}],"timeline":[{"time":"~6:00 AM","event":"Morning Charge + 3-min opener","category":"habit"},{"time":"8:00 AM\u20135:00 PM","event":"Mitsubishi HC \u2014 on-site","category":"work"}],"thisWeek":["23rd \u2014 paycheck; rerun D","Thu 25\u2013Sun 28 \u2014 Vegas cash-only"],"openingBell":{"title":"The Opening Bell","kicker":"Morning Charge","intro":"Charge first. Money last.","breathing":{"title":"Box Breathing \u2014 4 \u00b7 4 \u00b7 4 \u00b7 4","pattern":"4-4-4-4","secondsPerPhase":4,"cycles":4,"startLabel":"Start","pauseLabel":"Pause","idleLabel":"Ready","phases":[{"id":"inhale","label":"INHALE","cue":"In"},{"id":"hold-in","label":"HOLD","cue":"Hold"},{"id":"exhale","label":"EXHALE","cue":"Out"},{"id":"hold-out","label":"HOLD","cue":"Hold"}],"close":"Body next."},"mindset":{"hed":"Thin cash, named limits","body":"Available checking is $71.50. Do not spend the gap."}},"bodyOpener":{"title":"3-Minute Opener","kicker":"Body Desk","note":"After charge.","duration":"~3:00","moves":[{"name":"Push-ups","reps":"\u00d7 30","time":"~60 sec","body":"Crisp reps."},{"name":"Plank","reps":"\u00d7 60 seconds","time":"60 sec","body":"Ribs down."},{"name":"RipStick finisher","reps":"continuous","time":"~60\u201375 sec","body":"RipRight Push-Pulls."}]},"todo":{"title":"To-Do","kicker":"Check the boxes","items":[{"id":"morning-charge","text":"Morning Charge + 3-min opener","priority":"habit","done":false},{"id":"pay-nothing","text":"Pay nothing extra \u2014 checking avail $71.50","priority":"high","done":false}]},"techDemo":{"title":"Tech Demo","kicker":"Fast learn \u00b7 from your X reposts","pick":"How to use Grok Build","author":"@elonmusk","url":"https://x.com/elonmusk/status/2059080740881502364","bookmarkUrl":"https://x.com/mmmik000/status/2100071045898096930","linkLabel":"Open Elon\u2019s post","image":{"src":"https://pbs.twimg.com/media/HPcvKvJXkAA73Ob.png","alt":"Grok Build /tour \u2014 learn the tool in the terminal"},"lesson":{"oneLiner":"Don\u2019t read a docs dump. Install Build, type /tour, and learn it while it runs.","beats":["Your RT of Elon\u2019s How to use Grok Build: one-command install, then it writes sites and runs commands.","In the terminal: /tour or /tutorial covers first prompt, files, slash commands, worktrees, Plan Mode, AGENTS.md.","Carry over Cursor / Claude / Codex rules and skills.","Worktrees = more than one project without mixing state.","Punchline: if you can do it in the terminal once, the paper can point at the same move."],"takeaway":"Open the RT. Run /tour. Keep this Tech Demo slot."},"note":"Source: @mmmik000 RT of @elonmusk."},"moneyDesk":{"title":"Money Desk","kicker":"Live snapshot","scenario":"D locked until the 23rd.","accounts":[{"name":"Fifth Third Momentum Checking *7785","kind":"cash","current":186.67,"available":71.5},{"name":"Fifth Third Momentum Savings *7803","kind":"cash","current":2829.76,"available":2739.76},{"name":"Cap One Platinum *9674","kind":"card","current":776.8},{"name":"T-Mobile Visa *8680","kind":"card","current":819.94,"creditLimit":1000,"creditAvailable":180.06},{"name":"Cap One Auto *5435","kind":"loan","current":1689.98}],"items":["SNAPSHOT \u2014 Checking $186.67 / cash avail $71.50 | Savings $2,829.76 | Platinum $776.80 | T-Mobile Visa $819.94 / stated limit ~$1,000 / credit left ~$180 | Auto $1,689.98","Scenario D LOCKED until check hit, rerun D"]}}
+{
+  "_meta": { "note": "LIVE edition", "source": "live" },
+  "masthead": {
+    "title": "The Dom Times",
+    "tagline": "We checked your phone, so you don't have to.",
+    "volume": "XV",
+    "city": "Carpentersville, IL"
+  },
+  "lead": {
+    "headline": "Charge First. Then the Board.",
+    "subhead": "Opening Bell, body, then the X pick: Elon on Grok Build.",
+    "byline": "By The Briefing Desk",
+    "photo": { "show": false }
+  },
+  "articles": [
+    {
+      "hed": "Grok Build From the Repost",
+      "deck": "Elon’s how-to is tonight’s Tech Demo.",
+      "body": "Your RT of How to use Grok Build is the lesson on the page. Install, type /tour, learn it in the terminal. Money stays at the bottom.",
+      "column": "lead"
+    }
+  ],
+  "weather": {
+    "location": "Carpentersville / Chicago Area",
+    "high": 70,
+    "low": 62,
+    "summary": "Mostly cloudy. Showers/storms possible.",
+    "unit": "F",
+    "days": [
+      { "label": "Wed", "high": 70, "low": 62, "icon": "rain" },
+      { "label": "Thu", "high": 76, "low": 64, "icon": "storm" },
+      { "label": "Fri", "high": 76, "low": 66, "icon": "cloud" },
+      { "label": "Sat", "high": 82, "low": 65, "icon": "storm" }
+    ]
+  },
+  "needsALook": [
+    { "type": "FYI", "text": "Tech Demo — Elon Grok Build RT" },
+    { "type": "ACTION", "text": "Confirm Google security alert on dkmpnuguid@gmail.com" }
+  ],
+  "timeline": [
+    { "time": "~6:00 AM", "event": "Morning Charge + 3-min opener", "category": "habit" },
+    { "time": "8:00 AM–5:00 PM", "event": "Mitsubishi HC — on-site", "category": "work" }
+  ],
+  "thisWeek": ["23rd — paycheck; rerun D", "Thu 25–Sun 28 — Vegas cash-only"],
+  "openingBell": {
+    "title": "The Opening Bell",
+    "kicker": "Morning Charge",
+    "intro": "Charge first. Board second.",
+    "breathing": {
+      "title": "Box Breathing — 4 · 4 · 4 · 4",
+      "pattern": "4-4-4-4",
+      "secondsPerPhase": 4,
+      "cycles": 4,
+      "startLabel": "Start",
+      "pauseLabel": "Pause",
+      "idleLabel": "Ready",
+      "phases": [
+        { "id": "inhale", "label": "INHALE", "cue": "In" },
+        { "id": "hold-in", "label": "HOLD", "cue": "Hold" },
+        { "id": "exhale", "label": "EXHALE", "cue": "Out" },
+        { "id": "hold-out", "label": "HOLD", "cue": "Hold" }
+      ],
+      "close": "Body next."
+    },
+    "mindset": {
+      "hed": "Order first",
+      "body": "Breath, body, the X pick. Admin last."
+    }
+  },
+  "bodyOpener": {
+    "title": "3-Minute Opener",
+    "kicker": "Body Desk",
+    "note": "After charge.",
+    "duration": "~3:00",
+    "moves": [
+      { "name": "Push-ups", "reps": "× 30", "time": "~60 sec", "body": "Crisp reps." },
+      { "name": "Plank", "reps": "× 60 seconds", "time": "60 sec", "body": "Ribs down." },
+      { "name": "RipStick finisher", "reps": "continuous", "time": "~60–75 sec", "body": "RipRight Push-Pulls." }
+    ]
+  },
+  "todo": {
+    "title": "To-Do",
+    "kicker": "Check the boxes",
+    "items": [
+      { "id": "morning-charge", "text": "Morning Charge + 3-min opener", "priority": "habit", "done": false }
+    ]
+  },
+  "techDemo": {
+    "title": "Tech Demo",
+    "kicker": "Fast learn · from your X reposts",
+    "pick": "How to use Grok Build",
+    "author": "@elonmusk",
+    "url": "https://x.com/elonmusk/status/2059080740881502364",
+    "bookmarkUrl": "https://x.com/mmmik000/status/2100071045898096930",
+    "linkLabel": "Open Elon’s post",
+    "image": {
+      "src": "https://pbs.twimg.com/media/HPcvKvJXkAA73Ob.png",
+      "alt": "Grok Build /tour — learn the tool in the terminal"
+    },
+    "lesson": {
+      "oneLiner": "Don’t read a docs dump. Install Build, type /tour, and learn it while it runs.",
+      "beats": [
+        "Your RT of Elon’s How to use Grok Build: one-command install, then it writes sites and runs commands.",
+        "In the terminal: /tour or /tutorial covers first prompt, files, slash commands, worktrees, Plan Mode, AGENTS.md.",
+        "Carry over Cursor / Claude / Codex rules and skills.",
+        "Worktrees = more than one project without mixing state.",
+        "Punchline: if you can do it in the terminal once, the paper can point at the same move."
+      ],
+      "takeaway": "Open the RT. Run /tour. Keep this Tech Demo slot."
+    },
+    "note": "Source: @mmmik000 RT of @elonmusk."
+  },
+  "moneyDesk": {
+    "title": "Later / Admin",
+    "kicker": "",
+    "scenario": "D locked until the 23rd.",
+    "accounts": [
+      { "name": "Checking *7785", "kind": "cash", "current": 186.67, "available": 71.5 },
+      { "name": "Savings *7803", "kind": "cash", "current": 2829.76, "available": 2739.76 },
+      { "name": "Platinum *9674", "kind": "card", "current": 776.8 },
+      { "name": "T-Mobile Visa *8680", "kind": "card", "current": 819.94, "creditLimit": 1000, "creditAvailable": 180.06 },
+      { "name": "Auto *5435", "kind": "loan", "current": 1689.98 }
+    ],
+    "items": [
+      "Checking $186.67 · avail $71.50 · Savings $2,829.76 · Platinum $776.80 · T-Mobile Visa $819.94 (∼$180 left on stated $1,000) · Auto $1,689.98",
+      "D hold until the 23rd. No extra card pay."
+    ]
+  }
+}
