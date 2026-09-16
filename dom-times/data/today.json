@@ -82,7 +82,10 @@
     "title": "To-Do",
     "kicker": "Check the boxes",
     "items": [
-      { "id": "morning-charge", "text": "Morning Charge + 3-min opener", "priority": "habit", "done": false }
+      { "id": "morning-charge", "text": "Morning Charge + 3-min opener", "priority": "habit", "done": false },
+      { "id": "journal-gratitude", "text": "Journal + 3 lines of gratitude", "priority": "habit", "done": false },
+      { "id": "must-1", "text": "Must-do: on-site BDR — one clean pipeline move", "priority": "high", "done": false },
+      { "id": "must-2", "text": "Must-do: confirm Google security alert on dkmpnuguid", "priority": "high", "done": false }
     ]
   },
   "techDemo": {
