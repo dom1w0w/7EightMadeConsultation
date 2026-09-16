@@ -8,34 +8,34 @@
   },
   "lead": {
     "headline": "Charge First. Then the Board.",
-    "subhead": "Opening Bell, body, then the X pick: Elon on Grok Build.",
+    "subhead": "Opening Bell, body, then the X pick: Grok Build upgrade.",
     "byline": "By The Briefing Desk",
     "photo": { "show": false }
   },
   "articles": [
     {
-      "hed": "Grok Build From the Repost",
-      "deck": "Elon’s how-to is tonight’s Tech Demo.",
-      "body": "Your RT of How to use Grok Build is the lesson on the page. Install, type /tour, learn it in the terminal. Money stays at the bottom.",
+      "hed": "Grok Build v1.0.33",
+      "deck": "Elon’s upgrade is tonight’s Tech Demo.",
+      "body": "MCP structured JSON, memory browser, long-running session fixes. Money stays at the bottom.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 70,
+    "high": 69,
     "low": 62,
-    "summary": "Mostly cloudy. Showers/storms possible.",
+    "summary": "Mostly cloudy. Showers possible.",
     "unit": "F",
     "days": [
-      { "label": "Wed", "high": 70, "low": 62, "icon": "rain" },
-      { "label": "Thu", "high": 76, "low": 64, "icon": "storm" },
-      { "label": "Fri", "high": 76, "low": 66, "icon": "cloud" },
-      { "label": "Sat", "high": 82, "low": 65, "icon": "storm" }
+      { "label": "Wed", "high": 69, "low": 62, "icon": "rain" },
+      { "label": "Thu", "high": 71, "low": 65, "icon": "rain" },
+      { "label": "Fri", "high": 69, "low": 65, "icon": "cloud" },
+      { "label": "Sat", "high": 76, "low": 65, "icon": "storm" }
     ]
   },
   "needsALook": [
-    { "type": "FYI", "text": "Tech Demo — Elon Grok Build RT" },
-    { "type": "ACTION", "text": "Confirm Google security alert on dkmpnuguid@gmail.com" }
+    { "type": "FYI", "text": "Tech Demo — Grok Build upgrade" },
+    { "type": "ACTION", "text": "D hold — zero extra card pay until 23rd" }
   ],
   "timeline": [
     { "time": "~6:00 AM", "event": "Morning Charge + 3-min opener", "category": "habit" },
@@ -85,48 +85,48 @@
       { "id": "morning-charge", "text": "Morning Charge + 3-min opener", "priority": "habit", "done": false },
       { "id": "journal-gratitude", "text": "Journal + 3 lines of gratitude", "priority": "habit", "done": false },
       { "id": "must-1", "text": "Must-do: on-site BDR — one clean pipeline move", "priority": "high", "done": false },
-      { "id": "must-2", "text": "Must-do: confirm Google security alert on dkmpnuguid", "priority": "high", "done": false }
+      { "id": "must-2", "text": "Must-do: hold D — no extra payments", "priority": "high", "done": false }
     ]
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X reposts",
-    "pick": "How to use Grok Build",
+    "kicker": "Fast learn · from your X",
+    "pick": "Grok Build v1.0.33",
     "author": "@elonmusk",
-    "url": "https://x.com/elonmusk/status/2059080740881502364",
-    "bookmarkUrl": "https://x.com/mmmik000/status/2100071045898096930",
+    "url": "https://x.com/elonmusk/status/2100083283757584858",
+    "bookmarkUrl": "https://x.com/elonmusk/status/2100083283757584858",
     "linkLabel": "Open Elon’s post",
     "image": {
-      "src": "https://pbs.twimg.com/media/HPcvKvJXkAA73Ob.png",
-      "alt": "Grok Build /tour — learn the tool in the terminal"
+      "src": "https://pbs.twimg.com/media/HSTyt7RakAAY2Gd.jpg",
+      "alt": "Grok Build upgrade — MCP, memory, long sessions"
     },
     "lesson": {
-      "oneLiner": "Don’t read a docs dump. Install Build, type /tour, and learn it while it runs.",
+      "oneLiner": "MCP now returns structured JSON. Memory browser deletes notes. Long sessions keep checkpoints.",
       "beats": [
-        "Your RT of Elon’s How to use Grok Build: one-command install, then it writes sites and runs commands.",
-        "In the terminal: /tour or /tutorial covers first prompt, files, slash commands, worktrees, Plan Mode, AGENTS.md.",
-        "Carry over Cursor / Claude / Codex rules and skills.",
-        "Worktrees = more than one project without mixing state.",
-        "Punchline: if you can do it in the terminal once, the paper can point at the same move."
+        "Elon: Grok Build just got a substantial upgrade across MCP, memory, long-running sessions, and agent reliability.",
+        "MCP tools return structured JSON; cancelled calls stop the server.",
+        "/memory browser: delete notes with two-press x.",
+        "Long-running sessions keep compaction checkpoints instead of losing them.",
+        "Fixes for macOS paste, subagents, /rewind, skill files, Windows clone."
       ],
-      "takeaway": "Open the RT. Run /tour. Keep this Tech Demo slot."
+      "takeaway": "Open the post. Run /memory. Keep this Tech Demo slot."
     },
-    "note": "Source: @mmmik000 RT of @elonmusk."
+    "note": "Source: @elonmusk 04:44 GMT."
   },
   "moneyDesk": {
     "title": "Later / Admin",
     "kicker": "",
     "scenario": "D locked until the 23rd.",
     "accounts": [
-      { "name": "Checking *7785", "kind": "cash", "current": 186.67, "available": 71.5 },
-      { "name": "Savings *7803", "kind": "cash", "current": 2829.76, "available": 2739.76 },
+      { "name": "Checking *7785", "kind": "cash", "current": 93.17, "available": 14.52 },
+      { "name": "Savings *7803", "kind": "cash", "current": 2739.76, "available": 2739.76 },
       { "name": "Platinum *9674", "kind": "card", "current": 776.8 },
-      { "name": "T-Mobile Visa *8680", "kind": "card", "current": 819.94, "creditLimit": 1000, "creditAvailable": 180.06 },
+      { "name": "T-Mobile Visa *8680", "kind": "card", "current": 819.94 },
       { "name": "Auto *5435", "kind": "loan", "current": 1689.98 }
     ],
     "items": [
-      "Checking $186.67 · avail $71.50 · Savings $2,829.76 · Platinum $776.80 · T-Mobile Visa $819.94 (∼$180 left on stated $1,000) · Auto $1,689.98",
-      "D hold until the 23rd. No extra card pay."
+      "Checking $93.17 · avail $14.52 · Savings $2,739.76 · Platinum $776.80 · T-Mobile $819.94 · Auto $1,689.98",
+      "D hold until the 23rd. No extra card pay. Freeze both."
     ]
   }
 }
