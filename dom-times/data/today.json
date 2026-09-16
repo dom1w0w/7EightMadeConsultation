@@ -1,99 +1,96 @@
 {
   "_meta": {
-    "note": "LIVE edition — Tuesday, September 15, 2026 (late). Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
-    "generated": "2026-09-15T23:59:00-05:00",
+    "note": "LIVE edition — Wednesday, September 16, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
+    "generated": "2026-09-16T00:06:00-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XIV",
+    "volume": "XV",
     "city": "Carpentersville, IL",
-    "asOf": "11:59 PM CT"
+    "asOf": "12:06 AM CT"
   },
   "lead": {
-    "headline": "Late Edition: Charge Banked — Paycheck Lands Tomorrow, Scenario D Locked",
-    "subhead": "Wet residual overnight. Walker III / Kawhi / Siri AI still the board. Opening Bell first tomorrow. Cards frozen until the 23rd.",
+    "headline": "WEDNESDAY LIVE: SCENARIO D HOLDS — CHECKING THIN, CARDS FROZEN",
+    "subhead": "Live balances match. Paycheck on calendar today. No extra payments. Insurance reinstate still Mon target. Vegas cash-only after the 23rd.",
     "byline": "By The Briefing Desk",
     "photo": {
-      "show": true,
-      "caption": "Tuesday closed: breath held, body done — next gate is the 16th check.",
-      "alt": "Lead photo — late Tuesday energy under residual storms"
+      "show": false,
+      "caption": "",
+      "alt": ""
     }
   },
   "articles": [
     {
-      "hed": "Edition XIV: Same Stack, End-of-Day Edge",
-      "deck": "Box breathing stays the gate. Body desk next. Security flags carry forward. Admin only at the bottom.",
-      "body": "Volume XIV is live from Carpentersville late Tuesday. Front stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look still carries the real security flags from earlier (Chaturbate, Direct Auto device, Grok access). AI Agent Basics promo window closed. Tomorrow’s paycheck is the next money gate under Scenario D — no extra card payments until the 23rd. Quiet admin lives only in Later / Admin.",
+      "hed": "Volume XV: Energy First, Then the Board",
+      "deck": "Opening Bell → Body → desks. Money last.",
+      "body": "Wednesday opens under residual wet pattern. Scenario D remains locked: $0 extra card payments until the 23rd. Live Finance pull confirms thin checking. One new Google security alert on secondary account. Insurance reinstate target Mon Sep 21. Carry the charge.",
       "column": "lead"
     },
     {
-      "hed": "Arrowhead Statement Still Echoes: Walker III 173 Rush, Chiefs 31–10",
-      "deck": "Mahomes back from ACL. Bears ride 59–37 into Vikings at Soldier Field Sunday.",
-      "body": "Kenneth Walker III’s 173-yard, two-TD Chiefs debut over Denver remains the MNF statement. Patrick Mahomes returned with 184 pass yards, two passing scores, and a rushing TD. Chicago’s franchise-opener demolition of Carolina still sets the local pulse — Minnesota visits Soldier Field this Sunday. Carry the tempo into tomorrow’s Opening Bell.",
+      "hed": "Money Line: Live Pull — Do Not Invent",
+      "deck": "Balances unchanged from prior snapshot.",
+      "body": "Fifth Third Checking $186.67 ($71.50 avail). Savings $2,829.76. Platinum $776.80 (returned ACH context — do not retry). T-Mobile Visa $819.94. Auto $1,689.98. Freeze both cards. Auto current only. Charged-off Cap One: leave alone.",
       "column": "secondary"
     },
     {
-      "hed": "AI Desk: Siri AI Live; xAI Drops Apple Claims; Hooks for Claude/ChatGPT Surface",
-      "deck": "English beta shipping. Private Model Delegation paths noted. Case against OpenAI continues.",
-      "body": "Apple’s Siri AI rolled in English beta with personal context, onscreen awareness, and deeper app actions. Private code shows paths that can delegate or swap backends toward Claude or ChatGPT — not public yet. X Corp and SpaceXAI dismissed the Apple antitrust claims while keeping the OpenAI track active. Full desks below.",
+      "hed": "Calendar Gate: Reinstate Before Vegas",
+      "deck": "~$199.43 preferred by Mon Sep 21.",
+      "body": "Direct Auto policy canceled Sep 8. Hard backup is the Sep 23 paycheck. Vegas Sep 25–28 flight+hotel by GF. Personal spend cash-only from Cash App after $300 from that check lands.",
       "column": "secondary"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 78,
-    "low": 60,
-    "summary": "Tuesday residual: mostly cloudy with lingering shower/storm chances overnight into Wednesday. Highs near 70s, lows lower 60s. Wet pattern continues midweek.",
+    "high": 70,
+    "low": 62,
+    "summary": "Mostly cloudy. Chance of showers and thunderstorms. Highs lower 70s, lows lower 60s. Northeast winds 5–10 mph.",
     "unit": "F",
     "days": [
-      {"label": "Wed", "high": 71, "low": 62, "icon": "rain"},
-      {"label": "Thu", "high": 76, "low": 60, "icon": "storm"},
-      {"label": "Fri", "high": 75, "low": 62, "icon": "rain"},
-      {"label": "Sat", "high": 74, "low": 60, "icon": "cloud"}
+      {"label": "Wed", "high": 70, "low": 62, "icon": "rain"},
+      {"label": "Thu", "high": 76, "low": 64, "icon": "storm"},
+      {"label": "Fri", "high": 76, "low": 66, "icon": "cloud"},
+      {"label": "Sat", "high": 82, "low": 65, "icon": "storm"}
     ]
   },
   "needsALook": [
-    {"type": "ACTION", "text": "Verify Chaturbate new login (dkmpnuguid) — or change password"},
-    {"type": "ACTION", "text": "Verify Direct Auto new-device login (Sep 14 iPhone) was you"},
-    {"type": "FYI", "text": "Grok Google-access security alerts (all 3 Gmails)"},
-    {"type": "FYI", "text": "iRacing renewal — check Saturday September date"},
-    {"type": "FYI", "text": "AI Agent Basics $20/24h promo window closed Tue 1:11 PM CT"},
-    {"type": "FYI", "text": "Quiet admin block at bottom of edition (Later / Admin)"}
+    {"type": "ACTION", "text": "Confirm Google security alert (new sign-in) on dkmpnuguid@gmail.com — if not you, secure it"},
+    {"type": "ACTION", "text": "Insurance reinstate ~$199.43 target Mon Sep 21 (before Vegas)"},
+    {"type": "FYI", "text": "Scenario D locked: $0 extra card payments · freeze new spend · Auto current only"},
+    {"type": "FYI", "text": "Prior Chaturbate / Direct Auto device flags from Tuesday still carry if unresolved"},
+    {"type": "FYI", "text": "Vegas personal = Cash App only after $300 from 23rd lands"}
   ],
   "timeline": [
+    {"time": "ALL DAY", "event": "Paycheck listed (~$1,434.02) — confirm in account before any split assumptions", "category": "money"},
+    {"time": "8:00 AM–5:00 PM", "event": "Mitsubishi HC Capital — on-site BDR L3", "category": "work"},
     {"time": "~6:00 AM", "event": "Morning Charge (box breathing) + 3-min opener", "category": "habit"},
-    {"time": "Open", "event": "Security skim: Chaturbate + Direct Auto device login flags", "category": "focus"},
-    {"time": "Wed", "event": "Paycheck lands (~$1,434.02) — Scenario D still locked (no extra card payments)", "category": "money"},
-    {"time": "9:30 PM", "event": "Optional Sigil work", "category": "personal"}
+    {"time": "9:30 PM", "event": "Sigil (optional)", "category": "personal"}
   ],
   "thisWeek": [
-    "Wed — Paycheck lands; cards stay frozen under Scenario D",
-    "Thu — T-Mobile $180 + scheduled savings transfers on calendar",
-    "Fri — Car note ~$309 on calendar",
-    "Sun — Bears host Vikings at Soldier Field (Week 2)",
-    "Sun night — Chiefs host Colts (SNF)",
-    "Mon 21 — Target Direct Auto reinstate (~$199.43) before Vegas",
-    "Tue 23 — Second paycheck; Scenario D split rules apply when he says 'check hit, rerun D'",
-    "Thu 25–Sun 28 — Vegas window (flight+hotel by GF; personal cash-only from Cash App after $300 lands)",
-    "Optional — Sigil nights as energy allows"
+    "Wed 16 — Paycheck on calendar; cards stay frozen under Scenario D",
+    "Thu 17 — Sigil optional",
+    "Fri 18 — T-Mobile $180 + Pay T-Mobile $180; Transfer $420 Savings; Savings Transfer $300 9 AM",
+    "Sat 19 — Pay Car Note $309",
+    "Mon 21 — Reinstate Insurance Policy (~$199.43)",
+    "Tue 23 — Paycheck; when ‘check hit, rerun D’ → $300 Cash App, Platinum $0, T-Mobile ~$200 from savings, keep ~$2k locked",
+    "Thu 25–Sun 28 — Vegas (flight+hotel paid; cash-only personal)"
   ],
   "brainFood": {
     "title": "Brain Food",
     "kicker": "From the Mystics",
     "items": [
       {
-        "hed": "The Veil Is a Filter, Not a Wall",
-        "body": "Gnostic teachers spoke of the veil between the apparent world and the real as something that thins with attention — not a brick barrier. Tuesday’s residual weather is noise on the screen; the charge underneath is still yours. Practice seeing the filter for what it is: weather, inbox, feed — then choose what passes through."
+        "hed": "Correspondence Under Thin Numbers",
+        "body": "As above, so below. The checking balance is the outer form; the locked plan is the inner. Scenario D is the correspondence that keeps the day coherent when the available number is small."
       },
       {
-        "hed": "Hermetic Fire Under Water",
-        "body": "Classical Hermetica pairs the elements: water dissolves form; fire concentrates will. A wet forecast is not a soft day unless you let it be. Keep the inner fire (breath, plank, next clear move) while the outer water does its work. Coherence under weather is the real alchemy."
+        "hed": "Cause Before Effect",
+        "body": "Breath and body first. Then the list. Money last. Cause ordered this way produces cleaner effect. Reverse the order and the signal scatters."
       },
       {
-        "hed": "Names Bind Attention",
-        "body": "In esoteric practice, to name a force is to place it. Name the morning: charge, body, security skim, then the rest. Unnamed urgency owns you; named urgency becomes a task with a place on the page. Forbidden knowledge, stripped of theater, is often just precise naming."
+        "hed": "Name the Gate",
+        "body": "Name the next clear gate: confirm the security alert, keep the freeze, reinstate by Monday. Unnamed urgency expands; named urgency shrinks to a task."
       }
     ]
   },
@@ -105,28 +102,16 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "Apple",
-            "hed": "Siri AI is here — English beta with next-gen Apple Intelligence",
-            "body": "Apple said Siri AI launched as a more capable, conversational assistant with personal context, world knowledge, onscreen awareness, and deeper app actions. Rollout starts in English; additional languages due next month.",
-            "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/"
+            "source": "Reuters",
+            "hed": "AI lab heads warn of loss of control; safety coordination expands",
+            "body": "Leading U.S. AI labs urged slower development over weekend. OpenAI working with Anthropic and Google DeepMind on safety. Markets reacted to the caution.",
+            "url": "https://www.reuters.com/technology/artificial-intelligence/"
           },
           {
-            "source": "AppleInsider / CNET",
-            "hed": "iOS 27 code shows Siri AI can be swapped for Claude or ChatGPT",
-            "body": "Private hooks in recent betas reveal Model Delegation paths that can run Claude as a Siri extension or replace Siri’s server model with ChatGPT — demos exist, features not enabled for regular users yet.",
-            "url": "https://appleinsider.com/articles/26/09/14/siri-ai-is-built-to-be-replaceable-by-claude-or-chatgpt"
-          },
-          {
-            "source": "Bloomberg / Mercury News",
-            "hed": "xAI and X Corp resolve Apple antitrust claims; OpenAI case continues",
-            "body": "Elon Musk’s companies voluntarily dismissed claims against Apple over ChatGPT integration while the suit against OpenAI remains active.",
-            "url": "https://www.mercurynews.com/2026/09/15/musks-xai-resolves-claims-against-apple-over-ai-competition/"
-          },
-          {
-            "source": "CNBC",
-            "hed": "Altman backs Amodei’s ‘pace the frontier’ — independent evaluators, federal safety frame",
-            "body": "OpenAI’s Sam Altman welcomed a federal safety framework after aligning with Anthropic’s Dario Amodei on slowing capability races so safety can keep up. Pacing is not a stop, he said.",
-            "url": "https://www.cnbc.com/2026/09/14/sam-altman-ai-slowdown-anthropic-amodei-musk.html"
+            "source": "Reuters",
+            "hed": "Factory AI coding agents hit $5B valuation",
+            "body": "$200M raise more than triples valuation for enterprise coding-agent startup.",
+            "url": "https://www.reuters.com/technology/artificial-intelligence/"
           }
         ]
       },
@@ -134,22 +119,16 @@
         "title": "NBA",
         "items": [
           {
-            "source": "Reuters",
-            "hed": "Raptors complete Kawhi Leonard trade from Clippers after NBA probe",
-            "body": "Toronto finalized the Kawhi Leonard deal after the salary-cap investigation. In exchange, the Raptors sent Brandon Ingram, Gradey Dick, two first-round picks, a first-round swap, and two second-rounders to L.A.",
-            "url": "https://www.reuters.com/sports/raptors-acquire-leonard-clippers-following-nba-probe-2026-09-15/"
+            "source": "The Athletic",
+            "hed": "Kawhi Leonard trade to Raptors official after Clippers penalties",
+            "body": "NBA finalizes historic cap-circumvention sanctions. Leonard returns to Toronto. Silver: setback, not permanent damage.",
+            "url": "https://www.nytimes.com/athletic/nba/"
           },
           {
-            "source": "Sportsnet",
-            "hed": "Leonard returns to Toronto; media day expected Sept. 28",
-            "body": "After the NBA approved the trade, Kawhi is officially a Raptor again. He is expected to speak at Toronto’s media day on Sept. 28.",
-            "url": "https://www.sportsnet.ca/nba/article/raptors-officially-acquire-kawhi-leonard-from-clippers/"
-          },
-          {
-            "source": "Los Angeles Times",
-            "hed": "Ballmer’s acceptance of sanctions clears a path for Clippers to move on",
-            "body": "Steve Ballmer apologized and said L.A. will comply with the NBA’s historic penalties after the Kawhi-related cap probe. Analysts say stopping the fight was the franchise’s best path forward.",
-            "url": "https://www.latimes.com/sports/clippers/story/2026-09-14/steve-ballmers-acceptance-of-nba-penalties-bolsters-clippers"
+            "source": "TSN",
+            "hed": "Knicks add John Konchar on one-year deal",
+            "body": "Free-agent wing signs with New York.",
+            "url": "https://www.tsn.ca/nba/;3614/"
           }
         ]
       },
@@ -157,22 +136,10 @@
         "title": "NFL",
         "items": [
           {
-            "source": "ESPN",
-            "hed": "Walker III’s dazzling debut leads Chiefs past Broncos 31–10",
-            "body": "Kenneth Walker III rushed for 173 yards and scored twice in his Chiefs debut as Kansas City beat Denver on MNF. Patrick Mahomes returned from ACL surgery with 184 pass yards, two pass TDs, and a rushing score.",
-            "url": "https://www.espn.com/nfl/story/_/id/49944600/2026-nfl-week-1-kansas-city-chiefs-denver-broncos-kenneth-walker-patrick-mahomes"
-          },
-          {
-            "source": "Chicago Bears",
-            "hed": "Bears still buzzing after franchise-opener record 59–37 win",
-            "body": "Caleb Williams, D’Andre Swift, and Kyle Monangai powered a record-setting opener in Charlotte. Next: Minnesota at Soldier Field for the home opener Sunday.",
-            "url": "https://www.chicagobears.com/news/game-recap-bears-offense-shines-in-season-opening-win-over-panthers"
-          },
-          {
-            "source": "Denver Broncos",
-            "hed": "Broncos call 31–10 loss ‘disappointing’; home opener vs. Jaguars next",
-            "body": "Sean Payton’s side pointed to early turnovers and missed chances. Bo Nix had an INT and a lost fumble; Denver hosts Jacksonville.",
-            "url": "https://www.denverbroncos.com/news/we-have-to-be-better-broncos-lament-mistakes-in-disappointing-season-opening-loss-to-chiefs"
+            "source": "NFL.com",
+            "hed": "Week 1 injury roundup: Cooper week-to-week; Walker III statement debut",
+            "body": "Jets WR Omar Cooper Jr. ankle sprain week-to-week. Chiefs CB Mansoor Delane to MRI. Kenneth Walker III 173 yards, two TDs in KC debut.",
+            "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-tuesday-sept-15"
           }
         ]
       },
@@ -180,16 +147,16 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "Reuters",
-            "hed": "Aspinall vacates UFC heavyweight title amid ongoing eye issues",
-            "body": "Tom Aspinall relinquished the heavyweight belt after further right-eye damage delayed his return from the Gane eye-poke no-contest. He is not retiring; Ciryl Gane is expected to be elevated.",
-            "url": "https://www.reuters.com/sports/aspinall-vacates-ufc-heavyweight-title-amid-ongoing-eye-issues-2026-09-14/"
+            "source": "MMA Fighting",
+            "hed": "DWCS Week 6: four new UFC contracts",
+            "body": "Mayton Perea TKO in 45 seconds leads signings of Perea, Cavalcanti, Abdullaev, Hernandez.",
+            "url": "https://www.mmafighting.com/ufc/510473/dwcs-season-10-week-6-results-vicious-1-punch-knockout-leads-4-fighters-being-signed-to-ufc-contracts"
           },
           {
-            "source": "Sky Sports",
-            "hed": "Benn confronts future after Garcia’s two-round stoppage",
-            "body": "After Ryan Garcia retained the WBC welterweight title by stopping Conor Benn in round two in Las Vegas, Benn said he does not yet know what’s next.",
-            "url": "https://www.skysports.com/boxing/news/12183/13585732/conor-benn-confronts-his-future-options-after-crushing-loss-to-ryan-garcia-what-next-i-dont-have-the-answer"
+            "source": "Boxing Wire",
+            "hed": "Garcia TKOs Benn; Benavidez open to Usyk",
+            "body": "Ryan Garcia second-round stoppage of Conor Benn. David Benavidez says he would not turn down Oleksandr Usyk.",
+            "url": "https://www.boxingwire.com/"
           }
         ]
       }
@@ -198,7 +165,7 @@
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Tomorrow’s gate is the same: breath under residual weather — not the forecast, not the feed. Four counts in, four hold, four out, four hold. Then own the day.",
+    "intro": "Wet residual outside. Charge inside. Four counts in, four hold, four out, four hold. Then own the board.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -216,14 +183,14 @@
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Storm Outside, Order Inside",
-      "body": "Dom does not wait for clear skies to start. Fierce calm is competitive composure when the radar is loud: charge first, body second, security skim when ready, admin only after the morning has already won. One breath, one move, one clear next step. Competitors may arrive loud; he arrives prepared. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Tomorrow is not about proving anything. It is about starting clean so the rest of the week has room to land."
+      "hed": "Thin Numbers, Locked Plan",
+      "body": "Checking is thin. The plan is not. Scenario D holds the line until the 23rd. Do not invent payments. Breath first. Body second. Security skim when ready. Money last. Competitors may arrive loud; you arrive prepared."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Run this after Morning Charge — box breathing first, then the body. Residual weather outside; heat inside. Then news and the day.",
+    "note": "Run this after Morning Charge — box breathing first, then the body. Residual weather outside; heat inside.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -246,118 +213,91 @@
         "name": "RipStick finisher",
         "reps": "continuous",
         "time": "~60–75 sec",
-        "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time. Optional: Front Clips / Back Clips if you want a second RipStick move."
+        "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart. Smooth continuous reps. Optional: Front Clips / Back Clips."
       }
     ]
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "Sep 15, 2026 · 11:59 PM CT",
-    "urgent": [
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "Chaturbate — new login alert (mikomikomiko23)",
-        "why": "Security — confirm it was you or change password."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — new device login Sep 14 (iPhone / Mobile Safari)",
-        "why": "Security — verify that was you before ignoring."
-      }
-    ],
+    "asOf": "Sep 16, 2026 · 12:06 AM CT",
+    "urgent": [],
     "needsLook": [
       {
-        "account": "nuguiddom@gmail.com + dominickurtmartin + dkmpnuguid",
-        "text": "Google Security alerts — Grok granted access (all 3 Gmails)",
-        "why": "Confirm intentional MCP connect, then archive."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "iRacing subscription renewal notice (Sep 11)",
-        "why": "Check Saturday September renew date/cost."
+        "account": "dkmpnuguid@gmail.com",
+        "text": "Google Security alert — new sign-in",
+        "why": "Confirm if yours; secure if not."
       }
     ],
     "fyi": [
       {
-        "account": "nuguiddom@gmail.com",
-        "text": "AI Agent Basics offer EXPIRES calendar notice + HBO Max YouTube welcome",
-        "why": "Promo window closed; new sub receipt."
+        "account": "dkmpnuguid@gmail.com",
+        "text": "DoorDash order confirmations / tip adjustment",
+        "why": "Receipts only."
+      },
+      {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "Indeed / Staples / Aerotek job alerts + Instagram / TikTok noise",
+        "why": "Noise."
       },
       {
         "account": "nuguiddom@gmail.com",
-        "text": "Indeed — Senior Sales Consultant @ Protective",
-        "why": "Job alert noise."
-      },
-      {
-        "account": "nuguiddom@gmail.com",
-        "text": "Work notes on inbound payoff handoff (drafted, not sent)",
-        "why": "Office process — talk through in person."
+        "text": "HBO Max on YouTube welcome",
+        "why": "Receipt."
       }
     ],
-    "cleanupNote": "Scanned in:inbox newer_than:2d plus security/money newer_than:7d on primary Gmail. Security flags above carry forward; money/insurance/admin lives only in Later / Admin. No fabricated threads."
+    "cleanupNote": "Last 48h security/money skim across accounts. One new Google sign-in flag. No bank or card alerts beyond known returned ACH context. Prior Tuesday flags (Chaturbate, Direct Auto device) still open if not cleared."
   },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
     "items": [
-      {"id": "morning-charge", "text": "Morning Charge + 3-min opener tomorrow", "priority": "habit", "done": false},
-      {"id": "chaturbate-login", "text": "Verify Chaturbate new login — or change password", "priority": "high", "done": false},
-      {"id": "device-login", "text": "Verify Direct Auto device login (Sep 14 iPhone) was you", "priority": "high", "done": false},
-      {"id": "grok-google", "text": "Review Grok Google-access alerts (all 3 Gmails)", "priority": "high", "done": false},
-      {"id": "iracing", "text": "Check iRacing renewal date/cost", "priority": "normal", "done": false},
-      {"id": "admin-later", "text": "Later: Direct Auto portal + reinstate + Scenario D hold (see Later / Admin)", "priority": "normal", "done": false}
+      {"id": "morning-charge", "text": "Morning Charge + 3-min opener", "priority": "habit", "done": false},
+      {"id": "google-alert", "text": "Confirm Google security alert on dkmpnuguid", "priority": "high", "done": false},
+      {"id": "cards-freeze", "text": "Zero extra card spend — Scenario D hold", "priority": "high", "done": false},
+      {"id": "work", "text": "On-site BDR 8–5", "priority": "high", "done": false},
+      {"id": "sigil", "text": "Optional Sigil 9:30 PM", "priority": "normal", "done": false},
+      {"id": "admin-later", "text": "Later: insurance portal + reinstate plan (see Money Desk)", "priority": "normal", "done": false}
     ]
   },
   "grimoire": {
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
-    "source": "Solomon — Proverbs / wisdom tradition",
-    "hed": "Establish Your Steps Before You Run",
-    "body": "“The heart of man plans his way, but the Lord establishes his steps.” (Proverbs 16:9) Solomon’s counsel is not against planning — it is against rushing an unestablished plan. A morning that opens with charge and body establishes the steps; the inbox and the radar become secondary weather. Classical lore cast Solomon as one who ordered the court before the petition. Order the morning the same way — breath first, body second, then the board.",
-    "practice": "Finish Opening Bell and the 3-minute opener before any security skim. Establish the step; then walk it."
+    "source": "Hermetic — Kybalion",
+    "hed": "The Principle of Correspondence",
+    "body": "As above, so below; as below, so above. The thin available balance is the outer correspondence of a locked plan. Keep the inner order and the outer numbers stay coherent. Scatter the plan and the numbers will scatter with it.",
+    "practice": "Finish Opening Bell and the 3-minute opener before any money skim. Establish the step; then walk it."
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X bookmarks",
-    "pick": "SpaceXAI engineer Lauren Tan — GrokBot as a team (Chief of Staff → Managers → Workers), not one chat window",
-    "author": "@Dmytroo_eth",
-    "url": "https://x.com/Dmytroo_eth/status/2099469355578696032",
-    "bookmarkUrl": "https://x.com/Dmytroo_eth/status/2099469355578696032",
-    "linkLabel": "Open bookmark",
-    "image": {
-      "src": "assets/tech-demo-grokbot-org.png",
-      "alt": "GrokBot org chart — Chief of Staff to Managers to Workers to autonomous workflow"
-    },
+    "kicker": "Fast learn · agentic direction",
+    "pick": "Agent workflows and autonomous capital experiments",
+    "author": "industry / X",
+    "url": "",
     "lesson": {
-      "oneLiner": "Stop living in one chat. Promote the work: Chief of Staff routes → Managers own lanes → Workers execute → Skills + workflows run overnight.",
+      "oneLiner": "Agents move from chat to multi-step workflows and real capital experiments.",
       "beats": [
-        "Chief of Staff = the router that prioritizes and assigns (not the doer of every task).",
-        "Managers = 3 lane owners who keep context and hand off clean jobs.",
-        "Workers = specialists that actually ship research / build / launch pieces.",
-        "Skills + autonomous workflows = the glue so accepted work keeps moving without you babysitting.",
-        "Tan’s punchline: 20+ agents organized beats one mega-thread wondering why everything is slow."
+        "GPT-6 Astra framed for complex agent work across code, browser, research, documents.",
+        "Autonomous agent launches with real bankroll appear (HuntUnicorn $10k experiment).",
+        "Trust / escrow layers for agent-to-agent delivery become the next infrastructure question."
       ],
-      "takeaway": "Under a minute: if you’re still one window deep, spend one evening standing up CoS → Managers → Workers — then Research → Build → Launch → Improve."
+      "takeaway": "When the task is multi-step, route it; don’t stay one window deep."
     },
-    "note": "Bookmark surfaced for @mmmik000. Demo build pipeline still coming — learn the org idea here first.",
-    "skipped": "Skipped CS nade clips, wallpaper drop, Dubby promo for a fresh GrokBot org lesson."
+    "note": "High-signal agent posts from last 24h. No fake handles."
   },
   "moneyDesk": {
     "title": "Later / Admin",
     "kicker": "Quiet money block — handle when morning energy is banked",
     "items": [
-      "LIVE pull Tue Sep 15 11:59 PM CT — Checking $186.67 ($71.50 avail) · Savings $2,829.76 · Platinum $776.80 · T-Mobile Visa $819.94 · Auto Loan $1,689.98",
+      "LIVE pull Wed Sep 16 12:06 AM CT — Checking $186.67 ($71.50 avail) · Savings $2,829.76 · Platinum $776.80 · T-Mobile Visa $819.94 · Auto Loan $1,689.98",
       "Scenario D LOCKED until he says 'check hit, rerun D': $0 extra card payments · freeze new card spend · Auto current only",
-      "Wed Sep 16 — Paycheck ~$1,434.02 lands into Fifth Third (do not invent split yet)",
-      "Direct Auto policy 2019407539 — canceled Sep 8 for non-payment; verify Sep 14 new-device login was you",
-      "Portal: confirm exact reinstate amount on directauto.com; target ~$199.43",
-      "Reinstate hold: Mon Sep 21 — before Vegas Thu Sep 25; hard backup paycheck Tue Sep 23",
+      "Wed Sep 16 — Paycheck ~$1,434.02 on calendar (confirm in account; do not invent split yet)",
+      "$400 Platinum ACH returned context — do not retry from thin checking",
+      "Direct Auto policy 2019407539 — canceled Sep 8; reinstate target Mon Sep 21 ~$199.43; hard backup Sep 23 paycheck",
       "Thu Sep 18 — T-Mobile ~$180 + savings transfers on calendar ($420 / $300)",
-      "Fri Sep 19 — Car note ~$309 on calendar",
+      "Sat Sep 19 — Car note ~$309 on calendar",
       "Tue Sep 23 — Second paycheck; when 'check hit, rerun D' fires: $300 → Cash App, Platinum $0, T-Mobile ~$200 from savings, keep ~$2,000 savings locked, Auto current only",
       "Vegas Sep 25–28: flight+hotel by GF; personal spend cash-only from Cash App after the $300 lands",
-      "Charged-off Cap One: do not pay until status known",
-      "CFA already green-lit savings bridge — do not skip reinstate for card payoff"
+      "Charged-off Cap One: do not pay until status known"
     ]
   }
 }
