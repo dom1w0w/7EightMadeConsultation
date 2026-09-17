@@ -15,22 +15,22 @@
   "articles": [
     {
       "hed": "Grok Build v1.0.33",
-      "deck": "Elon’s upgrade is tonight’s Tech Demo.",
+      "deck": "Elon’s upgrade is today’s Tech Demo.",
       "body": "MCP structured JSON, memory browser, long-running session fixes. Money stays at the bottom.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 69,
+    "high": 74,
     "low": 62,
-    "summary": "Mostly cloudy. Showers possible.",
+    "summary": "Thunderstorms morning, showers later.",
     "unit": "F",
     "days": [
-      { "label": "Wed", "high": 69, "low": 62, "icon": "rain" },
-      { "label": "Thu", "high": 71, "low": 65, "icon": "rain" },
-      { "label": "Fri", "high": 69, "low": 65, "icon": "cloud" },
-      { "label": "Sat", "high": 76, "low": 65, "icon": "storm" }
+      { "label": "Thu", "high": 74, "low": 62, "icon": "storm" },
+      { "label": "Fri", "high": 71, "low": 64, "icon": "cloud" },
+      { "label": "Sat", "high": 76, "low": 64, "icon": "rain" },
+      { "label": "Sun", "high": 67, "low": 63, "icon": "rain" }
     ]
   },
   "needsALook": [
@@ -118,14 +118,14 @@
     "kicker": "",
     "scenario": "D locked until the 23rd.",
     "accounts": [
-      { "name": "Checking *7785", "kind": "cash", "current": 93.17, "available": 14.52 },
+      { "name": "Checking *7785", "kind": "cash", "current": 43.00, "available": 6.52 },
       { "name": "Savings *7803", "kind": "cash", "current": 2739.76, "available": 2739.76 },
       { "name": "Platinum *9674", "kind": "card", "current": 776.8 },
       { "name": "T-Mobile Visa *8680", "kind": "card", "current": 819.94 },
       { "name": "Auto *5435", "kind": "loan", "current": 1689.98 }
     ],
     "items": [
-      "Checking $93.17 · avail $14.52 · Savings $2,739.76 · Platinum $776.80 · T-Mobile $819.94 · Auto $1,689.98",
+      "Checking $43.00 · avail $6.52 · Savings $2,739.76 · Platinum $776.80 · T-Mobile $819.94 · Auto $1,689.98",
       "D hold until the 23rd. No extra card pay. Freeze both."
     ]
   }
