@@ -1487,9 +1487,9 @@
     <div class="drop-band__inner">
       <div class="drop-band__copy">
         <div><span class="drop-band__urgent" id="dropClock">Live</span> <strong>AI Agent Basics Part 2</strong> — $20 · 3 pages</div>
-        <div class="drop-band__meta">12-hour window. Then it comes down. Closes Thursday 7:09 AM CDT.</div>
+        <div class="drop-band__meta" id="dropMeta">Pay Cash App $dom1w0w. Closes Thursday 7:09 AM CDT.</div>
       </div>
-      <a class="btn" href="ai-agent-basics/">Claim Part 2 — $20</a>
+      <a class="btn" id="dropBtn" href="ai-agent-basics/">Claim Part 2 — $20</a>
     </div>
   </aside>
 
@@ -2415,10 +2415,24 @@
     (function () {
       const end = Date.parse('2026-09-17T12:09:00Z');
       const el = document.getElementById('dropClock');
+      const meta = document.getElementById('dropMeta');
+      const btn = document.getElementById('dropBtn');
+      const band = document.getElementById('ai-agent-basics');
+      const hero = document.querySelector('.hero__ctas a.btn--cobalt[href="ai-agent-basics/"]');
       if (!el) return;
       function tick() {
         const ms = end - Date.now();
-        if (ms <= 0) { el.textContent = 'Closed'; return; }
+        if (ms <= 0) {
+          el.textContent = 'Closed';
+          if (meta) meta.textContent = 'Window closed. Part 1 still stands.';
+          if (btn) btn.textContent = 'Window closed';
+          if (band) band.setAttribute('aria-label', 'AI Agent Basics Part 2 window closed');
+          if (hero) {
+            hero.textContent = 'Book Free AI Audit';
+            hero.setAttribute('href', 'mailto:hello@7eightmade.com?subject=Free%20AI%20Audit');
+          }
+          return;
+        }
         const h = Math.floor(ms / 3600000);
         const m = Math.floor((ms % 3600000) / 60000);
         const s = Math.floor((ms % 60000) / 1000);
