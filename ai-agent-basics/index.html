@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Agent Basics — Part 2 dropping soon | 7EightMade</title>
-  <meta name="description" content="AI Agent Basics Part 2 is dropping soon. Part 1 stands.">
-  <meta name="robots" content="noindex, nofollow">
+  <title>AI Agent Basics Part 2 — $20 / 12 hours | 7EightMade</title>
+  <meta name="description" content="AI Agent Basics Part 2. $20. 3 pages total. Live for 12 hours only.">
   <meta name="theme-color" content="#0B0B0F">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
@@ -14,7 +13,6 @@
       --ink: #0B0B0F;
       --paper: #F3EFE6;
       --teal: #5EEAD4;
-      --cobalt: #2563FF;
       --muted: rgba(243,239,230,.62);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,16 +24,12 @@
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 48px 24px 72px;
-    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 48px 24px 72px; }
     .eyebrow {
       font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
       color: #FBBF24; margin-bottom: 16px;
     }
-    .soon-pill {
+    .live-pill {
       display: inline-block; margin-bottom: 14px;
       font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
       color: #0B0B0F; background: #5EEAD4; border: 1px solid #2DD4BF;
@@ -47,39 +41,74 @@
       font-weight: 600; letter-spacing: -.03em; line-height: 1.05;
       margin-bottom: 16px;
     }
-    .lead { font-size: 17px; color: var(--muted); max-width: 38ch; margin-bottom: 28px; }
+    .lead { font-size: 17px; color: var(--muted); max-width: 42ch; margin-bottom: 28px; }
     .card {
       border: 1px solid rgba(243,239,230,.12);
       background: #14141c;
       border-radius: 20px;
       padding: 28px 24px;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
     .kicker {
       font-family: Fraunces, Georgia, serif;
       font-size: 22px; font-weight: 600; color: var(--teal);
       margin-bottom: 8px;
     }
-    .meta { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
-    .foot {
-      margin-top: 36px; font-size: 12px; color: rgba(243,239,230,.4);
+    .price { font-size: 42px; font-weight: 700; letter-spacing: -.03em; margin: 8px 0 12px; }
+    .price span { font-size: 16px; font-weight: 500; color: var(--muted); }
+    .meta { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+    ul { margin: 12px 0 0 18px; color: var(--paper); }
+    li { margin-bottom: 6px; }
+    .clock {
+      font-variant-numeric: tabular-nums;
+      font-size: 15px; color: #FBBF24; margin-top: 12px;
     }
+    .btn {
+      display: inline-block; margin-top: 18px;
+      background: #5EEAD4; color: #0B0B0F;
+      font-weight: 700; text-decoration: none;
+      padding: 12px 18px; border-radius: 999px;
+    }
+    .foot { margin-top: 36px; font-size: 12px; color: rgba(243,239,230,.4); }
     .foot a { color: var(--teal); text-decoration: none; }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <p class="soon-pill">Part 2 dropping soon</p>
+    <p class="live-pill">Live — 12 hours only</p>
     <p class="eyebrow">Cosmic Terminal drop</p>
     <h1>AI Agent Basics</h1>
-    <p class="lead">Part 1 stands. The 24-hour window is closed. Part 2 drops when it’s ready.</p>
+    <p class="lead">Part 2 is open. $20. Three pages total. Window closes Thursday 7:09 AM CDT.</p>
 
-    <section class="card" aria-label="Part 2 dropping soon">
-      <p class="kicker">Part 2 — dropping soon</p>
-      <p class="meta">No countdown. No flash sale. Watch this page.</p>
+    <section class="card">
+      <p class="kicker">Part 2</p>
+      <p class="price">$20 <span>/ one-time</span></p>
+      <p class="meta">3 pages total.</p>
+      <p class="meta">12-hour window. Then it comes down.</p>
+      <ul>
+        <li>Part 2 of the AI Agent Basics brief</li>
+        <li>Built to sit next to Part 1 — not replace it</li>
+        <li>Fixed scope. No upsell in the PDF.</li>
+      </ul>
+      <p class="clock" id="clock">Window open.</p>
+      <a class="btn" href="mailto:hello@7eightmade.com?subject=AI%20Agent%20Basics%20Part%202%20%2420">Claim Part 2 — $20</a>
     </section>
 
     <p class="foot"><a href="../">← 7EightMade</a></p>
   </main>
+  <script>
+    const end = Date.parse('2026-09-17T12:09:00Z');
+    const el = document.getElementById('clock');
+    function tick() {
+      const ms = end - Date.now();
+      if (ms <= 0) { el.textContent = 'Window closed.'; return; }
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      const s = Math.floor((ms % 60000) / 1000);
+      el.textContent = h + 'h ' + m + 'm ' + s + 's left';
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
 </body>
 </html>
