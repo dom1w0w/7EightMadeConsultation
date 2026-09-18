@@ -8,33 +8,33 @@
   },
   "lead": {
     "headline": "Charge First. Then the Board.",
-    "subhead": "Opening Bell, body, then the X pick: Grok Build upgrade.",
+    "subhead": "Opening Bell, body, then the X pick: Grok Bot voice.",
     "byline": "By The Briefing Desk",
     "photo": { "show": false }
   },
   "articles": [
     {
-      "hed": "Grok Build v1.0.33",
-      "deck": "Elon’s upgrade is today’s Tech Demo.",
-      "body": "MCP structured JSON, memory browser, long-running session fixes. Money stays at the bottom.",
+      "hed": "Grok Bot can talk",
+      "deck": "Elon’s post is today’s Tech Demo.",
+      "body": "Voice live. Money stays at the bottom.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 74,
+    "high": 70,
     "low": 62,
-    "summary": "Thunderstorms morning, showers later.",
+    "summary": "Partly cloudy morning, storms possible late.",
     "unit": "F",
     "days": [
-      { "label": "Thu", "high": 74, "low": 62, "icon": "storm" },
-      { "label": "Fri", "high": 71, "low": 64, "icon": "cloud" },
-      { "label": "Sat", "high": 76, "low": 64, "icon": "rain" },
-      { "label": "Sun", "high": 67, "low": 63, "icon": "rain" }
+      { "label": "Fri", "high": 70, "low": 62, "icon": "cloud" },
+      { "label": "Sat", "high": 73, "low": 64, "icon": "storm" },
+      { "label": "Sun", "high": 69, "low": 63, "icon": "rain" },
+      { "label": "Mon", "high": 63, "low": 58, "icon": "rain" }
     ]
   },
   "needsALook": [
-    { "type": "FYI", "text": "Tech Demo — Grok Build upgrade" },
+    { "type": "FYI", "text": "Tech Demo — Grok Bot voice" },
     { "type": "ACTION", "text": "D hold — zero extra card pay until 23rd" }
   ],
   "timeline": [
@@ -91,27 +91,26 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X",
-    "pick": "Grok Build v1.0.33",
+    "pick": "Grok Bot voice",
     "author": "@elonmusk",
-    "url": "https://x.com/elonmusk/status/2100083283757584858",
-    "bookmarkUrl": "https://x.com/elonmusk/status/2100083283757584858",
+    "url": "https://x.com/elonmusk/status/2100698004210475317",
+    "bookmarkUrl": "https://x.com/elonmusk/status/2100698004210475317",
     "linkLabel": "Open Elon’s post",
     "image": {
-      "src": "https://pbs.twimg.com/media/HSTyt7RakAAY2Gd.jpg",
-      "alt": "Grok Build upgrade — MCP, memory, long sessions"
+      "src": "https://pbs.twimg.com/profile_images/2087219239275069440/KW6C403V.jpg",
+      "alt": "Grok Bot now has a voice"
     },
     "lesson": {
-      "oneLiner": "MCP now returns structured JSON. Memory browser deletes notes. Long sessions keep checkpoints.",
+      "oneLiner": "Grok @Bot can talk now.",
       "beats": [
-        "Elon: Grok Build just got a substantial upgrade across MCP, memory, long-running sessions, and agent reliability.",
-        "MCP tools return structured JSON; cancelled calls stop the server.",
-        "/memory browser: delete notes with two-press x.",
-        "Long-running sessions keep compaction checkpoints instead of losing them.",
-        "Fixes for macOS paste, subagents, /rewind, skill files, Windows clone."
+        "Elon: Grok @Bot now has a voice.",
+        "Quoted Grok Bot post: Grok Bot can talk now.",
+        "Voice feature live on the bot.",
+        "Keep this Tech Demo slot."
       ],
-      "takeaway": "Open the post. Run /memory. Keep this Tech Demo slot."
+      "takeaway": "Open the post. Test the voice. Keep this Tech Demo slot."
     },
-    "note": "Source: @elonmusk 04:44 GMT."
+    "note": "Source: @elonmusk 21:26 GMT 17 Sep."
   },
   "moneyDesk": {
     "title": "Later / Admin",
@@ -120,12 +119,12 @@
     "accounts": [
       { "name": "Checking *7785", "kind": "cash", "current": 43.00, "available": 6.52 },
       { "name": "Savings *7803", "kind": "cash", "current": 2739.76, "available": 2739.76 },
-      { "name": "Platinum *9674", "kind": "card", "current": 776.8 },
-      { "name": "T-Mobile Visa *8680", "kind": "card", "current": 819.94 },
+      { "name": "Platinum *9674", "kind": "card", "current": 776.80 },
+      { "name": "T-Mobile Visa *8680", "kind": "card", "current": 989.15 },
       { "name": "Auto *5435", "kind": "loan", "current": 1689.98 }
     ],
     "items": [
-      "Checking $43.00 · avail $6.52 · Savings $2,739.76 · Platinum $776.80 · T-Mobile $819.94 · Auto $1,689.98",
+      "Checking $43 · avail $6.52 · Savings $2,739.76 · Platinum $776.80 · T-Mobile $989.15 · Auto $1,689.98",
       "D hold until the 23rd. No extra card pay. Freeze both."
     ]
   }
