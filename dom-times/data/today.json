@@ -1,51 +1,252 @@
 {
-  "_meta": { "note": "LIVE edition", "source": "live" },
+  "_meta": {
+    "note": "LIVE edition — Friday, September 18, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
+    "generated": "2026-09-18T05:55:00-05:00",
+    "source": "live"
+  },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XV",
-    "city": "Carpentersville, IL"
+    "volume": "XVI",
+    "city": "Carpentersville, IL",
+    "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Charge First. Then the Board.",
-    "subhead": "Opening Bell, body, then the X pick: Grok Bot voice.",
+    "headline": "Friday Opens Clear — Storms Overnight, Soldier Field Sunday, Kawhi Extension Talks",
+    "subhead": "NWS: partly sunny high 71 / low 59, then storms late. Bears host Vikings 1–0 vs 1–0. Charge first — the board after.",
     "byline": "By The Briefing Desk",
-    "photo": { "show": false }
+    "photo": {
+      "show": true,
+      "caption": "Friday: breath, body, clear morning — storms and Week 2 after the charge.",
+      "alt": "Lead photo — Friday Opening Bell energy before weekend storms"
+    }
   },
   "articles": [
     {
-      "hed": "Grok Bot can talk",
-      "deck": "Elon’s post is today’s Tech Demo.",
-      "body": "Voice live. Money stays at the bottom.",
+      "hed": "Edition XVI: Friday Edge Before the Wet Weekend",
+      "deck": "Box breathing, 3-minute opener, then desks — security skim when ready, admin only at the bottom.",
+      "body": "Volume XVI is live from Carpentersville. Front of the paper stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look still carries real security flags (Chaturbate login, Direct Auto device login, Grok access alerts, plus a Sep 15 Google sign-in on dkmpnuguid). Morning skies are the clear window; storms roll in overnight into a wet Sat–Mon. Bears–Vikings and Kawhi extension chatter are the sports pulse; Anthropic’s Claude R&D share and the sealed Apple–SpaceXAI settlement headline the AI desk. Quiet admin — including today’s T-Mobile / savings calendar items — lives only in Later / Admin.",
       "column": "lead"
+    },
+    {
+      "hed": "Week 2 Home Opener: 59-Point Bears Host Flores’ Vikings",
+      "deck": "Both 1–0. Johnson’s attack vs. Minnesota’s blitz package at Soldier Field Sunday 12 PM CT.",
+      "body": "Chicago’s franchise-opener 59–37 demolition of Carolina still echoes — Caleb Williams, Swift, and Monangai combined for a historic scoring day. Minnesota answered Week 1 with a 39–22 win over Green Bay and four second-half sacks. Sunday at Soldier Field (Fox, noon CT) is Ben Johnson’s high-flying offense against Brian Flores’ deceptive pressure. Odds lean Bears by about 4½. Carry that tempo into the Opening Bell — then skim the board.",
+      "column": "secondary"
+    },
+    {
+      "hed": "AI Desk: Claude Leads 26% of Anthropic R&D; Apple–SpaceXAI Settlement Stays Sealed",
+      "deck": "Anthropic’s transparency metrics land Thursday; judge blocks OpenAI from seeing Musk–Apple deal terms.",
+      "body": "Anthropic said Claude now “leads” about 26% of internal AI research work (up from 1% in March), with human–AI collaboration on 90%+ of R&D — and ~30,000 agents screened on its platform in August. Separately, a Texas judge denied OpenAI’s bid to see confidential settlement terms after SpaceXAI/X dismissed Apple from the antitrust case while keeping OpenAI in. Full desks below.",
+      "column": "secondary"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 70,
-    "low": 62,
-    "summary": "Partly cloudy morning, storms possible late.",
+    "high": 71,
+    "low": 59,
+    "summary": "Friday: partly sunny high near 71 / low around 59. Storms likely overnight (70% PoP, 0.5–0.75\" possible). Wet pattern Sat–Mon with showers/storms; cooler highs into the low 60s by Monday.",
     "unit": "F",
     "days": [
-      { "label": "Fri", "high": 70, "low": 62, "icon": "cloud" },
-      { "label": "Sat", "high": 73, "low": 64, "icon": "storm" },
-      { "label": "Sun", "high": 69, "low": 63, "icon": "rain" },
-      { "label": "Mon", "high": 63, "low": 58, "icon": "rain" }
+      {
+        "label": "Fri",
+        "high": 71,
+        "low": 59,
+        "icon": "cloud"
+      },
+      {
+        "label": "Sat",
+        "high": 73,
+        "low": 60,
+        "icon": "storm"
+      },
+      {
+        "label": "Sun",
+        "high": 66,
+        "low": 51,
+        "icon": "rain"
+      },
+      {
+        "label": "Mon",
+        "high": 62,
+        "low": 50,
+        "icon": "rain"
+      }
     ]
   },
   "needsALook": [
-    { "type": "FYI", "text": "Tech Demo — Grok Bot voice" },
-    { "type": "ACTION", "text": "D hold — zero extra card pay until 23rd" }
+    {
+      "type": "ACTION",
+      "text": "Verify Chaturbate new login (dkmpnuguid / mikomikomiko23) — or change password"
+    },
+    {
+      "type": "ACTION",
+      "text": "Verify Direct Auto new-device login (Sep 14 iPhone) was you"
+    },
+    {
+      "type": "ACTION",
+      "text": "Confirm Sep 15 Google new sign-in on dkmpnuguid was you"
+    },
+    {
+      "type": "FYI",
+      "text": "Grok Google-access security alerts (all 3 Gmails) — confirm intentional, then archive"
+    },
+    {
+      "type": "FYI",
+      "text": "FedEx: SpaceX-AMS shipment ETA Tue Sep 22 (dkmpnuguid)"
+    },
+    {
+      "type": "FYI",
+      "text": "Quiet admin block at bottom of edition (Later / Admin) — T-Mobile + transfers today"
+    }
   ],
   "timeline": [
-    { "time": "~6:00 AM", "event": "Morning Charge + 3-min opener", "category": "habit" },
-    { "time": "8:00 AM–5:00 PM", "event": "Mitsubishi HC — on-site", "category": "work" }
+    {
+      "time": "~6:00 AM",
+      "event": "Morning Charge (box breathing) + 3-min opener",
+      "category": "habit"
+    },
+    {
+      "time": "Open",
+      "event": "Security skim: Chaturbate + Direct Auto device + Sep 15 Google sign-in",
+      "category": "focus"
+    },
+    {
+      "time": "9:30 PM",
+      "event": "Optional Sigil work",
+      "category": "personal"
+    }
   ],
-  "thisWeek": ["23rd — paycheck; rerun D", "Thu 25–Sun 28 — Vegas cash-only"],
+  "thisWeek": [
+    "Fri–Mon — Wet stretch (storms overnight Fri; showers/storms Sat–Mon)",
+    "Sun — Bears host Vikings at Soldier Field (Week 2, noon CT)",
+    "Sun night — Chiefs host Colts (SNF)",
+    "Mon 21 — Direct Auto reinstate target (~$199.43 pending portal)",
+    "Tue 22 — FedEx SpaceX-AMS delivery window",
+    "Tue 23 — Paycheck $1,434.02 (reinstate hard backup)",
+    "Thu 25 — Vegas trip window (coverage is the real gate; no separate calendar trip hold)",
+    "Optional — Sigil nights as energy allows"
+  ],
+  "brainFood": {
+    "title": "Brain Food",
+    "kicker": "From the Mystics",
+    "items": [
+      {
+        "hed": "The Clear Window Is the Working Hour",
+        "body": "Hermetic timing lore prized the lucida — the bright interval before the next weather of the soul. Friday morning’s partly sunny stretch is that window: charge and body while the radar is quiet, then let the overnight storms do their outer work. Mystics did not wait for forever-clear skies; they worked the opening that arrived."
+      },
+      {
+        "hed": "Gnosis Favors the Named Next Step",
+        "body": "Gnostic texts treat forgetfulness as the real prison — not the world, but losing the thread of what you already know. Name today’s sequence out loud: breath, plank, security skim, then the rest. Unnamed urgency dilutes will; a named next step is already half done."
+      },
+      {
+        "hed": "Sigils Exhaust What the Day Did Not",
+        "body": "Esoteric practice often ends the day by discharging leftover charge — not adding more. The optional 9:30 Sigil is that valve: if thoughts are still floating, give them a mark and close the book. Forbidden knowledge, stripped of theater, is often just clean endings so tomorrow can open clean."
+      }
+    ]
+  },
+  "news": {
+    "title": "News",
+    "kicker": "The News Desk",
+    "desks": {
+      "ai": {
+        "title": "AI Desk",
+        "items": [
+          {
+            "source": "Reuters",
+            "hed": "Anthropic: Claude now leads 26% of work building its next models",
+            "body": "Anthropic said Claude “leads” about 26% of internal AI R&D (up from 1% in March), with human–AI collaboration on more than 90% of research as of August. Roughly 30,000 agents work on its main platform at once; every action is screened, and about 1 in 47,000 decisions was blocked in August.",
+            "url": "https://www.reuters.com/business/anthropic-says-claude-now-leads-quarter-work-building-its-next-ai-models-2026-09-17/"
+          },
+          {
+            "source": "AppleInsider",
+            "hed": "Judge seals Apple–SpaceXAI settlement; OpenAI kept out of the terms",
+            "body": "After X Corp and SpaceXAI dismissed antitrust claims against Apple, OpenAI asked to see the settlement. Judge Pittman reviewed it and denied disclosure, citing the federal policy favoring confidential settlements. Claims against OpenAI remain active.",
+            "url": "https://appleinsider.com/articles/26/09/18/openai-wont-get-to-see-terms-of-settlement-between-apple-and-spacexai"
+          },
+          {
+            "source": "AppleInsider",
+            "hed": "iOS 27 code shows Siri AI can be swapped for Claude or ChatGPT",
+            "body": "Private Model Delegation and Inference Provider hooks in iOS 27 / macOS Golden Gate betas can run Claude as a Siri extension or replace Siri’s server model with ChatGPT — demos exist, but the features are not enabled for regular users yet.",
+            "url": "https://appleinsider.com/articles/26/09/14/siri-ai-is-built-to-be-replaceable-by-claude-or-chatgpt"
+          },
+          {
+            "source": "MacObserver",
+            "hed": "X Corp and SpaceXAI drop Apple claims; OpenAI case continues",
+            "body": "A Sept. 14 motion dismissed antitrust claims against Apple with prejudice after the parties said they “resolved their claims.” Every claim against the OpenAI entities stays; trial is set for January 2027.",
+            "url": "https://www.macobserver.com/news/x-corp-spacexai-drop-antitrust-claims-apple-keep-suing-openai/"
+          }
+        ]
+      },
+      "nba": {
+        "title": "NBA",
+        "items": [
+          {
+            "source": "TSN",
+            "hed": "Raptors close to Kawhi Leonard contract extension",
+            "body": "Multiple reports say Toronto and Kawhi are nearing an extension after Monday’s trade from the Clippers. He is eligible for up to two years and $126M; talks accelerated once the NBA’s cap probe cleared the deal.",
+            "url": "https://www.tsn.ca/nba/article/report-raptors-close-to-signing-leonard-to-contract-extension/"
+          },
+          {
+            "source": "NBA.com",
+            "hed": "Raptors finalize Kawhi trade: Ingram, Dick, and picks to L.A.",
+            "body": "Toronto officially acquired Leonard on Sept. 15 for Brandon Ingram, Gradey Dick, two first-round picks, a first-round swap, and two seconds. Media day expected late September; camp follows in Quebec.",
+            "url": "https://www.nba.com/news/raptors-clippers-kawhi-leonard-trade"
+          },
+          {
+            "source": "NBC Sports",
+            "hed": "Extension talks advanced — money and minutes are the real levers",
+            "body": "Kawhi makes $50.3M this season in the final year of his deal. Insiders expect a two-year pact below the absolute max as Toronto balances impact against injury history and rest nights.",
+            "url": "https://www.nbcsports.com/nba/news/kawhi-leonard-toronto-raptors-reportedly-nearing-deal-on-contract-extension"
+          }
+        ]
+      },
+      "nfl": {
+        "title": "NFL",
+        "items": [
+          {
+            "source": "CBS Sports",
+            "hed": "Bears host Vikings: Johnson’s 59-point attack vs. Flores’ pressure",
+            "body": "Both teams are 1–0. Chicago dropped 59 on Carolina; Minnesota sacked Love four times in the second half of a 39–22 win over Green Bay. Sunday noon CT at Soldier Field on Fox — Bears favored by about 4½.",
+            "url": "https://www.cbssports.com/nfl/news/ben-johnson-brian-flores-match-wits-as-bears-host-vikings/"
+          },
+          {
+            "source": "Vikings.com",
+            "hed": "Week 2 game center locked: Minnesota at Chicago, Sep 20",
+            "body": "Official Vikings game center lists Sunday Sept. 20 at Soldier Field, 12:00 PM CDT. Both clubs enter 1–0; Hockenson and O’Connell already teed up the Bears matchup in midweek availability.",
+            "url": "https://www.vikings.com/game-day/2026/bears-reg-week2/game-center"
+          },
+          {
+            "source": "CBS Sports",
+            "hed": "Chiefs’ new-look ground game next test for Colts on SNF",
+            "body": "Kansas City rides Kenneth Walker III’s 173-yard debut and Mahomes’ return into Sunday Night Football vs. Indianapolis. Preview focus: KC’s refreshed rush attack against a Colts front that struggled with heavy backs in Week 1.",
+            "url": "https://www.cbssports.com/nfl/news/chiefs-new-look-ground-game-poses-fresh-challenge-for-colts/"
+          }
+        ]
+      },
+      "combat": {
+        "title": "MMA & Boxing",
+        "items": [
+          {
+            "source": "Sports Illustrated",
+            "hed": "Aspinall steps back from podcasting after vacating HW title",
+            "body": "Days after relinquishing the UFC heavyweight belt amid ongoing eye issues, Tom Aspinall said he is pausing podcasting and social to focus on a medical return — hoped for early 2027. Ciryl Gane remains interim; no formal undisputed elevation yet.",
+            "url": "https://www.si.com/fannation/mma/news/tom-aspinall-shares-major-update-after-vacating-ufc-heavyweight-belt"
+          },
+          {
+            "source": "AgentMMA",
+            "hed": "Masvidal floats boxing rumors after Aspinall’s title drop",
+            "body": "Jorge Masvidal questioned whether vacating could be a path toward boxing, noting Eddie Hearn’s role as Aspinall’s manager. No bout or UFC release has been announced; Aspinall’s public line remains an MMA return when cleared.",
+            "url": "https://agentmma.com/news/90209-masvidal-questions-if-aspinall-s-title-vacation-could-be-strategy-to-pursue-boxi"
+          }
+        ]
+      }
+    }
+  },
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Charge first. Board second.",
+    "intro": "Friday’s gate is a clear morning before the wet weekend — not the radar, not the feed. Four counts in, four hold, four out, four hold. Then own the day.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -55,77 +256,209 @@
       "pauseLabel": "Pause",
       "idleLabel": "Ready",
       "phases": [
-        { "id": "inhale", "label": "INHALE", "cue": "In" },
-        { "id": "hold-in", "label": "HOLD", "cue": "Hold" },
-        { "id": "exhale", "label": "EXHALE", "cue": "Out" },
-        { "id": "hold-out", "label": "HOLD", "cue": "Hold" }
+        {
+          "id": "inhale",
+          "label": "INHALE",
+          "cue": "Draw in through the nose — even, quiet, full."
+        },
+        {
+          "id": "hold-in",
+          "label": "HOLD",
+          "cue": "Stillness at the top. No strain. Own the pause."
+        },
+        {
+          "id": "exhale",
+          "label": "EXHALE",
+          "cue": "Release — controlled, complete."
+        },
+        {
+          "id": "hold-out",
+          "label": "HOLD",
+          "cue": "Empty and steady. Reset the line."
+        }
       ],
-      "close": "Body next."
+      "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Order first",
-      "body": "Breath, body, the X pick. Admin last."
+      "hed": "Clear Morning, Competitive Weekend",
+      "body": "Dom does not wait for perfect forecasts to start. Fierce calm is Friday composure when the week still has unfinished boards: charge first, body second, security skim when ready, admin only after the morning has already won. One breath, one move, one clear next step. Competitors may arrive loud for Week 2; he arrives prepared. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything. It is about banking Friday energy so Sunday’s Soldier Field and Monday’s portal have a clean operator behind them."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "After charge.",
+    "note": "Friday: run this after Morning Charge — box breathing first, then the body. Clear skies now; storms later. Then news and the day.",
     "duration": "~3:00",
+    "reference": {
+      "label": "RipStick form — RipRight",
+      "url": "https://www.riprightsticks.com/"
+    },
     "moves": [
-      { "name": "Push-ups", "reps": "× 30", "time": "~60 sec", "body": "Crisp reps." },
-      { "name": "Plank", "reps": "× 60 seconds", "time": "60 sec", "body": "Ribs down." },
-      { "name": "RipStick finisher", "reps": "continuous", "time": "~60–75 sec", "body": "RipRight Push-Pulls." }
+      {
+        "name": "Push-ups",
+        "reps": "× 30",
+        "time": "~60 sec",
+        "body": "Crisp reps, chest to floor. If you hit 30 early, hold high plank until the minute mark."
+      },
+      {
+        "name": "Plank",
+        "reps": "× 60 seconds",
+        "time": "60 sec",
+        "body": "Elbows or hands. Ribs down, glutes on. Breathe slow."
+      },
+      {
+        "name": "RipStick finisher",
+        "reps": "continuous",
+        "time": "~60–75 sec",
+        "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time. Optional: Front Clips / Back Clips if you want a second RipStick move."
+      }
     ]
+  },
+  "inboxSummary": {
+    "title": "Quick Inbox Summary",
+    "asOf": "Sep 18, 2026 · 5:55 AM CT",
+    "urgent": [
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "Chaturbate — new login alert still open (mikomikomiko23, Sep 14)",
+        "why": "Security — confirm it was you or change password."
+      },
+      {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "Direct Auto — new device login Sep 14 (iPhone / Mobile Safari) still unread",
+        "why": "Security — verify that was you before ignoring."
+      },
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "Google Security — new sign-in alert Sep 15",
+        "why": "Security — confirm it was you."
+      }
+    ],
+    "needsLook": [
+      {
+        "account": "nuguiddom@gmail.com + dominickurtmartin + dkmpnuguid",
+        "text": "Google Security alerts — Grok granted access (all 3 Gmails, Sep 13–14)",
+        "why": "Confirm intentional MCP connect, then archive."
+      },
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "FedEx — SpaceX-AMS fulfillment shipment ETA Tue Sep 22",
+        "why": "Track delivery; not urgent money."
+      }
+    ],
+    "fyi": [
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "Indeed — Account Manager II Renewals @ FIS; Facebook/YouTube/Kaggle noise",
+        "why": "Job alert + social noise."
+      },
+      {
+        "account": "dominickurtmartin@gmail.com",
+        "text": "TikTok/IG digests; Yahoo fantasy Week 2; Udacity AI Security promo; Indeed floods",
+        "why": "Social / promo / job noise."
+      },
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "DoorDash Jollibee order; Chaturbate token receipts; Mercari shipping-rate notice; Snapchat",
+        "why": "Receipt / promo noise."
+      }
+    ],
+    "cleanupNote": "Scanned in:inbox newer_than:2d plus security/money newer_than:7d on all three Gmails (nuguiddom, dominickurtmartin, dkmpnuguid). Security flags above; money/insurance/admin lives only in Later / Admin. No fabricated threads. AI Agent Basics promo closed Sep 15 — not listed as active."
   },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
     "items": [
-      { "id": "morning-charge", "text": "Morning Charge + 3-min opener", "priority": "habit", "done": false },
-      { "id": "journal-gratitude", "text": "Journal + 3 lines of gratitude", "priority": "habit", "done": false },
-      { "id": "must-1", "text": "Must-do: on-site BDR — one clean pipeline move", "priority": "high", "done": false },
-      { "id": "must-2", "text": "Must-do: hold D — no extra payments", "priority": "high", "done": false }
+      {
+        "id": "morning-charge",
+        "text": "Morning Charge + 3-min opener today",
+        "priority": "habit",
+        "done": false
+      },
+      {
+        "id": "chaturbate-login",
+        "text": "Verify Chaturbate new login — or change password",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "device-login",
+        "text": "Verify Direct Auto device login (Sep 14 iPhone) was you",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "google-signin-dkmp",
+        "text": "Confirm Sep 15 Google new sign-in on dkmpnuguid was you",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "grok-google",
+        "text": "Review Grok Google-access alerts (all 3 Gmails)",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "fedex-spacex",
+        "text": "Note FedEx SpaceX-AMS ETA Tue Sep 22",
+        "priority": "normal",
+        "done": false
+      },
+      {
+        "id": "admin-later",
+        "text": "Later: T-Mobile + savings transfers today; Direct Auto portal Mon (see Later / Admin)",
+        "priority": "normal",
+        "done": false
+      }
     ]
+  },
+  "grimoire": {
+    "title": "Grimoire",
+    "kicker": "Magick Knowledge of the Day",
+    "source": "Solomon — Proverbs / wisdom tradition",
+    "hed": "Prepare the Field Before You Build the House",
+    "body": "“Prepare your work outside; get everything ready for yourself in the field, and after that build your house.” (Proverbs 24:27) Solomon’s counsel is sequence: ready the ground before you raise the structure. Friday’s charge and body are the field work — security skim and Later / Admin are the house. Classical lore cast Solomon as one who ordered materials before the build. Order the morning the same way, so Soldier Field Sunday and Monday’s portal sit on prepared ground.",
+    "practice": "Finish Opening Bell and the 3-minute opener before any security skim or admin. Field first; house second."
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X",
-    "pick": "Grok Bot voice",
-    "author": "@elonmusk",
-    "url": "https://x.com/elonmusk/status/2100698004210475317",
-    "bookmarkUrl": "https://x.com/elonmusk/status/2100698004210475317",
-    "linkLabel": "Open Elon’s post",
+    "kicker": "Fast learn · from your X bookmarks",
+    "pick": "SpaceXAI Amrita session — Grok Bot across four departments (GTM, engineering, marketing, admin)",
+    "author": "@0xGenAi",
+    "url": "https://x.com/0xGenAi/status/2100287496294711426",
+    "bookmarkUrl": "https://x.com/0xGenAi/status/2100287496294711426",
+    "linkLabel": "Open bookmark",
     "image": {
-      "src": "https://pbs.twimg.com/profile_images/2087219239275069440/KW6C403V.jpg",
-      "alt": "Grok Bot now has a voice"
+      "src": "assets/tech-demo-four-depts.png",
+      "alt": "Newsprint diagram — You/CoS hub routing to GTM, ENG, MKT, and ADMIN Grok Bot lanes"
     },
     "lesson": {
-      "oneLiner": "Grok @Bot can talk now.",
+      "oneLiner": "Stop one-chat everything. Assign four lanes — GTM, eng, marketing, admin — and let workers keep executing after you close the laptop.",
       "beats": [
-        "Elon: Grok @Bot now has a voice.",
-        "Quoted Grok Bot post: Grok Bot can talk now.",
-        "Voice feature live on the bot.",
-        "Keep this Tech Demo slot."
+        "GTM lane: bots build and babysit sales pipelines so outreach doesn’t die when you step away.",
+        "Engineering lane: reproduce bugs with screenshots instead of dumping stack traces into one mega-thread.",
+        "Marketing lane: monitor campaigns continuously — alerts, not doomscrolling.",
+        "Admin lane: calendar, travel, expenses, inbox triage as dedicated workers, not side quests.",
+        "Amrita’s punchline: a free SpaceXAI training day beats a $500 “agent course” if you actually stand up the four lanes."
       ],
-      "takeaway": "Open the post. Test the voice. Keep this Tech Demo slot."
+      "takeaway": "Under a minute: pick one department today, name a worker, give it one recurring job — then watch the bookmark session for the other three."
     },
-    "note": "Source: @elonmusk 21:26 GMT 17 Sep."
+    "note": "Bookmark surfaced for @mmmik000 (id 1856158356651626496). Demo build pipeline still coming — learn the four-lane map here first.",
+    "skipped": "Skipped CS nade clips, Dubby promo, YouTube monetize clip, free programming-notes dump, and prior Graph & Loop / GrokBot-org picks for a fresh four-department lesson."
   },
   "moneyDesk": {
     "title": "Later / Admin",
-    "kicker": "",
-    "scenario": "D locked until the 23rd.",
-    "accounts": [
-      { "name": "Checking *7785", "kind": "cash", "current": 43.00, "available": 6.52 },
-      { "name": "Savings *7803", "kind": "cash", "current": 2739.76, "available": 2739.76 },
-      { "name": "Platinum *9674", "kind": "card", "current": 776.80 },
-      { "name": "T-Mobile Visa *8680", "kind": "card", "current": 989.15 },
-      { "name": "Auto *5435", "kind": "loan", "current": 1689.98 }
-    ],
+    "kicker": "Quiet money block — handle when morning energy is banked",
     "items": [
-      "Checking $43 · avail $6.52 · Savings $2,739.76 · Platinum $776.80 · T-Mobile $989.15 · Auto $1,689.98",
-      "D hold until the 23rd. No extra card pay. Freeze both."
+      "AI Agent Basics $20 promo CLOSED Tue Sep 15 1:11 PM CT — not active; do not clear PDFs for this offer",
+      "TODAY Fri Sept. 18 — T-Mobile $180 (calendar) + savings transfers ($420 all-day + $300 at 9:00 AM CT)",
+      "Sat Sept. 19 — Car note $309 on calendar",
+      "Direct Auto policy 2019407539 — canceled Sep 8 for non-payment; verify Sep 14 new-device login was you",
+      "Portal: confirm exact reinstate amount on directauto.com; target ~$199.43",
+      "Reinstate hold: Mon Sept. 21 — before Vegas Thu Sept. 25; hard backup paycheck Tue Sept. 23 ($1,434.02)",
+      "CFA already green-lit savings bridge — do not skip reinstate for card payoff",
+      "Vegas Thu Sept. 25 is not a separate calendar trip hold — coverage is the real departure gate"
     ]
   }
 }
