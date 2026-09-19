@@ -1,5 +1,5 @@
 /* The Dom Times — service worker (cache-first for shell, network-first for data) */
-const CACHE_NAME = "dom-times-v5";
+const CACHE_NAME = "dom-times-v6";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,6 +8,8 @@ const SHELL = [
   "./manifest.json",
   "./icons/icon.svg",
   "./data/today.json",
+  "./assets/tech-demo-astra-flash.png",
+  "./assets/tech-demo-four-depts.png",
   "./assets/tech-demo-graph-loops.png",
   "./assets/tech-demo-grokbot-org.png"
 ];
