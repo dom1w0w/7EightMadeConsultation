@@ -1483,13 +1483,13 @@
     </div>
   </nav>
 
-  <aside class="drop-band" id="agent-job-card" aria-label="Agent Job Card is live — closes Sunday 10:43 AM CDT">
+  <aside class="drop-band drop-band--teal" id="operator-drop" aria-label="Operator Drop is live — 8 hours only">
     <div class="drop-band__inner">
       <div class="drop-band__copy">
-        <div><span class="drop-band__urgent" id="dropClock">Live</span> <strong>Agent Job Card</strong> — $47 · 5 lines · one job</div>
-        <div class="drop-band__meta" id="dropMeta">Pay Cash App $dom1w0w. Closes Sunday 10:43 AM CDT.</div>
+        <div><span class="drop-band__urgent" id="dropClock">Live · 8h</span> <strong>Operator Drop</strong> — $37 · then it’s gone</div>
+        <div class="drop-band__meta" id="dropMeta">Pay Cash App $dom1w0w · Request emails Dom (iCloud + Gmail)</div>
       </div>
-      <a class="btn" id="dropBtn" href="agent-job-card/">Claim the card — $47</a>
+      <a class="btn" id="dropBtn" href="operator-drop/">Request Operator Drop</a>
     </div>
   </aside>
 
@@ -1506,7 +1506,7 @@
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
           <div class="hero__ctas">
-            <a class="btn btn--cobalt" href="agent-job-card/">Agent Job Card · $47 live</a>
+            <a class="btn btn--cobalt" href="operator-drop/">Operator Drop · $37 · 8h</a>
             <a class="hero__secondary" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
           </div>
           <div class="hero__chips">
@@ -2413,37 +2413,28 @@
   </script>
   <script>
     (function () {
-      const end = Date.parse('2026-09-20T15:43:00Z');
-      const el = document.getElementById('dropClock');
+      const mid = Date.parse('2026-09-21T00:33:00Z');
+      const end = Date.parse('2026-09-21T04:33:00Z');
+      const band = document.getElementById('operator-drop');
+      const clock = document.getElementById('dropClock');
       const meta = document.getElementById('dropMeta');
-      const btn = document.getElementById('dropBtn');
-      const band = document.getElementById('agent-job-card');
-      const hero = document.querySelector('.hero__ctas a.btn--cobalt[href="agent-job-card/"]');
-      if (!el) return;
       function tick() {
-        const ms = end - Date.now();
-        if (ms <= 0) {
-          el.textContent = 'Closed';
-          if (meta) meta.textContent = 'Window closed. Consulting still open.';
-          if (btn) {
-            btn.textContent = 'Book Free AI Audit';
-            btn.setAttribute('href', 'mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit');
-          }
-          if (band) band.setAttribute('aria-label', 'Agent Job Card window closed');
-          if (hero) {
-            hero.textContent = 'Book Free AI Audit';
-            hero.setAttribute('href', 'mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit');
-          }
+        const now = Date.now();
+        if (!band) return;
+        if (now >= end) {
+          band.hidden = true;
           return;
         }
-        const h = Math.floor(ms / 3600000);
-        const m = Math.floor((ms % 3600000) / 60000);
-        const s = Math.floor((ms % 60000) / 1000);
-        const pad = (n) => String(n).padStart(2, '0');
-        el.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+        if (now >= mid) {
+          band.classList.remove('drop-band--teal');
+          band.classList.add('drop-band--mid');
+          if (clock) clock.textContent = '8 hours left';
+          if (meta) meta.textContent = 'Then it’s gone · Pay Cash App $dom1w0w';
+          band.setAttribute('aria-label', 'Operator Drop — 8 hours left');
+        }
       }
       tick();
-      setInterval(tick, 1000);
+      setInterval(tick, 30000);
     })();
   </script>
 </body>
