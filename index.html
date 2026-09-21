@@ -1164,36 +1164,6 @@
     }
 
 
-    /* ── AI Agent Basics drop band (Part 2 live) ───────────── */
-    .drop-band {
-      background: #F3EFE6;
-      color: #0B0B0F;
-      border-bottom: 1px solid rgba(180,120,40,.22);
-    }
-    .drop-band__inner {
-      max-width: 1120px; margin: 0 auto; padding: 14px 32px;
-      display: flex; flex-wrap: wrap; gap: 12px 20px;
-      align-items: center; justify-content: space-between;
-    }
-    .drop-band__copy { font-size: 14px; line-height: 1.4; }
-    .drop-band__copy strong { color: #B45309; font-weight: 700; }
-    .drop-band__urgent {
-      display: inline-block; margin-right: 8px;
-      font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-      color: #92400E; background: #FDE68A; border: 1px solid #F59E0B;
-      padding: 3px 8px; border-radius: 999px;
-    }
-    .drop-band__meta { color: #5C5C66; font-size: 12px; margin-top: 2px; }
-    .drop-band .btn {
-      background: #B45309; color: #FBF8F2; border-color: #B45309;
-      padding: 10px 18px; font-size: 13px; white-space: nowrap;
-    }
-    .drop-band .btn:hover { background: #92400E; border-color: #92400E; transform: translateY(-1px); box-shadow: none; }
-    @media (max-width: 720px) {
-      .drop-band__inner { padding: 16px 20px; align-items: stretch; }
-      .drop-band .btn { width: 100%; }
-    }
-
     /* ── Signature motion pass (rise 8) ── */
     .lockup-7 {
       transform-box: fill-box;
@@ -1305,14 +1275,6 @@
       to { transform: translateX(-50%); }
     }
 
-    .drop-band__urgent {
-      animation: dropBreath 6s ease-in-out infinite;
-    }
-    @keyframes dropBreath {
-      0%, 100% { filter: brightness(1); opacity: 1; }
-      50% { filter: brightness(1.1); opacity: .84; }
-    }
-
     @media (max-width: 900px) {
       .nav__links {
         display: flex !important;
@@ -1361,7 +1323,6 @@
       }
       .faq-item__panel { transition: none !important; }
       .btn.is-sending::after,
-      .drop-band__urgent,
       .stacks__track {
         animation: none !important;
       }
@@ -1483,16 +1444,6 @@
     </div>
   </nav>
 
-  <aside class="drop-band drop-band--teal" id="operator-drop" aria-label="Operator Drop is live — 8 hours only">
-    <div class="drop-band__inner">
-      <div class="drop-band__copy">
-        <div><span class="drop-band__urgent" id="dropClock">Live · 8h</span> <strong>Operator Drop</strong> — $37 · then it’s gone</div>
-        <div class="drop-band__meta" id="dropMeta">Pay Cash App $dom1w0w · Request emails Dom (iCloud + Gmail)</div>
-      </div>
-      <a class="btn" id="dropBtn" href="operator-drop/">Request Operator Drop</a>
-    </div>
-  </aside>
-
   <header class="hero">
     <div class="container">
       <div class="hero__grid">
@@ -1506,8 +1457,8 @@
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
           <div class="hero__ctas">
-            <a class="btn btn--cobalt" href="operator-drop/">Operator Drop · $37 · 8h</a>
-            <a class="hero__secondary" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+            <a class="btn btn--cobalt" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+            <a class="hero__secondary" href="#pricing">See packages</a>
           </div>
           <div class="hero__chips">
             <span class="chip">Pilots in 24–72h</span>
@@ -2409,32 +2360,6 @@
       } else {
         playIntro();
       }
-    })();
-  </script>
-  <script>
-    (function () {
-      const mid = Date.parse('2026-09-21T00:33:00Z');
-      const end = Date.parse('2026-09-21T04:33:00Z');
-      const band = document.getElementById('operator-drop');
-      const clock = document.getElementById('dropClock');
-      const meta = document.getElementById('dropMeta');
-      function tick() {
-        const now = Date.now();
-        if (!band) return;
-        if (now >= end) {
-          band.hidden = true;
-          return;
-        }
-        if (now >= mid) {
-          band.classList.remove('drop-band--teal');
-          band.classList.add('drop-band--mid');
-          if (clock) clock.textContent = '8 hours left';
-          if (meta) meta.textContent = 'Then it’s gone · Pay Cash App $dom1w0w';
-          band.setAttribute('aria-label', 'Operator Drop — 8 hours left');
-        }
-      }
-      tick();
-      setInterval(tick, 30000);
     })();
   </script>
 </body>
