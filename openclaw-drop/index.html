@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenClaw Drop — $37 · 12h | 7EightMade</title>
-  <meta name="description" content="OpenClaw Drop — $37 for 12 hours. Private AI on hardware you own. Pay Cash App $dom1w0w, then request the PDF.">
+  <title>OpenClaw Drop — Offer ended | 7EightMade</title>
+  <meta name="description" content="The OpenClaw Drop has ended.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0B0B0F">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
@@ -96,33 +96,12 @@
 </head>
 <body>
   <main class="wrap">
-    <p class="live-pill" id="livePill">Live · 12 hours</p>
+    <p class="live-pill">Offer ended</p>
     <p class="eyebrow">Cosmic Terminal drop</p>
     <h1>OpenClaw</h1>
-    <p class="lead" id="lead">Private AI on hardware you own. Zero data leaves your network. $37. Twelve hours. Then it’s gone.</p>
+    <p class="lead">The 12-hour OpenClaw Drop is over. No more requests for this promo.</p>
 
-    <section class="card" id="offerCard" aria-label="Buy OpenClaw Drop">
-      <p class="kicker">OpenClaw Drop</p>
-      <p class="price">$37 <span>/ one-time · 12h</span></p>
-      <p class="meta">One-pager. Fixed scope. Local / private AI tease.</p>
-      <ul class="toc">
-        <li><strong>1</strong> What OpenClaw is (and isn’t)</li>
-        <li><strong>2</strong> Why your data stays on your hardware</li>
-        <li><strong>3</strong> The first setup you’d actually run this week</li>
-      </ul>
-      <p class="steps">
-        <strong>1.</strong> Send $37 to Cash App <a class="cash" href="https://cash.app/$dom1w0w/37">$dom1w0w</a><br>
-        <strong>2.</strong> Request the PDF — emails <strong>nuguidd@icloud.com</strong> (CC Gmail)<br>
-        <strong>3.</strong> PDF ships after payment clears
-      </p>
-      <p class="clock" id="clock">Window open.</p>
-      <div class="actions">
-        <a class="btn" href="https://cash.app/$dom1w0w/37">Pay $37 on Cash App</a>
-        <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&subject=OpenClaw%20Drop%20%2437%20Request&body=Hi%20Dom%2C%0A%0AI%20want%20the%20OpenClaw%20Drop%20PDF%20(%2437%20%2F%2012h).%0A%0ACash%20App%20sent%20to%20%24dom1w0w%3A%20%5Byes%20%2F%20pending%5D%0AName%20%2F%20handle%3A%20%0ANotes%3A%20%0A">I paid — request the PDF</a>
-      </div>
-    </section>
-
-    <section class="card" id="closedCard" hidden aria-label="OpenClaw Drop closed">
+    <section class="card" id="closedCard" aria-label="OpenClaw Drop closed">
       <p class="kicker">Offer ended</p>
       <p class="meta">The 12-hour OpenClaw Drop is over. No more requests for this promo.</p>
       <div class="actions">
@@ -133,38 +112,5 @@
 
     <p class="foot"><a href="../">← 7EightMade</a> · fall down 7 stand up 8</p>
   </main>
-  <script>
-    // Go-live ~2026-09-21 18:05 CT = 23:05 UTC; mid 00:05 CT Tue = 05:05 UTC; kill 06:05 CT Tue = 11:05 UTC
-    const mid = Date.parse('2026-09-22T05:05:00Z');
-    const end = Date.parse('2026-09-22T11:05:00Z');
-    const clock = document.getElementById('clock');
-    const pill = document.getElementById('livePill');
-    const lead = document.getElementById('lead');
-    const offer = document.getElementById('offerCard');
-    const closed = document.getElementById('closedCard');
-    function tick() {
-      const now = Date.now();
-      const ms = end - now;
-      if (ms <= 0) {
-        pill.textContent = 'Offer ended';
-        pill.classList.remove('is-mid');
-        lead.textContent = 'The 12-hour OpenClaw Drop is over.';
-        offer.hidden = true;
-        closed.hidden = false;
-        return;
-      }
-      if (now >= mid) {
-        pill.textContent = '6 hours left';
-        pill.classList.add('is-mid');
-        clock.classList.add('is-mid');
-      }
-      const h = Math.floor(ms / 3600000);
-      const m = Math.floor((ms % 3600000) / 60000);
-      const s = Math.floor((ms % 60000) / 1000);
-      clock.textContent = h + 'h ' + m + 'm ' + s + 's left';
-    }
-    tick();
-    setInterval(tick, 1000);
-  </script>
 </body>
 </html>
