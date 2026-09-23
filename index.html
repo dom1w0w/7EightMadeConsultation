@@ -1335,9 +1335,15 @@
 
 
 
+    /* ── Client testimonials ─────────────────────────────────── */
+    .quote-stack {
+      margin-top: 40px;
+      display: grid;
+      gap: 16px;
+    }
     /* ── Headdy Glass testimonial ───────────────────────────── */
     .quote-card {
-      margin-top: 40px;
+      margin-top: 0;
       padding: 28px 28px 24px;
       border: 1px solid rgba(11,11,15,.08);
       background: #FBF8F2;
@@ -1372,8 +1378,17 @@
     }
     .quote-card__attr strong { color: var(--ink, #0B0B0F); font-weight: 700; }
     .quote-card__attr a { color: var(--cobalt, #1B4DFF); text-decoration: none; }
+    .quote-card--text { grid-template-columns: 1fr; }
+    .quote-card__initial {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: #1B4DFF; color: #FBF8F2;
+      font-weight: 800; font-size: 16px; letter-spacing: .02em;
+      margin-bottom: 10px;
+    }
     @media (max-width: 720px) {
-      .quote-card { grid-template-columns: 64px 1fr; padding: 20px; gap: 14px; margin-top: 28px; }
+      .quote-stack { margin-top: 28px; }
+      .quote-card { grid-template-columns: 64px 1fr; padding: 20px; gap: 14px; margin-top: 0; }
       .quote-card__img { width: 64px; height: 64px; border-radius: 12px; }
       .quote-card__text { font-size: 15px; }
     }
@@ -1549,6 +1564,7 @@
         Salesforce · Google Workspace · Slack · HubSpot
       </p>
 
+      <div class="quote-stack">
       <figure class="quote-card" aria-label="Testimonial from Farhan, Headdy Glass">
         <img class="quote-card__img" src="brand/headdy-glass-farhan.png" width="88" height="88" alt="Farhan, owner of Headdy Glass" loading="lazy">
         <figcaption>
@@ -1557,6 +1573,15 @@
           <p class="quote-card__attr"><strong>Farhan</strong>, Owner · <a href="https://www.headdyglass.com/" rel="noopener">Headdy Glass</a>, Algonquin</p>
         </figcaption>
       </figure>
+      <figure class="quote-card quote-card--text" aria-label="Testimonial from Stuart Adams, Uncle Stu’s Smoke and Vape">
+        <figcaption>
+          <div class="quote-card__initial" aria-hidden="true">US</div>
+          <div class="quote-card__mark" aria-hidden="true">“</div>
+          <blockquote class="quote-card__text">OpenClaw took online delivery ops off my plate at Cary and Aurora first — orders keep moving after hours. Carol Stream gets its own OpenClaw in October.</blockquote>
+          <p class="quote-card__attr"><strong>Stuart “Uncle Stu” Adams</strong>, Owner · Uncle Stu’s Smoke and Vape · Cary &amp; Aurora (Carol Stream Oct)</p>
+        </figcaption>
+      </figure>
+      </div>
     </div>
   </div>
 
