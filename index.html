@@ -1378,18 +1378,23 @@
     }
     .quote-card__attr strong { color: var(--ink, #0B0B0F); font-weight: 700; }
     .quote-card__attr a { color: var(--cobalt, #1B4DFF); text-decoration: none; }
-    .quote-card--text { grid-template-columns: 1fr; }
+    /* Text-only cards still use 2 cols (initial | copy) so mobile 64px/1fr never traps copy in the avatar track */
+    .quote-card--text { grid-template-columns: 88px 1fr; }
+    .quote-card figcaption { min-width: 0; }
     .quote-card__initial {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 44px; height: 44px; border-radius: 12px;
+      width: 88px; height: 88px; border-radius: 16px;
       background: #1B4DFF; color: #FBF8F2;
-      font-weight: 800; font-size: 16px; letter-spacing: .02em;
-      margin-bottom: 10px;
+      font-weight: 800; font-size: 22px; letter-spacing: .02em;
+      margin: 0;
+      flex-shrink: 0;
     }
     @media (max-width: 720px) {
       .quote-stack { margin-top: 28px; }
-      .quote-card { grid-template-columns: 64px 1fr; padding: 20px; gap: 14px; margin-top: 0; }
-      .quote-card__img { width: 64px; height: 64px; border-radius: 12px; }
+      .quote-card,
+      .quote-card--text { grid-template-columns: 64px 1fr; padding: 20px; gap: 14px; margin-top: 0; }
+      .quote-card__img,
+      .quote-card__initial { width: 64px; height: 64px; border-radius: 12px; font-size: 16px; }
       .quote-card__text { font-size: 15px; }
     }
   </style>
@@ -1574,8 +1579,8 @@
         </figcaption>
       </figure>
       <figure class="quote-card quote-card--text" aria-label="Testimonial from Stuart Adams, Uncle Stu’s Smoke and Vape">
+        <div class="quote-card__initial" aria-hidden="true">US</div>
         <figcaption>
-          <div class="quote-card__initial" aria-hidden="true">US</div>
           <div class="quote-card__mark" aria-hidden="true">“</div>
           <blockquote class="quote-card__text">OpenClaw took online delivery ops off my plate at Cary and Aurora first — orders keep moving after hours. Carol Stream gets its own OpenClaw in October.</blockquote>
           <p class="quote-card__attr"><strong>Stuart “Uncle Stu” Adams</strong>, Owner · Uncle Stu’s Smoke and Vape · Cary &amp; Aurora (Carol Stream Oct)</p>
