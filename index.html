@@ -1360,6 +1360,13 @@
       object-fit: cover;
       background: #E8E2D6;
     }
+    .quote-card__img--logo {
+      object-fit: contain;
+      background: #FBF8F2;
+      border: 1px solid rgba(11,11,15,.06);
+      padding: 4px;
+      box-sizing: border-box;
+    }
     .quote-card__mark {
       font-family: Fraunces, Georgia, serif;
       font-size: 42px; line-height: 1;
@@ -1571,7 +1578,7 @@
 
       <div class="quote-stack">
       <figure class="quote-card" aria-label="Testimonial from Farhan, Headdy Glass">
-        <img class="quote-card__img" src="brand/headdy-glass-farhan.png" width="88" height="88" alt="Farhan, owner of Headdy Glass" loading="lazy">
+        <img class="quote-card__img quote-card__img--logo" src="brand/headdy-glass-logo.png" width="88" height="88" alt="Headdy Glass logo" loading="lazy">
         <figcaption>
           <div class="quote-card__mark" aria-hidden="true">“</div>
           <blockquote class="quote-card__text">OpenClaw runs our online order flow so tickets don’t pile up after hours. Same day we set it up, delivery updates stopped living in my head.</blockquote>
