@@ -1,75 +1,75 @@
 {
   "_meta": {
-    "note": "LIVE edition — Wednesday, September 23, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end.",
-    "generated": "2026-09-23T06:11:17-05:00",
-    "source": "live"
+    "note": "LIVE edition — Thursday, September 24, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end. PARTIAL: Gmail/Calendar/X MCP via CallDynamicTool failed this automation run — weather + news live; inbox security carry from Vol XXI (not re-verified overnight); techDemo holdover with X note.",
+    "generated": "2026-09-24T06:10:32-05:00",
+    "source": "live-partial"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XXI",
+    "volume": "XXII",
     "city": "Carpentersville, IL",
-    "asOf": "6:11 AM CT"
+    "asOf": "6:10 AM CT"
   },
   "lead": {
-    "headline": "Wednesday Forge — Cool Cloudy Skies, Price-War AI Ships Overnight, Week 3 QB Chaos",
-    "subhead": "NWS Carpentersville: mostly cloudy, high near 65 / low around 53. OpenAI Sol/Luna and Anthropic Opus 5.5 dropped Tue; Dart facing extended absence while Rockets open camp with VanVleet cleared. Charge first; desks second; quiet admin only when the morning is already won.",
+    "headline": "Thursday Gate — Partly Sunny 68°, TNF Falcons@Packers Tonight, Vegas Window Tomorrow",
+    "subhead": "NWS Carpentersville: partly sunny, high near 68 / low around 57. Siri–ChatGPT underperformance hits the filings; Anthropic pushes lab-pace metrics; Grok 4.7 still the coding carry. Charge first; TNF later; quiet admin only when the morning is already won.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Wednesday: breath, body, midweek radar — competitive calm into the forge.",
-      "alt": "Lead photo — Wednesday Opening Bell energy under mostly cloudy Carpentersville skies"
+      "caption": "Thursday: breath, body, TNF radar — competitive calm into the departure gate.",
+      "alt": "Lead photo — Thursday Opening Bell energy under partly sunny Carpentersville skies"
     }
   },
   "articles": [
     {
-      "hed": "Edition XXI: Midweek Forge Under Cool Radar",
-      "deck": "Box breathing, 3-minute opener, then desks — security skim when ready, admin only at the bottom.",
-      "body": "Volume XXI is live from Carpentersville under mostly cloudy skies (high near 65 / low around 53; NE wind 5–15 mph). Front of the paper stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look still leads with OnlyFans new-login (Mon ~3:17 PM CT, dkmpnuguid / mikomikomiko23, Chicago iOS 27), Muse Google-access alerts (Sun ~7:05 PM CT, all three Gmails), Chaturbate Sat login, dolphinradar.com Google-share on nuguiddom (Mon 11:34 PM CT), and older Sep 15 Google sign-in on dkmpnuguid — all still unread. Overnight AI desk: OpenAI GPT-6 Sol & Luna and Anthropic Opus 5.5 launched Tue in a price war while safety warnings still hang; Grok 4.7 remains the SpaceXAI carry. NFL: Dart facing extended / possible season-ending knee absence; Bears QB depth in flux ahead of Eagles MNF. NBA: Rockets media day optimism with VanVleet cleared. Quiet admin — paycheck, closed drops, Direct Auto receipt — lives only in Later / Admin. Fall down 7 stand up 8.",
+      "hed": "Edition XXII: Thursday Gate Under Partly Sunny Radar",
+      "deck": "Box breathing, 3-minute opener, then desks — security skim when ready, Vegas/savings admin only at the bottom.",
+      "body": "Volume XXII is live from Carpentersville under partly sunny skies (high near 68 / low around 57; ENE wind 5–10 mph). Front of the paper stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look still leads with OnlyFans new-login, Muse Google-access, Chaturbate, dolphinradar.com, and Sep 15 Google — carried from Wed’s live scan (Gmail connector outage blocked overnight re-check; treat as still open until you clear them). Overnight AI desk: OpenAI’s ChatGPT-in-Siri results called ‘persistently underperforming’ in filings; Anthropic floated public metrics for frontier-lab pace; Apple code points to Siri AI on HomePod; Grok 4.7 remains the SpaceXAI coding/knowledge carry. NFL: Week 3 opens tonight with Falcons at Packers (TNF). Quiet admin — Vegas Thu, savings transfers, closed drops, Direct Auto receipt — lives only in Later / Admin. Fall down 7 stand up 8.",
       "column": "lead"
     },
     {
-      "hed": "NFL Desk: Dart Extended Absence; Bears QB Depth Shaky",
-      "deck": "Sources: Giants QB Jaxson Dart could miss the rest of the season after MNF knee; Chicago may lean on Case Keenum vs. Eagles if Williams and Bagent stay out.",
-      "body": "Tuesday tests flipped Monday Night’s optimistic tone: Jaxson Dart’s left knee is worse than first believed and he faces an extended absence with season-ending surgery on the table, sources told NFL Network. Jameis Winston is the bridge for Giants Week 3 vs. Titans. In Chicago, Caleb Williams remains week-to-week with a hamstring and backup Tyson Bagent entered concussion protocol — leaving Case Keenum as a possible starter for Monday’s Eagles game. Week 3 opens Thu with Falcons at Packers. Carry competitive calm into the midweek charge — then skim the board.",
+      "hed": "NFL Desk: Week 3 Opens Tonight — Falcons @ Packers TNF",
+      "deck": "Thursday Night Football kicks the slate; QB injury noise from Week 2 still shapes the board into MNF.",
+      "body": "Week 3’s first kick is Thursday night in Green Bay: Atlanta at Green Bay. The wider Week 3 board still carries Dart’s extended knee absence and Chicago’s QB depth questions into Monday’s Eagles @ Bears. Power rankings and injury reports are updating through the day — skim after the charge, not before. Carry competitive calm into TNF; leave the prop-sheet noise for after body opener.",
       "column": "secondary"
     },
     {
-      "hed": "AI Desk: Sol, Luna & Opus 5.5 Hit the Price War",
-      "deck": "OpenAI and Anthropic shipped cheaper models within hours on Tue Sep 22; SpaceXAI’s Grok 4.7 still anchors the coding/knowledge lane at $2/$6.",
-      "body": "Anthropic released Claude Opus 5.5 as a cheaper near-flagship (matching Fable on most tasks at a lower sticker), and OpenAI answered with GPT-6 Sol and GPT-6 Luna — faster, cheaper cuts of Astra. The launches land days after CEOs publicly urged a slowdown, underscoring the tension between safety talk and competitive shipping. SpaceXAI’s Grok 4.7 (Sep 21) stays the value coding/knowledge play. Apple’s Siri AI beta on iOS 27 continues its waitlist rollout toward October language expansion. Full desks below.",
+      "hed": "AI Desk: Siri–ChatGPT Miss, Anthropic Pace Metrics, Grok 4.7 Hold",
+      "deck": "Court filings say ChatGPT-as-Siri-extension underperformed; Anthropic wants lab visibility metrics; SpaceXAI’s Grok 4.7 stays the value coding lane.",
+      "body": "MacRumors and AppleInsider cover OpenAI filings describing ChatGPT inside Siri as ‘persistently underperforming’ / dramatically underperforming as an extension — a fresh Apple–OpenAI tension beat. Separately, Anthropic published measurements aimed at letting the public see the pace inside frontier labs. Apple-side code sleuthing points to Siri AI expanding to HomePod. SpaceXAI’s Grok 4.7 (coding/knowledge, half-price frame vs comparables) remains the live carry. Full desks below.",
       "column": "secondary"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 65,
-    "low": 53,
-    "summary": "Wednesday: Mostly cloudy, high near 65 / low around 53. Northeast wind 5 to 15 mph, with temperatures falling to around 62 in the afternoon. Tonight: partly cloudy, low around 53; ENE wind 5–10 mph, gusts as high as 20. Thursday: mostly sunny, high near 68 / low around 54. Friday: partly sunny, high near 67 / low around 50. Saturday: partly sunny, high near 66 / low around 52; slight rain chance late Saturday night into Sunday. Source: NWS Chicago point forecast for Carpentersville (as of ~6:10 AM CT).",
+    "high": 68,
+    "low": 57,
+    "summary": "Thursday: Partly sunny, high near 68 / low around 57. East northeast wind 5 to 10 mph, with temperatures falling to around 65 in the afternoon. Tonight: mostly cloudy, low around 57; east wind around 5 mph. Friday: mostly cloudy, high near 66 / low around 51. Saturday: mostly sunny, high near 67 / low around 52. Sunday: partly sunny, high near 68 / low around 51. Source: NWS Chicago point forecast for Carpentersville (as of ~6:05 AM CT).",
     "unit": "F",
     "days": [
       {
-        "label": "Wed",
-        "high": 65,
-        "low": 53,
-        "icon": "cloud"
-      },
-      {
         "label": "Thu",
         "high": 68,
-        "low": 54,
+        "low": 57,
         "icon": "sun"
       },
       {
         "label": "Fri",
-        "high": 67,
-        "low": 50,
+        "high": 66,
+        "low": 51,
         "icon": "cloud"
       },
       {
         "label": "Sat",
-        "high": 66,
+        "high": 67,
         "low": 52,
+        "icon": "sun"
+      },
+      {
+        "label": "Sun",
+        "high": 68,
+        "low": 51,
         "icon": "sun"
       }
     ]
@@ -77,35 +77,35 @@
   "needsALook": [
     {
       "type": "ACTION",
-      "text": "Verify OnlyFans new login — Mon evening alert (dkmpnuguid / mikomikomiko23, Chicago iOS 27) — or change password"
+      "text": "Verify OnlyFans new login — Mon evening alert (dkmpnuguid / mikomikomiko23, Chicago iOS 27) — or change password (carry; not re-verified overnight)"
     },
     {
       "type": "ACTION",
-      "text": "Confirm Muse Google-access alerts (all 3 Gmails, Sun ~7:05 PM CT) were you — or revoke"
+      "text": "Confirm Muse Google-access alerts (all 3 Gmails, Sun ~7:05 PM CT) were you — or revoke (carry)"
     },
     {
       "type": "ACTION",
-      "text": "Verify Chaturbate new login — Sat evening alert (dkmpnuguid / mikomikomiko23) still unread — or change password"
+      "text": "Verify Chaturbate new login — Sat evening alert still unread — or change password (carry)"
     },
     {
       "type": "ACTION",
-      "text": "Confirm dolphinradar.com Google Sign-In (nuguiddom, Mon 11:34 PM CT) was you — or revoke"
+      "text": "Confirm dolphinradar.com Google Sign-In (nuguiddom, Mon 11:34 PM CT) was you — or revoke (carry)"
     },
     {
       "type": "ACTION",
-      "text": "Confirm Sep 15 Google new sign-in on dkmpnuguid was you"
+      "text": "Confirm Sep 15 Google new sign-in on dkmpnuguid was you (carry)"
     },
     {
       "type": "FYI",
-      "text": "FedEx SpaceX-AMS (tracking 535213222129) was scheduled Tue Sep 22 — no delivered confirmation in inbox yet; check porch / tracking"
+      "text": "TNF tonight: Falcons @ Packers — Week 3 opener"
     },
     {
       "type": "FYI",
-      "text": "NFL: Dart facing extended absence; Bears QB depth in flux ahead of Eagles MNF"
+      "text": "Tomorrow Thu Sep 25 — Vegas trip window + savings transfers; coverage is the real gate"
     },
     {
       "type": "FYI",
-      "text": "Quiet admin block at bottom — paycheck today; all recent drops closed; Direct Auto already paid"
+      "text": "Quiet admin block at bottom — closed drops; Direct Auto already paid; Gmail live re-scan blocked this run"
     }
   ],
   "timeline": [
@@ -116,17 +116,22 @@
     },
     {
       "time": "Open",
-      "event": "Security skim: OnlyFans Mon login + Muse + Chaturbate + dolphinradar + Sep 15 Google",
+      "event": "Security skim: OnlyFans + Muse + Chaturbate + dolphinradar + Sep 15 Google (carry list)",
       "category": "focus"
     },
     {
       "time": "Day",
-      "event": "FedEx SpaceX-AMS follow-up — confirm porch / tracking if not already in hand",
+      "event": "FedEx SpaceX-AMS follow-up if still unresolved — porch / tracking 535213222129",
+      "category": "personal"
+    },
+    {
+      "time": "Tonight",
+      "event": "TNF: Falcons @ Packers (optional watch — after charge/body)",
       "category": "personal"
     },
     {
       "time": "Later",
-      "event": "Quiet admin when energy is banked (see Later / Admin)",
+      "event": "Quiet admin when energy is banked — Vegas/savings prep (see Later / Admin)",
       "category": "focus"
     },
     {
@@ -136,18 +141,18 @@
     }
   ],
   "thisWeek": [
-    "Wed 23 — Paycheck $1,434.02 (calendar); cool mostly cloudy AM; NFL Week 3 prep begins (TNF Thu)",
-    "Tue carry — Dart extended knee absence; Rockets media day / VanVleet cleared; AI price-war launches (Sol/Luna + Opus 5.5); AI CoS Drop killed ~11:11 PM CT",
-    "Mon night — Rams 28, Giants 6 (MNF); Direct Auto payment posted $219.43 (policy 2019407539)",
-    "Thu 25 — Vegas trip window (coverage is the real gate); savings transfers on calendar ($420 all-day + $300 at 9:00 AM CT); Mavs media day",
+    "Thu 24 — Partly sunny AM; TNF Falcons @ Packers tonight; security skim still open",
+    "Fri 25 — Vegas trip window (coverage gate); savings transfers ($420 all-day + $300 at 9:00 AM CT); Mavs media day",
     "Sat 26 — iRacing subscription renewal notice (dominickurtmartin inbox)",
     "Sun 27 — Car insurance $175 calendar holds",
-    "Mon 28 — Most NBA media days / veterans report; Raptors Media Day; Eagles @ Bears MNF"
+    "Mon 28 — Most NBA media days / veterans report; Raptors Media Day; Eagles @ Bears MNF",
+    "Tue carry — Dart extended knee absence; Rockets media day / VanVleet cleared; AI price-war launches earlier in week",
+    "Wed carry — Paycheck $1,434.02 posted on calendar; AI CoS Drop already killed"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Wednesday’s gate is cool cloudy radar and a clean midweek forge — not the scoreboard, not the admin stack. Four counts in, four hold, four out, four hold. Then own the middle of the week from the first breath.",
+    "intro": "Thursday’s gate is partly sunny radar, TNF tonight, and a departure window tomorrow — not the inbox stack. Four counts in, four hold, four out, four hold. Own the threshold from the first breath.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -181,14 +186,14 @@
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Wednesday Operator, Midweek Edge",
-      "body": "Dom does not wait for perfect radar or a clean QB report to start. Fierce calm is Wednesday composure when the week already spent its noise: charge first, body second, security skim when ready, admin only after the morning has already won. One breath, one move, one clear next step. Competitors may still be replaying Dart’s timeline or the overnight model drops; he arrives prepared for the forge. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything on the scoreboard. It is about banking competitive calm so Thursday’s Vegas gate and the rest of the board have a clean operator behind them. Fall down 7 stand up 8."
+      "hed": "Thursday Operator, Departure Edge",
+      "body": "Dom does not wait for a clean inbox or a perfect TNF preview to start. Fierce calm is Thursday composure when the week’s noise wants the first hour: charge first, body second, security skim when ready, Vegas and savings only after the morning has already won. One breath, one move, one clear next step. Competitors may still be refreshing injury wires or model filings; he arrives prepared for the gate. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything on the scoreboard. It is about banking competitive calm so Friday’s departure window and the rest of the board have a clean operator behind them. Fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Wednesday: run this after Morning Charge — box breathing first, then the body. Cool cloudy outside; tempo inside to open the midweek forge. Then news and the day.",
+    "note": "Thursday: run this after Morning Charge — box breathing first, then the body. Partly sunny outside; tempo inside before TNF and the departure gate. Then news and the day.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -223,28 +228,28 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "AFP / The Star",
-            "hed": "OpenAI GPT-6 Sol & Luna + Anthropic Opus 5.5 ship cheaper models same day",
-            "body": "On Tue Sep 22, Anthropic released Opus 5.5 as a lower-priced near-flagship matching Fable on most tasks, and OpenAI answered within hours with GPT-6 Sol and Luna — cheaper, faster cuts of Astra — even as both CEOs recently urged an industry slowdown.",
-            "url": "https://www.thestar.com.my/tech/tech-news/2026/09/23/anthropic-openai-release-cheaper-ai-even-as-safety-fears-grow"
+            "source": "MacRumors / AppleInsider",
+            "hed": "OpenAI: ChatGPT in Siri ‘persistently underperforming’",
+            "body": "Court filings in the SpaceXAI matter quote OpenAI describing ChatGPT-as-a-Siri-extension results as persistently / dramatically underperforming — a fresh public crack in the Apple–OpenAI pairing story.",
+            "url": "https://www.macrumors.com/2026/09/23/openai-siri-chatgpt-underperforming/"
           },
           {
-            "source": "Digital Today / Axios",
-            "hed": "Price war frame: OpenAI, Anthropic, and xAI cut costs to drive usage",
-            "body": "Coverage frames the week as competition shifting from raw benchmarks to cost-per-token: Sol/Luna ~50% cheaper vs prior tiers, Opus 5.5 ~40% cheaper to run, and Grok 4.7 holding $2/$6 while stressing price-performance.",
-            "url": "https://www.digitaltoday.co.kr/en/view/106723/openai-anthropic-xai-cut-prices-new-ai-models-price-war-boost-usage"
+            "source": "Anthropic",
+            "hed": "Anthropic proposes metrics to measure frontier-lab AI pace",
+            "body": "Anthropic argues the public can’t see inside frontier labs and published a measurements frame meant to give visibility into the pace of AI development — a transparency play amid the week’s price-war shipping.",
+            "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
           },
           {
             "source": "SpaceXAI",
-            "hed": "Grok 4.7 still the coding/knowledge carry at $2/$6 per million tokens",
-            "body": "SpaceXAI’s Sep 21 Grok 4.7 launch remains live in Cursor, Grok Build, and the API at 4.6 rates — the midweek value lane while rivals rewrite sticker prices overnight.",
+            "hed": "Grok 4.7 still the coding/knowledge carry at half-price frame",
+            "body": "SpaceXAI’s Grok 4.7 remains positioned as the powerful coding/knowledge model — twice as fast at half the price of comparable models — live across Cursor / Grok Build / API while rivals rewrite stickers.",
             "url": "https://x.ai/news/grok-4-7"
           },
           {
-            "source": "Apple Newsroom / Engadget",
-            "hed": "Siri AI beta still rolling on iOS 27 — waitlist + October language expansion",
-            "body": "Apple’s Sep 14 Siri AI beta continues: English first with personal context and on-screen awareness; users join via Settings waitlist while French, Japanese, Korean, Portuguese, and Spanish are slated for October. EU/China remain gated.",
-            "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/"
+            "source": "MacRumors",
+            "hed": "Siri AI pointed at HomePod in code finds",
+            "body": "Code sleuthing suggests Apple’s smarter Siri AI is expanding to HomePod — another surface for the iOS 27 assistant rollout beyond the phone waitlist.",
+            "url": "https://www.macrumors.com/2026/09/23/siri-ai-coming-to-homepod/"
           }
         ]
       },
@@ -252,22 +257,22 @@
         "title": "NBA",
         "items": [
           {
-            "source": "ESPN / AP",
-            "hed": "Rockets media day: VanVleet fully cleared — ‘I feel really good’",
-            "body": "Houston opened the league’s media-day calendar Tue with Fred VanVleet cleared for camp after missing all of last season with an ACL tear. Udoka also cites Adams’ return and Marcus Smart as keys; Macao preseason vs. Mavs Oct 9 & 11.",
-            "url": "https://www.espn.com/nba/story/_/id/50007712/rockets-return-vanvleet-hope-make-real-noise"
+            "source": "ESPN / prior desk",
+            "hed": "Rockets camp optimism still rides VanVleet clearance + Smart homecoming",
+            "body": "Houston’s media-day energy from Tue still frames the week: VanVleet cleared after the ACL year, Marcus Smart’s homecoming narrative, and a Macao preseason runway vs. Dallas. Make-or-break talk around Udoka’s second act is loud in Rockets coverage.",
+            "url": "https://www.espn.com/nba/"
           },
           {
-            "source": "Hoops Wire / NBA.com",
-            "hed": "Media-day map: Mavs Fri Sep 25; rest of league piles in Mon Sep 28",
-            "body": "Dallas holds media day Fri ahead of the China Games runway. Most clubs report Mon Sep 28 with camps opening Tue Sep 29; preseason tip Oct 3.",
-            "url": "https://hoopswire.com/2026-27-nba-media-days-schedule/"
+            "source": "Desk / schedule",
+            "hed": "Mavs media day Fri Sep 25; most clubs pile in Mon Sep 28",
+            "body": "Dallas holds media day Friday ahead of the China Games runway. Most clubs report Mon Sep 28 with camps opening Tue Sep 29; preseason tip early October.",
+            "url": "https://www.nba.com/"
           },
           {
-            "source": "Raptors.com",
-            "hed": "Raptors Media Day Sep 28; Quebec City camp Sep 29–Oct 2",
-            "body": "Toronto Media Day Mon Sep 28, then PEPS/Université Laval through Oct 2. Preseason opener: vs. Heat Sat Oct 3 in Quebec City (NBA Canada Games).",
-            "url": "https://raptors.com/news/raptors-announce-2026-training-camp-and-preseason-schedule"
+            "source": "Raptors.com / prior",
+            "hed": "Raptors Media Day Sep 28; Quebec City camp into Heat preseason",
+            "body": "Toronto Media Day Mon Sep 28, then PEPS/Université Laval. Preseason opener still framed as vs. Heat in Quebec City (NBA Canada Games).",
+            "url": "https://www.nba.com/raptors"
           }
         ]
       },
@@ -275,21 +280,21 @@
         "title": "NFL",
         "items": [
           {
-            "source": "ESPN / NFL Network",
-            "hed": "Sources: Jaxson Dart out for extended period — surgery possible",
-            "body": "Further tests show Dart’s MNF left-knee injury is worse than first believed; he could miss the rest of the season with surgery on the table. Winston is the bridge; Titans visit Sunday.",
-            "url": "https://www.espn.com/nfl/story/_/id/50007211/sources-giants-qb-jaxson-dart-extended-period"
-          },
-          {
-            "source": "FOX Sports / NFL Network",
-            "hed": "Bears QB chaos: Bagent in concussion protocol; Keenum may start vs. Eagles",
-            "body": "With Caleb Williams week-to-week (hamstring) and Tyson Bagent in protocol after Sunday’s relief appearance, Case Keenum is in the Week 3 starter conversation for Monday Night vs. Philadelphia.",
-            "url": "https://www.foxsports.com/stories/nfl/nfl-catchup-jaxson-darts-knee-injury-worse-than-first-believed-out-extended-time"
-          },
-          {
             "source": "NFL.com",
-            "hed": "Week 3 slate: TNF Falcons @ Packers Thu; Eagles @ Bears MNF Mon",
-            "body": "Week 3 opens Thursday night in Green Bay and closes with Philadelphia at Chicago on ESPN. SNF: Rams at Broncos.",
+            "hed": "Week 3 slate live: TNF Falcons @ Packers tonight",
+            "body": "Week 3 opens Thursday night in Green Bay (Atlanta at Green Bay) and still closes with Philadelphia at Chicago on MNF. Full kick times and tickets on the league schedule page.",
+            "url": "https://www.nfl.com/schedules/2026/by-week/week-3"
+          },
+          {
+            "source": "ESPN",
+            "hed": "Week 3 power rankings: QB board still reshuffling",
+            "body": "ESPN’s Week 3 power rankings lean on quarterback health and early form after a brutal injury stretch — useful midweek skim once the charge is banked.",
+            "url": "https://www.espn.com/nfl/story/_/id/49998616/nfl-power-rankings-week-3-teams-quarterbacks-stats"
+          },
+          {
+            "source": "Prior desk / NFL Network",
+            "hed": "Dart extended absence + Bears QB depth still the Chicago story",
+            "body": "Carry from Tue: Jaxson Dart facing extended / possible season-ending knee absence; Chicago still sorting Williams / Bagent / Keenum ahead of Eagles MNF. Confirm with today’s injury report before locking any take.",
             "url": "https://www.nfl.com/schedules/2026/by-week/week-3"
           }
         ]
@@ -298,22 +303,22 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "LowKick MMA / AgentMMA",
-            "hed": "DWCS Week 7: six UFC contracts — Connor & Guaylupo both signed after hospital firefight",
-            "body": "Dana White handed six Contender Series deals after Week 7, including both Callum Connor and Piero Guaylupo after a near-400-strike lightweight war that sent both men for medical checks — plus Degli’s one-arm RNC finish.",
-            "url": "https://www.lowkickmma.com/dana-white-signs-callum-connor-dwcs-both-hospitalised-ufc/"
-          },
-          {
             "source": "Sherdog",
-            "hed": "Gable Steveson breaks silence after 12-second KO at UFC 331",
-            "body": "Steveson addressed his first pro loss to Sean Sharaf and resurfaced college-era allegations, denying wrongdoing and noting no charges were filed; Jones had already spoken to pulling him backstage post-KO.",
+            "hed": "Gable Steveson breaks silence after 12-second UFC KO",
+            "body": "Steveson addressed his first pro loss and related allegations after the stunning 12-second KO — still the loudest combat carry into the midweek.",
             "url": "https://www.sherdog.com/news/news/Gable-Steveson-breaks-silence-following-stunning-12second-UFC-KO-loss-202920"
           },
           {
             "source": "UFC.com",
-            "hed": "Gane undisputed HW; Gane–Hokit & Harrison–Nunes headline UFC 334",
-            "body": "After Tom Aspinall vacated amid eye issues, Ciryl Gane is undisputed heavyweight champion. He defends vs. Josh Hokit Nov 14 at MSG; co-main is Kayla Harrison vs. Amanda Nunes.",
+            "hed": "Gane–Hokit & Harrison–Nunes headline UFC 334 at MSG",
+            "body": "Undisputed HW champ Ciryl Gane defends vs. Josh Hokit Nov 14 at Madison Square Garden; co-main is Kayla Harrison vs. Amanda Nunes.",
             "url": "https://www.ufc.com/news/gane-hokit-harrison-nunes-headline-ufc-334-new-york-city"
+          },
+          {
+            "source": "Prior desk / DWCS",
+            "hed": "DWCS Week 7 hangover: six contracts after the hospital war",
+            "body": "Dana White’s Contender Series Week 7 still echoes — six deals including both men from the near-400-strike lightweight war. Watch for Ortega and other regional signings as the pipeline fills.",
+            "url": "https://www.ufc.com/"
           }
         ]
       }
@@ -324,16 +329,16 @@
     "kicker": "From the Mystics",
     "items": [
       {
-        "hed": "The Midweek Anvil",
-        "body": "Alchemists taught that Wednesday is the anvil day — heat already present, shape not yet fixed. The mystic job is to strike with breath and body before any inbox ore cools the metal."
+        "hed": "The Threshold Day",
+        "body": "Hermetic manuals treat Thursday as a threshold — not the peak of the fire, not the rest after. The work is to cross with a named intention before any outer gate (TNF, travel, admin) claims the hour."
       },
       {
-        "hed": "Named Thresholds on the Forge Path",
-        "body": "Gnostic fragments prize the named gate. Today’s named thresholds are simple: Opening Bell, security skim, delivery follow-up, midweek map. Unnamed dread spreads; a named forge can be worked once."
+        "hed": "Guarded Departure",
+        "body": "Gnostic travelers warned that a journey begins the morning before the road. Guard the breath and the body first; then the coverage check and the bag. An unguarded departure leaks power into worry."
       },
       {
-        "hed": "Conserved Force Before the Departure Gate",
-        "body": "Esoteric athletes warned against spending Wednesday replaying Tuesday’s injury wire or overnight model drops. Competitive calm is conserved force — charge and body first, then one security pass, then the week. Scatter is the cheap enemy of midweek power."
+        "hed": "One Lamp Before the Board",
+        "body": "Esoteric athletes lit one lamp before reading the board. Morning Charge is that lamp. Inbox filings and injury wires are the board — useful only after the room is already lit."
       }
     ]
   },
@@ -341,55 +346,50 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "Solomon — Proverbs / wisdom tradition",
-    "hed": "Iron Sharpens Iron on the Midweek Forge",
-    "body": "“Iron sharpens iron, and one man sharpens another.” (Proverbs 27:17) Solomon’s counsel for a Wednesday morning is friction with purpose — contact that improves the edge, not contact that dulls it. Morning Charge and the 3-minute opener are the deliberate strike; a clean security skim is the careful grind; Later / Admin is the polish only after the blade already holds an edge. Classical lore cast Solomon as one who staged craftsmen before the temple rose. Stage the midweek the same way, so Thursday’s Vegas gate and the rest of the board meet a sharpened operator — not a scattered one.",
-    "practice": "Finish Opening Bell and the 3-minute opener before any security skim, injury-wire replay, or admin. Sharpen first; polish later."
+    "hed": "Commit the Work, Then Move",
+    "body": "“Commit your work to the Lord, and your plans will be established.” (Proverbs 16:3) Solomon’s counsel for a Thursday morning is order before motion — entrust the work, then walk the plan. Morning Charge and the 3-minute opener are the committed work; a clean security skim is the next established step; Vegas coverage and savings transfers are plans that only hold after the work is already offered. Classical lore cast Solomon as one who ordered the house before the caravan left. Order the Thursday the same way, so Friday’s gate meets a settled operator — not a scrambling one.",
+    "practice": "Finish Opening Bell and the 3-minute opener before any security skim, TNF preview, or travel admin. Commit first; move second."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "Sep 23, 2026 · 6:11 AM CT",
+    "asOf": "Sep 24, 2026 · 6:10 AM CT — CARRY (Gmail MCP unavailable this run)",
     "urgent": [
       {
         "account": "dkmpnuguid@gmail.com",
-        "text": "OnlyFans — NEW login alert Mon Sep 21 ~3:17 PM CT (@mikomikomiko23, United States/Chicago, iOS 27 / Chrome Mobile) — still unread",
+        "text": "OnlyFans — NEW login alert Mon Sep 21 ~3:17 PM CT (@mikomikomiko23, United States/Chicago, iOS 27 / Chrome Mobile) — carried unread from Vol XXI",
         "why": "Security — confirm it was you or change password."
       },
       {
         "account": "nuguiddom + dominickurtmartin + dkmpnuguid",
-        "text": "Google Security — Muse granted access (Sun ~7:05 PM CT) on all 3 Gmails; recovery copy also hit nuguiddom for dominickurtmartin — still unread",
+        "text": "Google Security — Muse granted access (Sun ~7:05 PM CT) on all 3 Gmails — carried unread",
         "why": "Security — confirm intentional connect or revoke."
       },
       {
         "account": "dkmpnuguid@gmail.com",
-        "text": "Chaturbate — NEW login alert Sat Sep 19 evening (mikomikomiko23) still unread",
+        "text": "Chaturbate — NEW login alert Sat Sep 19 evening (mikomikomiko23) — carried unread",
         "why": "Security — confirm it was you or change password."
       },
       {
         "account": "nuguiddom@gmail.com",
-        "text": "Google — Sign in with Google / shared account data with dolphinradar.com (Mon Sep 21 11:34 PM CT) — still unread",
+        "text": "Google — Sign in with Google / shared account data with dolphinradar.com (Mon Sep 21 11:34 PM CT) — carried unread",
         "why": "Security — confirm intentional connect or revoke."
       },
       {
         "account": "dkmpnuguid@gmail.com",
-        "text": "Google Security — new sign-in alert Sep 15 still unread",
+        "text": "Google Security — new sign-in alert Sep 15 — carried unread",
         "why": "Security — confirm it was you."
       }
     ],
     "needsLook": [
       {
         "account": "dkmpnuguid@gmail.com",
-        "text": "FedEx — SpaceX-AMS fulfillment was scheduled delivery Tue Sep 22 (tracking 535213222129); no delivered confirmation found in inbox this morning",
+        "text": "FedEx — SpaceX-AMS fulfillment was scheduled delivery Tue Sep 22 (tracking 535213222129); no delivered confirmation as of Wed scan",
         "why": "Confirm porch / tracking; not urgent money."
       },
       {
         "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — payment received Mon Sep 21 $219.43 (policy 2019407539; period 09/28/2026–03/28/2027) — still unread receipt",
+        "text": "Direct Auto — payment received Mon Sep 21 $219.43 (policy 2019407539) — receipt may still be unread",
         "why": "Confirm posting; details live in Later / Admin."
-      },
-      {
-        "account": "nuguiddom@gmail.com",
-        "text": "Calendar — AI CoS Drop EXPIRES notice (Tue 11:11 PM CT kill) + OpenClaw Drop EXPIRES (already killed)",
-        "why": "Both drops closed; details live in Later / Admin."
       },
       {
         "account": "dominickurtmartin@gmail.com",
@@ -399,22 +399,17 @@
     ],
     "fyi": [
       {
+        "account": "system",
+        "text": "Gmail connectors (all three) unreachable via CallDynamicTool this automation run — no overnight live re-scan",
+        "why": "Treat security list as still open until you clear or EA re-scans."
+      },
+      {
         "account": "nuguiddom@gmail.com",
-        "text": "Indeed ApprentiScope Sr. Customer Success ping (older)",
-        "why": "Job promo noise."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Indeed floods; TikTok digests; Udacity AI masters promo; Yahoo fantasy Week 3 waiver mail; Google News briefs; Korean Air/Asiana mileage plan",
-        "why": "Social / promo / job / fantasy noise."
-      },
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "SHEIN; Uber promos; Snapchat; DoorDash Walgreens + Panda Express receipts; OpenAI product mail; Upstart; Aerotek jobs; Google Store promo",
-        "why": "Receipt / promo noise."
+        "text": "Closed-drop notices (AI CoS / OpenClaw / Operator) — admin only",
+        "why": "Details in Later / Admin."
       }
     ],
-    "cleanupNote": "Scanned in:inbox newer_than:2d plus security/login/money newer_than:7d (and Sep 15 Google via newer_than:14d) on all three Gmails (nuguiddom, dominickurtmartin, dkmpnuguid). OnlyFans, Muse, Chaturbate, dolphinradar, and Sep 15 Google remain unread security flags — no new security logins overnight. FedEx SpaceX-AMS still shows scheduled Tue delivery email only; no delivered confirmation in inbox. Direct Auto payment receipt still unread. Money/insurance/admin lives only in Later / Admin. No fabricated threads. AI Agent Basics promo closed Sep 15; Operator Drop closed Sun Sep 20; OpenClaw Drop closed Tue ~6:05 AM CT; AI Chief of Staff Drop closed Tue ~11:11 PM CT. iCloud Mail not rechecked this run (often blocked at Apple sign-in)."
+    "cleanupNote": "PARTIAL SCAN: NWS weather + public news desks live. Gmail search_threads on nuguiddom / dominickurtmartin / dkmpnuguid FAILED this run (CallDynamicTool harness error — namespace/toolName rejected). Security + FedEx + Direct Auto items are CARRIED from Vol XXI Wed 6:11 AM CT live scan — not re-verified overnight. Do not treat as invent; treat as stale-until-cleared. Calendar MCP also failed — timeline/thisWeek from memory + prior edition. X bookmarks MCP failed — techDemo is an explicit holdover. iCloud Mail not checked. AI Agent Basics / Operator / OpenClaw / AI CoS drops all closed. Money/insurance/admin only in Later / Admin."
   },
   "todo": {
     "title": "To-Do",
@@ -463,8 +458,8 @@
         "done": false
       },
       {
-        "id": "admin-later",
-        "text": "Later: skim Direct Auto receipt + closed-drop notices (see Later / Admin)",
+        "id": "vegas-prep",
+        "text": "Later: Vegas Fri coverage gate + savings transfers prep (see Later / Admin)",
         "priority": "normal",
         "done": false
       },
@@ -480,15 +475,14 @@
     "title": "Later / Admin",
     "kicker": "Quiet money block — handle when morning energy is banked",
     "items": [
-      "Direct Auto PAYMENT RECEIVED Mon Sep 21 — $219.43 posted to policy 2019407539 (Ref 354079102911071S); period 09/28/2026–03/28/2027; insurer Integon Casualty — receipt still unread in dominickurtmartin",
-      "AI Chief of Staff Drop HARD KILL ~11:11 PM CT Tue Sep 22 — Site Offer ended; no more $11/$dom1w0w PDF clears for this drop; EA stopped request-mail watch",
+      "Direct Auto PAYMENT RECEIVED Mon Sep 21 — $219.43 posted to policy 2019407539 (Ref 354079102911071S); period 09/28/2026–03/28/2027; insurer Integon Casualty — receipt may still be unread in dominickurtmartin",
+      "Fri Sep 25 — Vegas trip window (coverage is the real departure gate); savings transfers on calendar ($420 all-day + $300 at 9:00 AM CT)",
+      "Wed Sep 23 — Paycheck $1,434.02 was on calendar (confirm deposit when ready)",
+      "AI Chief of Staff Drop HARD KILL ~11:11 PM CT Tue Sep 22 — closed; no more $11/$dom1w0w PDF clears",
       "OpenClaw Drop HARD KILL ~6:05 AM CT Tue Sep 22 — closed; no more $37 PDF clears",
-      "Operator Drop $37 / 8h already CLOSED Sun Sep 20 ~11:33 PM CT — no PDF clears for that drop",
-      "AI Agent Basics $20 promo CLOSED Tue Sep 15 1:11 PM CT — not active; do not clear PDFs",
-      "Wed Sep 23 — Paycheck $1,434.02 (calendar)",
-      "Vegas Thu Sep 25 — coverage is the real departure gate (no separate calendar trip hold)",
-      "Thu Sep 25 — savings transfers on calendar ($420 all-day + $300 at 9:00 AM CT)",
-      "Sat Sep 26 — iRacing renew notice (dominickurtmartin); Sun Sep 27 — car insurance $175 calendar holds",
+      "Operator Drop CLOSED Sun Sep 20 ~11:33 PM CT — no PDF clears",
+      "AI Agent Basics $20 promo CLOSED Tue Sep 15 — not active",
+      "Sat Sep 26 — iRacing renew notice; Sun Sep 27 — car insurance $175 calendar holds",
       "Homepage FYI (not money): OpenClaw testimonials live — Headdy Glass + Uncle Stu’s (Cary/Aurora first; Carol Stream in October)"
     ]
   },
@@ -515,7 +509,7 @@
       ],
       "takeaway": "Under a minute: pick one tiny shippable app, set a hard timer, and make Claude the pair-programmer — not the boss."
     },
-    "note": "Bookmark surfaced for @mmmik000 (id 1856158356651626496). Linked follow-up in the post: https://twitter.com/AnatoliKopadze/status/2057813254617858078. Demo build pipeline still coming — learn the 26-minute scope→prompt→ship frame here first.",
-    "skipped": "Skipped yesterday’s @0xRafy delegate-not-operate; CS nade utility (@NadesOutHere/@goldcsnades); AI Stack Map dump (@learnbyIsmail); 30/50 website listicles (@monicaa_AI/@Orion_Vers7x/@justinbrave21/@zakiraicoder); Amrita four-dept (@0xGenAi); Grok Build /tutorial (@elonmusk); /theme transparent (@grok); GrokBot course dumps (@0xCodila/@kaorixbt/@bot/@DomainMaster); Astra/Flash (@sairahul1); YouTube monetize clip; Dubby promo; Karpathy 6h course (@0xCodez — longer watch); Claude Code prompts (@Rajesh992510253 — held for later); and wallpaper/meme bookmarks for a fresh timed Claude-build lesson."
+    "note": "HOLDOVER from Vol XXI — X connector (user-X get_users_bookmarks) unreachable this automation run via CallDynamicTool. Not a new bookmark invent. Re-pull a fresh @mmmik000 pick once X MCP is healthy. Linked follow-up in the post: https://twitter.com/AnatoliKopadze/status/2057813254617858078.",
+    "skipped": "No fresh bookmark ranking this morning — X MCP outage. Yesterday’s pick retained so the comics slot stays useful; do not treat as a new bookmark discovery."
   }
 }
