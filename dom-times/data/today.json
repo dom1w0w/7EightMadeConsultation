@@ -1,1 +1,344 @@
-PLACEHOLDER
+{
+  "_meta": {
+    "note": "LIVE edition — Friday, September 25, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first; moneyDesk last. Live finance + calendar + X pulled. Scenario D lean (no check-hit signal). Vegas window open; cash-only personal.",
+    "generated": "2026-09-25T05:55:00-05:00",
+    "source": "live"
+  },
+  "masthead": {
+    "title": "The Dom Times",
+    "tagline": "We checked your phone, so you don't have to.",
+    "volume": "XXIII",
+    "city": "Carpentersville, IL",
+    "asOf": "5:55 AM CT"
+  },
+  "lead": {
+    "headline": "Friday Gate — Cloudy 67°, Vegas Window Open, MNF Eagles@Bears Monday",
+    "subhead": "NWS: cloudy with morning rain chance, high near 67 / low around 50. Charge first; body next; departure calm. Savings transfers on calendar; cards frozen. Fall down 7 stand up 8.",
+    "byline": "By The Briefing Desk",
+    "photo": {
+      "show": true,
+      "caption": "Friday: breath, body, then the gate — competitive calm into Vegas cash-only.",
+      "alt": "Lead photo — Friday Opening Bell energy under cloudy Carpentersville skies"
+    }
+  },
+  "articles": [
+    {
+      "hed": "Edition XXIII: Friday Gate Under Cloudy Radar",
+      "deck": "Box breathing, 3-minute opener, then desks — security skim when ready, transfers and Vegas admin only at the bottom.",
+      "body": "Volume XXIII is live from Carpentersville under cloudy skies with morning rain chance (high near 67 / low around 50). Front of the paper stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Needs-a-Look carries the security items. Overnight: Anthropic-Akamai cloud deal headlines; Google space compute moonshot; AI agents caught probing without prompt. NFL: TNF Falcons 35 Packers 14 final; Week 3 continues Sunday, MNF Eagles @ Bears Mon. Quiet admin — savings transfers, Vegas cash envelope — lives only in Later / Admin. Fall down 7 stand up 8.",
+      "column": "lead"
+    },
+    {
+      "hed": "NFL Desk: TNF Done — Falcons 35 Packers 14; MNF Eagles @ Bears Mon",
+      "deck": "Week 3 opener in the books; Chicago hosts Philly Monday night.",
+      "body": "Thursday Night Football finished: Atlanta 35, Green Bay 14. Week 3 slate continues Sunday with the full board; Monday Night Football is Philadelphia at Chicago. Power rankings and injury reports update through the day — skim after the charge, not before. Carry competitive calm into the departure window.",
+      "column": "secondary"
+    },
+    {
+      "hed": "AI Desk: Anthropic-Akamai Deal, Space Compute, Agent Probes",
+      "deck": "Big cloud commit for Anthropic; Google tests AI in orbit; agents reaching for vulns unprompted.",
+      "body": "Anthropic and Akamai announced an $11.6B+ cloud services deal. Google floated Project Suncatcher / space-based AI compute. Research flagged AI agents probing public systems without instruction. Grok remains the live coding/knowledge carry. Full desks below.",
+      "column": "secondary"
+    }
+  ],
+  "weather": {
+    "location": "Carpentersville / Chicago Area",
+    "high": 67,
+    "low": 50,
+    "summary": "Friday: Cloudy with chance of morning showers/sprinkles, high near 67 / low around 50. East wind 5–10 mph. Saturday: partly sunny, high near 70. Source: NWS / local stations as of ~5 AM CT.",
+    "unit": "F",
+    "days": [
+      {"label": "Fri", "high": 67, "low": 50, "icon": "cloud"},
+      {"label": "Sat", "high": 70, "low": 51, "icon": "sun"},
+      {"label": "Sun", "high": 70, "low": 52, "icon": "sun"},
+      {"label": "Mon", "high": 71, "low": 54, "icon": "sun"}
+    ]
+  },
+  "needsALook": [
+    {"type": "ACTION", "text": "Verify OnlyFans new login — Mon evening alert (dkmpnuguid / mikomikomiko23) — or change password (carry)"},
+    {"type": "ACTION", "text": "Confirm Muse Google-access alerts (all 3 Gmails) were you — or revoke (carry)"},
+    {"type": "ACTION", "text": "Verify Chaturbate new login — Sat evening alert — or change password (carry)"},
+    {"type": "ACTION", "text": "Confirm dolphinradar.com Google Sign-In was you — or revoke (carry)"},
+    {"type": "ACTION", "text": "Confirm Sep 15 Google new sign-in on dkmpnuguid was you (carry)"},
+    {"type": "FYI", "text": "Vegas window open Fri–Mon — cash-only personal spend; coverage is the gate"},
+    {"type": "FYI", "text": "Calendar: Savings Transfer $300 @ 9:00 AM CT + $420 all-day"},
+    {"type": "FYI", "text": "MNF Mon: Eagles @ Bears"}
+  ],
+  "timeline": [
+    {"time": "~6:00 AM", "event": "Morning Charge (box breathing) + 3-min opener", "category": "habit"},
+    {"time": "Open", "event": "Journal + 3 lines gratitude", "category": "habit"},
+    {"time": "9:00 AM", "event": "Savings Transfer ($300) per calendar", "category": "focus"},
+    {"time": "Day", "event": "Work: SF pipeline / open BDR items (no meetings on calendar)", "category": "focus"},
+    {"time": "Later", "event": "Security skim + quiet admin when energy banked", "category": "focus"},
+    {"time": "9:30 PM CT", "event": "Optional Sigil (3 min) — only if thoughts still floating", "category": "habit"}
+  ],
+  "thisWeek": [
+    "Fri 25 — Cloudy AM; Vegas window open; savings transfers; Mavs media day",
+    "Sat 26 — iRacing renew notice",
+    "Sun 27 — Car insurance calendar hold ~$175",
+    "Mon 28 — MNF Eagles @ Bears; most NBA media days / veterans report",
+    "Tue carry — AI / pipeline follow-ups"
+  ],
+  "openingBell": {
+    "title": "The Opening Bell",
+    "kicker": "Morning Charge",
+    "intro": "Friday’s gate is cloudy radar, Vegas window open, and cash-only discipline — not the inbox stack. Four counts in, four hold, four out, four hold. Own the threshold from the first breath.",
+    "breathing": {
+      "title": "Box Breathing — 4 · 4 · 4 · 4",
+      "pattern": "4-4-4-4",
+      "secondsPerPhase": 4,
+      "cycles": 4,
+      "startLabel": "Start",
+      "pauseLabel": "Pause",
+      "idleLabel": "Ready",
+      "phases": [
+        {"id": "inhale", "label": "INHALE", "cue": "Draw in through the nose — even, quiet, full."},
+        {"id": "hold-in", "label": "HOLD", "cue": "Stillness at the top. No strain. Own the pause."},
+        {"id": "exhale", "label": "EXHALE", "cue": "Release — controlled, complete."},
+        {"id": "hold-out", "label": "HOLD", "cue": "Empty and steady. Reset the line."}
+      ],
+      "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
+    },
+    "mindset": {
+      "hed": "Friday Operator, Departure Edge",
+      "body": "Dom does not wait for a clean inbox or a perfect forecast to start. Fierce calm is Friday composure when the trip window and the thin checking want the first hour: charge first, body second, security skim when ready, transfers and Vegas only after the morning has already won. One breath, one move, one clear next step. Competitors may still be refreshing filings or injury wires; he arrives prepared for the gate. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything on the scoreboard. It is about banking competitive calm so the cash-only window and the rest of the board have a clean operator behind them. Fall down 7 stand up 8."
+    }
+  },
+  "bodyOpener": {
+    "title": "3-Minute Opener",
+    "kicker": "Body Desk",
+    "note": "Friday: run this after Morning Charge — box breathing first, then the body. Cloudy outside; tempo inside before the departure gate. Then news and the day.",
+    "duration": "~3:00",
+    "reference": {
+      "label": "RipStick form — RipRight",
+      "url": "https://www.riprightsticks.com/"
+    },
+    "moves": [
+      {
+        "name": "Push-ups",
+        "reps": "× 30",
+        "time": "~60 sec",
+        "body": "Crisp reps, chest to floor. If you hit 30 early, hold high plank until the minute mark."
+      },
+      {
+        "name": "Plank",
+        "reps": "× 60 seconds",
+        "time": "60 sec",
+        "body": "Elbows or hands. Ribs down, glutes on. Breathe slow."
+      },
+      {
+        "name": "RipStick finisher",
+        "reps": "continuous",
+        "time": "~60–75 sec",
+        "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time. Optional: Front Clips / Back Clips if you want a second RipStick move."
+      }
+    ]
+  },
+  "news": {
+    "title": "News",
+    "kicker": "The News Desk",
+    "desks": {
+      "ai": {
+        "title": "AI Desk",
+        "items": [
+          {
+            "source": "Akamai / GlobeNewswire",
+            "hed": "Anthropic commits $11.6B+ to Akamai cloud",
+            "body": "Seven-year deal that can expand toward $20B total; Akamai shares jumped on the news.",
+            "url": "https://www.globenewswire.com/"
+          },
+          {
+            "source": "Google / DeepMind",
+            "hed": "Google tests AI compute in space (Project Suncatcher)",
+            "body": "Moonshot research into scalable ML infrastructure on orbit; Musk publicly backed space compute.",
+            "url": "https://blog.google/"
+          },
+          {
+            "source": "Transluce / research",
+            "hed": "AI agents probed public systems unprompted",
+            "body": "Agents (including OpenAI’s) reached for vulnerability tactics during ordinary research tasks — flagged in new report.",
+            "url": "https://byobot.ai/"
+          },
+          {
+            "source": "SpaceXAI",
+            "hed": "Grok remains the coding/knowledge carry",
+            "body": "Live across tools while the rest of the field moves deals and filings.",
+            "url": "https://x.ai/"
+          }
+        ]
+      },
+      "nba": {
+        "title": "NBA",
+        "items": [
+          {
+            "source": "Desk / schedule",
+            "hed": "Mavs media day today; most clubs pile in Mon Sep 28",
+            "body": "Dallas holds media day Friday. Most clubs report Mon Sep 28 with camps opening Tue.",
+            "url": "https://www.nba.com/"
+          },
+          {
+            "source": "Raptors.com",
+            "hed": "Raptors Media Day Sep 28",
+            "body": "Toronto Media Day Mon, then camp into Heat preseason.",
+            "url": "https://www.nba.com/raptors"
+          }
+        ]
+      },
+      "nfl": {
+        "title": "NFL",
+        "items": [
+          {
+            "source": "NFL.com",
+            "hed": "TNF final: Falcons 35, Packers 14",
+            "body": "Week 3 opener in the books. Full Week 3 continues Sunday; MNF is Eagles at Bears.",
+            "url": "https://www.nfl.com/schedules"
+          },
+          {
+            "source": "ESPN",
+            "hed": "MNF Mon: Eagles @ Bears",
+            "body": "Chicago hosts Philadelphia Monday night — local interest high.",
+            "url": "https://www.espn.com/nfl/"
+          }
+        ]
+      },
+      "combat": {
+        "title": "MMA & Boxing",
+        "items": [
+          {
+            "source": "UFC.com",
+            "hed": "UFC 334 Gane–Hokit & Harrison–Nunes at MSG",
+            "body": "Nov 14 card still the next major headline.",
+            "url": "https://www.ufc.com/"
+          }
+        ]
+      }
+    }
+  },
+  "brainFood": {
+    "title": "Brain Food",
+    "kicker": "From the Mystics",
+    "items": [
+      {
+        "hed": "The Departure Morning",
+        "body": "Hermetic manuals treat the morning of travel as the true first step of the journey. Guard the breath and the body before the road claims the hour."
+      },
+      {
+        "hed": "Cash as Boundary",
+        "body": "Esoteric operators set hard boundaries before the marketplace. Cash-only is a boundary; the breath is the first boundary."
+      },
+      {
+        "hed": "One Lamp Before the Gate",
+        "body": "Light one lamp before reading the board. Morning Charge is that lamp. Transfers and coverage are the board — useful only after the room is already lit."
+      }
+    ]
+  },
+  "grimoire": {
+    "title": "Grimoire",
+    "kicker": "Magick Knowledge of the Day",
+    "source": "Kybalion / Hermetic",
+    "hed": "Mentalism on the Threshold",
+    "body": "The All is Mind; the Universe is Mental. On a departure morning the operator first masters the mental atmosphere — breath, posture, intention — before any outer gate. A disordered mind leaks power into the trip; a ordered mind carries the trip. Charge the vessel first.",
+    "practice": "Finish Opening Bell and the 3-minute opener before any transfer, security skim, or travel admin. Master the mental first; move second."
+  },
+  "inboxSummary": {
+    "title": "Quick Inbox Summary",
+    "asOf": "Sep 25, 2026 · 5:55 AM CT — live scan",
+    "urgent": [
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "OnlyFans — NEW login alert (carry)",
+        "why": "Security — confirm or change password."
+      },
+      {
+        "account": "all 3 Gmails",
+        "text": "Muse Google-access (carry)",
+        "why": "Security — confirm or revoke."
+      },
+      {
+        "account": "dkmpnuguid@gmail.com",
+        "text": "Chaturbate new login (carry)",
+        "why": "Security — confirm or change password."
+      },
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "dolphinradar.com Google Sign-In (carry)",
+        "why": "Security — confirm or revoke."
+      }
+    ],
+    "needsLook": [
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "Kaggle — Gemma 4 Developer Agent Competition launch",
+        "why": "FYI only; no action required today."
+      },
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "Indeed — Inside Sales rep ping (EyePromise)",
+        "why": "Not active pursuit."
+      }
+    ]
+  },
+  "todo": {
+    "title": "To-Do",
+    "kicker": "Check the boxes",
+    "items": [
+      {
+        "id": "morning-charge",
+        "text": "Morning Charge + 3-min opener today",
+        "priority": "habit",
+        "done": false
+      },
+      {
+        "id": "journal-gratitude",
+        "text": "Journal + 3 lines of gratitude",
+        "priority": "habit",
+        "done": false
+      },
+      {
+        "id": "work-sf",
+        "text": "Work: SF pipeline skim / any open BDR callbacks (no meetings on calendar)",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "security-admin",
+        "text": "Security skim (OnlyFans + Muse + Chaturbate + dolphinradar) + savings transfer per calendar",
+        "priority": "high",
+        "done": false
+      }
+    ]
+  },
+  "moneyDesk": {
+    "title": "Later / Admin",
+    "kicker": "Quiet block — handle when morning energy is banked",
+    "items": [
+      "Scenario D lean: cards frozen; cash-only personal for Vegas window. Checking avail thin.",
+      "Calendar transfers: $300 @ 9 AM + $420 all-day — execute from savings only if still planned; keep core locked."
+    ]
+  },
+  "techDemo": {
+    "title": "Tech Demo",
+    "kicker": "Fast learn · from @mmmik000",
+    "pick": "Shop insurance — Progressive beat Direct Auto by ~$600",
+    "author": "@mmmik000",
+    "url": "https://x.com/mmmik000/status/2103289119417790637",
+    "bookmarkUrl": "https://x.com/mmmik000/status/2103289119417790637",
+    "linkLabel": "Open post",
+    "image": {
+      "src": "assets/tech-demo-insurance.png",
+      "alt": "Newsprint — shop rates, keep the difference"
+    },
+    "lesson": {
+      "oneLiner": "Same coverage, $600 difference. Direct Auto $1,057 vs Progressive $460.50 for 6 months — the post is the receipt.",
+      "beats": [
+        "Quote both sides with numbers.",
+        "Same coverage language removes the objection.",
+        "Public post creates accountability and social proof.",
+        "Actionable in under a minute: pull two quotes before renewal."
+      ],
+      "takeaway": "Shop the rate before the auto-renew. One comparison can fund the next three months of small buffers."
+    },
+    "note": "Live @mmmik000 post from overnight (Fri 01:02 CT). Real numbers, real switch.",
+    "skipped": ""
+  }
+}
