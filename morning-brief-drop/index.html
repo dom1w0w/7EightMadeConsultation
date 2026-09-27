@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Morning Brief Blueprint — $40 | 7EightMade</title>
+  <meta name="description" content="The Morning Brief Blueprint. Your own morning paper, built before you wake. $40 · 2-page PDF. Opens 5:55 AM CT Sun Sep 27, then 8 hours — closes 1:55 PM CT. Pay Cash App $dom1w0w.">
+  <meta name="theme-color" content="#0B0B0F">
+  <meta property="og:title" content="The Morning Brief Blueprint — $40 · 8-hour drop">
+  <meta property="og:description" content="Your own morning paper, built before you wake. Opens 5:55 AM CT · closes 1:55 PM CT.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/morning-brief-drop/">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/morning-brief-drop/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dom1w0w.github.io/7EightMadeConsultation/morning-brief-drop/og.png">
+  <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../brand/fonts.css">
+  <style>
+    :root {
+      --ink: #0B0B0F;
+      --paper: #F3EFE6;
+      --teal: #5EEAD4;
+      --muted: rgba(243,239,230,.62);
+      --amber: #FBBF24;
+      --amber-ink: #92400E;
+      --amber-bg: #FDE68A;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: var(--ink);
+      color: var(--paper);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 48px 24px 72px; }
+    .live-pill {
+      display: inline-block; margin-bottom: 14px;
+      font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+      color: #0B0B0F; background: var(--teal); border: 1px solid #2DD4BF;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .live-pill.is-soon {
+      color: var(--teal); background: transparent; border: 1px solid rgba(94,234,212,.5);
+    }
+    .live-pill.is-mid {
+      color: var(--amber-ink); background: var(--amber-bg); border-color: #F59E0B;
+    }
+    .live-pill.is-closed {
+      color: var(--muted); background: transparent; border: 1px solid rgba(243,239,230,.2);
+    }
+    .cron {
+      font-family: var(--mono); font-size: 13px; color: rgba(94,234,212,.75);
+      margin-bottom: 6px;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 16px;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(34px, 7.5vw, 54px);
+      font-weight: 600; letter-spacing: -.03em; line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .lead { font-size: 17px; color: var(--muted); max-width: 44ch; margin-bottom: 28px; }
+    .lead strong { color: var(--paper); font-weight: 600; }
+    .card {
+      border: 1px solid rgba(243,239,230,.12);
+      background: #14141c;
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+    .kicker {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 22px; font-weight: 600; color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .price { font-size: 42px; font-weight: 700; letter-spacing: -.03em; margin: 8px 0 12px; }
+    .price span { font-size: 16px; font-weight: 500; color: var(--muted); }
+    .meta { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+    .toc { list-style: none; margin: 16px 0 0; display: grid; gap: 8px; }
+    .toc li { font-size: 15px; color: var(--paper); }
+    .toc strong { color: var(--teal); font-weight: 600; margin-right: 8px; font-family: var(--mono); }
+    .steps {
+      margin-top: 20px; padding-top: 18px;
+      border-top: 1px solid rgba(243,239,230,.1);
+      font-size: 14px; color: var(--paper); line-height: 1.7;
+    }
+    .cash { color: var(--teal); font-weight: 700; }
+    .clock {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums;
+      font-size: 20px; font-weight: 600; letter-spacing: .04em;
+      color: var(--teal); margin-top: 16px;
+    }
+    .clock.is-mid { color: var(--amber); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #5EEAD4; color: #0B0B0F;
+      font-weight: 700; text-decoration: none; font-size: 14px;
+      padding: 12px 18px; border-radius: 999px; min-height: 44px;
+    }
+    .btn--ghost {
+      background: transparent; color: var(--paper);
+      border: 1px solid rgba(243,239,230,.22);
+    }
+    .btn--disabled {
+      background: transparent; color: var(--muted);
+      border: 1px dashed rgba(94,234,212,.4); cursor: not-allowed;
+    }
+    .poster { margin: 8px 0 20px; text-align: center; }
+    .poster img {
+      width: 100%; max-width: 300px; height: auto; display: inline-block;
+      border-radius: 16px; border: 1px solid rgba(243,239,230,.12);
+    }
+    .foot { margin-top: 36px; font-size: 12px; color: rgba(243,239,230,.4); }
+    .foot a { color: var(--teal); text-decoration: none; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="live-pill is-soon" id="livePill">Opens 5:55 AM CT</p>
+    <p class="cron">$ cron 55 5 * * * # 5:55 AM</p>
+    <p class="eyebrow">Cosmic Terminal drop</p>
+    <h1>The Morning Brief Blueprint</h1>
+    <p class="lead" id="lead"><strong>Your own morning paper, built before you wake.</strong> $40 · 2-page PDF. Opens 5:55 AM CT Sunday — then 8 hours. Gone 1:55 PM CT.</p>
+
+    <section class="card" id="offerCard" aria-label="Buy The Morning Brief Blueprint">
+      <p class="kicker">The Morning Brief Blueprint</p>
+      <p class="price">$40 <span>/ one-time · 2-page PDF</span></p>
+      <p class="meta">$40 · 2-PAGE PDF · 8-HOUR DROP · 5:55 AM → 1:55 PM CT</p>
+
+      <ul class="toc">
+        <li><strong>01</strong> Opening Bell</li>
+        <li><strong>02</strong> Move</li>
+        <li><strong>03</strong> News</li>
+        <li><strong>04</strong> Brain Food</li>
+        <li><strong>05</strong> Today</li>
+        <li><strong>06</strong> Quiet Desk</li>
+      </ul>
+
+      <p class="steps">
+        <strong>1.</strong> Send $40 to Cash App <span class="cash">$dom1w0w</span><br>
+        <strong>2.</strong> Request the PDF — emails <strong>nuguidd@icloud.com</strong> (CC Gmail)<br>
+        <strong>3.</strong> PDF ships after payment clears
+      </p>
+      <p class="clock" id="clock">Opens 5:55 AM CT</p>
+      <div class="actions" id="preActions">
+        <span class="btn btn--disabled" aria-disabled="true">Opens 5:55 AM CT</span>
+      </div>
+      <div class="actions" id="liveActions" hidden>
+        <a class="btn" href="https://cash.app/$dom1w0w/40">Pay $40 on Cash App</a>
+        <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&subject=Morning%20Brief%20Blueprint%20%E2%80%93%20%2440&body=Hi%20Dom%2C%0A%0AI%20want%20The%20Morning%20Brief%20Blueprint%20PDF%20(%2440%20%2F%208h%20drop).%0A%0ACash%20App%20sent%20to%20%24dom1w0w%3A%20%5Byes%20%2F%20pending%5D%0AName%20%2F%20handle%3A%20%0ANotes%3A%20%0A">I paid — request the PDF</a>
+      </div>
+    </section>
+
+    <section class="card" id="closedCard" hidden aria-label="Morning Brief Drop closed">
+      <p class="kicker">Offer ended</p>
+      <p class="meta">The 8-hour Morning Brief Blueprint drop is over. No more requests for this promo.</p>
+      <div class="actions">
+        <a class="btn" href="../">Back to 7EightMade</a>
+        <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+      </div>
+    </section>
+
+    <figure class="poster">
+      <img src="cover.png" width="720" height="1280" loading="lazy" alt="The Morning Brief Blueprint — $40 · Opens 5:55 AM CT · Closes 1:55 PM CT · 2-page PDF · Cash App $dom1w0w">
+    </figure>
+
+    <p class="foot"><a href="../">← 7EightMade</a> · fall down 7 stand up 8</p>
+  </main>
+  <script>
+    // Window: Sun 2026-09-27 5:55 AM CDT = 10:55Z → 1:55 PM CDT = 18:55Z; mid (T+4) 9:55 AM CDT = 14:55Z
+    const start = Date.parse('2026-09-27T10:55:00Z');
+    const mid = Date.parse('2026-09-27T14:55:00Z');
+    const end = Date.parse('2026-09-27T18:55:00Z');
+    const clock = document.getElementById('clock');
+    const pill = document.getElementById('livePill');
+    const lead = document.getElementById('lead');
+    const offer = document.getElementById('offerCard');
+    const closed = document.getElementById('closedCard');
+    const preActions = document.getElementById('preActions');
+    const liveActions = document.getElementById('liveActions');
+    let timer = null;
+    function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+    function hms(ms) {
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      const s = Math.floor((ms % 60000) / 1000);
+      return pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+    function tick() {
+      const now = Date.now();
+      if (now < start) {
+        pill.textContent = 'Opens 5:55 AM CT';
+        pill.className = 'live-pill is-soon';
+        clock.textContent = 'Opens in ' + hms(start - now);
+        preActions.hidden = false;
+        liveActions.hidden = true;
+        return;
+      }
+      const ms = end - now;
+      if (ms <= 0) {
+        clock.textContent = '00:00:00';
+        pill.textContent = 'Offer ended';
+        pill.className = 'live-pill is-closed';
+        lead.textContent = 'The 8-hour Morning Brief Blueprint drop is over. No more requests for this promo.';
+        offer.hidden = true;
+        closed.hidden = false;
+        if (timer) clearInterval(timer);
+        return;
+      }
+      preActions.hidden = true;
+      liveActions.hidden = false;
+      if (now >= mid) {
+        pill.textContent = 'Under 4 hours left';
+        pill.className = 'live-pill is-mid';
+        clock.classList.add('is-mid');
+      } else {
+        pill.textContent = 'Live — 8 hours';
+        pill.className = 'live-pill';
+        clock.classList.remove('is-mid');
+      }
+      clock.textContent = hms(ms) + ' left · closes 1:55 PM CT';
+    }
+    tick();
+    timer = setInterval(tick, 1000);
+  </script>
+</body>
+</html>
