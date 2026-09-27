@@ -1406,7 +1406,7 @@
     }
   
 
-    /* ── Morning Brief Drop band ────────────────────────────── */
+    /* ── Grok Bot + Muse AI Operator Manual Drop band ───────── */
     .drop-band {
       background: #0B0B0F;
       color: #F3EFE6;
@@ -1566,13 +1566,13 @@
     </div>
   </nav>
 
-  <aside class="drop-band drop-band--soon" id="morning-brief-drop" aria-label="The Morning Brief Blueprint — opens 5:55 AM CT">
+  <aside class="drop-band drop-band--soon" id="muse-grok-drop" aria-label="Grok Bot + Muse AI Operator Manual — opens 5:55 AM CT">
     <div class="drop-band__inner">
       <div class="drop-band__copy">
-        <div><span class="drop-band__urgent" id="dropClock">Opens 5:55 AM CT</span> <strong>The Morning Brief Blueprint</strong> · $40 · <span id="dropState">Opens 5:55 AM CT</span></div>
-        <div class="drop-band__meta" id="dropMeta">Your own morning paper, built before you wake · 2-page PDF · Cash App $dom1w0w</div>
+        <div><span class="drop-band__urgent" id="dropClock">Opens 5:55 AM CT</span> <strong>Grok Bot + Muse AI Operator Manual</strong> · $40 · <span id="dropState">Opens 5:55 AM CT</span></div>
+        <div class="drop-band__meta" id="dropMeta">Two AI co-workers who never clock out · 8-page PDF · Cash App $dom1w0w</div>
       </div>
-      <a class="btn" id="dropBtn" href="morning-brief-drop/">See the Morning Brief drop</a>
+      <a class="btn" id="dropBtn" href="muse-grok-drop/">See the Operator Manual drop</a>
     </div>
   </aside>
 
@@ -1592,7 +1592,7 @@
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
           <div class="hero__ctas">
-            <a class="btn btn--cobalt" id="heroDropCta" href="morning-brief-drop/">See the Morning Brief drop</a>
+            <a class="btn btn--cobalt" id="heroDropCta" href="muse-grok-drop/">See the Operator Manual drop</a>
             <a class="hero__secondary" href="#pricing">See packages</a>
           </div>
           <div class="hero__chips">
@@ -2519,11 +2519,11 @@
 
   <script>
     (function () {
-      // Morning Brief Drop: opens Sun 2026-09-27 5:55 AM CDT (10:55Z), mid 9:55 AM CDT (14:55Z), ends 1:55 PM CDT (18:55Z)
+      // Grok Bot + Muse AI Operator Manual Drop: opens Sun 2026-09-27 5:55 AM CDT (10:55Z), mid 9:55 AM CDT (14:55Z), ends 1:55 PM CDT (18:55Z)
       const start = Date.parse('2026-09-27T10:55:00Z');
       const mid = Date.parse('2026-09-27T14:55:00Z');
       const end = Date.parse('2026-09-27T18:55:00Z');
-      const band = document.getElementById('morning-brief-drop');
+      const band = document.getElementById('muse-grok-drop');
       const clock = document.getElementById('dropClock');
       const state = document.getElementById('dropState');
       const meta = document.getElementById('dropMeta');
@@ -2544,7 +2544,7 @@
           band.classList.add('drop-band--soon');
           if (clock) clock.textContent = 'Opens in ' + hms(start - now);
           if (state) state.textContent = 'Opens 5:55 AM CT';
-          if (meta) meta.textContent = 'Your own morning paper, built before you wake · 2-page PDF · Cash App $dom1w0w';
+          if (meta) meta.textContent = 'Two AI co-workers who never clock out · 8-page PDF · Cash App $dom1w0w';
           return;
         }
         if (now >= end) {
@@ -2554,18 +2554,18 @@
           return;
         }
         band.classList.remove('drop-band--soon');
-        if (btn) btn.textContent = 'Get the Morning Brief Blueprint';
-        if (hero) hero.textContent = 'Morning Brief Blueprint · $40 · 8h';
+        if (btn) btn.textContent = 'Get the Operator Manual';
+        if (hero) hero.textContent = 'Operator Manual · $40 · 8h';
         if (clock) clock.textContent = hms(end - now) + ' left';
         if (now >= mid) {
           band.classList.add('drop-band--mid');
           if (state) state.textContent = 'under 4 hours left';
           if (meta) meta.textContent = 'Then it’s gone · Pay Cash App $dom1w0w · Closes 1:55 PM CT';
-          band.setAttribute('aria-label', 'The Morning Brief Blueprint — under 4 hours left');
+          band.setAttribute('aria-label', 'Grok Bot + Muse AI Operator Manual — under 4 hours left');
         } else {
           if (state) state.textContent = '8 hours only';
           if (meta) meta.textContent = 'Pay Cash App $dom1w0w · Closes 1:55 PM CT';
-          band.setAttribute('aria-label', 'The Morning Brief Blueprint is live — 8 hours only');
+          band.setAttribute('aria-label', 'Grok Bot + Muse AI Operator Manual is live — 8 hours only');
         }
       }
       tick();
