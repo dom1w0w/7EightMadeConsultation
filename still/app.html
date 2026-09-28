@@ -6,28 +6,27 @@
   <title>Still — lie down | 7EightMade</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0B0B0F">
-  <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
   <style>
     :root { --ink:#E8E4D8; --void:#0B0B0F; --muted:#8A8680; --cobalt:#2563FF; --line:rgba(232,228,216,.12); }
     * { box-sizing:border-box; margin:0; padding:0; }
     html,body { height:100%; background:var(--void); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,sans-serif; }
-    body { min-height:100vh; }
     .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 22px; }
     .nav img { height:36px; width:auto; display:block; filter:brightness(1.15); }
     .nav a.back { font-size:12px; font-weight:600; color:var(--muted); text-decoration:none; }
-    main { min-height:calc(100vh - 72px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 24px 88px; text-align:center; }
+    main { min-height:calc(100vh - 72px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; text-align:center; }
     .eyebrow { font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--cobalt); margin-bottom:16px; }
-    h1 { font-family:Fraunces,Georgia,serif; font-weight:500; font-size:clamp(36px,7vw,56px); letter-spacing:-.03em; margin-bottom:12px; }
-    .lead { color:var(--muted); max-width:28ch; margin-bottom:28px; }
+    h1 { font-family:Fraunces,Georgia,serif; font-weight:500; font-size:clamp(36px,7vw,56px); margin-bottom:12px; }
+    .lead { color:var(--muted); max-width:28ch; margin-bottom:24px; }
     .line { font-family:Fraunces,Georgia,serif; font-size:clamp(22px,4vw,32px); font-weight:500; min-height:2.6em; max-width:18ch; }
-    .controls { margin-top:36px; display:flex; gap:10px; justify-content:center; }
+    .n { font-size:12px; color:var(--muted); margin-top:8px; }
+    .controls { margin-top:32px; display:flex; gap:10px; justify-content:center; }
     button { min-height:44px; padding:12px 20px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--ink); font:inherit; font-size:14px; font-weight:650; }
     button.primary { background:var(--cobalt); border-color:var(--cobalt); color:#fff; }
     button:disabled { opacity:.35; }
     .hint { margin-top:16px; font-size:12px; color:var(--muted); max-width:36ch; }
-    .foot { position:fixed; bottom:0; left:0; right:0; padding:14px 22px 18px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; }
+    .foot { position:fixed; bottom:0; left:0; right:0; padding:14px 22px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; }
     .foot a { color:#93b0ff; text-decoration:none; }
   </style>
 </head>
@@ -37,15 +36,16 @@
     <a class="back" href="./">Still</a>
   </nav>
   <main>
-    <p class="eyebrow">Tap once</p>
+    <p class="eyebrow">Nine lines</p>
     <h1>Still</h1>
-    <p class="lead">Silent switch off. Turn the ringer volume up. Safari only.</p>
-    <p class="line" id="line">Waiting.</p>
+    <p class="lead">Hard refresh this page. Then tap Begin.</p>
+    <p class="line" id="line">Ready.</p>
+    <p class="n" id="n"></p>
     <div class="controls">
       <button class="primary" id="begin" type="button">Begin</button>
       <button id="stop" type="button" disabled>Stop</button>
     </div>
-    <p class="hint" id="hint">First line speaks in the same tap. If you hear nothing, the phone switch is muted.</p>
+    <p class="hint" id="hint">Lines advance after each sentence plus a short pause. Keep the screen on.</p>
   </main>
   <p class="foot"><a href="../">← 7EightMade</a><span>Fall down seven. Stand up eight.</span></p>
   <script>
@@ -60,79 +60,82 @@
       "The room is enough.",
       "Stay. Or sleep. Same."
     ];
-    var GAP = 20000;
+    var PAUSE = 6000;
+    var i = 0;
+    var running = false;
+    var wait;
     var lineEl = document.getElementById("line");
+    var nEl = document.getElementById("n");
+    var hint = document.getElementById("hint");
     var beginBtn = document.getElementById("begin");
     var stopBtn = document.getElementById("stop");
-    var hint = document.getElementById("hint");
-    var running = false;
-    var timers = [];
-    var ctx;
 
-    function unlock() {
-      try {
-        ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
-        if (ctx.state === "suspended") ctx.resume();
-        var o = ctx.createOscillator();
-        var g = ctx.createGain();
-        o.frequency.value = 220;
-        g.gain.value = 0.04;
-        o.connect(g); g.connect(ctx.destination);
-        o.start();
-        o.stop(ctx.currentTime + 0.12);
-      } catch (e) {}
-    }
-
-    function say(text) {
+    function speakNow(text, after) {
       if (!window.speechSynthesis) {
-        hint.textContent = "This browser has no voice.";
+        hint.textContent = "No voice in this browser.";
+        if (after) after();
         return;
       }
       window.speechSynthesis.cancel();
       var u = new SpeechSynthesisUtterance(text);
-      u.rate = 0.75;
-      u.pitch = 1;
+      u.rate = 0.78;
       u.volume = 1;
       u.lang = "en-US";
-      u.onstart = function () { hint.textContent = "Speaking."; };
-      u.onerror = function () { hint.textContent = "Voice blocked. Use Safari, silent switch off."; };
+      var done = false;
+      function finish() {
+        if (done) return;
+        done = true;
+        if (after) after();
+      }
+      u.onend = finish;
+      u.onerror = finish;
       window.speechSynthesis.speak(u);
+      setTimeout(finish, 8000);
+    }
+
+    function next() {
+      if (!running) return;
+      if (i >= LINES.length) {
+        stop();
+        lineEl.textContent = "Done.";
+        return;
+      }
+      lineEl.textContent = LINES[i];
+      nEl.textContent = (i + 1) + " / 9";
+      var idx = i;
+      i += 1;
+      speakNow(LINES[idx], function () {
+        if (!running) return;
+        wait = setTimeout(next, PAUSE);
+      });
     }
 
     function stop() {
       running = false;
-      timers.forEach(clearTimeout);
-      timers = [];
+      clearTimeout(wait);
       if (window.speechSynthesis) window.speechSynthesis.cancel();
       beginBtn.disabled = false;
       stopBtn.disabled = true;
-      lineEl.textContent = "Stopped.";
     }
 
     beginBtn.addEventListener("click", function () {
       if (running) return;
       running = true;
+      i = 0;
       beginBtn.disabled = true;
       stopBtn.disabled = false;
-      unlock();
       if (window.speechSynthesis) window.speechSynthesis.getVoices();
-      lineEl.textContent = LINES[0];
-      say(LINES[0]);
-      var t = GAP;
-      for (var i = 1; i < LINES.length; i++) {
-        (function (idx, when) {
-          timers.push(setTimeout(function () {
-            if (!running) return;
-            lineEl.textContent = LINES[idx];
-            say(LINES[idx]);
-          }, when));
-        })(i, t);
-        t += GAP;
-      }
-      timers.push(setTimeout(function () { if (running) stop(); }, t + 2000));
+      next();
     });
-
-    stopBtn.addEventListener("click", stop);
+    stopBtn.addEventListener("click", function () {
+      stop();
+      lineEl.textContent = "Stopped.";
+    });
+    setInterval(function () {
+      if (running && window.speechSynthesis && window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+      }
+    }, 4000);
   </script>
 </body>
 </html>
