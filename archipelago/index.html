@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vortex Breath — made with a Grok bot | 7EightMade</title>
-  <meta name="description" content="Vortex Breath is a free minute-long practice composed by a Grok bot with 7EightMade. The breath stays free. A page or tool of your own is a letter away.">
+  <title>Archipelago — a map of the Philippines | 7EightMade</title>
+  <meta name="description" content="Archipelago is a free choropleth atlas of the Philippines. Seventeen regions, five metrics, pan and zoom. Made with a Grok bot.">
   <meta name="theme-color" content="#F3EFE6">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
@@ -12,7 +12,6 @@
     :root {
       --ink: #0B0B0F;
       --paper: #F3EFE6;
-      --paper-2: #E7E1D4;
       --muted: #5C5C66;
       --line: rgba(60,45,20,.12);
       --cobalt: #2563FF;
@@ -36,7 +35,7 @@
     }
     .nav__inner {
       max-width: 760px; margin: 0 auto; padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
     }
     .brand {
       font-family: Fraunces, Georgia, serif;
@@ -44,7 +43,7 @@
       text-decoration: none;
     }
     .brand span { color: var(--cobalt); }
-    .nav__links { display: flex; align-items: center; gap: 4px; }
+    .nav__links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
     .nav__links a {
       font-size: 13px; font-weight: 500; color: var(--muted);
       text-decoration: none; padding: 8px 12px; border-radius: 8px;
@@ -75,7 +74,7 @@
       background: transparent; color: var(--ink);
       border: 1px solid rgba(60,45,20,.22);
     }
-    .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 36px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
     .card {
       background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 16px;
     }
@@ -86,14 +85,11 @@
     .card span { font-size: 14px; color: var(--muted); }
     .prose { max-width: 58ch; }
     .prose p { margin-bottom: 14px; font-size: 16px; }
-    .cadence {
-      display: flex; gap: 18px; margin: 8px 0 28px; padding: 0; list-style: none;
-      font-family: Fraunces, Georgia, serif; font-size: 22px; font-weight: 600;
-    }
-    .cadence li { display: flex; flex-direction: column; gap: 4px; }
-    .cadence small {
-      font-family: Inter, sans-serif; font-size: 11px; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+    .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 28px; padding: 0; list-style: none; }
+    .metrics li {
+      font-size: 13px; font-weight: 600; letter-spacing: .04em;
+      border: 1px solid var(--line); background: #fff; border-radius: 999px;
+      padding: 8px 12px;
     }
     form {
       margin-top: 12px; background: #fff; border: 1px solid var(--line);
@@ -117,7 +113,6 @@
     .foot a { color: var(--cobalt-text); text-decoration: none; }
     @media (max-width: 640px) {
       .grid { grid-template-columns: 1fr; }
-      .nav__links a:not([aria-current="page"]) { display: none; }
     }
   </style>
 </head>
@@ -127,38 +122,38 @@
       <a class="brand" href="../"><span>7</span>EightMade</a>
       <div class="nav__links">
         <a href="../#services">Services</a>
-        <a href="./" aria-current="page">Vortex</a>
-        <a href="../archipelago/">Atlas</a>
+        <a href="../vortex-breath/">Vortex</a>
+        <a href="./" aria-current="page">Atlas</a>
       </div>
     </div>
   </nav>
 
   <main class="wrap">
     <p class="eyebrow">Made with a Grok bot</p>
-    <h1>A minute, built in conversation.</h1>
-    <p class="lead">Vortex Breath is a free practice. A Grok bot composed the room. We directed it. You can have one made too.</p>
+    <h1>Seventeen regions. One map.</h1>
+    <p class="lead">Archipelago is a free atlas of the Philippines. Brighter is larger. Pan, zoom, and switch the metric.</p>
     <div class="actions">
-      <a class="btn" href="https://nova-nova-cinder-birch.grok.me/">Try the breath</a>
-      <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=Something%20of%20my%20own">Write to the studio</a>
+      <a class="btn" href="https://comet-lark-lilac-bolt.grok.me/">Open the atlas</a>
+      <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=A%20map%20of%20my%20own">Write to the studio</a>
     </div>
 
+    <ul class="metrics" aria-label="Metrics">
+      <li>Population</li>
+      <li>GDP / capita</li>
+      <li>Poverty</li>
+      <li>Internet</li>
+      <li>Unemployment</li>
+    </ul>
+
     <div class="grid">
-      <div class="card"><strong>A breath</strong><span>Fibonacci pairs, 13 down to 1. About a minute. Free.</span></div>
-      <div class="card"><strong>A room</strong><span>Enso, ink mountains, a singing bowl. Built to be felt, not read.</span></div>
-      <div class="card"><strong>A letter</strong><span>No checkout. Tell us what should exist. We reply by email.</span></div>
+      <div class="card"><strong>Seventeen regions</strong><span>From Calabarzon and Manila out to the Cordillera. 2020 census counts.</span></div>
+      <div class="card"><strong>Five readings</strong><span>The same islands, a different question. The color scale follows the metric you pick.</span></div>
+      <div class="card"><strong>A densest band</strong><span>Manila through Calabarzon holds the weight. The map makes that obvious.</span></div>
+      <div class="card"><strong>Yours, if you want it</strong><span>A map, a dashboard, a room. Still a letter. No checkout.</span></div>
     </div>
 
     <div class="prose">
-      <p>The cadence tightens on purpose. Inhale, then exhale, each count in turn — a phi-ratio vortex that arrives at one, then stillness.</p>
-      <ol class="cadence" aria-label="Fibonacci cadence">
-        <li>13<small>in / out</small></li>
-        <li>8<small>in / out</small></li>
-        <li>5<small>in / out</small></li>
-        <li>3<small>in / out</small></li>
-        <li>2<small>in / out</small></li>
-        <li>1<small>in / out</small></li>
-      </ol>
-      <p>This is the kind of thing 7EightMade makes with a Grok bot: a small site, a practice, a tool with your name on it. The breath itself stays free. Commissioning something of your own is a letter, not a cart.</p>
+      <p>This is the second thing built in conversation with a Grok bot, after Vortex Breath. The atlas stays free to look at. If you want a map or a tool of your own — your places, your numbers — write. We answer by email.</p>
     </div>
 
     <form id="letter">
@@ -168,13 +163,13 @@
       </label>
       <label>
         <span>What should exist</span>
-        <textarea name="note" required placeholder="A page, a practice, a tool…"></textarea>
+        <textarea name="note" required placeholder="A map, a dashboard, a tool…"></textarea>
       </label>
       <button class="btn" type="submit">Open a letter</button>
       <p class="fine">Opens your mail to <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a> with the note already written.</p>
     </form>
 
-    <p class="foot"><a href="../">← 7EightMade</a> · <a href="../archipelago/">Archipelago</a> · Fall down seven. Stand up eight.</p>
+    <p class="foot"><a href="../">← 7EightMade</a> · <a href="../vortex-breath/">Vortex Breath</a> · Fall down seven. Stand up eight.</p>
     <p class="fine">Built in conversation with Grok. Not an xAI product.</p>
   </main>
   <script>
@@ -183,8 +178,8 @@
       var data = new FormData(event.currentTarget);
       var who = String(data.get("name") || "").trim() || "A visitor";
       var note = String(data.get("note") || "").trim();
-      var body = who + " wrote from the Vortex page.\n\nI would like:\n\n" + note + "\n";
-      window.location.href = "mailto:nuguidd@icloud.com?subject=" + encodeURIComponent("Something of my own") + "&body=" + encodeURIComponent(body);
+      var body = who + " wrote from the Archipelago page.\n\nI would like:\n\n" + note + "\n";
+      window.location.href = "mailto:nuguidd@icloud.com?subject=" + encodeURIComponent("A map of my own") + "&body=" + encodeURIComponent(body);
     });
   </script>
 </body>

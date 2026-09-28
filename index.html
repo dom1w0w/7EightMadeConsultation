@@ -228,6 +228,21 @@
     .vortex-strip__body { font-size: 15px; color: var(--muted); }
     .vortex-strip__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
+    .made-grid {
+      margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .made-card {
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; background: #fff;
+    }
+    .made-card:hover { border-color: var(--cobalt); }
+    .made-card span { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--cobalt-text); }
+    @media (max-width: 700px) {
+      .made-grid { grid-template-columns: 1fr; }
+    }
+
+
 
     .hero { padding: 88px 0 72px; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .hero__grid {
@@ -1524,6 +1539,7 @@
         <a class="nav__link" href="#pricing">Pricing</a>
         <a class="nav__link" href="#openclaw">OpenClaw</a>
         <a class="nav__link" href="vortex-breath/">Vortex</a>
+        <a class="nav__link" href="archipelago/">Atlas</a>
         <a class="nav__link" href="#faq">FAQ</a>
         <a class="btn btn--cobalt nav__cta" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
         <a class="btn btn--cobalt nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
@@ -1642,16 +1658,19 @@
             <span class="track__cta">Explore OpenClaw</span>
           </a>
         </div>
-        <div class="vortex-strip">
-          <div class="vortex-strip__copy">
+        <div class="made-grid">
+          <a class="made-card" href="vortex-breath/">
             <p class="vortex-strip__kicker">Made with a Grok bot</p>
-            <h3 class="vortex-strip__title">A minute, built in conversation.</h3>
-            <p class="vortex-strip__body">Vortex Breath is free — an enso, a singing bowl, a Fibonacci cadence. A Grok bot composed it. We directed it. Want one of your own? We still work by email.</p>
-          </div>
-          <div class="vortex-strip__actions">
-            <a class="btn btn--cobalt" href="vortex-breath/">The making</a>
-            <a class="btn btn--outline" href="https://nova-nova-cinder-birch.grok.me/">Try the breath</a>
-          </div>
+            <h3 class="vortex-strip__title">Vortex Breath</h3>
+            <p class="vortex-strip__body">A free minute. Enso, singing bowl, Fibonacci cadence.</p>
+            <span>The making</span>
+          </a>
+          <a class="made-card" href="archipelago/">
+            <p class="vortex-strip__kicker">Made with a Grok bot</p>
+            <h3 class="vortex-strip__title">Archipelago</h3>
+            <p class="vortex-strip__body">Seventeen regions of the Philippines. Five metrics. Pan and zoom.</p>
+            <span>Open the atlas</span>
+          </a>
         </div>
       </div>
     </section>
@@ -2071,6 +2090,7 @@
           <a href="#pricing">Pricing</a>
           <a href="#about">About</a>
           <a href="vortex-breath/">Vortex</a>
+          <a href="archipelago/">Atlas</a>
           <a href="mailto:nuguidd@icloud.com">Contact</a>
         </div>
       </div>
