@@ -8,7 +8,7 @@
 <body>
 <script>
 (function () {
-  var SRC = 'https://cdn.jsdelivr.net/gh/dom1w0w/7EightMadeConsultation@7637e9a5314c74624dac8542fbb04e0bd26837d0/index.html';
+  var SRC = 'https://cdn.jsdelivr.net/gh/dom1w0w/7EightMadeConsultation@dba0817e530d0c548e4935d2fdbe191f01106123/index.html';
   var CSS = [
     '.nav__item--apps{position:relative}',
     '.nav__apps-btn{font:inherit;font-size:13px;font-weight:500;color:var(--muted);padding:8px 12px;border-radius:8px;display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer}',
@@ -18,36 +18,28 @@
     '.nav__item--apps:hover .nav__dropdown,.nav__item--apps:focus-within .nav__dropdown,.nav__item--apps.is-open .nav__dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:none}',
     '.nav__drop-link{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none}',
     '.nav__drop-link:hover{background:rgba(37,99,255,.08)}',
-    '.nav__drop-title{font-size:13px;font-weight:600;letter-spacing:-.01em}',
+    '.nav__drop-title{font-size:13px;font-weight:600}',
     '.nav__drop-sub{font-size:11px;color:var(--muted);font-weight:500}',
     '.nav--open .nav__item--apps{width:100%}',
     '.nav--open .nav__apps-btn{width:100%;justify-content:space-between;min-height:44px;padding:12px 14px;font-size:15px;color:var(--ink)}',
-    '.nav--open .nav__dropdown{position:static;min-width:0;width:100%;opacity:1;visibility:visible;pointer-events:auto;transform:none;display:none;box-shadow:none;border:none;background:transparent;padding:0 0 6px 12px}',
+    '.nav--open .nav__dropdown{position:static;width:100%;opacity:1;visibility:visible;pointer-events:auto;transform:none;display:none;box-shadow:none;border:none;background:transparent;padding:0 0 6px 12px}',
     '.nav--open .nav__item--apps.is-open .nav__dropdown{display:block}',
     '.nav--open .nav__drop-link{min-height:44px;justify-content:center}'
   ].join('');
-  var APPS = ''
-    + '<div class="nav__item nav__item--apps" id="navApps">'
-    + '<button class="nav__apps-btn" type="button" id="navAppsBtn" aria-expanded="false" aria-haspopup="true" aria-controls="navAppsMenu">Apps</button>'
-    + '<div class="nav__dropdown" id="navAppsMenu" role="menu">'
-    + '<a class="nav__drop-link" role="menuitem" href="vortex-breath/"><span class="nav__drop-title">Vortex</span><span class="nav__drop-sub">Breath practice</span></a>'
-    + '<a class="nav__drop-link" role="menuitem" href="archipelago/"><span class="nav__drop-title">Atlas</span><span class="nav__drop-sub">Philippines map</span></a>'
-    + '</div></div>';
+  var APPS = '<div class="nav__item nav__item--apps" id="navApps"><button class="nav__apps-btn" type="button" id="navAppsBtn" aria-expanded="false" aria-haspopup="true">Apps</button><div class="nav__dropdown" id="navAppsMenu" role="menu"><a class="nav__drop-link" role="menuitem" href="vortex-breath/"><span class="nav__drop-title">Vortex</span><span class="nav__drop-sub">Breath practice</span></a><a class="nav__drop-link" role="menuitem" href="archipelago/"><span class="nav__drop-title">Atlas</span><span class="nav__drop-sub">Philippines map</span></a></div></div>';
   fetch(SRC, { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (html) {
-    html = html.replace(
-      '<a class="nav__link" href="vortex-breath/">Vortex</a>\n        <a class="nav__link" href="archipelago/">Atlas</a>',
-      APPS
-    );
+    html = html.replace(/<a class="nav__link" href="vortex-breath\/">Vortex<\/a>\s*<a class="nav__link" href="archipelago\/">Atlas<\/a>/, APPS);
+    if (html.indexOf('navApps') === -1) {
+      html = html.replace('<a class="nav__link" href="#openclaw">OpenClaw</a>', '<a class="nav__link" href="#openclaw">OpenClaw</a>\n        ' + APPS);
+    }
     html = html.replace('</style>', CSS + '\n    </style>');
     html = html.replace(
       "document.querySelectorAll('#navLinks a').forEach(a => {\n        a.addEventListener('click', () => setOpen(false));\n      });",
-      "document.querySelectorAll('#navLinks a').forEach(a => {\n        a.addEventListener('click', () => setOpen(false));\n      });\n      const apps = document.getElementById('navApps');\n      const appsBtn = document.getElementById('navAppsBtn');\n      if (apps && appsBtn) {\n        appsBtn.addEventListener('click', (e) => {\n          e.stopPropagation();\n          const open = !apps.classList.contains('is-open');\n          apps.classList.toggle('is-open', open);\n          appsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');\n        });\n        document.addEventListener('click', (e) => {\n          if (!apps.contains(e.target)) {\n            apps.classList.remove('is-open');\n            appsBtn.setAttribute('aria-expanded', 'false');\n          }\n        });\n      }"
+      "document.querySelectorAll('#navLinks a').forEach(a => { a.addEventListener('click', () => setOpen(false)); });\n      (function(){ var apps=document.getElementById('navApps'); var btn=document.getElementById('navAppsBtn'); if(!apps||!btn) return; btn.addEventListener('click', function(e){ e.stopPropagation(); var open=!apps.classList.contains('is-open'); apps.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', open?'true':'false'); }); document.addEventListener('click', function(e){ if(!apps.contains(e.target)){ apps.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); } }); })();"
     );
-    document.open();
-    document.write(html);
-    document.close();
+    document.open(); document.write(html); document.close();
   }).catch(function () {
-    document.body.innerHTML = '<p style="font:16px/1.5 system-ui;padding:40px">7EightMade is restoring. <a href="vortex-breath/">Vortex</a> · <a href="archipelago/">Atlas</a></p>';
+    document.body.innerHTML = '<p style="font:16px/1.5 system-ui;padding:40px"><a href="vortex-breath/">Vortex</a> · <a href="archipelago/">Atlas</a></p>';
   });
 })();
 </script>
