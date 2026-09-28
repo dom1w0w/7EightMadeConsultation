@@ -4,244 +4,60 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Still | 7EightMade</title>
-  <meta name="description" content="A short talk-down. Then silence.">
+  <meta name="description" content="A closed room. A few words. Then nothing.">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0B0B0F">
+  <meta name="theme-color" content="#F3EFE6">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
   <style>
-    :root {
-      --ink: #E8E4D8;
-      --void: #0B0B0F;
-      --muted: #8A8680;
-      --cobalt: #2563FF;
-      --line: rgba(232,228,216,.12);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      background: var(--void);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-    a { color: inherit; }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 22px;
-    }
-    .nav img { height: 36px; width: auto; display: block; filter: brightness(1.15); }
-    .nav a.site {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .nav a.site:hover { color: var(--ink); }
-    main {
-      min-height: calc(100vh - 72px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 24px 80px;
-      text-align: center;
-    }
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--cobalt);
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-family: Fraunces, Georgia, serif;
-      font-weight: 500;
-      font-size: clamp(36px, 7vw, 56px);
-      letter-spacing: -.03em;
-      margin-bottom: 12px;
-    }
-    .lead { color: var(--muted); max-width: 28ch; margin-bottom: 36px; font-size: 16px; }
-    .line {
-      font-family: Fraunces, Georgia, serif;
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 500;
-      min-height: 2.4em;
-      max-width: 18ch;
-      opacity: 0;
-      transition: opacity 1.4s ease;
-    }
-    .line.on { opacity: 1; }
-    .pulse {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--cobalt);
-      opacity: .35;
-      margin: 28px auto 0;
-      transform: scale(.7);
-      transition: transform 4s ease, opacity 4s ease;
-    }
-    .pulse.breathe { transform: scale(1.35); opacity: .7; }
-    .controls { margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-    button {
-      min-height: 44px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--ink);
-      font: inherit;
-      font-size: 14px;
-      font-weight: 650;
-      cursor: pointer;
-    }
-    button.primary { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
-    button:disabled { opacity: .35; cursor: default; }
-    .hint { margin-top: 16px; font-size: 12px; color: var(--muted); }
-    .foot {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      padding: 14px 22px 18px;
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .foot a { color: #93b0ff; text-decoration: none; }
-    body.gone .nav, body.gone .controls, body.gone .lead, body.gone .eyebrow, body.gone h1, body.gone .hint, body.gone .foot {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 2s ease;
-    }
-    body.gone .nav, body.gone .foot { transition-delay: .4s; }
+    :root { --ink:#0B0B0F; --paper:#F3EFE6; --muted:#5C5C66; --line:rgba(60,45,20,.12); --cobalt:#2563FF; --cobalt-text:#1D4ED8; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { min-height:100vh; font-family:Inter,ui-sans-serif,system-ui,sans-serif; background:var(--paper); color:var(--ink); line-height:1.55; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; }
+    .nav { position:sticky; top:0; z-index:10; background:rgba(243,239,230,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
+    .nav__inner { max-width:760px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .nav img { height:40px; width:auto; display:block; }
+    .nav__links { display:flex; align-items:center; gap:4px; }
+    .nav__links a { font-size:13px; font-weight:500; color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:8px; min-height:44px; display:inline-flex; align-items:center; }
+    .nav__links a[aria-current="page"] { color:var(--ink); }
+    .wrap { max-width:760px; margin:0 auto; padding:56px 24px 80px; }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--cobalt-text); margin-bottom:14px; }
+    h1 { font-family:Fraunces,Georgia,serif; font-size:clamp(40px,8vw,64px); font-weight:600; letter-spacing:-.03em; line-height:1.02; margin-bottom:18px; }
+    .lead { font-size:18px; color:var(--muted); max-width:36ch; margin-bottom:28px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:12px 18px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; background:var(--cobalt); color:#fff; }
+    .btn--ghost { background:transparent; color:var(--ink); border:1px solid rgba(60,45,20,.22); }
+    .prose { max-width:58ch; }
+    .prose p { margin-bottom:14px; font-size:16px; }
+    .foot { margin-top:48px; font-size:13px; color:var(--muted); }
+    .foot a { color:var(--cobalt-text); text-decoration:none; }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <a href="../" aria-label="7EightMade">
-      <img src="../brand/logo-horizontal.svg" alt="7EightMade">
-    </a>
-    <a class="site" href="../">7EightMade</a>
-  </nav>
-  <main>
-    <p class="eyebrow">Test build</p>
-    <h1>Still</h1>
-    <p class="lead">A closed room. A few words. Then nothing.</p>
-    <p class="line" id="line" aria-live="polite"></p>
-    <div class="pulse" id="pulse" hidden></div>
-    <div class="controls">
-      <button class="primary" id="begin" type="button">Begin</button>
-      <button id="stop" type="button" disabled>Stop</button>
+  <nav class="nav" aria-label="Site">
+    <div class="nav__inner">
+      <a href="../" aria-label="7EightMade"><img src="../brand/logo-horizontal.svg" alt="7EightMade"></a>
+      <div class="nav__links">
+        <a href="../#services">Services</a>
+        <a href="../vortex-breath/">Vortex</a>
+        <a href="../archipelago/">Atlas</a>
+        <a href="./" aria-current="page">Still</a>
+      </div>
     </div>
-    <p class="hint">Uses the phone’s voice. Keep the screen on until it fades.</p>
+  </nav>
+  <main class="wrap">
+    <p class="eyebrow">A closed room</p>
+    <h1>Stay. Or sleep. Same.</h1>
+    <p class="lead">Six minutes. A few words. Long quiet. Then the app stops talking.</p>
+    <div class="actions">
+      <a class="btn" href="./app.html">Lie down</a>
+      <a class="btn btn--ghost" href="../">7EightMade</a>
+    </div>
+    <div class="prose">
+      <p>Not a story. Not a streak. Nine lines and the gaps between them.</p>
+      <p>The breath is free. The rest is not explained.</p>
+    </div>
+    <p class="foot"><a href="../">← 7EightMade</a> · Fall down seven. Stand up eight.</p>
   </main>
-  <p class="foot">
-    <a href="../">← 7EightMade</a>
-    <span>Fall down seven. Stand up eight.</span>
-  </p>
-  <script>
-    var SCRIPT = [
-      { t: "It’s late enough.", hold: 9000 },
-      { t: "You can put the day down without finishing it.", hold: 12000 },
-      { t: "In.", hold: 7000 },
-      { t: "Out.", hold: 8000 },
-      { t: "Nothing else is required.", hold: 14000 },
-      { t: "The next thought can pass.", hold: 12000 },
-      { t: "Weight in the body.", hold: 12000 },
-      { t: "The room is enough.", hold: 16000 },
-      { t: "Stay. Or sleep. Same.", hold: 20000 },
-      { t: "", hold: 8000 }
-    ];
-
-    var lineEl = document.getElementById("line");
-    var pulse = document.getElementById("pulse");
-    var beginBtn = document.getElementById("begin");
-    var stopBtn = document.getElementById("stop");
-    var running = false;
-    var timers = [];
-    var breathTimer;
-
-    function speak(text) {
-      if (!text || !window.speechSynthesis) return;
-      window.speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(text);
-      u.rate = 0.72;
-      u.pitch = 0.85;
-      u.volume = 0.85;
-      var voices = window.speechSynthesis.getVoices();
-      var pick = voices.find(function (v) {
-        return /en/i.test(v.lang) && /male|daniel|alex|david|fred|google uk/i.test(v.name);
-      }) || voices.find(function (v) { return /en-US|en-GB/i.test(v.lang); });
-      if (pick) u.voice = pick;
-      window.speechSynthesis.speak(u);
-    }
-
-    function clearAll() {
-      timers.forEach(clearTimeout);
-      timers = [];
-      if (breathTimer) clearInterval(breathTimer);
-      if (window.speechSynthesis) window.speechSynthesis.cancel();
-    }
-
-    function stop() {
-      running = false;
-      clearAll();
-      document.body.classList.remove("gone");
-      lineEl.classList.remove("on");
-      lineEl.textContent = "";
-      pulse.hidden = true;
-      beginBtn.disabled = false;
-      stopBtn.disabled = true;
-    }
-
-    function show(text) {
-      lineEl.classList.remove("on");
-      setTimeout(function () {
-        lineEl.textContent = text;
-        if (text) lineEl.classList.add("on");
-      }, 400);
-    }
-
-    function startBreath() {
-      pulse.hidden = false;
-      var on = false;
-      breathTimer = setInterval(function () {
-        on = !on;
-        pulse.classList.toggle("breathe", on);
-      }, 4000);
-    }
-
-    function begin() {
-      if (running) return;
-      running = true;
-      beginBtn.disabled = true;
-      stopBtn.disabled = false;
-      document.body.classList.add("gone");
-      startBreath();
-      if (window.speechSynthesis) window.speechSynthesis.getVoices();
-
-      var t = 600;
-      SCRIPT.forEach(function (step) {
-        timers.push(setTimeout(function () {
-          if (!running) return;
-          show(step.t);
-          speak(step.t);
-        }, t));
-        t += step.hold;
-      });
-      timers.push(setTimeout(function () {
-        if (!running) return;
-        show("");
-        pulse.hidden = true;
-      }, t));
-    }
-
-    beginBtn.addEventListener("click", begin);
-    stopBtn.addEventListener("click", stop);
-  </script>
 </body>
 </html>
