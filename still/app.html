@@ -23,15 +23,15 @@
     .eyebrow { font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--cobalt); margin-bottom:16px; }
     h1 { font-family:Fraunces,Georgia,serif; font-weight:500; font-size:clamp(36px,7vw,56px); letter-spacing:-.03em; margin-bottom:12px; }
     .lead { color:var(--muted); max-width:28ch; margin-bottom:28px; }
-    .line { font-family:Fraunces,Georgia,serif; font-size:clamp(22px,4vw,32px); font-weight:500; min-height:2.6em; max-width:18ch; opacity:.55; }
+    .line { font-family:Fraunces,Georgia,serif; font-size:clamp(22px,4vw,32px); font-weight:500; min-height:2.6em; max-width:18ch; opacity:0; transition:opacity 1.4s ease; }
+    .line.on { opacity:1; }
     .controls { margin-top:36px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
     button { min-height:44px; padding:12px 20px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--ink); font:inherit; font-size:14px; font-weight:650; cursor:pointer; }
     button.primary { background:var(--cobalt); border-color:var(--cobalt); color:#fff; }
     button:disabled { opacity:.35; }
-    .hint { margin-top:16px; font-size:12px; color:var(--muted); max-width:34ch; }
+    .hint { margin-top:16px; font-size:12px; color:var(--muted); max-width:36ch; }
     .foot { position:fixed; bottom:0; left:0; right:0; padding:14px 22px 18px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; }
     .foot a { color:#93b0ff; text-decoration:none; }
-    audio { width:0; height:0; opacity:0; position:absolute; }
     body.gone .nav, body.gone .controls, body.gone .lead, body.gone .eyebrow, body.gone h1, body.gone .hint, body.gone .foot {
       opacity:0; pointer-events:none; transition:opacity 2.2s ease;
     }
@@ -45,55 +45,120 @@
   <main>
     <p class="eyebrow">Six minutes</p>
     <h1>Still</h1>
-    <p class="lead">Start it, lock the phone, put it down. Same as a song.</p>
-    <p class="line" id="line">Stay. Or sleep. Same.</p>
-    <audio id="session" src="./still-session.mp3" preload="auto" playsinline></audio>
+    <p class="lead">Volume up. Silent switch off. Tap Begin.</p>
+    <p class="line" id="line"></p>
     <div class="controls">
       <button class="primary" id="begin" type="button">Begin</button>
       <button id="stop" type="button" disabled>Stop</button>
     </div>
-    <p class="hint">iPhone: tap Begin, then lock. Lock screen / Control Center can pause it. Add to Home Screen if Safari kills the tab.</p>
+    <p class="hint" id="hint">Uses the phone voice so it talks even without the audio file.</p>
   </main>
   <p class="foot"><a href="../">← 7EightMade</a><span>Fall down seven. Stand up eight.</span></p>
   <script>
-    var audio = document.getElementById("session");
+    var LINES = [
+      "It is late enough.",
+      "You can put the day down without finishing it.",
+      "In.",
+      "Out.",
+      "Nothing else is required.",
+      "The next thought can pass.",
+      "Weight in the body.",
+      "The room is enough.",
+      "Stay. Or sleep. Same."
+    ];
+    var GAP = 38000;
+    var lineEl = document.getElementById("line");
     var beginBtn = document.getElementById("begin");
     var stopBtn = document.getElementById("stop");
+    var running = false;
+    var timers = [];
+    var audioEl = new Audio("./still-session.mp3");
+    audioEl.preload = "auto";
 
-    function playing(on) {
-      document.body.classList.toggle("gone", on);
-      beginBtn.disabled = on;
-      stopBtn.disabled = !on;
+    function say(text) {
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.rate = 0.7;
+      u.pitch = 0.85;
+      u.volume = 1;
+      u.lang = "en-US";
+      window.speechSynthesis.speak(u);
     }
 
-    function media() {
-      if (!("mediaSession" in navigator)) return;
-      navigator.mediaSession.metadata = new MediaMetadata({
-        title: "Still",
-        artist: "7EightMade",
-        album: "A closed room"
+    function show(text) {
+      lineEl.classList.remove("on");
+      setTimeout(function () {
+        lineEl.textContent = text || "";
+        if (text) lineEl.classList.add("on");
+      }, 300);
+    }
+
+    function clearAll() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      audioEl.pause();
+      audioEl.currentTime = 0;
+    }
+
+    function stop() {
+      running = false;
+      clearAll();
+      document.body.classList.remove("gone");
+      lineEl.classList.remove("on");
+      lineEl.textContent = "";
+      beginBtn.disabled = false;
+      stopBtn.disabled = true;
+    }
+
+    function runSpeech() {
+      var t = 400;
+      LINES.forEach(function (text) {
+        timers.push(setTimeout(function () {
+          if (!running) return;
+          show(text);
+          say(text);
+        }, t));
+        t += GAP;
       });
-      navigator.mediaSession.setActionHandler("play", function () { audio.play(); });
-      navigator.mediaSession.setActionHandler("pause", function () { audio.pause(); });
-      navigator.mediaSession.setActionHandler("stop", function () { audio.pause(); audio.currentTime = 0; playing(false); });
+      timers.push(setTimeout(function () { if (running) stop(); }, t + 4000));
     }
 
-    beginBtn.addEventListener("click", function () {
-      media();
-      audio.currentTime = 0;
-      var p = audio.play();
-      if (p && p.catch) p.catch(function () {});
-      playing(true);
-    });
+    function begin() {
+      if (running) return;
+      running = true;
+      beginBtn.disabled = true;
+      stopBtn.disabled = false;
+      document.body.classList.add("gone");
+      if (window.speechSynthesis) window.speechSynthesis.getVoices();
+      var usedFile = false;
+      function goFile() {
+        usedFile = true;
+        document.getElementById("hint").textContent = "Playing the session file. Lock after you hear the first line.";
+        audioEl.play().catch(function () { runSpeech(); });
+      }
+      audioEl.onerror = function () { if (!usedFile) runSpeech(); };
+      audioEl.onplaying = function () { usedFile = true; };
+      audioEl.onended = function () { if (running) stop(); };
+      try {
+        audioEl.load();
+        var p = audioEl.play();
+        if (p && p.then) {
+          p.then(function () { usedFile = true; }).catch(function () { runSpeech(); });
+        } else {
+          setTimeout(function () { if (!usedFile) runSpeech(); }, 600);
+        }
+      } catch (e) {
+        runSpeech();
+      }
+      timers.push(setTimeout(function () {
+        if (running && audioEl.paused) runSpeech();
+      }, 700));
+    }
 
-    stopBtn.addEventListener("click", function () {
-      audio.pause();
-      audio.currentTime = 0;
-      playing(false);
-    });
-
-    audio.addEventListener("ended", function () { playing(false); });
-    audio.addEventListener("play", function () { playing(true); });
+    beginBtn.addEventListener("click", begin);
+    stopBtn.addEventListener("click", stop);
   </script>
 </body>
 </html>
