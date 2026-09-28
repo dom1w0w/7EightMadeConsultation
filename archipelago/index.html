@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Archipelago — a map of the Philippines | 7EightMade</title>
-  <meta name="description" content="Archipelago is a free choropleth atlas of the Philippines. Seventeen regions, five metrics, pan and zoom. Made with a Grok bot.">
+  <meta name="description" content="Archipelago is a free choropleth atlas of the Philippines. Seventeen regions, five metrics. Official PSA–DICT numbers. Made with a Grok bot.">
   <meta name="theme-color" content="#F3EFE6">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
@@ -37,12 +37,7 @@
       max-width: 760px; margin: 0 auto; padding: 14px 24px;
       display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
     }
-    .brand {
-      font-family: Fraunces, Georgia, serif;
-      font-size: 20px; font-weight: 600; letter-spacing: -.02em;
-      text-decoration: none;
-    }
-    .brand span { color: var(--cobalt); }
+    .brand { text-decoration: none; }
     .nav__links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
     .nav__links a {
       font-size: 13px; font-weight: 500; color: var(--muted);
@@ -111,9 +106,7 @@
     .fine a { color: var(--cobalt-text); }
     .foot { margin-top: 40px; font-size: 13px; color: var(--muted); }
     .foot a { color: var(--cobalt-text); text-decoration: none; }
-    @media (max-width: 640px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -129,49 +122,33 @@
       </div>
     </div>
   </nav>
-
   <main class="wrap">
     <p class="eyebrow">Made with a Grok bot</p>
     <h1>Seventeen regions. One map.</h1>
-    <p class="lead">Archipelago is a free atlas of the Philippines. Brighter is larger. Pan, zoom, and switch the metric.</p>
+    <p class="lead">Archipelago is a free atlas of the Philippines. Official published numbers. Switch the metric.</p>
     <div class="actions">
-      <a class="btn" href="https://comet-lark-lilac-bolt.grok.me/">Open the atlas</a>
+      <a class="btn" href="./app.html">Open the atlas</a>
       <a class="btn btn--ghost" href="../">7EightMade</a>
       <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=A%20map%20of%20my%20own">Write to the studio</a>
     </div>
-
     <ul class="metrics" aria-label="Metrics">
-      <li>Population</li>
-      <li>GDP / capita</li>
-      <li>Poverty</li>
-      <li>Internet</li>
-      <li>Unemployment</li>
+      <li>Population</li><li>GDP / capita</li><li>Poverty</li><li>Internet</li><li>Unemployment</li>
     </ul>
-
     <div class="grid">
       <div class="card"><strong>Seventeen regions</strong><span>From Calabarzon and Manila out to the Cordillera. 2020 census counts.</span></div>
-      <div class="card"><strong>Five readings</strong><span>The same islands, a different question. The color scale follows the metric you pick.</span></div>
-      <div class="card"><strong>A densest band</strong><span>Manila through Calabarzon holds the weight. The map makes that obvious.</span></div>
+      <div class="card"><strong>Five readings</strong><span>The same islands, a different question. The scale follows the metric you pick.</span></div>
+      <div class="card"><strong>A densest band</strong><span>Manila through Calabarzon holds the weight.</span></div>
       <div class="card"><strong>Yours, if you want it</strong><span>A map, a dashboard, a room. Still a letter. No checkout.</span></div>
     </div>
-
     <div class="prose">
-      <p>This is the second thing built in conversation with a Grok bot, after Vortex Breath. The atlas stays free to look at. If you want a map or a tool of your own — your places, your numbers — write. We answer by email.</p>
+      <p>This is the second thing built in conversation with a Grok bot, after Vortex Breath. The atlas stays free to look at. If you want a map or a tool of your own — write. We answer by email.</p>
     </div>
-
     <form id="letter">
-      <label>
-        <span>Your name</span>
-        <input name="name" autocomplete="name">
-      </label>
-      <label>
-        <span>What should exist</span>
-        <textarea name="note" required placeholder="A map, a dashboard, a tool…"></textarea>
-      </label>
+      <label><span>Your name</span><input name="name" autocomplete="name"></label>
+      <label><span>What should exist</span><textarea name="note" required placeholder="A map, a dashboard, a tool…"></textarea></label>
       <button class="btn" type="submit">Open a letter</button>
-      <p class="fine">Opens your mail to <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a> with the note already written.</p>
+      <p class="fine">Opens your mail to <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a>.</p>
     </form>
-
     <p class="foot"><a href="../">← 7EightMade</a> · <a href="../vortex-breath/">Vortex Breath</a> · Fall down seven. Stand up eight.</p>
     <p class="fine">Built in conversation with Grok. Not an xAI product.</p>
   </main>
