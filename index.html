@@ -212,6 +212,23 @@
     .nav__toggle:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
     .nav__cta-mobile { display: none; }
 
+    .vortex-strip {
+      margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;
+    }
+    .vortex-strip__copy { max-width: 54ch; }
+    .vortex-strip__kicker {
+      font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--cobalt-text); margin-bottom: 8px;
+    }
+    .vortex-strip__title {
+      font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
+      letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px;
+    }
+    .vortex-strip__body { font-size: 15px; color: var(--muted); }
+    .vortex-strip__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+
     .hero { padding: 88px 0 72px; scroll-margin-top: calc(var(--nav-h) + 24px); }
     .hero__grid {
       display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center;
@@ -1506,6 +1523,7 @@
         <a class="nav__link" href="#process">Process</a>
         <a class="nav__link" href="#pricing">Pricing</a>
         <a class="nav__link" href="#openclaw">OpenClaw</a>
+        <a class="nav__link" href="vortex-breath/">Vortex</a>
         <a class="nav__link" href="#faq">FAQ</a>
         <a class="btn btn--cobalt nav__cta" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
         <a class="btn btn--cobalt nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
@@ -1623,6 +1641,17 @@
             <p class="track__desc">A fully local AI stack on hardware you own. Zero data leaves your network. No cloud. No subscriptions.</p>
             <span class="track__cta">Explore OpenClaw</span>
           </a>
+        </div>
+        <div class="vortex-strip">
+          <div class="vortex-strip__copy">
+            <p class="vortex-strip__kicker">Made with a Grok bot</p>
+            <h3 class="vortex-strip__title">A minute, built in conversation.</h3>
+            <p class="vortex-strip__body">Vortex Breath is free — an enso, a singing bowl, a Fibonacci cadence. A Grok bot composed it. We directed it. Want one of your own? We still work by email.</p>
+          </div>
+          <div class="vortex-strip__actions">
+            <a class="btn btn--cobalt" href="vortex-breath/">The making</a>
+            <a class="btn btn--outline" href="https://nova-nova-cinder-birch.grok.me/">Try the breath</a>
+          </div>
         </div>
       </div>
     </section>
@@ -2041,6 +2070,7 @@
           <a href="#services">Services</a>
           <a href="#pricing">Pricing</a>
           <a href="#about">About</a>
+          <a href="vortex-breath/">Vortex</a>
           <a href="mailto:nuguidd@icloud.com">Contact</a>
         </div>
       </div>
