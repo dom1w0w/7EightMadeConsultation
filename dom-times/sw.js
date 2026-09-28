@@ -1,5 +1,5 @@
 /* The Dom Times — service worker (cache-first for shell, network-first for data) */
-const CACHE_NAME = "dom-times-v14";
+const CACHE_NAME = "dom-times-v15";
 const SHELL = [
   "./",
   "./index.html",
@@ -15,7 +15,8 @@ const SHELL = [
   "./assets/tech-demo-grokbot-day1.png",
   "./assets/tech-demo-grokbot-org.png",
   "./assets/tech-demo-delegate-not-operate.png",
-  "./assets/tech-demo-claude-26min.png"
+  "./assets/tech-demo-claude-26min.png",
+  "./assets/tech-demo-grokbot-1h-master.png"
 ];
 
 self.addEventListener("install", (event) => {
