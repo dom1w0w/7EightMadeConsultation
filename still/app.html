@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Still — lie down | 7EightMade</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0B0B0F">
+  <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../brand/fonts.css">
+  <style>
+    :root { --ink:#E8E4D8; --void:#0B0B0F; --muted:#8A8680; --cobalt:#2563FF; --line:rgba(232,228,216,.12); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html,body { height:100%; background:var(--void); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,sans-serif; }
+    body { min-height:100vh; -webkit-font-smoothing:antialiased; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 22px; }
+    .nav img { height:36px; width:auto; display:block; filter:brightness(1.15); }
+    .nav a.back { font-size:12px; font-weight:600; color:var(--muted); text-decoration:none; }
+    main { min-height:calc(100vh - 72px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 24px 88px; text-align:center; }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--cobalt); margin-bottom:16px; }
+    h1 { font-family:Fraunces,Georgia,serif; font-weight:500; font-size:clamp(36px,7vw,56px); letter-spacing:-.03em; margin-bottom:12px; }
+    .lead { color:var(--muted); max-width:28ch; margin-bottom:28px; }
+    .line { font-family:Fraunces,Georgia,serif; font-size:clamp(22px,4vw,32px); font-weight:500; min-height:2.6em; max-width:18ch; opacity:0; transition:opacity 1.6s ease; }
+    .line.on { opacity:1; }
+    .pulse { width:10px; height:10px; border-radius:50%; background:var(--cobalt); opacity:.3; margin:28px auto 0; transform:scale(.7); transition:transform 4s ease, opacity 4s ease; }
+    .pulse.breathe { transform:scale(1.4); opacity:.75; }
+    .controls { margin-top:40px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+    button { min-height:44px; padding:12px 20px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--ink); font:inherit; font-size:14px; font-weight:650; cursor:pointer; }
+    button.primary { background:var(--cobalt); border-color:var(--cobalt); color:#fff; }
+    button:disabled { opacity:.35; }
+    .hint { margin-top:16px; font-size:12px; color:var(--muted); }
+    .foot { position:fixed; bottom:0; left:0; right:0; padding:14px 22px 18px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; }
+    .foot a { color:#93b0ff; text-decoration:none; }
+    body.gone .nav, body.gone .controls, body.gone .lead, body.gone .eyebrow, body.gone h1, body.gone .hint, body.gone .foot {
+      opacity:0; pointer-events:none; transition:opacity 2.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="../" aria-label="7EightMade"><img src="../brand/logo-horizontal.svg" alt="7EightMade"></a>
+    <a class="back" href="./">Still</a>
+  </nav>
+  <main>
+    <p class="eyebrow">Six minutes</p>
+    <h1>Still</h1>
+    <p class="lead">Phone on the table. Volume low. Begin, then don’t watch.</p>
+    <p class="line" id="line" aria-live="polite"></p>
+    <div class="pulse" id="pulse" hidden></div>
+    <div class="controls">
+      <button class="primary" id="begin" type="button">Begin</button>
+      <button id="stop" type="button" disabled>Stop</button>
+    </div>
+    <p class="hint">Recorded voice when packed. Screen fades. App goes quiet on its own.</p>
+  </main>
+  <p class="foot"><a href="../">← 7EightMade</a><span>Fall down seven. Stand up eight.</span></p>
+  <script src="./voice-data.js"></script>
+  <script>
+    var LINES = [
+      "It’s late enough.",
+      "You can put the day down without finishing it.",
+      "In.",
+      "Out.",
+      "Nothing else is required.",
+      "The next thought can pass.",
+      "Weight in the body.",
+      "The room is enough.",
+      "Stay. Or sleep. Same."
+    ];
+    var GAP = 38000;
+    var lineEl = document.getElementById("line");
+    var pulse = document.getElementById("pulse");
+    var beginBtn = document.getElementById("begin");
+    var stopBtn = document.getElementById("stop");
+    var running = false;
+    var timers = [];
+    var breathTimer;
+    var currentAudio;
+    var clips = [];
+
+    function blobUrl(b64) {
+      var bin = atob(b64);
+      var arr = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+      return URL.createObjectURL(new Blob([arr], { type: "audio/mpeg" }));
+    }
+
+    function prepare() {
+      if (clips.length) return;
+      var src = window.STILL_VOICES || [];
+      clips = src.map(blobUrl);
+    }
+
+    function speakIndex(i) {
+      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+      if (clips[i]) {
+        currentAudio = new Audio(clips[i]);
+        currentAudio.play().catch(function () {});
+        return;
+      }
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(LINES[i]);
+      u.rate = 0.72; u.pitch = 0.85; u.volume = 0.85;
+      window.speechSynthesis.speak(u);
+    }
+
+    function clearAll() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      if (breathTimer) clearInterval(breathTimer);
+      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    }
+
+    function stop() {
+      running = false;
+      clearAll();
+      document.body.classList.remove("gone");
+      lineEl.classList.remove("on");
+      lineEl.textContent = "";
+      pulse.hidden = true;
+      beginBtn.disabled = false;
+      stopBtn.disabled = true;
+    }
+
+    function show(text) {
+      lineEl.classList.remove("on");
+      setTimeout(function () {
+        lineEl.textContent = text;
+        if (text) lineEl.classList.add("on");
+      }, 400);
+    }
+
+    function startBreath() {
+      pulse.hidden = false;
+      var on = false;
+      breathTimer = setInterval(function () {
+        on = !on;
+        pulse.classList.toggle("breathe", on);
+      }, 4000);
+    }
+
+    function wakeLock() {
+      if (navigator.wakeLock && navigator.wakeLock.request) {
+        navigator.wakeLock.request("screen").catch(function () {});
+      }
+    }
+
+    function begin() {
+      if (running) return;
+      prepare();
+      running = true;
+      beginBtn.disabled = true;
+      stopBtn.disabled = false;
+      document.body.classList.add("gone");
+      startBreath();
+      wakeLock();
+      var t = 800;
+      LINES.forEach(function (text, i) {
+        timers.push(setTimeout(function () {
+          if (!running) return;
+          show(text);
+          speakIndex(i);
+        }, t));
+        t += GAP;
+      });
+      timers.push(setTimeout(function () {
+        if (!running) return;
+        show("");
+        pulse.hidden = true;
+      }, t));
+    }
+
+    beginBtn.addEventListener("click", begin);
+    stopBtn.addEventListener("click", stop);
+  </script>
+</body>
+</html>
