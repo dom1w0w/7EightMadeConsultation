@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muse AI 101 — $20 | 7EightMade</title>
+  <meta name="description" content="Muse AI 101. A starter PDF for Meta's Muse: what it is, how to set it up, and the first brief that gets a real result. $20. Opens 10:00 AM CT Tue Sep 29, closes 6:00 PM CT. Pay Cash App $dom1w0w.">
+  <meta name="theme-color" content="#0B0B0F">
+  <meta property="og:title" content="Muse AI 101 — $20 · 8-hour drop">
+  <meta property="og:description" content="A starter PDF for Meta's Muse. Opens 10:00 AM CT · closes 6:00 PM CT.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/muse-ai-101/">
+  <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../brand/fonts.css">
+  <style>
+    :root {
+      --ink: #0B0B0F;
+      --paper: #F3EFE6;
+      --teal: #5EEAD4;
+      --muted: rgba(243,239,230,.62);
+      --amber: #FBBF24;
+      --amber-ink: #92400E;
+      --amber-bg: #FDE68A;
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: var(--ink);
+      color: var(--paper);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 48px 24px 72px; }
+    .live-pill {
+      display: inline-block; margin-bottom: 14px;
+      font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+      color: #0B0B0F; background: var(--teal); border: 1px solid #2DD4BF;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .live-pill.is-soon { color: var(--teal); background: transparent; border: 1px solid rgba(94,234,212,.5); }
+    .live-pill.is-mid { color: var(--amber-ink); background: var(--amber-bg); border-color: #F59E0B; }
+    .live-pill.is-closed { color: var(--muted); background: transparent; border: 1px solid rgba(243,239,230,.2); }
+    .term {
+      margin-bottom: 22px; border: 1px solid rgba(94,234,212,.28); border-radius: 14px;
+      background: #101018; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 18px 50px rgba(0,0,0,.35);
+    }
+    .term__bar {
+      display: flex; align-items: center; gap: 6px; padding: 10px 12px;
+      background: #1a1a22; border-bottom: 1px solid rgba(243,239,230,.08);
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dot--r { background: #FF5F57; } .dot--y { background: #FEBC2E; } .dot--g { background: #28C840; }
+    .term__title { margin-left: 8px; font-family: var(--mono); font-size: 11px; color: rgba(243,239,230,.45); }
+    .term__body { padding: 18px 16px 16px; font-family: var(--mono); }
+    .term__prompt { font-size: 12px; color: rgba(94,234,212,.7); margin-bottom: 8px; }
+    .muse-word {
+      font-size: clamp(42px, 12vw, 72px); font-weight: 700; letter-spacing: .18em;
+      color: var(--teal); text-shadow: 0 0 24px rgba(94,234,212,.35);
+      line-height: 1;
+    }
+    .muse-sub { margin-top: 6px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: rgba(243,239,230,.45); }
+    .cron { font-family: var(--mono); font-size: 13px; color: rgba(94,234,212,.75); margin-bottom: 6px; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(34px, 7.5vw, 54px); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; margin-bottom: 16px; }
+    .lead { font-size: 17px; color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
+    .lead strong { color: var(--paper); font-weight: 600; }
+    .card { border: 1px solid rgba(243,239,230,.12); background: #14141c; border-radius: 20px; padding: 28px 24px; margin-bottom: 20px; }
+    .kicker { font-family: Fraunces, Georgia, serif; font-size: 22px; font-weight: 600; color: var(--teal); margin-bottom: 8px; }
+    .price { font-size: 42px; font-weight: 700; letter-spacing: -.03em; margin: 8px 0 12px; }
+    .price span { font-size: 16px; font-weight: 500; color: var(--muted); }
+    .meta { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+    .toc { list-style: none; margin: 16px 0 0; display: grid; gap: 8px; }
+    .toc li { font-size: 15px; color: var(--paper); }
+    .toc strong { color: var(--teal); font-weight: 600; margin-right: 8px; font-family: var(--mono); }
+    .steps { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(243,239,230,.1); font-size: 14px; color: var(--paper); line-height: 1.7; }
+    .cash { color: var(--teal); font-weight: 700; }
+    .clock { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 20px; font-weight: 600; letter-spacing: .04em; color: var(--teal); margin-top: 16px; }
+    .clock.is-mid { color: var(--amber); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; background: #5EEAD4; color: #0B0B0F; font-weight: 700; text-decoration: none; font-size: 14px; padding: 12px 18px; border-radius: 999px; min-height: 44px; }
+    .btn--ghost { background: transparent; color: var(--paper); border: 1px solid rgba(243,239,230,.22); }
+    .btn--disabled { background: transparent; color: var(--muted); border: 1px dashed rgba(94,234,212,.4); cursor: not-allowed; }
+    .foot { margin-top: 36px; font-size: 12px; color: rgba(243,239,230,.4); }
+    .foot a { color: var(--teal); text-decoration: none; }
+    .disclaimer { margin-top: 8px; font-size: 11px; color: rgba(243,239,230,.32); }
+    .lead--when { font-size: 15px; margin-top: -14px; }
+    @media (max-width: 420px) { .clock { font-size: 16px; } }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="live-pill is-soon" id="livePill">Opens 10:00 AM CT</p>
+    <div class="term" aria-hidden="true">
+      <div class="term__bar"><span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span><span class="term__title">7EightMade — Cosmic Terminal</span></div>
+      <div class="term__body">
+        <p class="term__prompt">$ python muse.py --lesson 101</p>
+        <p class="muse-word">MUSE</p>
+        <p class="muse-sub">AI 101 · 8 hours</p>
+      </div>
+    </div>
+    <p class="eyebrow">Cosmic Terminal drop</p>
+    <h1>Muse AI 101</h1>
+    <p class="lead" id="lead"><strong>Muse is a personal AI. This is the starter.</strong> What it is, how to set it up, the first brief that gets a real result, and the guardrails so it doesn't run off.</p>
+    <p class="lead lead--when">$20 · short PDF. Opens 10:00 AM CT Tuesday — then 8 hours. Gone 6:00 PM CT.</p>
+
+    <section class="card" id="offerCard" aria-label="Buy Muse AI 101">
+      <p class="kicker">The starter PDF</p>
+      <p class="price">$20 <span>/ one-time</span></p>
+      <p class="meta">$20 · STARTER PDF · 8-HOUR DROP · 10:00 AM → 6:00 PM CT</p>
+      <ul class="toc">
+        <li><strong>01</strong> What Muse is</li>
+        <li><strong>02</strong> Set it up</li>
+        <li><strong>03</strong> The first brief</li>
+        <li><strong>04</strong> Guardrails</li>
+      </ul>
+      <p class="steps">
+        <strong>1.</strong> Send $20 to Cash App <span class="cash">$dom1w0w</span><br>
+        <strong>2.</strong> Request the PDF — emails <strong>nuguidd@icloud.com</strong> (CC Gmail)<br>
+        <strong>3.</strong> PDF ships after payment clears
+      </p>
+      <p class="clock" id="clock">Opens 10:00 AM CT</p>
+      <div class="actions" id="preActions">
+        <span class="btn btn--disabled" aria-disabled="true">Opens 10:00 AM CT</span>
+      </div>
+      <div class="actions" id="liveActions" hidden>
+        <a class="btn" href="https://cash.app/$dom1w0w/20">Pay $20 on Cash App</a>
+        <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Muse%20AI%20101%20%E2%80%93%20%2420&amp;body=Hi%20Dom%2C%0A%0AI%20want%20the%20Muse%20AI%20101%20PDF%20(%2420%20%2F%208h%20drop).%0A%0AName%20on%20your%20Cash%20App%20payment%20(or%20%24cashtag)%3A%20%0ACash%20App%20sent%20to%20%24dom1w0w%3A%20%5Byes%20%2F%20pending%5D%0ANotes%3A%20%0A">I paid — request the PDF</a>
+      </div>
+    </section>
+
+    <section class="card" id="closedCard" hidden aria-label="Muse AI 101 drop closed">
+      <p class="kicker">Offer ended</p>
+      <p class="meta">The 8-hour Muse AI 101 drop is over. No more requests for this promo.</p>
+      <div class="actions">
+        <a class="btn" href="../">Back to 7EightMade</a>
+        <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+      </div>
+    </section>
+
+    <p class="foot"><a href="../">← 7EightMade</a> · fall down 7 stand up 8</p>
+    <p class="disclaimer">Independent guide. Not affiliated with or endorsed by Meta. Muse is a Meta product name, used here only to describe the guide.</p>
+  </main>
+  <script>
+    const start = Date.parse('2026-09-29T15:00:00Z');
+    const mid = Date.parse('2026-09-29T19:00:00Z');
+    const end = Date.parse('2026-09-29T23:00:00Z');
+    const clock = document.getElementById('clock');
+    const pill = document.getElementById('livePill');
+    const lead = document.getElementById('lead');
+    const when = document.querySelector('.lead--when');
+    const offer = document.getElementById('offerCard');
+    const closed = document.getElementById('closedCard');
+    const preActions = document.getElementById('preActions');
+    const liveActions = document.getElementById('liveActions');
+    let timer = null;
+    function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+    function hms(ms) {
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      const s = Math.floor((ms % 60000) / 1000);
+      return pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+    function tick() {
+      const now = Date.now();
+      if (now < start) {
+        pill.textContent = 'Opens 10:00 AM CT';
+        pill.className = 'live-pill is-soon';
+        clock.textContent = 'Opens in ' + hms(start - now);
+        preActions.hidden = false;
+        liveActions.hidden = true;
+        return;
+      }
+      const ms = end - now;
+      if (ms <= 0) {
+        clock.textContent = '00:00:00';
+        pill.textContent = 'Offer ended';
+        pill.className = 'live-pill is-closed';
+        lead.textContent = 'The 8-hour Muse AI 101 drop is over. No more requests for this promo.';
+        offer.hidden = true;
+        closed.hidden = false;
+        if (when) when.hidden = true;
+        if (timer) clearInterval(timer);
+        return;
+      }
+      preActions.hidden = true;
+      liveActions.hidden = false;
+      if (now >= mid) {
+        pill.textContent = 'Under 4 hours left';
+        pill.className = 'live-pill is-mid';
+        clock.classList.add('is-mid');
+      } else {
+        pill.textContent = 'Live — 8 hours';
+        pill.className = 'live-pill';
+        clock.classList.remove('is-mid');
+      }
+      clock.textContent = hms(ms) + ' left · closes 6:00 PM CT';
+    }
+    tick();
+    timer = setInterval(tick, 1000);
+  </script>
+</body>
+</html>
