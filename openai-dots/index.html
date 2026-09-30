@@ -90,7 +90,7 @@
 </head>
 <body>
   <main class="wrap">
-    <p class="live-pill is-soon" id="livePill">Opens 1:11 PM CT</p>
+    <p class="live-pill is-soon" id="livePill">Ordering locked</p>
     <div class="term" aria-hidden="true">
       <div class="term__bar"><span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span><span class="term__title">7EightMade — Cosmic Terminal</span></div>
       <div class="term__body">
@@ -119,7 +119,7 @@
       </p>
       <p class="clock" id="clock">Opens 1:11 PM CT</p>
       <div class="actions" id="liveActions">
-        <span class="btn btn--disabled" aria-disabled="true">Price locking</span>
+        <span class="btn btn--disabled" id="lockBtn" aria-disabled="true">Ordering locked</span>
       </div>
     </section>
 
@@ -156,9 +156,11 @@
     function tick() {
       const now = Date.now();
       if (now < start) {
-        pill.textContent = 'Opens 1:11 PM CT';
+        pill.textContent = 'Ordering locked';
         pill.className = 'live-pill is-soon';
         clock.textContent = 'Opens in ' + hms(start - now);
+        const lock = document.getElementById('lockBtn');
+        if (lock) lock.textContent = 'Ordering locked';
         return;
       }
       const ms = end - now;
@@ -173,6 +175,8 @@
         if (timer) clearInterval(timer);
         return;
       }
+      const lock = document.getElementById('lockBtn');
+      if (lock) lock.textContent = 'Price locking';
       if (now >= mid) {
         pill.textContent = 'Under 5 hours left';
         pill.className = 'live-pill is-mid';
