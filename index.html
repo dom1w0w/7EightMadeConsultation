@@ -1619,8 +1619,8 @@
   <aside class="drop-band drop-band--soon" id="openai-dots" aria-label="OpenAI Dots — opens 1:11 PM CT">
     <div class="drop-band__inner">
       <div class="drop-band__copy">
-        <div><span class="drop-band__urgent" id="dropClock">Opens 1:11 PM CT</span> <strong>OpenAI Dots</strong> · 10h · <span id="dropState">Opens 1:11 PM CT</span></div>
-        <div class="drop-band__meta" id="dropMeta">Always-on ChatGPT agents · opens 1:11 PM CT</div>
+        <div><span class="drop-band__urgent" id="dropClock">Opens 1:11 PM CT</span> <strong>OpenAI Dots</strong> · 10h · <span id="dropState">Ordering locked</span></div>
+        <div class="drop-band__meta" id="dropMeta">Countdown to 1:11 PM CT · ordering locked</div>
       </div>
       <a class="btn" id="dropBtn" href="openai-dots/">See the OpenAI Dots guide</a>
     </div>
@@ -2626,9 +2626,12 @@
         if (!band) return;
         if (now < start) {
           band.classList.add('drop-band--soon');
+          band.classList.remove('drop-band--mid');
           if (clock) clock.textContent = 'Opens in ' + hms(start - now);
-          if (state) state.textContent = 'Opens 1:11 PM CT';
-          if (meta) meta.textContent = 'Always-on ChatGPT agents · opens 1:11 PM CT';
+          if (state) state.textContent = 'Ordering locked';
+          if (meta) meta.textContent = 'Countdown to 1:11 PM CT · ordering locked';
+          if (hero) hero.textContent = 'See the OpenAI Dots guide';
+          band.setAttribute('aria-label', 'OpenAI Dots — ordering locked, opens 1:11 PM CT');
           return;
         }
         if (now >= end) {
