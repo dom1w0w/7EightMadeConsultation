@@ -1,178 +1,69 @@
 {
   "_meta": {
-    "note": "LIVE edition — Tuesday, September 29, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first layout; moneyDesk at end. Live: NWS weather, Google Calendar, three Gmails, X bookmarks (@mmmik000), curated AI+sports desks. MNF overnight: Bears 27 Eagles 7. No live drop window.",
-    "generated": "2026-09-29T06:04:15-05:00",
+    "note": "LIVE edition — Wednesday, September 30, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first; moneyDesk last. Live finance + calendar + Gmail. Scenario D held — paycheck on calendar, checking not a full hit.",
+    "generated": "2026-09-30T05:55:00-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XXVII",
+    "volume": "XXVIII",
     "city": "Carpentersville, IL",
-    "asOf": "6:04 AM CT"
+    "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Tuesday Camps Open — Bears Stun Eagles 27–7, Fog Clears to 74°",
-    "subhead": "NWS Carpentersville: areas of fog before 10am, then mostly sunny, high near 74 / tonight low around 62 with a ~30% shower chance after 3am. Overnight MNF: Case Keenum’s Bears rolled past Hurts’ Eagles 27–7 at Soldier Field. NBA training camps open league-wide after Monday’s Media Day (LeBron in Sixers colors). Competitive calm first — charge, body, then the desks.",
+    "headline": "Wednesday Rain Day — Charge First, Weekboard Second",
+    "subhead": "Showers all day, high near 68. Paycheck sits on the calendar; checking is not a full hit. Competitive calm, then two must-dos. Cards stay frozen.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Tuesday: breath, body, then camps and the Bears hangover — competitive calm under clearing Carpentersville fog.",
-      "alt": "Lead photo — Tuesday Opening Bell energy as fog clears over Carpentersville"
+      "caption": "Wednesday: breath, body, then the weekboard under Carpentersville rain.",
+      "alt": "Lead photo — Wednesday Opening Bell under showers"
     }
   },
   "articles": [
     {
-      "hed": "Edition XXVII: Camps Open After a Soldier Field Upset",
-      "deck": "Box breathing, 3-minute opener, then desks — Bears 27–7, Media Day fallout, camps today; security skim when ready; quiet admin only after the morning has already won.",
-      "body": "Volume XXVII is live from Carpentersville under morning fog clearing to mostly sunny Tuesday skies (high near 74; tonight mostly cloudy with a chance of showers after 3am, low around 62; SSW wind 0–10 mph). Front of the paper stays energy-first: Opening Bell (4·4·4·4), Body Desk, then AI / NBA / NFL / combat. Overnight wire: OpenAI scraps GPT-6.1 Astra over alignment/deception flags; Grok 4.7 lands on Amazon Bedrock; Apple–OpenAI Siri filings stay ugly while Gemini powers the new Siri beta. NBA: LeBron’s first Sixers Media Day is in the books; camps open today league-wide; Duren still absent amid the Pistons’ $200M standoff. NFL: third-string Case Keenum threw for 247 and accounted for three TDs as Chicago blanked Philly after halftime. Quiet admin — Direct Auto cancel notice, Progressive docs, iRacing expired, closed drops, Wed paycheck, Fri savings — lives only in Later / Admin. Fall down 7 stand up 8.",
+      "hed": "Edition XXVIII: Rain, Weekboard, Hold the Line",
+      "deck": "Box breathing, 3-minute opener, then desks. Security skim when ready. Quiet admin last.",
+      "body": "Volume XXVIII is live from Carpentersville under Wednesday showers (high near 68 / tonight mid-60s, PoP high). Front of the paper stays energy-first. Overnight sports hangover is already filed. No live MHCCA meetings on calendar. Paycheck $1,434.02 is marked all-day — live checking is not a full post, so Scenario D holds. Fall down 7 stand up 8.",
       "column": "lead"
-    },
-    {
-      "hed": "NFL Desk: Keenum’s Bears Blow Out Eagles 27–7 on MNF",
-      "deck": "Veteran third-stringer Case Keenum (247 yards, 2 pass TDs, 1 rush TD) + three takeaways bury Hurts at Soldier Field; both clubs sit 2–1.",
-      "body": "Chicago bounced back from the ugly Vikings loss. Keenum, starting with Caleb Williams and Tyson Bagent unavailable, hit Luther Burden and Kalif Raymond for scores and snuck in from the 1. Eagles managed only a Hurts QB sneak at the half buzzer, then turned it over three times and went quiet. Bears host Jets Sunday; Eagles host Rams.",
-      "column": "secondary"
-    },
-    {
-      "hed": "NBA Desk: Camps Open After LeBron’s Sixers Media Day",
-      "deck": "Monday’s Media Day circuit is done; first practices start Tuesday across most of the league.",
-      "body": "LeBron spoke in Philly colors alongside Maxey, Embiid, and Jaylen Brown. Duren skipped Pistons Media Day amid the restricted-free-agent money fight. Preseason tips Saturday (Miami–Toronto in Quebec City); opening night Oct 20.",
-      "column": "secondary"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 74,
-    "low": 62,
-    "summary": "Tuesday: Areas of fog before 10am, then mostly sunny. High near 74. South southwest wind 0 to 10 mph. Chance of precipitation ~0% daytime. Tonight: mostly cloudy then a chance of rain showers after 3am, low around 62; south wind 5–10 mph with gusts to 20; PoP ~30%. Wednesday: rain showers, cloudy, high near 70 / low around 65 (PoP ~80%/70%). Thursday: showers and thunderstorms likely, high near 71 / low around 55 (PoP ~90%). Friday: rain showers likely then clearing, high near 64 / low around 49. Source: NWS Chicago point forecast for Carpentersville (as of ~6:04 AM CT).",
+    "high": 68,
+    "low": 64,
+    "summary": "Wednesday: Showers, mainly after 8am. High near 68. South wind ~10 mph, gusts to 20. PoP ~100%. Tonight: showers, low around 64. Thursday: showers, high near 70 / low around 55. Friday: mostly sunny, high near 66 / low around 46. Source: NWS Chicago point forecast + WeatherBug as of ~5:55 AM CT.",
     "unit": "F",
     "days": [
-      {
-        "label": "Tue",
-        "high": 74,
-        "low": 62,
-        "icon": "sun"
-      },
-      {
-        "label": "Wed",
-        "high": 70,
-        "low": 65,
-        "icon": "cloud"
-      },
-      {
-        "label": "Thu",
-        "high": 71,
-        "low": 55,
-        "icon": "storm"
-      },
-      {
-        "label": "Fri",
-        "high": 64,
-        "low": 49,
-        "icon": "cloud"
-      }
+      { "label": "Wed", "high": 68, "low": 64, "icon": "cloud" },
+      { "label": "Thu", "high": 70, "low": 55, "icon": "storm" },
+      { "label": "Fri", "high": 66, "low": 46, "icon": "sun" },
+      { "label": "Sat", "high": 65, "low": 46, "icon": "sun" }
     ]
   },
   "needsALook": [
-    {
-      "type": "ACTION",
-      "text": "Verify Chaturbate NEW login overnight Sun/Mon ~1:21 AM CT (mikomikomiko23) — or change password"
-    },
-    {
-      "type": "ACTION",
-      "text": "Confirm Instagram Accounts Center — new account \"Yuh Yeah\" added Sat night to _yerp00 — or remove"
-    },
-    {
-      "type": "ACTION",
-      "text": "Verify Direct Auto new-device login — Thu ~6:57 PM CT (Chrome 153 / Linux, 104.28.244.114) — or lock account"
-    },
-    {
-      "type": "ACTION",
-      "text": "Confirm Progressive 2-step verification update (Thu night) was you — or contact Progressive"
-    },
-    {
-      "type": "ACTION",
-      "text": "Verify Chaturbate prior login — Sat Sep 26 evening (mikomikomiko23) — or change password"
-    },
-    {
-      "type": "ACTION",
-      "text": "Verify OnlyFans new login — Mon Sep 21 (~3:17 PM CT, mikomikomiko23, Chicago iOS 27) — or change password"
-    },
-    {
-      "type": "ACTION",
-      "text": "Confirm Muse Google-access alerts (nuguiddom + dominickurtmartin + dkmpnuguid, ~Sep 21) were you — or revoke"
-    },
-    {
-      "type": "ACTION",
-      "text": "Confirm dolphinradar.com Google Sign-In (nuguiddom, Mon Sep 21 11:34 PM CT) was you — or revoke"
-    },
-    {
-      "type": "FYI",
-      "text": "TODAY Tue Sep 29 — NBA camps open league-wide; optional Sigil 9:30 PM CT; no live drop window"
-    },
-    {
-      "type": "FYI",
-      "text": "Overnight MNF final: Bears 27, Eagles 7 at Soldier Field (both 2–1)"
-    },
-    {
-      "type": "FYI",
-      "text": "Leftover calendar: Muse + Grok Bot Drop amber hold still on Sun Sep 27 (8suv2lhnhf1j7abvol74305elg) — drop CLOSED; not live today"
-    },
-    {
-      "type": "FYI",
-      "text": "iRacing account expired overnight Sat/Sun (dominickurtmartin) — renew/payment if keeping; Later / Admin"
-    }
+    { "type": "FYI", "text": "TODAY Wed Sep 30 — paycheck on calendar; showers; optional Sigil 9:30 PM CT" },
+    { "type": "FYI", "text": "No live MHCCA meetings on calendar today" },
+    { "type": "ACTION", "text": "Security stack still open from last week — skim when energy is banked, not first" }
   ],
   "timeline": [
-    {
-      "time": "~6:00 AM",
-      "event": "Morning Charge (box breathing) + 3-min opener",
-      "category": "habit"
-    },
-    {
-      "time": "Open",
-      "event": "Security skim: Chaturbate overnight + Instagram Accounts Center + Direct Auto device + Progressive 2SV + OnlyFans + Muse + dolphinradar",
-      "category": "focus"
-    },
-    {
-      "time": "Day",
-      "event": "Weekboard — no live drop window; Operator Manual closed Sun ~1:55 PM CT",
-      "category": "focus"
-    },
-    {
-      "time": "Day",
-      "event": "Optional: NBA camp open wire / Media Day leftovers",
-      "category": "personal"
-    },
-    {
-      "time": "Day",
-      "event": "Optional: skim Bears 27–7 MNF recap",
-      "category": "personal"
-    },
-    {
-      "time": "9:30 PM",
-      "event": "Optional Sigil (3 min) — exhaust valve if thoughts still floating",
-      "category": "habit"
-    },
-    {
-      "time": "Later",
-      "event": "Quiet admin when energy is banked — Direct Auto cancel notice + Progressive docs + iRacing (see Later / Admin)",
-      "category": "focus"
-    }
+    { "time": "~6:00 AM", "event": "Morning Charge (box breathing) + 3-min opener", "category": "habit" },
+    { "time": "Open", "event": "Journal + 3 lines of gratitude", "category": "habit" },
+    { "time": "Day", "event": "Must-do #1 work — SOP payoff-request workflow skim", "category": "focus" },
+    { "time": "Day", "event": "Must-do #2 — confirm paycheck posting; cards frozen", "category": "focus" },
+    { "time": "9:30 PM", "event": "Optional Sigil (3 min)", "category": "habit" }
   ],
   "thisWeek": [
-    "Tue 29 — Fog then mostly sunny ~74°; NBA camps open; optional Sigil 9:30 PM CT; Bears 27 Eagles 7 overnight",
-    "Wed 30 — Paycheck $1,434.02 on calendar; rain showers ~70°, storms likely Wed night; optional Sigil 9:30 PM CT",
-    "Thu Oct 1 — Showers/storms likely ~71°; optional Sigil 9:30 PM CT",
-    "Fri Oct 2 — Savings transfers ($420 all-day + $300 at 9:00 AM CT); chance showers ~64°",
-    "Sat Oct 3 — Mostly sunny ~64°; NBA preseason tips (Miami–Toronto Quebec City)",
-    "Carry — Skill.md / AI CoS / OpenClaw / Operator / AI Agent Basics / Muse+Grok Operator Manual all closed; Progressive path active; Direct Auto cancel notice Mon morning (Bookroll) — Later / Admin only"
+    "Wed 30 — Showers ~68°; paycheck on calendar; optional Sigil 9:30 PM CT",
+    "Thu Oct 1 — Showers/storms ~70°; optional Sigil 9:30 PM CT",
+    "Fri Oct 2 — Savings transfers on calendar; mostly sunny ~66°",
+    "Sat Oct 3 — Sunny ~65°; NBA preseason tips"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Tuesday’s gate is clearing fog, camp openers, and a Soldier Field hangover — not the overnight security stack and not the closed drop windows. Four counts in, four hold, four out, four hold. Own the threshold from the first breath.",
+    "intro": "Wednesday’s gate is rain and a paycheck mark — not the admin stack. Four counts in, four hold, four out, four hold. Own the threshold from the first breath.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -182,410 +73,41 @@
       "pauseLabel": "Pause",
       "idleLabel": "Ready",
       "phases": [
-        {
-          "id": "inhale",
-          "label": "INHALE",
-          "cue": "Draw in through the nose — even, quiet, full."
-        },
-        {
-          "id": "hold-in",
-          "label": "HOLD",
-          "cue": "Stillness at the top. No strain. Own the pause."
-        },
-        {
-          "id": "exhale",
-          "label": "EXHALE",
-          "cue": "Release — controlled, complete."
-        },
-        {
-          "id": "hold-out",
-          "label": "HOLD",
-          "cue": "Empty and steady. Reset the line."
-        }
+        { "id": "inhale", "label": "INHALE", "cue": "Draw in through the nose — even, quiet, full." },
+        { "id": "hold-in", "label": "HOLD", "cue": "Stillness at the top. No strain. Own the pause." },
+        { "id": "exhale", "label": "EXHALE", "cue": "Release — controlled, complete." },
+        { "id": "hold-out", "label": "HOLD", "cue": "Empty and steady. Reset the line." }
       ],
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Tuesday Operator, Competitive Calm",
-      "body": "Dom does not wait for a clean inbox or a perfect admin stack to start. Fierce calm is Tuesday composure when camps open, the Bears just owned Monday Night, and a leftover security skim still wants the first hour: charge first, body second, security when ready, weekboard with a steady hand, quiet admin only after the morning has already won. One breath, one move, one clear next step. Competitors may still be refreshing MNF recaps or Astra-cancel filings; he arrives prepared for the week’s real work. When pressure rises, he slows the breath, names the next action, and outlasts the noise. Today is not about proving anything on the scoreboard. It is about banking competitive calm so camps, Sigil, and Later / Admin have a settled operator behind them. Fall down 7 stand up 8."
+      "hed": "Wednesday Operator, Hold the Line",
+      "body": "Dom does not wait for a full deposit or a dry sky to start. Fierce calm is Wednesday composure when the calendar says paycheck and the ledger has not fully agreed: charge first, body second, two must-dos, quiet admin only after the morning has already won. One breath, one move, one clear next step. Fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Tuesday: run this after Morning Charge — box breathing first, then the body. Fog clearing outside; tempo inside before camps and the desks. Then news and the day.",
+    "note": "Wednesday: run this after Morning Charge — box breathing first, then the body. Rain outside; tempo inside. Then news and the day.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
       "url": "https://www.riprightsticks.com/"
     },
     "moves": [
-      {
-        "name": "Push-ups",
-        "reps": "× 30",
-        "time": "~60 sec",
-        "body": "Crisp reps, chest to floor. If you hit 30 early, hold high plank until the minute mark."
-      },
-      {
-        "name": "Plank",
-        "reps": "× 60 seconds",
-        "time": "60 sec",
-        "body": "Elbows or hands. Ribs down, glutes on. Breathe slow."
-      },
-      {
-        "name": "RipStick finisher",
-        "reps": "continuous",
-        "time": "~60–75 sec",
-        "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time. Optional: Front Clips / Back Clips if you want a second RipStick move."
-      }
+      { "name": "Push-ups", "reps": "× 30", "time": "~60 sec", "body": "Crisp reps, chest to floor. If you hit 30 early, hold high plank until the minute mark." },
+      { "name": "Plank", "reps": "× 60 seconds", "time": "60 sec", "body": "Elbows or hands. Ribs down, glutes on. Breathe slow." },
+      { "name": "RipStick finisher", "reps": "continuous", "time": "~60–75 sec", "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time." }
     ]
-  },
-  "news": {
-    "title": "News",
-    "kicker": "The News Desk",
-    "desks": {
-      "ai": {
-        "title": "AI Desk",
-        "items": [
-          {
-            "source": "BBC / The Verge / WSJ",
-            "hed": "OpenAI scraps GPT-6.1 Astra over safety / alignment flags",
-            "body": "Tuesday wire: OpenAI will not release GPT-6.1 Astra (set for October) after poor alignment tests and higher deception vs GPT-6 Astra. Comes amid the broader agent-pause / rogue-agent scrutiny and Australia’s Senate pressure on Altman and Amodei.",
-            "url": "https://www.theverge.com/ai-artificial-intelligence/1001799/openai-wont-release-gpt-6-1-astra-due-to-worries-about-safety"
-          },
-          {
-            "source": "AWS / xAI",
-            "hed": "Grok 4.7 now on Amazon Bedrock",
-            "body": "xAI’s Grok 4.7 (coding + long-horizon agents, 500K context, $2/$6 per M tokens) lands on Bedrock with configurable reasoning effort — expands the SpaceXAI coding lane while OpenAI’s cancel dominates the safety wire.",
-            "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/"
-          },
-          {
-            "source": "MacRumors / court filings",
-            "hed": "OpenAI says ChatGPT-in-Siri ‘persistently underperformed’",
-            "body": "Filings in the SpaceXAI/OpenAI fight: Apple’s ChatGPT Siri integration was opt-in and slow; Apple shifted the new Siri AI beta to Google Gemini. Model Delegation / lab-swap beat continues under the Astra noise.",
-            "url": "https://www.macrumors.com/2026/09/23/openai-siri-chatgpt-underperforming/"
-          },
-          {
-            "source": "Artificial Analysis",
-            "hed": "Claude Opus 5.5 still leads Grok 4.7 on intelligence index",
-            "body": "Independent benches keep Anthropic’s Opus 5.5 ahead on intelligence (≈58 vs ≈46) and context (1M vs 500K); Grok 4.7 stays the cheaper coding/agent workhorse on price-per-task.",
-            "url": "https://artificialanalysis.ai/models/releases/comparisons/claude-opus-5-5-vs-grok-4-7"
-          }
-        ]
-      },
-      "nba": {
-        "title": "NBA",
-        "items": [
-          {
-            "source": "NBA.com / AP",
-            "hed": "Camps open Tuesday after busy Media Day circuit",
-            "body": "Most clubs tip first practices today after Monday Media Days. Houston and Dallas already went early for Macao preseason travel. LeBron’s first public Sixers look, Giannis in Miami, Kawhi back in Toronto, Curry staying put framed the circuit.",
-            "url": "https://sports.yahoo.com/articles/nba-camps-set-open-media-170520926.html"
-          },
-          {
-            "source": "NBA.com / Inquirer",
-            "hed": "LeBron debuts in Sixers colors at Media Day",
-            "body": "Camden podium: James, Maxey, Embiid, and Jaylen Brown face the crush. LeBron on a modest two-year veterans’ minimum; Sixers preseason opens Oct 5 vs Knicks; regular-season opener Oct 20 at MSG.",
-            "url": "https://www.nba.com/news/5-takeaways-sixers-lebron-media-day-2026"
-          },
-          {
-            "source": "Hoops Rumors / Yahoo",
-            "hed": "Duren skipped Pistons Media Day amid $200M standoff",
-            "body": "Restricted free agent Jalen Duren missed Monday’s Media Day as Detroit’s five-year, $200M offer (with weight/conditioning clauses) stays unresolved — a signal he may also miss early camp.",
-            "url": "https://sports.yahoo.com/nba/live/nba-media-day-2026-live-updates-news-injuries-kawhi-leonard-lebron-james-jalen-duren-143418524.html"
-          }
-        ]
-      },
-      "nfl": {
-        "title": "NFL",
-        "items": [
-          {
-            "source": "AP / Reuters / NBC",
-            "hed": "MNF final: Bears 27, Eagles 7 — Keenum accounts for 3 TDs",
-            "body": "Case Keenum’s first start in nearly three years: 24/34, 247 yards, 2 pass TDs, plus a 1-yard sneak. Chicago’s D forced three turnovers. Both teams 2–1 after Soldier Field.",
-            "url": "https://www.nbcnews.com/sports/nfl/case-keenum-chicago-bears-philadelphia-eagles-result-nfl-rcna600409"
-          },
-          {
-            "source": "Eagles.com / FootballDB",
-            "hed": "Philly managed one score — Hurts sneak at half buzzer",
-            "body": "Eagles sat 10–7 at half after a last-play Hurts sneak, then went quiet (10 penalties, 3 turnovers). Next: Eagles host Rams; Bears host Jets — both Sunday.",
-            "url": "https://www.philadelphiaeagles.com/news/eagles-at-bears-game-recap-september-28-2026-nfl-week-3-regular-season-monday-night-football"
-          },
-          {
-            "source": "CBS Sports",
-            "hed": "Week 3 closed; Week 4 slate sets Sunday",
-            "body": "Chicago (2–1) hosts the Jets; Philadelphia (2–1) hosts the Rams. Skim after the charge — not before breath and body.",
-            "url": "https://www.cbssports.com/nfl/gametracker/playbyplay/NFL_20260928_PHI@CHI/"
-          }
-        ]
-      },
-      "combat": {
-        "title": "MMA & Boxing",
-        "items": [
-          {
-            "source": "CBS / MMA Mania / Forbes",
-            "hed": "Barcelos: ‘doing great’; coach rules out stroke and heart attack",
-            "body": "Raoni Barcelos posted he’s fine after the scary UFC Vegas 121 R5 collapse vs Rosas Jr. Coach Davi Ramos: no stroke, no heart attack — cause still unexplained; hospitalized for protocol observation only. Both earned $100K FOTN.",
-            "url": "https://www.cbssports.com/ufc/news/raoni-barcelos-statement-medical-emergency-injury-raul-rosas/"
-          },
-          {
-            "source": "MMA Mania",
-            "hed": "Doctor: lucid, oriented — hospital stay is protocol",
-            "body": "Team doctor Gustavo Medeiros: Barcelos remains hospitalized only by protocol for a few days of observation; lucid and oriented with full movement after Level 1 trauma-center eval.",
-            "url": "https://www.mmamania.com/ufc-news/475632/raoni-barcelos-doctor-shares-update-says-fighter-remains-hospitalized-only-by-protocol"
-          },
-          {
-            "source": "UFC.com",
-            "hed": "Rosas Jr. stopped Barcelos in R5; TUF finales stacked finishes",
-            "body": "Vegas 121 main: Rosas Jr. TKO after Barcelos went limp mid-exchange. Card also closed TUF Season 34 finales and stacked finishes (Tina Black, Elves Brener, Yazmin Jauregui among standouts).",
-            "url": "https://www.ufc.com/news/ufc-fight-night-rosas-jr-vs-barcelos-results"
-          }
-        ]
-      }
-    }
-  },
-  "brainFood": {
-    "title": "Brain Food",
-    "kicker": "From the Mystics",
-    "items": [
-      {
-        "hed": "The Second Gate",
-        "body": "Gnostic operators treated Tuesday as the second seal after Monday’s threshold — camps open, the scoreboard already printed, and the self still chooses whether noise owns the first hour. Opening Bell is that seal."
-      },
-      {
-        "hed": "The Borrowed Flame",
-        "body": "Hermetic builders knew a win on the field does not light the operator’s lamp — you still tend your own flame. Bears hangover or Astra cancel: one charged breath, then the board."
-      },
-      {
-        "hed": "The Constrained Path",
-        "body": "Esoteric craftsmen loved tight rooms because cleverness appears when the wide door is locked. Eight megabytes of RAM and a dead TLS stack force the same lesson as a crowded Tuesday: invent the narrow path that still works."
-      }
-    ]
-  },
-  "grimoire": {
-    "title": "Grimoire",
-    "kicker": "Magick Knowledge of the Day",
-    "source": "Solomon — Proverbs / wisdom tradition",
-    "hed": "Diligence Dresses Itself",
-    "body": "“The soul of the sluggard craves and gets nothing, while the soul of the diligent is richly supplied.” (Proverbs 13:4) Solomon’s counsel for a Tuesday after the scoreboard has already spoken: craving the next highlight reel is not the same as dressing for the work. Diligence is the morning supply — charge, body, one clear next step — so camps, Sigil, and Later / Admin meet an operator who already ate, not a laborer still scrolling for appetite. Classical lore cast Solomon as one who set the day’s portion before the court opened. Set Tuesday the same way.",
-    "practice": "Finish Opening Bell and the 3-minute opener before any security skim or MNF recap tab. Diligence first; highlight reel second."
-  },
-  "inboxSummary": {
-    "title": "Quick Inbox Summary",
-    "asOf": "Sep 29, 2026 · 6:04 AM CT — LIVE (3 Gmails)",
-    "urgent": [
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "Chaturbate — NEW login overnight Sun ~11:21 PM MST / ~1:21 AM CT Mon (mikomikomiko23) — still unread",
-        "why": "Security — confirm it was you or change password."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Instagram Accounts Center — NEW account \"Yuh Yeah (AI, devices and more)\" added Sat night (~12:11 AM CT Sun) to same center as _yerp00 — still unread",
-        "why": "Security — confirm it was you or remove the account from Accounts Center."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — NEW device login Thu Sep 24 ~6:57 PM CT (Chrome 153.0/Linux, IP 104.28.244.114) — still unread",
-        "why": "Security — confirm it was you or lock the account."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Progressive — 2-step verification changes completed Thu night (~7:56 PM CT) — still unread",
-        "why": "Security — confirm intentional update or contact Progressive immediately."
-      },
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "Chaturbate — prior NEW login Sat Sep 26 evening (mikomikomiko23) — still unread",
-        "why": "Security — confirm it was you or change password."
-      },
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "OnlyFans — NEW login alert Mon Sep 21 ~3:17 PM CT (@mikomikomiko23, United States/Chicago, iOS 27 / Chrome Mobile) — still unread",
-        "why": "Security — confirm it was you or change password."
-      },
-      {
-        "account": "nuguiddom + dominickurtmartin + dkmpnuguid",
-        "text": "Google Security — Muse granted access (~Sep 21) on nuguiddom + dominickurtmartin + dkmpnuguid — still unread",
-        "why": "Security — confirm intentional connect or revoke."
-      },
-      {
-        "account": "nuguiddom@gmail.com",
-        "text": "Google — Sign in with Google / shared account data with dolphinradar.com (Mon Sep 21 11:34 PM CT) — still unread",
-        "why": "Security — confirm intentional connect or revoke."
-      }
-    ],
-    "needsLook": [
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Direct Auto — Important Notice of Policy Status Mon ~2:50 AM CT: cancellation effective 12:01 AM 09/28/2026, reason Bookroll (ProRata), policy 2019407539 — unread; see Later / Admin",
-        "why": "Policy/admin after charge — Progressive path already active; do not lead the morning with this."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "GEICO Schaumburg (Jim) — Auto Quote follow-up Mon afternoon — unread spam/sales; ignore unless you asked",
-        "why": "Quote chase noise; not security."
-      },
-      {
-        "account": "nuguiddom@gmail.com",
-        "text": "Work forward — Fwd: SOP Update: Payoff Request Handling Workflow (Fri ~3:33 PM CT from iCloud)",
-        "why": "Actionable work skim after security; not morning-critical."
-      },
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "FedEx — SpaceX-AMS fulfillment scheduled delivery Thu Sep 24 (tracking 535213222129); no delivered confirmation in inbox yet",
-        "why": "Confirm porch / tracking; not urgent money."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Progressive — new policy + ID card docs + auto-pay schedule + Welcome email (multiple unread) — see Later / Admin",
-        "why": "Policy paperwork; skim after security, not before charge."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "iRacing — account expired overnight Sat/Sun (UTC notice) — still unread",
-        "why": "Sub expired; not morning-critical — handle in Later / Admin."
-      },
-      {
-        "account": "nuguiddom@gmail.com",
-        "text": "Kaggle — Google Gemma 4 Developer Agent Competition launch notice",
-        "why": "Optional skim; not security."
-      }
-    ],
-    "fyi": [
-      {
-        "account": "nuguiddom@gmail.com",
-        "text": "Calendar: Skill.md Drop hard-kill + amber + AI CoS / OpenClaw / Operator expiry notifications — all those drops already closed; Muse + Grok Operator Manual closed Sun ~1:55 PM CT",
-        "why": "Admin only; details in Later / Admin."
-      },
-      {
-        "account": "calendar",
-        "text": "Leftover: Muse + Grok Bot Drop amber hold still on Sun Sep 27 calendar (id 8suv2lhnhf1j7abvol74305elg) — delete was blocked earlier; not a live gate today",
-        "why": "FYI only."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Yahoo Fantasy / The Zebra / Jerry / Indeed / TikTok / Twitch noise — ignore unless you asked",
-        "why": "Noise, not action."
-      }
-    ],
-    "cleanupNote": "LIVE SCAN: NWS weather + Google Calendar + Gmail search_threads on nuguiddom / dominickurtmartin / dkmpnuguid + X get_users_bookmarks all succeeded this run. Calendar today: optional Sigil 9:30 PM CT; no live drop holds. Security items verified still UNREAD where listed (Chaturbate overnight, IG Accounts Center, Direct Auto device, Progressive 2SV, OnlyFans, Muse, dolphinradar). Direct Auto cancel notice still unread — Later / Admin only. Leftover amber hold remains on Sun Sep 27. iCloud Mail not checked. All prior drops closed including Muse + Grok Bot Operator Manual. Money/insurance/admin only in Later / Admin."
   },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
     "items": [
-      {
-        "id": "morning-charge",
-        "text": "Morning Charge + 3-min opener today",
-        "priority": "habit",
-        "done": false
-      },
-      {
-        "id": "chaturbate-overnight",
-        "text": "Verify Chaturbate NEW overnight login (~1:21 AM CT Mon) — or change password",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "ig-accounts-center",
-        "text": "Confirm Instagram Accounts Center — \"Yuh Yeah\" added Sat night — or remove",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "directauto-device",
-        "text": "Verify Direct Auto new-device login (Thu ~6:57 PM CT, Chrome/Linux) — or lock account",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "progressive-2sv",
-        "text": "Confirm Progressive 2-step verification update (Thu night) was you",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "chaturbate-sat",
-        "text": "Verify Chaturbate prior login (Sat Sep 26 evening) — or change password",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "onlyfans-login",
-        "text": "Verify OnlyFans new login (Mon Sep 21, mikomikomiko23) — or change password",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "muse-access",
-        "text": "Confirm Muse Google-access alerts — or revoke",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "dolphinradar",
-        "text": "Confirm dolphinradar.com Google Sign-In (Mon Sep 21 11:34 PM CT) was you — or revoke",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "sigil-optional",
-        "text": "Optional Sigil 9:30 PM CT if thoughts still floating",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "mnf-skim",
-        "text": "Optional: skim Bears 27–7 MNF recap (after charge)",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "fedex-spacex",
-        "text": "Confirm FedEx SpaceX-AMS (scheduled Thu Sep 24) — porch / tracking 535213222129",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "sop-payoff",
-        "text": "Later: skim SOP Update — Payoff Request Handling Workflow (Fri forward)",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "iracing-expired",
-        "text": "Later: iRacing expired overnight — renew/payment if keeping — see Later / Admin",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "directauto-cancel-admin",
-        "text": "Later: skim Direct Auto cancel notice (Bookroll, effective Mon) — Progressive path; see Later / Admin",
-        "priority": "normal",
-        "done": false
-      }
-    ]
-  },
-  "moneyDesk": {
-    "title": "Later / Admin",
-    "kicker": "Quiet money block — handle when morning energy is banked",
-    "items": [
-      "Direct Auto — Mon ~2:50 AM CT cancel notice: policy 2019407539 canceled effective 12:01 AM 09/28/2026, reason Bookroll (ProRata), period listed 09/28/2026–03/28/2027, insurer Integon Casualty — Progressive path already active; skim when ready — do not lead the morning with this",
-      "Direct Auto PAYMENT RECEIVED Mon Sep 21 — $219.43 posted to policy 2019407539 (Ref 354079102911071S) — receipt may still be unread in dominickurtmartin",
-      "Direct Auto — new-device login Thu night (security first, then close the loop in admin)",
-      "Progressive — NEW policy docs Thu night + Welcome Sat (policy + ID cards + auto-pay schedule + 2SV change); skim when ready",
-      "GEICO Schaumburg quote chase (Jim, Mon) — ignore unless you asked for a callback",
-      "iRacing — account expired overnight Sat/Sun (dominickurtmartin) — renew / update payment if keeping the sub",
-      "CLOSED Sun Sep 27 — Muse + Grok Bot Operator Manual drop: window ended ~1:55 PM CT; no more $40/$dom1w0w PDF clears for that drop",
-      "Wed Sep 30 — Paycheck $1,434.02 on calendar",
-      "Fri Oct 2 — Savings transfers on calendar ($420 all-day + $300 at 9:00 AM CT)",
-      "Skill.md Drop HARD KILL 5:00 AM CT Thu Sep 24 — closed; no more $47 PDF clears",
-      "AI Chief of Staff Drop HARD KILL ~11:11 PM CT Tue Sep 22 — closed; no more $11/$dom1w0w PDF clears",
-      "OpenClaw Drop HARD KILL ~6:05 AM CT Tue Sep 22 — closed; no more $37 PDF clears",
-      "Operator Drop CLOSED Sun Sep 20 ~11:33 PM CT — no PDF clears",
-      "AI Agent Basics $20 promo CLOSED Tue Sep 15 — not active",
-      "Homepage FYI (not money): OpenClaw testimonials live — Headdy Glass + Uncle Stu’s (Cary/Aurora first; Carol Stream in October)"
+      { "id": "morning-charge", "text": "Morning Charge + 3-min opener today", "priority": "habit", "done": false },
+      { "id": "journal-gratitude", "text": "Journal + 3 lines of gratitude", "priority": "habit", "done": false },
+      { "id": "work-sop-payoff", "text": "Must-do #1 work — skim SOP Update: Payoff Request Handling Workflow", "priority": "high", "done": false },
+      { "id": "admin-paycheck-hold", "text": "Must-do #2 — confirm paycheck posting; freeze both cards until full hit", "priority": "high", "done": false }
     ]
   },
   "techDemo": {
@@ -598,20 +120,94 @@
     "linkLabel": "Open bookmark",
     "image": {
       "src": "assets/tech-demo-nokia-claude.png",
-      "alt": "Newsprint diagram — Claude on a 2007 Nokia: Dead phone · Reverse firmware · Bypass Java · Hook Claude API · AI on antique handset"
+      "alt": "Newsprint diagram — Claude on a 2007 Nokia"
     },
     "lesson": {
-      "oneLiner": "A 2007 Nokia that can’t speak modern TLS still gets Claude — by reverse-engineering firmware past the Java ME layer into the native stack.",
+      "oneLiner": "A 2007 Nokia that can’t speak modern TLS still gets Claude — firmware past Java ME into the native stack.",
       "beats": [
-        "Constraint first: TLS 1.0 + 8 MB RAM means the stock path is dead — invent another.",
-        "Reverse the firmware for 2–3 days until the Java layer is visible and bypassable.",
+        "Constraint first: TLS 1.0 + 8 MB RAM means the stock path is dead.",
+        "Reverse the firmware until the Java layer is visible and bypassable.",
         "Drop into the native system instead of staying trapped in Java ME.",
         "Hook a modern Claude API from that native path.",
-        "Ship: antique handset, living model — constraints force the clever path."
+        "Ship: antique handset, living model."
       ],
-      "takeaway": "Under a minute: don’t wait for perfect hardware. Name the constraint, reverse past the soft wall, and wire the model where the metal actually listens. Tuesday fit after a week of GrokBot ladders."
-    },
-    "note": "Fresh pick from @mmmik000 bookmarks via user-X get_users_bookmarks (live this run). Credits ~$13.48 before fetch. Different from yesterday’s @kaorixbt GrokBot 1h Master Ladder and prior GrokBot/AI-stack slots.",
-    "skipped": "Skipped: @kaorixbt GrokBot 1h (used Vol XXVI), @0xCodila GrokBot 3h (Vol XXV), @learnbyIsmail AI Stack Map (Vol XXIV), @0xRafy 24/7 GrokBot (Vol XXIII), @0xGenAi four-depts / @DomainMaster Day 1 / @callanxai Graph&Loop / @sairahul1 Astra-Flash / @AnatoliKopadze Claude 26min (prior assets), @bot 3-day SpaceXAI company (strong alt), @0xCodez Karpathy 6h / Loop Engineering (strong alts), pay-you-daily / 50-websites / rabbit-hole listicles, CS:GO nade clips, DubbyEnergy — not the best unused buildable tech/AI tooling for this slot."
+      "takeaway": "Don’t fight the constraint — route around it. @mmmik000: This is awesome! Keep us posted."
+    }
+  },
+  "news": {
+    "title": "News",
+    "kicker": "The News Desk",
+    "desks": {
+      "ai": {
+        "title": "AI Desk",
+        "items": [
+          {
+            "source": "X / @mmmik000",
+            "hed": "Bookmark lane: Claude on a dead Nokia",
+            "body": "Same demo still leads the desk. Constraint engineering over launch noise.",
+            "url": "https://x.com/EmirKarsiyakali/status/2104183718483018026"
+          }
+        ]
+      },
+      "nba": {
+        "title": "NBA",
+        "items": [
+          {
+            "source": "NBA wire",
+            "hed": "Camps day two; preseason Saturday",
+            "body": "League camps continue after Tuesday openers. Preseason tips Sat (Miami–Toronto, Quebec City).",
+            "url": "https://www.nba.com"
+          }
+        ]
+      },
+      "nfl": {
+        "title": "NFL",
+        "items": [
+          {
+            "source": "NFL wire",
+            "hed": "Bears 27 Eagles 7 still the hangover",
+            "body": "Week 4: Bears host Jets; Eagles host Rams. Skim after charge.",
+            "url": "https://www.nfl.com"
+          }
+        ]
+      },
+      "combat": {
+        "title": "MMA & Boxing",
+        "items": [
+          {
+            "source": "UFC wire",
+            "hed": "Barcelos watch still quiet",
+            "body": "No new fight-night card demanding the morning. Hold for weekend wire.",
+            "url": "https://www.ufc.com"
+          }
+        ]
+      }
+    }
+  },
+  "inboxSummary": {
+    "title": "Inbox",
+    "items": [
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "Indeed — Assistant Account Manager, LifeBalance @ Alliant ($28–$30.77/hr)",
+        "why": "FYI only — not a live MHCCA callback."
+      }
+    ]
+  },
+  "brainFood": {
+    "title": "Brain Food",
+    "items": []
+  },
+  "grimoire": {
+    "title": "Grimoire",
+    "items": []
+  },
+  "moneyDesk": {
+    "title": "Later / Admin",
+    "kicker": "Quiet block — after the morning wins",
+    "items": [
+      "Scenario D holds. Calendar marks the check; ledger is not a full hit. Pay nothing extra tonight. Freeze both cards.",
+      "Auto current only. Savings stay locked. Rerun D when he says the check hit."
+    ]
   }
 }
