@@ -4,126 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OpenAI Dots guide | 7EightMade</title>
-  <meta name="description" content="OpenAI Dots guide. What a dot is, desktop setup, Custom Rules so it asks before sending or buying, and one responsibility to hand it today. 10 hours. Closes 11:11 PM CT.">
+  <meta name="description" content="The OpenAI Dots guide drop has ended.">
   <meta name="theme-color" content="#0B0B0F">
-  <meta property="og:title" content="OpenAI Dots guide · 10-hour drop">
-  <meta property="og:description" content="Always-on ChatGPT agents. Opens 1:11 PM CT · closes 11:11 PM CT.">
+  <meta property="og:title" content="OpenAI Dots guide · offer ended">
+  <meta property="og:description" content="The 10-hour OpenAI Dots drop is over.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/openai-dots/">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
   <style>
-    :root {
-      --ink: #0B0B0F;
-      --paper: #F3EFE6;
-      --teal: #5EEAD4;
-      --muted: rgba(243,239,230,.62);
-      --amber: #FBBF24;
-      --amber-ink: #92400E;
-      --amber-bg: #FDE68A;
-      --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      background: var(--ink);
-      color: var(--paper);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 48px 24px 72px; }
-    .live-pill {
-      display: inline-block; margin-bottom: 14px;
-      font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
-      color: #0B0B0F; background: var(--teal); border: 1px solid #2DD4BF;
-      padding: 6px 12px; border-radius: 999px;
-    }
-    .live-pill.is-soon { color: var(--teal); background: transparent; border: 1px solid rgba(94,234,212,.5); }
-    .live-pill.is-mid { color: var(--amber-ink); background: var(--amber-bg); border-color: #F59E0B; }
-    .live-pill.is-closed { color: var(--muted); background: transparent; border: 1px solid rgba(243,239,230,.2); }
-    .term {
-      margin-bottom: 22px; border: 1px solid rgba(94,234,212,.28); border-radius: 14px;
-      background: #101018; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.4), 0 18px 50px rgba(0,0,0,.35);
-    }
-    .term__bar {
-      display: flex; align-items: center; gap: 6px; padding: 10px 12px;
-      background: #1a1a22; border-bottom: 1px solid rgba(243,239,230,.08);
-    }
-    .dot { width: 9px; height: 9px; border-radius: 50%; }
-    .dot--r { background: #FF5F57; } .dot--y { background: #FEBC2E; } .dot--g { background: #28C840; }
-    .term__title { margin-left: 8px; font-family: var(--mono); font-size: 11px; color: rgba(243,239,230,.45); }
-    .term__body { padding: 18px 16px 16px; font-family: var(--mono); }
-    .term__prompt { font-size: 12px; color: rgba(94,234,212,.7); margin-bottom: 8px; }
-    .word {
-      font-size: clamp(42px, 12vw, 72px); font-weight: 700; letter-spacing: .18em;
-      color: var(--teal); text-shadow: 0 0 24px rgba(94,234,212,.35);
-      line-height: 1;
-    }
-    .word-sub { margin-top: 6px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: rgba(243,239,230,.45); }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
-    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(34px, 7.5vw, 54px); font-weight: 600; letter-spacing: -.03em; line-height: 1.05; margin-bottom: 16px; }
-    .lead { font-size: 17px; color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
-    .lead strong { color: var(--paper); font-weight: 600; }
-    .card { border: 1px solid rgba(243,239,230,.12); background: #14141c; border-radius: 20px; padding: 28px 24px; margin-bottom: 20px; }
-    .kicker { font-family: Fraunces, Georgia, serif; font-size: 22px; font-weight: 600; color: var(--teal); margin-bottom: 8px; }
-    .price { font-size: 28px; font-weight: 700; letter-spacing: -.02em; margin: 8px 0 12px; color: var(--muted); }
-    .meta { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-    .toc { list-style: none; margin: 16px 0 0; display: grid; gap: 8px; }
-    .toc li { font-size: 15px; color: var(--paper); }
-    .toc strong { color: var(--teal); font-weight: 600; margin-right: 8px; font-family: var(--mono); }
-    .steps { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(243,239,230,.1); font-size: 14px; color: var(--paper); line-height: 1.7; }
-    .cash { color: var(--teal); font-weight: 700; }
-    .clock { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 20px; font-weight: 600; letter-spacing: .04em; color: var(--teal); margin-top: 16px; }
-    .clock.is-mid { color: var(--amber); }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; background: #5EEAD4; color: #0B0B0F; font-weight: 700; text-decoration: none; font-size: 14px; padding: 12px 18px; border-radius: 999px; min-height: 44px; }
-    .btn--ghost { background: transparent; color: var(--paper); border: 1px solid rgba(243,239,230,.22); }
-    .btn--disabled { background: transparent; color: var(--muted); border: 1px dashed rgba(94,234,212,.4); cursor: not-allowed; }
-    .foot { margin-top: 36px; font-size: 12px; color: rgba(243,239,230,.4); }
-    .foot a { color: var(--teal); text-decoration: none; }
-    .disclaimer { margin-top: 8px; font-size: 11px; color: rgba(243,239,230,.32); }
-    .lead--when { font-size: 15px; margin-top: -14px; }
-    @media (max-width: 420px) { .clock { font-size: 16px; } }
-    [hidden] { display: none !important; }
+    :root { --ink:#0B0B0F; --paper:#F3EFE6; --teal:#5EEAD4; --muted:rgba(243,239,230,.62); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { min-height:100vh; font-family:Inter, ui-sans-serif, system-ui, sans-serif; background:var(--ink); color:var(--paper); line-height:1.55; }
+    .wrap { max-width:640px; margin:0 auto; padding:48px 24px 72px; }
+    .live-pill { display:inline-block; margin-bottom:14px; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid rgba(243,239,230,.2); padding:6px 12px; border-radius:999px; }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+    h1 { font-family:Fraunces, Georgia, serif; font-size:clamp(34px, 7.5vw, 54px); font-weight:600; letter-spacing:-.03em; line-height:1.05; margin-bottom:16px; }
+    .card { border:1px solid rgba(243,239,230,.12); background:#14141c; border-radius:20px; padding:28px 24px; }
+    .kicker { font-family:Fraunces, Georgia, serif; font-size:22px; font-weight:600; color:var(--teal); margin-bottom:8px; }
+    .meta { font-size:14px; color:var(--muted); }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; background:#5EEAD4; color:#0B0B0F; font-weight:700; text-decoration:none; font-size:14px; padding:12px 18px; border-radius:999px; min-height:44px; }
+    .btn--ghost { background:transparent; color:var(--paper); border:1px solid rgba(243,239,230,.22); }
+    .foot { margin-top:36px; font-size:12px; color:rgba(243,239,230,.4); }
+    .foot a { color:var(--teal); text-decoration:none; }
+    .disclaimer { margin-top:8px; font-size:11px; color:rgba(243,239,230,.32); }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <p class="live-pill is-soon" id="livePill">Ordering locked</p>
-    <div class="term" aria-hidden="true">
-      <div class="term__bar"><span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span><span class="term__title">7EightMade — Cosmic Terminal</span></div>
-      <div class="term__body">
-        <p class="term__prompt">$ python dots.py --guide</p>
-        <p class="word">DOTS</p>
-        <p class="word-sub">10 hours · opens 1:11 PM CT</p>
-      </div>
-    </div>
+  <main class="wrap is-closed">
+    <p class="live-pill is-closed">Offer ended</p>
     <p class="eyebrow">Cosmic Terminal drop</p>
     <h1>OpenAI Dots</h1>
-    <p class="lead" id="lead"><strong>Dots are always-on ChatGPT agents. This is the starter.</strong> They run on GPT-6 Astra, with their own cloud computer. What a dot is, desktop setup, Custom Rules so it asks before sending or buying, and one responsibility to hand it today.</p>
-    <p class="lead lead--when" id="when">10 hours. Opens 1:11 PM CT. Gone 11:11 PM CT.</p>
-
-    <section class="card" id="offerCard" aria-label="OpenAI Dots guide">
-      <p class="kicker">The guide</p>
-      <p class="price" id="priceLine">Price locking</p>
-      <p class="meta">10-HOUR DROP · 1:11 PM → 11:11 PM CT</p>
-      <ul class="toc">
-        <li><strong>01</strong> What a dot is</li>
-        <li><strong>02</strong> Desktop setup</li>
-        <li><strong>03</strong> Custom Rules so it asks before sending or buying</li>
-        <li><strong>04</strong> One responsibility to hand it today</li>
-      </ul>
-      <p class="steps">
-        Pay Cash App <span class="cash">$dom1w0w</span> once the price is on this page. The PDF goes out after that payment clears. Nothing after 11:11 PM CT.
-      </p>
-      <p class="clock" id="clock">Opens 1:11 PM CT</p>
-      <div class="actions" id="liveActions">
-        <span class="btn btn--disabled" id="lockBtn" aria-disabled="true">Ordering locked</span>
-      </div>
-    </section>
-
-    <section class="card" id="closedCard" hidden aria-label="OpenAI Dots drop closed">
+    <section class="card" aria-label="OpenAI Dots drop closed">
       <p class="kicker">Offer ended</p>
       <p class="meta">The 10-hour OpenAI Dots drop is over. No more requests for this promo.</p>
       <div class="actions">
@@ -131,65 +44,8 @@
         <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
       </div>
     </section>
-
     <p class="foot"><a href="../">← 7EightMade</a> · fall down 7 stand up 8</p>
     <p class="disclaimer">Independent guide. Not affiliated with OpenAI.</p>
   </main>
-  <script>
-    const start = Date.parse('2026-09-30T18:11:00Z');
-    const mid = Date.parse('2026-09-30T23:11:00Z');
-    const end = Date.parse('2026-10-01T04:11:00Z');
-    const clock = document.getElementById('clock');
-    const pill = document.getElementById('livePill');
-    const lead = document.getElementById('lead');
-    const when = document.getElementById('when');
-    const offer = document.getElementById('offerCard');
-    const closed = document.getElementById('closedCard');
-    let timer = null;
-    function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
-    function hms(ms) {
-      const h = Math.floor(ms / 3600000);
-      const m = Math.floor((ms % 3600000) / 60000);
-      const s = Math.floor((ms % 60000) / 1000);
-      return pad(h) + ':' + pad(m) + ':' + pad(s);
-    }
-    function tick() {
-      const now = Date.now();
-      if (now < start) {
-        pill.textContent = 'Ordering locked';
-        pill.className = 'live-pill is-soon';
-        clock.textContent = 'Opens in ' + hms(start - now);
-        const lock = document.getElementById('lockBtn');
-        if (lock) lock.textContent = 'Ordering locked';
-        return;
-      }
-      const ms = end - now;
-      if (ms <= 0) {
-        clock.textContent = '00:00:00';
-        pill.textContent = 'Offer ended';
-        pill.className = 'live-pill is-closed';
-        lead.textContent = 'The 10-hour OpenAI Dots drop is over. No more requests for this promo.';
-        offer.hidden = true;
-        closed.hidden = false;
-        if (when) when.hidden = true;
-        if (timer) clearInterval(timer);
-        return;
-      }
-      const lock = document.getElementById('lockBtn');
-      if (lock) lock.textContent = 'Price locking';
-      if (now >= mid) {
-        pill.textContent = 'Under 5 hours left';
-        pill.className = 'live-pill is-mid';
-        clock.classList.add('is-mid');
-      } else {
-        pill.textContent = 'Live — 10 hours';
-        pill.className = 'live-pill';
-        clock.classList.remove('is-mid');
-      }
-      clock.textContent = hms(ms) + ' left · closes 11:11 PM CT';
-    }
-    tick();
-    timer = setInterval(tick, 1000);
-  </script>
 </body>
 </html>
