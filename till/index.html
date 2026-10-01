@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Till — Get paid on the tap · 7EightMade</title>
+  <meta name="description" content="Till is a contactless register on your phone. 1.99% flat. A 7EightMade app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bone: #f3eee6;
+      --paper: #fffcf7;
+      --ink: #1c1612;
+      --muted: #5e564e;
+      --line: #e3d9cc;
+      --ember: #c2410c;
+      --forest: #146c43;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bone); }
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bone);
+      color: var(--ink);
+      font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+    }
+    a { color: inherit; }
+    button { font: inherit; cursor: pointer; }
+    button:disabled { cursor: default; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: color-mix(in srgb, var(--bone) 92%, transparent);
+      backdrop-filter: blur(10px);
+      z-index: 5;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 650;
+      font-size: 20px;
+    }
+    .brand i {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 7px;
+      font-style: normal;
+      font-size: 14px;
+    }
+    .apps { position: relative; }
+    .apps > button {
+      background: none;
+      border: 0;
+      min-height: 44px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 6px);
+      width: 230px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 18px 40px -24px rgb(28 22 18 / 0.45);
+    }
+    .apps.is-open .menu { display: block; }
+    .menu a {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+    .menu a:hover { background: var(--bone); }
+    .menu small { color: var(--muted); }
+    .wrap { max-width: 420px; margin: 0 auto; padding: 28px 16px 48px; }
+    .kicker {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ember);
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 42px;
+      line-height: 1;
+      margin: 8px 0 0;
+    }
+    .lede { color: var(--muted); line-height: 1.5; }
+    .card {
+      margin-top: 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 24px 50px -28px rgb(28 22 18 / 0.45);
+    }
+    .balance {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--ink);
+      color: var(--paper);
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    .balance span { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+    .balance strong { font-family: Fraunces, Georgia, serif; font-size: 28px; font-variant-numeric: tabular-nums; }
+    .amount {
+      text-align: center;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 44px;
+      margin: 16px 0 10px;
+      font-variant-numeric: tabular-nums;
+    }
+    .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
+    .row button, .keys button {
+      min-height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--bone);
+      color: var(--ink);
+    }
+    .row button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+    .keys button { font-size: 18px; }
+    .meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .meta b { color: var(--ink); }
+    .go {
+      width: 100%;
+      margin-top: 12px;
+      min-height: 48px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 600;
+    }
+    .go:disabled { opacity: 0.4; }
+    .note { width: 100%; margin-top: 8px; min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--bone); padding: 0 12px; font: inherit; }
+    .hidden { display: none; }
+    .ok { color: var(--forest); font-family: Fraunces, Georgia, serif; font-size: 32px; margin: 8px 0; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="../"><i>7</i>7EightMade</a>
+    <div class="apps" id="apps">
+      <button type="button" id="appsBtn" aria-expanded="false" aria-haspopup="true">Apps</button>
+      <div class="menu" role="menu">
+        <a role="menuitem" href="../vortex-breath/"><b>Vortex</b><small>Breath practice</small></a>
+        <a role="menuitem" href="../archipelago/"><b>Atlas</b><small>Philippines map</small></a>
+        <a role="menuitem" href="./"><b>Till</b><small>Tap to pay</small></a>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="kicker">7EightMade · Apps</p>
+    <h1>Get paid on the tap.</h1>
+    <p class="lede">Till is the register in your phone. Key a sale, they tap, and 1.99% is the whole fee. This page is a rehearsal. Nothing is charged.</p>
+    <section class="card" aria-label="Till register">
+      <button class="balance" id="walletBtn" type="button">
+        <span>Till Card</span>
+        <strong id="balance">$0.00</strong>
+      </button>
+      <div id="sale">
+        <p class="amount" id="amount">$0.00</p>
+        <input class="note" id="note" maxlength="48" placeholder="What is this sale?" />
+        <div class="row" id="presets">
+          <button type="button" data-cents="450" data-note="Coffee">Coffee</button>
+          <button type="button" data-cents="2340" data-note="Ride across town">Ride</button>
+          <button type="button" data-cents="1800" data-note="Flower bunch">Flowers</button>
+          <button type="button" data-cents="6500" data-note="Haircut">Cut</button>
+        </div>
+        <div class="row" id="tips">
+          <button type="button" data-tip="0" aria-pressed="true">No tip</button>
+          <button type="button" data-tip="0.15">15%</button>
+          <button type="button" data-tip="0.18">18%</button>
+          <button type="button" data-tip="0.2">20%</button>
+        </div>
+        <p class="meta"><span id="feeLine">Fee $0.00</span><b id="keepLine">You keep $0.00</b></p>
+        <div class="keys" id="keys"></div>
+        <button class="go" id="charge" type="button" disabled>Enter at least $1.00</button>
+      </div>
+      <div id="arm" class="hidden">
+        <h2>Hold a card near the top</h2>
+        <p class="lede">Demo only. Tap the sample card.</p>
+        <button class="go" id="tap" type="button">Debit ···· 4412 · Tap</button>
+        <button class="go" id="back" type="button" style="background:transparent;color:var(--muted)">Back to amount</button>
+      </div>
+      <div id="done" class="hidden">
+        <p class="ok">Paid</p>
+        <p id="receipt"></p>
+        <button class="go" id="again" type="button">New sale</button>
+      </div>
+    </section>
+  </main>
+  <script>
+    const money = (cents) => {
+      const neg = cents < 0;
+      const abs = Math.abs(Math.round(cents));
+      return (neg ? "-" : "") + "$" + Math.floor(abs / 100).toLocaleString("en-US") + "." + String(abs % 100).padStart(2, "0");
+    };
+    const quote = (base) => {
+      const fee = Math.round(base * 0.0199);
+      return { fee, net: base - fee, customer: base };
+    };
+    let cents = 0;
+    let tipRate = 0;
+    let balance = 0;
+    const $ = (id) => document.getElementById(id);
+    function render() {
+      const tip = Math.round(cents * tipRate);
+      const q = quote(cents + tip);
+      $("amount").textContent = money(cents);
+      $("feeLine").textContent = "Fee " + money(q.fee);
+      $("keepLine").textContent = "You keep " + money(q.net);
+      $("balance").textContent = money(balance);
+      const ready = cents >= 100;
+      $("charge").disabled = !ready;
+      $("charge").textContent = ready ? "Take a tap · " + money(q.customer) : "Enter at least $1.00";
+    }
+    $("presets").addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      cents = Number(b.dataset.cents);
+      $("note").value = b.dataset.note;
+      render();
+    });
+    $("tips").addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      tipRate = Number(b.dataset.tip);
+      [...$("tips").children].forEach((el) => el.setAttribute("aria-pressed", el === b ? "true" : "false"));
+      render();
+    });
+    const keys = $("keys");
+    ["1","2","3","4","5","6","7","8","9","00","0","⌫"].forEach((k) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = k;
+      b.addEventListener("click", () => {
+        if (k === "⌫") cents = Math.floor(cents / 10);
+        else if (k === "00") cents = Math.min(999999, cents * 100);
+        else cents = Math.min(999999, cents * 10 + Number(k));
+        render();
+      });
+      keys.appendChild(b);
+    });
+    function show(id) {
+      ["sale", "arm", "done"].forEach((name) => $(name).classList.toggle("hidden", name !== id));
+    }
+    $("charge").addEventListener("click", () => show("arm"));
+    $("back").addEventListener("click", () => show("sale"));
+    $("tap").addEventListener("click", () => {
+      const tip = Math.round(cents * tipRate);
+      const q = quote(cents + tip);
+      balance += q.net;
+      $("receipt").textContent = ($("note").value.trim() || "Sale") + " · you keep " + money(q.net) + ". On your Till Card.";
+      render();
+      show("done");
+    });
+    $("again").addEventListener("click", () => {
+      cents = 0;
+      $("note").value = "";
+      render();
+      show("sale");
+    });
+    const apps = $("apps");
+    $("appsBtn").addEventListener("click", () => {
+      const open = apps.classList.toggle("is-open");
+      $("appsBtn").setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    render();
+  </script>
+</body>
+</html>
