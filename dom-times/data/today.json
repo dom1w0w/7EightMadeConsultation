@@ -1,52 +1,46 @@
 {
   "_meta": {
-    "note": "LIVE edition — Thursday, October 1, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first; moneyDesk last. Live weather + calendar + three Gmails + X bookmarks. OpenAI Dots drop closed Wed 11:11 PM CT with no price locked; no PDF/Cash App requests overnight. Direct Auto reminders stay off this edition.",
-    "generated": "2026-10-01T05:56:00-05:00",
+    "note": "LIVE edition — Friday, October 2, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first; moneyDesk last. Live Fifth Third + cards, calendar through Oct 12, nuguiddom inbox. No MHCCA meetings. Scenario D holds — check not in.",
+    "generated": "2026-10-02T05:55:00-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XXIX",
+    "volume": "XXX",
     "city": "Carpentersville, IL",
-    "asOf": "5:56 AM CT"
+    "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Thursday Rain Gate — Operator Calm, Then the Board",
-    "subhead": "Showers, high near 72. Competitive calm first. Body second. One security skim when banked. Quiet Friday admin last.",
+    "headline": "Friday Clear Gate — Charge, Then the Board",
+    "subhead": "Clouds break to sun, high near 64. Breath first. Body second. Two must-dos. Quiet admin last.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Thursday: breath, body, then the day under Carpentersville rain.",
-      "alt": "Lead photo — Thursday Opening Bell under showers"
+      "caption": "Friday: breath, body, then a clear board under Carpentersville sun.",
+      "alt": "Lead photo — Friday Opening Bell under clearing skies"
     }
   },
   "articles": [
     {
-      "hed": "Edition XXIX: Rain Softens, Operator Sharpens",
-      "deck": "Box breathing, 3-minute opener, then desks. Security still pending from overnight. No live MHCCA meetings. Quiet transfers tomorrow.",
-      "body": "Volume XXIX is live from Carpentersville under Thursday rain (high near 72 / tonight around 61). Front of the paper stays energy-first. Calendar is light: optional Sigil at 9:30 PM CT if anything is still floating. OpenAI Dots closed last night with no price lock and no PDF requests overnight — file that and move. Fall down 7 stand up 8.",
+      "hed": "Edition XXX: Sky Clears, Operator Holds the Line",
+      "deck": "Box breathing, 3-minute opener, then two must-dos. No live MHCCA meetings. Optional Sigil at 9:30 PM CT.",
+      "body": "Volume XXX is live from Carpentersville. Friday opens cloudy and breaks to sun (high near 64 / tonight around 43, north wind). Front of the paper stays energy-first. Calendar shows no Mitsubishi meetings. Inbox on nuguiddom is promo noise. Optional Sigil at 9:30 PM CT if anything is still floating. Fall down 7 stand up 8.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 72,
-    "low": 61,
-    "summary": "Thursday: Moderate rain / showers. High near 72. Tonight: low around 61. Friday: cooler and overcast, high near 60–61 / low around 48. Saturday: overcast, high near 66 / low around 47. Sunday: similar overcast, high near 67 / low around 48–49. Source: Open-Meteo as of ~5:56 AM CT.",
+    "high": 64,
+    "low": 43,
+    "summary": "Friday: morning clouds, then generally sunny. High near 64. Tonight: clear, low around 43. North wind 5–10 mph. Sat–Sun highs not re-pulled this edition (Thu desk carry: overcast, mid-60s / upper-40s). Source: Weather Underground / WeatherBug as of ~5:55 AM CT.",
     "unit": "F",
     "days": [
       {
-        "label": "Thu",
-        "high": 72,
-        "low": 61,
-        "icon": "rain"
-      },
-      {
         "label": "Fri",
-        "high": 61,
-        "low": 48,
-        "icon": "cloud"
+        "high": 64,
+        "low": 43,
+        "icon": "sun"
       },
       {
         "label": "Sat",
@@ -59,13 +53,19 @@
         "high": 67,
         "low": 49,
         "icon": "cloud"
+      },
+      {
+        "label": "Mon",
+        "high": 64,
+        "low": 45,
+        "icon": "cloud"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "TODAY Thu Oct 1 — rain ~72°; optional Sigil 9:30 PM CT"
+      "text": "TODAY Fri Oct 2 — clearing, high ~64; optional Sigil 9:30 PM CT"
     },
     {
       "type": "FYI",
@@ -73,7 +73,7 @@
     },
     {
       "type": "ACTION",
-      "text": "Security: OnlyFans new-login (Chicago / iOS) from Tue night still unread — confirm it was you when energy is banked"
+      "text": "Do not run the 9:00 AM calendar pull — checking is too thin. Scenario D holds."
     }
   ],
   "timeline": [
@@ -89,18 +89,13 @@
     },
     {
       "time": "Day",
-      "event": "Must-do #1 work — clear one real MHCCA / SOP next step",
+      "event": "Must-do #1 work — one Salesforce pipeline note (no meetings on the board)",
       "category": "focus"
     },
     {
       "time": "Day",
-      "event": "Must-do #2 — ship one Cosmic Terminal / site ops move",
-      "category": "focus"
-    },
-    {
-      "time": "When ready",
-      "event": "Confirm OnlyFans new-login (Chicago / iOS) was you",
-      "category": "security"
+      "event": "Must-do #2 — skip calendar pulls; cards stay frozen",
+      "category": "admin"
     },
     {
       "time": "9:30 PM",
@@ -109,15 +104,15 @@
     }
   ],
   "thisWeek": [
-    "Thu Oct 1 — Rain ~72°; optional Sigil 9:30 PM CT",
-    "Fri Oct 2 — Savings transfers $420 + $300 on calendar; cooler ~61°",
-    "Sat Oct 3 — Overcast ~66°; NBA preseason tips",
-    "Tue Oct 7 — Paycheck $1,434.02 on calendar"
+    "Fri Oct 2 — Clearing ~64°; optional Sigil 9:30 PM CT",
+    "Sat Oct 3 — NBA preseason tips",
+    "Tue Oct 7 — Paycheck mark on calendar — rerun D when it lands",
+    "Fri Oct 9 — Recurring savings marks — only after the check hits"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Thursday’s gate is rain — not the inbox. Four counts in, four hold, four out, four hold. Own the threshold from the first breath.",
+    "intro": "Friday’s gate is a clearing sky — not the inbox. Four counts in, four hold, four out, four hold. Own the threshold from the first breath.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -151,14 +146,14 @@
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Thursday Operator Energy",
-      "body": "Dom does not wait for a dry sky to start. Fierce calm is Thursday composure under showers: charge first, body second, two clean must-dos, quiet admin only after the morning has already won. One breath, one move, one clear next step. Fall down 7 stand up 8."
+      "hed": "Friday Operator Energy",
+      "body": "Dom does not open the board cold. Fierce calm is Friday composure under a clearing sky: charge first, body second, two clean must-dos, quiet admin only after the morning has already won. One breath, one move, one clear next step. Fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Thursday: run this after Morning Charge — box breathing first, then the body. Rain outside; tempo inside. Then news and the day.",
+    "note": "Friday: run this after Morning Charge — box breathing first, then the body. Sky clearing; tempo inside. Then news and the day.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -193,22 +188,16 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "The Hindu",
-            "hed": "White House AI accord: OpenAI, Anthropic, xAI sign; Apple absent",
-            "body": "Voluntary ‘morally binding’ frontier pact after Tuesday’s lunch — internal controls, outside auditors, board oversight. Signers include Brockman, Amodei, Musk (xAI/SpaceXAI), Pichai, Zuckerberg, Huang. Apple sat it out.",
-            "url": "https://www.thehindu.com/sci-tech/technology/super-intelligence-and-trumps-ai-accord-with-big-tech-leaders-explained/article71531434.ece"
+            "source": "@Origin_AI_01",
+            "hed": "Claude motion workflow: scene by scene, not one prompt",
+            "body": "Friday post lays a 10-step path — concept, script, storyboard, assets, Remotion/GSAP code, sound, render, refine. Operator use: steal the sequence, not the hype.",
+            "url": "https://x.com/Origin_AI_01/status/2105940411206549672"
           },
           {
-            "source": "Axios / Reuters",
-            "hed": "FTC probing OpenAI and Anthropic over consumer risks",
-            "body": "Agency confirmed a months-running investigation into consumer risks from frontier AI products. Timing overlaps OpenAI’s delayed model rollout and Anthropic’s public go-slower stance.",
-            "url": "https://www.axios.com/2026/09/30/ftc-openai-anthropic-ai-safety-investigation"
-          },
-          {
-            "source": "9to5Mac",
-            "hed": "BofA: Meta Muse puts Apple Services revenue at risk",
-            "body": "Bank of America flags Muse’s commerce rails (Shopify, Expedia, PayPal) as a bypass of Apple’s intent economics. Siri AI still lags on persistent agents and payment rails.",
-            "url": "https://9to5mac.com/2026/09/29/bank-of-america-says-metas-muse-highlights-a-new-risk-for-apples-services-revenue/"
+            "source": "Fathom / @murtuza_merc",
+            "hed": "ServiceNow AutoSynthData trains agents on synthetic office data",
+            "body": "Move is upstream of where agents run: synthetic workflow data so enterprise agents train before they touch live tickets.",
+            "url": "https://www.fathom.news/servicenow-fake-office-data/"
           }
         ]
       },
@@ -216,21 +205,9 @@
         "title": "NBA",
         "items": [
           {
-            "source": "The Athletic via BasketballSphere",
-            "hed": "Pistons drop weight clause on Duren’s $200M offer",
-            "body": "Thursday’s extension deadline: Detroit removes the weigh-in stipulation from the five-year, $200 million package. Ball is in Jalen Duren’s court — commit long-term or take the $9.6M QO.",
-            "url": "https://basketballsphere.com/en/nba-morning-brief-oct-1-pistons-duren-lakers-smith/"
-          },
-          {
-            "source": "DNVR",
-            "hed": "Nuggets add Ryan Nembhard on a two-way",
-            "body": "Denver waives K.J. Simpson and signs the former Mavs guard who dropped 28-and-10 on them last season. Backcourt depth without burning cap room.",
-            "url": "https://thednvr.com/denver-poaches-nuggets-killer-ryan-nembhard-on-a-two-way-contract/"
-          },
-          {
             "source": "NBA.com",
             "hed": "Preseason tips Saturday; regular season opens Oct 20",
-            "body": "Camps are open. Preseason begins Oct 3; Opening Night slate includes Celtics–Pistons, 76ers–Knicks, Thunder–Spurs on NBC/Peacock.",
+            "body": "Camps are open. Preseason begins Oct 3. Opening Night slate still includes Celtics–Pistons, 76ers–Knicks, Thunder–Spurs.",
             "url": "https://www.nba.com/news/key-dates"
           }
         ]
@@ -239,22 +216,10 @@
         "title": "NFL",
         "items": [
           {
-            "source": "ESPN",
-            "hed": "Steelers trade Joey Porter Jr. to Cowboys",
-            "body": "Dallas gets the disgruntled corner for a 2027 sixth and 2028 second. Porter sat all three games on back + contract deadlock; Cowboys secondary is thin after Durant/Revel hits.",
-            "url": "https://www.espn.com/nfl/story/_/id/50074351/sources-steelers-trade-joey-porter-jr-cowboys"
-          },
-          {
-            "source": "Yahoo Sports",
-            "hed": "Bryce Young (knee) full participant; expected to start vs Lions",
-            "body": "Panthers QB on the injury report after the Browns game but practiced fully Wednesday. Carolina also put both starting CBs on IR ahead of Sunday night.",
-            "url": "https://sports.yahoo.com/articles/panthers-qb-bryce-young-dealing-005616433.html"
-          },
-          {
-            "source": "DNYUZ / Rams wire",
-            "hed": "Nacua expected back Sunday; Aaron Donald questionable",
-            "body": "McVay says Puka should play vs Eagles after two hip-missed games. Donald sat Wednesday with a back issue — day-to-day for Week 4.",
-            "url": "https://dnyuz.com/2026/10/01/rams-star-puka-nacua-expected-to-play-sunday-aaron-donald-questionable/"
+            "source": "Carry",
+            "hed": "Week 4 board — no fresh injury pull this edition",
+            "body": "Thu desk still had Porter Jr. to Dallas, Young expected vs Lions, Nacua expected Sunday. Confirm before you bet the slate.",
+            "url": "https://www.espn.com/nfl/"
           }
         ]
       },
@@ -262,16 +227,10 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "Sky Sports / ESPN",
-            "hed": "Fury–Joshua presser: Dec 11 Cardiff locked; AJ eyes R1 KO",
-            "body": "First official face-off in London was surprisingly civil. Joshua says knockout is the plan — maybe round one. WBA super title reportedly on the line.",
-            "url": "https://www.skysports.com/boxing/news/13593818/tyson-fury-vs-anthony-joshua-rivals-show-respect-at-friendly-first-press-conference-but-how-long-will-it-last"
-          },
-          {
-            "source": "Bloody Elbow",
-            "hed": "Dana White: Pereira’s next fight drops on UFC 332 KICK stream",
-            "body": "After a fan-comment challenge hit 25K, White confirmed Poatan’s opponent will be announced Saturday on Nina Drama’s KICK stream during UFC 332.",
-            "url": "https://bloodyelbow.com/2026/10/01/dana-white-confirms-hell-announce-alex-pereiras-next-fight-during-ufc-332-kick-stream/"
+            "source": "Carry",
+            "hed": "Fury–Joshua Dec 11 Cardiff still the mark",
+            "body": "Presser was civil on the Thu desk. No new official card change pulled overnight.",
+            "url": "https://www.skysports.com/boxing"
           }
         ]
       }
@@ -282,12 +241,12 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The threshold is the teaching",
-        "body": "Gnostic texts rarely reward the one who waits for perfect weather. They reward the one who recognizes the door while standing in the rain. Thursday’s showers are not delay — they are veil practice. Cross the threshold with breath and body before you ask the day for clarity."
+        "hed": "Clear sky is not the teaching",
+        "body": "The operator who waits for perfect weather never crosses. Friday’s sun is a gift, not a credential. Cross with breath and body before you ask the day for a meeting."
       },
       {
-        "hed": "Hidden fire under gray sky",
-        "body": "Hermetic operators treat gray mornings as fuel, not omen. What is veiled is still active. Keep the competitive calm: act from the current you already carry, not the clearance the weather withholds."
+        "hed": "Hold the vessel",
+        "body": "Hermetic proportion: do not pour from an empty cup. Charge fills it. Admin waits. A thin line held is stronger than a transfer forced."
       }
     ]
   },
@@ -301,39 +260,33 @@
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "~5:56 AM CT",
-    "urgent": [
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "OnlyFans — new login still unread (Chicago, iOS 27 / Chrome Mobile, Tue night). Was this you?",
-        "why": "Security — confirm or lock the account before anything else in that inbox."
-      }
-    ],
+    "asOf": "~5:55 AM CT",
+    "urgent": [],
     "needsLook": [
       {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Indeed — Customer Success Specialist @ OSM Worldwide ($27–$31/hr)",
-        "why": "Job alert — skim only if you’re actively shopping roles."
+        "account": "nuguiddom@gmail.com",
+        "text": "No Mitsubishi / Salesforce / vendor threads in the last 5 days",
+        "why": "Work board is empty — one pipeline note is the must-do, not a callback."
       }
     ],
     "fyi": [
       {
         "account": "nuguiddom@gmail.com",
-        "text": "YouTube member perks + Chess.com Grandmasters premiere promo",
+        "text": "Steam Autumn Sale through Oct 8 — wishlist ping",
+        "why": "Noise — archive."
+      },
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "Indeed Assistant Account Manager @ Alliant ($28–$31/hr)",
+        "why": "Job alert — skim only if shopping roles."
+      },
+      {
+        "account": "nuguiddom@gmail.com",
+        "text": "YouTube Premium perks + Chess.com premiere + Great Clips promo",
         "why": "Noise — archive when you next clean."
-      },
-      {
-        "account": "dkmpnuguid@gmail.com",
-        "text": "OpenAI image styles promo + SHEIN + Williams F1 Miami 2027 merch",
-        "why": "Noise — no PDF / Cash App drop requests overnight."
-      },
-      {
-        "account": "dominickurtmartin@gmail.com",
-        "text": "Instagram / TikTok digests + Samsung Galaxy S26 FE trade-in + CorVel job alert",
-        "why": "Noise — archive when ready."
       }
     ],
-    "cleanupNote": "Security first (OnlyFans login still unread). OpenAI Dots closed Wed 11:11 PM CT with no price locked — no PDF requests found overnight. Quiet money notes stay in moneyDesk."
+    "cleanupNote": "No security flag in this pull. Promo only. Quiet notes stay in Later / Admin."
   },
   "todo": {
     "title": "To-Do",
@@ -352,20 +305,14 @@
         "done": false
       },
       {
-        "id": "security-onlyfans-login",
-        "text": "Confirm OnlyFans new-login (Chicago / iOS) was you",
-        "priority": "security",
-        "done": false
-      },
-      {
-        "id": "work-mhcca-next",
-        "text": "Must-do #1 work — clear one real MHCCA / SOP next step",
+        "id": "work-sf-note",
+        "text": "Must-do #1 work — one Salesforce pipeline note (no meetings on the board)",
         "priority": "high",
         "done": false
       },
       {
-        "id": "ops-cosmic-move",
-        "text": "Must-do #2 — ship one Cosmic Terminal / site ops move",
+        "id": "admin-hold-pulls",
+        "text": "Must-do #2 — skip today’s calendar pulls; cards stay frozen",
         "priority": "high",
         "done": false
       }
@@ -375,35 +322,29 @@
     "title": "Later / Admin",
     "kicker": "Quiet block — after the morning wins",
     "items": [
-      "Fri Oct 2: Transfer $420 to Savings + Savings Transfer $300 on calendar — do not pull early.",
-      "Tue Oct 7: Paycheck $1,434.02 marked on calendar.",
-      "Upstart re-borrow promo in dkmpnuguid — ignore unless you asked for it.",
-      "OpenAI Dots closed with no price lock; no Cash App / PDF requests overnight."
+      "Scenario D holds. Check not in. Do not run today’s calendar pulls.",
+      "Rerun D when the Tue Oct 7 mark lands. Cards stay frozen."
     ]
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X bookmarks",
-    "pick": "30 websites that feel illegal to know but are 100% legal — VirusTotal, disposable mail, Scribe workflows",
-    "author": "@Orion_Vers7x",
-    "url": "https://x.com/Orion_Vers7x/status/2101842981942866160",
-    "bookmarkUrl": "https://x.com/Orion_Vers7x/status/2101842981942866160",
-    "linkLabel": "Open bookmark",
-    "note": "Fresh pick for Vol XXIX (50 AI websites ran Vol XXVIII; Nokia Claude ran Vol XXVII). No separate built-demo URL yet — bookmark post is the source.",
-    "skipped": "Skipped sports clips (Dust2 utility), pay-you-daily spam, and already-shipped AI-directory / GrokBot course bookmarks.",
-    "image": {
-      "src": "assets/tech-demo-legal-tool-stack.png",
-      "alt": "Newsprint diagram — Scan with VirusTotal, Shield with 10MinuteMail, Capture with Scribe"
-    },
+    "kicker": "Fast learn · live X",
+    "pick": "Claude as motion designer — scene by scene, not one magic prompt",
+    "author": "@Origin_AI_01",
+    "url": "https://x.com/Origin_AI_01/status/2105940411206549672",
+    "bookmarkUrl": "https://x.com/Origin_AI_01/status/2105940411206549672",
+    "linkLabel": "Open post",
+    "note": "Fresh pick for Vol XXX (legal tool stack ran Vol XXIX). @mmmik000 latest public build remains the Vortex Breath app: https://x.com/mmmik000/status/2104439485723218159",
+    "skipped": "Skipped image-edit bait and unverified political Grok clips.",
     "lesson": {
-      "oneLiner": "Three legal tools, one habit: scan before you open, shield throwaway signups, capture the SOP once.",
+      "oneLiner": "Do not ask the model to ‘make a video.’ Ask it to build scenes in order.",
       "beats": [
-        "Scan — VirusTotal runs a file or URL across 70+ engines before you click.",
-        "Shield — 10MinuteMail (or similar) for one-off accounts so spam never hits your real inbox.",
-        "Capture — Scribe records a workflow once into a shareable SOP your future self (or agent) can rerun.",
-        "Rule: do not bookmark fifty tools — install the habit that uses three."
+        "Concept — topic, audience, duration, style before any pixels.",
+        "Script + storyboard — hooks, on-screen text, timings.",
+        "Assets — SVG, icons, type. Then code: Remotion, GSAP, or plain HTML.",
+        "Render, then refine timing. Sequence beats a single prompt."
       ],
-      "takeaway": "Operator hygiene compounds. @mmmik000: scan → shield → capture. Then get back to the board."
+      "takeaway": "Operator rule: sequence the work, then the model. @mmmik000 already ships that pattern on Vortex Breath."
     }
   }
 }
