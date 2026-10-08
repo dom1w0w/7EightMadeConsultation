@@ -1455,6 +1455,23 @@
     .nav--open .nav__item--apps.is-open .nav__dropdown{display:block}
     .nav--open .nav__drop-link{min-height:44px;justify-content:center}
   
+    /* ── Front Page AI drop band ───────── */
+    .drop-band { background: #0B0B0F; color: #F3EFE6; border-bottom: 1px solid rgba(243,239,230,.1); }
+    .drop-band__inner { max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }
+    .drop-band__copy { font-size: 14px; line-height: 1.4; }
+    .drop-band__copy strong { color: #5EEAD4; font-weight: 700; }
+    .drop-band__urgent { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-variant-numeric: tabular-nums; color: #0B0B0F; background: #5EEAD4; border: 1px solid #2DD4BF; padding: 3px 8px; border-radius: 999px; }
+    .drop-band--soon .drop-band__urgent { color: #5EEAD4; background: transparent; border-color: rgba(94,234,212,.5); }
+    .drop-band__meta { color: rgba(243,239,230,.55); font-size: 12px; margin-top: 2px; }
+    .drop-band .btn { background: #5EEAD4; color: #0B0B0F; border-color: #5EEAD4; padding: 10px 18px; font-size: 13px; white-space: nowrap; }
+    .drop-band .btn:hover { background: #7af0dc; border-color: #7af0dc; transform: translateY(-1px); box-shadow: none; }
+    .drop-band--mid { background: #F3EFE6; color: #0B0B0F; border-bottom: 1px solid rgba(180,120,40,.22); }
+    .drop-band--mid .drop-band__copy strong { color: #B45309; }
+    .drop-band--mid .drop-band__urgent { color: #92400E; background: #FDE68A; border-color: #F59E0B; }
+    .drop-band--mid .drop-band__meta { color: #5C5C66; }
+    .drop-band--mid .btn { background: #B45309; color: #FBF8F2; border-color: #B45309; }
+    .drop-band--mid .btn:hover { background: #92400E; border-color: #92400E; }
+
   </style>
 </head>
 <body id="top">
@@ -1572,6 +1589,16 @@
 
 
 
+  <aside class="drop-band drop-band--soon" id="front-page-ai" aria-label="Front Page AI — opens 11:11 AM CT Thu">
+    <div class="drop-band__inner">
+      <div class="drop-band__copy">
+        <div><span class="drop-band__urgent" id="dropClock">Opens 11:11 AM CT</span> <strong>Front Page AI</strong> · $111 · <span id="dropState">24 hours only</span></div>
+        <div class="drop-band__meta" id="dropMeta">Your morning hub on your own homepage · opens 11:11 AM CT Thu</div>
+      </div>
+      <a class="btn" id="dropBtn" href="front-page-ai/">See Front Page AI</a>
+    </div>
+  </aside>
+
   <header class="hero">
     <div class="container">
       <div class="hero__grid">
@@ -1585,7 +1612,7 @@
             Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce.
           </p>
           <div class="hero__ctas">
-            <a class="btn btn--cobalt" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
+            <a class="btn btn--cobalt" id="heroDropCta" href="front-page-ai/">See Front Page AI</a>
             <a class="hero__secondary" href="#pricing">See packages</a>
           </div>
           <div class="hero__chips">
@@ -2552,6 +2579,63 @@
           }
         });
       }
+    })();
+  </script>
+
+  <script>
+    (function () {
+      // Front Page AI: Thu 2026-10-08 11:11 AM CDT (16:11Z), amber 11:11 PM CDT (04:11Z Oct 9), ends Fri 11:11 AM CDT (16:11Z Oct 9)
+      const start = Date.parse('2026-10-08T16:11:00Z');
+      const mid = Date.parse('2026-10-09T04:11:00Z');
+      const end = Date.parse('2026-10-09T16:11:00Z');
+      const band = document.getElementById('front-page-ai');
+      const clock = document.getElementById('dropClock');
+      const state = document.getElementById('dropState');
+      const meta = document.getElementById('dropMeta');
+      const hero = document.getElementById('heroDropCta');
+      let timer = null;
+      function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+      function hms(ms) {
+        const h = Math.floor(ms / 3600000);
+        const m = Math.floor((ms % 3600000) / 60000);
+        const s = Math.floor((ms % 60000) / 1000);
+        return pad(h) + ':' + pad(m) + ':' + pad(s);
+      }
+      function tick() {
+        const now = Date.now();
+        if (!band) return;
+        if (now >= end) {
+          band.hidden = true;
+          if (hero) { hero.href = 'mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit'; hero.textContent = 'Book Free AI Audit'; }
+          if (timer) clearInterval(timer);
+          return;
+        }
+        if (now < start) {
+          band.classList.add('drop-band--soon');
+          band.classList.remove('drop-band--mid');
+          if (clock) clock.textContent = 'Opens in ' + hms(start - now);
+          if (state) state.textContent = '24 hours only';
+          if (meta) meta.textContent = 'Your morning hub on your own homepage · opens 11:11 AM CT Thu';
+          if (hero) hero.textContent = 'See Front Page AI';
+          return;
+        }
+        band.classList.remove('drop-band--soon');
+        if (hero) hero.textContent = 'Front Page AI · $111';
+        if (clock) clock.textContent = hms(end - now) + ' left';
+        if (now >= mid) {
+          band.classList.add('drop-band--mid');
+          if (state) state.textContent = 'under 12 hours left';
+          if (meta) meta.textContent = 'Gone at 11:11 AM CT Fri';
+          band.setAttribute('aria-label', 'Front Page AI — under 12 hours left');
+        } else {
+          band.classList.remove('drop-band--mid');
+          if (state) state.textContent = '24 hours only';
+          if (meta) meta.textContent = 'Your morning hub on your own homepage · closes 11:11 AM CT Fri';
+          band.setAttribute('aria-label', 'Front Page AI is live — 24 hours only');
+        }
+      }
+      tick();
+      timer = setInterval(tick, 1000);
     })();
   </script>
 
