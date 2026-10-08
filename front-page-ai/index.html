@@ -92,7 +92,7 @@
         <li><strong>04</strong> The 5:55 routine</li>
         <li><strong>05</strong> Publish</li>
         <li><strong>06</strong> Guardrails</li>
-        <li><strong>+</strong> Starter files included: a working homepage and sample data</li>
+        <li><strong>+</strong> Starter files included: a working homepage, sample data, and every prompt from the video</li>
       </ul>
       <p class="steps">
         <strong>1.</strong> Send $111 to Cash App <span class="cash">$dom1w0w</span><br>
@@ -101,7 +101,7 @@
       </p>
       <p class="clock" id="clock">Opens 11:11 AM CT</p>
       <div class="actions" id="lockedActions">
-        <span class="btn btn--disabled" aria-disabled="true">Opens 11:11 AM CT</span>
+        <span class="btn btn--disabled" id="lockedBtn" aria-disabled="true">Opens 11:11 AM CT</span>
       </div>
       <div class="actions" id="liveActions" hidden>
         <a class="btn" href="https://cash.app/$dom1w0w/111">Pay $111 on Cash App</a>
@@ -133,6 +133,9 @@
     const closed = document.getElementById('closedCard');
     const locked = document.getElementById('lockedActions');
     const live = document.getElementById('liveActions');
+    const lockedBtn = document.getElementById('lockedBtn');
+    // Pay button stays hidden until the video is signed off. Flip to true to open ordering.
+    const PAY_OPEN = false;
     let timer = null;
     function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
     function hms(ms) {
@@ -147,6 +150,7 @@
         pill.textContent = 'Opens 11:11 AM CT';
         pill.className = 'live-pill is-soon';
         clock.textContent = 'Opens in ' + hms(start - now);
+        if (lockedBtn) lockedBtn.textContent = 'Opens 11:11 AM CT';
         locked.hidden = false; live.hidden = true;
         return;
       }
@@ -161,7 +165,8 @@
         if (timer) clearInterval(timer);
         return;
       }
-      locked.hidden = true; live.hidden = false;
+      if (PAY_OPEN) { locked.hidden = true; live.hidden = false; }
+      else { if (lockedBtn) lockedBtn.textContent = 'Opens soon'; locked.hidden = false; live.hidden = true; }
       if (now >= mid) {
         pill.textContent = 'Under 12 hours left';
         pill.className = 'live-pill is-mid';
