@@ -91,6 +91,7 @@
       .timeline li { grid-template-columns: 1fr; gap: 4px; }
     }
     @media (prefers-reduced-motion: reduce) { .plank, #ship2wrap { transition: none; } }
+    @media (max-width:640px) { .nav { position:static; } .nav__inner { padding:10px 16px; gap:6px; } .nav__links { flex-wrap:nowrap; overflow-x:auto; width:100%; scrollbar-width:none; } .nav__links a { white-space:nowrap; padding:8px 10px; } }
   </style>
 </head>
 <body>

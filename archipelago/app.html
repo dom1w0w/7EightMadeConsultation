@@ -1,97 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Archipelago — 7EightMade</title>
-<link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../brand/fonts.css">
-<style>
-  :root { --bg:#F3EFE6; --panel:#fff; --line:rgba(60,45,20,.12); --text:#0B0B0F; --muted:#5C5C66; --cobalt:#2563FF; }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.45 Inter,ui-sans-serif,system-ui,sans-serif; }
-  .wrap { max-width:980px; margin:0 auto; padding:20px 16px 48px; }
-  .brandbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px; }
-  .brand { display:block; text-decoration:none; }
-  .brand img { height:40px; width:auto; display:block; }
-  .brand-cta { color:var(--muted); font-size:12px; font-weight:600; text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:7px 12px; }
-  header h1 { margin:4px 0 0; font-family:Fraunces,Georgia,serif; font-size:34px; font-weight:600; letter-spacing:-.03em; }
-  header .kicker { color:var(--cobalt); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
-  header p { color:var(--muted); margin:8px 0 18px; }
-  footer.site { margin-top:28px; padding-top:16px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:12px; }
-  footer.site a { color:var(--cobalt); text-decoration:none; }
-  .tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
-  .tabs button { background:#fff; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:8px 14px; cursor:pointer; font-weight:600; }
-  .tabs button.on { background:var(--cobalt); color:#fff; border-color:var(--cobalt); }
-  .stats { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
-  .card { background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:14px 16px; }
-  .card .lbl { color:var(--muted); font-size:12px; }
-  .card .val { font-size:22px; margin-top:4px; font-family:Fraunces,Georgia,serif; }
-  .legend { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; margin:6px 0 14px; }
-  .bartrack { height:8px; border-radius:99px; background:linear-gradient(90deg,#d7e4ff,#2563FF); }
-  .row { display:grid; grid-template-columns:28px 1fr auto; gap:10px; align-items:center; padding:9px 0; border-bottom:1px solid var(--line); }
-  .row .name { display:flex; flex-direction:column; gap:6px; }
-  .meter { height:6px; background:#ece7dc; border-radius:99px; overflow:hidden; }
-  .meter > span { display:block; height:100%; background:#2563FF; }
-  .src { color:var(--muted); font-size:12px; margin-top:18px; }
-  .note { color:var(--muted); font-size:13px; margin-bottom:10px; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Archipelago | 7EightMade</title>
+  <link rel="canonical" href="./#atlas">
+  <meta http-equiv="refresh" content="0; url=./#atlas">
+  <script>location.replace("./" + (location.hash || "#atlas"));</script>
 </head>
-<body>
-<div class="wrap">
-  <div class="brandbar">
-    <a class="brand" href="../" aria-label="7EightMade">
-      <img src="../brand/logo-horizontal.svg" alt="7EightMade" height="40">
-    </a>
-    <a class="brand-cta" href="../">Studio</a>
-  </div>
-  <header>
-    <div class="kicker">Philippines · 7EightMade Atlas</div>
-    <h1>Archipelago</h1>
-    <p>Seventeen-region atlas. Official / published PSA–DICT series.</p>
-  </header>
-  <div class="tabs" id="tabs"></div>
-  <div class="note" id="desc"></div>
-  <div class="stats">
-    <div class="card"><div class="lbl">Regional mean</div><div class="val" id="mean"></div></div>
-    <div class="card"><div class="lbl">Spread</div><div class="val" id="spread"></div></div>
-  </div>
-  <div class="bartrack"></div>
-  <div class="legend"><span id="lo"></span><span id="hi"></span></div>
-  <div id="list"></div>
-  <p class="src" id="src"></p>
-  <footer class="site">
-    <div>Built by <a href="../">7EightMade</a></div>
-    <div><a href="./">About</a> · <a href="../#pricing">Packages</a> · <a href="mailto:nuguidd@icloud.com?subject=Archipelago">Contact</a></div>
-  </footer>
-</div>
-<script>
-const regions = [
-  {id:"ncr", name:"National Capital Region"},{id:"car", name:"Cordillera"},{id:"ilocos", name:"Ilocos"},{id:"cagayan", name:"Cagayan Valley"},{id:"cl", name:"Central Luzon"},{id:"calabarzon", name:"Calabarzon"},{id:"mimaropa", name:"Mimaropa"},{id:"bicol", name:"Bicol"},{id:"wv", name:"Western Visayas"},{id:"cv", name:"Central Visayas"},{id:"ev", name:"Eastern Visayas"},{id:"zam", name:"Zamboanga Peninsula"},{id:"nm", name:"Northern Mindanao"},{id:"davao", name:"Davao"},{id:"socc", name:"Soccsksargen"},{id:"caraga", name:"Caraga"},{id:"barmm", name:"Bangsamoro"}
-];
-const layers = {
-  pop: {label:"Population",desc:"2020 Census of Population and Housing.",src:"PSA 2020 CPH. National 109,035,343.",higher:"larger",invert:false,fmt:v=>v.toFixed(2)+"M",data:{calabarzon:16.195,ncr:13.484,cl:12.422,cv:8.082,wv:7.954,bicol:6.082,ilocos:5.301,davao:5.244,nm:5.023,ev:4.547,barmm:4.405,socc:4.360,zam:3.876,cagayan:3.686,mimaropa:3.229,caraga:2.805,car:1.798}},
-  gdp: {label:"GDP / capita",desc:"Per capita GRDP, current prices, 2025.",src:"PSA Regional Accounts 2025. National ₱245,997.",higher:"stronger",invert:false,fmt:v=>"₱"+Math.round(v/1000)+"k",data:{ncr:631279,davao:265488,nm:255321,car:249740,cl:234427,calabarzon:232423,cv:229518,wv:173343,ilocos:172668,caraga:161758,mimaropa:160506,socc:152350,cagayan:152041,ev:137209,zam:129675,bicol:124630,barmm:78874}},
-  pov: {label:"Poverty",desc:"Poverty incidence among families, 2023 full year.",src:"PSA 2023 Official Poverty Statistics. PH 10.9%.",higher:"more severe",invert:true,fmt:v=>v.toFixed(1)+"%",data:{zam:24.2,barmm:23.5,bicol:20.3,ev:20.3,nm:18.4,socc:17.0,mimaropa:16.3,caraga:14.9,cv:12.3,davao:11.3,wv:9.8,ilocos:8.4,cagayan:7.2,cl:5.7,calabarzon:5.3,car:4.4,ncr:1.1}},
-  net: {label:"Internet",desc:"Households with internet access at home, 2024 NICTHS.",src:"PSA–DICT NICTHS 2024. National 48.8%.",higher:"stronger",invert:false,fmt:v=>v.toFixed(1)+"%",data:{ncr:68.7,cl:61.3,ilocos:58.2,cagayan:55.7,nm:54.9,car:53.2,calabarzon:53.2,cv:41.8,socc:41.6,bicol:40.8,wv:40.6,ev:34.2,davao:33.4,caraga:31.5,mimaropa:30.9,barmm:27.7,zam:21.2}},
-  une: {label:"Unemployment",desc:"Annual unemployment rate, 2025 LFS (preliminary).",src:"PSA 2025 Annual LFS. National 4.2%.",higher:"more severe",invert:true,fmt:v=>v.toFixed(1)+"%",data:{calabarzon:5.8,ncr:5.2,mimaropa:4.8,bicol:4.7,wv:3.9,cv:3.8,ev:3.9,ilocos:3.8,barmm:3.9,nm:3.7,caraga:3.6,zam:3.4,cl:3.3,socc:3.3,cagayan:3.1,davao:2.9,car:2.7}}
-};
-const order=["pop","gdp","pov","net","une"];
-function render(key){
-  const L=layers[key];
-  document.getElementById("tabs").innerHTML=order.map(k=>`<button class="${k===key?"on":""}" onclick="render('${k}')">${layers[k].label}</button>`).join("");
-  document.getElementById("desc").textContent=L.desc;
-  const vals=Object.values(L.data); const min=Math.min(...vals), max=Math.max(...vals);
-  const mean=vals.reduce((a,b)=>a+b,0)/vals.length;
-  document.getElementById("mean").textContent=L.fmt(mean);
-  document.getElementById("spread").textContent=L.fmt(min)+" – "+L.fmt(max);
-  document.getElementById("lo").textContent=L.fmt(min);
-  document.getElementById("hi").textContent=L.fmt(max)+" · "+(L.invert?"Higher is more severe":"Longer is "+L.higher);
-  const ranked=regions.map(r=>({...r,v:L.data[r.id]})).sort((a,b)=>b.v-a.v);
-  document.getElementById("list").innerHTML=ranked.map((r,i)=>{const pct=((r.v-min)/(max-min||1))*100;return `<div class="row"><div>${i+1}</div><div class="name"><strong>${r.name}</strong><div class="meter"><span style="width:${pct}%"></span></div></div><div>${L.fmt(r.v)}</div></div>`;}).join("");
-  document.getElementById("src").textContent=L.src;
-}
-render("pop");
-</script>
+<body style="background:#0b0f14;color:#eef0ea;font-family:system-ui,sans-serif;padding:24px">
+  <p>The atlas has moved to <a href="./#atlas" style="color:#6fd3c1">the Archipelago page</a>.</p>
 </body>
 </html>
