@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ship of Theseus: is it still the same ship? | 7EightMade</title>
+  <meta name="description" content="Swap a ship's planks one at a time, then rebuild the old planks into a second ship. Which one is the real Ship of Theseus? A free 7EightMade instrument with the paradox explained.">
+  <meta property="og:title" content="Ship of Theseus: is it still the same ship?">
+  <meta property="og:description" content="Swap the planks one by one. Rebuild the old ones. Which ship is the real one? A free 7EightMade instrument.">
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../brand/fonts.css">
+  <style>
+    :root {
+      --ink: #eef0ea;
+      --bg: #0b0f14;
+      --bg2: #121922;
+      --muted: #9aa4ad;
+      --line: rgba(238,240,234,.12);
+      --sea: #5fb3c9;
+      --old: #7a5634;
+      --new: #e9cf9a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { min-height: 100vh; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--sea); }
+    .nav { position: sticky; top: 0; z-index: 10; background: rgba(11,15,20,.9); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .nav__inner { max-width: 860px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { text-decoration: none; color: var(--ink); font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 20px; }
+    .brand b { color: var(--new); }
+    .nav__links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav__links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 8px; min-height: 44px; display: inline-flex; align-items: center; }
+    .nav__links a[aria-current="page"] { color: var(--ink); }
+    .nav__links a:hover { color: var(--ink); background: rgba(238,240,234,.06); }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sea); margin-bottom: 14px; }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(38px, 7.5vw, 64px); font-weight: 600; letter-spacing: -.03em; line-height: 1.03; margin-bottom: 16px; }
+    h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(26px, 4.5vw, 36px); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin: 64px 0 14px; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 50ch; margin-bottom: 26px; }
+    .prose { max-width: 62ch; }
+    .prose p { margin-bottom: 14px; font-size: 16px; }
+    .prose em { color: var(--new); font-style: normal; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 18px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; background: var(--new); color: #1b140b; border: 0; cursor: pointer; font-family: inherit; }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid rgba(238,240,234,.25); }
+    .btn[aria-pressed="true"] { background: var(--sea); color: #08131a; }
+    .btn:disabled { opacity: .4; cursor: default; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+    .instrument { background: var(--bg2); border: 1px solid var(--line); border-radius: 22px; padding: 22px; }
+    .ships { display: grid; gap: 8px; }
+    .shipcard__label { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .shipcard__label b { color: var(--ink); letter-spacing: .04em; }
+    .shipcard svg { width: 100%; height: auto; display: block; }
+    #ship2wrap { transition: opacity .5s; }
+    .plank { transition: fill .45s ease; }
+    .counter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+    .counter div { background: rgba(238,240,234,.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .counter b { display: block; font-family: Fraunces, Georgia, serif; font-size: 24px; font-variant-numeric: tabular-nums; }
+    .counter span { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+    .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+    input[type=range] { width: 100%; accent-color: var(--new); margin: 6px 0 14px; height: 32px; }
+    .ask { margin-top: 18px; padding: 16px; border-radius: 14px; border: 1px dashed rgba(238,240,234,.25); }
+    .ask p { font-family: Fraunces, Georgia, serif; font-size: 20px; margin-bottom: 10px; }
+    .ask small { display: block; color: var(--muted); font-size: 13px; margin-top: 10px; min-height: 1.4em; }
+    .twist { margin-top: 18px; padding: 18px; border-radius: 16px; background: radial-gradient(120% 140% at 0% 0%, rgba(95,179,201,.16), transparent 60%), rgba(238,240,234,.03); border: 1px solid var(--line); }
+    .twist h3 { font-family: Fraunces, Georgia, serif; font-size: 24px; margin-bottom: 8px; }
+    .verdict { margin-top: 12px; color: var(--muted); font-size: 15px; min-height: 1.5em; }
+
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+    .card { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .card strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 18px; margin-bottom: 6px; }
+    .card p { font-size: 14px; color: var(--muted); }
+    .quote { border-left: 2px solid var(--new); padding: 4px 0 4px 18px; margin: 22px 0; font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.45; max-width: 54ch; }
+    .quote small { display: block; font-family: Inter, sans-serif; font-size: 13px; color: var(--muted); margin-top: 8px; }
+    .timeline { list-style: none; display: grid; gap: 10px; margin: 18px 0; }
+    .timeline li { display: grid; grid-template-columns: 110px 1fr; gap: 14px; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+    .timeline .when { font-family: Fraunces, Georgia, serif; color: var(--new); font-size: 17px; }
+    .timeline span { font-size: 14px; color: var(--muted); }
+    .timeline b { display: block; font-size: 15px; color: var(--ink); }
+    .links { list-style: none; display: grid; gap: 10px; margin: 18px 0; }
+    .links a { display: block; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: var(--ink); }
+    .links a:hover { border-color: var(--sea); }
+    .links b { display: block; font-size: 15px; }
+    .links span { font-size: 13px; color: var(--muted); }
+    .foot { margin-top: 48px; font-size: 13px; color: var(--muted); }
+    .foot a { text-decoration: none; }
+    @media (max-width: 640px) {
+      .cards { grid-template-columns: 1fr; }
+      .counter { grid-template-columns: 1fr 1fr 1fr; }
+      .counter b { font-size: 20px; }
+      .timeline li { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .plank, #ship2wrap { transition: none; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Site">
+    <div class="nav__inner">
+      <a class="brand" href="../" aria-label="7EightMade main menu"><b>7</b>EightMade</a>
+      <div class="nav__links">
+        <a href="../">Main menu</a>
+        <a href="../vortex-breath/">Vortex</a>
+        <a href="../archipelago/">Atlas</a>
+        <a href="../till/">Till</a>
+        <a href="../dichotomy-zeno/">Zeno</a>
+        <a href="./" aria-current="page">Theseus</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <p class="eyebrow">7EightMade · Apps · Free</p>
+    <h1>Is it still the same ship?</h1>
+    <p class="lead">Swap the planks of a ship one at a time. Keep every old plank. When the last one is replaced, build a second ship out of the old ones. Then decide which ship is the real one.</p>
+
+    <section class="instrument" aria-label="Ship of Theseus instrument">
+      <div class="ships">
+        <div class="shipcard">
+          <div class="shipcard__label"><span><b>The ship in the harbor</b></span><span id="lab1">All original</span></div>
+          <svg viewBox="0 0 600 230" id="ship1" role="img" aria-label="The ship in the harbor, made of original and new planks"></svg>
+        </div>
+        <div class="shipcard" id="ship2wrap" style="opacity:.35">
+          <div class="shipcard__label"><span><b>The pile in the shipyard</b></span><span id="lab2">No old planks yet</span></div>
+          <svg viewBox="0 0 600 230" id="ship2" role="img" aria-label="A second ship being rebuilt from the removed old planks"></svg>
+        </div>
+      </div>
+
+      <div class="counter" aria-live="polite">
+        <div><b id="cOld">24</b><span><i class="sw" style="background:var(--old)"></i>ORIGINAL PLANKS</span></div>
+        <div><b id="cNew">0</b><span><i class="sw" style="background:var(--new)"></i>NEW PLANKS</span></div>
+        <div><b id="cPct">100%</b><span>STILL ORIGINAL</span></div>
+      </div>
+
+      <label for="swap" class="shipcard__label" style="display:block">Planks replaced</label>
+      <input type="range" id="swap" min="0" max="24" step="1" value="0" aria-describedby="lab1">
+      <div class="row">
+        <button class="btn" type="button" id="one">Swap one plank</button>
+        <button class="btn btn--ghost" type="button" id="all">Swap them all</button>
+        <button class="btn btn--ghost" type="button" id="reset">Start over</button>
+      </div>
+
+      <div class="ask">
+        <p id="askQ">Is it still the same ship?</p>
+        <div class="row">
+          <button class="btn btn--ghost" type="button" id="yes" aria-pressed="false">Yes, same ship</button>
+          <button class="btn btn--ghost" type="button" id="no" aria-pressed="false">No, it's a different ship</button>
+        </div>
+        <small id="askNote">Answer at any point. Then keep swapping.</small>
+      </div>
+
+      <div class="twist" id="twist" hidden>
+        <h3>Two ships. Which one is the real Ship of Theseus?</h3>
+        <p style="color:var(--muted);font-size:15px">The ship in the harbor has never stopped sailing, but none of its wood is original. The ship in the shipyard is built from every original plank, in the original order.</p>
+        <div class="row" style="margin-top:12px">
+          <button class="btn btn--ghost" type="button" data-v="harbor">The one in the harbor</button>
+          <button class="btn btn--ghost" type="button" data-v="yard">The rebuilt one</button>
+          <button class="btn btn--ghost" type="button" data-v="both">Both</button>
+          <button class="btn btn--ghost" type="button" data-v="neither">Neither</button>
+        </div>
+        <p class="verdict" id="verdict"></p>
+      </div>
+    </section>
+
+    <section class="prose">
+      <h2>The paradox</h2>
+      <p>The story comes from Plutarch, a Greek writer of the first century AD. In his <em>Life of Theseus</em>, he says the Athenians kept the ship that the hero Theseus sailed home from Crete. As its old timbers rotted, they pulled them out and put in new ones, and they kept doing it for centuries.</p>
+      <div class="quote">The ship became a standing example for philosophers of the question of growth: some said it stayed the same ship, others said it did not.<small>Paraphrasing Plutarch, Life of Theseus 23</small></div>
+      <p>So the question is simple. If every part of something gets replaced, one at a time, is it still the same thing? And if it isn't, which plank was the one that made the difference?</p>
+    </section>
+
+    <section class="prose">
+      <h2>The twist: the rebuilt ship</h2>
+      <p>In 1655 the English philosopher Thomas Hobbes made it worse. Suppose someone saved every plank as it came off, and once they had them all, reassembled them into a ship. Now there are two ships. One has the history, since it never stopped being used. The other has the wood, every original piece in its original place. They can't both be the one ship Theseus sailed, but each has a strong claim.</p>
+      <p>Philosophers sometimes call these two ships <em>Replacement</em> and <em>Reassembly</em>. The instrument above ends exactly there.</p>
+    </section>
+
+    <section class="prose">
+      <h2>How people answer it</h2>
+      <p>There's no agreed answer, but the main positions line up with the buttons above.</p>
+    </section>
+    <div class="cards">
+      <div class="card"><strong>The ship in the harbor</strong><p>What matters is continuity. The ship changed gradually and kept doing its job the whole time, the way a river is the same river even though the water is always new.</p></div>
+      <div class="card"><strong>The rebuilt ship</strong><p>What matters is the material. A thing is its parts, so the ship made of the original planks is the original ship, just taken apart and put back together.</p></div>
+      <div class="card"><strong>Both</strong><p>Some philosophers say "same" has two senses. The harbor ship is the same <em>ship</em>, and the rebuilt one is the same <em>wood</em>. The puzzle comes from mixing the two.</p></div>
+      <div class="card"><strong>Neither</strong><p>Others say "the same ship" is a label people agree on, not a fact in the world. Once a ship is changed enough, there's no hidden right answer, only a choice about what to call it.</p></div>
+    </div>
+
+    <section class="prose">
+      <h2>When did you stop being you?</h2>
+      <p>The ship is also a story about people. Your body keeps replacing its materials. Skin, blood and the lining of your gut turn over constantly, though not everything does: most of the neurons in your brain are with you for life. Your memories, habits and beliefs change too.</p>
+      <p>So the same question applies to you. If you're the same person you were at seven, is that because of your body, your memories, the unbroken story connecting then and now, or simply because everyone, including you, keeps calling you by the same name?</p>
+    </section>
+
+    <section class="prose">
+      <h2>Two thousand years of one ship</h2>
+    </section>
+    <ul class="timeline">
+      <li><span class="when">~100 AD</span><div><b>Plutarch tells the story</b><span>The Athenians keep repairing Theseus's ship, and philosophers argue about whether it's still the same.</span></div></li>
+      <li><span class="when">1655</span><div><b>Hobbes adds the second ship</b><span>The old planks are reassembled, and now two ships compete for the name.</span></div></li>
+      <li><span class="when">Today</span><div><b>Still argued</b><span>It's a standard puzzle about identity over time, and the same question comes up for people, companies, bands and software.</span></div></li>
+    </ul>
+
+    <section class="prose">
+      <h2>Go deeper</h2>
+    </section>
+    <ul class="links">
+      <li><a href="https://plato.stanford.edu/entries/identity-time/" target="_blank" rel="noopener"><b>Identity Over Time, Stanford Encyclopedia of Philosophy</b><span>The full philosophical treatment, including the Ship of Theseus, Replacement and Reassembly</span></a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Ship_of_Theseus" target="_blank" rel="noopener"><b>Ship of Theseus, Wikipedia</b><span>A readable overview of the paradox, its history and the proposed answers</span></a></li>
+      <li><a href="../dichotomy-zeno/"><b>Dichotomy Zeno</b><span>Another 7EightMade paradox: halve the gap forever and it never closes</span></a></li>
+    </ul>
+
+    <p class="foot"><a href="../">← Main menu</a> · <a href="../vortex-breath/">Vortex</a> · <a href="../archipelago/">Atlas</a> · <a href="../till/">Till</a> · <a href="../dichotomy-zeno/">Zeno</a> · Fall down seven. Stand up eight.</p>
+  </main>
+
+  <script>
+    (function () {
+      const NS = 'http://www.w3.org/2000/svg';
+      const ROWS = 4, COLS = 6, N = ROWS * COLS;
+      const HULL = 'M40 100 L560 100 Q548 168 478 200 L122 200 Q52 168 40 100 Z';
+      function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+      // fixed pseudo-random swap order so every visitor sees the same voyage
+      const order = Array.from({ length: N }, (_, i) => i);
+      let seed = 7;
+      for (let i = N - 1; i > 0; i--) { seed = (seed * 9301 + 49297) % 233280; const j = Math.floor(seed / 233280 * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+      const rank = new Array(N); order.forEach((p, k) => { rank[p] = k; });
+
+      function drawShip(svg, id, sail) {
+        const defs = el('defs', {}, svg);
+        const cp = el('clipPath', { id: 'hull-' + id }, defs);
+        el('path', { d: HULL }, cp);
+        // water
+        el('path', { d: 'M0 206 Q50 196 100 206 T200 206 T300 206 T400 206 T500 206 T600 206 L600 230 L0 230 Z', fill: 'rgba(95,179,201,.18)' }, svg);
+        // mast + sail
+        el('line', { x1: 300, y1: 100, x2: 300, y2: 14, stroke: '#9aa4ad', 'stroke-width': 4 }, svg);
+        if (sail) el('path', { d: 'M304 20 L304 92 L420 92 Z', fill: 'rgba(238,240,234,.85)' }, svg);
+        else el('path', { d: 'M304 20 L304 92 L420 92 Z', fill: 'none', stroke: 'rgba(238,240,234,.3)', 'stroke-dasharray': '5 5' }, svg);
+        const g = el('g', { 'clip-path': 'url(#hull-' + id + ')' }, svg);
+        const planks = [];
+        const h = 100 / ROWS, w = 520 / COLS;
+        for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+          const off = (r % 2) * (w / 2);
+          const x = 40 + c * w - off;
+          const p = el('rect', { x: x + 1.2, y: 100 + r * h + 1.2, width: w - 2.4 + (c === COLS - 1 ? off : 0), height: h - 2.4, rx: 2, class: 'plank' }, g);
+          planks.push(p);
+        }
+        el('path', { d: HULL, fill: 'none', stroke: 'rgba(238,240,234,.35)', 'stroke-width': 1.5 }, svg);
+        el('line', { x1: 36, y1: 100, x2: 564, y2: 100, stroke: '#c9b48a', 'stroke-width': 4, 'stroke-linecap': 'round' }, svg);
+        return planks;
+      }
+      const s1 = drawShip(document.getElementById('ship1'), 'a', true);
+      const s2 = drawShip(document.getElementById('ship2'), 'b', false);
+
+      const OLD = '#7a5634', NEW = '#e9cf9a', EMPTY = 'rgba(238,240,234,.05)';
+      const range = document.getElementById('swap');
+      const cOld = document.getElementById('cOld'), cNew = document.getElementById('cNew'), cPct = document.getElementById('cPct');
+      const lab1 = document.getElementById('lab1'), lab2 = document.getElementById('lab2');
+      const wrap2 = document.getElementById('ship2wrap');
+      const twist = document.getElementById('twist');
+      const yes = document.getElementById('yes'), no = document.getElementById('no'), askNote = document.getElementById('askNote'), askQ = document.getElementById('askQ');
+      let k = 0, answer = null, firstNo = null, lastYes = null;
+
+      function render() {
+        for (let p = 0; p < N; p++) {
+          const swapped = rank[p] < k;
+          s1[p].setAttribute('fill', swapped ? NEW : OLD);
+          s2[p].setAttribute('fill', swapped ? OLD : EMPTY);
+        }
+        range.value = k;
+        cOld.textContent = N - k; cNew.textContent = k;
+        cPct.textContent = Math.round((N - k) / N * 100) + '%';
+        lab1.textContent = k === 0 ? 'All original' : k === N ? 'No original planks left' : (N - k) + ' of ' + N + ' original';
+        lab2.textContent = k === 0 ? 'No old planks yet' : k === N ? 'Rebuilt from every original plank' : k + ' old plank' + (k === 1 ? '' : 's') + ' saved';
+        wrap2.style.opacity = k === 0 ? .35 : 1;
+        twist.hidden = k < N;
+        askQ.textContent = k === N ? 'Is the ship in the harbor still the same ship?' : 'Is it still the same ship?';
+        yes.setAttribute('aria-pressed', 'false'); no.setAttribute('aria-pressed', 'false');
+        if (answer === null) askNote.textContent = 'Answer at any point. Then keep swapping.';
+      }
+      function setK(v) { k = Math.max(0, Math.min(N, v)); render(); }
+      range.addEventListener('input', () => setK(+range.value));
+      document.getElementById('one').onclick = () => setK(k + 1);
+      document.getElementById('all').onclick = () => setK(N);
+      document.getElementById('reset').onclick = () => { answer = null; firstNo = null; lastYes = null; document.getElementById('verdict').textContent = ''; setK(0); };
+      function respond(isYes) {
+        answer = isYes;
+        yes.setAttribute('aria-pressed', String(isYes)); no.setAttribute('aria-pressed', String(!isYes));
+        if (isYes) lastYes = k; else if (firstNo === null) firstNo = k;
+        if (!isYes && k === 0) askNote.textContent = 'Not even with every original plank? Then maybe a ship was never just its planks.';
+        else if (!isYes && lastYes !== null && lastYes < k) askNote.textContent = 'At ' + lastYes + ' new planks you said yes, and at ' + k + ' you said no. One plank somewhere in between made the difference. Which one?';
+        else if (!isYes) askNote.textContent = 'You said it stopped being the original by plank ' + k + ' of ' + N + '. What was special about that plank?';
+        else if (k === N) askNote.textContent = 'Every plank is new and it\u2019s still the same ship? Then look at what\u2019s in the shipyard.';
+        else askNote.textContent = 'Still the same with ' + k + ' new plank' + (k === 1 ? '' : 's') + '. Keep swapping and see if that changes.';
+      }
+      yes.onclick = () => respond(true);
+      no.onclick = () => respond(false);
+      const verdicts = {
+        harbor: 'You go by continuity. The ship never stopped being a working ship, so it kept its identity. But then the rebuilt ship, with every original plank, is a copy?',
+        yard: 'You go by the material. The original planks are back together, so the original ship is back. But then the ship in the harbor stopped being Theseus\u2019s ship at some plank. Which one?',
+        both: 'You split the word "same." One is the same ship by history, the other is the same wood. That clears up the clash, but now "the real ship" has two answers.',
+        neither: 'You treat "the same ship" as a label people choose, not a fact. That\u2019s consistent, but it means the question you just answered has no right answer.'
+      };
+      twist.querySelectorAll('[data-v]').forEach(b => b.onclick = () => {
+        twist.querySelectorAll('[data-v]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        document.getElementById('verdict').textContent = verdicts[b.dataset.v];
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
