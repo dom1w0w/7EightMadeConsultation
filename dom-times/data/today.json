@@ -1,63 +1,63 @@
 {
   "_meta": {
-    "note": "LIVE edition — Thursday, October 8, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks. Front Page AI drop opens 11:11 AM CT today (calendar). No new X bookmarks since Oct 4; Tech Demo rotates to @Orion_Vers7x (last used Oct 1) with a new angle: Scribe step-recorder for SOPs and drop PDFs.",
-    "generated": "2026-10-08T06:01:14-05:00",
+    "note": "LIVE edition — Friday, October 9, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Calendar + live finance + X. Front Page AI closes 11:11 AM CT. Early pay landed Oct 7 ($1,083.05). Scenario D rerun: $300 Cash App at the 9:00 block; Platinum not to zero from checking (buffer short); savings lock holds. Tech Demo: @marouane53 GeoInt.",
+    "generated": "2026-10-09T05:55:00-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XXXVI",
+    "volume": "XXXVII",
     "city": "Carpentersville, IL",
-    "asOf": "6:01 AM CT"
+    "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Jupiter's Day, Launch Day — Front Page AI Opens at 11:11",
-    "subhead": "Clear and crisp at dawn, 49°, sunrise 6:57, high near 67 under a dry sky. Your Front Page AI drop goes live at 11:11 AM CT. Bulls beat Phoenix at home, OpenAI dropped 722 math papers, and Grok Bot will now borrow Claude when it's the best tool. Charge first, body second, launch clean.",
+    "headline": "Venus Friday — Close the Window Clean at 11:11",
+    "subhead": "Cloudy at dawn, about 53\u00b0, high near 68 with storms possible this afternoon. Front Page AI closes at 11:11 AM CT. Bucs beat Dallas 24\u201316. Charge first, body second, then close the page once.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Thursday: a clear, cool start over Carpentersville — Jupiter's day, built for the window that opens at 11:11.",
-      "alt": "Lead photo — Thursday Opening Bell under a clear morning sky"
+      "caption": "Friday: a cloudy start over Carpentersville. Close the window at 11:11, then leave it closed.",
+      "alt": "Lead photo — Friday Opening Bell under a cloudy morning sky"
     }
   },
   "articles": [
     {
-      "hed": "Edition XXXVI: The Window Opens — Expand, Don't Shrink",
-      "deck": "Box breathing, 3-minute opener, then a clean pre-launch check before 11:11 AM. Midpoint check at 11:11 PM, close Friday 11:11 AM.",
-      "body": "Volume XXXVI is live from Carpentersville on a clear Thursday (49° at dawn, high near 67, rain chance about 3%). Today is a launch day: Front Page AI opens at 11:11 AM CT and runs a full 24 hours. Overnight scoreboard: the Bulls beat Phoenix 124–117 at the United Center, Milwaukee edged OKC 128–126, and Portland handed Golden State a 123–118 loss. On the AI desk, OpenAI posted 722 math papers from an unreleased model, and Elon Musk said Grok Bot will route work to whichever model fits best, including Anthropic's Claude Opus 5.5. Tonight, Thursday Night Football has the 0-4 Bucs at Dallas. Your Tech Demo: record a task once and get a finished step-by-step guide. fall down 7 stand up 8.",
+      "hed": "Edition XXXVII: Close It. Don't Refresh It.",
+      "deck": "Box breathing, 3-minute opener, then one clean close before 11:11 AM. Hard-kill is on the calendar at 11:13.",
+      "body": "Volume XXXVII is live from Carpentersville on a cloudy Friday (about 53\u00b0 before dawn, high near 68, afternoon storm chance about 46%). The only launch left is the close: Front Page AI ends at 11:11 AM CT and the calendar says the site hard-kills at 11:13. No PDFs for payments after the close. Overnight: Buccaneers 24, Cowboys 16 — Tampa's first win. Sunday noon CT, Bears at Packers (Chicago 3-1). Tech Demo: an open-source skill that reads a photo and argues where it was taken. fall down 7 stand up 8.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 67,
-    "low": 48,
+    "high": 68,
+    "low": 49,
     "unit": "F",
-    "summary": "Thursday: clear and cool early (about 49° at 6 AM, sunrise 6:57), dry all day with a few clouds around 11, high near 67, rain chance ~3%. Friday: mostly cloudy, high near 70 / low around 48, rain chance ~24%. Saturday: cloudy and warm, high near 75 / low around 58. Sunday: cloudy, high near 68. Monday: light drizzle possible, high near 79. Source: Open-Meteo as of ~5:45 AM CT.",
+    "summary": "Friday: cloudy early (about 53\u00b0 around 4:45 AM), high near 68 / low around 49, scattered storms possible this afternoon (precip chance ~46%). Saturday: partly cloudy, high near 78 / low around 58. Sunday: high near 75 / low around 57. Monday: high near 84 / low around 58. Source: globalmeteo GFS, updated ~4:45 AM CT. Open-Meteo daily cap hit this run.",
     "days": [
       {
-        "label": "Thu",
-        "high": 67,
-        "low": 48,
-        "icon": "sun"
-      },
-      {
         "label": "Fri",
-        "high": 70,
-        "low": 48,
+        "high": 68,
+        "low": 49,
         "icon": "cloud"
       },
       {
         "label": "Sat",
-        "high": 75,
+        "high": 78,
         "low": 58,
         "icon": "cloud"
       },
       {
         "label": "Sun",
-        "high": 68,
-        "low": 59,
+        "high": 75,
+        "low": 57,
+        "icon": "cloud"
+      },
+      {
+        "label": "Mon",
+        "high": 84,
+        "low": 58,
         "icon": "cloud"
       }
     ]
@@ -65,11 +65,11 @@
   "needsALook": [
     {
       "type": "ACTION",
-      "text": "TODAY Thu Oct 8 — Front Page AI opens 11:11 AM CT; midpoint check 11:11 PM; closes Fri 11:11 AM"
+      "text": "TODAY Fri Oct 9 — Front Page AI closes 11:11 AM CT; hard-kill on calendar at 11:13"
     },
     {
       "type": "FYI",
-      "text": "Clear and dry, high ~67°; optional Sigil 9:30 PM CT; Bucs at Cowboys 7:15 PM CT on Prime Video"
+      "text": "Cloudy, high ~68\u00b0, storms possible this afternoon; optional Sigil 9:30 PM CT"
     }
   ],
   "timeline": [
@@ -84,49 +84,38 @@
       "category": "habit"
     },
     {
+      "time": "9:00 AM",
+      "event": "Calendar block — Savings Transfer. Cash App only. Cards stay frozen.",
+      "category": "admin"
+    },
+    {
       "time": "Before 11:11",
-      "event": "Must-do #1 — pre-launch check: open the Front Page AI page on your phone and confirm the Cash App link and copy read right",
+      "event": "Must-do #1 — confirm the Front Page AI close copy and that nothing new ships after 11:11",
       "category": "focus"
     },
     {
       "time": "11:11 AM",
-      "event": "Front Page AI opens — post the launch, then step away from refreshing",
+      "event": "Front Page AI closes. Hard-kill 11:13. Then step away.",
       "category": "focus"
-    },
-    {
-      "time": "Afternoon",
-      "event": "Must-do #2 — record one real MHCCA task with a step-recorder (start with the payoff-request SOP)",
-      "category": "focus"
-    },
-    {
-      "time": "7:15 PM",
-      "event": "TNF — Buccaneers at Cowboys (Prime Video)",
-      "category": "personal"
     },
     {
       "time": "9:30 PM",
       "event": "Sigil (optional) — exhaust valve so nothing follows you into sleep",
       "category": "habit"
-    },
-    {
-      "time": "11:11 PM",
-      "event": "Front Page AI midpoint check — 12 hours left",
-      "category": "focus"
     }
   ],
   "thisWeek": [
-    "Thu Oct 8 — Clear, ~67°; Front Page AI opens 11:11 AM CT; Bucs at Cowboys 7:15 PM CT; optional Sigil 9:30 PM",
-    "Fri Oct 9 — Mostly cloudy, ~70°; Front Page AI closes 11:11 AM CT; optional Sigil 9:30 PM",
-    "Sat Oct 10 — Cloudy and warm, ~75°; UFC Fight Night Allen vs Duncan in Vegas",
-    "Sun Oct 11 — ~68°; Bears at Packers, noon CT (Tyson Bagent expected to start)",
-    "Mon Oct 12 — Drizzle possible, ~79°; optional Sigil 9:30 PM"
+    "Fri Oct 9 — Cloudy, ~68\u00b0, storms possible; Front Page AI closes 11:11 AM CT; optional Sigil 9:30 PM",
+    "Sat Oct 10 — Partly cloudy, ~78\u00b0",
+    "Sun Oct 11 — ~75\u00b0; Bears at Packers, noon CT",
+    "Mon Oct 12 — ~84\u00b0; optional Sigil 9:30 PM"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Cool clear air, Jupiter's day. Four counts in, four hold, four out, four hold. Wide chest, slow pulse, open hands. Launch days reward the person who is calm at 11:10 — that's you.",
+    "intro": "Cloudy air, Venus's day. Four counts in, four hold, four out, four hold. Wide chest, slow pulse, open hands. Close days reward the person who is calm at 11:10 — that's you.",
     "breathing": {
-      "title": "Box Breathing — 4 · 4 · 4 · 4",
+      "title": "Box Breathing — 4 \u00b7 4 \u00b7 4 \u00b7 4",
       "pattern": "4-4-4-4",
       "secondsPerPhase": 4,
       "cycles": 4,
@@ -158,14 +147,14 @@
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Thursday Expansion Energy",
-      "body": "Jupiter is the planet of growth, kingship and generosity — the big-picture planet. Today Dom doesn't play small. You built the page, you set the window, and at 11:11 the door opens. You don't chase, you don't refresh, you don't flinch. You show up like the offer is already worth it, because it is. Competitive. Unbeatable. One breath, one launch, one clean finish. fall down 7 stand up 8."
+      "hed": "Friday Venus Energy",
+      "body": "Friday is Venus's day — vendredi, viernes. Venus rules finish, form, and what you are willing to let go. The window you opened yesterday has a hard edge at 11:11. You don't extend it. You don't refresh it. You close it clean and leave the afternoon for the body and the board. Competitive. Unbeatable. One breath, one close, one clean finish. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Thursday: run this right after Morning Charge — breath first, then the body. 49° and clear outside; get warm before the screens. Then news and the pre-launch check.",
+    "note": "Friday: run this right after Morning Charge — breath first, then the body. About 53\u00b0 and cloudy outside; get warm before the screens. Then the close check.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -174,21 +163,21 @@
     "moves": [
       {
         "name": "Push-ups",
-        "reps": "× 30",
+        "reps": "\u00d7 30",
         "time": "~60 sec",
         "body": "Crisp reps, chest to floor. If you hit 30 early, hold high plank until the minute mark."
       },
       {
         "name": "Plank",
-        "reps": "× 60 seconds",
+        "reps": "\u00d7 60 seconds",
         "time": "60 sec",
         "body": "Elbows or hands. Ribs down, glutes on. Breathe slow."
       },
       {
         "name": "RipStick finisher",
         "reps": "continuous",
-        "time": "~60–75 sec",
-        "body": "Dom’s RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time."
+        "time": "~60\u201375 sec",
+        "body": "Dom\u2019s RipStick (RipRight): hold sticks at chest \u2192 inhale and pull apart as wide as possible \u2192 with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time."
       }
     ]
   },
@@ -200,22 +189,10 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "SiliconANGLE / New Scientist",
-            "hed": "OpenAI posts 722 math papers from an unreleased model",
-            "body": "The batch spans about 20 fields, including more than 80 theoretical-CS papers and work on the Navier–Stokes equations; many include Lean files so a computer can check the proof. Mathematicians are impressed and a little baffled by the volume, and want the model name and prompts disclosed.",
-            "url": "https://siliconangle.com/2026/10/07/openai-publishes-722-ai-generated-math-discoveries-in-major-scientific-milestone/"
-          },
-          {
-            "source": "The Next Web / City AM",
-            "hed": "Grok Bot will route work to Claude Opus 5.5, Midjourney and Suno",
-            "body": "Musk said SpaceX will use 'the best back end model for any given task,' including Anthropic's latest Claude, rather than only its own Grok models. He didn't say which jobs go where. It's a boost for Anthropic ahead of its expected IPO.",
-            "url": "https://thenextweb.com/news/grok-bot-claude-opus-midjourney-suno-musk"
-          },
-          {
-            "source": "9to5Mac",
-            "hed": "Apple may need an official off switch for Apple Intelligence on Macs",
-            "body": "The latest models can take up to 14GB, and an unofficial tool called RemoveMacAI is spreading. Organizations that ban AI tools want one switch to turn it all off and delete the models, which Apple doesn't offer yet.",
-            "url": "https://9to5mac.com/2026/10/07/apple-may-have-to-officially-support-apple-intelligence-removal-on-macs-to-protect-sales/"
+            "source": "X / @marouane53",
+            "hed": "GeoInt: an open-source skill that places a photo",
+            "body": "Posted this morning. It reads signs, plates, plants, and light, runs reverse-image search plus local vision models, compares Street View, and returns coordinates with a confidence score and sources. Free. Built for Codex and Claude Code.",
+            "url": "https://x.com/marouane53/status/2108501673878634959"
           }
         ]
       },
@@ -223,22 +200,10 @@
         "title": "NBA",
         "items": [
           {
-            "source": "exa sports / whynba",
-            "hed": "Bulls beat the Suns 124–117 at the United Center",
-            "body": "Chicago took a home preseason win on a five-game Wednesday slate.",
-            "url": "https://whynba.com/nba-live-updates-october-7-2026/"
-          },
-          {
-            "source": "exa sports",
-            "hed": "Bucks edge the Thunder 128–126 in Oklahoma City",
-            "body": "The closest game of the night went to Milwaukee at Paycom Center. Elsewhere, Orlando won 122–118 in Memphis and Indiana beat Minnesota 123–112 in Ames, Iowa.",
-            "url": "https://exa.ai/library/sports/nba?date=2026-10-07"
-          },
-          {
-            "source": "NBA.com",
-            "hed": "Blazers cool off the Warriors 123–118 in Portland",
-            "body": "A night after Golden State routed the Lakers, Portland outscored them 54–36 in the paint. Ten lead changes, 14 ties.",
-            "url": "https://www.nba.com/game/gsw-vs-por-0012600033"
+            "source": "theScore",
+            "hed": "Thursday slate: Lakers 114, Kings 110",
+            "body": "Also final: Heat 128\u2013Pelicans 118, Celtics 124\u2013Cavaliers 113, Hawks 123\u2013Spurs 116, Nets 114\u201376ers 108, Wizards 111\u2013Knicks 109.",
+            "url": "https://www.thescore.com/nba/events/2026-10-08"
           }
         ]
       },
@@ -246,39 +211,10 @@
         "title": "NFL",
         "items": [
           {
-            "source": "NFL.com / CBS Sports",
-            "hed": "TNF tonight: 0-4 Bucs at Cowboys, 7:15 PM CT on Prime Video",
-            "body": "Rookie Jalon Daniels makes his second start with Baker Mayfield out (thumb). Dallas averages 30.5 points a game, and CeeDee Lamb leads the NFL in catches (37) and receiving yards (498). Cowboys are 8.5-point favorites.",
-            "url": "https://www.nfl.com/news/buccaneers-vs-cowboys-three-must-know-storylines-for-thursday-s-week-5-prime-time-game"
-          },
-          {
-            "source": "Yahoo Sports / DK Network",
-            "hed": "Bears: Caleb Williams out, Tyson Bagent starts at Green Bay",
-            "body": "Chicago (3-1) heads to Lambeau Field on Sunday at noon CT without Williams (hamstring). DJ Moore's shoulder status is still unclear.",
-            "url": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
-          },
-          {
-            "source": "National Football Post",
-            "hed": "Battered Bucs brace for Dallas' pace",
-            "body": "Tampa Bay is also without safety Antoine Winfield Jr. (rib fracture) and corner Benjamin Morrison, and hasn't topped 20 points since Week 1. All four Bucs losses were one-score games.",
-            "url": "https://www.nationalfootballpost.com/2026/10/07/battered-bucs-brace-for-cowboys-prolific-pace"
-          }
-        ]
-      },
-      "combat": {
-        "title": "MMA & Boxing",
-        "items": [
-          {
-            "source": "BoxingInsider / MMA Mania",
-            "hed": "Dana White starts selling Fury–Joshua tickets anyway",
-            "body": "White posted a ticket promo Wednesday morning, beating Eddie Hearn's own announcement by 13 minutes. Tickets for the Dec 11 Cardiff fight go on sale Friday at 6:00 AM CT; Hearn still says Joshua's contract bars White from promoting.",
-            "url": "https://www.boxinginsider.com/headlines/dana-white-posted-a-ticket-promo-for-the-fight-hes-been-told-he-cant-promote/"
-          },
-          {
-            "source": "Upfront MMA",
-            "hed": "Hearn: the UFC 'is under threat right now'",
-            "body": "Hearn says White's focus on Zuffa Boxing is costing the UFC, citing a lack of stars and new competitors lining up. Next up on the UFC calendar: Allen vs Duncan this Saturday in Vegas.",
-            "url": "https://upfrontmma.com/eddie-hearn-pans-distracted-dana-white-for-ignoring-ufc-the-product-is-under-threat-right-now/"
+            "source": "ESPN",
+            "hed": "Bucs stun Cowboys 24\u201316",
+            "body": "Tampa Bay (1-4) picked up its first win Thursday night in Dallas. Cowboys fall to 2-3. Sunday noon CT: Bears (3-1) at Packers (2-2), Chicago listed at -1.5.",
+            "url": "https://www.espn.com/nfl/scoreboard"
           }
         ]
       }
@@ -286,19 +222,15 @@
   },
   "brainFood": {
     "title": "Brain Food",
-    "kicker": "Gnostic · Esoteric · Forbidden",
+    "kicker": "Gnostic \u00b7 Esoteric \u00b7 Forbidden",
     "items": [
       {
-        "hed": "Thursday belongs to Jupiter",
-        "body": "In the old planetary week Thursday is Jupiter's day — jeudi in French, jueves in Spanish. English named it for Thor, the thunder god, the Norse match for Jupiter's lightning. Jupiter rules growth, generosity, rulership and good fortune. It's the day for the big ask and the bold launch."
+        "hed": "Friday belongs to Venus",
+        "body": "In the planetary week Friday is Venus's day — vendredi, viernes. English named it for Frigg. Venus rules form, finish, attraction, and the art of stopping. A close is a Venus act."
       },
       {
-        "hed": "The hour of Jupiter",
-        "body": "The Solomonic grimoires, including the Key of Solomon, teach planetary hours: each day's first hour after sunrise belongs to that day's planet. Today's Jupiter hour starts at sunrise, 6:57 AM in Carpentersville. Magicians saved that hour for work meant to grow — a good time to set the intention for your launch."
-      },
-      {
-        "hed": "Chesed: the sphere of mercy",
-        "body": "On the Kabbalistic Tree of Life, Jupiter sits at Chesed, 'loving-kindness,' the sphere of expansion and giving. Its partner across the tree is Geburah (Mars), strength and limits. The teaching: growth without structure spills, and structure without growth starves. A 24-hour window with a hard close is both."
+        "hed": "Netzach: the sphere of victory",
+        "body": "On the Tree of Life, Venus sits at Netzach, endurance and beauty. Its pair is Hod (Mercury), structure and language. The teaching: a clean end is as much a win as a loud start. The 11:11 close is Netzach. The copy you already wrote is Hod."
       }
     ]
   },
@@ -306,16 +238,18 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Commit the work, and the thoughts are established",
-    "body": "Solomon's proverb: 'Commit thy works unto the LORD, and thy thoughts shall be established' (Proverbs 16:3). The order matters. You don't wait for your thoughts to settle before you act — you commit the work, and the steadiness follows. On Jupiter's day, with a window opening at 11:11, the teaching is simple: hand the outcome over, do your part cleanly, and let your mind go quiet because the work is already set in motion.",
-    "practice": "After four rounds of box breathing, say out loud: 'The work is committed. The window is open.' Do your pre-launch check once, completely, then close the tab. Don't refresh until the midpoint. Then start the 3-minute opener."
+    "hed": "There is a time to keep, and a time to cast away",
+    "body": "Ecclesiastes, in the Solomonic line: a time to keep, and a time to cast away. Yesterday you kept the window open. Today you cast the offer away on purpose, at the hour you set. That is not loss. That is the seal.",
+    "practice": "After four rounds of box breathing, say out loud: 'The window closes at 11:11. I do not extend it.' Check the page once. At 11:13, close the tab. Then the opener is already done — leave the body warm and the screen dark."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "",
+    "asOf": "5:55 AM CT",
     "urgent": [],
     "needsLook": [],
-    "fyi": [],
+    "fyi": [
+      "Mail search did not return this run. Calendar carried the board: close at 11:11, transfer block at 9:00, optional Sigil at 9:30 PM."
+    ],
     "cleanupNote": ""
   },
   "todo": {
@@ -335,14 +269,14 @@
         "done": false
       },
       {
-        "id": "launch-precheck",
-        "text": "Must-do #1 — before 11:11 AM, open the Front Page AI page on your phone and check the Cash App link and copy",
+        "id": "close-frontpage",
+        "text": "Must-do #1 — before 11:11 AM, confirm Front Page AI close copy; no PDFs after the close; hard-kill is 11:13",
         "priority": "high",
         "done": false
       },
       {
-        "id": "work-sop-record",
-        "text": "Must-do #2 — record one MHCCA task with a step-recorder (start with the payoff-request SOP)",
+        "id": "admin-transfer-block",
+        "text": "Must-do #2 — 9:00 calendar block: Cash App only, both cards stay frozen, no new card debt",
         "priority": "high",
         "done": false
       }
@@ -351,31 +285,34 @@
   "moneyDesk": {
     "title": "Later / Admin",
     "kicker": "Quiet block — after the morning wins",
-    "items": []
+    "items": [
+      "Check landed (early pay Oct 7). 9:00 block: $300 to Cash App only. Checking available $1,058. Cards stay frozen.",
+      "Do not zero Platinum from checking — buffer is short of $802. Savings $2,420 stays above the $2,000 lock. Auto current only. No extra payments."
+    ]
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X bookmarks",
-    "pick": "30 websites that feel illegal to know — zoomed in on #3 and #20: tools that turn any process you do on screen into a step-by-step visual guide",
-    "author": "@Orion_Vers7x",
-    "url": "https://x.com/Orion_Vers7x/status/2101842981942866160",
-    "bookmarkUrl": "https://x.com/Orion_Vers7x/status/2101842981942866160",
-    "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Oct 4, so this rotates back to a Sep 20 bookmark last featured Oct 1 — this time focused on one idea from it. The post lists scribehow.com as #3 ('turns any digital process into a visual tutorial guide instantly') and another unnamed link at #20 that builds how-to guides while you work. No built-demo URL yet — bookmark post is the source.",
-    "skipped": "Skipped sports clips (NadesOutHere Dust2 / Ancient), pay-you-daily spam, and the last few days' design-gallery and Hugging Face picks.",
+    "kicker": "Fast learn \u00b7 real X post",
+    "pick": "GeoInt — an open-source skill for Codex and Claude Code that finds where a photo was taken, with proof",
+    "author": "@marouane53",
+    "url": "https://x.com/marouane53/status/2108501673878634959",
+    "bookmarkUrl": "https://x.com/marouane53/status/2108501673878634959",
+    "linkLabel": "Open post",
+    "note": "Posted Fri Oct 9, 2026, 5:15 AM CT. No fresh @mmmik000 RT this week (last public posts are Sep 28). This is the live tech post, not a recycled bookmark.",
+    "skipped": "Skipped the Japanese street-demo post that matched the word demo, and yesterday's Scribe bookmark.",
     "image": {
       "src": "assets/tech-demo-record-once-sop.png",
-      "alt": "Newsprint diagram with three boxes — Do it, Capture, Ship — joined by arrows, under the headline 'Record once. Ship the guide.'"
+      "alt": "Newsprint stand-in. Source post has a demo video on X."
     },
     "lesson": {
-      "oneLiner": "Do a task once with a step-recorder running, and you get a finished how-to guide without writing it.",
+      "oneLiner": "A photo is a case file. Read the clues, check them against maps, then say how sure you are.",
       "beats": [
-        "Do it: start the recorder (Scribe runs as a browser extension or desktop app), then do the task the normal way.",
-        "Capture: every click and keystroke becomes a numbered step with a screenshot attached, so nobody has to guess what 'go to settings' means.",
-        "Ship: trim the extra steps, add one tip where people usually get stuck, and export it as a PDF or a share link.",
-        "Use it: that's an SOP for work (the payoff-request workflow is the perfect first one) or the skeleton of a 7EightMade PDF drop."
+        "Read it: signs, plates, buildings, plants, and the light — not just the landmark.",
+        "Check it: reverse-image search plus vision models on your own machine, then Street View panoramas.",
+        "Weigh it: an evidence board, coordinates, a confidence level, and the sources behind the answer.",
+        "Use it: same shape as a deal note. Claim, proof, confidence. No vibe-only close."
       ],
-      "takeaway": "Show, don't write. @mmmik000: the fastest way to document a process is to do it once while something watches."
+      "takeaway": "Show the sources. @mmmik000: if you can't point at the proof, you don't have a location — you have a guess."
     }
   }
 }
