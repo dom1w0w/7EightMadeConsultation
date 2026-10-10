@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for your business | 7EightMade</title>
+  <meta name="description" content="7EightMade AI: fixed-scope AI micro-consulting packages, OpenClaw private local AI setups, and guides. Book a free AI audit.">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/ai/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/ai/">
+  <meta property="og:title" content="7EightMade AI: AI for your business">
+  <meta property="og:description" content="Fixed-scope AI packages, OpenClaw private AI on your own hardware, and a free AI audit.">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/ai/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="7EightMade AI: AI for your business">
+  <meta name="twitter:image" content="https://dom1w0w.github.io/7EightMadeConsultation/ai/og.png">
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../brand/fonts.css">
+  <style>
+    :root { --ink:#eef0ea; --bg:#0b0f14; --bg2:#121922; --muted:#9aa4ad; --line:rgba(238,240,234,.12); --cobalt:#2563FF; --cob:#7fa2ff; --em:#34d399; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { min-height:100vh; font-family:Inter,ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; }
+    a { color:var(--cob); }
+    [id] { scroll-margin-top:84px; }
+    .nav { position:sticky; top:0; z-index:10; background:rgba(11,15,20,.9); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
+    .nav__inner { max-width:1040px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .brand { text-decoration:none; color:var(--ink); font-family:Fraunces,Georgia,serif; font-weight:600; font-size:20px; }
+    .brand b { color:var(--cob); }
+    .nav__links { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
+    .nav__links a { font-size:13px; font-weight:500; color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:8px; min-height:44px; display:inline-flex; align-items:center; }
+    .nav__links a[aria-current="page"] { color:var(--ink); }
+    .nav__links a:hover { color:var(--ink); background:rgba(238,240,234,.06); }
+    .wrap { max-width:1040px; margin:0 auto; padding:48px 24px 80px; }
+    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--cob); margin-bottom:14px; }
+    h1 { font-family:Fraunces,Georgia,serif; font-size:clamp(44px,9vw,84px); font-weight:600; letter-spacing:-.03em; line-height:1; margin-bottom:16px; }
+    h2 { font-family:Fraunces,Georgia,serif; font-size:clamp(30px,5vw,44px); font-weight:600; letter-spacing:-.02em; line-height:1.1; }
+    h3 { font-family:Fraunces,Georgia,serif; font-weight:600; }
+    .lead { font-size:18px; color:var(--muted); max-width:58ch; margin-bottom:22px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 18px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; background:var(--cobalt); color:#fff; border:0; cursor:pointer; font-family:inherit; }
+    .btn--ghost { background:transparent; color:var(--ink); border:1px solid rgba(238,240,234,.25); }
+    .btn--em { background:var(--em); color:#04261a; }
+    .btn--full { width:100%; }
+    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+    .copied { font-size:13px; color:var(--muted); min-height:1.4em; }
+    .toc { margin:34px 0 10px; background:var(--bg2); border:1px solid var(--line); border-radius:20px; padding:20px 22px; }
+    .toc p { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    .toc ol { list-style:none; display:grid; grid-template-columns:repeat(4,1fr); gap:6px 24px; counter-reset:t; }
+    .toc li { counter-increment:t; }
+    .toc a { display:flex; gap:10px; align-items:baseline; text-decoration:none; color:var(--ink); padding:6px 0; min-height:36px; }
+    .toc a::before { content:counter(t, decimal-leading-zero); font-family:Fraunces,Georgia,serif; color:var(--cob); font-size:14px; }
+    .toc a:hover { color:var(--cob); }
+    .part { margin-top:72px; }
+    .part__head { display:flex; justify-content:space-between; align-items:end; gap:16px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:22px; }
+    .share { background:none; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:6px 12px; font:600 12px Inter,sans-serif; cursor:pointer; min-height:36px; }
+    .share:hover { color:var(--ink); border-color:rgba(238,240,234,.3); }
+    .sub { color:var(--muted); margin-bottom:22px; }
+    .pkgs { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:stretch; }
+    .pkg { position:relative; display:flex; flex-direction:column; gap:8px; background:var(--bg2); border:1px solid var(--line); border-radius:18px; padding:22px 20px; }
+    .pkg--featured { border-color:var(--cobalt); box-shadow:0 0 0 1px var(--cobalt), 0 24px 50px -30px rgba(37,99,255,.6); }
+    .pkg--em.pkg--featured { border-color:var(--em); box-shadow:0 0 0 1px var(--em), 0 24px 50px -30px rgba(52,211,153,.5); }
+    .badge { position:absolute; top:-11px; left:20px; background:var(--cobalt); color:#fff; font-size:11px; font-weight:700; letter-spacing:.06em; padding:3px 10px; border-radius:999px; }
+    .pkg--em .badge { background:var(--em); color:#04261a; }
+    .label { font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+    .price { font-family:Fraunces,Georgia,serif; font-size:40px; font-weight:600; line-height:1.1; font-variant-numeric:tabular-nums; }
+    .price small { font-family:Inter,sans-serif; font-size:15px; color:var(--muted); font-weight:500; }
+    .desc { font-size:15px; }
+    .bestif { font-size:13px; color:var(--muted); }
+    .check { list-style:none; display:grid; gap:7px; margin:8px 0 14px; font-size:14px; }
+    .check li { display:flex; gap:10px; }
+    .check li::before { content:"✓"; color:var(--cob); font-weight:700; }
+    .pkg--em .check li::before { color:var(--em); }
+    .pkg .btn { margin-top:auto; }
+    .note { margin-top:14px; font-size:14px; color:var(--muted); }
+    .oc-intro { display:grid; grid-template-columns:1.1fr 1fr; gap:22px; align-items:start; margin-bottom:30px; }
+    .oc-intro h3 { font-size:clamp(28px,4.5vw,40px); line-height:1.08; margin-bottom:12px; }
+    .oc-intro h3 em { color:var(--em); }
+    .oc-intro p { margin-bottom:12px; color:#cfd5d0; }
+    .pill { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--em); border:1px solid rgba(52,211,153,.4); border-radius:999px; padding:5px 12px; }
+    .compare { display:grid; gap:8px; }
+    .compare div { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .compare span { background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:13px; color:var(--muted); }
+    .compare span b { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+    .compare .bad b { color:#f0907a; } .compare .good { border-color:rgba(52,211,153,.35); color:#d7efe4; } .compare .good b { color:var(--em); }
+    .steps { list-style:none; display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:6px 0 30px; counter-reset:s; }
+    .steps li { counter-increment:s; background:var(--bg2); border:1px solid var(--line); border-radius:14px; padding:14px; font-size:14px; color:#cfd5d0; }
+    .steps li::before { content:counter(s); display:block; font-family:Fraunces,Georgia,serif; font-size:22px; color:var(--em); margin-bottom:4px; }
+    .pkgs--two { grid-template-columns:1fr 1fr; }
+    .quotes { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:30px; }
+    .quote { background:var(--bg2); border:1px solid var(--line); border-radius:18px; padding:20px; display:flex; gap:14px; align-items:flex-start; }
+    .quote img, .quote .ini { width:56px; height:56px; border-radius:14px; flex:none; object-fit:contain; background:#fff; }
+    .quote .ini { display:grid; place-items:center; background:rgba(52,211,153,.15); color:var(--em); font-weight:700; }
+    .quote blockquote { font-family:Fraunces,Georgia,serif; font-size:18px; line-height:1.4; margin-bottom:8px; }
+    .quote p { font-size:13px; color:var(--muted); }
+    .quote p strong { color:var(--ink); }
+    .h4 { font-family:Fraunces,Georgia,serif; font-size:22px; margin:8px 0 12px; }
+    .soon { padding:26px; border:1px dashed rgba(238,240,234,.25); border-radius:18px; color:var(--muted); font-size:16px; }
+    .soon b { display:block; color:var(--ink); font-family:Fraunces,Georgia,serif; font-size:22px; font-weight:600; margin-bottom:4px; }
+    .book { display:grid; grid-template-columns:1.2fr 1fr; gap:18px; background:radial-gradient(120% 140% at 0% 0%, rgba(37,99,255,.18), transparent 60%), var(--bg2); border:1px solid var(--line); border-radius:20px; padding:24px; align-items:center; }
+    .book h3 { font-size:28px; margin-bottom:6px; }
+    .book p { color:var(--muted); }
+    .book .stack { display:grid; gap:10px; }
+    .foot { margin-top:56px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .foot a { text-decoration:none; }
+    @media (max-width:860px) { .pkgs, .pkgs--two, .oc-intro, .quotes, .book { grid-template-columns:1fr; } .steps { grid-template-columns:1fr 1fr; } .toc ol { grid-template-columns:1fr 1fr; } .pkg--featured { margin-top:6px; } }
+    @media (max-width:640px) {
+      .nav { position:static; } [id] { scroll-margin-top:12px; }
+      .nav__inner { padding:10px 16px; gap:6px; } .nav__links { flex-wrap:nowrap; overflow-x:auto; width:100%; scrollbar-width:none; } .nav__links a { white-space:nowrap; padding:8px 10px; }
+      .steps { grid-template-columns:1fr; } .toc ol { grid-template-columns:1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Site">
+    <div class="nav__inner">
+      <a class="brand" href="../" aria-label="7EightMade main menu"><b>7</b>EightMade</a>
+      <div class="nav__links">
+        <a href="../">Main menu</a>
+        <a href="./" aria-current="page">AI</a>
+        <a href="#services">Services</a>
+        <a href="#openclaw">OpenClaw</a>
+        <a href="#guides">Guides</a>
+        <a href="../studio/">Studio</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <p class="eyebrow">7EightMade · AI for your business</p>
+    <h1>AI</h1>
+    <p class="lead">Prompt systems, workflow automation, and integrations on the stack you already run—including Salesforce. Cloud-native consulting on your tools — or a fully private AI stack on your hardware.</p>
+    <div class="row">
+      <a class="btn" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Free%20AI%20Audit">Book Free AI Audit</a>
+      <button class="btn btn--ghost" type="button" data-copy="">Copy the AI link</button>
+    </div>
+    <p class="copied" id="copied" aria-live="polite"></p>
+
+    <nav class="toc" aria-label="Table of contents">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#services">AI Services</a></li>
+        <li><a href="#openclaw">OpenClaw</a></li>
+        <li><a href="#guides">Guides</a></li>
+        <li><a href="#book">Book a call</a></li>
+      </ol>
+    </nav>
+
+    <section class="part" id="services" aria-labelledby="svcH">
+      <div class="part__head">
+        <h2 id="svcH">AI Services</h2>
+        <button class="share" type="button" data-copy="services">Copy link to AI Services</button>
+      </div>
+      <h3 class="h4">Transparent packages. No surprises.</h3>
+      <p class="sub">Fixed-scope, fixed-price. You always know exactly what you're getting.</p>
+      <div class="pkgs">
+        <div class="pkg">
+          <div class="label">Starter</div>
+          <div class="price">$1,250</div>
+          <p class="desc">One focused use‑case, shipped in 72 hours.</p>
+          <p class="bestif">Best if you need one focused win, fast.</p>
+          <ul class="check"><li>Discovery mini‑sprint</li><li>One assistant or automation</li><li>1 week of tweaks</li></ul>
+          <a class="btn btn--ghost btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Starter%20Package%20—%207EightMade">Get Starter</a>
+        </div>
+        <div class="pkg pkg--featured">
+          <div class="badge">Most Popular</div>
+          <div class="label">Team</div>
+          <div class="price">$3,500</div>
+          <p class="desc">Three automations or a full assistant plus dashboard.</p>
+          <p class="bestif">Best if you want a full assistant or three automations.</p>
+          <ul class="check"><li>Full discovery sprint</li><li>3 build cycles</li><li>30 days of support</li></ul>
+          <a class="btn btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Free%20AI%20Audit">Book Free AI Audit</a>
+        </div>
+        <div class="pkg">
+          <div class="label">Operator</div>
+          <div class="price">$1,250<small>/mo</small></div>
+          <p class="desc">Ongoing ops: tune prompts, fix edge cases, ship improvements.</p>
+          <p class="bestif">Best if you need ongoing ops and iteration.</p>
+          <ul class="check"><li>Monthly priorities</li><li>On‑call improvements</li><li>Quarterly review</li></ul>
+          <a class="btn btn--ghost btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Operator%20Plan%20—%207EightMade">Join Waitlist</a>
+        </div>
+      </div>
+      <p class="note">Enterprise needs? <a href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com">Email us directly</a> and we'll put together a custom scope.</p>
+    </section>
+
+    <section class="part" id="openclaw" aria-labelledby="ocH">
+      <div class="part__head">
+        <h2 id="ocH">OpenClaw</h2>
+        <button class="share" type="button" data-copy="openclaw">Copy link to OpenClaw</button>
+      </div>
+      <div class="oc-intro">
+        <div>
+          <h3>Your AI. Your hardware. <em>Your rules.</em></h3>
+          <p>OpenClaw is a fully local AI stack we install and configure for your team. Every model, every conversation, every document — processed on hardware you own, inside your network. Nothing reaches a cloud server. Nothing is logged by a third party.</p>
+          <p>A private ChatGPT analogue — trained on your SOPs and tone — installed, integrated, and handed off ready for your team.</p>
+          <span class="pill">100% Air-gappable</span>
+        </div>
+        <div class="compare" aria-label="Cloud AI compared with OpenClaw">
+          <div><span class="bad"><b>Cloud AI</b>Your data sent to external servers</span><span class="good"><b>OpenClaw</b>Data never leaves your network</span></div>
+          <div><span class="bad"><b>Cloud AI</b>Monthly subscription, price hikes</span><span class="good"><b>OpenClaw</b>One-time setup, no ongoing fees</span></div>
+          <div><span class="bad"><b>Cloud AI</b>Rate limits &amp; API downtime</span><span class="good"><b>OpenClaw</b>Runs 24/7 on your own hardware</span></div>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <figure class="quote">
+          <img src="../brand/headdy-glass-logo.png" width="56" height="56" alt="Headdy Glass logo" loading="lazy">
+          <figcaption>
+            <blockquote>OpenClaw takes the after-hours tickets — stock, pickup, shipping — and updates the site when new glass drops or sells out.</blockquote>
+            <p><strong>Farhan</strong>, Owner · <a href="https://www.headdyglass.com/" rel="noopener">Headdy Glass</a>, Algonquin</p>
+          </figcaption>
+        </figure>
+        <figure class="quote">
+          <div class="ini" aria-hidden="true">US</div>
+          <figcaption>
+            <blockquote>OpenClaw handles inventory at Cary and Aurora, then runs the website and answers my emails. Carol Stream gets its own in October.</blockquote>
+            <p><strong>Stuart “Uncle Stu” Adams</strong>, Owner · Uncle Stu’s Smoke and Vape · Cary &amp; Aurora (Carol Stream Oct)</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3 class="h4">Local stack, end to end.</h3>
+      <ol class="steps">
+        <li>We assess your hardware or ship a pre-configured Mac Mini M‑series</li>
+        <li>We install the full OpenClaw stack — remotely or on-site</li>
+        <li>We train it on your documents, SOPs, and workflows</li>
+        <li>We connect OpenClaw to your existing tools via API</li>
+        <li>We hand off with documentation and a live training session</li>
+      </ol>
+
+      <div class="pkgs pkgs--two">
+        <div class="pkg pkg--em">
+          <div class="label">Software Only</div>
+          <div class="price">$2,500</div>
+          <p class="desc">Full local AI setup on your own hardware. Maximum privacy — no cloud, no subscriptions.</p>
+          <p class="bestif">Best if you already have hardware.</p>
+          <ul class="check"><li>Local model installation &amp; configuration</li><li>Custom prompt &amp; workflow setup</li><li>Integrated into your existing stack</li><li>Zero data leaves your network</li><li>2 weeks of tuning &amp; support</li></ul>
+          <a class="btn btn--ghost btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=OpenClaw%20Software%20—%207EightMade">Get OpenClaw</a>
+        </div>
+        <div class="pkg pkg--em pkg--featured">
+          <div class="badge">Recommended</div>
+          <div class="label">With Mac Mini</div>
+          <div class="price">$3,500<small>+</small></div>
+          <p class="desc">Everything in Software, plus a pre-configured Mac Mini M‑series. Plug in and run from day one.</p>
+          <p class="bestif">Best if you want plug-and-play local AI.</p>
+          <ul class="check"><li>Mac Mini M‑series — included &amp; pre‑built</li><li>Ships ready to run, zero setup on your end</li><li>Local model installation &amp; configuration</li><li>Custom prompt &amp; workflow setup</li><li>Integrated into your existing stack</li><li>Zero data leaves your network</li><li>2 weeks of tuning &amp; support</li></ul>
+          <a class="btn btn--em btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=OpenClaw%20%2B%20Mac%20Mini%20—%207EightMade">Get OpenClaw + Mac Mini</a>
+        </div>
+      </div>
+      <p class="note">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com">Email us</a> for a hardware quote.</p>
+    </section>
+
+    <section class="part" id="guides" aria-labelledby="gH">
+      <div class="part__head">
+        <h2 id="gH">Guides</h2>
+        <button class="share" type="button" data-copy="guides">Copy link to Guides</button>
+      </div>
+      <div class="soon"><b>No guide is on sale right now.</b>Guides drop for short windows. When the next one opens, it'll be listed here.</div>
+    </section>
+
+    <section class="part" id="book" aria-labelledby="bH">
+      <div class="part__head">
+        <h2 id="bH">Book a call</h2>
+        <button class="share" type="button" data-copy="book">Copy link to Book a call</button>
+      </div>
+      <div class="book">
+        <div>
+          <h3>Tell us what to automate.</h3>
+          <p>Share a few times that work and what you want shipped. We'll confirm a slot quickly.</p>
+        </div>
+        <div class="stack">
+          <a class="btn btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Free%20AI%20Audit">Book Free AI Audit</a>
+          <a class="btn btn--ghost btn--full" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=Book%20a%20call%20—%207EightMade">Email to book a call</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="foot">
+      <span><a href="../">← Main menu</a> · <a href="../studio/">Studio: free apps</a></span>
+      <span>Fall down seven. Stand up eight.</span>
+    </div>
+  </main>
+
+  <script>
+  (function () {
+    const BASE = "https://dom1w0w.github.io/7EightMadeConsultation/ai/";
+    const copied = document.getElementById("copied");
+    function fallback(text, done) { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); done(); }
+    function copy(text, btn) {
+      const done = () => { const old = btn.textContent; btn.textContent = "Link copied"; copied.textContent = text; setTimeout(() => { btn.textContent = old; }, 1800); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => fallback(text, done)); else fallback(text, done);
+    }
+    document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => copy(BASE + (b.dataset.copy ? "#" + b.dataset.copy : ""), b)));
+  })();
+  </script>
+</body>
+</html>
