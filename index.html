@@ -228,35 +228,7 @@
     .nav__toggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
     .nav__cta-mobile { display: none; }
 
-    .vortex-strip {
-      margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line);
-      display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;
-    }
-    .vortex-strip__copy { max-width: 54ch; }
-    .vortex-strip__kicker {
-      font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--cobalt-text); margin-bottom: 8px;
-    }
-    .vortex-strip__title {
-      font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
-      letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px;
-    }
-    .vortex-strip__body { font-size: 15px; color: var(--muted); }
-    .vortex-strip__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
-    .made-grid {
-      margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-    .made-card {
-      display: flex; flex-direction: column; text-decoration: none; color: inherit;
-      border: 1px solid var(--sand); border-radius: 16px; padding: 22px 20px; background: var(--surface);
-    }
-    .made-card:hover { border-color: var(--cobalt); }
-    .made-card span { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--cobalt-text); }
-    @media (max-width: 700px) {
-      .made-grid { grid-template-columns: 1fr; }
-    }
 
 
 
@@ -322,34 +294,6 @@
       color: var(--muted);
     }
 
-    .tracks__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .track {
-      display: block; background: var(--surface); border: 1px solid var(--sand);
-      border-radius: var(--radius-lg); padding: 40px 36px; position: relative; overflow: hidden;
-      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
-      box-shadow: var(--shadow);
-    }
-    .track:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-    .track--consulting { border-top: 4px solid var(--cobalt); }
-    .track--consulting:hover { border-color: rgba(37,99,255,.35); border-top-color: var(--cobalt); }
-    .track--openclaw { border-top: 4px solid var(--emerald); }
-    .track--openclaw:hover { border-color: rgba(15,118,110,.35); border-top-color: var(--emerald); }
-    .track__badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
-    }
-    .track__badge--cobalt { background: var(--cobalt-soft); color: var(--cobalt-text); }
-    .track__badge--emerald { background: var(--emerald-soft); color: var(--emerald-text); }
-    .track__title {
-      font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
-      letter-spacing: -.02em; margin-bottom: 12px; color: var(--ink);
-    }
-    .track__desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; max-width: 36ch; }
-    .track__cta { font-size: 14px; font-weight: 600; color: var(--cobalt-text); display: inline-flex; align-items: center; gap: 6px; }
-    .track--openclaw .track__cta { color: var(--emerald-text); }
-    .track__cta::after { content: '→'; transition: transform var(--transition); }
-    .track:hover .track__cta::after { transform: translateX(4px); }
 
     .process__rail {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative;
@@ -392,22 +336,6 @@
     .process__step:not(.is-lit) .process__name { color: var(--ink-soft); }
     .process__step:not(.is-lit) .process__desc { color: var(--muted); }
 
-    .build__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .build-card {
-      background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius);
-      padding: 32px 28px; box-shadow: var(--shadow);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .build-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .build-card__icon {
-      width: 40px; height: 40px; border-radius: 10px; background: var(--cobalt-soft); color: var(--cobalt);
-      display: grid; place-items: center; margin-bottom: 16px; font-size: 18px;
-    }
-    .build-card__title {
-      font-family: 'Fraunces', Georgia, serif; font-size: 20px; font-weight: 600;
-      letter-spacing: -.02em; margin-bottom: 8px; color: var(--ink);
-    }
-    .build-card__desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
     .pricing__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
     .pkg {
@@ -719,19 +647,6 @@
       text-align: left;
     }
 
-    .bridge {
-      display: grid;
-      grid-template-columns: 1.4fr auto;
-      gap: 40px 64px;
-      align-items: end;
-    }
-    .bridge__copy .section__sub { margin-top: 12px; max-width: 52ch; }
-    .bridge__actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px 28px;
-    }
 
     /* ── Mobile / tablet pass ── */
     .nav--open .nav__links {
@@ -749,15 +664,13 @@
       min-height: 48px; padding: 14px 18px;
     }
     @media (hover: none) {
-      .track:hover, .pkg:hover, .build-card:hover { transform: none; }
+      .pkg:hover { transform: none; }
     }
 
     @media (max-width: 900px) {
       .container { padding: 0 24px; }
       .nav__inner { padding: 12px 24px; }
-      .hero__grid, .tracks__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs, .build__grid { grid-template-columns: 1fr; }
-      .bridge { grid-template-columns: 1fr; gap: 28px; align-items: start; }
-      .bridge__actions { width: 100%; }
+      .hero__grid, .about__split, .contact__split, .oc__intro, .oc-pkgs { grid-template-columns: 1fr; }
       .pricing__grid { grid-template-columns: 1fr; gap: 16px; }
       .proof__grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
       .process__rail { grid-template-columns: 1fr; gap: 36px; padding-left: 8px; }
@@ -791,11 +704,9 @@
       .section__head { margin-bottom: 40px; }
       .openclaw { padding: 72px 0; }
       .oc__intro { gap: 36px; margin-bottom: 48px; }
-      .track { padding: 32px 28px; }
       .pkg { padding: 28px 24px; }
       .pkg--featured { box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt); }
       .pkg__price { font-size: 42px; }
-      .build-card { padding: 28px 24px; }
       .oc-pkg { padding: 28px 24px; }
       .faq-item summary { padding: 16px 18px; }
       .faq-item__body { padding: 0 18px 18px; }
@@ -830,14 +741,10 @@
       .section__title { font-size: clamp(28px, 8vw, 36px); max-width: none; }
       .section__sub { font-size: 15px; }
       .section__head { margin-bottom: 32px; }
-      .track { padding: 28px 20px; border-radius: 20px; }
-      .track__title { font-size: 24px; }
       .process__marker { width: 48px; height: 48px; font-size: 16px; margin-bottom: 16px; margin-left: -52px; }
       .process__step { padding-left: 52px; }
       .process__rail::before, .process__progress { left: 19px; }
       .process__name { font-size: 20px; }
-      .build__grid { gap: 14px; }
-      .build-card { padding: 24px 18px; }
       .pricing__grid { gap: 14px; }
       .pkg { padding: 24px 18px; }
       .pkg__price { font-size: 40px; }
@@ -1455,25 +1362,6 @@
   
 
   
-    .nav__item--apps{position:relative}
-    .nav__apps-btn{font:inherit;font-size:13px;font-weight:500;color:var(--muted);padding:8px 12px;border-radius:8px;display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer}
-    .nav__apps-btn::after{content:"";width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-1px);opacity:.7}
-    .nav__apps-btn:hover,.nav__item--apps.is-open .nav__apps-btn,.nav__item--apps:hover .nav__apps-btn{color:var(--ink);background:var(--raised)}
-    .nav__dropdown{position:absolute;top:calc(100% + 6px);left:0;min-width:188px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:140}
-    .nav__item--apps:hover .nav__dropdown,.nav__item--apps:focus-within .nav__dropdown,.nav__item--apps.is-open .nav__dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-    .nav__drop-link{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none}
-    .nav__drop-link:hover{background:var(--raised)}
-    .nav__drop-title{font-size:13px;font-weight:600}
-    .nav__drop-sub{font-size:11px;color:var(--muted);font-weight:500}
-    .nav__dropdown{min-width:220px;max-height:calc(100vh - 90px);overflow:auto}
-    .nav__drop-group{margin:8px 12px 2px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-    .nav__apps-btn{text-decoration:none}
-    .nav--open .nav__item--apps{width:100%}
-    .nav--open .nav__apps-btn{width:100%;justify-content:space-between;min-height:44px;padding:12px 14px;font-size:15px;color:var(--ink)}
-    .nav--open .nav__dropdown{position:static;width:100%;opacity:1;visibility:visible;pointer-events:auto;transform:none;display:none;box-shadow:none;border:none;background:transparent;padding:0 0 6px 12px}
-    .nav--open .nav__item--apps .nav__dropdown{display:block}
-    .nav--open .nav__apps-btn::after{display:none}
-    .nav--open .nav__drop-link{min-height:44px;justify-content:center}
   
     /* ══ Dark theme · interaction states (hover / focus / active) ══════════ */
     /* Global keyboard focus ring — cobalt 2px, 3px offset (5.1:1 on bg, 4.8:1 on cards, 4.4:1 on raised) */
@@ -1493,7 +1381,6 @@
     .btn--cobalt:focus-visible { box-shadow: 0 0 0 3px #0E0D0C; }
     /* Inside clipped containers (details has overflow:hidden; dropdown scrolls) — draw ring inside */
     .faq-item summary:focus-visible { outline-offset: -3px; border-radius: var(--radius-sm); }
-    .nav__drop-link:focus-visible { outline-offset: -2px; }
     .form-input:focus-visible { outline-offset: 2px; }
     .nav__brand:focus-visible { border-radius: 8px; }
     .footer__links a:focus-visible,
@@ -1521,19 +1408,11 @@
     }
 
     /* Nav items: #211D19 fill + 2px cobalt underline bar (fill alone is only 1.15:1 vs page) */
-    .nav__link:hover,
-    .nav__apps-btn:hover, .nav__item--apps.is-open .nav__apps-btn, .nav__item--apps:hover .nav__apps-btn {
+    .nav__link:hover {
       color: var(--ink); background: var(--raised);
       box-shadow: inset 0 -2px 0 var(--cobalt);
     }
-    .nav__link:active, .nav__apps-btn:active { background: #2A2520; }
-    .nav__dropdown { background: var(--surface); border-color: var(--line-strong); }
-    .nav__drop-link { transition: background var(--transition), box-shadow var(--transition); }
-    .nav__drop-link:hover { background: var(--raised); box-shadow: inset 2px 0 0 var(--cobalt); }
-    .nav__drop-link[href^="till/"]:hover { box-shadow: inset 2px 0 0 var(--till); }
-    .nav__drop-link[href^="vortex-breath/"]:hover { box-shadow: inset 2px 0 0 var(--vortex); }
-    .nav__drop-link[href^="archipelago/"]:hover { box-shadow: inset 2px 0 0 var(--atlas); }
-    .nav__drop-link:active { background: #2A2520; }
+    .nav__link:active { background: #2A2520; }
     .nav--open .nav__link:hover { box-shadow: inset 2px 0 0 var(--cobalt); }
 
     /* Footer app links: underline in the app's accent */
@@ -1546,33 +1425,15 @@
     .btn--cobalt:active:not(:disabled) { background: var(--cobalt-press); border-color: var(--cobalt-press); }
     .btn--outline:active:not(:disabled), .btn--outline-light:active:not(:disabled) { background: #2A2520; }
 
-    /* Cards & tiles: lift to #211D19 with a visible border */
-    .track { background: var(--surface); }
-    .track:hover { background: var(--raised); }
-    .track--consulting:hover { border-color: var(--cobalt); border-top-color: var(--cobalt); }
-    .track--openclaw:hover { border-color: var(--emerald-text); border-top-color: var(--emerald); }
-    .made-card {
-      --accent: var(--cobalt);
-      box-shadow: inset 0 3px 0 var(--accent);
-      transition: background var(--transition), border-color var(--transition), transform var(--transition);
-    }
-    .made-card[href^="till/"] { --accent: var(--till); }
-    .made-card[href^="vortex-breath/"] { --accent: var(--vortex); }
-    .made-card[href^="archipelago/"] { --accent: var(--atlas); }
-    .made-card[href^="till/"] span { color: var(--till); }
-    .made-card[href^="archipelago/"] span { color: var(--atlas); }
-    .made-card[href^="vortex-breath/"] span { color: var(--ink); } /* cinnabar is 4.0:1 as text — kept to border/stripe */
-    .made-card:hover { background: var(--raised); border-color: var(--accent); transform: translateY(-2px); }
-    .made-card:active, .track:active { transform: translateY(0); }
-    .build-card:hover, .pkg:not(.pkg--featured):hover, .value-chip:hover {
+    /* Cards & tiles: lift to #211D19 with a visible border */ /* cinnabar is 4.0:1 as text — kept to border/stripe */
+    .pkg:not(.pkg--featured):hover, .value-chip:hover {
       background: var(--raised); border-color: var(--line-strong);
     }
     .pkg--featured:hover { background: var(--raised); }
     /* #4D7CF6 is 4.41:1 on #211D19 — lift small cobalt text when its card is raised */
-    .made-card:hover .vortex-strip__kicker, .track:hover .track__cta, .track:hover .track__badge--cobalt,
     .pkg:hover .pkg__label, .value-chip:hover .value-chip__label, .faq-item:hover .faq-item__body a { color: var(--cobalt-text-raised); }
     .value-chip { transition: background var(--transition), border-color var(--transition); }
-    .build-card, .pkg { transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition); }
+    .pkg { transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition); }
     .faq-item summary { transition: color var(--transition); }
     .faq-item summary:hover { color: var(--ink); }
     .stack-pill:hover { color: #8EABFA; }
@@ -1589,15 +1450,55 @@
     .quote-card__img { background: #F2ECE2; }
 
     @media (prefers-reduced-motion: reduce) {
-      .btn, .btn--ghost::after, .track, .track__cta::after, .made-card, .build-card, .pkg,
-      .faq-item, .faq-item summary, .stack-pill, .nav__link, .nav__apps-btn, .nav__drop-link,
-      .nav__dropdown, .footer__links a, .hero__secondary, .form-input, .value-chip, .oc-pkg,
-      .intro__skip, .pkg-note a, .faq-item__body a, .contact__sub a, .oc-note a {
+      .btn, .btn--ghost::after, .pkg, .faq-item, .faq-item summary, .stack-pill, .nav__link, .footer__links a, .hero__secondary, .form-input, .value-chip, .oc-pkg, .intro__skip, .pkg-note a, .faq-item__body a, .contact__sub a, .oc-note a {
         transition: none !important;
       }
-      .btn:hover, .btn:active:not(:disabled), .track:hover, .made-card:hover, .build-card:hover,
-      .pkg:hover, .pkg--featured:hover { transform: none !important; }
-      .btn--ghost:hover::after, .track:hover .track__cta::after { transform: none !important; }
+      .btn:hover, .btn:active:not(:disabled), .pkg:hover, .pkg--featured:hover { transform: none !important; }
+      .btn--ghost:hover::after { transform: none !important; }
+    }
+
+    /* ══ Restructure: studio strip, OpenClaw bridge line, plain proof band ══ */
+    .proof--plain { background: var(--paper); }
+    .oc-bridge { margin-top: 14px; font-size: 13px; color: rgba(242,236,226,.72); max-width: 860px; }
+    .oc-bridge a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(242,236,226,.4); text-underline-offset: 3px; }
+    .oc-bridge a { white-space: nowrap; }
+    .oc-bridge a:hover { text-decoration-color: currentColor; }
+    .oc-bridge a::after { content: ' →'; }
+    .studio-strip { padding: 48px 0 56px; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--nav-h) + 24px); }
+    .studio-strip__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .studio-strip__label {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+    }
+    .studio-strip__all { font-size: 13px; font-weight: 500; color: var(--muted); border-radius: 4px; transition: color var(--transition); }
+    .studio-strip__all::after { content: ' →'; }
+    .studio-strip__all:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+    .studio-strip__row { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .studio-tile {
+      --accent: var(--cobalt);
+      display: flex; flex-direction: column; gap: 2px; height: 100%;
+      padding: 12px 14px; border-radius: var(--radius-sm);
+      background: transparent; border: 1px solid var(--line);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .studio-tile--till { --accent: var(--till); }
+    .studio-tile--vortex { --accent: var(--vortex); }
+    .studio-tile--atlas { --accent: var(--atlas); }
+    .studio-tile__name { font-size: 13px; font-weight: 600; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 8px; }
+    .studio-tile__name::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .studio-tile__sub { font-size: 12px; color: var(--muted); padding-left: 14px; }
+    .studio-tile:hover { background: var(--raised); border-color: var(--accent); }
+    .studio-tile:hover .studio-tile__name { color: var(--ink); }
+    @media (max-width: 900px) {
+      .studio-strip__row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .studio-strip { padding: 36px 0 40px; }
+      .studio-strip__row { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .studio-tile { padding: 10px 12px; min-height: 44px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .studio-tile, .studio-strip__all { transition: none !important; }
     }
 
   </style>
@@ -1645,7 +1546,7 @@
           <use href="#brand-mark"/>
         </svg>
       </div>
-      <h1 class="intro__wordmark"><span class="mark-7">7</span>Eight <span class="intro__made">MADE</span></h1>
+      <div class="intro__wordmark" role="img" aria-label="7EightMade"><span class="mark-7" aria-hidden="true">7</span><span aria-hidden="true">Eight </span><span class="intro__made" aria-hidden="true">MADE</span></div>
       <p class="intro__tag">AI micro-consulting</p>
     </div>
     <button type="button" class="intro__skip" id="introSkip">Skip</button>
@@ -1697,10 +1598,11 @@
       </a>
       <div class="nav__links" id="navLinks">
         <a class="nav__link" href="#services">Services</a>
-        <a class="nav__link" href="#process">Process</a>
-        <a class="nav__link" href="#pricing">Pricing</a>
+        <a class="nav__link" href="#pricing">Packages</a>
         <a class="nav__link" href="#openclaw">OpenClaw</a>
-        <div class="nav__item nav__item--apps" id="navAi"><a class="nav__apps-btn" href="ai/" aria-haspopup="true">AI</a><div class="nav__dropdown" role="menu"><a class="nav__drop-link" role="menuitem" href="ai/"><span class="nav__drop-title">AI home</span><span class="nav__drop-sub">Services, OpenClaw, guides</span></a><a class="nav__drop-link" role="menuitem" href="ai/#services"><span class="nav__drop-title">AI Services</span><span class="nav__drop-sub">Packages and pricing</span></a><a class="nav__drop-link" role="menuitem" href="ai/#openclaw"><span class="nav__drop-title">OpenClaw</span><span class="nav__drop-sub">Private AI on your hardware</span></a><a class="nav__drop-link" role="menuitem" href="ai/#guides"><span class="nav__drop-title">Guides</span><span class="nav__drop-sub">What's on sale now</span></a><a class="nav__drop-link" role="menuitem" href="ai/#book"><span class="nav__drop-title">Book Free AI Audit</span><span class="nav__drop-sub">Tell us what to automate</span></a></div></div><a class="nav__link" href="dom-times-live/" rel="nofollow">Dom's Batcave</a><div class="nav__item nav__item--apps" id="navApps"><a class="nav__apps-btn" href="studio/" id="navAppsBtn" aria-haspopup="true">Studio</a><div class="nav__dropdown" id="navAppsMenu" role="menu"><a class="nav__drop-link" role="menuitem" href="studio/"><span class="nav__drop-title">Studio home</span><span class="nav__drop-sub">All apps, art and contact</span></a><p class="nav__drop-group">Paradoxes</p><a class="nav__drop-link" role="menuitem" href="dichotomy-zeno/"><span class="nav__drop-title">Dichotomy Zeno</span><span class="nav__drop-sub">Zeno's paradox</span></a><a class="nav__drop-link" role="menuitem" href="ship-of-theseus/"><span class="nav__drop-title">Ship of Theseus</span><span class="nav__drop-sub">Swap every plank</span></a><p class="nav__drop-group">Wellness</p><a class="nav__drop-link" role="menuitem" href="vortex-breath/"><span class="nav__drop-title">Vortex Breath</span><span class="nav__drop-sub">One free minute</span></a><p class="nav__drop-group">Maps &amp; Data</p><a class="nav__drop-link" role="menuitem" href="archipelago/"><span class="nav__drop-title">Atlas</span><span class="nav__drop-sub">Philippines map</span></a><p class="nav__drop-group">Business Tools</p><a class="nav__drop-link" role="menuitem" href="till/"><span class="nav__drop-title">Till</span><span class="nav__drop-sub">Tap to pay, rehearsed</span></a><p class="nav__drop-group">Art</p><a class="nav__drop-link" role="menuitem" href="studio/#art"><span class="nav__drop-title">Art</span><span class="nav__drop-sub">Dom's own work</span></a></div></div>
+        <a class="nav__link" href="ai/">AI</a>
+        <a class="nav__link" href="dom-times-live/" rel="nofollow">Dom's Batcave</a>
+        <a class="nav__link" href="studio/">Studio</a>
         <a class="nav__link" href="#faq">FAQ</a>
         <a class="btn btn--cobalt nav__cta" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
         <a class="btn btn--cobalt nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
@@ -1718,7 +1620,7 @@
 
 
 
-  <header class="hero">
+  <header class="hero" id="services">
     <div class="container">
       <div class="hero__grid">
         <div>
@@ -1740,13 +1642,13 @@
             <span class="chip">Your data, your stack</span>
           </div>
         </div>
-        <div class="hero__card hero-enter hero-enter--card">
-          <p class="hero__card-title">What we ship</p>
+        <div class="hero__card hero-enter hero-enter--card" id="build">
+          <p class="hero__card-title">What we build</p>
           <ul class="checklist">
-            <li><span class="check">✓</span><div><strong>Chat assistants</strong> trained on your SOPs, docs, and tone.</div></li>
-            <li><span class="check">✓</span><div><strong>Workflow automations</strong> across email, sheets, CRMs, and helpdesks.</div></li>
-            <li><span class="check">✓</span><div><strong>Dashboards</strong> for KPIs, dealflow, and ops rituals.</div></li>
-            <li><span class="check">✓</span><div><strong>Lightweight integrations</strong> that sit on top of your stack.</div></li>
+            <li><span class="check">✓</span><div><strong>Chat assistants</strong> trained on your SOPs, docs, and tone — ready for your team to use day one.</div></li>
+            <li><span class="check">✓</span><div><strong>Workflow automations</strong> across email, sheets, CRMs, and helpdesks — quietly doing the busywork.</div></li>
+            <li><span class="check">✓</span><div><strong>Dashboards</strong> for KPIs, dealflow, and ops rituals — visibility without the spreadsheet chase.</div></li>
+            <li><span class="check">✓</span><div><strong>Lightweight integrations</strong> that sit on top of your stack — no rip-and-replace, no migration headaches.</div></li>
           </ul>
           <div class="hero__stacks">
             Salesforce · Google Workspace · Microsoft 365 · Notion · Airtable · HubSpot · Slack · Zapier / Make
@@ -1756,105 +1658,9 @@
     </div>
   </header>
 
-  <div class="proof" id="proof">
-    <div class="container proof-reveal" id="proofReveal">
-      <div class="proof__grid">
-        <div>
-          <div class="proof__stat">24–72h</div>
-          <div class="proof__label">pilots</div>
-        </div>
-        <div>
-          <div class="proof__stat">No lock-in</div>
-          <div class="proof__label">you own everything</div>
-        </div>
-        <div>
-          <div class="proof__stat">Your stack</div>
-          <div class="proof__label">no rip-and-replace</div>
-        </div>
-      </div>
-      <p class="proof__trust">
-        <span class="proof__trust-caption">Built on your stack</span>
-        Salesforce · Google Workspace · Slack · HubSpot
-      </p>
-
-      <div class="quote-stack">
-      <figure class="quote-card" aria-label="Testimonial from Farhan, Headdy Glass">
-        <img class="quote-card__img quote-card__img--logo" src="brand/headdy-glass-logo.png" width="88" height="88" alt="Headdy Glass logo" loading="lazy">
-        <figcaption>
-          <div class="quote-card__mark" aria-hidden="true">“</div>
-          <blockquote class="quote-card__text">OpenClaw takes the after-hours tickets — stock, pickup, shipping — and updates the site when new glass drops or sells out.</blockquote>
-          <p class="quote-card__attr"><strong>Farhan</strong>, Owner · <a href="https://www.headdyglass.com/" rel="noopener">Headdy Glass</a>, Algonquin</p>
-        </figcaption>
-      </figure>
-      <figure class="quote-card quote-card--text" aria-label="Testimonial from Stuart Adams, Uncle Stu’s Smoke and Vape">
-        <div class="quote-card__initial" aria-hidden="true">US</div>
-        <figcaption>
-          <div class="quote-card__mark" aria-hidden="true">“</div>
-          <blockquote class="quote-card__text">OpenClaw handles inventory at Cary and Aurora, then runs the website and answers my emails. Carol Stream gets its own in October.</blockquote>
-          <p class="quote-card__attr"><strong>Stuart “Uncle Stu” Adams</strong>, Owner · Uncle Stu’s Smoke and Vape · Cary &amp; Aurora (Carol Stream Oct)</p>
-        </figcaption>
-      </figure>
-      </div>
-    </div>
-  </div>
-
   <main>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Services</span>
-          <h2 class="section__title">Two ways to ship.</h2>
-          <p class="section__sub">Cloud-native consulting on your tools — or a fully private AI stack on your hardware.</p>
-        </div>
-        <div class="tracks__grid">
-          <a href="#pricing" class="track track--consulting">
-            <span class="track__badge track__badge--cobalt">Consulting</span>
-            <h3 class="track__title">AI Micro‑Consulting</h3>
-            <p class="track__desc">Assistants, automations, and dashboards built on Salesforce, Workspace, Notion, and the rest of your stack.</p>
-            <span class="track__cta">See packages</span>
-          </a>
-          <a href="#openclaw" class="track track--openclaw">
-            <span class="track__badge track__badge--emerald">Local / private</span>
-            <h3 class="track__title">OpenClaw</h3>
-            <p class="track__desc">A fully local AI stack on hardware you own. Zero data leaves your network. No cloud. No subscriptions.</p>
-            <span class="track__cta">Explore OpenClaw</span>
-          </a>
-        </div>
-        <div class="made-grid">
-          <a class="made-card" href="vortex-breath/">
-            <p class="vortex-strip__kicker">A closed circle</p>
-            <h3 class="vortex-strip__title">Vortex Breath</h3>
-            <p class="vortex-strip__body">A free minute. The rest is not explained.</p>
-            <span>The making</span>
-          </a>
-          <a class="made-card" href="archipelago/">
-            <p class="vortex-strip__kicker">Made with a Grok bot</p>
-            <h3 class="vortex-strip__title">Archipelago</h3>
-            <p class="vortex-strip__body">Seventeen regions of the Philippines. Five metrics. Pan and zoom.</p>
-            <span>Open the atlas</span>
-          </a>
-          <a class="made-card" href="till/">
-            <p class="vortex-strip__kicker">Phone is the register</p>
-            <h3 class="vortex-strip__title">Till</h3>
-            <p class="vortex-strip__body">They tap a card. You keep the sale. 1.99% flat. No reader.</p>
-            <span>Open Till</span>
-          </a>
-          <a class="made-card" href="dichotomy-zeno/">
-            <p class="vortex-strip__kicker">Zeno's paradox</p>
-            <h3 class="vortex-strip__title">Dichotomy Zeno</h3>
-            <p class="vortex-strip__body">Halve the gap between thumb and index. Outline, print, cell, atom. It never closes.</p>
-            <span>See the paradox</span>
-          </a>
-          <a class="made-card" href="ship-of-theseus/">
-            <p class="vortex-strip__kicker">A paradox you can play</p>
-            <h3 class="vortex-strip__title">Ship of Theseus</h3>
-            <p class="vortex-strip__body">Swap every plank, rebuild the old ones. Which ship is the real one?</p>
-            <span>Swap a plank</span>
-          </a>
-        </div>
-      </div>
-    </section>
+
 
     <section class="section section--paper2 process" id="process">
       <div class="container">
@@ -1899,38 +1705,8 @@
       </div>
     </section>
 
-    <section class="section section--tight" id="build">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Deliverables</span>
-          <h2 class="section__title">What we build.</h2>
-        </div>
-        <div class="build__grid">
-          <div class="build-card">
-            <div class="build-card__icon">💬</div>
-            <h3 class="build-card__title">Chat assistants</h3>
-            <p class="build-card__desc">Trained on your SOPs, docs, and tone — ready for your team to use day one.</p>
-          </div>
-          <div class="build-card">
-            <div class="build-card__icon">⚡</div>
-            <h3 class="build-card__title">Workflow automations</h3>
-            <p class="build-card__desc">Across email, sheets, CRMs, and helpdesks — quietly doing the busywork.</p>
-          </div>
-          <div class="build-card">
-            <div class="build-card__icon">📊</div>
-            <h3 class="build-card__title">Dashboards</h3>
-            <p class="build-card__desc">For KPIs, dealflow, and ops rituals — visibility without the spreadsheet chase.</p>
-          </div>
-          <div class="build-card">
-            <div class="build-card__icon">🔗</div>
-            <h3 class="build-card__title">Lightweight integrations</h3>
-            <p class="build-card__desc">That sit on top of your stack — no rip-and-replace, no migration headaches.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section--paper2" id="pricing">
+    <section class="section" id="pricing">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">Pricing</span>
@@ -1977,6 +1753,127 @@
           </div>
         </div>
         <p class="pkg-note">Enterprise needs? <a href="mailto:nuguidd@icloud.com">Email us directly</a> and we'll put together a custom scope.</p>
+      </div>
+    </section>
+
+
+    <!-- Stack and proof -->
+    <section class="section section--paper2" id="stacks">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Integrations</span>
+          <h2 class="section__title">Built on your stack,<br>not a new one.</h2>
+          <p class="section__sub">We plug into the tools you already run. No rip-and-replace, no migration headaches.</p>
+        </div>
+        <div class="stacks__marquee">
+          <div class="stacks__track">
+            <div class="stacks__wrap">          <span class="stack-pill">Salesforce</span>
+          <span class="stack-pill">Google Workspace</span>
+          <span class="stack-pill">Microsoft 365</span>
+          <span class="stack-pill">HubSpot</span>
+          <span class="stack-pill">Notion</span>
+          <span class="stack-pill">Airtable</span>
+          <span class="stack-pill">Slack</span>
+          <span class="stack-pill">Zapier</span>
+          <span class="stack-pill">Make</span>
+          <span class="stack-pill">Custom Webhooks</span>
+            </div>
+            <div class="stacks__wrap" aria-hidden="true">          <span class="stack-pill">Salesforce</span>
+          <span class="stack-pill">Google Workspace</span>
+          <span class="stack-pill">Microsoft 365</span>
+          <span class="stack-pill">HubSpot</span>
+          <span class="stack-pill">Notion</span>
+          <span class="stack-pill">Airtable</span>
+          <span class="stack-pill">Slack</span>
+          <span class="stack-pill">Zapier</span>
+          <span class="stack-pill">Make</span>
+          <span class="stack-pill">Custom Webhooks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proof proof--plain" id="proof">
+      <div class="container proof-reveal" id="proofReveal">
+        <div class="proof__grid">
+          <div>
+            <div class="proof__stat">24–72h</div>
+            <div class="proof__label">pilots</div>
+          </div>
+          <div>
+            <div class="proof__stat">No lock-in</div>
+            <div class="proof__label">you own everything</div>
+          </div>
+          <div>
+            <div class="proof__stat">Your stack</div>
+            <div class="proof__label">no rip-and-replace</div>
+          </div>
+        </div>
+        <p class="proof__trust">
+          <span class="proof__trust-caption">Built on your stack</span>
+          Salesforce · Google Workspace · Slack · HubSpot
+        </p>
+
+        <div class="quote-stack">
+        <figure class="quote-card" aria-label="Testimonial from Farhan, Headdy Glass">
+          <img class="quote-card__img quote-card__img--logo" src="brand/headdy-glass-logo.png" width="88" height="88" alt="Headdy Glass logo" loading="lazy">
+          <figcaption>
+            <div class="quote-card__mark" aria-hidden="true">“</div>
+            <blockquote class="quote-card__text">OpenClaw takes the after-hours tickets — stock, pickup, shipping — and updates the site when new glass drops or sells out.</blockquote>
+            <p class="quote-card__attr"><strong>Farhan</strong>, Owner · <a href="https://www.headdyglass.com/" rel="noopener">Headdy Glass</a>, Algonquin</p>
+          </figcaption>
+        </figure>
+        <figure class="quote-card quote-card--text" aria-label="Testimonial from Stuart Adams, Uncle Stu’s Smoke and Vape">
+          <div class="quote-card__initial" aria-hidden="true">US</div>
+          <figcaption>
+            <div class="quote-card__mark" aria-hidden="true">“</div>
+            <blockquote class="quote-card__text">OpenClaw handles inventory at Cary and Aurora, then runs the website and answers my emails. Carol Stream gets its own in October.</blockquote>
+            <p class="quote-card__attr"><strong>Stuart “Uncle Stu” Adams</strong>, Owner · Uncle Stu’s Smoke and Vape · Cary &amp; Aurora (Carol Stream Oct)</p>
+          </figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+
+    <section class="section section--paper2" id="about">
+      <div class="container">
+        <div class="about__split">
+          <div>
+            <span class="eyebrow">About</span>
+            <h2 class="about__title">We believe great ops<br>should be <em>invisible.</em></h2>
+            <p class="about__body">
+              7EightMade was built on a simple conviction: the best automation is the kind your team doesn't have to think about. It just works—quietly, reliably, in the background.
+            </p>
+            <p class="about__body">
+              We're a lean micro-consulting shop specializing in AI assistants, workflow automation, and smart integrations. We work closely with each client, move fast, and leave you with systems that are yours to own.
+            </p>
+            <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com">Get in touch</a>
+          </div>
+          <div>
+            <figure class="about__still">
+              <img src="brand/about-premium-still.png" alt="Quiet studio still — sand desk, cobalt accent, closed laptop." width="1280" height="720" loading="lazy" decoding="async">
+            </figure>
+          <div class="about__values" style="margin-top:20px">
+            <div class="value-chip">
+              <div class="value-chip__label">Speed</div>
+              <div class="value-chip__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
+            </div>
+            <div class="value-chip">
+              <div class="value-chip__label">Ownership</div>
+              <div class="value-chip__text">Everything we build is yours. No vendor lock-in, ever.</div>
+            </div>
+            <div class="value-chip">
+              <div class="value-chip__label">Privacy</div>
+              <div class="value-chip__text">Least-privilege access. Your credentials stay in your vault.</div>
+            </div>
+            <div class="value-chip">
+              <div class="value-chip__label">Clarity</div>
+              <div class="value-chip__text">Fixed scope, fixed price. You always know what you're paying for.</div>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2074,105 +1971,33 @@
           </div>
         </div>
         <p class="oc-note">Mac Mini pricing varies by configuration. Final cost confirmed at order. <a href="mailto:nuguidd@icloud.com">Email us</a> for a hardware quote.</p>
+        <p class="oc-bridge">Need cloud-side ops instead? <a href="#pricing">See consulting packages</a></p>
       </div>
     </section>
     </div><!-- /.oc-flood -->
 
-    <section class="section section--paper2" id="bridge">
+    <!-- Studio strip: side projects, deliberately quieter than the services -->
+    <section class="studio-strip" id="studio" aria-labelledby="studioStripLabel">
       <div class="container">
-        <div class="bridge">
-          <div class="bridge__copy">
-            <span class="eyebrow">Two paths. One shop.</span>
-            <h2 class="section__title" style="font-size:clamp(28px,3.5vw,40px)">Need cloud-side ops instead?</h2>
-            <p class="section__sub">OpenClaw stays on your hardware. Consulting plugs into the stack you already run — assistants, automations, dashboards. Same team either way.</p>
-          </div>
-          <div class="bridge__actions">
-            <a class="btn btn--cobalt" href="#pricing">See consulting packages</a>
-            <a class="btn btn--ghost" href="#openclaw">Stay with OpenClaw</a>
-          </div>
+        <div class="studio-strip__head">
+          <h2 class="studio-strip__label" id="studioStripLabel">From the studio</h2>
+          <a class="studio-strip__all" href="studio/">See all in Studio</a>
         </div>
+        <ul class="studio-strip__row">
+          <li><a class="studio-tile studio-tile--till" href="till/"><span class="studio-tile__name">Till</span><span class="studio-tile__sub">Tap to pay, rehearsed</span></a></li>
+          <li><a class="studio-tile studio-tile--vortex" href="vortex-breath/"><span class="studio-tile__name">Vortex Breath</span><span class="studio-tile__sub">One free minute</span></a></li>
+          <li><a class="studio-tile studio-tile--atlas" href="archipelago/"><span class="studio-tile__name">Atlas</span><span class="studio-tile__sub">Philippines map</span></a></li>
+          <li><a class="studio-tile" href="dichotomy-zeno/"><span class="studio-tile__name">Dichotomy Zeno</span><span class="studio-tile__sub">Zeno's paradox</span></a></li>
+          <li><a class="studio-tile" href="ship-of-theseus/"><span class="studio-tile__name">Ship of Theseus</span><span class="studio-tile__sub">Swap every plank</span></a></li>
+        </ul>
       </div>
     </section>
 
 
-    <section class="section" id="stacks">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Integrations</span>
-          <h2 class="section__title">Built on your stack,<br>not a new one.</h2>
-          <p class="section__sub">We plug into the tools you already run. No rip-and-replace, no migration headaches.</p>
-        </div>
-        <div class="stacks__marquee">
-          <div class="stacks__track">
-            <div class="stacks__wrap">          <span class="stack-pill">Salesforce</span>
-          <span class="stack-pill">Google Workspace</span>
-          <span class="stack-pill">Microsoft 365</span>
-          <span class="stack-pill">HubSpot</span>
-          <span class="stack-pill">Notion</span>
-          <span class="stack-pill">Airtable</span>
-          <span class="stack-pill">Slack</span>
-          <span class="stack-pill">Zapier</span>
-          <span class="stack-pill">Make</span>
-          <span class="stack-pill">Custom Webhooks</span>
-            </div>
-            <div class="stacks__wrap" aria-hidden="true">          <span class="stack-pill">Salesforce</span>
-          <span class="stack-pill">Google Workspace</span>
-          <span class="stack-pill">Microsoft 365</span>
-          <span class="stack-pill">HubSpot</span>
-          <span class="stack-pill">Notion</span>
-          <span class="stack-pill">Airtable</span>
-          <span class="stack-pill">Slack</span>
-          <span class="stack-pill">Zapier</span>
-          <span class="stack-pill">Make</span>
-          <span class="stack-pill">Custom Webhooks</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section--paper2" id="about">
-      <div class="container">
-        <div class="about__split">
-          <div>
-            <span class="eyebrow">About</span>
-            <h2 class="about__title">We believe great ops<br>should be <em>invisible.</em></h2>
-            <p class="about__body">
-              7EightMade was built on a simple conviction: the best automation is the kind your team doesn't have to think about. It just works—quietly, reliably, in the background.
-            </p>
-            <p class="about__body">
-              We're a lean micro-consulting shop specializing in AI assistants, workflow automation, and smart integrations. We work closely with each client, move fast, and leave you with systems that are yours to own.
-            </p>
-            <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com">Get in touch</a>
-          </div>
-          <div>
-            <figure class="about__still">
-              <img src="brand/about-premium-still.png" alt="Quiet studio still — sand desk, cobalt accent, closed laptop." width="1280" height="720" loading="lazy" decoding="async">
-            </figure>
-          <div class="about__values" style="margin-top:20px">
-            <div class="value-chip">
-              <div class="value-chip__label">Speed</div>
-              <div class="value-chip__text">Pilots in 24–72 hours. We move at the pace of your business.</div>
-            </div>
-            <div class="value-chip">
-              <div class="value-chip__label">Ownership</div>
-              <div class="value-chip__text">Everything we build is yours. No vendor lock-in, ever.</div>
-            </div>
-            <div class="value-chip">
-              <div class="value-chip__label">Privacy</div>
-              <div class="value-chip__text">Least-privilege access. Your credentials stay in your vault.</div>
-            </div>
-            <div class="value-chip">
-              <div class="value-chip__label">Clarity</div>
-              <div class="value-chip__text">Fixed scope, fixed price. You always know what you're paying for.</div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="faq">
+
+    <section class="section section--paper2" id="faq">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">FAQ</span>
@@ -2207,7 +2032,7 @@
       </div>
     </section>
 
-    <section class="section section--paper2" id="contact">
+    <section class="section" id="contact">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">Contact</span>
@@ -2231,7 +2056,7 @@
                   <label class="form-label" for="message">What do you want to automate?</label>
                   <textarea class="form-input" id="message" name="message" rows="5" placeholder="Describe your workflow, tool stack, or pain point..." required></textarea>
                 </div>
-                <button class="btn btn--cobalt btn--full" type="submit" id="contactSubmit">Send message</button>
+                <button class="btn btn--outline btn--full" type="submit" id="contactSubmit">Send message</button>
               </div>
               <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
                 <div class="form-success__kicker">Received</div>
@@ -2268,7 +2093,7 @@
         <div class="footer__copy">© <span id="year"></span> 7EightMade · All rights reserved.</div>
         <div class="footer__links">
           <a href="#services">Services</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#pricing">Packages</a>
           <a href="#about">About</a>
           <a href="ai/">AI</a>
           <a href="dom-times-live/" rel="nofollow">Dom's Batcave</a>
@@ -2697,23 +2522,6 @@
   </script>
 
 
-  <script>
-    (function () {
-      var apps = document.getElementById('navApps');
-      var btn = document.getElementById('navAppsBtn');
-      if (apps && btn) {
-        btn.addEventListener('keydown', function (e) {
-          if (e.key === 'ArrowDown') { e.preventDefault(); apps.classList.add('is-open'); var f = apps.querySelector('.nav__drop-link'); if (f) f.focus(); }
-          if (e.key === 'Escape') apps.classList.remove('is-open');
-        });
-        document.addEventListener('click', function (e) {
-          if (!apps.contains(e.target)) {
-            apps.classList.remove('is-open');
-          }
-        });
-      }
-    })();
-  </script>
 
 
   </body>
