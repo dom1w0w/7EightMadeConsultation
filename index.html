@@ -30,28 +30,44 @@
   <style>
 
     :root {
-      --paper: #F3EFE6;
-      --paper-2: #E8E2D6;
-      --sand: #DDD5C5;
-      --surface: #FBF8F2;
-      --ink: #0B0B0F;
-      --ink-soft: #2A2A32;
-      --muted: #5C5C66;
-      --line: rgba(60,45,20,.12);
-      --cobalt: #2563FF;
-      --cobalt-text: #1D4ED8;
-      --cobalt-ink: #0B0B0F;
-      --cobalt-soft: rgba(37,99,255,.14);
+      /* Dark warm theme (Dom-approved): bg #0E0D0C · cards #171513 · raised #211D19 */
+      --paper: #0E0D0C;          /* page background */
+      --paper-2: #12110F;        /* alternate section band (between bg and cards) */
+      --sand: #2E2924;           /* solid hairline border on cards/chips */
+      --surface: #171513;        /* cards */
+      --raised: #211D19;         /* raised panels / hover lift */
+      --ink: #F2ECE2;            /* primary text */
+      --ink-soft: #D6CEC2;       /* strong-secondary text */
+      --muted: #A69C90;          /* secondary text */
+      --line: rgba(242,236,226,.10);
+      --line-strong: rgba(242,236,226,.18);
+      --line-hover: rgba(242,236,226,.45);
+      --cobalt: #4D7CF6;         /* Dom's exact cobalt accent */
+      --cobalt-hover: #5A86F7;   /* primary button hover (slightly lighter) */
+      --cobalt-press: #4877EE;
+      --cobalt-text: #4D7CF6;
+      --cobalt-text-raised: #6690F8; /* cobalt text on #211D19 (4.4:1 → 5.5:1) */
+      --cobalt-ink: #0E0D0C;
+      --cobalt-soft: rgba(77,124,246,.16);
+      --on-cobalt: #0E0D0C;      /* dark text on cobalt fills: 5.1 rest / 5.7 hover / 4.8 press */
       --emerald: #0F766E;
-      --emerald-soft: rgba(15,118,110,.10);
+      --emerald-text: #5EEAD4;
+      --emerald-soft: rgba(15,118,110,.18);
       --white: #FFFFFF;
+      --focus: #4D7CF6;
+      --focus-on-fill: #F2ECE2;  /* ring colour on cobalt/emerald filled buttons */
+      /* App accents (match sub-pages) */
+      --till: #EE7A3C;
+      --vortex: #D2452F;
+      --atlas: #6FD3C1;
       --radius-sm: 10px;
       --radius: 16px;
       --radius-lg: 28px;
-      --shadow: 0 1px 2px rgba(60,45,20,.04), 0 8px 24px rgba(60,45,20,.06);
-      --shadow-lg: 0 2px 4px rgba(60,45,20,.04), 0 16px 40px rgba(60,45,20,.08);
+      --shadow: 0 1px 2px rgba(0,0,0,.30), 0 8px 24px rgba(0,0,0,.28);
+      --shadow-lg: 0 2px 4px rgba(0,0,0,.32), 0 16px 40px rgba(0,0,0,.40);
       --transition: .25s cubic-bezier(.4,0,.2,1);
       --nav-h: 88px;
+      color-scheme: dark;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -74,7 +90,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-repeat: repeat;
       background-size: 180px 180px;
-      mix-blend-mode: multiply;
+      mix-blend-mode: overlay;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
@@ -89,17 +105,17 @@
       transition: all var(--transition); white-space: nowrap;
       border: 1.5px solid transparent;
     }
-    .btn--cobalt { background: var(--cobalt); color: var(--white); border-color: var(--cobalt); }
-    .btn--cobalt:hover { background: #1a4fd9; border-color: #1a4fd9; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(37,99,255,.25); }
-    .btn--outline { background: transparent; color: var(--ink); border-color: var(--line); }
-    .btn--outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+    .btn--cobalt { background: var(--cobalt); color: var(--on-cobalt); border-color: var(--cobalt); }
+    .btn--cobalt:hover { background: var(--cobalt-hover); border-color: var(--cobalt-hover); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(77,124,246,.28); }
+    .btn--outline { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+    .btn--outline:hover { border-color: var(--line-hover); background: var(--raised); transform: translateY(-1px); }
     .btn--ghost { background: transparent; color: var(--cobalt-text); padding-left: 0; padding-right: 0; border: none; font-weight: 600; }
     .btn--ghost::after { content: '→'; transition: transform var(--transition); }
     .btn--ghost:hover::after { transform: translateX(4px); }
     .btn--emerald { background: var(--emerald); color: var(--white); border-color: var(--emerald); }
-    .btn--emerald:hover { background: #0c635c; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15,118,110,.3); }
-    .btn--outline-light { background: transparent; color: rgba(243,239,230,.85); border-color: rgba(243,239,230,.2); }
-    .btn--outline-light:hover { border-color: rgba(243,239,230,.5); color: var(--paper); }
+    .btn--emerald:hover { background: #12827A; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15,118,110,.3); }
+    .btn--outline-light { background: transparent; color: rgba(242,236,226,.88); border-color: var(--line-strong); }
+    .btn--outline-light:hover { border-color: var(--line-hover); color: var(--ink); background: rgba(242,236,226,.06); }
     .btn--full { width: 100%; }
 
     .checklist { list-style: none; display: grid; gap: 12px; }
@@ -109,7 +125,7 @@
       background: var(--cobalt-soft); color: var(--cobalt);
       display: grid; place-items: center; font-size: 11px; font-weight: 700;
     }
-    .check--light { background: rgba(243,239,230,.1); color: #5EEAD4; }
+    .check--light { background: rgba(242,236,226,.1); color: #5EEAD4; }
 
     /* Signature motion only — stillness as luxury; no carpet fades */
     .hero-enter {
@@ -169,7 +185,7 @@
 
     .nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(243,239,230,.84);
+      background: rgba(14,13,12,.84);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
       transition:
@@ -180,10 +196,10 @@
         -webkit-backdrop-filter .4s cubic-bezier(.4,0,.2,1);
     }
     .nav.is-deep {
-      background: rgba(243,239,230,.94);
+      background: rgba(14,13,12,.94);
       backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
-      border-bottom-color: rgba(60,45,20,.18);
-      box-shadow: 0 1px 0 rgba(60,45,20,.04), 0 10px 28px rgba(60,45,20,.05);
+      border-bottom-color: var(--line-strong);
+      box-shadow: 0 1px 0 rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
     }
     .nav__inner {
       display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -202,14 +218,14 @@
       padding: 8px 12px; border-radius: 8px;
       transition: color var(--transition), background var(--transition);
     }
-    .nav__link:hover { color: var(--ink); background: rgba(60,45,20,.05); }
+    .nav__link:hover { color: var(--ink); background: var(--raised); }
     .nav__cta { margin-left: 8px; padding: 10px 18px; font-size: 13px; }
     .nav__toggle {
       display: none; color: var(--ink); padding: 10px; margin: -4px -4px -4px 0;
       min-width: 44px; min-height: 44px; border-radius: 10px;
       align-items: center; justify-content: center;
     }
-    .nav__toggle:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; }
+    .nav__toggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
     .nav__cta-mobile { display: none; }
 
     .vortex-strip {
@@ -234,7 +250,7 @@
     }
     .made-card {
       display: flex; flex-direction: column; text-decoration: none; color: inherit;
-      border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; background: #fff;
+      border: 1px solid var(--sand); border-radius: 16px; padding: 22px 20px; background: var(--surface);
     }
     .made-card:hover { border-color: var(--cobalt); }
     .made-card span { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--cobalt-text); }
@@ -324,14 +340,14 @@
       padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
     }
     .track__badge--cobalt { background: var(--cobalt-soft); color: var(--cobalt-text); }
-    .track__badge--emerald { background: var(--emerald-soft); color: var(--emerald); }
+    .track__badge--emerald { background: var(--emerald-soft); color: var(--emerald-text); }
     .track__title {
       font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 600;
       letter-spacing: -.02em; margin-bottom: 12px; color: var(--ink);
     }
     .track__desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; max-width: 36ch; }
     .track__cta { font-size: 14px; font-weight: 600; color: var(--cobalt-text); display: inline-flex; align-items: center; gap: 6px; }
-    .track--openclaw .track__cta { color: var(--emerald); }
+    .track--openclaw .track__cta { color: var(--emerald-text); }
     .track__cta::after { content: '→'; transition: transform var(--transition); }
     .track:hover .track__cta::after { transform: translateX(4px); }
 
@@ -347,7 +363,7 @@
       position: absolute; top: 28px; left: 8%; height: 2px; width: calc(84% * var(--process-p, 0));
       background: linear-gradient(90deg, var(--cobalt), #5B8AFF);
       border-radius: 2px; z-index: 0; pointer-events: none;
-      box-shadow: 0 0 14px rgba(37,99,255,.28);
+      box-shadow: 0 0 14px rgba(77,124,246,.30);
       transition: width .08s linear;
     }
     .process__step {
@@ -356,7 +372,7 @@
     }
     .process__step.is-lit .process__marker {
       background: var(--cobalt); color: var(--white);
-      box-shadow: 0 0 0 6px var(--paper-2), 0 8px 20px rgba(37,99,255,.22);
+      box-shadow: 0 0 0 6px var(--paper-2), 0 8px 20px rgba(77,124,246,.24);
     }
     .process__step:not(.is-lit) .process__marker {
       opacity: .72;
@@ -408,7 +424,7 @@
     .pkg--featured:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg), 0 0 0 1px var(--cobalt); }
     .pkg__badge {
       position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase; background: var(--cobalt); color: var(--white);
+      letter-spacing: .1em; text-transform: uppercase; background: var(--cobalt); color: var(--on-cobalt);
       padding: 4px 10px; border-radius: 999px;
     }
     .pkg__label {
@@ -430,7 +446,7 @@
     .pkg-note a { color: var(--cobalt-text); font-weight: 500; }
 
     .openclaw {
-      background: var(--ink); color: var(--paper); padding: 112px 0;
+      background: var(--paper); color: var(--ink); padding: 112px 0;
       scroll-margin-top: calc(var(--nav-h) + 24px);
       position: relative; overflow: clip;
     }
@@ -440,11 +456,11 @@
       /* denser sand→ink veil for scene-change contrast */
       background:
         linear-gradient(180deg,
-          #E8E2D6 0%,
-          var(--sand) 18%,
-          #C9BFAE 42%,
-          #3A342C 68%,
-          var(--ink) 88%);
+          #211D19 0%,
+          #1C1916 18%,
+          #171513 42%,
+          #12110F 68%,
+          #0E0D0C 88%);
       opacity: 0;
       transform: translateY(-112%);
     }
@@ -487,16 +503,16 @@
       filter: none !important;
     }
     .openclaw.is-instant::before { display: none; }
-    .openclaw .section__title { color: var(--paper); }
-    .openclaw .section__sub { color: rgba(243,239,230,.6); }
+    .openclaw .section__title { color: var(--ink); }
+    .openclaw .section__sub { color: rgba(242,236,226,.6); }
     .oc__intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 72px; }
     .oc__title {
       font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
       font-size: clamp(36px, 5vw, 56px); font-weight: 600; letter-spacing: -.035em;
-      line-height: 1.05; margin-bottom: 24px; color: var(--paper);
+      line-height: 1.05; margin-bottom: 24px; color: var(--ink);
     }
     .oc__title em { font-style: italic; color: #5EEAD4; font-weight: 500; }
-    .oc__body { font-size: 15px; color: rgba(243,239,230,.65); line-height: 1.75; margin-bottom: 14px; max-width: 42ch; }
+    .oc__body { font-size: 15px; color: rgba(242,236,226,.65); line-height: 1.75; margin-bottom: 14px; max-width: 42ch; }
     .oc__airgap {
       display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase; background: var(--emerald); color: var(--white);
@@ -506,14 +522,14 @@
     .oc-compare__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .oc-compare__cell { padding: 18px 20px; border-radius: var(--radius-sm); font-size: 13px; line-height: 1.55; }
     .oc-compare__cell.bad {
-      background: rgba(243,239,230,.045); border: 1px solid rgba(243,239,230,.1); color: rgba(243,239,230,.72);
+      background: rgba(242,236,226,.045); border: 1px solid rgba(242,236,226,.1); color: rgba(242,236,226,.72);
     }
     .oc-compare__cell.bad strong {
       display: block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: rgba(243,239,230,.52); margin-bottom: 6px;
+      color: rgba(242,236,226,.52); margin-bottom: 6px;
     }
     .oc-compare__cell.good {
-      background: var(--emerald-soft); border: 1px solid rgba(94,234,212,.35); color: rgba(243,239,230,.94);
+      background: var(--emerald-soft); border: 1px solid rgba(94,234,212,.35); color: rgba(242,236,226,.94);
     }
     .oc-compare__cell.good strong {
       display: block; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
@@ -528,17 +544,17 @@
     }
     .oc-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 0 8px; position: relative; }
     .oc-step__num {
-      width: 44px; height: 44px; border-radius: 50%; background: var(--ink); border: 1.5px solid var(--emerald);
+      width: 44px; height: 44px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--emerald);
       display: grid; place-items: center; font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 600;
       color: #5EEAD4; position: relative; z-index: 1;
     }
-    .oc-step__text { font-size: 13px; color: rgba(243,239,230,.6); line-height: 1.5; }
+    .oc-step__text { font-size: 13px; color: rgba(242,236,226,.6); line-height: 1.5; }
     .oc-pkgs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; }
     .oc-pkg {
-      background: rgba(243,239,230,.04); border: 1.5px solid rgba(243,239,230,.1);
+      background: rgba(242,236,226,.04); border: 1.5px solid rgba(242,236,226,.1);
       border-radius: var(--radius); padding: 36px 32px; display: flex; flex-direction: column; position: relative;
     }
-    .oc-pkg--featured { background: rgba(15,118,110,.12); border-color: var(--emerald); }
+    .oc-pkg--featured { background: rgba(15,118,110,.14); border-color: var(--emerald); }
     .oc-pkg__badge {
       position: absolute; top: 20px; right: 20px; font-size: 10px; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase; background: var(--emerald); color: var(--white);
@@ -550,16 +566,16 @@
     }
     .oc-pkg__price {
       font-family: 'Fraunces', Georgia, serif; font-size: 44px; font-weight: 600;
-      letter-spacing: -.03em; color: var(--paper); line-height: 1;
+      letter-spacing: -.03em; color: var(--ink); line-height: 1;
     }
-    .oc-pkg__desc { font-size: 14px; color: rgba(243,239,230,.55); margin: 14px 0 8px; line-height: 1.6; }
+    .oc-pkg__desc { font-size: 14px; color: rgba(242,236,226,.55); margin: 14px 0 8px; line-height: 1.6; }
     .oc-pkg__bestif {
-      font-size: 13px; color: rgba(243,239,230,.45); margin: 0 0 24px; line-height: 1.5;
+      font-size: 13px; color: rgba(242,236,226,.45); margin: 0 0 24px; line-height: 1.5;
       font-style: italic;
     }
     .oc-pkg .checklist { flex: 1; margin-bottom: 28px; }
-    .oc-pkg .checklist li { color: rgba(243,239,230,.6); }
-    .oc-note { margin-top: 20px; font-size: 13px; color: rgba(243,239,230,.4); max-width: 860px; }
+    .oc-pkg .checklist li { color: rgba(242,236,226,.6); }
+    .oc-note { margin-top: 20px; font-size: 13px; color: rgba(242,236,226,.4); max-width: 860px; }
     .oc-note a { color: #5EEAD4; }
 
     .stacks__wrap { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -598,8 +614,8 @@
       background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-sm);
       overflow: hidden; transition: border-color var(--transition), box-shadow var(--transition);
     }
-    .faq-item:hover { border-color: rgba(60,45,20,.22); }
-    .faq-item[open] { border-color: rgba(37,99,255,.3); box-shadow: var(--shadow); }
+    .faq-item:hover { border-color: var(--line-strong); background: var(--raised); }
+    .faq-item[open] { border-color: rgba(77,124,246,.45); box-shadow: var(--shadow); }
     .faq-item summary {
       list-style: none; cursor: pointer; padding: 18px 20px; min-height: 44px; font-weight: 600; font-size: 15px;
       color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none;
@@ -627,11 +643,11 @@
     }
     .form-input {
       background: var(--surface); border: 1.5px solid var(--sand); border-radius: var(--radius-sm);
-      padding: 13px 16px; font-family: inherit; font-size: 14px; color: var(--ink); outline: none;
+      padding: 13px 16px; font-family: inherit; font-size: 14px; color: var(--ink);
       transition: border-color var(--transition), box-shadow var(--transition); resize: vertical;
     }
-    .form-input::placeholder { color: #9A9AA3; }
-    .form-input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-soft); outline: none; }
+    .form-input::placeholder { color: #8F867B; }
+    .form-input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-soft); }
     .form-success {
       display: none;
       padding: 32px 28px;
@@ -659,13 +675,13 @@
     .form-success__body { font-size: 14px; color: var(--muted); line-height: 1.65; max-width: 36ch; }
     .form-success__whisper {
       margin-top: 18px; padding-top: 14px;
-      border-top: 1px solid rgba(37,99,255,.22);
+      border-top: 1px solid rgba(77,124,246,.30);
       font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--muted);
     }
     .contact-form.is-sent .form-group { display: none; }
     .contact-book {
       height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 16px;
-      padding: 40px 36px; background: var(--surface); border: 1.5px solid rgba(37,99,255,.25);
+      padding: 40px 36px; background: var(--surface); border: 1.5px solid rgba(77,124,246,.35);
       border-radius: var(--radius); box-shadow: var(--shadow); position: relative; overflow: hidden;
     }
     .contact-book::before {
@@ -690,11 +706,11 @@
     .footer__brand .mark-7 { color: var(--cobalt); }
     .footer__copy { font-size: 13px; color: var(--muted); }
     .footer__links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); }
-    .footer__links a:hover { color: var(--cobalt-text); }
+    .footer__links a:hover { color: var(--ink); }
     .footer__proverb {
       margin-top: 20px;
       padding-top: 16px;
-      border-top: 1px solid rgba(37,99,255,.28);
+      border-top: 1px solid rgba(77,124,246,.35);
       font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
       font-size: 13px;
       font-weight: 500;
@@ -720,7 +736,7 @@
     /* ── Mobile / tablet pass ── */
     .nav--open .nav__links {
       display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
-      width: 100%; background: rgba(243,239,230,.98); border-bottom: 1px solid var(--line);
+      width: 100%; background: rgba(23,21,19,.98); border-bottom: 1px solid var(--line);
       padding: 12px 20px 20px; gap: 2px; box-shadow: var(--shadow-lg);
       z-index: 120; max-height: calc(100dvh - var(--nav-h)); overflow-y: auto;
     }
@@ -881,7 +897,7 @@
     body.intro-active { overflow: hidden; }
     #intro {
       position: fixed; inset: 0; z-index: 100000;
-      background: #F3EFE6;
+      background: var(--paper);
       display: grid; place-items: center;
       overflow: hidden; pointer-events: auto;
       clip-path: circle(150% at 50% 42%);
@@ -906,12 +922,12 @@
     .intro__progress {
       position: absolute; top: -48px; left: 50%;
       width: 72px; height: 2px; margin-left: -36px;
-      background: rgba(37,99,255,.18); border-radius: 2px; overflow: hidden;
+      background: rgba(77,124,246,.22); border-radius: 2px; overflow: hidden;
       opacity: 0;
     }
     .intro__progress::after {
       content: ''; position: absolute; inset: 0; width: 40%;
-      background: #2563FF; border-radius: 2px;
+      background: var(--cobalt); border-radius: 2px;
       transform: translateX(-120%);
     }
     .intro__loading {
@@ -925,7 +941,7 @@
       will-change: transform, opacity;
     }
     .intro__mark .brand-mark {
-      filter: drop-shadow(0 18px 32px rgba(37,99,255,.18));
+      filter: drop-shadow(0 18px 32px rgba(77,124,246,.22));
     }
     .intro__wordmark {
       font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
@@ -934,7 +950,7 @@
       clip-path: inset(100% 0 0 0); opacity: 0;
       transform: translateY(12px);
     }
-    .intro__wordmark .mark-7 { color: #2563FF; }
+    .intro__wordmark .mark-7 { color: var(--cobalt); }
     .intro__tag {
       margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .16em;
       text-transform: uppercase; color: var(--muted);
@@ -944,13 +960,13 @@
       position: absolute; bottom: 28px; right: 28px; z-index: 2;
       font-size: 12px; font-weight: 600; letter-spacing: .04em;
       color: var(--muted); padding: 8px 14px; border-radius: 8px;
-      border: 1px solid var(--line); background: rgba(251,248,242,.7);
+      border: 1px solid var(--line-strong); background: rgba(23,21,19,.7);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
       transition: color .2s, border-color .2s, background .2s;
       opacity: 0;
     }
-    .intro__skip:hover { color: var(--ink); border-color: rgba(60,45,20,.28); }
-    .intro__skip:focus-visible { outline: 2px solid #2563FF; outline-offset: 2px; }
+    .intro__skip:hover { color: var(--ink); border-color: var(--line-hover); background: var(--raised); }
+    .intro__skip:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
     #intro.is-playing .intro__progress { animation: introFadeIn .28s ease forwards; }
     #intro.is-playing .intro__progress::after { animation: introProg 1.05s cubic-bezier(.4,0,.2,1) .04s forwards; }
@@ -993,7 +1009,7 @@
       background: linear-gradient(90deg, var(--cobalt), #5B8AFF);
       z-index: 200; pointer-events: none;
       transform-origin: left center;
-      box-shadow: 0 0 8px rgba(37,99,255,.2);
+      box-shadow: 0 0 8px rgba(77,124,246,.25);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1044,7 +1060,7 @@
       overflow: clip;
       /* starts lifted charcoal, deepens slightly then content brightens via --flood */
       --flood: 0;
-      background: #16161f;
+      background: #171513;
     }
     .oc-flood .openclaw {
       position: sticky;
@@ -1080,12 +1096,12 @@
       z-index: 0;
       background:
         radial-gradient(ellipse 95% 75% at 50% 35%, rgba(94,234,212, calc(0.1 + var(--flood) * 0.16)), transparent 60%),
-        radial-gradient(ellipse 80% 60% at 18% 70%, rgba(37,99,255, calc(0.14 + var(--flood) * 0.18)), transparent 58%),
+        radial-gradient(ellipse 80% 60% at 18% 70%, rgba(77,124,246, calc(0.14 + var(--flood) * 0.18)), transparent 58%),
         radial-gradient(ellipse 70% 50% at 85% 80%, rgba(15,118,110, calc(0.12 + var(--flood) * 0.14)), transparent 55%),
         linear-gradient(180deg,
-          #1c1c28 0%,
-          #14141c calc(40% + var(--flood) * 10%),
-          #0f0f16 100%);
+          #1D1A17 0%,
+          #141210 calc(40% + var(--flood) * 10%),
+          #0E0D0C 100%);
       opacity: 1;
       /* lift overall scene as you scroll */
       filter: brightness(calc(1.12 + var(--flood) * 0.28));
@@ -1096,14 +1112,14 @@
     .oc-flood .oc-pkg__desc,
     .oc-flood .oc-pkg__bestif,
     .oc-flood .oc-note {
-      color: rgba(243,239,230, calc(0.7 + var(--flood) * 0.28));
+      color: rgba(242,236,226, calc(0.7 + var(--flood) * 0.28));
     }
     .oc-flood .oc-pkg__bestif {
-      color: rgba(243,239,230, calc(0.52 + var(--flood) * 0.28));
+      color: rgba(242,236,226, calc(0.52 + var(--flood) * 0.28));
     }
     .oc-flood .oc__title,
     .oc-flood .oc-pkg__price {
-      color: rgba(251,248,242, calc(0.88 + var(--flood) * 0.12));
+      color: rgba(242,236,226, calc(0.88 + var(--flood) * 0.12));
     }
     /* Disable old one-shot clip when flooding */
     .oc-flood .openclaw.oc-pending,
@@ -1125,7 +1141,7 @@
     /* ── Sand iris route / chapter transition ─────────────── */
     #routeIris {
       position: fixed; inset: 0; z-index: 200000;
-      background: #F3EFE6;
+      background: var(--paper);
       pointer-events: none;
       clip-path: circle(0% at 50% 42%);
       visibility: hidden;
@@ -1161,7 +1177,7 @@
         top: auto;
         min-height: 0;
         padding: 72px 0 64px;
-        background: var(--ink);
+        background: var(--paper);
       }
       .oc-flood .openclaw > .container {
         transform: none;
@@ -1175,13 +1191,13 @@
       .oc-flood .oc-pkg__bestif,
       .oc-flood .oc-note,
       .openclaw .section__sub {
-        color: rgba(243,239,230,.88);
+        color: rgba(242,236,226,.88);
       }
       .oc-flood .oc__title,
       .oc-flood .oc-pkg__price {
-        color: rgba(251,248,242,.98);
+        color: rgba(242,236,226,.98);
       }
-      .oc__body { color: rgba(243,239,230,.82); }
+      .oc__body { color: rgba(242,236,226,.82); }
     }
     @media (prefers-reduced-motion: reduce) {
       .oc-flood { height: auto; }
@@ -1231,8 +1247,8 @@
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .16em;
-      background: #2563FF;
-      color: #fff;
+      background: var(--cobalt);
+      color: var(--on-cobalt);
       padding: 4px 8px 3px;
       border-radius: 4px;
       line-height: 1;
@@ -1314,7 +1330,7 @@
         position: absolute;
         top: 100%; left: 0; right: 0;
         width: 100%;
-        background: rgba(243,239,230,.98);
+        background: rgba(23,21,19,.98);
         border-bottom: 1px solid var(--line);
         padding: 12px 20px 20px;
         gap: 2px;
@@ -1377,8 +1393,8 @@
     .quote-card {
       margin-top: 0;
       padding: 28px 28px 24px;
-      border: 1px solid rgba(11,11,15,.08);
-      background: #FBF8F2;
+      border: 1px solid var(--sand);
+      background: var(--surface);
       border-radius: 20px;
       display: grid;
       grid-template-columns: 88px 1fr;
@@ -1390,40 +1406,40 @@
       width: 88px; height: 88px;
       border-radius: 16px;
       object-fit: cover;
-      background: #E8E2D6;
+      background: #F2ECE2;
     }
     .quote-card__img--logo {
       object-fit: contain;
-      background: #FBF8F2;
-      border: 1px solid rgba(11,11,15,.06);
+      background: #F2ECE2;
+      border: 1px solid var(--line);
       padding: 4px;
       box-sizing: border-box;
     }
     .quote-card__mark {
       font-family: Fraunces, Georgia, serif;
       font-size: 42px; line-height: 1;
-      color: var(--cobalt, #1B4DFF);
+      color: var(--cobalt);
       margin-bottom: 8px;
     }
     .quote-card__text {
       font-size: 17px; line-height: 1.45;
-      color: var(--ink, #0B0B0F);
+      color: var(--ink);
       margin: 0 0 12px;
       font-weight: 500;
     }
     .quote-card__attr {
-      font-size: 13px; color: var(--muted, #5C5C66);
+      font-size: 13px; color: var(--muted);
       margin: 0;
     }
-    .quote-card__attr strong { color: var(--ink, #0B0B0F); font-weight: 700; }
-    .quote-card__attr a { color: var(--cobalt, #1B4DFF); text-decoration: none; }
+    .quote-card__attr strong { color: var(--ink); font-weight: 700; }
+    .quote-card__attr a { color: var(--cobalt-text); text-decoration: underline; text-decoration-color: rgba(77,124,246,.5); text-underline-offset: 3px; }
     /* Text-only cards still use 2 cols (initial | copy) so mobile 64px/1fr never traps copy in the avatar track */
     .quote-card--text { grid-template-columns: 88px 1fr; }
     .quote-card figcaption { min-width: 0; }
     .quote-card__initial {
       display: inline-flex; align-items: center; justify-content: center;
       width: 88px; height: 88px; border-radius: 16px;
-      background: #1B4DFF; color: #FBF8F2;
+      background: var(--cobalt); color: var(--on-cobalt);
       font-weight: 800; font-size: 22px; letter-spacing: .02em;
       margin: 0;
       flex-shrink: 0;
@@ -1442,11 +1458,11 @@
     .nav__item--apps{position:relative}
     .nav__apps-btn{font:inherit;font-size:13px;font-weight:500;color:var(--muted);padding:8px 12px;border-radius:8px;display:inline-flex;align-items:center;gap:5px;background:none;border:none;cursor:pointer}
     .nav__apps-btn::after{content:"";width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-1px);opacity:.7}
-    .nav__apps-btn:hover,.nav__item--apps.is-open .nav__apps-btn,.nav__item--apps:hover .nav__apps-btn{color:var(--ink);background:rgba(60,45,20,.05)}
+    .nav__apps-btn:hover,.nav__item--apps.is-open .nav__apps-btn,.nav__item--apps:hover .nav__apps-btn{color:var(--ink);background:var(--raised)}
     .nav__dropdown{position:absolute;top:calc(100% + 6px);left:0;min-width:188px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:140}
     .nav__item--apps:hover .nav__dropdown,.nav__item--apps:focus-within .nav__dropdown,.nav__item--apps.is-open .nav__dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:none}
     .nav__drop-link{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none}
-    .nav__drop-link:hover{background:rgba(37,99,255,.08)}
+    .nav__drop-link:hover{background:var(--raised)}
     .nav__drop-title{font-size:13px;font-weight:600}
     .nav__drop-sub{font-size:11px;color:var(--muted);font-weight:500}
     .nav__dropdown{min-width:220px;max-height:calc(100vh - 90px);overflow:auto}
@@ -1459,6 +1475,131 @@
     .nav--open .nav__apps-btn::after{display:none}
     .nav--open .nav__drop-link{min-height:44px;justify-content:center}
   
+    /* ══ Dark theme · interaction states (hover / focus / active) ══════════ */
+    /* Global keyboard focus ring — cobalt 2px, 3px offset (5.1:1 on bg, 4.8:1 on cards, 4.4:1 on raised) */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: inherit;
+    }
+    /* Filled cobalt / emerald buttons + badges: light ring so it separates from the fill */
+    .btn--cobalt:focus-visible,
+    .btn--emerald:focus-visible,
+    .quote-card__initial:focus-visible {
+      outline-color: var(--focus-on-fill);
+    }
+    /* #F2ECE2 vs cobalt is 3.2:1 at rest but 2.9:1 on hover — add a #0E0D0C inner ring so the
+       light outer ring always sits on near-black (16.5:1) and the dark ring vs cobalt is ≥4.8:1 */
+    .btn--cobalt:focus-visible { box-shadow: 0 0 0 3px #0E0D0C; }
+    /* Inside clipped containers (details has overflow:hidden; dropdown scrolls) — draw ring inside */
+    .faq-item summary:focus-visible { outline-offset: -3px; border-radius: var(--radius-sm); }
+    .nav__drop-link:focus-visible { outline-offset: -2px; }
+    .form-input:focus-visible { outline-offset: 2px; }
+    .nav__brand:focus-visible { border-radius: 8px; }
+    .footer__links a:focus-visible,
+    .hero__secondary:focus-visible,
+    .btn--ghost:focus-visible { border-radius: 4px; }
+
+    /* Text links: secondary → primary text, with underline */
+    .hero__secondary:hover,
+    .footer__links a:hover,
+    .btn--ghost:hover {
+      color: var(--ink);
+      text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px;
+    }
+    .btn--ghost:hover { text-decoration-color: var(--cobalt); }
+    /* Inline links inside body copy: underlined at rest (colour alone is 1.4:1 vs secondary text) */
+    .pkg-note a, .faq-item__body a, .contact__sub a, .oc-note a {
+      text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+      text-decoration-color: currentColor;
+      transition: color var(--transition), text-decoration-color var(--transition);
+    }
+    .pkg-note a, .faq-item__body a, .contact__sub a { text-decoration-color: rgba(77,124,246,.55); }
+    .pkg-note a:hover, .faq-item__body a:hover, .contact__sub a:hover,
+    .oc-note a:hover, .quote-card__attr a:hover {
+      color: var(--ink); text-decoration-color: currentColor;
+    }
+
+    /* Nav items: #211D19 fill + 2px cobalt underline bar (fill alone is only 1.15:1 vs page) */
+    .nav__link:hover,
+    .nav__apps-btn:hover, .nav__item--apps.is-open .nav__apps-btn, .nav__item--apps:hover .nav__apps-btn {
+      color: var(--ink); background: var(--raised);
+      box-shadow: inset 0 -2px 0 var(--cobalt);
+    }
+    .nav__link:active, .nav__apps-btn:active { background: #2A2520; }
+    .nav__dropdown { background: var(--surface); border-color: var(--line-strong); }
+    .nav__drop-link { transition: background var(--transition), box-shadow var(--transition); }
+    .nav__drop-link:hover { background: var(--raised); box-shadow: inset 2px 0 0 var(--cobalt); }
+    .nav__drop-link[href^="till/"]:hover { box-shadow: inset 2px 0 0 var(--till); }
+    .nav__drop-link[href^="vortex-breath/"]:hover { box-shadow: inset 2px 0 0 var(--vortex); }
+    .nav__drop-link[href^="archipelago/"]:hover { box-shadow: inset 2px 0 0 var(--atlas); }
+    .nav__drop-link:active { background: #2A2520; }
+    .nav--open .nav__link:hover { box-shadow: inset 2px 0 0 var(--cobalt); }
+
+    /* Footer app links: underline in the app's accent */
+    .footer__links a { transition: color var(--transition); }
+    .footer__links a[href="till/"]:hover { text-decoration-color: var(--till); }
+    .footer__links a[href="vortex-breath/"]:hover { text-decoration-color: var(--vortex); }
+    .footer__links a[href="archipelago/"]:hover { text-decoration-color: var(--atlas); }
+
+    /* Buttons */
+    .btn--cobalt:active:not(:disabled) { background: var(--cobalt-press); border-color: var(--cobalt-press); }
+    .btn--outline:active:not(:disabled), .btn--outline-light:active:not(:disabled) { background: #2A2520; }
+
+    /* Cards & tiles: lift to #211D19 with a visible border */
+    .track { background: var(--surface); }
+    .track:hover { background: var(--raised); }
+    .track--consulting:hover { border-color: var(--cobalt); border-top-color: var(--cobalt); }
+    .track--openclaw:hover { border-color: var(--emerald-text); border-top-color: var(--emerald); }
+    .made-card {
+      --accent: var(--cobalt);
+      box-shadow: inset 0 3px 0 var(--accent);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .made-card[href^="till/"] { --accent: var(--till); }
+    .made-card[href^="vortex-breath/"] { --accent: var(--vortex); }
+    .made-card[href^="archipelago/"] { --accent: var(--atlas); }
+    .made-card[href^="till/"] span { color: var(--till); }
+    .made-card[href^="archipelago/"] span { color: var(--atlas); }
+    .made-card[href^="vortex-breath/"] span { color: var(--ink); } /* cinnabar is 4.0:1 as text — kept to border/stripe */
+    .made-card:hover { background: var(--raised); border-color: var(--accent); transform: translateY(-2px); }
+    .made-card:active, .track:active { transform: translateY(0); }
+    .build-card:hover, .pkg:not(.pkg--featured):hover, .value-chip:hover {
+      background: var(--raised); border-color: var(--line-strong);
+    }
+    .pkg--featured:hover { background: var(--raised); }
+    /* #4D7CF6 is 4.41:1 on #211D19 — lift small cobalt text when its card is raised */
+    .made-card:hover .vortex-strip__kicker, .track:hover .track__cta, .track:hover .track__badge--cobalt,
+    .pkg:hover .pkg__label, .value-chip:hover .value-chip__label, .faq-item:hover .faq-item__body a { color: var(--cobalt-text-raised); }
+    .value-chip { transition: background var(--transition), border-color var(--transition); }
+    .build-card, .pkg { transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition); }
+    .faq-item summary { transition: color var(--transition); }
+    .faq-item summary:hover { color: var(--ink); }
+    .stack-pill:hover { color: #8EABFA; }
+    .oc-pkg { transition: border-color var(--transition), background var(--transition); }
+    .oc-pkg:not(.oc-pkg--featured):hover { border-color: var(--line-hover); background: rgba(242,236,226,.06); }
+
+    /* Form inputs */
+    .form-input:hover { border-color: rgba(242,236,226,.28); }
+    .form-input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 4px var(--cobalt-soft); }
+
+    /* Selection + about still: keep the sand photo from glaring */
+    ::selection { background: rgba(77,124,246,.45); color: var(--ink); }
+    .about__still { background: var(--surface); }
+    .quote-card__img { background: #F2ECE2; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .btn--ghost::after, .track, .track__cta::after, .made-card, .build-card, .pkg,
+      .faq-item, .faq-item summary, .stack-pill, .nav__link, .nav__apps-btn, .nav__drop-link,
+      .nav__dropdown, .footer__links a, .hero__secondary, .form-input, .value-chip, .oc-pkg,
+      .intro__skip, .pkg-note a, .faq-item__body a, .contact__sub a, .oc-note a {
+        transition: none !important;
+      }
+      .btn:hover, .btn:active:not(:disabled), .track:hover, .made-card:hover, .build-card:hover,
+      .pkg:hover, .pkg--featured:hover { transform: none !important; }
+      .btn--ghost:hover::after, .track:hover .track__cta::after { transform: none !important; }
+    }
+
   </style>
 </head>
 <body id="top">
@@ -1473,7 +1614,7 @@
 <!-- Oversized Fraunces display 7 -->
   <g class="lockup-7"><path fill="#2563FF" d="M61.97 24.12 62.07 25.23H10.69Q9.53 25.23 8.7 25.75Q7.86 26.27 7.36 27.91L3.78 39.45Q3.64 39.9 3.34 40.16Q3.04 40.42 2.67 40.42Q2.37 40.42 2.16 40.12Q1.94 39.82 2.02 39.31L6.57 4.22Q6.71 3.21 7.18 2.6Q7.64 2 8.58 2H77.4Q78.06 2 78.45 2.36Q78.84 2.72 78.84 3.22Q78.84 3.86 78.52 4.62Q78.2 5.37 77.42 6.38L53.56 39.07Q50.59 43 48.28 46.48Q45.97 49.97 44.38 53.16Q42.78 56.34 41.96 59.43Q41.14 62.51 41.14 65.65Q41.14 70.6 42.64 74.39Q44.14 78.18 46.08 81.54Q48.02 84.9 49.53 88.41Q51.03 91.91 51.03 96.35Q51.02 102.65 46.57 107.32Q42.12 112 34.13 112Q26.59 112 22.49 107.42Q18.38 102.83 18.38 94.93Q18.38 90.41 19.79 85.37Q21.2 80.34 24.05 74.94Q26.9 69.54 31.21 63.97Z"/></g>
   <!-- Eight wordmark -->
-  <g fill="#0B0B0F">
+  <g fill="#F2ECE2">
     <path d="M99.29 60.17H110.94Q113.27 60.17 114.25 59.21Q115.23 58.24 115.65 55.63Q115.84 54.82 116.24 54.44Q116.65 54.06 117.23 54.03Q118.54 53.96 118.92 55.51L121.83 66.45Q122.06 67.36 121.81 67.9Q121.57 68.45 120.88 68.67Q120.25 68.87 119.68 68.66Q119.12 68.44 118.7 67.81Q117.63 66.09 116.73 65.18Q115.83 64.26 114.72 63.91Q113.62 63.56 111.93 63.56H99.29ZM86.84 38Q86.84 37.24 87.34 36.81Q87.84 36.38 88.86 36.38H117.02Q118.24 36.38 119.09 36.03Q119.95 35.68 120.67 35.34Q121.38 35 122.17 35Q123.19 35 123.72 35.58Q124.25 36.16 124.63 37.52L127.49 48.07Q127.74 48.92 127.41 49.48Q127.08 50.04 126.34 50.24Q125.58 50.44 124.94 50.15Q124.29 49.85 123.86 48.97Q122.37 46.07 121.1 44.28Q119.83 42.49 118.59 41.53Q117.35 40.57 115.98 40.23Q114.62 39.88 112.91 39.88H103.27V80.76Q103.27 82.53 104.23 83.41Q105.2 84.3 107.11 84.3H113.73Q116.09 84.3 117.91 83.46Q119.72 82.63 121.48 80.23Q123.23 77.83 125.36 73.14Q125.71 72.33 126.29 72.03Q126.86 71.73 127.58 71.88Q128.4 72.02 128.75 72.65Q129.1 73.28 128.84 74.26L125.75 86.51Q125.39 87.83 124.84 88.44Q124.29 89.06 123.21 89.06Q122.48 89.06 121.76 88.74Q121.05 88.43 120.17 88.11Q119.29 87.8 118.02 87.8H88.86Q87.84 87.8 87.34 87.36Q86.84 86.92 86.84 86.18Q86.84 84.9 88.26 84.39L90.4 83.91Q91.31 83.65 91.77 83.15Q92.24 82.66 92.24 81.78V42.4Q92.24 41.52 91.77 41.02Q91.31 40.53 90.4 40.27L88.26 39.78Q86.84 39.28 86.84 38Z"/>
     <path d="M147.15 55.14V82.2Q147.15 83.29 147.46 83.79Q147.76 84.29 148.39 84.51L149.8 84.87Q150.42 85.11 150.71 85.47Q151.01 85.83 151.01 86.37Q151.01 87.04 150.57 87.42Q150.12 87.8 149.24 87.8H135.14Q134.28 87.8 133.83 87.42Q133.39 87.04 133.39 86.37Q133.39 85.85 133.68 85.49Q133.97 85.12 134.57 84.88L136.05 84.51Q136.68 84.29 136.98 83.79Q137.28 83.29 137.28 82.21V61.26Q137.28 60.37 137.01 59.99Q136.74 59.62 136.18 59.5L134.24 59.38Q133.66 59.21 133.39 58.89Q133.11 58.58 133.11 58.09Q133.11 57.53 133.46 57.16Q133.81 56.8 134.65 56.49L142.05 53.99Q143.23 53.55 143.93 53.36Q144.64 53.18 145.22 53.18Q146.17 53.18 146.66 53.72Q147.15 54.26 147.15 55.14ZM141.57 47.86Q138.78 47.86 137.09 46.34Q135.4 44.82 135.4 42.39Q135.4 39.97 137.09 38.47Q138.79 36.96 141.57 36.96Q144.38 36.96 146.08 38.47Q147.79 39.98 147.79 42.39Q147.79 44.82 146.08 46.34Q144.37 47.86 141.57 47.86Z"/>
     <path d="M177.99 84.89Q173.4 84.14 171.2 83.57Q169 82.99 168.32 82.44Q167.65 81.88 167.65 81.23Q167.65 80.58 168.15 80.05Q168.64 79.52 169.63 79.07L169.01 78.54Q165.41 78.9 163.34 79.85Q161.27 80.81 160.39 82.15Q159.52 83.48 159.52 85.01Q159.52 86.77 160.57 88.06Q161.63 89.36 164.44 90.34Q167.25 91.32 172.52 92.16Q176.8 92.82 179.16 93.57Q181.53 94.32 182.47 95.28Q183.41 96.24 183.41 97.54Q183.41 99.12 182.39 100.25Q181.37 101.39 179.19 101.98Q177 102.58 173.49 102.58Q167.25 102.58 164.67 100.63Q162.09 98.69 162.09 95.57Q162.09 93.89 163.46 92.53Q164.83 91.18 167.52 90.69L166.92 89.75Q160.1 90.51 157.34 92.65Q154.57 94.8 154.57 97.8Q154.57 100.15 156.3 101.95Q158.04 103.76 161.87 104.79Q165.7 105.82 172 105.82Q181.71 105.82 186.82 102.68Q191.93 99.54 191.93 94.59Q191.93 91.88 190.61 89.99Q189.28 88.1 186.23 86.86Q183.18 85.63 177.99 84.89ZM178.6 56.39 180.77 56.73Q181.91 54.48 182.77 53.54Q183.62 52.61 184.73 52.61Q185.65 52.61 186.22 53.13Q186.79 53.66 187.3 54.34Q187.81 55.03 188.5 55.56Q189.18 56.08 190.33 56.08Q192 56.08 192.96 54.92Q193.92 53.75 193.92 51.8Q193.92 49.56 192.5 48.27Q191.07 46.98 188.76 46.98Q185.97 46.98 183.65 48.82Q181.32 50.65 179.67 54.22ZM189.05 66.06Q189.05 62.44 187.11 59.51Q185.16 56.57 181.55 54.83Q177.94 53.1 172.92 53.1Q167.72 53.1 163.86 54.86Q160 56.62 157.89 59.74Q155.77 62.86 155.77 66.97Q155.77 70.6 157.78 73.52Q159.79 76.43 163.49 78.12Q167.2 79.8 172.28 79.8Q177.25 79.8 181.02 78.06Q184.8 76.32 186.93 73.22Q189.05 70.12 189.05 66.06ZM171.21 55.95Q174.3 55.79 176.34 58.65Q178.37 61.51 178.83 66.67Q179.29 71.4 177.87 74.06Q176.44 76.72 173.55 76.87Q171.53 76.96 169.91 75.71Q168.3 74.46 167.27 72Q166.25 69.55 165.93 66.08Q165.63 62.98 166.17 60.75Q166.72 58.51 168.01 57.28Q169.3 56.04 171.21 55.95Z"/>
@@ -1521,7 +1662,7 @@
 <!-- Oversized Fraunces display 7 -->
   <g class="lockup-7"><path fill="#2563FF" d="M61.97 24.12 62.07 25.23H10.69Q9.53 25.23 8.7 25.75Q7.86 26.27 7.36 27.91L3.78 39.45Q3.64 39.9 3.34 40.16Q3.04 40.42 2.67 40.42Q2.37 40.42 2.16 40.12Q1.94 39.82 2.02 39.31L6.57 4.22Q6.71 3.21 7.18 2.6Q7.64 2 8.58 2H77.4Q78.06 2 78.45 2.36Q78.84 2.72 78.84 3.22Q78.84 3.86 78.52 4.62Q78.2 5.37 77.42 6.38L53.56 39.07Q50.59 43 48.28 46.48Q45.97 49.97 44.38 53.16Q42.78 56.34 41.96 59.43Q41.14 62.51 41.14 65.65Q41.14 70.6 42.64 74.39Q44.14 78.18 46.08 81.54Q48.02 84.9 49.53 88.41Q51.03 91.91 51.03 96.35Q51.02 102.65 46.57 107.32Q42.12 112 34.13 112Q26.59 112 22.49 107.42Q18.38 102.83 18.38 94.93Q18.38 90.41 19.79 85.37Q21.2 80.34 24.05 74.94Q26.9 69.54 31.21 63.97Z"/></g>
   <!-- Eight wordmark -->
-  <g fill="#0B0B0F">
+  <g fill="#F2ECE2">
     <path d="M99.29 60.17H110.94Q113.27 60.17 114.25 59.21Q115.23 58.24 115.65 55.63Q115.84 54.82 116.24 54.44Q116.65 54.06 117.23 54.03Q118.54 53.96 118.92 55.51L121.83 66.45Q122.06 67.36 121.81 67.9Q121.57 68.45 120.88 68.67Q120.25 68.87 119.68 68.66Q119.12 68.44 118.7 67.81Q117.63 66.09 116.73 65.18Q115.83 64.26 114.72 63.91Q113.62 63.56 111.93 63.56H99.29ZM86.84 38Q86.84 37.24 87.34 36.81Q87.84 36.38 88.86 36.38H117.02Q118.24 36.38 119.09 36.03Q119.95 35.68 120.67 35.34Q121.38 35 122.17 35Q123.19 35 123.72 35.58Q124.25 36.16 124.63 37.52L127.49 48.07Q127.74 48.92 127.41 49.48Q127.08 50.04 126.34 50.24Q125.58 50.44 124.94 50.15Q124.29 49.85 123.86 48.97Q122.37 46.07 121.1 44.28Q119.83 42.49 118.59 41.53Q117.35 40.57 115.98 40.23Q114.62 39.88 112.91 39.88H103.27V80.76Q103.27 82.53 104.23 83.41Q105.2 84.3 107.11 84.3H113.73Q116.09 84.3 117.91 83.46Q119.72 82.63 121.48 80.23Q123.23 77.83 125.36 73.14Q125.71 72.33 126.29 72.03Q126.86 71.73 127.58 71.88Q128.4 72.02 128.75 72.65Q129.1 73.28 128.84 74.26L125.75 86.51Q125.39 87.83 124.84 88.44Q124.29 89.06 123.21 89.06Q122.48 89.06 121.76 88.74Q121.05 88.43 120.17 88.11Q119.29 87.8 118.02 87.8H88.86Q87.84 87.8 87.34 87.36Q86.84 86.92 86.84 86.18Q86.84 84.9 88.26 84.39L90.4 83.91Q91.31 83.65 91.77 83.15Q92.24 82.66 92.24 81.78V42.4Q92.24 41.52 91.77 41.02Q91.31 40.53 90.4 40.27L88.26 39.78Q86.84 39.28 86.84 38Z"/>
     <path d="M147.15 55.14V82.2Q147.15 83.29 147.46 83.79Q147.76 84.29 148.39 84.51L149.8 84.87Q150.42 85.11 150.71 85.47Q151.01 85.83 151.01 86.37Q151.01 87.04 150.57 87.42Q150.12 87.8 149.24 87.8H135.14Q134.28 87.8 133.83 87.42Q133.39 87.04 133.39 86.37Q133.39 85.85 133.68 85.49Q133.97 85.12 134.57 84.88L136.05 84.51Q136.68 84.29 136.98 83.79Q137.28 83.29 137.28 82.21V61.26Q137.28 60.37 137.01 59.99Q136.74 59.62 136.18 59.5L134.24 59.38Q133.66 59.21 133.39 58.89Q133.11 58.58 133.11 58.09Q133.11 57.53 133.46 57.16Q133.81 56.8 134.65 56.49L142.05 53.99Q143.23 53.55 143.93 53.36Q144.64 53.18 145.22 53.18Q146.17 53.18 146.66 53.72Q147.15 54.26 147.15 55.14ZM141.57 47.86Q138.78 47.86 137.09 46.34Q135.4 44.82 135.4 42.39Q135.4 39.97 137.09 38.47Q138.79 36.96 141.57 36.96Q144.38 36.96 146.08 38.47Q147.79 39.98 147.79 42.39Q147.79 44.82 146.08 46.34Q144.37 47.86 141.57 47.86Z"/>
     <path d="M177.99 84.89Q173.4 84.14 171.2 83.57Q169 82.99 168.32 82.44Q167.65 81.88 167.65 81.23Q167.65 80.58 168.15 80.05Q168.64 79.52 169.63 79.07L169.01 78.54Q165.41 78.9 163.34 79.85Q161.27 80.81 160.39 82.15Q159.52 83.48 159.52 85.01Q159.52 86.77 160.57 88.06Q161.63 89.36 164.44 90.34Q167.25 91.32 172.52 92.16Q176.8 92.82 179.16 93.57Q181.53 94.32 182.47 95.28Q183.41 96.24 183.41 97.54Q183.41 99.12 182.39 100.25Q181.37 101.39 179.19 101.98Q177 102.58 173.49 102.58Q167.25 102.58 164.67 100.63Q162.09 98.69 162.09 95.57Q162.09 93.89 163.46 92.53Q164.83 91.18 167.52 90.69L166.92 89.75Q160.1 90.51 157.34 92.65Q154.57 94.8 154.57 97.8Q154.57 100.15 156.3 101.95Q158.04 103.76 161.87 104.79Q165.7 105.82 172 105.82Q181.71 105.82 186.82 102.68Q191.93 99.54 191.93 94.59Q191.93 91.88 190.61 89.99Q189.28 88.1 186.23 86.86Q183.18 85.63 177.99 84.89ZM178.6 56.39 180.77 56.73Q181.91 54.48 182.77 53.54Q183.62 52.61 184.73 52.61Q185.65 52.61 186.22 53.13Q186.79 53.66 187.3 54.34Q187.81 55.03 188.5 55.56Q189.18 56.08 190.33 56.08Q192 56.08 192.96 54.92Q193.92 53.75 193.92 51.8Q193.92 49.56 192.5 48.27Q191.07 46.98 188.76 46.98Q185.97 46.98 183.65 48.82Q181.32 50.65 179.67 54.22ZM189.05 66.06Q189.05 62.44 187.11 59.51Q185.16 56.57 181.55 54.83Q177.94 53.1 172.92 53.1Q167.72 53.1 163.86 54.86Q160 56.62 157.89 59.74Q155.77 62.86 155.77 66.97Q155.77 70.6 157.78 73.52Q159.79 76.43 163.49 78.12Q167.2 79.8 172.28 79.8Q177.25 79.8 181.02 78.06Q184.8 76.32 186.93 73.22Q189.05 70.12 189.05 66.06ZM171.21 55.95Q174.3 55.79 176.34 58.65Q178.37 61.51 178.83 66.67Q179.29 71.4 177.87 74.06Q176.44 76.72 173.55 76.87Q171.53 76.96 169.91 75.71Q168.3 74.46 167.27 72Q166.25 69.55 165.93 66.08Q165.63 62.98 166.17 60.75Q166.72 58.51 168.01 57.28Q169.3 56.04 171.21 55.95Z"/>
@@ -1544,7 +1685,7 @@
 <!-- Oversized Fraunces display 7 -->
   <g class="lockup-7"><path fill="#2563FF" d="M61.97 24.12 62.07 25.23H10.69Q9.53 25.23 8.7 25.75Q7.86 26.27 7.36 27.91L3.78 39.45Q3.64 39.9 3.34 40.16Q3.04 40.42 2.67 40.42Q2.37 40.42 2.16 40.12Q1.94 39.82 2.02 39.31L6.57 4.22Q6.71 3.21 7.18 2.6Q7.64 2 8.58 2H77.4Q78.06 2 78.45 2.36Q78.84 2.72 78.84 3.22Q78.84 3.86 78.52 4.62Q78.2 5.37 77.42 6.38L53.56 39.07Q50.59 43 48.28 46.48Q45.97 49.97 44.38 53.16Q42.78 56.34 41.96 59.43Q41.14 62.51 41.14 65.65Q41.14 70.6 42.64 74.39Q44.14 78.18 46.08 81.54Q48.02 84.9 49.53 88.41Q51.03 91.91 51.03 96.35Q51.02 102.65 46.57 107.32Q42.12 112 34.13 112Q26.59 112 22.49 107.42Q18.38 102.83 18.38 94.93Q18.38 90.41 19.79 85.37Q21.2 80.34 24.05 74.94Q26.9 69.54 31.21 63.97Z"/></g>
   <!-- Eight wordmark -->
-  <g fill="#0B0B0F">
+  <g fill="#F2ECE2">
     <path d="M99.29 60.17H110.94Q113.27 60.17 114.25 59.21Q115.23 58.24 115.65 55.63Q115.84 54.82 116.24 54.44Q116.65 54.06 117.23 54.03Q118.54 53.96 118.92 55.51L121.83 66.45Q122.06 67.36 121.81 67.9Q121.57 68.45 120.88 68.67Q120.25 68.87 119.68 68.66Q119.12 68.44 118.7 67.81Q117.63 66.09 116.73 65.18Q115.83 64.26 114.72 63.91Q113.62 63.56 111.93 63.56H99.29ZM86.84 38Q86.84 37.24 87.34 36.81Q87.84 36.38 88.86 36.38H117.02Q118.24 36.38 119.09 36.03Q119.95 35.68 120.67 35.34Q121.38 35 122.17 35Q123.19 35 123.72 35.58Q124.25 36.16 124.63 37.52L127.49 48.07Q127.74 48.92 127.41 49.48Q127.08 50.04 126.34 50.24Q125.58 50.44 124.94 50.15Q124.29 49.85 123.86 48.97Q122.37 46.07 121.1 44.28Q119.83 42.49 118.59 41.53Q117.35 40.57 115.98 40.23Q114.62 39.88 112.91 39.88H103.27V80.76Q103.27 82.53 104.23 83.41Q105.2 84.3 107.11 84.3H113.73Q116.09 84.3 117.91 83.46Q119.72 82.63 121.48 80.23Q123.23 77.83 125.36 73.14Q125.71 72.33 126.29 72.03Q126.86 71.73 127.58 71.88Q128.4 72.02 128.75 72.65Q129.1 73.28 128.84 74.26L125.75 86.51Q125.39 87.83 124.84 88.44Q124.29 89.06 123.21 89.06Q122.48 89.06 121.76 88.74Q121.05 88.43 120.17 88.11Q119.29 87.8 118.02 87.8H88.86Q87.84 87.8 87.34 87.36Q86.84 86.92 86.84 86.18Q86.84 84.9 88.26 84.39L90.4 83.91Q91.31 83.65 91.77 83.15Q92.24 82.66 92.24 81.78V42.4Q92.24 41.52 91.77 41.02Q91.31 40.53 90.4 40.27L88.26 39.78Q86.84 39.28 86.84 38Z"/>
     <path d="M147.15 55.14V82.2Q147.15 83.29 147.46 83.79Q147.76 84.29 148.39 84.51L149.8 84.87Q150.42 85.11 150.71 85.47Q151.01 85.83 151.01 86.37Q151.01 87.04 150.57 87.42Q150.12 87.8 149.24 87.8H135.14Q134.28 87.8 133.83 87.42Q133.39 87.04 133.39 86.37Q133.39 85.85 133.68 85.49Q133.97 85.12 134.57 84.88L136.05 84.51Q136.68 84.29 136.98 83.79Q137.28 83.29 137.28 82.21V61.26Q137.28 60.37 137.01 59.99Q136.74 59.62 136.18 59.5L134.24 59.38Q133.66 59.21 133.39 58.89Q133.11 58.58 133.11 58.09Q133.11 57.53 133.46 57.16Q133.81 56.8 134.65 56.49L142.05 53.99Q143.23 53.55 143.93 53.36Q144.64 53.18 145.22 53.18Q146.17 53.18 146.66 53.72Q147.15 54.26 147.15 55.14ZM141.57 47.86Q138.78 47.86 137.09 46.34Q135.4 44.82 135.4 42.39Q135.4 39.97 137.09 38.47Q138.79 36.96 141.57 36.96Q144.38 36.96 146.08 38.47Q147.79 39.98 147.79 42.39Q147.79 44.82 146.08 46.34Q144.37 47.86 141.57 47.86Z"/>
     <path d="M177.99 84.89Q173.4 84.14 171.2 83.57Q169 82.99 168.32 82.44Q167.65 81.88 167.65 81.23Q167.65 80.58 168.15 80.05Q168.64 79.52 169.63 79.07L169.01 78.54Q165.41 78.9 163.34 79.85Q161.27 80.81 160.39 82.15Q159.52 83.48 159.52 85.01Q159.52 86.77 160.57 88.06Q161.63 89.36 164.44 90.34Q167.25 91.32 172.52 92.16Q176.8 92.82 179.16 93.57Q181.53 94.32 182.47 95.28Q183.41 96.24 183.41 97.54Q183.41 99.12 182.39 100.25Q181.37 101.39 179.19 101.98Q177 102.58 173.49 102.58Q167.25 102.58 164.67 100.63Q162.09 98.69 162.09 95.57Q162.09 93.89 163.46 92.53Q164.83 91.18 167.52 90.69L166.92 89.75Q160.1 90.51 157.34 92.65Q154.57 94.8 154.57 97.8Q154.57 100.15 156.3 101.95Q158.04 103.76 161.87 104.79Q165.7 105.82 172 105.82Q181.71 105.82 186.82 102.68Q191.93 99.54 191.93 94.59Q191.93 91.88 190.61 89.99Q189.28 88.1 186.23 86.86Q183.18 85.63 177.99 84.89ZM178.6 56.39 180.77 56.73Q181.91 54.48 182.77 53.54Q183.62 52.61 184.73 52.61Q185.65 52.61 186.22 53.13Q186.79 53.66 187.3 54.34Q187.81 55.03 188.5 55.56Q189.18 56.08 190.33 56.08Q192 56.08 192.96 54.92Q193.92 53.75 193.92 51.8Q193.92 49.56 192.5 48.27Q191.07 46.98 188.76 46.98Q185.97 46.98 183.65 48.82Q181.32 50.65 179.67 54.22ZM189.05 66.06Q189.05 62.44 187.11 59.51Q185.16 56.57 181.55 54.83Q177.94 53.1 172.92 53.1Q167.72 53.1 163.86 54.86Q160 56.62 157.89 59.74Q155.77 62.86 155.77 66.97Q155.77 70.6 157.78 73.52Q159.79 76.43 163.49 78.12Q167.2 79.8 172.28 79.8Q177.25 79.8 181.02 78.06Q184.8 76.32 186.93 73.22Q189.05 70.12 189.05 66.06ZM171.21 55.95Q174.3 55.79 176.34 58.65Q178.37 61.51 178.83 66.67Q179.29 71.4 177.87 74.06Q176.44 76.72 173.55 76.87Q171.53 76.96 169.91 75.71Q168.3 74.46 167.27 72Q166.25 69.55 165.93 66.08Q165.63 62.98 166.17 60.75Q166.72 58.51 168.01 57.28Q169.3 56.04 171.21 55.95Z"/>
@@ -1873,7 +2014,7 @@
 
         <div class="section__head" style="margin-bottom:40px">
           <span class="eyebrow eyebrow--emerald">How it works</span>
-          <h3 class="section__title" style="font-size:clamp(24px,3vw,36px);color:var(--paper)">Local stack, end to end.</h3>
+          <h3 class="section__title" style="font-size:clamp(24px,3vw,36px);color:var(--ink)">Local stack, end to end.</h3>
         </div>
 
         <div class="oc-steps">
@@ -1917,7 +2058,7 @@
           <div class="oc-pkg oc-pkg--featured">
             <div class="oc-pkg__badge">Recommended</div>
             <div class="oc-pkg__label">With Mac Mini</div>
-            <div class="oc-pkg__price"><span class="count-up" data-count="3500" data-prefix="$">$3,500</span><span class="pkg__period" style="color:rgba(243,239,230,.5)">+</span></div>
+            <div class="oc-pkg__price"><span class="count-up" data-count="3500" data-prefix="$">$3,500</span><span class="pkg__period" style="color:rgba(242,236,226,.5)">+</span></div>
             <p class="oc-pkg__desc">Everything in Software, plus a pre-configured Mac Mini M‑series. Plug in and run from day one.</p>
             <p class="oc-pkg__bestif">Best if you want plug-and-play local AI.</p>
             <ul class="checklist">
