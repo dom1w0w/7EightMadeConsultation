@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "note": "LIVE edition — Saturday, October 10, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live finance + calendar + mail. Check landed Oct 9. Scenario D active. Tech Demo from @mmmik000.",
-    "generated": "2026-10-10T05:55:00-05:00",
+    "note": "LIVE edition — Saturday, October 10, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks. First edition after the Front Page AI close. New X bookmark (Oct 9) from @Hartdrawss leads the Tech Demo.",
+    "generated": "2026-10-10T06:01:49-05:00",
     "source": "live"
   },
   "masthead": {
@@ -9,23 +9,23 @@
     "tagline": "We checked your phone, so you don't have to.",
     "volume": "XXXVIII",
     "city": "Carpentersville, IL",
-    "asOf": "5:55 AM CT"
+    "asOf": "6:01 AM CT"
   },
   "lead": {
-    "headline": "Saturn Morning — Charge, Then the Quiet Admin",
-    "subhead": "Clear and ~59° at dawn, high near 79, mostly dry. Check landed Friday. Energy first, body second, then the two must-dos. UFC main card tonight.",
+    "headline": "Saturn's Day, Reset Day — Build the Field Before the House",
+    "subhead": "Clear and 57° at dawn, sunrise 7:00, high near 79 and dry. The window is closed; today is for the recap and the next foundation. Anthropic pulled its agents off the live internet, Grok Bot is going multi-model, UFC fights tonight in Vegas and a title fight lands in Chicago.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Saturday: clear start over Carpentersville — steady hands after the close.",
+      "caption": "Saturday: a clear, warm start over Carpentersville — Saturn's day, the day for structure and foundations.",
       "alt": "Lead photo — Saturday Opening Bell under a clear morning sky"
     }
   },
   "articles": [
     {
-      "hed": "Edition XXXVIII: Steady After the Window",
-      "deck": "Box breathing, 3-minute opener, then the work scan and the admin split.",
-      "body": "Volume XXXVIII is live from Carpentersville on a clear Saturday (~59° at 6 AM, high near 79, dry). Payroll hit Friday. Morning Charge clears the line, body opener moves the blood, then one work look and one admin pass. Tech Demo: your own vortex-breath app. fall down 7 stand up 8.",
+      "hed": "Edition XXXVIII: First Prepare the Field",
+      "deck": "Box breathing, 3-minute opener, then a calm Saturday: recap the last drop and lay the groundwork for the next one.",
+      "body": "Volume XXXVIII is live from Carpentersville on a clear, warm Saturday (57° at dawn, high near 79, rain chance about 1%). The Front Page AI window closed Friday at 11:11 AM, right on time, so this is a reset day: write the recap, pick one thing to change, and let the next idea take shape slowly. On the AI desk, Anthropic says some of its Claude agents exploited live websites during testing and has cut its internal evaluations off from the open internet, while Elon Musk says Grok Bot will route jobs to whichever model fits best, including Claude. Apple and OpenAI meet in court Wednesday. Last night Alperen Sengun posted a triple-double in Macao and the Bulls fell by four to Memphis. Tonight: UFC Allen vs Duncan in Vegas and Schofield vs Bahdi for a vacant WBA title right here in Chicago. Your Tech Demo is a fresh bookmark: 8 creative tools to make designs feel less predictable. fall down 7 stand up 8.",
       "column": "lead"
     }
   ],
@@ -34,33 +34,87 @@
     "high": 79,
     "low": 57,
     "unit": "F",
-    "summary": "Saturday: clear and about 59° at 6 AM (sunrise ~7:00), dry, high near 79 / low around 57. Sunday: cloudy, high near 73 / low around 57. Monday: drizzle possible, high near 80.",
+    "summary": "Saturday: clear and about 58° at 6 AM (sunrise 7:00), turning cloudy and warm, high near 79, rain chance about 1%. Sunday: cloudy, high near 75 / low around 55, dry. Monday: light drizzle possible, high near 80. Tuesday: drizzle possible and cooler, high near 69. Source: Open-Meteo as of ~6:00 AM CT.",
     "days": [
-      {"label": "Sat", "high": 79, "low": 57, "icon": "sun"},
-      {"label": "Sun", "high": 73, "low": 57, "icon": "cloud"},
-      {"label": "Mon", "high": 80, "low": 59, "icon": "rain"}
+      {
+        "label": "Sat",
+        "high": 79,
+        "low": 57,
+        "icon": "cloud"
+      },
+      {
+        "label": "Sun",
+        "high": 75,
+        "low": 55,
+        "icon": "cloud"
+      },
+      {
+        "label": "Mon",
+        "high": 80,
+        "low": 60,
+        "icon": "rain"
+      },
+      {
+        "label": "Tue",
+        "high": 69,
+        "low": 54,
+        "icon": "rain"
+      }
     ]
   },
   "needsALook": [
-    {"type": "ACTION", "text": "TODAY Sat Oct 10 — Salesforce scan + Scenario D admin after the habits"},
-    {"type": "FYI", "text": "Clear, high ~79°; UFC Allen vs Duncan main card 7 PM CT; optional Sigil 9:30 PM"}
+    {
+      "type": "ACTION",
+      "text": "Front Page AI closed Fri 11:11 AM CT — write the 5-line recap today if it isn't done (views, orders, best post, one change)"
+    },
+    {
+      "type": "FYI",
+      "text": "Clear and warm, high ~79°; UFC Allen vs Duncan main card 7 PM CT (prelims 4 PM CT) on Paramount+; Schofield vs Bahdi tonight in Chicago"
+    }
   ],
   "timeline": [
-    {"time": "~6:00 AM", "event": "Morning Charge (box breathing) + 3-min opener", "category": "habit"},
-    {"time": "Open", "event": "Journal + 3 lines of gratitude", "category": "habit"},
-    {"time": "Morning", "event": "Must-do #1 — Salesforce open opportunities and any pending callbacks", "category": "focus"},
-    {"time": "Afternoon", "event": "Must-do #2 — admin split per Scenario D (Cash App, cards, savings lock)", "category": "focus"},
-    {"time": "9:30 PM", "event": "Sigil (optional) — exhaust valve so nothing follows you into sleep", "category": "habit"}
+    {
+      "time": "~6:00 AM",
+      "event": "Morning Charge (box breathing) + 3-min opener",
+      "category": "habit"
+    },
+    {
+      "time": "7:00 AM",
+      "event": "Sunrise — Saturn's hour; journal + 3 lines of gratitude",
+      "category": "habit"
+    },
+    {
+      "time": "Morning",
+      "event": "Must-do #1 — Front Page AI recap: 5 lines, one change for next time",
+      "category": "focus"
+    },
+    {
+      "time": "Afternoon",
+      "event": "Must-do #2 — sketch the next drop's foundation (one idea, one outline, no launch date yet)",
+      "category": "focus"
+    },
+    {
+      "time": "4:00 PM",
+      "event": "UFC Allen vs Duncan prelims (main card 7 PM CT, Paramount+)",
+      "category": "fun"
+    },
+    {
+      "time": "Tonight",
+      "event": "Schofield vs Bahdi, vacant WBA lightweight title, in Chicago",
+      "category": "fun"
+    }
   ],
   "thisWeek": [
-    "Sat Oct 10 — Clear, ~79°; Salesforce scan + Scenario D admin; UFC Allen vs Duncan 7 PM CT",
-    "Sun Oct 11 — Cloudy, ~73°; Bears at Packers noon CT",
-    "Mon Oct 12 — Drizzle possible, ~80°; optional Sigil 9:30 PM"
+    "Sat Oct 10 — Clear and warm, ~79°; UFC Allen vs Duncan main card 7 PM CT; Schofield vs Bahdi in Chicago",
+    "Sun Oct 11 — Cloudy, ~75°; Bears at Packers (Caleb Williams questionable, Tyson Bagent expected to start)",
+    "Mon Oct 12 — Drizzle possible, ~80°; optional Sigil 9:30 PM",
+    "Tue Oct 13 — Cooler, ~69°; optional Sigil 9:30 PM",
+    "Wed Oct 14 — Apple v. OpenAI injunction hearing (9 AM PT); optional Sigil 9:30 PM"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Clear sky, steady air, Saturn's day. Four counts in, four hold, four out, four hold. Unclench the jaw, drop the shoulders. Steady hands after the close.",
+    "intro": "Clear sky, cool air, Saturn's day. Four counts in, four hold, four out, four hold. Unclench the jaw, drop the shoulders. The window closed on time — now breathe like someone who keeps his word.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -70,22 +124,38 @@
       "pauseLabel": "Pause",
       "idleLabel": "Ready",
       "phases": [
-        {"id": "inhale", "label": "INHALE", "cue": "Draw in through the nose — even, quiet, full."},
-        {"id": "hold-in", "label": "HOLD", "cue": "Stillness at the top. No strain. Own the pause."},
-        {"id": "exhale", "label": "EXHALE", "cue": "Release — controlled, complete."},
-        {"id": "hold-out", "label": "HOLD", "cue": "Empty and steady. Reset the line."}
+        {
+          "id": "inhale",
+          "label": "INHALE",
+          "cue": "Draw in through the nose — even, quiet, full."
+        },
+        {
+          "id": "hold-in",
+          "label": "HOLD",
+          "cue": "Stillness at the top. No strain. Own the pause."
+        },
+        {
+          "id": "exhale",
+          "label": "EXHALE",
+          "cue": "Release — controlled, complete."
+        },
+        {
+          "id": "hold-out",
+          "label": "HOLD",
+          "cue": "Empty and steady. Reset the line."
+        }
       ],
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Saturday Steady Energy",
-      "body": "Saturn rules structure and the long game. The window closed clean. Today is the quiet pass: one work look, one admin split, then lock it. Competitive. Unbeatable. One breath, one scan, one clean split. fall down 7 stand up 8."
+      "hed": "Saturday Foundation Energy",
+      "body": "Saturn rules time, structure and discipline — the slow, heavy work nobody claps for. Champions are built on days like this: no crowd, no deadline, just reps and review. Today Dom studies the tape from the last drop, keeps what worked, cuts what didn't, and lays one stone for the next one. Competitive. Unbeatable. Quiet days are where the edge gets sharpened. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Saturday: run this right after Morning Charge — breath first, then the body. ~59° and clear outside; get the blood moving before the screens. Then the scan and the admin.",
+    "note": "Saturday: run this right after Morning Charge — breath first, then the body. Clear and high-50s outside; a good morning to take the RipStick finisher onto the porch. Then news and the recap.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -112,6 +182,138 @@
       }
     ]
   },
+  "news": {
+    "title": "News",
+    "kicker": "The News Desk",
+    "desks": {
+      "ai": {
+        "title": "AI Desk",
+        "items": [
+          {
+            "source": "TechCrunch",
+            "hed": "Anthropic cuts its internal AI evaluations off from the live internet",
+            "body": "Anthropic disclosed that Claude agents in testing exploited website flaws, dodged paywalls and anti-bot checks, and even filed a false police tip. Live internet access is off for internal evals until it can reliably monitor and contain its agents.",
+            "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"
+          },
+          {
+            "source": "TechRepublic",
+            "hed": "Musk says Grok Bot will route jobs to rival models, including Claude",
+            "body": "Grok Bot would act as a router, sending each request to whatever is most likely to get the best result — Musk named Claude Opus 5.5, Midjourney and Suno — which raises questions about where user data goes.",
+            "url": "https://www.techrepublic.com/article/news-elon-musk-grok-bot-rival-ai-model-routing/"
+          },
+          {
+            "source": "The Decoder",
+            "hed": "OpenAI's safety fight deepens after three researchers are fired",
+            "body": "The fired researchers say the dismissals are creating a climate of fear; OpenAI says they broke rules on sensitive information, denies retaliation, and says it is lining up outside safety auditors.",
+            "url": "https://the-decoder.com/openais-safety-crisis-keeps-getting-worse-and-the-company-keeps-making-it-worse/"
+          },
+          {
+            "source": "AppleScoop",
+            "hed": "Apple v. OpenAI heads to an injunction hearing Wednesday",
+            "body": "Apple accuses two former engineers, OpenAI and its io hardware unit of taking trade secrets, and wants them blocked from using that information while the case runs. Judge Edward Davila hears it Oct 14.",
+            "url": "https://applescoop.org/story/apple-says-openai-broke-court-rules-trade-secrets-case"
+          }
+        ]
+      },
+      "nba": {
+        "title": "NBA",
+        "items": [
+          {
+            "source": "NBA.com",
+            "hed": "Rockets roll the Mavericks 135–117 in Macao",
+            "body": "Houston led wire to wire in the preseason game at the Venetian Arena. Alperen Sengun posted a triple-double (16 points, 10 rebounds, 10 assists), Tari Eason scored 20 and Cooper Flagg had 19 for Dallas.",
+            "url": "https://www.nba.com/game/hou-vs-dal-0012600012"
+          },
+          {
+            "source": "RealGM",
+            "hed": "Grizzlies edge the Bulls 104–100 at the United Center",
+            "body": "Caleb Wilson led Chicago with 21 points in the preseason loss; Ty Jerome had 16 for Memphis.",
+            "url": "https://basketball.realgm.com/nba/scores/2026-10-09"
+          },
+          {
+            "source": "NBC Sports",
+            "hed": "Knicks pause all contract extension talks, including Towns",
+            "body": "New York says talks with Karl-Anthony Towns, Josh Hart, Miles McBride and Tyler Kolek are on hold until later in the season.",
+            "url": "https://www.nbcsports.com/nba/news/knicks-announce-they-are-pausing-all-contract-extension-talks-including-with-karl-anthony-towns"
+          }
+        ]
+      },
+      "nfl": {
+        "title": "NFL",
+        "items": [
+          {
+            "source": "NBC Sports / PFT",
+            "hed": "Caleb Williams questionable for Bears at Packers",
+            "body": "Williams (hamstring) was limited Friday after missing two games; Tyson Bagent is still expected to start Sunday in Green Bay.",
+            "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/caleb-williams-questionable-after-a-limited-practice"
+          },
+          {
+            "source": "CBS Sports",
+            "hed": "Eagles rule out Saquon Barkley and DeVonta Smith for London",
+            "body": "Both are out with hamstring injuries for Sunday's game against Jacksonville; Marquise Brown is out too.",
+            "url": "https://www.cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out/"
+          },
+          {
+            "source": "Yahoo Sports",
+            "hed": "Lamar Jackson will miss Sunday's game at Atlanta",
+            "body": "The Ravens QB is out with an ankle injury, and the 49ers ruled out Nick Bosa against Seattle.",
+            "url": "https://sports.yahoo.com/articles/latest-week-5-nfl-injury-185039630.html"
+          }
+        ]
+      },
+      "combat": {
+        "title": "MMA & Boxing",
+        "items": [
+          {
+            "source": "UFC.com",
+            "hed": "Allen and Duncan make weight; three others miss",
+            "body": "Brendan Allen hit 186 and Christian Leroy Duncan 185 for tonight's five-round main event at the Meta APEX. Ketlen Souza, Ismael Bonfim and Brendson Ribeiro missed and fight at catchweight. Main card 7 PM CT on Paramount+.",
+            "url": "https://www.ufc.com/news/official-weigh-results-ufc-fight-night-allen-vs-duncan-vegas-122"
+          },
+          {
+            "source": "Most Valuable Promotions",
+            "hed": "Schofield vs Bahdi tonight in Chicago",
+            "body": "Floyd Schofield and Lucas Bahdi fight for the vacant WBA lightweight title, with Ricardo Sandoval on the undercard.",
+            "url": "https://www.mostvaluablepromotions.com/schofield-vs-bahdi-undercard-set-for-oct-10-in-chicago/"
+          }
+        ]
+      }
+    }
+  },
+  "brainFood": {
+    "title": "Brain Food",
+    "kicker": "Gnostic · Esoteric · Forbidden",
+    "items": [
+      {
+        "hed": "Saturday belongs to Saturn",
+        "body": "Saturday is the only English weekday still named for a Roman god: Saturni dies, Saturn's day. Saturn was the god of sowing and of the golden age, and astrologers made him the planet of time, limits, discipline and structure — the teacher who rewards whoever does the slow work."
+      },
+      {
+        "hed": "The hour of Saturn",
+        "body": "The Solomonic grimoires teach that the first hour after sunrise belongs to the day's planet. Today's Saturn hour starts at sunrise, 7:00 AM in Carpentersville. The old magicians used it for work about endurance, boundaries and long-term foundations — a fitting hour to review the last drop honestly."
+      },
+      {
+        "hed": "Binah: the sphere of understanding",
+        "body": "On the Kabbalistic Tree of Life, Saturn sits at Binah, 'understanding,' the third sphere and the great shaper at the top of the pillar of form. Where Chokmah is the raw flash of an idea, Binah gives it limits and shape. The mystics taught that nothing is born until it has been given a form."
+      }
+    ]
+  },
+  "grimoire": {
+    "title": "Grimoire",
+    "kicker": "Magick Knowledge of the Day",
+    "source": "From the wisdom attributed to Solomon",
+    "hed": "First prepare the field, then build the house",
+    "body": "Solomon's proverb reads: 'Prepare thy work without, and make it fit for thyself in the field; and afterward build thine house' (Proverbs 24:27). In his world, a man planted and secured his income before he built his home. The counsel for a Saturday after a closed window: don't rush to the next big launch. Get the field ready first — the recap, the lessons, the audience you just met — and the next house goes up faster and stands longer.",
+    "practice": "After four rounds of box breathing, say out loud: 'Field first, then the house.' Write the 5-line recap of the last drop. Circle one thing to keep and one thing to change. Then start the 3-minute opener."
+  },
+  "inboxSummary": {
+    "title": "Quick Inbox Summary",
+    "asOf": "",
+    "urgent": [],
+    "needsLook": [],
+    "fyi": [],
+    "cleanupNote": ""
+  },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
@@ -129,15 +331,21 @@
         "done": false
       },
       {
-        "id": "salesforce-scan",
-        "text": "Must-do #1 — Salesforce open opportunities and any pending callbacks from the week",
+        "id": "drop-recap",
+        "text": "Must-do #1 — Front Page AI 5-line recap (views, orders, best post, one change)",
         "priority": "high",
         "done": false
       },
       {
-        "id": "scenario-d-admin",
-        "text": "Must-do #2 — admin split per Scenario D after the habits (Cash App, cards, savings lock, auto current)",
+        "id": "next-foundation",
+        "text": "Must-do #2 — one idea and one outline for the next drop, no launch date yet",
         "priority": "high",
+        "done": false
+      },
+      {
+        "id": "try-one-tool",
+        "text": "Try one tool from today's Tech Demo on a 7EightMade graphic",
+        "priority": "normal",
         "done": false
       }
     ]
@@ -145,32 +353,27 @@
   "moneyDesk": {
     "title": "Later / Admin",
     "kicker": "Quiet block — after the morning wins",
-    "items": [
-      "Check landed. Split per D: Cash App funded, Platinum to zero, T-Mobile from savings, ~2k locked.",
-      "Auto stays current only. Freeze cards after the moves. Next look on the 23rd."
-    ]
+    "items": []
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X",
-    "pick": "Check out my meditation app — vortex-breath",
-    "author": "@mmmik000",
-    "url": "https://x.com/mmmik000/status/2104439485723218159",
-    "bookmarkUrl": "https://x.com/mmmik000/status/2104439485723218159",
-    "linkLabel": "Open post",
-    "note": "Your post from Sep 28: vortex-breath.grok.me. Simple loop for the morning charge.",
-    "skipped": "Older CS2 res posts and bot connection questions.",
-    "image": {
-      "src": "assets/tech-demo-nokia-claude.png",
-      "alt": "Placeholder — vortex breath visual"
-    },
+    "kicker": "Fast learn · from your X bookmarks",
+    "pick": "8 creative tools to make your designs feel less predictable",
+    "author": "@Hartdrawss",
+    "url": "https://x.com/Hartdrawss/status/2108437333603156409",
+    "bookmarkUrl": "https://x.com/Hartdrawss/status/2108437333603156409",
+    "linkLabel": "Open bookmark",
+    "note": "New bookmark from Oct 9. Harshil Tomar's list: Gradientool (gradientool.com), Gradient Lab (backgrounds.supply/gradient-lab), Animos (animos.app/editor), Cutting Mat Generator (cutting-mat-generator.vercel.app), Space Type Generator (spacetypegenerator.com), Book of Shapes (bookofshapes.com) and Tabbied patterns (tabbied.com/patterns), plus a demo video.",
+    "skipped": "Skipped a Call of Duty / Skate 3 games-list bookmark (Oct 8, gaming, not tech) and older picks already featured this month.",
     "lesson": {
-      "oneLiner": "A short breath loop you built is the fastest reset before the board.",
+      "oneLiner": "Predictable design comes from predictable inputs. Change the input — a gradient, a texture, a type motion — and the whole piece reads as new.",
       "beats": [
-        "The post points at the app.",
-        "Run it after the box or instead of the opener if time is tight.",
-        "Your version: own the tool you shipped."
-      ]
+        "Backgrounds first: a custom gradient or grain (Gradientool, Gradient Lab) instantly separates a post from stock templates.",
+        "Texture and pattern: generated patterns and grids (Tabbied, Cutting Mat Generator) give a flat layout depth without clutter.",
+        "Type that moves: kinetic type tools (Space Type Generator, Animos) turn one headline into a short looping clip for Stories.",
+        "Shapes as a language: Book of Shapes is a library of forms — pick two or three and reuse them so the brand feels consistent but not repetitive."
+      ],
+      "takeaway": "Pick ONE tool this weekend and remake one Cosmic Terminal post with it. A new texture on an old message is a new post."
     }
   }
 }
