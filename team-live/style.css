@@ -156,3 +156,10 @@ button.achip{cursor:pointer} button.achip:hover{background:var(--c);color:var(--
   .csec .cv{font-size:15px} .csec.now .cv{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){ .drawer,.dot,.lock-card.shake{animation:none} .node-label{transition:none} }
+
+/* back to Dom Times Live */
+.back-link{display:inline-flex;align-items:center;min-height:44px;margin:-8px 0 6px;font:12px var(--mono);color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}
+.back-link:hover,.back-link:focus-visible{color:var(--orange);outline:none}
+.ctl.back-ctl{flex:none;text-decoration:none;display:inline-flex;align-items:center;min-height:32px;padding:4px 10px}
+.status{gap:10px}
+.status-l{flex:1;min-width:0}
