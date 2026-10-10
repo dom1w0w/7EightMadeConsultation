@@ -1,0 +1,9 @@
+/* Small, consistent Studio bar on every working app page: "← About this app" + "Studio".
+   Self-contained so it never depends on the app's own CSS. */
+.sappbar { position: relative; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 0 12px; background: #0E0D0C; border-bottom: 1px solid rgba(242,236,226,.12); font: 700 11px/1 Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: #F2ECE2; }
+.sappbar a { color: #F2ECE2; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 6px; border-radius: 6px; white-space: nowrap; }
+.sappbar a:hover { color: var(--sab, #EE7A3C); }
+.sappbar a:focus-visible { outline: 2px solid #4D7CF6; outline-offset: 3px; }
+.sappbar__name { font-family: Fraunces, Georgia, serif; font-style: italic; font-weight: 500; font-size: 15px; letter-spacing: 0; text-transform: none; color: #A69C90; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sappbar__name b { color: var(--sab, #EE7A3C); font-weight: 500; }
+@media (max-width: 420px) { .sappbar__name { display: none; } }

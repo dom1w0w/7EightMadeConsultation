@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 146" width="90" height="146">
+  <!-- Placeholder stone fragment, original art for 7EightMade Studio. Swap for a transparent PNG/WebP cutout. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A99E91"/><stop offset=".55" stop-color="#8A8076"/><stop offset="1" stop-color="#3E3732"/></linearGradient>
+    <filter id="n" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="6"/><feColorMatrix type="matrix" values="0 0 0 0 .25  0 0 0 0 .22  0 0 0 0 .2  0 0 0 .5 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    <clipPath id="c"><path d="M30 6 L70 10 L84 60 L50 140 L14 110 L4 50Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="90" height="146" fill="url(#g)"/>
+    <rect width="90" height="146" fill="#000" filter="url(#n)"/>
+    <path d="M0 0 L54 0 L31 146 L0 146Z" fill="#fff" opacity=".10"/>
+  </g>
+  <path d="M30 6 L70 10 L84 60 L50 140 L14 110 L4 50Z" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="1.2"/>
+</svg>

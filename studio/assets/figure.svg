@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" width="600" height="1000">
+  <!-- Placeholder: an abstract figure in carved stone, one arm reaching up (rising).
+       Original art made for 7EightMade Studio. Swap for a real cutout PNG/WebP
+       (transparent background, same 3:5 ratio). See studio/README-assets.md -->
+  <defs>
+    <linearGradient id="stone" x1=".1" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#B9AE9F"/>
+      <stop offset=".3" stop-color="#857B70"/>
+      <stop offset=".62" stop-color="#4E4640"/>
+      <stop offset="1" stop-color="#211D1A"/>
+    </linearGradient>
+    <radialGradient id="light" cx=".36" cy=".2" r=".6">
+      <stop offset="0" stop-color="#FFF1DC" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#FFF6E8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset=".35" stop-color="#120F0D" stop-opacity="0"/>
+      <stop offset=".72" stop-color="#120F0D" stop-opacity=".45"/>
+    </linearGradient>
+    <linearGradient id="ember" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#EE7A3C" stop-opacity=".22"/>
+      <stop offset=".35" stop-color="#EE7A3C" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 .2  0 0 0 0 .18  0 0 0 0 .16  0 0 0 .7 0"/>
+    </filter>
+    <filter id="vein" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="turbulence" baseFrequency=".006 .022" numOctaves="3" seed="8" result="t"/>
+      <feColorMatrix in="t" type="matrix" values="0 0 0 0 .32  0 0 0 0 .29  0 0 0 0 .26  0 0 0 -3 1.35"/>
+    </filter>
+    <clipPath id="body">
+      <ellipse cx="312" cy="160" rx="48" ry="62" transform="rotate(-14 312 160)"/>
+      <path d="M268 222 C270 260 252 284 222 300 C196 316 186 350 188 400 L196 600 C197 618 216 618 217 600 L228 432 C236 500 248 540 250 580 C236 640 226 700 238 780 C248 850 262 900 256 962 L352 962 C346 900 360 850 368 780 C380 700 368 640 352 580 C356 530 372 470 384 400 C394 360 392 330 372 304 C356 286 344 262 340 222 Z"/>
+      <path d="M350 318 C380 246 400 150 416 54 C420 34 446 34 446 54 C440 160 420 262 392 352 Z"/>
+      <rect x="196" y="950" width="216" height="40" rx="3"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#body)">
+    <rect width="600" height="1000" fill="url(#stone)"/>
+    <rect width="600" height="1000" filter="url(#vein)"/>
+    <rect width="600" height="1000" filter="url(#grain)"/>
+    <rect width="600" height="1000" fill="url(#light)"/>
+    <rect width="600" height="1000" fill="url(#shade)"/>
+    <rect width="600" height="1000" fill="url(#ember)"/>
+    <path d="M300 300 L356 430 L300 600 L262 430Z" fill="#fff" opacity=".08"/>
+    <path d="M300 600 L370 760 L320 962 L250 800Z" fill="#000" opacity=".12"/>
+    <path d="M196 950 H412 V958 H196Z" fill="#fff" opacity=".18"/>
+  </g>
+  <g clip-path="url(#body)" fill="none" stroke="#FCEBD2" stroke-opacity=".55" stroke-width="5">
+    <ellipse cx="312" cy="160" rx="48" ry="62" transform="rotate(-14 312 160) translate(4 2)"/>
+    <path d="M268 222 C270 260 252 284 222 300 C196 316 186 350 188 400 L196 600" transform="translate(3 0)"/>
+    <path d="M250 580 C236 640 226 700 238 780 C248 850 262 900 256 962" transform="translate(3 0)"/>
+  </g>
+</svg>

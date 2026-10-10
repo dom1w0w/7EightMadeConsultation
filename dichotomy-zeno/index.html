@@ -3,311 +3,116 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dichotomy Zeno: the gap that never closes | 7EightMade</title>
-  <meta name="description" content="Zeno's dichotomy paradox, explained with pictures: halve the gap forever and it never closes. Then try it with your own fingers in Dichotomy Zeno, a free 7EightMade app.">
+  <title>Dichotomy Zeno: the gap that never closes | 7EightMade Studio</title>
+  <script>if (location.hash === "#paradox") location.replace("app/#paradox");</script>
+  <meta name="description" content="Zeno's dichotomy paradox: halve the gap forever and it never closes. Halve it yourself in the Studio, or feel it with your own fingers in Dichotomy Zeno, a free 7EightMade app.">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/dichotomy-zeno/">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Dichotomy Zeno: the gap that never closes">
   <meta property="og:description" content="Halve the gap between thumb and index. Outline, print, cell, atom. A free 7EightMade app.">
-  <meta name="theme-color" content="#0b0c0f">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/dichotomy-zeno/preview.webp">
+  <meta name="theme-color" content="#0E0D0C">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
-  <style>
-    :root {
-      --ink: #efeae2;
-      --bg: #0b0c0f;
-      --bg2: #13151a;
-      --muted: #a29d94;
-      --line: rgba(239,234,226,.12);
-      --gold: #d6b16a;
-      --gold-dim: rgba(214,177,106,.18);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      background: var(--bg); color: var(--ink);
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--gold); }
-    .nav { position: sticky; top: 0; z-index: 10; background: rgba(11,12,15,.9); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
-    .nav__inner { max-width: 820px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .brand { text-decoration: none; color: var(--ink); font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 20px; letter-spacing: -.01em; }
-    .brand b { color: var(--gold); }
-    .nav__links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-    .nav__links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; padding: 8px 12px; border-radius: 8px; min-height: 44px; display: inline-flex; align-items: center; }
-    .nav__links a[aria-current="page"] { color: var(--ink); }
-    .nav__links a:hover { color: var(--ink); background: rgba(239,234,226,.06); }
-    .wrap { max-width: 820px; margin: 0 auto; padding: 56px 24px 80px; }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(40px, 8vw, 68px); font-weight: 600; letter-spacing: -.03em; line-height: 1.02; margin-bottom: 18px; }
-    h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(26px, 4.5vw, 36px); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin: 64px 0 14px; }
-    .lead { font-size: 19px; color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
-    .prose { max-width: 62ch; }
-    .prose p { margin-bottom: 14px; font-size: 16px; }
-    .prose em { color: var(--gold); font-style: normal; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; background: var(--gold); color: #17130a; border: 0; cursor: pointer; font-family: inherit; }
-    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid rgba(239,234,226,.25); }
-    .figure { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin: 22px 0 10px; }
-    .figure svg { width: 100%; height: auto; display: block; }
-    .cap { font-size: 13px; color: var(--muted); margin-top: 10px; }
-    .quote { border-left: 2px solid var(--gold); padding: 4px 0 4px 18px; margin: 22px 0; font-family: Fraunces, Georgia, serif; font-size: 20px; line-height: 1.4; max-width: 50ch; }
-    .quote small { display: block; font-family: Inter, sans-serif; font-size: 13px; color: var(--muted); margin-top: 8px; }
-    /* interactive halver */
-    .halver__readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
-    .halver__readout div { background: rgba(239,234,226,.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
-    .halver__readout b { display: block; font-family: Fraunces, Georgia, serif; font-size: 22px; font-variant-numeric: tabular-nums; }
-    .halver__readout span { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
-    .halver__btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-    .ladder { list-style: none; display: grid; gap: 10px; margin: 18px 0; }
-    .ladder li { display: grid; grid-template-columns: 70px 1fr auto; gap: 14px; align-items: center; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
-    .ladder .n { font-family: Fraunces, Georgia, serif; font-size: 26px; color: var(--gold); font-variant-numeric: tabular-nums; }
-    .ladder b { display: block; font-size: 15px; }
-    .ladder span { font-size: 13px; color: var(--muted); }
-    .ladder .size { font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
-    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
-    .card { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
-    .card strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 18px; margin-bottom: 6px; }
-    .card p { font-size: 14px; color: var(--muted); }
-    .links { list-style: none; display: grid; gap: 10px; margin: 18px 0; }
-    .links a { display: block; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: var(--ink); }
-    .links a:hover { border-color: var(--gold); }
-    .links b { display: block; font-size: 15px; }
-    .links span { font-size: 13px; color: var(--muted); }
-    .try { margin-top: 64px; padding: 28px; border-radius: 20px; background: radial-gradient(120% 140% at 0% 0%, var(--gold-dim), transparent 60%), var(--bg2); border: 1px solid var(--line); }
-    .try h2 { margin-top: 0; }
-    .foot { margin-top: 48px; font-size: 13px; color: var(--muted); }
-    .foot a { text-decoration: none; }
-    @media (max-width: 640px) {
-      .cards { grid-template-columns: 1fr; }
-      .halver__readout { grid-template-columns: 1fr 1fr; }
-      .ladder li { grid-template-columns: 54px 1fr; }
-      .ladder .size { grid-column: 2; }
-    }
-    @media (max-width:640px) { .nav { position:static; } .nav__inner { padding:10px 16px; gap:6px; } .nav__links { flex-wrap:nowrap; overflow-x:auto; width:100%; scrollbar-width:none; } .nav__links a { white-space:nowrap; padding:8px 10px; } }
-  </style>
+  <link rel="stylesheet" href="../studio/studio.css">
 </head>
-<body>
-  <nav class="nav" aria-label="Site">
-    <div class="nav__inner">
-      <a class="brand" href="../" aria-label="7EightMade main menu"><b>7</b>EightMade</a>
-      <div class="nav__links">
-        <a href="../">Main menu</a>
-        <a href="../studio/">Studio</a>
-        <a href="../vortex-breath/">Vortex</a>
-        <a href="../archipelago/">Atlas</a>
-        <a href="../till/">Till</a>
-        <a href="./" aria-current="page">Zeno</a>
-        <a href="../ship-of-theseus/">Theseus</a>
-      </div>
+<body class="intro" style="--accent:#D6B16A;--on-accent:#17130A">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="snav">
+    <div class="snav__in">
+      <a class="snav__brand" href="../studio/"><b>7EightMade</b> Studio</a>
+      <nav class="snav__links" aria-label="Studio">
+        <a href="../studio/#works">Works</a>
+        <a href="../studio/#apps">Apps</a>
+        <a href="../studio/art/">Art</a>
+        <a href="../studio/#about">About</a>
+        <span class="snav__sep" aria-hidden="true"></span>
+        <a class="snav__back" href="../">← 7EightMade</a>
+      </nav>
+      <a class="pill pill--fill snav__cta" href="../#contact">Book an audit</a>
     </div>
-  </nav>
+  </header>
 
-  <main class="wrap">
-    <p class="eyebrow">7EightMade · Apps · Free</p>
-    <h1>The gap does not close.</h1>
-    <p class="lead">Halve the space between your thumb and index finger. Then halve what's left. Then do it again, forever. This is Zeno's dichotomy paradox, and Dichotomy Zeno lets you feel it with your own fingers.</p>
-    <div class="actions">
-      <a class="btn" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open Dichotomy Zeno</a>
-      <a class="btn btn--ghost" href="#paradox">Read the paradox</a>
-    </div>
-
-    <div class="figure" aria-hidden="true">
-      <svg viewBox="0 0 760 150" id="heroBar">
-        <line x1="20" y1="75" x2="740" y2="75" stroke="rgba(239,234,226,.18)" stroke-width="2"/>
-        <g id="heroSegs"></g>
-        <circle cx="20" cy="75" r="9" fill="#efeae2"/>
-        <circle cx="740" cy="75" r="9" fill="none" stroke="#d6b16a" stroke-width="2.5"/>
-        <text x="20" y="120" fill="#a29d94" font-size="13" font-family="Inter, sans-serif">start</text>
-        <text x="740" y="120" fill="#a29d94" font-size="13" font-family="Inter, sans-serif" text-anchor="end">finish</text>
-        <text x="20" y="38" fill="#d6b16a" font-size="13" font-family="Inter, sans-serif">½</text>
-        <text x="380" y="38" fill="#d6b16a" font-size="13" font-family="Inter, sans-serif">¼</text>
-        <text x="560" y="38" fill="#d6b16a" font-size="13" font-family="Inter, sans-serif">⅛</text>
-        <text x="650" y="38" fill="#d6b16a" font-size="13" font-family="Inter, sans-serif">…</text>
-      </svg>
-      <p class="cap">Every step covers half of what's left. The steps get smaller, and there's always another one.</p>
-    </div>
-
-    <section class="prose" id="paradox">
-      <h2>The paradox</h2>
-      <p>Zeno of Elea was a Greek philosopher who lived around 490 to 430 BC. He's known for a set of short arguments that motion is impossible. The dichotomy is the simplest, and the name just means "cutting in two."</p>
-      <p>To walk to a door, you first have to get halfway there. Before you finish, you have to cover half of the remaining half, then half of what's left after that, and so on. Since there's always another half to cover, the trip is made of <em>infinitely many steps</em>. Zeno's question is how anyone finishes infinitely many steps in a finite amount of time.</p>
-      <div class="quote">"That which is in locomotion must arrive at the half-way stage before it arrives at the goal."<small>Aristotle's summary of Zeno, Physics VI.9 (239b)</small></div>
-      <p>Most of what we know about Zeno comes through Aristotle, who repeated the argument mainly so he could answer it.</p>
-    </section>
-
-    <section class="prose">
-      <h2>Two ways to cut it</h2>
-      <p>The argument works in both directions, and the second one is stranger.</p>
-    </section>
-    <div class="cards">
-      <div class="card">
-        <strong>Forward: you can't finish</strong>
-        <p>Half, then a quarter, then an eighth, and so on. Each step leaves a smaller gap, but never no gap.</p>
-        <svg viewBox="0 0 300 60" aria-hidden="true" style="width:100%;margin-top:12px"><g id="fwd"></g></svg>
-      </div>
-      <div class="card">
-        <strong>Backward: you can't start</strong>
-        <p>Before you reach the halfway point you have to reach the quarter, and before that the eighth. There's no first step to take.</p>
-        <svg viewBox="0 0 300 60" aria-hidden="true" style="width:100%;margin-top:12px"><g id="bwd"></g></svg>
-      </div>
-    </div>
-
-    <section class="prose">
-      <h2>Halve it yourself</h2>
-      <p>Each press covers half of what's left. Watch how fast the distance covered climbs toward the whole thing while the gap shrinks toward nothing without ever reaching it.</p>
-    </section>
-    <div class="figure halver">
-      <svg viewBox="0 0 760 90" aria-label="Distance covered so far">
-        <rect x="20" y="30" width="720" height="30" rx="6" fill="rgba(239,234,226,.06)" stroke="rgba(239,234,226,.15)"/>
-        <rect id="hFill" x="20" y="30" width="0" height="30" rx="6" fill="#d6b16a"/>
-        <line x1="740" y1="18" x2="740" y2="72" stroke="#efeae2" stroke-width="2"/>
-      </svg>
-      <div class="halver__readout">
-        <div><b id="hSteps">0</b><span>HALVINGS</span></div>
-        <div><b id="hCovered">0%</b><span>COVERED</span></div>
-        <div><b id="hGap">21 mm</b><span>GAP LEFT (FROM 21 MM)</span></div>
-      </div>
-      <div class="halver__btns">
-        <button class="btn" type="button" id="hHalve">Halve the gap</button>
-        <button class="btn btn--ghost" type="button" id="hTen">Halve 10 times</button>
-        <button class="btn btn--ghost" type="button" id="hReset">Reset</button>
-      </div>
-      <p class="cap" id="hNote">The gap starts at 21 mm, about a relaxed pinch.</p>
-    </div>
-
-    <section class="prose">
-      <h2>How far down 21 millimeters goes</h2>
-      <p>Dichotomy Zeno takes you from an outline of your fingers, to a fingerprint, to a cell, to an atom. Here's roughly how many halvings it takes to get to each scale, starting from a 21 mm gap. The sizes are typical round numbers.</p>
-    </section>
-    <ul class="ladder">
-      <li><span class="n">0</span><div><b>Outline</b><span>Thumb and index, a relaxed pinch</span></div><span class="size">21 mm</span></li>
-      <li><span class="n">~5</span><div><b>Print</b><span>The ridges of a fingerprint</span></div><span class="size">~0.5 mm</span></li>
-      <li><span class="n">~11</span><div><b>Cell</b><span>A single skin cell</span></div><span class="size">~10 µm</span></li>
-      <li><span class="n">~28</span><div><b>Atom</b><span>About the width of one atom</span></div><span class="size">~0.1 nm</span></li>
-      <li><span class="n">~110</span><div><b>Planck length</b><span>Where physics stops giving a clear answer about space</span></div><span class="size">~1.6×10⁻³⁵ m</span></li>
-    </ul>
-    <p class="cap">Each halving doubles the zoom. About 28 of them take you from your fingers to an atom.</p>
-
-    <section class="prose">
-      <h2>The math answer</h2>
-      <p>Add up the steps: ½ + ¼ + ⅛ + 1/16 + … The total never goes past 1, and it gets as close to 1 as you like. Mathematicians say the series <em>converges</em> to 1. Infinitely many pieces can add up to a finite length.</p>
-      <p>If each step also takes half as long as the one before, the time adds up the same way and comes out finite. That's why you reach the door. This idea of a limit was made rigorous in the 1800s by mathematicians such as Cauchy and Weierstrass.</p>
-    </section>
-    <div class="figure">
-      <svg viewBox="0 0 760 260" aria-label="Running total of one half plus one quarter and so on, approaching 1">
-        <line x1="60" y1="30" x2="740" y2="30" stroke="#d6b16a" stroke-dasharray="6 6" stroke-width="1.5"/>
-        <text x="52" y="34" fill="#d6b16a" font-size="13" text-anchor="end" font-family="Inter, sans-serif">1</text>
-        <line x1="60" y1="230" x2="740" y2="230" stroke="rgba(239,234,226,.2)"/>
-        <text x="52" y="234" fill="#a29d94" font-size="13" text-anchor="end" font-family="Inter, sans-serif">0</text>
-        <text x="52" y="134" fill="#a29d94" font-size="13" text-anchor="end" font-family="Inter, sans-serif">½</text>
-        <g id="sumBars"></g>
-        <text x="400" y="255" fill="#a29d94" font-size="12" text-anchor="middle" font-family="Inter, sans-serif">number of steps</text>
-      </svg>
-      <p class="cap">The running total climbs toward 1 and never passes it.</p>
-    </div>
-
-    <section class="prose">
-      <h2>Why people still argue about it</h2>
-      <p>The math shows the sum is finite. Some philosophers say that doesn't fully explain how a runner actually <em>completes</em> infinitely many separate acts.</p>
-    </section>
-    <div class="cards">
-      <div class="card"><strong>Aristotle</strong><p>A line can be divided forever in principle, he said, but the runner never actually carries out infinitely many divisions. The infinity is only potential.</p></div>
-      <div class="card"><strong>Supertasks</strong><p>In 1954 James Thomson imagined a lamp switched on and off infinitely many times in two minutes and asked whether it ends up on or off. Puzzles like this are called supertasks.</p></div>
-      <div class="card"><strong>Physics</strong><p>Down around the Planck length, we don't know whether space can still be halved at all. Zeno's question turns into an open question about how nature is built.</p></div>
-      <div class="card"><strong>Your fingers</strong><p>On a screen, the gap is just numbers, and the app can keep halving long after your eyes stop seeing a difference. That's the feeling Zeno was pointing at.</p></div>
-    </div>
-
-    <section class="try">
-      <h2>Feel it with your fingers</h2>
-      <p class="prose" style="color:var(--muted);margin-bottom:18px">Dichotomy Zeno is free and runs in your browser. Pinch, slide, or halve the gap exactly in two. At the floor of each world it opens outward to the next one: outline, print, cell, atom. It's in English and Japanese.</p>
-      <div class="actions" style="margin-bottom:0">
-        <a class="btn" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open Dichotomy Zeno</a>
-        <a class="btn btn--ghost" href="../">More from 7EightMade</a>
+  <main id="main">
+    <section class="intro-hero" aria-labelledby="appH">
+      <div class="wrap">
+        <div class="intro-hero__text">
+        <a class="backlink" href="../studio/">← Studio</a>
+        <p class="eyebrow" style="margin-top:18px">Paradoxes · Zeno's paradox · Free</p>
+        <h1 id="appH">Dichotomy Zeno</h1>
+        <p class="oneliner">The gap does not close.</p>
+        <div class="row">
+          <a class="btn-open" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open the app <span aria-hidden="true">↗</span><span class="sr-only"> on dichotomy-zeno.grok.me (opens in a new tab)</span></a>
+          <a class="pill" href="app/">See how it works</a>
+        </div>
+        </div>
+        <figure class="preview">
+          <div class="preview__frame">
+            <div class="preview__bar" aria-hidden="true"><i></i><i></i><i></i><span>7EightMade Studio / dichotomy-zeno/app/</span></div>
+            <a href="app/" tabindex="-1" aria-hidden="true"><img src="preview.webp" width="1280" height="800" alt=""></a>
+          </div>
+          <figcaption><span class="sr-only">Screenshot: the Dichotomy Zeno halver after 11 halvings: 99.95% covered, a 10.3 µm gap left. </span>Eleven halvings in: 99.95% of the way, and a 10.3 µm gap left. It still isn’t zero.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="prose">
-      <h2>Go deeper</h2>
-    </section>
-    <ul class="links">
-      <li><a href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener"><b>Dichotomy Zeno, the app</b><span>dichotomy-zeno.grok.me</span></a></li>
-      <li><a href="https://plato.stanford.edu/entries/paradox-zeno/" target="_blank" rel="noopener"><b>Zeno's Paradoxes, Stanford Encyclopedia of Philosophy</b><span>The full philosophical treatment, including the dichotomy, the arrow, and Achilles and the tortoise</span></a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Zeno%27s_paradoxes" target="_blank" rel="noopener"><b>Zeno's paradoxes, Wikipedia</b><span>A readable overview of all the paradoxes and the proposed answers</span></a></li>
-    </ul>
+    <div class="wrap">
+      <section class="isec" aria-labelledby="whatH">
+        <h2 id="whatH">What it does</h2>
+        <div class="prose">
+          <p>Halve the space between your thumb and index finger. Then halve what's left. Then do it again, forever. This is Zeno's dichotomy paradox, and Dichotomy Zeno lets you feel it with your own fingers.</p>
+          <p>The Studio app explains the paradox with pictures and has a halver you can press. Each press covers half of what's left, so the distance covered climbs toward the whole thing while the gap shrinks toward nothing without ever reaching it.</p>
+          <p>The pinch version, Dichotomy Zeno on <a href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">dichotomy-zeno.grok.me</a>, is free and runs in your browser. Pinch, slide, or halve the gap exactly in two. At the floor of each world it opens outward to the next one: outline, print, cell, atom. It’s in English and Japanese.</p>
+        </div>
 
-    <p class="foot"><a href="../">← Main menu</a> · <a href="../vortex-breath/">Vortex</a> · <a href="../archipelago/">Atlas</a> · <a href="../till/">Till</a> · <a href="../ship-of-theseus/">Theseus</a> · Fall down seven. Stand up eight.</p>
+      </section>
+
+      <section class="isec" aria-labelledby="howH">
+        <h2 id="howH">How it works</h2>
+        <ol class="steps">
+        <li><b>Start with a pinch</b><span>The gap starts at 21 mm, about a relaxed pinch.</span></li>
+        <li><b>Halve the gap</b><span>Each press covers half of what's left. Or halve it 10 times at once.</span></li>
+        <li><b>Keep going down</b><span>About 28 halvings take you from your fingers to an atom. The gap still isn’t zero.</span></li>
+        </ol>
+      </section>
+
+      <div class="cta-band">
+        <p>Halve it yourself. The gap never closes.</p>
+        <a class="btn-open" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open the app <span aria-hidden="true">↗</span><span class="sr-only"> on dichotomy-zeno.grok.me (opens in a new tab)</span></a>
+      </div>
+
+      <section class="more" aria-labelledby="moreH">
+        <h2 class="isec-h" id="moreH" style="font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(30px,4.6vw,48px);line-height:1;margin-bottom:18px">More from the Studio</h2>
+        <div class="cards">
+        <article class="card card--theseus">
+          <a class="card__img" href="../ship-of-theseus/" tabindex="-1" aria-hidden="true"><img src="../ship-of-theseus/preview.webp" alt="" width="1280" height="800" loading="lazy"></a>
+          <div class="card__body">
+            <p class="card__kick">Paradoxes · A paradox you can play</p>
+            <h3 class="card__title"><a href="../ship-of-theseus/">Ship of Theseus</a></h3>
+            <p>Swap every plank, rebuild the old ones into a second ship, then decide which is the real one.</p>
+            <div class="card__links"><a class="pill pill--fill" href="../ship-of-theseus/app/">Open the app</a><a class="pill" href="../ship-of-theseus/">About</a></div>
+          </div>
+        </article>
+        <article class="card card--vortex">
+          <a class="card__img" href="../vortex-breath/" tabindex="-1" aria-hidden="true"><img src="../vortex-breath/preview.webp" alt="" width="1280" height="800" loading="lazy"></a>
+          <div class="card__body">
+            <p class="card__kick">Wellness · One free minute</p>
+            <h3 class="card__title"><a href="../vortex-breath/">Vortex Breath</a></h3>
+            <p>Breathe in and out with a golden spiral, 13 seconds down to 1, for exactly one minute.</p>
+            <div class="card__links"><a class="pill pill--fill" href="../vortex-breath/practice/" style="--on-accent:#fff">Open the app</a><a class="pill" href="../vortex-breath/">About</a></div>
+          </div>
+        </article>
+        </div>
+      </section>
+      <p style="margin-top:34px"><a class="backlink" href="../studio/">← Studio</a></p>
+    </div>
   </main>
 
-  <script>
-    (function () {
-      const NS = 'http://www.w3.org/2000/svg';
-      function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
-      // hero: halving segments
-      const hero = document.getElementById('heroSegs');
-      let x = 20, w = 720;
-      for (let i = 0; i < 9; i++) {
-        const seg = w / 2;
-        el('rect', { x: x + 2, y: 63, width: Math.max(seg - 4, 1), height: 24, rx: 4, fill: '#d6b16a', opacity: (1 - i * 0.09).toFixed(2) }, hero);
-        x += seg; w -= seg;
-      }
-      // forward / backward mini diagrams
-      const fwd = document.getElementById('fwd'), bwd = document.getElementById('bwd');
-      el('line', { x1: 10, y1: 30, x2: 290, y2: 30, stroke: 'rgba(239,234,226,.2)', 'stroke-width': 2 }, fwd);
-      el('line', { x1: 10, y1: 30, x2: 290, y2: 30, stroke: 'rgba(239,234,226,.2)', 'stroke-width': 2 }, bwd);
-      let p = 10, r = 280;
-      for (let i = 0; i < 8; i++) { p += r / 2; r /= 2; el('line', { x1: p, y1: 18, x2: p, y2: 42, stroke: '#d6b16a', 'stroke-width': 2 }, fwd); }
-      el('circle', { cx: 10, cy: 30, r: 5, fill: '#efeae2' }, fwd);
-      let q = 280;
-      for (let i = 0; i < 8; i++) { q /= 2; el('line', { x1: 10 + q, y1: 18, x2: 10 + q, y2: 42, stroke: '#d6b16a', 'stroke-width': 2 }, bwd); }
-      el('circle', { cx: 290, cy: 30, r: 5, fill: 'none', stroke: '#efeae2', 'stroke-width': 2 }, bwd);
-      // running-sum bars
-      const bars = document.getElementById('sumBars');
-      const n = 12, bw = 680 / n;
-      let s = 0;
-      for (let i = 1; i <= n; i++) {
-        s += Math.pow(0.5, i);
-        const h = s * 200;
-        el('rect', { x: 60 + (i - 1) * bw + 6, y: 230 - h, width: bw - 12, height: h, rx: 4, fill: '#d6b16a', opacity: (0.45 + 0.045 * i).toFixed(2) }, bars);
-        const t = el('text', { x: 60 + (i - 0.5) * bw, y: 222 - h, fill: '#a29d94', 'font-size': 11, 'text-anchor': 'middle', 'font-family': 'Inter, sans-serif' }, bars);
-        t.textContent = i <= 4 ? ['½', '¾', '⅞', '15/16'][i - 1] : '';
-      }
-      // interactive halver
-      const START = 21; // mm
-      let k = 0;
-      const fill = document.getElementById('hFill');
-      const steps = document.getElementById('hSteps');
-      const cov = document.getElementById('hCovered');
-      const gap = document.getElementById('hGap');
-      const note = document.getElementById('hNote');
-      function fmt(mm) {
-        const m = mm / 1000;
-        if (mm >= 1) return mm.toFixed(mm >= 10 ? 1 : 2) + ' mm';
-        if (m >= 1e-6) return (m * 1e6).toPrecision(3) + ' µm';
-        if (m >= 1e-9) return (m * 1e9).toPrecision(3) + ' nm';
-        return m.toExponential(2).replace('e', '×10^') + ' m';
-      }
-      function scale(mm) {
-        if (mm > 1) return 'about the outline of your fingers';
-        if (mm > 0.02) return 'down at fingerprint ridges';
-        if (mm > 0.0002) return 'about the size of a cell';
-        if (mm > 0.0000002) return 'smaller than a cell, on the way to molecules';
-        if (mm > 1e-13) return 'around the width of an atom, and below';
-        return 'far below anything we can measure';
-      }
-      function render() {
-        const left = Math.pow(0.5, k);
-        fill.setAttribute('width', (720 * (1 - left)).toFixed(3));
-        steps.textContent = k;
-        const pct = (1 - left) * 100;
-        cov.textContent = pct === 100 ? '99.99…%' : (k < 7 ? pct.toFixed(1) : pct.toPrecision(Math.min(12, 4 + Math.floor(k / 3.3)))) + '%';
-        gap.textContent = fmt(START * left);
-        note.textContent = k === 0 ? 'The gap starts at 21 mm, about a relaxed pinch.' : 'The gap is ' + scale(START * left) + '. It still isn\u2019t zero.';
-      }
-      document.getElementById('hHalve').onclick = function () { if (k < 160) k++; render(); };
-      document.getElementById('hTen').onclick = function () { k = Math.min(160, k + 10); render(); };
-      document.getElementById('hReset').onclick = function () { k = 0; render(); };
-      render();
-    })();
-  </script>
+  <footer class="sfoot">
+    <div class="sfoot__in">
+      <div class="sfoot__links"><a href="../studio/">← Studio</a><a href="../studio/#apps">All apps</a><a href="../studio/art/">Art</a></div>
+      <span class="sfoot__proverb">Fall down seven. Stand up eight.</span>
+    </div>
+  </footer>
 </body>
 </html>

@@ -2,257 +2,221 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio | 7EightMade</title>
-  <meta name="description" content="7EightMade Studio: free instruments you can touch, grouped by genre, plus Dom's art. Paradoxes, wellness, maps and data, and business tools.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>7EightMade Studio: fall down 7, stand up 8</title>
+  <script>
+    // Old links to /studio/#art now land on the Art page.
+    if (location.hash === "#art") location.replace("art/");
+    document.documentElement.classList.add("js");
+  </script>
+  <meta name="description" content="7EightMade Studio: Dom's side projects. Free apps you can touch, Till, Vortex Breath, Atlas, Dichotomy Zeno and Ship of Theseus, plus the Memento Mori drawings.">
   <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/studio/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dom1w0w.github.io/7EightMadeConsultation/studio/">
-  <meta property="og:title" content="7EightMade Studio: five free instruments">
-  <meta property="og:description" content="Halve a gap that never closes, swap every plank, read a country on one map, breathe in a golden spiral, rehearse the tap. All free.">
+  <meta property="og:title" content="7EightMade Studio">
+  <meta property="og:description" content="Fall down 7, stand up 8. Free apps you can touch, and Dom's own art.">
   <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/studio/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="7EightMade Studio: five free instruments">
-  <meta name="twitter:image" content="https://dom1w0w.github.io/7EightMadeConsultation/studio/og.png">
-  <meta name="theme-color" content="#0b0f14">
+  <meta name="theme-color" content="#0E0D0C">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
-  <style>
-    :root { --ink:#eef0ea; --bg:#0b0f14; --bg2:#121922; --muted:#9aa4ad; --line:rgba(238,240,234,.12); --gold:#e9cf9a;
-      --zeno:#d9b45a; --theseus:#e9cf9a; --vortex:#d2452f; --atlas:#6fd3c1; --till:#ee7a3c; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { min-height:100vh; font-family:Inter,ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; }
-    a { color:var(--gold); }
-    [id] { scroll-margin-top:84px; }
-    .nav { position:sticky; top:0; z-index:10; background:rgba(11,15,20,.9); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
-    .nav__inner { max-width:1040px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    .brand { text-decoration:none; color:var(--ink); font-family:Fraunces,Georgia,serif; font-weight:600; font-size:20px; }
-    .brand b { color:var(--gold); }
-    .nav__links { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
-    .nav__links a { font-size:13px; font-weight:500; color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:8px; min-height:44px; display:inline-flex; align-items:center; }
-    .nav__links a[aria-current="page"] { color:var(--ink); }
-    .nav__links a:hover { color:var(--ink); background:rgba(238,240,234,.06); }
-    .wrap { max-width:1040px; margin:0 auto; padding:48px 24px 80px; }
-    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
-    h1 { font-family:Fraunces,Georgia,serif; font-size:clamp(44px,9vw,84px); font-weight:600; letter-spacing:-.03em; line-height:1; margin-bottom:16px; }
-    h2 { font-family:Fraunces,Georgia,serif; font-size:clamp(30px,5vw,44px); font-weight:600; letter-spacing:-.02em; line-height:1.1; }
-    h3.genre { font-family:Fraunces,Georgia,serif; font-size:clamp(22px,3.5vw,28px); font-weight:600; letter-spacing:-.01em; margin-bottom:4px; }
-    .lead { font-size:18px; color:var(--muted); max-width:56ch; margin-bottom:22px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 18px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; background:var(--gold); color:#1b140b; border:0; cursor:pointer; font-family:inherit; }
-    .btn--ghost { background:transparent; color:var(--ink); border:1px solid rgba(238,240,234,.25); }
-    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .copied { font-size:13px; color:var(--muted); min-height:1.4em; }
-
-    .toc { margin:34px 0 10px; background:var(--bg2); border:1px solid var(--line); border-radius:20px; padding:20px 22px; }
-    .toc p { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
-    .toc ol { list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:6px 28px; counter-reset:t; align-items:start; }
-    .toc ul { list-style:none; }
-    .toc li.top { counter-increment:t; }
-    .toc li.sub { padding-left:30px; }
-    .toc a { display:flex; gap:10px; align-items:baseline; text-decoration:none; color:var(--ink); padding:6px 0; min-height:36px; }
-    .toc a:hover { color:var(--gold); }
-    .toc li.top > a::before { content:counter(t, decimal-leading-zero); font-family:Fraunces,Georgia,serif; color:var(--gold); font-size:14px; }
-    .toc li.sub a { color:var(--muted); font-size:14px; }
-    .toc li.sub a:hover { color:var(--ink); }
-    .toc .n { margin-left:auto; color:var(--muted); font-size:12px; }
-
-    .part { margin-top:72px; }
-    .part__head { display:flex; justify-content:space-between; align-items:end; gap:16px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:8px; }
-    .part__head p { color:var(--muted); max-width:52ch; }
-    .genre-wrap { margin-top:36px; }
-    .genre-top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
-    .genre-top span { color:var(--muted); font-size:14px; }
-    .share { background:none; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:6px 12px; font:600 12px Inter,sans-serif; cursor:pointer; min-height:36px; }
-    .share:hover { color:var(--ink); border-color:rgba(238,240,234,.3); }
-    .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-    .app { --c:var(--gold); display:flex; flex-direction:column; background:var(--bg2); border:1px solid var(--line); border-radius:18px; overflow:hidden; transition:border-color .2s, transform .2s; }
-    .app:hover { border-color:color-mix(in srgb, var(--c) 55%, transparent); transform:translateY(-2px); }
-    .app__img { display:block; aspect-ratio:1200/750; background:#0b0f14; }
-    .app__img img { width:100%; height:100%; object-fit:cover; display:block; }
-    .app__body { padding:16px 18px 18px; display:flex; flex-direction:column; gap:6px; flex:1; }
-    .app__kick { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--c); }
-    .app__title { font-family:Fraunces,Georgia,serif; font-size:24px; font-weight:600; line-height:1.15; }
-    .app__title a { color:var(--ink); text-decoration:none; }
-    .app p { color:var(--muted); font-size:15px; }
-    .app .row { margin-top:auto; padding-top:10px; }
-    .app .btn { background:var(--c); }
-    .app .btn--ghost { background:transparent; }
-    .app--zeno { --c:var(--zeno); } .app--theseus { --c:var(--theseus); } .app--vortex { --c:var(--vortex); } .app--atlas { --c:var(--atlas); } .app--till { --c:var(--till); }
-    .app--vortex .btn:not(.btn--ghost) { color:#fff; }
-    .cards--one { grid-template-columns:1fr; }
-    .cards--one .app { flex-direction:row; }
-    .cards--one .app__img { width:52%; flex:none; }
-
-    .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:14px; margin-top:20px; }
-    .piece { background:var(--bg2); border:1px solid var(--line); border-radius:14px; overflow:hidden; cursor:zoom-in; text-align:left; color:var(--ink); padding:0; font:inherit; }
-    .piece img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; background:#0d141b; }
-    .piece span { display:block; padding:10px 12px 12px; }
-    .piece b { display:block; font-family:Fraunces,Georgia,serif; font-size:17px; font-weight:600; }
-    .piece small { color:var(--muted); font-size:12px; }
-    .soon { margin-top:20px; padding:26px; border:1px dashed rgba(238,240,234,.25); border-radius:18px; color:var(--muted); font-size:16px; }
-    .soon b { display:block; color:var(--ink); font-family:Fraunces,Georgia,serif; font-size:22px; font-weight:600; margin-bottom:4px; }
-    .lb { position:fixed; inset:0; z-index:50; background:rgba(5,7,10,.94); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:56px 16px 20px; }
-    .lb[hidden] { display:none; }
-    .lb img { max-width:100%; max-height:calc(100vh - 160px); object-fit:contain; border-radius:6px; }
-    .lb__cap { margin-top:12px; text-align:center; }
-    .lb__cap b { font-family:Fraunces,Georgia,serif; font-size:20px; }
-    .lb__cap small { display:block; color:var(--muted); }
-    .lb button { position:absolute; background:rgba(238,240,234,.08); color:var(--ink); border:1px solid var(--line); border-radius:999px; width:48px; height:48px; font-size:20px; cursor:pointer; }
-    .lb__close { top:12px; right:12px; } .lb__prev { left:12px; top:50%; } .lb__next { right:12px; top:50%; }
-
-    form { display:grid; gap:12px; max-width:620px; margin-top:20px; }
-    label span { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
-    input, textarea, select { width:100%; font:inherit; font-size:16px; color:var(--ink); background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
-    select { appearance:none; background-image:linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position:calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size:5px 5px; background-repeat:no-repeat; }
-    textarea { resize:vertical; min-height:120px; }
-    .two { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    .fine { font-size:13px; color:var(--muted); }
-    .foot { margin-top:56px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .foot a { text-decoration:none; }
-    @media (max-width:820px) { .toc ol { grid-template-columns:1.4fr 1fr 1fr; } .cards { grid-template-columns:1fr; } .cards--one .app { flex-direction:column; } .cards--one .app__img { width:100%; } }
-    @media (max-width:640px) {
-      .nav { position:static; } [id] { scroll-margin-top:12px; }
-      .nav__inner { padding:10px 16px; gap:6px; } .nav__links { flex-wrap:nowrap; overflow-x:auto; width:100%; scrollbar-width:none; } .nav__links a { white-space:nowrap; padding:8px 10px; }
-      .toc ol { grid-template-columns:1fr; } .two { grid-template-columns:1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .app { transition:none; } }
-  </style>
+  <link rel="stylesheet" href="studio.css">
+  <link rel="preload" href="fonts/anton-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="home.css">
 </head>
-<body>
-  <nav class="nav" aria-label="Site">
-    <div class="nav__inner">
-      <a class="brand" href="../" aria-label="7EightMade main menu"><b>7</b>EightMade</a>
-      <div class="nav__links">
-        <a href="../">Main menu</a>
-        <a href="./" aria-current="page">Studio</a>
+<body class="home">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="snav">
+    <div class="snav__in">
+      <a class="snav__brand" href="./" aria-current="page"><b>7EightMade</b> Studio</a>
+      <nav class="snav__links" aria-label="Studio">
+        <a href="#works">Works</a>
         <a href="#apps">Apps</a>
-        <a href="#art">Art</a>
-        <a href="#contact">Contact</a>
-        <a href="../ai/">AI</a>
-      </div>
+        <a href="art/">Art</a>
+        <a href="#about">About</a>
+        <span class="snav__sep" aria-hidden="true"></span>
+        <a class="snav__back" href="../">← 7EightMade</a>
+      </nav>
+      <a class="pill pill--fill snav__cta" href="../#contact">Book an audit</a>
     </div>
-  </nav>
+  </header>
 
-  <main class="wrap">
-    <p class="eyebrow">7EightMade · Studio · Free</p>
-    <h1>Studio</h1>
-    <p class="lead">Things you can touch. Free apps that turn an idea into an instrument, and Dom's own art. This is the free side of 7EightMade, separate from the AI consulting.</p>
-    <div class="row">
-      <button class="btn" type="button" data-copy="">Copy the Studio link</button>
-      <a class="btn btn--ghost" href="#apps">Browse the apps</a>
-      <a class="btn btn--ghost" href="../ai/">Need AI for your business? →</a>
-    </div>
-    <p class="copied" id="copied" aria-live="polite"></p>
+  <!-- Small scroll readout -->
+  <div class="readout" aria-hidden="true">
+    <span class="readout__row"><span class="readout__k">Falls</span><b id="rFalls">0</b><span class="readout__of">/7</span></span>
+    <span class="readout__bar"><i id="rBar"></i></span>
+    <span class="readout__row"><span class="readout__k">Rises</span><b id="rRises">0</b><span class="readout__of">/8</span></span>
+  </div>
 
-    <nav class="toc" aria-label="Table of contents">
-      <p>Contents</p>
-      <ol>
-        <li class="top"><a href="#apps">Apps <span class="n">5</span></a>
-          <ul>
-            <li class="sub"><a href="#paradoxes">Paradoxes <span class="n">2</span></a></li>
-            <li class="sub"><a href="#wellness">Wellness <span class="n">1</span></a></li>
-            <li class="sub"><a href="#maps-data">Maps &amp; Data <span class="n">1</span></a></li>
-            <li class="sub"><a href="#business-tools">Business Tools <span class="n">1</span></a></li>
-          </ul>
-        </li>
-        <li class="top"><a href="#art">Art <span class="n" id="artCount"></span></a></li>
-        <li class="top"><a href="#contact">Contact</a></li>
-      </ol>
-    </nav>
-
-    <section class="part" id="apps" aria-labelledby="appsH">
-      <div class="part__head">
-        <h2 id="appsH">Apps</h2>
-        <p>Each one is an instrument up top with a short explainer underneath. No sign-up, no price.</p>
-      </div>
-
-      <div class="genre-wrap" id="paradoxes">
-        <div class="genre-top"><h3 class="genre">Paradoxes</h3><button class="share" type="button" data-copy="paradoxes">Copy link to Paradoxes</button></div>
-        <div class="cards">
-          <article class="app app--zeno">
-            <a class="app__img" href="../dichotomy-zeno/" tabindex="-1" aria-hidden="true"><img src="img/card-dichotomy-zeno.webp" alt="" width="1200" height="750" loading="lazy"></a>
-            <div class="app__body">
-              <p class="app__kick">Zeno's paradox</p>
-              <h4 class="app__title"><a href="../dichotomy-zeno/">Dichotomy Zeno</a></h4>
-              <p>Halve the gap between your thumb and finger, again and again. It never closes.</p>
-              <div class="row"><a class="btn" href="../dichotomy-zeno/">Open</a><a class="btn btn--ghost" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open the app ↗</a></div>
-            </div>
-          </article>
-          <article class="app app--theseus">
-            <a class="app__img" href="../ship-of-theseus/" tabindex="-1" aria-hidden="true"><img src="img/card-ship-of-theseus.webp" alt="" width="1200" height="750" loading="lazy"></a>
-            <div class="app__body">
-              <p class="app__kick">A paradox you can play</p>
-              <h4 class="app__title"><a href="../ship-of-theseus/">Ship of Theseus</a></h4>
-              <p>Swap every plank, rebuild the old ones into a second ship, then decide which is the real one.</p>
-              <div class="row"><a class="btn" href="../ship-of-theseus/">Open</a></div>
-            </div>
-          </article>
+  <main id="main">
+    <!-- 1 · The story opening: pinned hero -->
+    <section class="pinsec hero" id="story" data-pin="hero" aria-labelledby="heroH">
+      <div class="pin">
+        <div class="hero__stage">
+          <h1 id="heroH" class="hero__h1">
+            <span class="sr-only">7EightMade Studio. </span>
+            <span class="hero__big" data-fx="bigFall">Fall down 7</span>
+            <span class="hero__serif" data-fx="serif">and get back up</span>
+          </h1>
+          <div class="frags frags--back" aria-hidden="true">
+            <img class="frag" src="assets/shard-1.webp" alt="" width="371" height="408" data-x="18" data-y="78" data-s="1.05" data-r="-30" data-w="11">
+            <img class="frag" src="assets/shard-3.webp" alt="" width="468" height="154" data-x="58" data-y="95" data-s="1.25" data-r="40" data-w="12">
+            <img class="frag" src="assets/shard-2.webp" alt="" width="260" height="328" data-x="40" data-y="120" data-s="1.45" data-r="-55" data-w="8">
+            <img class="frag" src="assets/shard-5.webp" alt="" width="296" height="348" data-x="76" data-y="70" data-s="0.95" data-r="25" data-w="8">
+            <img class="frag" src="assets/shard-4.webp" alt="" width="186" height="428" data-x="50" data-y="140" data-s="1.6" data-r="70" data-w="5">
+          </div>
+          <img class="hero__fig" data-fx="fig" src="assets/figure.webp" width="1200" height="2000" alt="A marble statue of a young man rising from one knee on a rough stone base, one arm reaching straight up">
+          <div class="frags frags--front" aria-hidden="true">
+            <img class="frag" src="assets/shard-5.webp" alt="" width="296" height="348" data-x="30" data-y="105" data-s="2.1" data-r="-80" data-w="14" data-blur="1">
+            <img class="frag" src="assets/shard-2.webp" alt="" width="260" height="328" data-x="64" data-y="125" data-s="2.4" data-r="60" data-w="10">
+            <img class="frag" src="assets/shard-1.webp" alt="" width="371" height="408" data-x="86" data-y="150" data-s="2.7" data-r="-45" data-w="19" data-blur="1">
+            <img class="frag" src="assets/shard-4.webp" alt="" width="186" height="428" data-x="10" data-y="160" data-s="2.2" data-r="35" data-w="4">
+          </div>
+          <div class="hero__story" data-fx="story">
+            <p class="caps">Fall down seven. Stand up eight.</p>
+            <p>An old proverb about getting back up, and the idea that inspired the name 7EightMade. The Studio is where Dom keeps trying things.</p>
+          </div>
+          <p class="hero__cue caps" data-fx="cue" aria-hidden="true">Scroll</p>
         </div>
       </div>
+    </section>
 
-      <div class="genre-wrap" id="wellness">
-        <div class="genre-top"><h3 class="genre">Wellness</h3><button class="share" type="button" data-copy="wellness">Copy link to Wellness</button></div>
-        <div class="cards cards--one">
-          <article class="app app--vortex">
-            <a class="app__img" href="../vortex-breath/" tabindex="-1" aria-hidden="true"><img src="img/card-vortex-breath.webp" alt="" width="1200" height="750" loading="lazy"></a>
-            <div class="app__body">
-              <p class="app__kick">One free minute</p>
-              <h4 class="app__title"><a href="../vortex-breath/">Vortex Breath</a></h4>
-              <p>Breathe in and out with a golden spiral, 13 seconds down to 1, for exactly one minute.</p>
-              <div class="row"><a class="btn" href="../vortex-breath/">Open</a><a class="btn btn--ghost" href="../vortex-breath/practice/">Full app, with sound</a></div>
-            </div>
-          </article>
+    <!-- 2 · Featured works: the diamond -->
+    <section class="pinsec works" id="works" data-pin="works" aria-labelledby="worksH">
+      <div class="pin">
+        <div class="works__grid">
+          <div class="works__text">
+            <p class="eyebrow">Featured · 04</p>
+            <h2 class="sec" id="worksH">Four works</h2>
+            <p class="lead">A register you can rehearse on, a one-minute breath, a map of the Philippines, and a wall of ink drawings. Pick one.</p>
+            <ol class="works__list">
+              <li><a href="../till/"><span>01</span> Till</a></li>
+              <li><a href="../vortex-breath/"><span>02</span> Vortex Breath</a></li>
+              <li><a href="../archipelago/"><span>03</span> Atlas</a></li>
+              <li><a href="art/"><span>04</span> Art</a></li>
+            </ol>
+          </div>
+          <div class="diamond" id="diamond">
+            <a class="tile" href="../till/" style="--c:var(--till)" data-pos="top" tabindex="-1" aria-hidden="true">
+              <span class="tile__in"><img src="img/feat-till.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Till</b><small>Tap to pay, rehearsed</small></span></span>
+            </a>
+            <a class="tile" href="../vortex-breath/" style="--c:var(--vortex)" data-pos="left" tabindex="-1" aria-hidden="true">
+              <span class="tile__in"><img src="img/feat-vortex-breath.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Vortex Breath</b><small>One free minute</small></span></span>
+            </a>
+            <a class="tile" href="../archipelago/" style="--c:var(--atlas)" data-pos="right" tabindex="-1" aria-hidden="true">
+              <span class="tile__in"><img src="img/feat-atlas.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Atlas</b><small>Philippines map</small></span></span>
+            </a>
+            <a class="tile" href="art/" style="--c:var(--art)" data-pos="bottom" tabindex="-1" aria-hidden="true">
+              <span class="tile__in"><img src="art/drawing-03.webp" alt="" width="800" height="1000"><span class="tile__lab"><b>Art</b><small>Memento Mori</small></span></span>
+            </a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="genre-wrap" id="maps-data">
-        <div class="genre-top"><h3 class="genre">Maps &amp; Data</h3><button class="share" type="button" data-copy="maps-data">Copy link to Maps &amp; Data</button></div>
-        <div class="cards cards--one">
-          <article class="app app--atlas">
-            <a class="app__img" href="../archipelago/" tabindex="-1" aria-hidden="true"><img src="img/card-atlas.webp" alt="" width="1200" height="750" loading="lazy"></a>
-            <div class="app__body">
-              <p class="app__kick">Philippines map</p>
-              <h4 class="app__title"><a href="../archipelago/">Atlas</a></h4>
-              <p>Seventeen regions, five readings. Switch the metric and the whole map recolors. Tap any region.</p>
-              <div class="row"><a class="btn" href="../archipelago/">Open</a></div>
-            </div>
-          </article>
+    <!-- 3 · About: text scrub -->
+    <section class="pinsec scrub" id="about" data-pin="scrub" aria-labelledby="aboutH">
+      <div class="pin">
+        <div class="scrub__in">
+          <h2 class="eyebrow" id="aboutH">About the Studio</h2>
+          <p class="scrub__text">
+            <span class="ln">This is the Studio.</span>
+            <span class="ln">Dom's side projects, made in the open.</span>
+            <span class="ln">Free apps that turn an idea into an instrument.</span>
+            <span class="ln">Ink drawings, hung on their own wall.</span>
+            <span class="ln">No sign-up. No price.</span>
+            <span class="ln">The free side of 7EightMade, separate from the consulting.</span>
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="genre-wrap" id="business-tools">
-        <div class="genre-top"><h3 class="genre">Business Tools</h3><button class="share" type="button" data-copy="business-tools">Copy link to Business Tools</button></div>
-        <div class="cards cards--one">
-          <article class="app app--till">
-            <a class="app__img" href="../till/" tabindex="-1" aria-hidden="true"><img src="img/card-till.webp" alt="" width="1200" height="750" loading="lazy"></a>
-            <div class="app__body">
-              <p class="app__kick">Tap to pay, rehearsed</p>
-              <h4 class="app__title"><a href="../till/">Till</a></h4>
+    <!-- 4 · Finale -->
+    <section class="pinsec finale" id="rise" data-pin="finale" aria-labelledby="riseH">
+      <div class="pin">
+        <div class="finale__glow" data-fx="glow" aria-hidden="true"></div>
+        <h2 class="finale__big" id="riseH" data-fx="bigRise">Stand up 8</h2>
+        <img class="finale__fig" src="assets/figure-finale.webp" width="1200" height="2000" alt="" aria-hidden="true">
+        <div class="finale__row" data-fx="finRow">
+          <a class="pill pill--fill" href="#apps">Every app ↓</a>
+          <a class="pill" href="art/">See the art</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Full index -->
+    <section class="index wrap" id="apps" aria-labelledby="appsH">
+      <div class="index__head">
+        <p class="eyebrow">Index · 05 apps + art</p>
+        <h2 class="sec" id="appsH">Everything in the Studio</h2>
+        <p class="lead">Each app has a short page that says what it is, and the app itself one click further. No sign-up, no price.</p>
+      </div>
+
+      <div class="cards index__cards">
+        <article id="business-tools" class="card card--till">
+            <a class="card__img" href="../till/" tabindex="-1" aria-hidden="true"><img src="img/feat-till.webp" alt="" width="1280" height="800" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__kick">Business tools · Tap to pay, rehearsed</p>
+              <h3 class="card__title"><a href="../till/">Till</a></h3>
               <p>Key a sale, add a tip, see the 1.99% fee before anyone taps. A rehearsal, so nothing is charged.</p>
-              <div class="row"><a class="btn" href="../till/">Open</a></div>
+              <div class="card__links"><a class="pill pill--fill" href="../till/register/">Open the app</a><a class="pill" href="../till/">About</a></div>
             </div>
           </article>
-        </div>
+        <article id="wellness" class="card card--vortex">
+            <a class="card__img" href="../vortex-breath/" tabindex="-1" aria-hidden="true"><img src="img/feat-vortex-breath.webp" alt="" width="1280" height="800" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__kick">Wellness · One free minute</p>
+              <h3 class="card__title"><a href="../vortex-breath/">Vortex Breath</a></h3>
+              <p>Breathe in and out with a golden spiral, 13 seconds down to 1, for exactly one minute.</p>
+              <div class="card__links"><a class="pill pill--fill" href="../vortex-breath/practice/">Open the app</a><a class="pill" href="../vortex-breath/">About</a></div>
+            </div>
+          </article>
+        <article id="maps-data" class="card card--atlas">
+            <a class="card__img" href="../archipelago/" tabindex="-1" aria-hidden="true"><img src="img/feat-atlas.webp" alt="" width="1280" height="800" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__kick">Maps &amp; data · Philippines map</p>
+              <h3 class="card__title"><a href="../archipelago/">Atlas</a></h3>
+              <p>Seventeen regions, five readings. Switch the metric and the whole map recolors. Tap any region.</p>
+              <div class="card__links"><a class="pill pill--fill" href="../archipelago/app.html">Open the app</a><a class="pill" href="../archipelago/">About</a></div>
+            </div>
+          </article>
+        <article id="paradoxes" class="card card--zeno">
+            <a class="card__img" href="../dichotomy-zeno/" tabindex="-1" aria-hidden="true"><img src="img/feat-dichotomy-zeno.webp" alt="" width="1280" height="800" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__kick">Paradoxes · Zeno's paradox</p>
+              <h3 class="card__title"><a href="../dichotomy-zeno/">Dichotomy Zeno</a></h3>
+              <p>Halve the gap between your thumb and finger, again and again. It never closes.</p>
+              <div class="card__links"><a class="pill pill--fill" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open the app<span class="sr-only"> (opens in a new tab)</span></a><a class="pill" href="../dichotomy-zeno/">About</a></div>
+            </div>
+          </article>
+        <article class="card card--theseus">
+            <a class="card__img" href="../ship-of-theseus/" tabindex="-1" aria-hidden="true"><img src="img/feat-ship-of-theseus.webp" alt="" width="1280" height="800" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__kick">Paradoxes · A paradox you can play</p>
+              <h3 class="card__title"><a href="../ship-of-theseus/">Ship of Theseus</a></h3>
+              <p>Swap every plank, rebuild the old ones into a second ship, then decide which is the real one.</p>
+              <div class="card__links"><a class="pill pill--fill" href="../ship-of-theseus/app/">Open the app</a><a class="pill" href="../ship-of-theseus/">About</a></div>
+            </div>
+          </article>
+        <article id="art" class="card card--art">
+            <a class="card__img" href="art/" tabindex="-1" aria-hidden="true"><img src="art/drawing-04.webp" alt="" loading="lazy"></a>
+            <div class="card__body">
+              <p class="card__kick">Art · Ink on paper · 2026</p>
+              <h3 class="card__title"><a href="art/">Memento Mori</a></h3>
+              <p>Dom's own drawings, a series in black and white. The whole wall is on the Art page.</p>
+              <div class="card__links"><a class="pill pill--fill" href="art/">See the art</a></div>
+            </div>
+          </article>
       </div>
     </section>
 
-    <section class="part" id="art" aria-labelledby="artH">
-      <div class="part__head">
-        <h2 id="artH">Art</h2>
-        <button class="share" type="button" data-copy="art">Copy link to Art</button>
-      </div>
-      <div id="gallery" class="gallery" hidden></div>
-      <div id="soon" class="soon"><b>First pieces soon.</b>Dom's own work will hang here.</div>
-    </section>
-
-    <section class="part" id="contact" aria-labelledby="contactH">
-      <div class="part__head">
-        <h2 id="contactH">Contact</h2>
-        <p>Found a bug, have an idea, or want an app or a map of your own? Write. We answer by email.</p>
-      </div>
+    <!-- 6 · Contact -->
+    <section class="contact wrap" id="contact" aria-labelledby="contactH">
+      <p class="eyebrow">Write</p>
+      <h2 class="sec" id="contactH">Contact</h2>
+      <p class="lead">Found a bug, have an idea, or want an app or a map of your own? Write. We answer by email.</p>
       <form id="letter">
         <div class="two">
           <label><span>Your name</span><input name="name" autocomplete="name"></label>
@@ -270,76 +234,19 @@
           </label>
         </div>
         <label><span>Your note</span><textarea name="note" required placeholder="What worked, what broke, what should exist…"></textarea></label>
-        <div class="row"><button class="btn" type="submit">Open a letter</button></div>
-        <p class="fine">This opens your email to <a id="mailLink" href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=7EightMade%20Studio">nuguidd@icloud.com</a>, with a copy to nuguiddom@gmail.com.</p>
+        <div><button class="pill pill--fill" type="submit">Open a letter</button></div>
+        <p class="fine">This opens your email to <a href="mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&amp;subject=7EightMade%20Studio">nuguidd@icloud.com</a>, with a copy to nuguiddom@gmail.com.</p>
       </form>
     </section>
-
-    <div class="foot">
-      <span><a href="../">← Main menu</a> · <a href="../ai/">Need AI for your business?</a></span>
-      <span>Fall down seven. Stand up eight.</span>
-    </div>
   </main>
 
-  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Artwork">
-    <button class="lb__close" type="button" aria-label="Close">✕</button>
-    <button class="lb__prev" type="button" aria-label="Previous">‹</button>
-    <img id="lbImg" alt="">
-    <div class="lb__cap"><b id="lbTitle"></b><small id="lbMeta"></small></div>
-    <button class="lb__next" type="button" aria-label="Next">›</button>
-  </div>
+  <footer class="sfoot">
+    <div class="sfoot__in">
+      <div class="sfoot__links"><a href="../">← 7EightMade</a><a href="../#contact">Book an audit</a><a href="art/">Art</a><a href="#apps">Apps</a></div>
+      <span class="sfoot__proverb">Fall down seven. Stand up eight.</span>
+    </div>
+  </footer>
 
-  <script>
-  (function () {
-    const BASE = "https://dom1w0w.github.io/7EightMadeConsultation/studio/";
-    const copied = document.getElementById("copied");
-    function copy(text, btn) {
-      const done = () => { const old = btn.textContent; btn.textContent = "Link copied"; copied.textContent = text; setTimeout(() => { btn.textContent = old; }, 1800); };
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, () => fallback(text, done));
-      else fallback(text, done);
-    }
-    function fallback(text, done) { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); done(); }
-    document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", () => copy(BASE + (b.dataset.copy ? "#" + b.dataset.copy : ""), b)));
-
-    // Art gallery, read from art/art.json (title, image, optional year, medium, alt)
-    const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-    const gal = document.getElementById("gallery"), soon = document.getElementById("soon"), lb = document.getElementById("lb");
-    let pieces = [], at = 0, lastFocus = null;
-    fetch("art/art.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : []).then(list => {
-      pieces = (Array.isArray(list) ? list : (list && list.pieces) || []).filter(p => p && p.title && p.image);
-      if (!pieces.length) return;
-      document.getElementById("artCount").textContent = pieces.length;
-      gal.innerHTML = pieces.map((p, i) => `<button class="piece" type="button" data-i="${i}"><img src="art/${esc(p.image)}" alt="${esc(p.alt || p.title)}" loading="lazy"><span><b>${esc(p.title)}</b><small>${esc([p.year, p.medium].filter(Boolean).join(" · "))}</small></span></button>`).join("");
-      gal.hidden = false; soon.hidden = true;
-      gal.querySelectorAll(".piece").forEach(b => b.addEventListener("click", () => open(+b.dataset.i)));
-    }).catch(() => {});
-    function show(i) {
-      at = (i + pieces.length) % pieces.length; const p = pieces[at];
-      const img = document.getElementById("lbImg"); img.src = "art/" + p.image; img.alt = p.alt || p.title;
-      document.getElementById("lbTitle").textContent = p.title;
-      document.getElementById("lbMeta").textContent = [p.year, p.medium].filter(Boolean).join(" · ");
-      lb.querySelector(".lb__prev").hidden = lb.querySelector(".lb__next").hidden = pieces.length < 2;
-    }
-    function open(i) { lastFocus = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; lb.querySelector(".lb__close").focus(); }
-    function close() { lb.hidden = true; document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
-    lb.querySelector(".lb__close").onclick = close;
-    lb.querySelector(".lb__prev").onclick = () => show(at - 1);
-    lb.querySelector(".lb__next").onclick = () => show(at + 1);
-    lb.addEventListener("click", e => { if (e.target === lb) close(); });
-    document.addEventListener("keydown", e => { if (lb.hidden) return; if (e.key === "Escape") close(); else if (e.key === "ArrowLeft") show(at - 1); else if (e.key === "ArrowRight") show(at + 1); });
-    let sx = null; lb.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
-    lb.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); sx = null; });
-
-    document.getElementById("letter").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const who = String(data.get("name") || "").trim() || "A visitor";
-      const about = String(data.get("about") || "Studio");
-      const note = String(data.get("note") || "").trim();
-      const body = who + " wrote from 7EightMade Studio about " + about + ".\n\n" + note + "\n";
-      window.location.href = "mailto:nuguidd@icloud.com?cc=nuguiddom@gmail.com&subject=" + encodeURIComponent("Studio: " + about) + "&body=" + encodeURIComponent(body);
-    });
-  })();
-  </script>
+  <script src="home.js" defer></script>
 </body>
 </html>

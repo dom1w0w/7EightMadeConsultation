@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Try the breath | 7EightMade</title>
-  <meta name="theme-color" content="#f1ebe1">
+  <title>Try the breath | Vortex Breath | 7EightMade Studio</title>
+  <meta name="theme-color" content="#0E0D0C">
   <link rel="icon" href="../../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../brand/fonts.css">
+  <link rel="stylesheet" href="../../studio/appbar.css">
   <style>
     html, body { margin: 0; height: 100%; background: #f1ebe1; }
-    iframe { display: block; width: 100%; height: 100%; border: 0; }
+    body { display: flex; flex-direction: column; }
+    .sappbar { flex: none; }
+    iframe { display: block; width: 100%; flex: 1 1 auto; min-height: 0; border: 0; }
   </style>
 </head>
 <body>
+  <nav class="sappbar" aria-label="Studio" style="--sab:#D2452F">
+    <a href="../">← About this app</a>
+    <span class="sappbar__name" aria-hidden="true"><b>Vortex Breath</b> · 7EightMade Studio</span>
+    <a href="../../studio/">Studio</a>
+  </nav>
+
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0">Vortex Breath, the full app with sound</h1>
   <iframe src="https://vortex-breath.grok.me/" title="Vortex Breath" allow="autoplay"></iframe>
 </body>
 </html>

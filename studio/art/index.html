@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art: Memento Mori | 7EightMade Studio</title>
+  <meta name="description" content="Dom's own art in 7EightMade Studio: Memento Mori, a series of ink drawings on paper.">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/studio/art/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Memento Mori · 7EightMade Studio">
+  <meta property="og:description" content="Ink on paper, 2026. Dom's own drawings.">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/studio/og.png">
+  <meta name="theme-color" content="#0E0D0C">
+  <link rel="icon" href="../../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../brand/fonts.css">
+  <link rel="stylesheet" href="../studio.css">
+  <style>
+    .arthead { position: relative; padding: 64px 0 18px; overflow: hidden; }
+    .arthead::before { content: ""; position: absolute; right: -10%; top: -30%; width: 60vw; height: 60vw; max-width: 760px; max-height: 760px; background: radial-gradient(closest-side, rgba(238,122,60,.16), transparent); pointer-events: none; }
+    .arthead .wrap { position: relative; }
+    .arthead h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(64px, 13vw, 168px); line-height: .86; margin: 16px 0 10px; }
+    .arthead .oneliner { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 3vw, 32px); line-height: 1.2; margin-bottom: 12px; }
+    .arthead .lead { margin-bottom: 4px; }
+    .series { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; border-bottom: 1px solid var(--line); padding: 40px 0 12px; }
+    .series h2 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(28px, 4vw, 40px); }
+    .series span { color: var(--muted); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; margin-top: 22px; }
+    .piece { display: block; width: 100%; background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; cursor: zoom-in; text-align: left; color: var(--ink); padding: 0; font: inherit; transition: border-color .2s, transform .2s; }
+    .piece:hover { border-color: var(--line2); transform: translateY(-2px); }
+    .piece img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; background: #f2ece2; }
+    .piece span { display: block; padding: 10px 12px 12px; }
+    .piece b { display: block; font-family: var(--serif); font-style: italic; font-size: 17px; font-weight: 500; }
+    .piece small { color: var(--muted); font-size: 12px; }
+    .soon { margin-top: 20px; padding: 26px; border: 1px dashed var(--line2); border-radius: 18px; color: var(--muted); }
+    .soon b { display: block; color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+    .lb { position: fixed; inset: 0; z-index: 60; background: rgba(8,7,6,.95); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 16px 20px; }
+    .lb[hidden] { display: none; }
+    .lb img { max-width: 100%; max-height: calc(100vh - 170px); object-fit: contain; border-radius: 6px; }
+    .lb__cap { margin-top: 12px; text-align: center; }
+    .lb__cap b { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 20px; }
+    .lb__cap small { display: block; color: var(--muted); }
+    .lb button { position: absolute; background: rgba(242,236,226,.08); color: var(--ink); border: 1px solid var(--line2); border-radius: 999px; width: 48px; height: 48px; font-size: 20px; cursor: pointer; }
+    .lb__close { top: 12px; right: 12px; } .lb__prev { left: 12px; top: 50%; } .lb__next { right: 12px; top: 50%; }
+    @media (prefers-reduced-motion: reduce) { .piece { transition: none; } .piece:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="snav">
+    <div class="snav__in">
+      <a class="snav__brand" href="../"><b>7EightMade</b> Studio</a>
+      <nav class="snav__links" aria-label="Studio">
+        <a href="../#works">Works</a>
+        <a href="../#apps">Apps</a>
+        <a href="./" aria-current="page">Art</a>
+        <a href="../#about">About</a>
+        <span class="snav__sep" aria-hidden="true"></span>
+        <a class="snav__back" href="../../">← 7EightMade</a>
+      </nav>
+      <a class="pill pill--fill snav__cta" href="../../#contact">Book an audit</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="arthead" aria-labelledby="artH">
+      <div class="wrap">
+        <a class="backlink" href="../">← Studio</a>
+        <h1 id="artH">Art</h1>
+        <p class="oneliner">Dom's own work, hung on its own wall.</p>
+        <p class="lead">The first series is Memento Mori, ink on paper. Tap a drawing to see it large; use the arrow keys or swipe to move through the series.</p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section aria-labelledby="mmH">
+        <div class="series"><h2 id="mmH">Memento Mori</h2><span id="count">Ink on paper · 2026</span></div>
+        <div id="gallery" class="gallery" hidden></div>
+        <div id="soon" class="soon"><b>First pieces soon.</b>Dom's own work will hang here.</div>
+      </section>
+      <p style="margin-top:40px"><a class="backlink" href="../">← Studio</a></p>
+    </div>
+  </main>
+
+  <footer class="sfoot">
+    <div class="sfoot__in">
+      <div class="sfoot__links"><a href="../">← Studio</a><a href="../#apps">All apps</a><a href="../../">← 7EightMade</a></div>
+      <span class="sfoot__proverb">Fall down seven. Stand up eight.</span>
+    </div>
+  </footer>
+
+  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Artwork">
+    <button class="lb__close" type="button" aria-label="Close">✕</button>
+    <button class="lb__prev" type="button" aria-label="Previous">‹</button>
+    <img id="lbImg" alt="">
+    <div class="lb__cap"><b id="lbTitle"></b><small id="lbMeta"></small></div>
+    <button class="lb__next" type="button" aria-label="Next">›</button>
+  </div>
+
+  <script>
+  (function () {
+    // Gallery reads art.json in this folder (title, image, optional year, medium, alt). Same format as before.
+    const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const gal = document.getElementById("gallery"), soon = document.getElementById("soon"), lb = document.getElementById("lb");
+    let pieces = [], at = 0, lastFocus = null;
+    fetch("art.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : []).then(list => {
+      pieces = (Array.isArray(list) ? list : (list && list.pieces) || []).filter(p => p && p.title && p.image);
+      if (!pieces.length) return;
+      document.getElementById("count").textContent = "Ink on paper · 2026 · " + pieces.length + " drawings";
+      gal.innerHTML = pieces.map((p, i) => `<button class="piece" type="button" data-i="${i}" aria-label="${esc(p.title)}, ${i + 1} of ${pieces.length}: ${esc(p.alt || p.title)}"><img src="${esc(p.image)}" alt="${esc(p.alt || p.title)}" loading="lazy"><span><b>${esc(p.title)}</b><small>${esc([p.year, p.medium].filter(Boolean).join(" · "))}</small></span></button>`).join("");
+      gal.hidden = false; soon.hidden = true;
+      gal.querySelectorAll(".piece").forEach(b => b.addEventListener("click", () => open(+b.dataset.i)));
+    }).catch(() => {});
+    function show(i) {
+      at = (i + pieces.length) % pieces.length; const p = pieces[at];
+      const img = document.getElementById("lbImg"); img.src = p.image; img.alt = p.alt || p.title;
+      document.getElementById("lbTitle").textContent = p.title;
+      document.getElementById("lbMeta").textContent = [p.year, p.medium, (at + 1) + " / " + pieces.length].filter(Boolean).join(" · ");
+      lb.querySelector(".lb__prev").hidden = lb.querySelector(".lb__next").hidden = pieces.length < 2;
+    }
+    function open(i) { lastFocus = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; lb.querySelector(".lb__close").focus(); }
+    function close() { lb.hidden = true; document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+    lb.querySelector(".lb__close").onclick = close;
+    lb.querySelector(".lb__prev").onclick = () => show(at - 1);
+    lb.querySelector(".lb__next").onclick = () => show(at + 1);
+    lb.addEventListener("click", e => { if (e.target === lb) close(); });
+    document.addEventListener("keydown", e => {
+      if (lb.hidden) return;
+      if (e.key === "Escape") close(); else if (e.key === "ArrowLeft") show(at - 1); else if (e.key === "ArrowRight") show(at + 1);
+      else if (e.key === "Tab") { const f = [...lb.querySelectorAll("button:not([hidden])")]; const i = f.indexOf(document.activeElement); if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); } else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); } }
+    });
+    let sx = null; lb.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); sx = null; });
+  })();
+  </script>
+</body>
+</html>

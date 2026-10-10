@@ -3,95 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vortex Breath: one free minute | 7EightMade</title>
+  <title>Vortex Breath: one free minute | 7EightMade Studio</title>
   <meta name="description" content="A free one-minute breath. Inhale and exhale through the Fibonacci cadence, 13, 8, 5, 3, 2, 1, and follow the golden spiral into stillness.">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/vortex-breath/">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Vortex Breath: one free minute">
   <meta property="og:description" content="13, 8, 5, 3, 2, 1. Follow the spiral in. A free 7EightMade breath.">
-  <meta name="theme-color" content="#0e0d0c">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/vortex-breath/preview.webp">
+  <meta name="theme-color" content="#0E0D0C">
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
+  <link rel="stylesheet" href="../studio/studio.css">
   <style>
-    :root { --ink:#f1ebe1; --bg:#0e0d0c; --bg2:#171513; --muted:#a59c90; --line:rgba(241,235,225,.12); --cin:#d2452f; --cin-soft:rgba(210,69,47,.18); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { min-height:100vh; font-family:Inter,ui-sans-serif,system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; }
-    a { color:var(--cin); }
-    .nav { position:sticky; top:0; z-index:10; background:rgba(14,13,12,.9); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
-    .nav__inner { max-width:860px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    .brand { text-decoration:none; color:var(--ink); font-family:Fraunces,Georgia,serif; font-weight:600; font-size:20px; }
-    .brand b { color:var(--cin); }
-    .nav__links { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
-    .nav__links a { font-size:13px; font-weight:500; color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:8px; min-height:44px; display:inline-flex; align-items:center; }
-    .nav__links a[aria-current="page"] { color:var(--ink); }
-    .nav__links a:hover { color:var(--ink); background:rgba(241,235,225,.06); }
-    .wrap { max-width:860px; margin:0 auto; padding:48px 24px 80px; }
-    .eyebrow { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--cin); margin-bottom:14px; }
-    h1 { font-family:Fraunces,Georgia,serif; font-size:clamp(38px,7.5vw,64px); font-weight:600; letter-spacing:-.03em; line-height:1.03; margin-bottom:16px; }
-    h2 { font-family:Fraunces,Georgia,serif; font-size:clamp(26px,4.5vw,36px); font-weight:600; letter-spacing:-.02em; line-height:1.1; margin:64px 0 14px; }
-    .lead { font-size:18px; color:var(--muted); max-width:46ch; margin-bottom:26px; }
-    .prose { max-width:62ch; }
-    .prose p { margin-bottom:14px; font-size:16px; }
-    .prose em { color:var(--cin); font-style:normal; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:11px 20px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; background:var(--cin); color:#fff; border:0; cursor:pointer; font-family:inherit; }
-    .btn--ghost { background:transparent; color:var(--ink); border:1px solid rgba(241,235,225,.25); }
-    .btn[aria-pressed="true"] { background:var(--ink); color:var(--bg); }
-    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; }
-
-    .instrument { background:radial-gradient(100% 80% at 50% 40%, var(--cin-soft), transparent 70%), var(--bg2); border:1px solid var(--line); border-radius:22px; padding:22px 18px; text-align:center; }
-    .stage { position:relative; width:min(420px, 100%); margin:0 auto; aspect-ratio:1; }
-    .stage svg { width:100%; height:100%; display:block; }
-    .readout { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; }
-    .readout b { font-family:Fraunces,Georgia,serif; font-size:clamp(46px,12vw,72px); font-weight:600; line-height:1; font-variant-numeric:tabular-nums; text-shadow:0 2px 20px rgba(0,0,0,.6); }
-    .readout span { margin-top:6px; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); }
-    .cadence { display:flex; justify-content:center; gap:8px; margin:6px 0 16px; list-style:none; flex-wrap:wrap; }
-    .cadence li { min-width:42px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); font-family:Fraunces,Georgia,serif; font-size:17px; color:var(--muted); transition:all .3s; }
-    .cadence li.is-done { opacity:.35; }
-    .cadence li.is-on { color:var(--ink); border-color:var(--cin); background:var(--cin-soft); }
-    .cadence li.is-off { display:none; }
-    .meta { margin-top:12px; color:var(--muted); font-size:13px; min-height:1.5em; }
-    .bar { height:3px; background:rgba(241,235,225,.08); border-radius:99px; overflow:hidden; max-width:420px; margin:14px auto 0; }
-    .bar span { display:block; height:100%; width:0; background:var(--cin); }
-
-    .cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0; }
-    .card { background:var(--bg2); border:1px solid var(--line); border-radius:16px; padding:18px; }
-    .card strong { display:block; font-family:Fraunces,Georgia,serif; font-size:18px; margin-bottom:6px; }
-    .card p { font-size:14px; color:var(--muted); }
-    .figure { background:var(--bg2); border:1px solid var(--line); border-radius:18px; padding:18px; margin:18px 0 8px; }
-    .figure svg { width:100%; height:auto; display:block; }
-    .cap { font-size:13px; color:var(--muted); margin-top:8px; }
-    form { display:grid; gap:12px; max-width:560px; margin-top:16px; }
-    label span { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
-    input, textarea { width:100%; font:inherit; color:var(--ink); background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
-    textarea { resize:vertical; min-height:110px; }
-    .fine { font-size:13px; color:var(--muted); }
-    .foot { margin-top:48px; font-size:13px; color:var(--muted); }
-    .foot a { text-decoration:none; }
-    @media (max-width:640px) { .cards { grid-template-columns:1fr; } }
-    @media (max-width:640px) { .nav { position:static; } .nav__inner { padding:10px 16px; gap:6px; } .nav__links { flex-wrap:nowrap; overflow-x:auto; width:100%; scrollbar-width:none; } .nav__links a { white-space:nowrap; padding:8px 10px; } }
+    .demo { --ink:#f1ebe1; --muted:#a59c90; --line:rgba(241,235,225,.12); --cin:#d2452f; --cin-soft:rgba(210,69,47,.18); --bg:#0e0d0c; --bg2:#171513; }
+    .demo .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:11px 20px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; background:var(--cin); color:#fff; border:0; cursor:pointer; font-family:inherit; }
+    .demo .btn--ghost { background:transparent; color:var(--ink); border:1px solid rgba(241,235,225,.25); }
+    .demo .btn[aria-pressed="true"] { background:var(--ink); color:var(--bg); }
+    .demo .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; }
+    .demo .instrument { background:radial-gradient(100% 80% at 50% 40%, var(--cin-soft), transparent 70%), var(--bg2); border:1px solid var(--line); border-radius:22px; padding:22px 18px; text-align:center; }
+    .demo .stage { position:relative; width:min(420px, 100%); margin:0 auto; aspect-ratio:1; }
+    .demo .stage svg { width:100%; height:100%; display:block; }
+    .demo .readout { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; }
+    .demo .readout b { font-family:Fraunces,Georgia,serif; font-size:clamp(46px,12vw,72px); font-weight:600; line-height:1; font-variant-numeric:tabular-nums; text-shadow:0 2px 20px rgba(0,0,0,.6); }
+    .demo .readout span { margin-top:6px; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); }
+    .demo .cadence { display:flex; justify-content:center; gap:8px; margin:6px 0 16px; list-style:none; flex-wrap:wrap; }
+    .demo .cadence li { min-width:42px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); font-family:Fraunces,Georgia,serif; font-size:17px; color:var(--muted); transition:all .3s; }
+    .demo .cadence li.is-done { opacity:.35; }
+    .demo .cadence li.is-on { color:var(--ink); border-color:var(--cin); background:var(--cin-soft); }
+    .demo .cadence li.is-off { display:none; }
+    .demo .meta { margin-top:12px; color:var(--muted); font-size:13px; min-height:1.5em; }
+    .demo .bar { height:3px; background:rgba(241,235,225,.08); border-radius:99px; overflow:hidden; max-width:420px; margin:14px auto 0; }
+    .demo .bar span { display:block; height:100%; width:0; background:var(--cin); }
+    .demo .figure { background:var(--bg2); border:1px solid var(--line); border-radius:18px; padding:18px; margin:18px 0 8px; }
+    .demo .figure svg { width:100%; height:auto; display:block; }
+    .demo .cap { font-size:13px; color:var(--muted); margin-top:8px; }
+    .demo .instrument { margin-top: 34px; }
+    .demo .demo__h { font: 700 11px var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .demo .figure svg text { font-family: Inter, sans-serif; }
   </style>
 </head>
-<body>
-  <nav class="nav" aria-label="Site">
-    <div class="nav__inner">
-      <a class="brand" href="../" aria-label="7EightMade main menu"><b>7</b>EightMade</a>
-      <div class="nav__links">
-        <a href="../">Main menu</a>
-        <a href="../studio/">Studio</a>
-        <a href="./" aria-current="page">Vortex</a>
-        <a href="../archipelago/">Atlas</a>
-        <a href="../till/">Till</a>
-        <a href="../dichotomy-zeno/">Zeno</a>
-        <a href="../ship-of-theseus/">Theseus</a>
-      </div>
+<body class="intro" style="--accent:#D2452F;--on-accent:#FFFFFF;--accent-text:#E8806C">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="snav">
+    <div class="snav__in">
+      <a class="snav__brand" href="../studio/"><b>7EightMade</b> Studio</a>
+      <nav class="snav__links" aria-label="Studio">
+        <a href="../studio/#works">Works</a>
+        <a href="../studio/#apps">Apps</a>
+        <a href="../studio/art/">Art</a>
+        <a href="../studio/#about">About</a>
+        <span class="snav__sep" aria-hidden="true"></span>
+        <a class="snav__back" href="../">← 7EightMade</a>
+      </nav>
+      <a class="pill pill--fill snav__cta" href="../#contact">Book an audit</a>
     </div>
-  </nav>
+  </header>
 
-  <main class="wrap">
-    <p class="eyebrow">A closed circle · Free</p>
-    <h1>One minute. Follow it in.</h1>
-    <p class="lead">Breathe in and out with the spiral. Each breath is shorter than the last, 13 seconds down to 1, until there's nothing left to count.</p>
-
-    <section class="instrument" aria-label="Vortex Breath instrument">
-      <ul class="cadence" id="cadence" aria-label="Breath lengths in seconds"></ul>
+  <main id="main">
+    <section class="intro-hero" aria-labelledby="appH">
+      <div class="wrap">
+        <div class="intro-hero__text">
+        <a class="backlink" href="../studio/">← Studio</a>
+        <p class="eyebrow" style="margin-top:18px">Wellness · A closed circle · Free</p>
+        <h1 id="appH">Vortex Breath</h1>
+        <p class="oneliner">One minute. Follow it in.</p>
+        <div class="row">
+          <a class="btn-open" href="practice/">Open the app <span aria-hidden="true">→</span></a>
+        </div>
+        </div>
+        <div class="demo">
+          <section class="instrument" aria-label="Vortex Breath live preview">
+            <p class="demo__h">Live preview · a quiet version, right here</p>
+<ul class="cadence" id="cadence" aria-label="Breath lengths in seconds"></ul>
       <div class="stage">
         <svg viewBox="-200 -200 400 400" aria-hidden="true">
           <defs>
@@ -107,43 +90,86 @@
       <div class="row" style="margin-top:16px">
         <button class="btn" type="button" id="go">Begin</button>
         <button class="btn btn--ghost" type="button" id="soft" aria-pressed="false">Softer start (8 to 1)</button>
-        <a class="btn btn--ghost" href="./practice/">Full app, with sound</a>
+        <a class="btn btn--ghost" href="practice/">Full app, with sound</a>
       </div>
       <p class="meta" id="meta">64 seconds. Eyes can stay open.</p>
+          </section>
+        </div>
+      </div>
     </section>
 
-    <section class="prose">
-      <h2>The part that is explained</h2>
-      <p>The cadence is the Fibonacci sequence, run backwards: <em>13, 8, 5, 3, 2, 1</em>. In the Fibonacci sequence, 1, 1, 2, 3, 5, 8, 13, each number is the sum of the two before it. You breathe in for 13 seconds and out for 13, then in for 8 and out for 8, and so on down to 1.</p>
-      <p>The six numbers add up to 32, and every number is used twice, once in and once out. So the whole thing takes exactly <em>64 seconds</em>, which is about one minute. The softer start skips the 13 and takes 38 seconds.</p>
-    </section>
-    <div class="figure">
-      <svg viewBox="0 0 640 150" id="steps" aria-label="Bars for 13, 8, 5, 3, 2 and 1 seconds, each used for one inhale and one exhale"></svg>
-      <p class="cap">Every breath is both an inhale and an exhale of the same length. The bars shrink toward stillness.</p>
+    <div class="wrap">
+      <section class="isec" aria-labelledby="whatH">
+        <h2 id="whatH">What it does</h2>
+        <div class="prose">
+          <p>Breathe in and out with the spiral. Each breath is shorter than the last, 13 seconds down to 1, until there's nothing left to count.</p>
+          <p>The cadence is the Fibonacci sequence, run backwards: <em>13, 8, 5, 3, 2, 1</em>. In the Fibonacci sequence, 1, 1, 2, 3, 5, 8, 13, each number is the sum of the two before it. You breathe in for 13 seconds and out for 13, then in for 8 and out for 8, and so on down to 1.</p>
+          <p>The six numbers add up to 32, and every number is used twice, once in and once out. So the whole thing takes exactly <em>64 seconds</em>, which is about one minute. The softer start skips the 13 and takes 38 seconds.</p>
+        </div>
+        <div class="demo">
+          <div class="figure">
+            <svg viewBox="0 0 640 150" id="steps" aria-label="Bars for 13, 8, 5, 3, 2 and 1 seconds, each used for one inhale and one exhale"></svg>
+            <p class="cap">Every breath is both an inhale and an exhale of the same length. The bars shrink toward stillness.</p>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>Why Fibonacci</strong><p>Divide any Fibonacci number by the one before it and you get closer and closer to 1.618…, the golden ratio, φ. So each breath here is roughly 0.618 of the one before it.</p></div>
+          <div class="fact"><strong>Why a spiral</strong><p>A golden spiral grows by φ every quarter turn. The vortex is drawn from that ratio, so it tightens at the same rate the breaths shorten.</p></div>
+          <div class="fact"><strong>Why even</strong><p>Inhale and exhale always match. There's no holding and no forcing, only a steady in and out that gets shorter.</p></div>
+          <div class="fact"><strong>Why one minute</strong><p>It's short enough to do between two other things, which makes it easy to come back to.</p></div>
+        </div>
+
+      </section>
+
+      <section class="isec" aria-labelledby="howH">
+        <h2 id="howH">How it works</h2>
+        <ol class="steps">
+        <li><b>Press Begin</b><span>64 seconds. Eyes can stay open.</span></li>
+        <li><b>In as it opens, out as it closes</b><span>Follow the spiral. Inhale and exhale are always the same length.</span></li>
+        <li><b>Each breath is shorter</b><span>13, 8, 5, 3, 2, 1, until there is nothing left to count. The softer start begins at 8.</span></li>
+        </ol>
+      </section>
+
+      <div class="cta-band">
+        <p>The full app has sound. One minute, start to still.</p>
+        <a class="btn-open" href="practice/">Open the app <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="fine" style="margin-top:18px">This is a calm-down exercise, not medical advice. If anything feels off, stop and breathe normally.</p>
+      <p class="fine" style="margin-top:6px">The rest is not explained. If this found you, you already know whether to <a href="mailto:nuguidd@icloud.com?subject=Something%20of%20my%20own">write</a>.</p>
+
+      <section class="more" aria-labelledby="moreH">
+        <h2 class="isec-h" id="moreH" style="font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(30px,4.6vw,48px);line-height:1;margin-bottom:18px">More from the Studio</h2>
+        <div class="cards">
+        <article class="card card--atlas">
+          <a class="card__img" href="../archipelago/" tabindex="-1" aria-hidden="true"><img src="../archipelago/preview.webp" alt="" width="1280" height="800" loading="lazy"></a>
+          <div class="card__body">
+            <p class="card__kick">Maps &amp; data · Philippines map</p>
+            <h3 class="card__title"><a href="../archipelago/">Atlas</a></h3>
+            <p>Seventeen regions, five readings. Switch the metric and the whole map recolors. Tap any region.</p>
+            <div class="card__links"><a class="pill pill--fill" href="../archipelago/app.html">Open the app</a><a class="pill" href="../archipelago/">About</a></div>
+          </div>
+        </article>
+        <article class="card card--zeno">
+          <a class="card__img" href="../dichotomy-zeno/" tabindex="-1" aria-hidden="true"><img src="../dichotomy-zeno/preview.webp" alt="" width="1280" height="800" loading="lazy"></a>
+          <div class="card__body">
+            <p class="card__kick">Paradoxes · Zeno&#x27;s paradox</p>
+            <h3 class="card__title"><a href="../dichotomy-zeno/">Dichotomy Zeno</a></h3>
+            <p>Halve the gap between your thumb and finger, again and again. It never closes.</p>
+            <div class="card__links"><a class="pill pill--fill" href="https://dichotomy-zeno.grok.me" target="_blank" rel="noopener">Open the app<span class="sr-only"> (opens in a new tab)</span></a><a class="pill" href="../dichotomy-zeno/">About</a></div>
+          </div>
+        </article>
+        </div>
+      </section>
+      <p style="margin-top:34px"><a class="backlink" href="../studio/">← Studio</a></p>
     </div>
-
-    <div class="cards">
-      <div class="card"><strong>Why Fibonacci</strong><p>Divide any Fibonacci number by the one before it and you get closer and closer to 1.618…, the golden ratio, φ. So each breath here is roughly 0.618 of the one before it.</p></div>
-      <div class="card"><strong>Why a spiral</strong><p>A golden spiral grows by φ every quarter turn. The vortex on this page is drawn from that ratio, so it tightens at the same rate the breaths shorten.</p></div>
-      <div class="card"><strong>Why even</strong><p>Inhale and exhale always match. There's no holding and no forcing, only a steady in and out that gets shorter.</p></div>
-      <div class="card"><strong>Why one minute</strong><p>It's short enough to do between two other things, which makes it easy to come back to.</p></div>
-    </div>
-    <p class="fine">This is a calm-down exercise, not medical advice. If anything feels off, stop and breathe normally.</p>
-
-    <section class="prose">
-      <h2>The rest is not explained</h2>
-      <p>If this found you, you already know whether to write.</p>
-    </section>
-    <form id="letter">
-      <label><span>Your name</span><input name="name" autocomplete="name"></label>
-      <label><span>What should exist</span><textarea name="note" required placeholder="…"></textarea></label>
-      <button class="btn" type="submit">Open a letter</button>
-      <p class="fine">This opens your email to <a href="mailto:nuguidd@icloud.com">nuguidd@icloud.com</a> with the note already written.</p>
-    </form>
-
-    <p class="foot"><a href="../">← Main menu</a> · <a href="../archipelago/">Atlas</a> · <a href="../till/">Till</a> · <a href="../dichotomy-zeno/">Zeno</a> · <a href="../ship-of-theseus/">Theseus</a> · Fall down seven. Stand up eight.</p>
   </main>
 
+  <footer class="sfoot">
+    <div class="sfoot__in">
+      <div class="sfoot__links"><a href="../studio/">← Studio</a><a href="../studio/#apps">All apps</a><a href="../studio/art/">Art</a></div>
+      <span class="sfoot__proverb">Fall down seven. Stand up eight.</span>
+    </div>
+  </footer>
   <script>
   (function () {
     const NS = "http://www.w3.org/2000/svg";
@@ -256,14 +282,6 @@
     const l2 = el("text", { x: 40, y: 140, fill: "#a59c90", "font-size": 12, "font-family": "Inter, sans-serif" }, steps); l2.textContent = "out";
     const l3 = el("text", { x: 630, y: 140, fill: "#a59c90", "font-size": 12, "text-anchor": "end", "font-family": "Inter, sans-serif" }, steps); l3.textContent = "64 seconds";
 
-    document.getElementById("letter").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const who = String(data.get("name") || "").trim() || "A visitor";
-      const note = String(data.get("note") || "").trim();
-      const body = who + " wrote from the Vortex Breath page.\n\n" + note + "\n";
-      window.location.href = "mailto:nuguidd@icloud.com?subject=" + encodeURIComponent("Something of my own") + "&body=" + encodeURIComponent(body);
-    });
   })();
   </script>
 </body>
