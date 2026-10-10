@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#060609">
+<title>The Dom Times · Live</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<section id="lock" class="lock" aria-label="Locked edition">
+  <div class="lock-card">
+    <div class="lock-top"><span class="dot"></span>swarm <b>dom-times</b> <span class="muted">· private edition · locked</span></div>
+    <h1 class="lock-title"><span class="bar"></span>00 UNLOCK</h1>
+    <p class="lock-sub">who's reading the paper?</p>
+    <form id="lock-form" autocomplete="off">
+      <label for="pass" class="lbl">passphrase</label>
+      <input id="pass" name="pass" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" required>
+      <button id="unlock-btn" type="submit">unlock ▸</button>
+      <p id="lock-msg" class="lock-msg" role="status" aria-live="polite"></p>
+    </form>
+    <p class="lock-foot">decrypts on this device only · nothing is saved</p>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<main id="app" class="app" hidden>
+  <header class="status">
+    <div class="status-l">
+      <span class="k">SWARM</span> <b>dom-times</b>
+      <span class="k">LEGS</span> <b id="st-legs">9</b>
+      <span class="k">TENTACLES</span> <b id="st-tent">16</b>
+      <span class="k">ITEMS READ</span> <b id="st-read">0/0</b>
+      <span class="k">LINKS</span> <b id="st-links" class="c-amber">0</b>
+      <span class="k">FLAGS</span> <b id="st-flags" class="c-pink">0</b>
+      <span class="k hide-s">T</span> <b id="st-t" class="hide-s">0.00</b>
+      <span class="k hide-s">FRAME</span> <b id="st-frame" class="hide-s">0</b>
+    </div>
+    <div class="status-r">
+      <span id="example-badge" class="badge" hidden>EXAMPLE DATA</span>
+      <span id="st-mast" class="mast"></span>
+      <button id="btn-pause" class="ctl" type="button" aria-pressed="false">❚❚ pause</button>
+      <button id="btn-lock" class="ctl" type="button" title="Lock and forget">lock</button>
+    </div>
+  </header>
+
+  <nav id="tabs" class="tabs" role="tablist" aria-label="Sections"></nav>
+
+  <section class="stage" id="stage">
+    <canvas id="cv" aria-label="Crawler visualisation. Tap a cloud to open that section."></canvas>
+    <div class="hud">
+      <h2 class="hud-title"><span class="bar"></span><span id="hud-num">01</span> <span id="hud-name">CALENDAR</span></h2>
+      <p id="hud-q" class="hud-q">where does the day go?</p>
+      <p id="hud-lead" class="hud-lead"></p>
+    </div>
+    <aside id="drawer" class="drawer" hidden aria-live="polite">
+      <div class="drawer-head">
+        <div>
+          <div class="drawer-title"><span class="bar"></span><span id="dr-title"></span></div>
+          <div id="dr-sub" class="drawer-sub"></div>
+        </div>
+        <button id="dr-close" class="ctl" type="button" aria-label="Close section">✕ back to crawl</button>
+      </div>
+      <div id="dr-cards" class="cards"></div>
+    </aside>
+  </section>
+
+  <section class="panels">
+    <div class="panel">
+      <div class="ph"><span>CRAWL LOG</span><span id="log-rate" class="c-purple">0 i/m</span></div>
+      <ol id="log" class="log"></ol>
+    </div>
+    <div class="panel">
+      <div class="ph"><span>SECTIONS</span><span id="sec-count" class="c-purple">9</span></div>
+      <div id="secs" class="secs"></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><span>COVERAGE RADAR</span><span class="c-teal">live</span></div>
+      <canvas id="radar" class="mini"></canvas>
+    </div>
+    <div class="panel">
+      <div class="ph"><span>ITEM HEAT</span><span id="heat-total" class="c-purple">0</span></div>
+      <div id="heat" class="heat"></div>
+      <div class="heat-stats">
+        <div class="hs-k">items per minute</div>
+        <div id="ipm" class="hs-big">0/m</div>
+        <dl class="kv">
+          <dt>read</dt><dd id="kv-read">0</dd>
+          <dt>linked</dt><dd id="kv-linked" class="c-amber">0</dd>
+          <dt>flagged</dt><dd id="kv-flagged" class="c-pink">0</dd>
+          <dt>done</dt><dd id="kv-done" class="c-teal">0</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="ph"><span>DAY SCORE</span><span class="c-teal">live</span></div>
+      <canvas id="spark" class="spark"></canvas>
+      <canvas id="gauge" class="gauge"></canvas>
+      <div class="flagline"><span class="c-pink">flags for Dom · <b id="flag-n">0</b></span><br><span class="muted">act, don't guess</span></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><span>CRAWLER.JS</span><span id="code-rate" class="c-purple">0 l/s</span></div>
+      <pre id="code" class="code"></pre>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
