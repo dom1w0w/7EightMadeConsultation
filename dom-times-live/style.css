@@ -46,6 +46,8 @@ button{font:inherit;color:inherit}
 .badge{background:var(--amber);color:#111;padding:1px 6px;font-weight:700;letter-spacing:.06em}
 .ctl{background:#14141d;border:1px solid #262636;padding:4px 9px;cursor:pointer;font-size:10px;color:#ddd}
 .ctl:hover{border-color:var(--purple)}
+a.ctl{text-decoration:none;display:inline-block;line-height:normal}
+a.ctl:visited{color:#ddd}
 .ctl[aria-pressed="true"]{background:var(--purple-d);border-color:var(--purple-d);color:#fff}
 
 .tabs{display:flex;gap:2px;padding:4px 12px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #0f0f16}
