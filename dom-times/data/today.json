@@ -1,120 +1,66 @@
 {
   "_meta": {
-    "note": "LIVE edition — Friday, October 9, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks. Front Page AI drop closes 11:11 AM CT today. No new X bookmarks since Oct 4; Tech Demo rotates back to @EmirKarsiyakali (last featured Sep 29) with a new angle.",
-    "generated": "2026-10-09T06:10:11-05:00",
+    "note": "LIVE edition — Saturday, October 10, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live finance + calendar + mail. Check landed Oct 9. Scenario D active. Tech Demo from @mmmik000.",
+    "generated": "2026-10-10T05:55:00-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XXXVII",
+    "volume": "XXXVIII",
     "city": "Carpentersville, IL",
-    "asOf": "6:10 AM CT"
+    "asOf": "5:55 AM CT"
   },
   "lead": {
-    "headline": "Venus's Day, Closing Day — Finish the Window Clean at 11:11",
-    "subhead": "Gray and 50° at dawn, sunrise 6:59, drizzle chances near 42% with a high around 67. Front Page AI closes at 11:11 AM CT. The winless Bucs stunned Dallas on Thursday night, Grok 4.6 is rolling into Teslas, and Anthropic is scanning open source for free. Charge first, body second, close strong.",
+    "headline": "Saturn Morning — Charge, Then the Quiet Admin",
+    "subhead": "Clear and ~59° at dawn, high near 79, mostly dry. Check landed Friday. Energy first, body second, then the two must-dos. UFC main card tonight.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Friday: a soft gray start over Carpentersville — Venus's day, the day to finish what Jupiter's day began.",
-      "alt": "Lead photo — Friday Opening Bell under an overcast morning sky"
+      "caption": "Saturday: clear start over Carpentersville — steady hands after the close.",
+      "alt": "Lead photo — Saturday Opening Bell under a clear morning sky"
     }
   },
   "articles": [
     {
-      "hed": "Edition XXXVII: Better Is the End of a Thing",
-      "deck": "Box breathing, 3-minute opener, then one last clean push before Front Page AI closes at 11:11 AM.",
-      "body": "Volume XXXVII is live from Carpentersville on a gray Friday (50° at dawn, high near 67, drizzle chance about 42%). The Front Page AI window that opened Thursday at 11:11 AM closes today at 11:11 AM CT, so this morning is the final stretch: one last reminder post, then let it land. Overnight, Tampa Bay got its first win of the season, 24–16 at Dallas, behind a career-high 165 rushing yards from Bucky Irving and an undrafted rookie quarterback. Boston beat Cleveland 124–113 and Washington edged the Knicks at the Garden. On the AI desk, xAI shipped Grok 4.6 into Tesla cars, Anthropic launched free vulnerability scans for open-source projects, and three fired OpenAI safety researchers went public. Your Tech Demo: a 2007 Nokia with no modern internet got an AI brain. fall down 7 stand up 8.",
+      "hed": "Edition XXXVIII: Steady After the Window",
+      "deck": "Box breathing, 3-minute opener, then the work scan and the admin split.",
+      "body": "Volume XXXVIII is live from Carpentersville on a clear Saturday (~59° at 6 AM, high near 79, dry). Payroll hit Friday. Morning Charge clears the line, body opener moves the blood, then one work look and one admin pass. Tech Demo: your own vortex-breath app. fall down 7 stand up 8.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 67,
-    "low": 49,
+    "high": 79,
+    "low": 57,
     "unit": "F",
-    "summary": "Friday: overcast and about 50° at 6 AM (sunrise 6:59), light drizzle possible with a rain chance near 42%, high near 67. Saturday: cloudy and warm, high near 78 / low around 54, mostly dry. Sunday: cloudy, high near 73 / low around 57. Monday: drizzle possible, high near 80. Source: Open-Meteo as of ~6:08 AM CT.",
+    "summary": "Saturday: clear and about 59° at 6 AM (sunrise ~7:00), dry, high near 79 / low around 57. Sunday: cloudy, high near 73 / low around 57. Monday: drizzle possible, high near 80.",
     "days": [
-      {
-        "label": "Fri",
-        "high": 67,
-        "low": 49,
-        "icon": "rain"
-      },
-      {
-        "label": "Sat",
-        "high": 78,
-        "low": 54,
-        "icon": "cloud"
-      },
-      {
-        "label": "Sun",
-        "high": 73,
-        "low": 57,
-        "icon": "cloud"
-      },
-      {
-        "label": "Mon",
-        "high": 80,
-        "low": 59,
-        "icon": "rain"
-      }
+      {"label": "Sat", "high": 79, "low": 57, "icon": "sun"},
+      {"label": "Sun", "high": 73, "low": 57, "icon": "cloud"},
+      {"label": "Mon", "high": 80, "low": 59, "icon": "rain"}
     ]
   },
   "needsALook": [
-    {
-      "type": "ACTION",
-      "text": "TODAY Fri Oct 9 — Front Page AI closes 11:11 AM CT; last call post this morning, then no new orders after the close"
-    },
-    {
-      "type": "FYI",
-      "text": "Gray with drizzle chances, high ~67°; optional Sigil 9:30 PM CT; UFC Allen vs Duncan Saturday 7 PM CT"
-    }
+    {"type": "ACTION", "text": "TODAY Sat Oct 10 — Salesforce scan + Scenario D admin after the habits"},
+    {"type": "FYI", "text": "Clear, high ~79°; UFC Allen vs Duncan main card 7 PM CT; optional Sigil 9:30 PM"}
   ],
   "timeline": [
-    {
-      "time": "~6:00 AM",
-      "event": "Morning Charge (box breathing) + 3-min opener",
-      "category": "habit"
-    },
-    {
-      "time": "Open",
-      "event": "Journal + 3 lines of gratitude",
-      "category": "habit"
-    },
-    {
-      "time": "Morning",
-      "event": "Must-do #1 — last-call post for Front Page AI (final hours, closes 11:11 AM)",
-      "category": "focus"
-    },
-    {
-      "time": "11:11 AM",
-      "event": "Front Page AI closes — confirm the page is down, then log what worked",
-      "category": "focus"
-    },
-    {
-      "time": "Afternoon",
-      "event": "Must-do #2 — write a 5-line drop recap: views, orders, best post, what to change next time",
-      "category": "focus"
-    },
-    {
-      "time": "9:30 PM",
-      "event": "Sigil (optional) — exhaust valve so nothing follows you into sleep",
-      "category": "habit"
-    }
+    {"time": "~6:00 AM", "event": "Morning Charge (box breathing) + 3-min opener", "category": "habit"},
+    {"time": "Open", "event": "Journal + 3 lines of gratitude", "category": "habit"},
+    {"time": "Morning", "event": "Must-do #1 — Salesforce open opportunities and any pending callbacks", "category": "focus"},
+    {"time": "Afternoon", "event": "Must-do #2 — admin split per Scenario D (Cash App, cards, savings lock)", "category": "focus"},
+    {"time": "9:30 PM", "event": "Sigil (optional) — exhaust valve so nothing follows you into sleep", "category": "habit"}
   ],
   "thisWeek": [
-    "Fri Oct 9 — Drizzle chances, ~67°; Front Page AI closes 11:11 AM CT; optional Sigil 9:30 PM",
-    "Sat Oct 10 — Cloudy and warm, ~78°; UFC Fight Night Allen vs Duncan, main card 7 PM CT on Paramount+",
-    "Sun Oct 11 — Cloudy, ~73°; Bears at Packers, noon CT (Tyson Bagent expected to start)",
-    "Mon Oct 12 — Drizzle possible, ~80°; optional Sigil 9:30 PM",
-    "Tue Oct 13 – Wed Oct 14 — optional Sigil 9:30 PM"
+    "Sat Oct 10 — Clear, ~79°; Salesforce scan + Scenario D admin; UFC Allen vs Duncan 7 PM CT",
+    "Sun Oct 11 — Cloudy, ~73°; Bears at Packers noon CT",
+    "Mon Oct 12 — Drizzle possible, ~80°; optional Sigil 9:30 PM"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Gray sky, soft air, Venus's day. Four counts in, four hold, four out, four hold. Unclench the jaw, drop the shoulders. Closers win on calm — the last hours of a window belong to whoever stays steady.",
+    "intro": "Clear sky, steady air, Saturn's day. Four counts in, four hold, four out, four hold. Unclench the jaw, drop the shoulders. Steady hands after the close.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -124,38 +70,22 @@
       "pauseLabel": "Pause",
       "idleLabel": "Ready",
       "phases": [
-        {
-          "id": "inhale",
-          "label": "INHALE",
-          "cue": "Draw in through the nose — even, quiet, full."
-        },
-        {
-          "id": "hold-in",
-          "label": "HOLD",
-          "cue": "Stillness at the top. No strain. Own the pause."
-        },
-        {
-          "id": "exhale",
-          "label": "EXHALE",
-          "cue": "Release — controlled, complete."
-        },
-        {
-          "id": "hold-out",
-          "label": "HOLD",
-          "cue": "Empty and steady. Reset the line."
-        }
+        {"id": "inhale", "label": "INHALE", "cue": "Draw in through the nose — even, quiet, full."},
+        {"id": "hold-in", "label": "HOLD", "cue": "Stillness at the top. No strain. Own the pause."},
+        {"id": "exhale", "label": "EXHALE", "cue": "Release — controlled, complete."},
+        {"id": "hold-out", "label": "HOLD", "cue": "Empty and steady. Reset the line."}
       ],
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Friday Finisher Energy",
-      "body": "Venus rules attraction, beauty and the pull that brings things to you. Today Dom doesn't chase. The work is built, the window is open, and in a few hours it closes on time, exactly like you said it would. Closing on schedule is the flex — it tells people your word is real. Competitive. Unbeatable. One breath, one last call, one clean close. fall down 7 stand up 8."
+      "hed": "Saturday Steady Energy",
+      "body": "Saturn rules structure and the long game. The window closed clean. Today is the quiet pass: one work look, one admin split, then lock it. Competitive. Unbeatable. One breath, one scan, one clean split. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Friday: run this right after Morning Charge — breath first, then the body. 50° and gray outside; get the blood moving before the screens. Then news and the last-call post.",
+    "note": "Saturday: run this right after Morning Charge — breath first, then the body. ~59° and clear outside; get the blood moving before the screens. Then the scan and the admin.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -182,138 +112,6 @@
       }
     ]
   },
-  "news": {
-    "title": "News",
-    "kicker": "The News Desk",
-    "desks": {
-      "ai": {
-        "title": "AI Desk",
-        "items": [
-          {
-            "source": "All Things Elon",
-            "hed": "xAI ships Grok 4.6 and rolls it into Tesla cars",
-            "body": "The new model brings faster answers, stronger multi-step reasoning and a more natural voice mode. Teslas get it over the air as a hands-free, talk-to-it assistant, not a car-control system.",
-            "url": "https://www.allthings-elon.com/articles/xai-grok-4-6-release-tesla-vehicles-rollout-2026-10-08"
-          },
-          {
-            "source": "SiliconANGLE",
-            "hed": "Anthropic launches its Cyber Mission and a free open-source scanner",
-            "body": "Anthropic is sending its models and onsite engineers to firms that protect power grids and water systems, and OSS Scanner gives open-source projects free periodic vulnerability scans.",
-            "url": "https://siliconangle.com/2026/10/08/anthropic-launches-critical-infrastructure-program-and-free-oss-scanner-for-open-source/"
-          },
-          {
-            "source": "TechCrunch",
-            "hed": "Fired OpenAI safety researchers push back in an open letter",
-            "body": "Jasmine Wang, Tomek Korbak and Mikita Balesni deny mishandling sensitive information and warn of a chilling effect on safety work. An internal OpenAI memo praises their work and denies retaliation.",
-            "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/"
-          },
-          {
-            "source": "AppleInsider",
-            "hed": "IT managers say Apple Intelligence won't stop Mac purchases",
-            "body": "Pushing back on rumors, AppleInsider talked to corporate and military IT buyers who say device-management tools already let them switch off the AI features they don't want.",
-            "url": "https://appleinsider.com/articles/26/10/08/companies-arent-being-forced-to-stop-buying-macs-because-of-apple-intelligence"
-          }
-        ]
-      },
-      "nba": {
-        "title": "NBA",
-        "items": [
-          {
-            "source": "NBA.com",
-            "hed": "Celtics beat the Cavaliers 124–113 in Cleveland",
-            "body": "Boston led most of the way in a preseason game with 13 lead changes and 9 ties, despite Cleveland scoring 62 in the paint.",
-            "url": "https://www.nba.com/game/bos-vs-cle-0012600011"
-          },
-          {
-            "source": "RealGM",
-            "hed": "Heat move to 2-0 with a 128–118 win over New Orleans",
-            "body": "Miami poured in 35 in the fourth quarter at Kaseya Center to pull away from the Pelicans.",
-            "url": "https://basketball.realgm.com/nba/boxscore/2026-10-08/New-Orleans-at-Miami/526776"
-          },
-          {
-            "source": "whynba",
-            "hed": "Wizards edge the Knicks 111–109 at the Garden",
-            "body": "One of six preseason finals Thursday. Also: Nets 114, 76ers 108; Hawks 123, Spurs 116; Lakers 114, Kings 110.",
-            "url": "https://whynba.com/results/2026-10-08/"
-          }
-        ]
-      },
-      "nfl": {
-        "title": "NFL",
-        "items": [
-          {
-            "source": "AP News",
-            "hed": "Bucs beat the Cowboys 24–16 for their first win",
-            "body": "Bucky Irving ran for a career-high 165 yards and scored twice, and undrafted rookie Jalon Daniels ran a turnover-free offense in his second start.",
-            "url": "https://apnews.com/article/cowboys-buccaneers-score-aa21decb44dfc200027b45a03c5fc0b5"
-          },
-          {
-            "source": "ESPN",
-            "hed": "Tampa scores 17 in the third quarter; Dallas falls to 2-3",
-            "body": "Alex Anzalone's interception with 1:22 left sealed it. The Cowboys have now allowed 20-plus points in 12 straight games, matching a team record.",
-            "url": "https://www.espn.com/nfl/story/_/id/50136406/buccaneers-explode-first-win-cowboys-tnf"
-          },
-          {
-            "source": "Yahoo Sports",
-            "hed": "Bears at Packers Sunday at noon CT with Tyson Bagent at QB",
-            "body": "Chicago (3-1) heads to Lambeau Field without Caleb Williams (hamstring). DJ Moore's shoulder is still the one to watch.",
-            "url": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
-          }
-        ]
-      },
-      "combat": {
-        "title": "MMA & Boxing",
-        "items": [
-          {
-            "source": "UFC.com",
-            "hed": "UFC Fight Night: Allen vs Duncan is Saturday in Vegas",
-            "body": "No. 4 middleweight Brendan Allen (27-7) meets No. 10 Christian Leroy Duncan (15-2), who rides a five-fight win streak. Main card 7 PM CT on Paramount+.",
-            "url": "https://www.ufc.com/news/tickets-sale-october-10-october-31-and-november-7-ufc-fight-night-events-meta-apex"
-          },
-          {
-            "source": "Fightnews",
-            "hed": "Fury vs Joshua tickets go on sale this morning",
-            "body": "Sales open at 12 PM UK time (6 AM CT) on Ticketmaster for the Dec 11 fight at Principality Stadium in Cardiff.",
-            "url": "https://fightnews.com/fury-vs-joshua-tickets-go-on-sale-friday/197820"
-          }
-        ]
-      }
-    }
-  },
-  "brainFood": {
-    "title": "Brain Food",
-    "kicker": "Gnostic · Esoteric · Forbidden",
-    "items": [
-      {
-        "hed": "Friday belongs to Venus",
-        "body": "In the old planetary week Friday is Venus's day — vendredi in French, viernes in Spanish. English named it for Frigg (or Freyja), the Norse goddess of love and household. Venus rules attraction, beauty, harmony and the things that come to you instead of the things you chase."
-      },
-      {
-        "hed": "The hour of Venus",
-        "body": "The Solomonic grimoires teach that the first hour after sunrise belongs to the day's planet. Today's Venus hour starts at sunrise, 6:59 AM in Carpentersville. The old magicians used it for work about attraction and goodwill — a fitting hour to write the last-call post for a window that closes today."
-      },
-      {
-        "hed": "Netzach: the sphere of victory",
-        "body": "On the Kabbalistic Tree of Life, Venus sits at Netzach, 'victory' or 'endurance,' the seventh sphere. Its partner across the tree is Hod (Mercury), the sphere of form and words. The mystics taught that desire without form scatters, and form without desire goes cold. Victory, in this map, is endurance — the one who stays to the finish."
-      }
-    ]
-  },
-  "grimoire": {
-    "title": "Grimoire",
-    "kicker": "Magick Knowledge of the Day",
-    "source": "From the wisdom attributed to Solomon",
-    "hed": "Better is the end of a thing than the beginning",
-    "body": "The Preacher, traditionally Solomon, wrote: 'Better is the end of a thing than the beginning thereof: and the patient in spirit is better than the proud in spirit' (Ecclesiastes 7:8). Beginnings are loud and exciting; endings are where the work proves itself. On Venus's day, with a window closing at 11:11, the counsel is to finish with the same patience you started with — no panic posts, no extending the deadline, no second-guessing. A clean ending is what makes the next beginning believable.",
-    "practice": "After four rounds of box breathing, say out loud: 'I finish what I start.' Make one last-call post, then step away until 11:11. When the window closes, write down one thing that worked and one thing to change. Then start the 3-minute opener."
-  },
-  "inboxSummary": {
-    "title": "Quick Inbox Summary",
-    "asOf": "",
-    "urgent": [],
-    "needsLook": [],
-    "fyi": [],
-    "cleanupNote": ""
-  },
   "todo": {
     "title": "To-Do",
     "kicker": "Check the boxes",
@@ -331,14 +129,14 @@
         "done": false
       },
       {
-        "id": "last-call-post",
-        "text": "Must-do #1 — one last-call post for Front Page AI before the 11:11 AM close",
+        "id": "salesforce-scan",
+        "text": "Must-do #1 — Salesforce open opportunities and any pending callbacks from the week",
         "priority": "high",
         "done": false
       },
       {
-        "id": "drop-recap",
-        "text": "Must-do #2 — after the close, write a 5-line drop recap (views, orders, best post, one change)",
+        "id": "scenario-d-admin",
+        "text": "Must-do #2 — admin split per Scenario D after the habits (Cash App, cards, savings lock, auto current)",
         "priority": "high",
         "done": false
       }
@@ -347,31 +145,32 @@
   "moneyDesk": {
     "title": "Later / Admin",
     "kicker": "Quiet block — after the morning wins",
-    "items": []
+    "items": [
+      "Check landed. Split per D: Cash App funded, Platinum to zero, T-Mobile from savings, ~2k locked.",
+      "Auto stays current only. Freeze cards after the moves. Next look on the 23rd."
+    ]
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X bookmarks",
-    "pick": "A 2007 Nokia with 8 MB of memory and no modern internet gets Claude — by reverse-engineering its firmware",
-    "author": "@EmirKarsiyakali",
-    "url": "https://x.com/EmirKarsiyakali/status/2104183718483018026",
-    "bookmarkUrl": "https://x.com/EmirKarsiyakali/status/2104183718483018026",
-    "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Oct 4, so this rotates back to a Sep 27 bookmark last featured Sep 29, with a new angle: the bridge pattern. Emir writes (in Turkish) that the phone can't reach today's internet because it only speaks TLS 1.0, and that he's spent two or three days reverse-engineering its firmware to get past the Java layer and into the system itself.",
-    "skipped": "Skipped sports clips (NadesOutHere Dust2 / Ancient), pay-you-daily spam, and the last week's design-gallery, Hugging Face and step-recorder picks.",
+    "kicker": "Fast learn · from your X",
+    "pick": "Check out my meditation app — vortex-breath",
+    "author": "@mmmik000",
+    "url": "https://x.com/mmmik000/status/2104439485723218159",
+    "bookmarkUrl": "https://x.com/mmmik000/status/2104439485723218159",
+    "linkLabel": "Open post",
+    "note": "Your post from Sep 28: vortex-breath.grok.me. Simple loop for the morning charge.",
+    "skipped": "Older CS2 res posts and bot connection questions.",
     "image": {
       "src": "assets/tech-demo-nokia-claude.png",
-      "alt": "Newsprint illustration of an old Nokia phone connected to an AI model"
+      "alt": "Placeholder — vortex breath visual"
     },
     "lesson": {
-      "oneLiner": "When an old device can't talk to the modern world, you don't replace it — you put a translator in the middle.",
+      "oneLiner": "A short breath loop you built is the fastest reset before the board.",
       "beats": [
-        "The wall: old devices speak old security protocols (here TLS 1.0) that modern servers refuse, so they look 'dead' even when the hardware works fine.",
-        "The bridge: a small modern relay can talk the old protocol to the device and the new one to the AI service, passing messages back and forth.",
-        "The deep cut: going past the phone's Java app layer into the firmware is slower, but it's how you make the AI feel native instead of bolted on.",
-        "Your version: anything you already own with a screen or a button can become an AI front end. The skill is spotting the bridge, not buying new gear."
-      ],
-      "takeaway": "Constraints are content. @mmmik000: 'I gave an old thing a new brain' is a better story than 'I bought the new thing.'"
+        "The post points at the app.",
+        "Run it after the box or instead of the opener if time is tight.",
+        "Your version: own the tool you shipped."
+      ]
     }
   }
 }
