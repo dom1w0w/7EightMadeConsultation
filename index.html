@@ -1449,10 +1449,14 @@
     .nav__drop-link:hover{background:rgba(37,99,255,.08)}
     .nav__drop-title{font-size:13px;font-weight:600}
     .nav__drop-sub{font-size:11px;color:var(--muted);font-weight:500}
+    .nav__dropdown{min-width:220px;max-height:calc(100vh - 90px);overflow:auto}
+    .nav__drop-group{margin:8px 12px 2px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .nav__apps-btn{text-decoration:none}
     .nav--open .nav__item--apps{width:100%}
     .nav--open .nav__apps-btn{width:100%;justify-content:space-between;min-height:44px;padding:12px 14px;font-size:15px;color:var(--ink)}
     .nav--open .nav__dropdown{position:static;width:100%;opacity:1;visibility:visible;pointer-events:auto;transform:none;display:none;box-shadow:none;border:none;background:transparent;padding:0 0 6px 12px}
-    .nav--open .nav__item--apps.is-open .nav__dropdown{display:block}
+    .nav--open .nav__item--apps .nav__dropdown{display:block}
+    .nav--open .nav__apps-btn::after{display:none}
     .nav--open .nav__drop-link{min-height:44px;justify-content:center}
   
   </style>
@@ -1555,7 +1559,7 @@
         <a class="nav__link" href="#process">Process</a>
         <a class="nav__link" href="#pricing">Pricing</a>
         <a class="nav__link" href="#openclaw">OpenClaw</a>
-        <div class="nav__item nav__item--apps" id="navApps"><button class="nav__apps-btn" type="button" id="navAppsBtn" aria-expanded="false" aria-haspopup="true">Apps</button><div class="nav__dropdown" id="navAppsMenu" role="menu"><a class="nav__drop-link" role="menuitem" href="vortex-breath/"><span class="nav__drop-title">Vortex</span><span class="nav__drop-sub">Breath practice</span></a><a class="nav__drop-link" role="menuitem" href="archipelago/"><span class="nav__drop-title">Atlas</span><span class="nav__drop-sub">Philippines map</span></a><a class="nav__drop-link" role="menuitem" href="till/"><span class="nav__drop-title">Till</span><span class="nav__drop-sub">Tap to pay</span></a><a class="nav__drop-link" role="menuitem" href="dichotomy-zeno/"><span class="nav__drop-title">Dichotomy Zeno</span><span class="nav__drop-sub">Zeno's paradox</span></a><a class="nav__drop-link" role="menuitem" href="ship-of-theseus/"><span class="nav__drop-title">Ship of Theseus</span><span class="nav__drop-sub">Swap every plank</span></a></div></div>
+        <div class="nav__item nav__item--apps" id="navApps"><a class="nav__apps-btn" href="studio/" id="navAppsBtn" aria-haspopup="true">Studio</a><div class="nav__dropdown" id="navAppsMenu" role="menu"><a class="nav__drop-link" role="menuitem" href="studio/"><span class="nav__drop-title">Studio home</span><span class="nav__drop-sub">All apps, art and contact</span></a><p class="nav__drop-group">Paradoxes</p><a class="nav__drop-link" role="menuitem" href="dichotomy-zeno/"><span class="nav__drop-title">Dichotomy Zeno</span><span class="nav__drop-sub">Zeno's paradox</span></a><a class="nav__drop-link" role="menuitem" href="ship-of-theseus/"><span class="nav__drop-title">Ship of Theseus</span><span class="nav__drop-sub">Swap every plank</span></a><p class="nav__drop-group">Wellness</p><a class="nav__drop-link" role="menuitem" href="vortex-breath/"><span class="nav__drop-title">Vortex Breath</span><span class="nav__drop-sub">One free minute</span></a><p class="nav__drop-group">Maps &amp; Data</p><a class="nav__drop-link" role="menuitem" href="archipelago/"><span class="nav__drop-title">Atlas</span><span class="nav__drop-sub">Philippines map</span></a><p class="nav__drop-group">Business Tools</p><a class="nav__drop-link" role="menuitem" href="till/"><span class="nav__drop-title">Till</span><span class="nav__drop-sub">Tap to pay, rehearsed</span></a><p class="nav__drop-group">Art</p><a class="nav__drop-link" role="menuitem" href="studio/#art"><span class="nav__drop-title">Art</span><span class="nav__drop-sub">Dom's own work</span></a></div></div>
         <a class="nav__link" href="#faq">FAQ</a>
         <a class="btn btn--cobalt nav__cta" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
         <a class="btn btn--cobalt nav__cta-mobile" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
@@ -2125,6 +2129,7 @@
           <a href="#services">Services</a>
           <a href="#pricing">Pricing</a>
           <a href="#about">About</a>
+          <a href="studio/">Studio</a>
           <a href="vortex-breath/">Vortex</a>
           <a href="archipelago/">Atlas</a>
           <a href="till/">Till</a>
@@ -2554,16 +2559,13 @@
       var apps = document.getElementById('navApps');
       var btn = document.getElementById('navAppsBtn');
       if (apps && btn) {
-        btn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          var open = !apps.classList.contains('is-open');
-          apps.classList.toggle('is-open', open);
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowDown') { e.preventDefault(); apps.classList.add('is-open'); var f = apps.querySelector('.nav__drop-link'); if (f) f.focus(); }
+          if (e.key === 'Escape') apps.classList.remove('is-open');
         });
         document.addEventListener('click', function (e) {
           if (!apps.contains(e.target)) {
             apps.classList.remove('is-open');
-            btn.setAttribute('aria-expanded', 'false');
           }
         });
       }
