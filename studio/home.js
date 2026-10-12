@@ -61,7 +61,8 @@
     top:    { lx: 0,     ly: -.75, ex: -1.6, ey: -1.4, er: -70, dx: -.25, dy: -1.0, sp: 1.0 },
     left:   { lx: -.75,  ly: 0,    ex: -2.2, ey: .8,   er: 50,  dx: -1.0, dy: -.35, sp: 1.25 },
     right:  { lx: .75,   ly: 0,    ex: 2.0,  ey: -1.1, er: -40, dx: 1.0,  dy: -.6,  sp: .85 },
-    bottom: { lx: 0,     ly: .75,  ex: 1.3,  ey: 1.9,  er: 80,  dx: .3,   dy: .9,   sp: 1.12 }
+    bottom: { lx: 0,     ly: .75,  ex: 1.3,  ey: 1.9,  er: 80,  dx: .3,   dy: .9,   sp: 1.12 },
+    center: { lx: 0,     ly: 0,    ex: 0,    ey: -2.4, er: 0,   dx: 0,    dy: -.4,  sp: 1.0 }
   };
   function works(p) {
     var a = easeIO(seg(p, .02, .38));   // lock in
