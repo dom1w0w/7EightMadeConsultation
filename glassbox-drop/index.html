@@ -149,7 +149,7 @@
     </div>
 
     <!-- ============ SET PRICE HERE (Dom approves per drop) ============ -->
-    <a class="cta" href="#" id="claimBtn">CLAIM — $50</a>
+    <a class="cta" href="https://cash.app/$dom1w0w/50" target="_blank" rel="noopener" id="claimBtn">CLAIM — $50</a>
     <div class="pay-note">Pay via Cash App <b>$dom1w0w</b> — scripts + guide delivered after payment confirms.<br>No PDF goes out until payment is confirmed.</div>
   </div>
 
@@ -230,6 +230,7 @@ const DROP = {
   const badge = document.getElementById('liveBadge');
   const btn = document.getElementById('claimBtn');
   btn.textContent = 'CLAIM — $' + DROP.priceUSD;
+  btn.href = 'https://cash.app/$dom1w0w/' + DROP.priceUSD;
 
   function tick() {
     const ms = DROP.endsAt - Date.now();
