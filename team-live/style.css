@@ -163,3 +163,6 @@ button.achip{cursor:pointer} button.achip:hover{background:var(--c);color:var(--
 .ctl.back-ctl{flex:none;text-decoration:none;display:inline-flex;align-items:center;min-height:32px;padding:4px 10px}
 .status{gap:10px}
 .status-l{flex:1;min-width:0}
+
+/* page switcher */
+.switch{font:12px var(--mono);color:var(--dim);letter-spacing:.04em;margin:-8px 0 6px}.switch a{color:var(--mute);text-decoration:none;display:inline-flex;align-items:center;min-height:40px;padding:0 2px}.switch a:hover,.switch a:focus-visible{color:var(--orange);outline:none}.switch a[aria-current]{color:var(--orange);border-bottom:1px solid var(--orange)}.switch.in-bar{margin:0;flex:none;white-space:nowrap}

@@ -159,3 +159,6 @@ canvas.mini{flex:1;width:100%;min-height:0}
   .card a{font-size:14px;padding:4px 0}
 }
 @media (prefers-reduced-motion:reduce){ .drawer,.dot,.code .caret{animation:none} }
+
+/* page switcher */
+.switch{font-size:11px;color:var(--mute);letter-spacing:.06em;margin:0 0 10px}.switch a{color:var(--mute);text-decoration:none;display:inline-block;padding:8px 2px}.switch a:hover,.switch a:focus-visible{color:#fff}.switch a[aria-current]{color:var(--purple);border-bottom:1px solid var(--purple)}.switch.in-bar{margin:0;white-space:nowrap}
