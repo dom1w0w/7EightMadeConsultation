@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#ECE9E2">
+<title>Dom Watch</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="lights"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+  <div class="brand"><b>DOM WATCH</b> /<br>personal / ops</div>
+  <div class="clock"><span id="clock">--:--:--</span><br>CT</div>
+  <div class="pill" id="alert-pill">ALERTS <b id="alert-n">·</b></div>
+</header>
+
+<section id="lock" class="card lock">
+  <div class="lbl">PRIVATE · LOCKED</div>
+  <h1>Unlock <span class="acc">the watch.</span></h1>
+  <p class="sub">Decrypts on this device only. Nothing is saved.</p>
+  <form id="lock-form" autocomplete="off">
+    <input id="pass" type="password" placeholder="passphrase" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" required>
+    <button id="unlock-btn" type="submit">UNLOCK ▸</button>
+  </form>
+  <p id="lock-msg" class="msg" role="status" aria-live="polite"></p>
+</section>
+
+<main id="app" hidden>
+  <section class="card hero">
+    <div class="lbl" id="week-lbl"></div>
+    <h1>Cash flow, <span class="acc">one glance.</span></h1>
+    <p class="sub">Bills, paydays, and transfers laid over the week. Orange bars need attention before they land.</p>
+    <div class="days" id="days"></div>
+  </section>
+  <div class="grid">
+    <section class="card"><div class="lbl">ACCOUNT INSPECTOR</div><div id="accts"></div><p class="fine" id="acct-note"></p></section>
+    <section class="card"><div class="lbl row">BILL QUEUE <span class="tagc" id="bill-n"></span></div><div id="bills"></div></section>
+    <section class="card"><div class="lbl row">14-DAY OUTFLOW <span class="fine" id="out-total"></span></div><div class="chart" id="chart"></div><div class="axis" id="axis"></div></section>
+    <section class="card"><div class="lbl">ALERT FEED</div><div id="alerts"></div></section>
+  </div>
+  <footer><span>DOM WATCH · PRIVATE</span><span>FALL DOWN 7 · STAND UP 8</span></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
