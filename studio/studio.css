@@ -11,7 +11,7 @@
   --bg: #0E0D0C; --bg2: #171513; --bg3: #211D19;
   --ink: #F2ECE2; --muted: #A69C90; --line: rgba(242,236,226,.12); --line2: rgba(242,236,226,.24);
   --ember: #EE7A3C; --amber: #9A4317;
-  --till: #EE7A3C; --vortex: #D2452F; --atlas: #6FD3C1; --zeno: #D6B16A; --theseus: #5FB3C9; --art: #F2ECE2;
+  --till: #EE7A3C; --vortex: #D2452F; --atlas: #6FD3C1; --zeno: #D6B16A; --theseus: #5FB3C9; --art: #F2ECE2; --glassbox: #00FFAA;
   --focus: #4D7CF6; --focus-on-fill: #F2ECE2;
   --accent: var(--ember); --on-accent: #1D0E05;
   --display: Anton, 'Oswald', Impact, 'Arial Narrow', sans-serif;
@@ -93,7 +93,7 @@ h2.sec { font-family: var(--display); font-weight: 400; text-transform: uppercas
 .card__links .pill { min-height: 40px; padding: 8px 14px; font-size: 11px; }
 .card__links .pill--fill { --accent: var(--c); }
 .card--till { --c: var(--till); } .card--vortex { --c: var(--vortex); } .card--atlas { --c: var(--atlas); }
-.card--zeno { --c: var(--zeno); } .card--theseus { --c: var(--theseus); } .card--art { --c: var(--art); }
+.card--zeno { --c: var(--zeno); } .card--theseus { --c: var(--theseus); } .card--art { --c: var(--art); } .card--glassbox { --c: var(--glassbox); }
 .card--vortex .pill--fill { --on-accent: #fff; }
 
 .sfoot { border-top: 1px solid var(--line); margin-top: 80px; }
