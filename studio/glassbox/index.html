@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLASSBOX — 7EightMade Studio</title>
+<meta name="description" content="Every app has secrets. We reverse engineer any software — pure AI agents, zero installs. A 7EightMade studio piece.">
+<style>
+  :root {
+    --bg: #06070c;
+    --panel: #0b0d16;
+    --teal: #00ffaa;
+    --teal-dim: #00cc88;
+    --amber: #ffb000;
+    --ink: #d7f5e8;
+    --muted: #6b7f76;
+    --line: #14241d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.14) 0 1px, transparent 1px 3px);
+    z-index: 50;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  header.top { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  header.top .row { display: flex; justify-content: space-between; align-items: center; }
+  header.top .brand { color: var(--teal); font-weight: 700; letter-spacing: 2px; text-decoration: none; }
+  header.top .crumb { color: var(--muted); font-size: 13px; letter-spacing: 1px; }
+  .hero { padding: 90px 0 60px; text-align: center; }
+  .hero .kicker { color: var(--muted); letter-spacing: 4px; font-size: 13px; margin-bottom: 20px; }
+  .hero h1 {
+    font-size: clamp(60px, 13vw, 120px); color: var(--teal);
+    letter-spacing: 10px; text-shadow: 0 0 40px rgba(0,255,170,0.45); margin-bottom: 16px;
+  }
+  .hero .tag { font-size: clamp(20px, 4.5vw, 28px); margin-bottom: 14px; }
+  .hero .thesis { color: var(--teal-dim); font-size: clamp(16px, 3.5vw, 21px); letter-spacing: 1px; margin-bottom: 20px; }
+  .hero .sub { color: var(--muted); font-size: 16px; max-width: 600px; margin: 0 auto; }
+  .drop-banner {
+    margin: 48px auto 0; max-width: 560px;
+    border: 1px solid var(--amber); border-radius: 8px; padding: 22px;
+    text-align: center;
+  }
+  .drop-banner .t { color: var(--amber); font-weight: 700; letter-spacing: 3px; margin-bottom: 8px; }
+  .drop-banner a { color: var(--teal); font-size: 15px; }
+  section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+  section.block h2 { color: var(--teal); font-size: 15px; letter-spacing: 4px; margin-bottom: 28px; }
+  section.block h2::before { content: "$ "; color: var(--muted); }
+  .prose { font-size: 17px; max-width: 680px; }
+  .prose p { margin-bottom: 20px; }
+  .prose b { color: var(--teal); }
+  .method { display: grid; gap: 20px; }
+  .mstep { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 26px; }
+  .mstep .n { color: var(--amber); font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+  .mstep h3 { color: var(--teal); font-size: 21px; margin-bottom: 10px; }
+  .mstep .one { font-size: 16px; color: var(--ink); margin-bottom: 12px; }
+  .mstep .deep { font-size: 14.5px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 14px; }
+  .report-card {
+    border: 1px solid var(--line); border-radius: 10px; background: var(--panel);
+    padding: 30px; margin: 10px 0 30px;
+  }
+  .report-card .target { color: var(--teal); font-weight: 700; font-size: 17px; margin-bottom: 16px; }
+  .report-card ul { list-style: none; display: grid; gap: 10px; font-size: 16px; }
+  .report-card ul li::before { content: "→ "; color: var(--teal-dim); }
+  .report-card .verdict { margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--line); color: var(--amber); font-size: 15px; }
+  .pillars { display: grid; gap: 16px; }
+  .pillars div { border-left: 3px solid var(--teal); padding: 4px 0 4px 20px; }
+  .pillars h3 { color: var(--ink); font-size: 17px; margin-bottom: 4px; letter-spacing: 1px; }
+  .pillars p { color: var(--muted); font-size: 15px; }
+  .who { display: grid; gap: 14px; }
+  .who div { font-size: 16px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+  .who div b { color: var(--amber); }
+  .cta-row { text-align: center; padding: 20px 0 10px; }
+  .cta {
+    display: inline-block; background: var(--teal); color: #04120c;
+    font-weight: 700; font-size: 18px; letter-spacing: 2px;
+    padding: 16px 44px; border-radius: 6px; text-decoration: none;
+  }
+  footer { border-top: 1px solid var(--line); padding: 40px 0 64px; text-align: center; color: var(--muted); font-size: 13px; }
+  footer .motto { color: var(--teal-dim); letter-spacing: 2px; margin-top: 8px; }
+  @media (max-width: 560px) { .hero { padding: 60px 0 40px; } section.block { padding: 40px 0; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap row">
+    <a class="brand" href="#">7EIGHTMADE</a>
+    <span class="crumb">STUDIO / GLASSBOX</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker">7EIGHTMADE STUDIO</div>
+    <h1>GLASSBOX</h1>
+    <div class="tag">Every app has secrets.</div>
+    <div class="thesis">We reverse engineer any software.</div>
+    <p class="sub">Glassbox sees inside any software. Hand it an app — it shows you everything that app is doing. No extra software. No expertise needed.</p>
+
+    <div class="drop-banner" id="dropBanner">
+      <div class="t">THE DROP — 11 HOURS ONLY</div>
+      <a href="../../glassbox-drop/">The complete method. Yours. →</a>
+    </div>
+  </div>
+
+  <section class="block">
+    <h2>what it is</h2>
+    <div class="prose">
+      <p>Every app you install is a black box. It runs on your machine, talks to servers you can't see, touches files you'll never know about — and you're expected to trust it.</p>
+      <p><b>Glassbox opens the box.</b> Give it any app and it shows you everything that app is doing — where your information goes, what it touches, how it truly works.</p>
+      <p>How it works is our secret. What it finds is yours.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>proof, not promises</h2>
+    <div class="report-card">
+      <div class="target">TARGET: FreePDF Reader v4.2</div>
+      <ul>
+        <li>Contacts 4 ad trackers the second it opens</li>
+        <li>Copies your recent-files list on every launch</li>
+        <li>Checks in with a remote server every hour</li>
+        <li>Its best feature — rebuilt in 60 lines of your code</li>
+      </ul>
+      <div class="verdict">This is what Glassbox finds inside any software.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>how it works</h2>
+    <div class="method">
+      <div class="mstep">
+        <div class="n">STEP 01</div>
+        <h3>Give it an app</h3>
+        <p class="one">Any file. That's all it needs.</p>
+        <p class="deep">Any compiled software — a desktop app, a phone app, anything that runs. No source code, no setup, no preparation. The file itself is the whole input, and the investigation starts the moment it arrives.</p>
+      </div>
+      <div class="mstep">
+        <div class="n">STEP 02</div>
+        <h3>It investigates</h3>
+        <p class="one">Quietly. Completely. Nothing stays hidden.</p>
+        <p class="deep">The agents take the software apart from the inside. They read everything hidden within it — every address it contacts, every message buried in its code. Then they run it somewhere safe and watch everything it does: every file it opens, every connection it makes. Nothing it does stays hidden.</p>
+      </div>
+      <div class="mstep">
+        <div class="n">STEP 03</div>
+        <h3>You get the truth</h3>
+        <p class="one">A clear report. Proof for every claim.</p>
+        <p class="deep">What the software does. Where your information goes. How its features work. Every finding arrives with its proof attached — and an honest account of what can't be known. Never a confident guess dressed as a fact.</p>
+      </div>
+      <div class="mstep">
+        <div class="n">STEP 04</div>
+        <h3>Make it yours</h3>
+        <p class="one">Your AI rebuilds what you like. In your own code.</p>
+        <p class="deep">See a feature worth having? The agent recreates its logic in your own stack, guided by everything the investigation uncovered. Learn from anything. Ship your version.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>why it works</h2>
+    <div class="pillars">
+      <div>
+        <h3>LOCAL ONLY</h3>
+        <p>The software never leaves your machine. The investigation happens where the file lives — nothing uploads anywhere.</p>
+      </div>
+      <div>
+        <h3>ZERO INSTALLS</h3>
+        <p>Nothing extra to install, no expertise needed. If your AI assistant runs, Glassbox runs.</p>
+      </div>
+      <div>
+        <h3>HONEST OUTPUT</h3>
+        <p>Proof for every claim. The report tells you what it can't tell you, too.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>who it's for</h2>
+    <div class="who">
+      <div><b>Founders</b> — vetting a vendor? Find out what their software really does before you sign.</div>
+      <div><b>Builders</b> — see a feature you admire? Learn how it works, then ship your own version.</div>
+      <div><b>The curious</b> — ever wondered what a "free" app costs you? Now you can know.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>the drop</h2>
+    <div class="prose">
+      <p>The complete Glassbox method — yours. Open for <b>11 hours</b>, then it's gone.</p>
+    </div>
+    <div class="cta-row">
+      <a class="cta" href="../../glassbox-drop/">CLAIM THE DROP</a>
+      <p style="color:var(--muted);font-size:14px;margin-top:14px;">Cash App $dom1w0w · delivered after payment confirms</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div>© 2026 7EightMade · AI Micro-Consulting & Automation</div>
+  <div class="motto">Fall Down 7 · Stand Up 8</div>
+</footer>
+
+</body>
+</html>
