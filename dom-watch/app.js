@@ -55,7 +55,7 @@ function render(d) {
   $('accts').innerHTML = accts.map((a) => {
     let pct, cap, hot = false;
     if (a.kind === 'card' && a.limit) { pct = a.balance / a.limit * 100; hot = pct >= 80; cap = `${Math.round(pct)}% of ${money(a.limit)} limit`; }
-    else if (a.kind === 'cash') { pct = a.balance / totCash * 100; cap = a.available != null ? `${money(a.available)} available` : 'cash on hand'; }
+    else if (a.kind === 'cash') { pct = a.fill != null ? Math.max(3, a.fill) : a.balance / totCash * 100; cap = a.available != null ? `${money(a.available)} available` : 'cash on hand'; }
     else { pct = a.balance / totDebt * 100; hot = a.kind === 'card'; cap = `${Math.round(pct)}% of total owed` + (a.kind === 'card' ? ' · limit not reported' : ''); }
     return `<div class="acct${hot ? ' hot' : ''}"><div class="top2"><span>${esc(a.label.toUpperCase())}</span><span class="v">${money(a.balance)}</span></div>` +
       `<div class="bar"><i class="${a.kind === 'cash' ? 'good' : ''}" data-w="${Math.min(100, pct).toFixed(1)}"></i></div><div class="cap">${esc(cap)}</div></div>`;
@@ -71,7 +71,7 @@ function render(d) {
   $('chart').innerHTML = out.map((o) => `<i class="${o.d === today ? 'today' : o.amt > avg * 1.5 ? 'hot' : ''}" data-h="${(o.amt / max * 100).toFixed(1)}" title="${o.d}"></i>`).join('');
   $('axis').innerHTML = out.map((o) => `<span>${+o.d.slice(8)}</span>`).join('');
 
-  document.querySelectorAll('[data-w]').forEach((n) => { n.style.width = n.dataset.w + '%'; });
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll('[data-w]').forEach((n) => { n.style.width = n.dataset.w + '%'; })));
   document.querySelectorAll('[data-h]').forEach((n) => { n.style.height = n.dataset.h + '%'; });
   const al = (d.alerts || []).filter((a) => !a.until || new Date(a.until) > new Date());
   $('alert-n').textContent = al.length;

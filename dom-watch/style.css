@@ -47,3 +47,4 @@ button{width:100%;font:600 13px var(--mono);letter-spacing:.14em;padding:13px;bo
 @media(max-width:480px){.top{gap:10px;padding:10px 12px;font-size:12px}.brand{white-space:nowrap}.pill{padding:6px 9px}}
 @media(min-width:900px){.day{width:auto}}
 .switch{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--mute);margin:0 0 14px;text-transform:uppercase}.switch a{color:var(--mute);text-decoration:none;display:inline-block;padding:8px 2px}.switch a[aria-current]{color:var(--acc);border-bottom:1.5px solid var(--acc)}.switch.in-bar{margin:0 2px 12px}
+.bar i{width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}@media(prefers-reduced-motion:reduce){.bar i{transition:none}}
