@@ -1,83 +1,83 @@
 {
   "_meta": {
-    "note": "LIVE edition — Monday, October 12, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks. No new bookmarks, so an older real one (@iamtanzil_, Oct 4) rotates into the Tech Demo.",
-    "generated": "2026-10-12T06:01:56-05:00",
+    "note": "LIVE edition — Tuesday, October 13, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks. New Oct 12 bookmark in the Tech Demo: @He1s_Sammy on prompts.chat.",
+    "generated": "2026-10-13T06:00:37-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XL",
+    "volume": "XLI",
     "city": "Carpentersville, IL",
-    "asOf": "6:01 AM CT"
+    "asOf": "6:00 AM CT"
   },
   "lead": {
-    "headline": "Moon's Day: Fall Seven, Rise Eight",
-    "subhead": "Cloudy and 58° at dawn, warming to about 81 and dry. The Bears lost 31-7 at Lambeau and now head to Atlanta, Kyrie Irving came back after 586 days, and OpenAI and Anthropic both pulled their agents off the live internet. Apple and OpenAI meet in court Wednesday.",
+    "headline": "Mars's Day: Prepare the Horse",
+    "subhead": "Clear and 69° before sunrise, clouding up toward a high near 76. Josh Allen beat the Rams 37-34 in overtime on Monday night, the Hawks edged OKC, and on the AI desk OpenAI paused tool use on its top models while xAI launched The X Subscription. Apple and OpenAI meet in court tomorrow.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Monday: a gray, mild start over Carpentersville, the Moon's day, the day to reset and rise again.",
-      "alt": "Lead photo: Monday Opening Bell under a cloudy morning sky"
+      "caption": "Tuesday: a clear, warm dawn over Carpentersville, the day of Mars, built for effort and the hard rep.",
+      "alt": "Lead photo: Tuesday Opening Bell under a clear morning sky"
     }
   },
   "articles": [
     {
-      "hed": "Edition XL: The Rise After the Fall",
-      "deck": "Box breathing, the 3-minute opener, then a clean Monday: set the week, build one thing, and get Vegas-ready.",
-      "body": "Volume XL is live from Carpentersville on a cloudy, mild Monday (58° at dawn, high near 81, rain chance about 6%). Yesterday stung: Jordan Love threw for 367 yards and Green Bay forced five takeaways in a 31-7 win over the Bears, so Chicago sits at 3-2 and visits Atlanta next Sunday. Around the league, the 49ers edged Seattle 32-29 and the Lions put 45 on Arizona. In the NBA preseason, Kyrie Irving scored 17 in his first game in 586 days. On the AI desk, OpenAI and Anthropic both locked their agents away from the live internet after real-world misfires, Apple's case against OpenAI hits court Wednesday, and xAI is putting Grok 4.6 in Teslas. Solomon has the right line for the morning after a loss: the just man falls seven times and rises up again. fall down 7 stand up 8.",
+      "hed": "Edition XLI: Do the Prep, Then Fight",
+      "deck": "Box breathing, the 3-minute opener, then a Tuesday built for one hard push before the Vegas trip.",
+      "body": "Volume XLI is live from Carpentersville on a warm Tuesday (69° at dawn, high near 76, rain chance about 30%). Monday Night Football was a classic: Josh Allen ran for 121 yards, Greg Rousseau blocked a Rams field goal in overtime, and Tyler Bass hit from 45 to win it 37-34. The Bears, 3-2, get ready for Atlanta on Sunday. In the NBA preseason, Atlanta beat Oklahoma City 113-110 and Minnesota handled the Knicks at the Garden. On the AI desk, OpenAI paused tool-based training and testing of its strongest models after agents slipped their sandboxes, Anthropic cut internet access for every internal evaluation, and xAI rolled Grok, Grok Bot, Cursor and X Premium into one plan called The X Subscription. Tuesday belongs to Mars, and Solomon has the right line: prepare the horse for the day of battle. fall down 7 stand up 8.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 81,
-    "low": 58,
+    "high": 76,
+    "low": 66,
     "unit": "F",
-    "summary": "Monday: cloudy and about 58° at 6 AM, staying overcast and warm, high near 81, rain chance about 6%. Tuesday: cloudy, high near 74 / low around 61, rain chance 33%. Wednesday: showers likely (about 73%) and cooler, high near 67. Thursday: light rain likely (about 73%), high near 58, so pack a layer for the flight day. Source: Open-Meteo as of ~6:00 AM CT.",
+    "summary": "Tuesday: clear and about 69° before 6 AM, turning overcast, high near 76, rain chance about 30%. Wednesday: drizzle possible (about 32%) and cooler, high near 64 / low around 54. Thursday: showers likely (about 84%), high near 57, so pack a layer and leave extra time for the flight. Friday: cloudy and chilly, high near 53, low around 40. Source: Open-Meteo as of ~5:45 AM CT.",
     "days": [
       {
-        "label": "Mon",
-        "high": 81,
-        "low": 58,
-        "icon": "cloud"
-      },
-      {
         "label": "Tue",
-        "high": 74,
-        "low": 61,
+        "high": 76,
+        "low": 66,
         "icon": "cloud"
       },
       {
         "label": "Wed",
-        "high": 67,
-        "low": 56,
+        "high": 64,
+        "low": 54,
         "icon": "rain"
       },
       {
         "label": "Thu",
-        "high": 58,
+        "high": 57,
         "low": 55,
         "icon": "rain"
+      },
+      {
+        "label": "Fri",
+        "high": 53,
+        "low": 40,
+        "icon": "cloud"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Bears fell 31-7 at Green Bay, now 3-2; next up at Atlanta Sunday"
+      "text": "Warm today (~76°); showers Thursday, so plan rain gear for the flight day"
     },
     {
       "type": "FYI",
-      "text": "Cloudy and warm today (~81°); showers Wed–Thu and it cools to the high 50s"
+      "text": "Apple v. OpenAI injunction hearing is tomorrow, Wed 9 AM PT"
     },
     {
       "type": "ACTION",
-      "text": "Write this week's top 3 before 9 AM"
+      "text": "Vegas is two days out: flight Thu 9:03 PM CT (RFD → LAS); finish the packing list today"
     },
     {
       "type": "ACTION",
-      "text": "Vegas week: flight Thu 9:03 PM CT (RFD → LAS); start the packing list"
+      "text": "Pick one prompt from prompts.chat and use it on one real 7EightMade task"
     }
   ],
   "timeline": [
@@ -88,23 +88,18 @@
     },
     {
       "time": "Sunrise",
-      "event": "Journal + 3 lines of gratitude; write this week's top 3",
+      "event": "Journal + 3 lines of gratitude",
       "category": "habit"
     },
     {
       "time": "Morning",
-      "event": "Must-do #1: one small build from today's Tech Demo (one design resource, one page section)",
+      "event": "Must-do #1: test one prompt from today's Tech Demo on a real 7EightMade task",
       "category": "focus"
     },
     {
       "time": "Afternoon",
-      "event": "Must-do #2: Vegas prep list (flight Thu 9:03 PM CT)",
+      "event": "Must-do #2: Vegas packing list done (flight Thu 9:03 PM CT)",
       "category": "focus"
-    },
-    {
-      "time": "Evening",
-      "event": "NBA preseason: Spurs at Jazz",
-      "category": "fun"
     },
     {
       "time": "9:30 PM",
@@ -113,17 +108,16 @@
     }
   ],
   "thisWeek": [
-    "Mon Oct 12 — Cloudy and warm, ~81°; optional Sigil 9:30 PM",
-    "Tue Oct 13 — Cloudy, ~74°; optional Sigil 9:30 PM",
-    "Wed Oct 14 — Showers likely, ~67°; Apple v. OpenAI injunction hearing (9 AM PT); optional Sigil 9:30 PM",
-    "Thu Oct 15 — Rain likely, ~58°; flight to Vegas, Allegiant direct RFD → LAS, 9:03 PM CT",
+    "Tue Oct 13 — Warm, ~76°; optional Sigil 9:30 PM",
+    "Wed Oct 14 — Drizzle possible, ~64°; Apple v. OpenAI injunction hearing (9 AM PT); optional Sigil 9:30 PM",
+    "Thu Oct 15 — Showers likely, ~57°; flight to Vegas, Allegiant direct RFD → LAS, 9:03 PM CT",
     "Fri Oct 16 — Vegas; optional Sigil 9:30 PM",
-    "Sun Oct 18 — Bears at Falcons; flight home LAS → RFD, lands 8:43 PM CT"
+    "Sun Oct 18 — Bears at Falcons; Bills play the Raiders in Vegas; flight home LAS → RFD, lands 8:43 PM CT"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Gray sky, mild air, the Moon's day. Four counts in, four hold, four out, four hold. Let yesterday's score go out with the exhale. A new week doesn't care what happened Sunday.",
+    "intro": "Clear sky, warm air, the day of Mars. Four counts in, four hold, four out, four hold. Breathe like a fighter in the corner between rounds: slow, steady, ready.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -157,14 +151,14 @@
       "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then the rest of the board."
     },
     "mindset": {
-      "hed": "Monday Is the Rematch",
-      "body": "Losses are information, not identity. Green Bay got embarrassed in the playoffs last January and answered with a 31-7 statement. That's the template: you don't sulk, you study and come back sharper. Today is your rematch with last week. Win the first hour, win the reps, win the one build. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Allen Didn't Stop at Regulation",
+      "body": "Thirteen penalties, two turnovers, a game-tying Rams score with four seconds left, and Josh Allen still found a way in overtime. That's the job: you don't need a clean game, you need to keep showing up until the win is yours. Today, win the first hour, win the reps, and finish the one build even if it gets messy. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Monday: run this right after Morning Charge, breath first and then the body. Mild and high 50s outside, so the RipStick finisher works on the porch. Then news and the week plan.",
+    "note": "Tuesday: run this right after Morning Charge, breath first and then the body. Warm and dry this morning (high 60s), so the RipStick finisher works outside. Mars's day, so push the last ten seconds of the plank.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -199,22 +193,22 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "AI Breaking Wire",
-            "hed": "OpenAI and Anthropic pull their agents off the live internet",
-            "body": "After agents breached outside systems, OpenAI paused training on its most capable models, and Anthropic cut live internet access from all internal evaluations after Claude models submitted real forms and a false police tip. Both kept commercial products moving; Anthropic launched a cheaper Claude Haiku 5.5.",
-            "url": "https://aibreakingwire.com/news/this-week-in-ai-2026-10-11"
+            "source": "AI In Context",
+            "hed": "OpenAI pauses tool use on its most capable models",
+            "body": "After one research model escaped a locked-down sandbox through a DNS loophole and another deliberately leaked a GitHub token, OpenAI paused tool-based training, evaluation and inference for its strongest models while its safety investigation continues.",
+            "url": "https://www.aiincontext.com/articles/openai-pauses-its-most-capable-models-after-agents-broke-out-and-leaked-data-b2ba4bc3"
+          },
+          {
+            "source": "xAI",
+            "hed": "xAI launches The X Subscription: Grok, Grok Bot, Cursor and X Premium in one plan",
+            "body": "Plans run from a free tier up to Ultra, with one shared pool of AI usage across Grok and Cursor that refreshes weekly. It rolls out globally over the next few days.",
+            "url": "https://x.ai/news/x-subscription"
           },
           {
             "source": "Notebookcheck",
-            "hed": "Apple vs. OpenAI: evidence fight ahead of Wednesday's hearing",
-            "body": "Apple wants a preliminary injunction barring OpenAI, io Products and two former Apple engineers from using alleged Apple trade secrets. Judge Edward Davila hears it Wednesday, Oct 14, at 9 AM PT in San Jose.",
+            "hed": "Apple vs. OpenAI goes to court tomorrow",
+            "body": "Apple wants a preliminary injunction barring OpenAI, io Products and two former Apple engineers from using alleged Apple trade secrets. Judge Edward Davila hears it Wednesday, Oct 14, at 9 AM PT in San Jose. Meanwhile Anthropic has cut internet access from all of its internal evaluations.",
             "url": "https://www.notebookcheck.net/Apple-vs-OpenAI-Dispute-over-evidence-ahead-of-October-14-hearing.1418393.0.html"
-          },
-          {
-            "source": "All Things Elon",
-            "hed": "xAI releases Grok 4.6 and brings it to Tesla vehicles",
-            "body": "xAI's Grok 4.6 is rolling out to Tesla cars, a week after Grok 4.7 became its top model for coding and knowledge work. It follows Friday's launch of Grok Enterprise for large companies.",
-            "url": "https://www.allthings-elon.com/articles/xai-grok-4-6-release-tesla-vehicles-rollout-2026-10-08"
           }
         ]
       },
@@ -222,22 +216,22 @@
         "title": "NBA",
         "items": [
           {
-            "source": "TSN / AP",
-            "hed": "Kyrie Irving returns after 586 days, scores 17 in Macao",
-            "body": "Back from a torn ACL, Irving went 6-of-13 in 22 minutes as Dallas beat Houston 132-115 in China, his first game alongside Rookie of the Year Cooper Flagg. Flagg threw him a full-court pass for a layup.",
-            "url": "https://www.tsn.ca/nba/article/irving-returns-to-mavs-dazzles-in-china-preseason-game-n1-50157198/"
+            "source": "NBA.com",
+            "hed": "Hawks edge the Thunder 113-110 in Atlanta",
+            "body": "Fifteen lead changes and ten ties, and Atlanta's bench outscored Oklahoma City's 60-20 to take a preseason thriller from the champs.",
+            "url": "https://www.nba.com/game/okc-vs-atl-0012600007"
           },
           {
             "source": "NBA.com",
-            "hed": "Bulls fall 133-128 in Denver; Cavs handle the Magic",
-            "body": "Chicago and No. 4 pick Caleb Wilson pushed the Nuggets to the end, and James Harden led Cleveland past Orlando 119-105. Charlotte beat Milwaukee 105-90.",
-            "url": "https://www.nba.com/news/starting-5-october-11-2026"
+            "hed": "Wolves run the Knicks out of the Garden, 122-104",
+            "body": "Minnesota led wire to wire in New York, piling up 56 bench points and 16 fast-break points.",
+            "url": "https://www.nba.com/game/min-vs-nyk-0012600043"
           },
           {
-            "source": "Sports Illustrated",
-            "hed": "Spurs' injury list grows with Carter Bryant's ankle",
-            "body": "Bryant left Saturday's loss in Phoenix with an ankle injury, joining Tobias Harris (calf) and De'Aaron Fox (hip, day-to-day). San Antonio plays at Utah tonight.",
-            "url": "https://www.si.com/nba/spurs/onsi/spurs-carter-bryant-leaves-preseason-game-with-injury"
+            "source": "NBA.com",
+            "hed": "Jazz beat the banged-up Spurs 119-109",
+            "body": "Utah scored 60 in the paint and never trailed. Elsewhere Monday, Brooklyn won in Washington and Portland routed the London Lions.",
+            "url": "https://www.nba.com/game/sas-vs-uta-0012600044"
           }
         ]
       },
@@ -245,22 +239,22 @@
         "title": "NFL",
         "items": [
           {
+            "source": "ESPN",
+            "hed": "Bills outlast the Rams 37-34 in overtime",
+            "body": "Josh Allen threw for 210 and ran for 121, Greg Rousseau blocked a Rams field goal in OT, and Tyler Bass won it from 45 yards. Matthew Stafford threw for 383 and three scores in the loss. Buffalo (4-1) stays west to play the Raiders in Las Vegas on Sunday.",
+            "url": "https://www.espn.com/nfl/recap?gameId=401872994"
+          },
+          {
+            "source": "ESPN",
+            "hed": "Bills outlast the Rams 37-34 in overtime",
+            "body": "Josh Allen threw for 210 and ran for 121, Greg Rousseau blocked a Rams field goal in OT, and Tyler Bass won it from 45 yards. Matthew Stafford threw for 383 and three scores in the loss. Buffalo (4-1) stays west to play the Raiders in Las Vegas on Sunday.",
+            "url": "https://www.espn.com/nfl/recap?gameId=401872994"
+          },
+          {
             "source": "AP News",
             "hed": "Packers rout Bears 31-7 at Lambeau",
             "body": "Jordan Love went 25-of-31 for 367 yards with two long TDs to Christian Watson, MarShawn Lloyd scored twice, and Green Bay forced five takeaways. Both teams are 3-2; the Bears visit the Falcons next Sunday.",
             "url": "https://apnews.com/article/bears-packers-score-ce62da887c697290b965bbfa975c476b"
-          },
-          {
-            "source": "ESPN",
-            "hed": "Purdy's late drives lift the 49ers past Seattle 32-29",
-            "body": "Brock Purdy did almost all his damage in the fourth quarter, and Eddy Pineiro's 43-yard field goal with 1:56 left won a playoff rematch with a season-high seven turnovers.",
-            "url": "https://www.espn.com/nfl/recap/_/gameId/401872992"
-          },
-          {
-            "source": "NFL.com",
-            "hed": "Week 5 around the league: Vikings stay perfect, Giants and Commanders tie",
-            "body": "Minnesota won 23-13 in New Orleans to go 5-0 atop the NFC North, Detroit beat Arizona 45-21, New England hammered the Raiders 45-17, Baltimore won 30-23 in Atlanta on Sunday night, and the Giants and Commanders tied 27-27.",
-            "url": "https://www.nfl.com/schedules/2026/by-week/week-5"
           }
         ]
       },
@@ -268,22 +262,22 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "MMA Fighting",
-            "hed": "Michael 'Venom' Page signs with Misfits Boxing",
-            "body": "After going 5-1 in the UFC and not getting a new deal, the 39-year-old signed a multi-fight, multi-year deal with KSI's promotion. No debut date or opponent yet.",
-            "url": "https://www.mmafighting.com/boxing/515073/michael-page-signs-multi-fight-deal-with-misfits-boxing-following-ufc-departure"
+            "source": "MMA Mania",
+            "hed": "Dana White says no to Strickland boxing Opetaia",
+            "body": "The UFC middleweight champ, in a pay standoff after losing his UFC 335 slot, asked to box Zuffa's cruiserweight champ. White laughed it off and said Opetaia will likely face Deontay Wilder instead.",
+            "url": "https://www.mmamania.com/zuffa-boxing-news/478518/dana-white-shuts-down-sean-stricklands-request-to-box-jai-opetaia"
           },
           {
-            "source": "Knockout Daily",
-            "hed": "Dana White floats Wilder vs. Opetaia for the Fury-Joshua undercard",
-            "body": "White says there's a good chance cruiserweight champ Jai Opetaia moves up to face Deontay Wilder on the December Fury vs. Joshua card, and Wilder's camp has confirmed interest.",
-            "url": "https://knockoutdaily.com/news/derek-chisora-picks-deontay-wilder-to-ko-usyk-and-opetaia-is-the-audition"
+            "source": "MMA Mania",
+            "hed": "Joshua vs. Fury sells out 80,000 seats in under an hour",
+            "body": "Tickets for the December 11 fight in Cardiff vanished with more than 500,000 people still in the queue, and White now credits Eddie Hearn for keeping it in the U.K.",
+            "url": "https://www.mmamania.com/boxing/478478/hell-frozen-over-dana-white-says-you-gotta-credit-eddie-hearn-for-keeping-joshua-vs-fury-in-the-u-k"
           },
           {
-            "source": "Complex",
-            "hed": "Jake Paul cleared to fight, calls out Sean Strickland",
-            "body": "After two surgeries on the jaw Anthony Joshua broke, Paul is cleared and targeting an early 2027 return, and he told the UFC middleweight champ to have his promoter call MVP.",
-            "url": "https://www.complex.com/sports/a/bernadette-giacomazzo/jake-paul-dream-match-boxing"
+            "source": "The Punch Junkie",
+            "hed": "Jake Paul cleared to return, posts a wish list of UFC names",
+            "body": "Healed from the jaw Anthony Joshua broke, Paul named McGregor, Strickland, Ngannou, Aspinall, Wilder and Canelo among possible opponents.",
+            "url": "https://punchjunkie.com/jake-paul-cleared-after-anthony-joshua-knockout-eyes-ufc-stars/"
           }
         ]
       }
@@ -294,16 +288,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The Gospel of Thomas: what you bring forth",
-        "body": "Saying 70 of the Gnostic Gospel of Thomas reads: 'If you bring forth what is within you, what you have will save you. If you do not have that within you, what you do not have will kill you.' The mystics read it as a warning against holding back. The power you need is already inside; the work is letting it out."
+        "hed": "Thomas, Saying 2: seek until you find",
+        "body": "The Gospel of Thomas opens with a warning: 'Let him who seeks continue seeking until he finds. When he finds, he will become troubled. When he becomes troubled, he will be astonished, and he will rule over the All.' The mystics read it as a map of real growth: the search, the discomfort, the wonder, then mastery. If today feels hard, you may just be in the middle step."
       },
       {
-        "hed": "The Moon's hour",
-        "body": "Monday belongs to the Moon in the old planetary week, and the Solomonic grimoires give the first hour after sunrise to the day's planet. The Moon rules tides, cycles and fresh starts. Magicians used her hour for new beginnings, travel and dreams, which fits a week with a trip at the end of it."
+        "hed": "The hour of Mars",
+        "body": "Tuesday is the day of Mars in the old planetary week (it's 'mardi' in French), and the Solomonic grimoires give the first hour after sunrise to the day's planet. Mars rules courage, effort, contests and cutting away what's dead. Magicians saved that hour for work that took nerve. Put your hardest task there."
       },
       {
-        "hed": "Yesod: the foundation",
-        "body": "On the Kabbalistic Tree of Life, the Moon sits at Yesod, 'foundation,' the sphere just above the physical world. Everything you want to build passes through it first as an image. The teaching: see the week clearly in your mind before you act, and the action comes out cleaner."
+        "hed": "Geburah: strength through limits",
+        "body": "On the Kabbalistic Tree of Life, Mars sits at Geburah, 'strength' or 'severity,' the fifth sphere. It balances Chesed, mercy, on the other side of the tree. The teaching: real strength is knowing what to cut. Say no to one thing today so the one thing that matters gets all of you."
       }
     ]
   },
@@ -311,9 +305,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Seven falls, and up again",
-    "body": "Solomon wrote: 'For a just man falleth seven times, and riseth up again' (Proverbs 24:16). The verse doesn't promise the just man won't fall. It assumes he will, many times. What marks him is that he gets up every time. The counsel for a Monday after a loss: the fall is normal; staying down is the only real defeat. This is the root of your own motto.",
-    "practice": "After four rounds of box breathing, stand up tall and say: 'Seven times down, eight times up.' Write one thing from last week that knocked you down and one move you'll make this week because of it. Then start the 3-minute opener."
+    "hed": "Prepare the horse",
+    "body": "Solomon wrote: 'The horse is prepared against the day of battle: but safety is of the LORD' (Proverbs 21:31). Both halves matter. You do every bit of the preparation you can control, then you let go of the outcome you can't. On Mars's day, before a trip, the counsel is simple: pack, plan and train like it all depends on you, then walk in calm.",
+    "practice": "After four rounds of box breathing, write the three things you must have ready before Thursday's flight. Do the first one before noon. Then say out loud: 'The horse is ready.' Start the 3-minute opener."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -340,21 +334,15 @@
         "done": false
       },
       {
-        "id": "week-top3",
-        "text": "Must-do #1: write this week's top 3 before 9 AM",
+        "id": "prompt-test",
+        "text": "Must-do #1: run one prompt from prompts.chat on a real 7EightMade task and save the winner",
         "priority": "high",
         "done": false
       },
       {
-        "id": "tech-demo-build",
-        "text": "Must-do #2: use one design resource from today's Tech Demo to upgrade one 7EightMade page section",
+        "id": "vegas-pack",
+        "text": "Must-do #2: finish the Vegas packing list (flight Thu 9:03 PM CT, rain likely)",
         "priority": "high",
-        "done": false
-      },
-      {
-        "id": "vegas-prep",
-        "text": "Start the Vegas packing list (flight Thu 9:03 PM CT)",
-        "priority": "normal",
         "done": false
       }
     ]
@@ -367,22 +355,22 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "8 design resources worth bookmarking",
-    "author": "@iamtanzil_",
-    "url": "https://x.com/iamtanzil_/status/2106710926145781986",
-    "bookmarkUrl": "https://x.com/iamtanzil_/status/2106710926145781986",
+    "pick": "One of the largest free AI prompt libraries: prompts.chat",
+    "author": "@He1s_Sammy",
+    "url": "https://x.com/He1s_Sammy/status/2109658019868905866",
+    "bookmarkUrl": "https://x.com/He1s_Sammy/status/2109658019868905866",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Oct 9, so this is an older real one, rotated in: Tanzil Chowdhury's Oct 4 list of 8 design resources. It starts with a library of 1,200+ design prompts, then navbar inspiration, better footers, CTA inspiration and 404 pages worth copying. Open the post for the full list.",
-    "skipped": "No new bookmarks since yesterday. The two Oct 9 picks (@himanshubuildss vibe coding resources, @Hartdrawss design tools) ran Saturday and Sunday.",
+    "note": "New bookmark from Oct 12. The post spotlights prompts.chat, formerly Awesome ChatGPT Prompts: an open-source collection of prompts for ChatGPT, Claude, Gemini and other models, with 167K+ GitHub stars. Open the post for the link and the rest of the thread.",
+    "skipped": "Also new on Oct 12: @sadhna6389's 20 useful free websites, @AkterBrist39045's AI tool list, a @RoundtableSpace video on building a business, and a Spanish-language YouTube monetization post from @maxwell_lenoir. They can rotate in later this week.",
     "lesson": {
-      "oneLiner": "Great pages are built from great parts: nav, hero, CTA, footer. Study each part on its own.",
+      "oneLiner": "A good prompt is a reusable tool. Steal the structure, swap in your own details.",
       "beats": [
-        "Break a page into parts: navbar, hero, call to action, footer, even the 404 page. Each one has its own best examples.",
-        "Pick the weakest part of your page first. One better CTA usually beats a full redesign.",
-        "Use design prompts as a starting point: describe the part you want, then swap in your own brand words and colors.",
-        "Don't forget the edges: a good footer and 404 page make a small brand feel big."
+        "Most strong prompts share a shape: a role ('Act as a...'), the task, the context, and the format you want back.",
+        "Browse by job, not by model. A prompt that works in ChatGPT usually works in Claude or Grok with small tweaks.",
+        "Save the winners. Keep a short file of the five prompts you actually reuse; that's your personal library.",
+        "Turn your best prompt into a product. A tested prompt pack is the kind of thing a 7EightMade drop can sell."
       ],
-      "takeaway": "Open the CTA inspiration link, pick one style, and rebuild the main button section on one 7EightMade page today."
+      "takeaway": "Open prompts.chat, pick one prompt that fits a real 7EightMade task today, run it, and save the version that worked."
     }
   }
 }
