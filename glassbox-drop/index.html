@@ -1,23 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLASSBOX — See Inside Any Software | 7EightMade Drop</title>
-<meta name="description" content="Every app has secrets. We reverse engineer any software — no extra software, no expertise needed. Drop open 11 hours only.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLASSBOX — Offer ended | 7EightMade</title>
+<meta name="description" content="The Glassbox drop has ended.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#06070c">
 <style>
   :root {
     --bg: #06070c;
     --panel: #0b0d16;
     --teal: #00ffaa;
     --teal-dim: #00cc88;
-    --amber: #ffb000;
     --ink: #d7f5e8;
     --muted: #6b7f76;
     --line: #14241d;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
+    min-height: 100vh;
     background: var(--bg);
     color: var(--ink);
     font-family: "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
@@ -31,230 +33,67 @@
     background: repeating-linear-gradient(0deg, rgba(0,0,0,0.14) 0 1px, transparent 1px 3px);
     z-index: 50;
   }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
-  header.top {
-    border-bottom: 1px solid var(--line);
-    padding: 18px 0;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  header.top .brand { color: var(--teal); font-weight: 700; letter-spacing: 2px; }
-  header.top .live {
-    color: #0a0a0a; background: var(--amber);
+  .wrap { max-width: 640px; margin: 0 auto; padding: 72px 24px 72px; }
+  .pill {
+    display: inline-block;
     font-size: 12px; font-weight: 700; letter-spacing: 2px;
-    padding: 4px 12px; border-radius: 3px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 20px;
   }
-  .hero { padding: 72px 0 40px; text-align: center; }
-  .hero .kicker { color: var(--muted); letter-spacing: 4px; font-size: 13px; margin-bottom: 18px; }
-  .hero h1 {
-    font-size: clamp(56px, 12vw, 110px);
+  .eyebrow { font-size: 12px; letter-spacing: 4px; color: var(--muted); margin-bottom: 14px; }
+  h1 {
+    font-size: clamp(48px, 11vw, 88px);
     color: var(--teal);
     letter-spacing: 8px;
-    text-shadow: 0 0 32px rgba(0,255,170,0.45);
-    margin-bottom: 12px;
+    text-shadow: 0 0 32px rgba(0,255,170,0.25);
+    margin-bottom: 8px;
   }
-  .hero .tag { font-size: clamp(18px, 4vw, 26px); color: var(--ink); margin-bottom: 36px; }
-  .hero .tag span { color: var(--muted); }
-  .countdown-box {
+  .sub { color: var(--muted); font-size: 17px; margin-bottom: 12px; }
+  .lead { font-size: 16px; color: var(--ink); margin-bottom: 32px; }
+  .card {
     border: 1px solid var(--line);
     background: var(--panel);
     border-radius: 8px;
-    padding: 28px 20px;
-    margin: 0 auto 36px;
-    max-width: 560px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
   }
-  .countdown-box .label { color: var(--muted); font-size: 13px; letter-spacing: 3px; margin-bottom: 10px; }
-  #countdown {
-    font-size: clamp(38px, 9vw, 64px);
-    color: var(--amber);
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-shadow: 0 0 24px rgba(255,176,0,0.35);
-    font-variant-numeric: tabular-nums;
-  }
-  #countdown.ended { color: var(--muted); text-shadow: none; font-size: clamp(24px, 6vw, 40px); }
-  .cta {
+  .kicker { color: var(--teal); font-size: 15px; letter-spacing: 4px; margin-bottom: 10px; }
+  .meta { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
     display: inline-block;
     background: var(--teal); color: #04120c;
-    font-weight: 700; font-size: 18px; letter-spacing: 2px;
-    padding: 16px 44px; border-radius: 6px;
-    text-decoration: none; margin-bottom: 14px;
+    font-weight: 700; text-decoration: none; font-size: 14px; letter-spacing: 1px;
+    padding: 12px 20px; border-radius: 6px;
   }
-  .cta:hover { background: #4dffc4; }
-  .pay-note { color: var(--muted); font-size: 14px; }
-  .pay-note b { color: var(--ink); }
-  section.block { padding: 48px 0; border-top: 1px solid var(--line); }
-  section.block h2 {
-    color: var(--teal); font-size: 15px; letter-spacing: 4px; margin-bottom: 24px;
+  .btn--ghost {
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--line);
   }
-  section.block h2::before { content: "$ "; color: var(--muted); }
-  .steps { display: grid; gap: 18px; }
-  .step {
-    border: 1px solid var(--line); border-radius: 8px;
-    background: var(--panel); padding: 22px;
-  }
-  .step .n { color: var(--amber); font-size: 13px; letter-spacing: 2px; margin-bottom: 6px; }
-  .step h3 { color: var(--teal); font-size: 19px; margin-bottom: 8px; }
-  .step p { color: var(--ink); font-size: 15px; }
-  .step code {
-    display: block; margin-top: 10px;
-    background: #06070c; border: 1px solid var(--line); border-radius: 4px;
-    padding: 10px 14px; color: var(--teal-dim); font-size: 13px; overflow-x: auto;
-  }
-  .inside-list { list-style: none; display: grid; gap: 12px; }
-  .inside-list li {
-    border-left: 3px solid var(--teal); padding: 6px 0 6px 18px; font-size: 16px;
-  }
-  .inside-list li span { color: var(--muted); font-size: 14px; display: block; }
-  .promise { display: grid; gap: 14px; }
-  .promise div {
-    border: 1px solid var(--line); border-radius: 8px; padding: 20px 22px; background: var(--panel);
-  }
-  .promise h3 { color: var(--amber); letter-spacing: 3px; font-size: 16px; margin-bottom: 6px; }
-  .promise p { font-size: 15px; }
-  .howto { counter-reset: h; display: grid; gap: 14px; }
-  .howto div { padding-left: 8px; font-size: 16px; }
-  .howto div::before {
-    counter-increment: h; content: counter(h) ".";
-    color: var(--teal); font-weight: 700; margin-right: 10px;
-  }
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 36px 0 60px; text-align: center; color: var(--muted); font-size: 13px;
-  }
-  footer .motto { color: var(--teal-dim); letter-spacing: 2px; margin-top: 8px; }
-  @media (max-width: 560px) {
-    .hero { padding: 48px 0 28px; }
-    section.block { padding: 36px 0; }
-  }
+  .foot { margin-top: 40px; font-size: 12px; color: var(--muted); }
+  .foot a { color: var(--teal-dim); text-decoration: none; }
 </style>
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-    <span class="brand">7EIGHTMADE</span>
-    <span class="live" id="liveBadge">DROP LIVE</span>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="hero">
-    <div class="kicker">7EIGHTMADE DROP</div>
+  <main class="wrap">
+    <p class="pill">Offer ended</p>
+    <p class="eyebrow">7EIGHTMADE DROP</p>
     <h1>GLASSBOX</h1>
-    <div class="tag">Every app has secrets. <span>We reverse engineer any software.</span></div>
+    <p class="sub">Every app has secrets.</p>
+    <p class="lead">The 11-hour Glassbox drop is over. No more claims for this promo.</p>
 
-    <div class="countdown-box">
-      <div class="label">DROP CLOSES IN</div>
-      <div id="countdown">--:--:--</div>
-    </div>
-
-    <!-- ============ SET PRICE HERE (Dom approves per drop) ============ -->
-    <a class="cta" href="https://cash.app/$dom1w0w/50" target="_blank" rel="noopener" id="claimBtn">CLAIM — $50</a>
-    <div class="pay-note">Pay via Cash App <b>$dom1w0w</b> — scripts + guide delivered after payment confirms.<br>No PDF goes out until payment is confirmed.</div>
-  </div>
-
-  <section class="block">
-    <h2>what it is</h2>
-    <p style="font-size:17px;max-width:640px;">Give Glassbox any app and it shows you everything that app is doing — <b style="color:var(--teal)">where your information goes, what it touches, how it truly works</b>. How it works is our secret. What it finds is yours.</p>
-  </section>
-
-  <section class="block">
-    <h2>what the agents do</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="n">STEP 01</div>
-        <h3>Give it an app</h3>
-        <p>Any file. That's all it needs.</p>
+    <section class="card" aria-label="Glassbox drop closed">
+      <p class="kicker">Offer ended</p>
+      <p class="meta">The 11-hour Glassbox drop is over. No more claims for this promo.</p>
+      <div class="actions">
+        <a class="btn" href="../">Back to 7EightMade</a>
+        <a class="btn btn--ghost" href="mailto:nuguidd@icloud.com?subject=Free%20AI%20Audit">Book Free AI Audit</a>
       </div>
-      <div class="step">
-        <div class="n">STEP 02</div>
-        <h3>It investigates</h3>
-        <p>Quietly. Completely. Nothing stays hidden.</p>
-      </div>
-      <div class="step">
-        <div class="n">STEP 03</div>
-        <h3>You get the truth</h3>
-        <p>A clear report. Proof for every claim.</p>
-      </div>
-      <div class="step">
-        <div class="n">STEP 04</div>
-        <h3>Make it yours</h3>
-        <p>Your AI rebuilds what you like. In your own code.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block">
-    <h2>inside the drop</h2>
-    <ul class="inside-list">
-      <li>The complete method <span>everything needed to run investigations yourself</span></li>
-      <li>Yours to keep <span>no subscriptions, no renewals, no strings</span></li>
-    </ul>
-  </section>
-
-  <section class="block">
-    <h2>the glassbox promise</h2>
-    <div class="promise">
-      <div><h3>LOCAL ONLY</h3><p>The software never leaves your machine. The investigation happens where the file lives.</p></div>
-      <div><h3>ZERO INSTALLS</h3><p>Nothing extra to install, no expertise needed. If your AI assistant runs, Glassbox runs.</p></div>
-      <div><h3>HONEST OUTPUT</h3><p>Proof for every claim. The report tells you what it can't tell you, too.</p></div>
-    </div>
-  </section>
-
-  <section class="block">
-    <h2>how to claim</h2>
-    <div class="howto">
-      <div>Send <b style="color:var(--teal)">$50</b> via Cash App to <b>$dom1w0w</b> before the timer hits zero.</div>
-      <div>Email <b>nuguidd@icloud.com</b> with your payment confirmation.</div>
-      <div>Scripts + guide PDF delivered after payment confirms. Nothing goes out before.</div>
-    </div>
-  </section>
-</div>
-
-<footer>
-  <div>© 2026 7EightMade · AI Micro-Consulting & Automation</div>
-  <div class="motto">Fall Down 7 · Stand Up 8</div>
-</footer>
-
-<script>
-/* ============ DROP CONFIG — Dom sets these at launch ============ */
-const DROP = {
-  priceUSD: 50,                         // set per drop
-  // Deadline: fixed UTC timestamp. Drop closes 11h after launch (2026-10-12 ~10:13 AM CT).
-  endsAt: Date.UTC(2026, 9, 13, 2, 13, 24)
-};
-/* ================================================================ */
-
-(function () {
-  const el = document.getElementById('countdown');
-  const badge = document.getElementById('liveBadge');
-  const btn = document.getElementById('claimBtn');
-  btn.textContent = 'CLAIM — $' + DROP.priceUSD;
-  btn.href = 'https://cash.app/$dom1w0w/' + DROP.priceUSD;
-
-  function tick() {
-    const ms = DROP.endsAt - Date.now();
-    if (ms <= 0) {
-      el.textContent = 'DROP CLOSED';
-      el.classList.add('ended');
-      badge.textContent = 'CLOSED';
-      badge.style.background = '#3a3f44';
-      badge.style.color = '#cfd6d2';
-      btn.style.opacity = '0.35';
-      btn.style.pointerEvents = 'none';
-      return;
-    }
-    const h = Math.floor(ms / 3600000);
-    const m = Math.floor(ms % 3600000 / 60000);
-    const s = Math.floor(ms % 60000 / 1000);
-    el.textContent =
-      String(h).padStart(2, '0') + ':' +
-      String(m).padStart(2, '0') + ':' +
-      String(s).padStart(2, '0');
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
-</script>
+    <p class="foot"><a href="../">← 7EightMade</a> · Fall Down 7 · Stand Up 8</p>
+  </main>
 </body>
 </html>
