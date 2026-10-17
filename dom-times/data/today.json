@@ -1,63 +1,63 @@
 {
   "_meta": {
-    "note": "LIVE edition — Friday, October 16, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo rotates to @sadhna6389 (20 free useful sites); @milliemyang Muse was top on Oct 14 and is still #1 with nothing newer.",
-    "generated": "2026-10-16T06:03:53-05:00",
+    "note": "LIVE edition — Saturday, October 17, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo rotates to @AkterBrist39045's AI tool list (no new bookmarks since Oct 12). Public edition: personal items are kept off this page.",
+    "generated": "2026-10-17T06:04:05-05:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XLIII",
+    "volume": "XLIV",
     "city": "Carpentersville, IL",
-    "asOf": "6:03 AM CT"
+    "asOf": "6:04 AM CT"
   },
   "lead": {
-    "headline": "Venus Friday: Make It Attract",
-    "subhead": "About 50° at dawn, high near 56, only a light drizzle chance. Apple and Meta teamed up so Muse Spark Open runs on Mac Studios. OpenAI stepped back in the Apple trade-secrets fight. The Bulls host Minnesota tonight, and PFL crowns a women's flyweight champ at Wintrust Arena.",
+    "headline": "Saturn Saturday: Build the Frame",
+    "subhead": "Clear and cold at dawn (about 36°), sunny to a high near 52. The Bulls trampled Minnesota 133-116. Jena Bishop upset Liz Carmouche in Chicago for the first PFL women's flyweight belt. OpenAI upgraded GPT-6 Pro with parallel agents, and UFC Edmonton goes tonight.",
     "byline": "By The Briefing Desk",
     "photo": {
       "show": true,
-      "caption": "Friday: a cool Venus dawn over Carpentersville — attract what you want, finish what you start.",
-      "alt": "Lead photo: Friday Opening Bell under a cool partly cloudy morning sky"
+      "caption": "Saturday: a clear, cold Saturn dawn over Carpentersville — set the structure, then let the week run on it.",
+      "alt": "Lead photo: Saturday Opening Bell under a clear cold morning sky"
     }
   },
   "articles": [
     {
-      "hed": "Edition XLIII: Friday Gravity",
-      "deck": "Box breathing, the 3-minute opener, then a Venus Friday for clean attraction and a full weekend slate.",
-      "body": "Volume XLIII is live from Carpentersville on a cool Friday (about 50° at dawn, high near 56, drizzle chance only about 11%). Saturday and Sunday look sunny and chilly. On the AI desk, Apple and Meta put Muse Spark Open — an 816-billion-parameter open-weight model — on pairs of M5 Ultra Mac Studios via MLX. OpenAI agreed not to use the Apple trade secrets at issue while the lawsuit continues, and will hand over forensic images from 14 ex-Apple hires. Anthropic gave six METR researchers employee-like access and dropped its veto over what they publish. xAI shipped Grok Voice 3.0, topping Artificial Analysis's speech-to-speech index. In the NBA, the Knicks edged the Raptors and Houston rolled Oklahoma City; tonight the Timberwolves visit the Bulls at 7 PM CT. Football: Caleb Williams feels ready after the hamstring, and Penix is expected to start Sunday when the Bears visit Atlanta. Combat is local: Liz Carmouche vs Jena Bishop for the first PFL women's flyweight title tonight at Wintrust on ESPN2; UFC Edmonton is Saturday. Friday belongs to Venus — attraction, craft, the things that pull people in. Solomon's line: better a little with quiet than a house full of strife. fall down 7 stand up 8.",
+      "hed": "Edition XLIV: Saturday Structure",
+      "deck": "Box breathing, the 3-minute opener, then a Saturn Saturday for building the frame the next week runs on.",
+      "body": "Volume XLIV is live from Carpentersville on a clear, cold Saturday (about 36° at dawn, sunny, high near 52, no rain in the forecast). Sunday and Monday stay sunny and keep warming into the 60s. On the AI desk, OpenAI upgraded GPT-6 Pro in ChatGPT with faster responses and parallel agents, and opened prompt-to-voice to every API customer. Anthropic posted a big third quarter ahead of its IPO, and Apple rolled out new App Store rules aimed at AI deepfake and nudify apps. In the NBA, the Bulls trampled the Timberwolves 133-116 at the United Center, led by as many as 21. Boston extended Payton Pritchard, and Golden State will open without Moses Moody and Jimmy Butler. Football: Caleb Williams is officially questionable despite a full week of practice, and Penix has no designation and will start when the Bears visit Atlanta Sunday at noon CT. Combat came home to Chicago: Jena Bishop beat Liz Carmouche 48-47 on all three cards for the first PFL women's flyweight title, avenging last year's loss. UFC Edmonton (Buckley vs Malott) is tonight. Saturday belongs to Saturn — structure, time, discipline. Solomon's line: prepare your work in the field first, then build your house. fall down 7 stand up 8.",
       "column": "lead"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 56,
-    "low": 38,
+    "high": 52,
+    "low": 35,
     "unit": "F",
-    "summary": "Friday: about 50° at 6 AM, partly cloudy with only a light drizzle chance (about 11%), high near 56 / low around 38. Saturday: sunny and chilly, high near 51, low around 34. Sunday: sunny, high near 57, low around 38. Monday: cloudy and milder, high near 62, low around 42. Source: Open-Meteo as of ~6:00 AM CT.",
+    "summary": "Saturday: about 36° and clear at 6 AM, sunny all day, high near 52 / low around 35, no rain. Sunday: sunny, high near 58, low around 39. Monday: mostly sunny, high near 63, low around 43. Tuesday: partly cloudy, high near 66, low around 46. Source: Open-Meteo as of ~6:00 AM CT.",
     "days": [
       {
-        "label": "Fri",
-        "high": 56,
-        "low": 38,
-        "icon": "rain"
-      },
-      {
         "label": "Sat",
-        "high": 51,
-        "low": 34,
+        "high": 52,
+        "low": 35,
         "icon": "sun"
       },
       {
         "label": "Sun",
-        "high": 57,
-        "low": 38,
+        "high": 58,
+        "low": 39,
         "icon": "sun"
       },
       {
         "label": "Mon",
-        "high": 62,
-        "low": 42,
+        "high": 63,
+        "low": 43,
+        "icon": "sun"
+      },
+      {
+        "label": "Tue",
+        "high": 66,
+        "low": 46,
         "icon": "cloud"
       }
     ]
@@ -65,19 +65,23 @@
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Cool Friday (~56° high); only ~11% drizzle chance — light jacket weather"
+      "text": "Clear and cold start (~36°), sunny to ~52 — jacket for the morning, no rain"
     },
     {
       "type": "FYI",
-      "text": "PFL Chicago tonight: Carmouche vs Bishop for the women's flyweight title, Wintrust Arena, ESPN2 ~10 PM CT"
+      "text": "UFC Edmonton tonight: Buckley vs Malott, main card ~7 PM CT on Paramount+"
     },
     {
       "type": "FYI",
-      "text": "Timberwolves at Bulls, 7 PM CT (preseason)"
+      "text": "Bears at Falcons Sunday, noon CT on FOX — Caleb Williams officially questionable"
     },
     {
       "type": "ACTION",
-      "text": "Pick two free tools from the Tech Demo list and use one on a 7EightMade task today"
+      "text": "Saturn task: set up next week's frame (three must-dos, one 7EightMade block) before noon"
+    },
+    {
+      "type": "ACTION",
+      "text": "Open the Tech Demo AI tool list and test one tool on a real 7EightMade task"
     }
   ],
   "timeline": [
@@ -88,45 +92,41 @@
     },
     {
       "time": "Sunrise",
-      "event": "Journal + 3 lines of gratitude; name one thing you're attracting this week",
+      "event": "Journal + 3 lines of gratitude; write next week's three must-dos",
       "category": "habit"
     },
     {
       "time": "Morning",
-      "event": "Must-do #1: open the Tech Demo list, try one free tool on a real 7EightMade task",
+      "event": "Must-do #1: build next week's frame (calendar blocks + one 7EightMade work block)",
       "category": "focus"
     },
     {
-      "time": "Afternoon",
-      "event": "Must-do #2: finish one small thing meant to be seen (story slide, offer line, or creator draft)",
+      "time": "Midday",
+      "event": "Must-do #2: test one tool from the Tech Demo list on a real task",
       "category": "focus"
     },
     {
-      "time": "7:00 PM",
-      "event": "Timberwolves at Bulls (preseason), optional",
+      "time": "~5:00 PM",
+      "event": "UFC Edmonton prelims (Paramount+), optional",
       "category": "social"
     },
     {
-      "time": "~10:00 PM",
-      "event": "PFL Chicago main card on ESPN2 (Carmouche vs Bishop), optional",
+      "time": "~7:00 PM",
+      "event": "UFC Edmonton main card: Buckley vs Malott, optional",
       "category": "social"
-    },
-    {
-      "time": "9:30 PM",
-      "event": "Sigil (optional): clear anything still floating before sleep",
-      "category": "habit"
     }
   ],
   "thisWeek": [
-    "Fri Oct 16 — Cool ~56°; Wolves at Bulls 7 PM CT; PFL Chicago Carmouche vs Bishop on ESPN2; optional Sigil 9:30 PM",
-    "Sat Oct 17 — Sunny chilly ~51°; UFC Edmonton (Buckley vs Malott) on Paramount+",
-    "Sun Oct 18 — Sunny ~57°; Bears at Falcons, noon CT on FOX",
-    "Mon Oct 19 — Cloudy milder ~62°; optional Sigil 9:30 PM"
+    "Sat Oct 17 — Sunny, cold start, ~52°; UFC Edmonton (Buckley vs Malott) tonight; Fundora vs Hadribeaj for the WBC belt",
+    "Sun Oct 18 — Sunny ~58°; Bears at Falcons, noon CT on FOX",
+    "Mon Oct 19 — Mostly sunny ~63°; optional Sigil 9:30 PM",
+    "Tue Oct 20 — Partly cloudy ~66°; optional Sigil 9:30 PM",
+    "Wed Oct 21 – Fri Oct 23 — Optional Sigil each night 9:30 PM"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Cool air, clear Friday, the day of Venus. Four counts in, four hold, four out, four hold. Breathe the way you want to attract today: steady, warm, nothing forced.",
+    "intro": "Clear, cold Saturday, the day of Saturn. Four counts in, four hold, four out, four hold. Breathe like you're laying a foundation: square, even, every side the same length.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -157,17 +157,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds clears the static. Eyes open. Shoulders down. Body next. Then attract the one win that matters."
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then build the frame the week will stand on."
     },
     "mindset": {
-      "hed": "Gravity Wins, Not Noise",
-      "body": "Venus doesn't chase. She pulls. Liz Carmouche and Jena Bishop settle a rematch tonight for a brand-new belt — same opponents, higher stakes, no spare energy for theatrics. That's the Friday standard: stop scattering, start attracting. Win the first hour, make one thing beautiful enough that people lean in, and leave the weekend cleaner than you found it. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Bishop Rewrote the Ending",
+      "body": "Last year Liz Carmouche stopped Jena Bishop in the third round. Last night in Chicago, Bishop went five rounds with the same woman and took the belt 48-47 on every card, chasing a choke in the final minute when her legs were gone. That's Saturn's lesson: the loss is data, the structure is the comeback. Fix the frame, show up again, outlast. Win the first hour, set next week's three must-dos, and leave nothing to mood. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Friday: run this right after Morning Charge, breath first and then the body. Cool morning (low 50s), so a light warm-up jacket is fine before the RipStick finisher. Venus's day: crisp form, nothing sloppy.",
+    "note": "Saturday: run this right after Morning Charge, breath first and then the body. Cold start (mid-30s), so warm up indoors before the RipStick finisher. Saturn's day: strict form, full range, no shortcuts.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -202,22 +202,22 @@
         "title": "AI Desk",
         "items": [
           {
-            "source": "CNBC",
-            "hed": "Apple and Meta team up so Muse Spark Open runs on Mac Studios",
-            "body": "Meta released Muse Spark Open, an 816-billion-parameter open-weight model (mixture-of-experts), and worked with Apple so it runs locally across two or four M5 Ultra Mac Studios using Apple's MLX framework. Mark Zuckerberg and Apple CEO John Ternus praised the work on X. Weights are on Hugging Face and major clouds under Meta's Muse Model License.",
-            "url": "https://www.cnbc.com/2026/10/15/apple-meta-partner-ai.html"
+            "source": "OpenAI",
+            "hed": "GPT-6 Pro gets parallel agents; prompt-to-voice opens to all API customers",
+            "body": "OpenAI upgraded GPT-6 Pro in ChatGPT with faster responses, better plugin and tool use, and multiple agents that work on separate parts of a task in parallel (Pro users can watch each agent's progress). On the API side, developers can now create a custom voice from a text description and reuse it in GPT-Live sessions, plus nine new GPT-Live voices.",
+            "url": "https://openai.com/products/release-notes/"
           },
           {
-            "source": "The Verge",
-            "hed": "OpenAI agrees not to use Apple trade secrets while the lawsuit continues",
-            "body": "After Judge Edward Davila said he was highly likely to grant Apple's injunction, OpenAI voluntarily agreed not to use Apple's proprietary information for product development while the case plays out, and will hand over forensic images of drives from 14 employees who left Apple for OpenAI.",
-            "url": "https://www.theverge.com/ai-artificial-intelligence/1011771/openai-agrees-not-to-use-trade-secrets-it-allegedly-took-from-apple"
+            "source": "Reuters via CNA",
+            "hed": "Anthropic's third-quarter revenue jumps 45% ahead of its IPO",
+            "body": "Anthropic said quarterly revenue rose about 45% to roughly $16.8 billion and that it was profitable on an adjusted basis with positive cash flow. The same week it gave METR researchers employee-like access with no veto over what they publish.",
+            "url": "https://www.channelnewsasia.com/business/anthropics-q3-revenue-surges-45-nearly-17-billion-6460776"
           },
           {
-            "source": "TechCrunch",
-            "hed": "Anthropic gives METR researchers employee-like access — and drops its publish veto",
-            "body": "Six METR researchers get Anthropic laptops, office space, and internal tools on par with the company's own risk teams. METR can publish assessments of risks, incidents, and practices; Anthropic can require redactions only for narrow categories (customer data, privilege, architecture). xAI also shipped Grok Voice 3.0, #1 on Artificial Analysis's speech-to-speech index.",
-            "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/"
+            "source": "MacRumors",
+            "hed": "Apple's new App Store rules target AI deepfake and nudify apps",
+            "body": "Apple updated its App Store guidelines to go after apps that generate AI deepfakes or nudified images. Meanwhile xAI's Grok Voice 3.0 speech-to-speech model is now available through its API.",
+            "url": "https://www.macrumors.com/2026/10/16/app-store-rules-deepfakes/"
           }
         ]
       },
@@ -225,22 +225,22 @@
         "title": "NBA",
         "items": [
           {
-            "source": "whynba",
-            "hed": "Knicks edge the Raptors 122-120 at the Garden",
-            "body": "New York took the rematch after Toronto's 50-point blowout earlier in the week. Scottie Barnes led the Raptors with 23; Jalen Brunson had 20 for the Knicks in a two-point preseason thriller.",
-            "url": "https://whynba.com/results/2026-10-15/"
+            "source": "NBA.com",
+            "hed": "Bulls trample the Timberwolves 133-116",
+            "body": "Chicago won every quarter, built a lead as big as 21, and won the paint 76-56 in front of 21,017 at the United Center. The Bulls are 3-2 in the preseason.",
+            "url": "https://www.nba.com/game/min-vs-chi-0012600058"
           },
           {
-            "source": "whynba",
-            "hed": "Rockets roll the Thunder 116-89 in Houston",
-            "body": "Biggest win of Thursday night's slate. Jalen Williams scored 18 for Oklahoma City; Bogdan Bogdanović had 15 for Houston at Toyota Center.",
-            "url": "https://whynba.com/results/2026-10-15/"
+            "source": "NBA.com",
+            "hed": "Celtics sign Payton Pritchard to a two-year extension",
+            "body": "Boston locked up the former Sixth Man of the Year through 2029-30, with a mutual option on the final year.",
+            "url": "https://www.nba.com/news/celtics-sign-payton-pritchard-to-two-year-contract-extension"
           },
           {
-            "source": "AskScores",
-            "hed": "Tonight: Timberwolves at Bulls, plus a 12-game preseason slate",
-            "body": "Minnesota visits Chicago at 7 PM CT (8 PM ET) at the United Center. Also on: Heat at Magic, Celtics at 76ers, Bucks at Pacers, Nuggets at Lakers (ESPN), and more.",
-            "url": "https://www.askscores.com/nba/scores"
+            "source": "Hoops Rumors",
+            "hed": "Warriors will open without Moses Moody and Jimmy Butler",
+            "body": "Golden State expects Moody back around December or January and Butler around January or February, leaving Stephen Curry with a thinner rotation to start the season.",
+            "url": "https://www.hoopsrumors.com/2026/10/warriors-notes-moody-butler-curry-bassey.html"
           }
         ]
       },
@@ -248,22 +248,22 @@
         "title": "NFL",
         "items": [
           {
-            "source": "AP News",
-            "hed": "Caleb Williams feels ready to test the hamstring against Atlanta",
-            "body": "The Bears quarterback went through his first full practice Thursday since the Week 2 injury against Minnesota and says he feels physically ready to start Sunday. Final go-ahead still rests with coaches and trainers; Tyson Bagent has been the fill-in.",
-            "url": "https://apnews.com/article/bears-caleb-williams-injury-return-170e7c751ed29701748b287c13dca765"
+            "source": "NFL.com",
+            "hed": "Caleb Williams officially questionable despite a full week of practice",
+            "body": "Williams practiced fully all week after missing three games with a hamstring injury, but Ben Johnson is staying coy. The Bears went 2-1 without him using Case Keenum and Tyson Bagent.",
+            "url": "https://www.nfl.com/news/bears-qb-caleb-williams-hamstring-questionable-to-play-falcons?remove_header="
           },
           {
-            "source": "AP News",
-            "hed": "Penix expected to start for the Falcons barring a rib setback",
-            "body": "Michael Penix Jr. returned to practice Wednesday and was a full participant again Thursday. Coach Kevin Stefanski said he expects Penix to start against Chicago if everything goes to plan after last week's exit against Baltimore.",
-            "url": "https://apnews.com/article/falcons-penix-injury-815a07e9c48786583ae567f8b1464cfd"
+            "source": "NFL.com",
+            "hed": "Penix has no injury designation and will start against Chicago",
+            "body": "Michael Penix Jr. was a full participant Friday after the rib injury against Baltimore. Through three starts he's completed 67.5% for 719 yards, three touchdowns and one interception.",
+            "url": "https://www.nfl.com/news/falcons-qb-michael-penix-jr-ribs-has-no-injury-designation-will-start-vs-bears"
           },
           {
             "source": "Atlanta Falcons",
-            "hed": "Bears at Falcons Sunday, noon CT on FOX — both QBs trending toward return",
-            "body": "Chicago (3-2) visits Atlanta (2-3) at Mercedes-Benz Stadium, the most widely distributed FOX window. Both clubs lean on top-tier run games while their 2024 first-round quarterbacks work back from injury.",
-            "url": "https://www.atlantafalcons.com/news/where-watch-atlanta-falcons-chicago-bears-stream-tv-radio"
+            "hed": "Falcons rule out CB C.J. Henderson; Bears' T.J. Edwards also out",
+            "body": "Atlanta loses Henderson (groin) and lists Za'Darius Smith questionable. Chicago is without T.J. Edwards, Keyshaun Elliott, Kyle Monangai and Dayo Odeyingbo, with Kyler Gordon and Tyrique Stevenson questionable. Kickoff Sunday noon CT on FOX.",
+            "url": "https://www.atlantafalcons.com/news/falcons-injury-report-c-j-henderson-ruled-out-of-week-6-matchup-vs-bears"
           }
         ]
       },
@@ -271,20 +271,20 @@
         "title": "MMA & Boxing",
         "items": [
           {
-            "source": "PFL",
-            "hed": "Tonight in Chicago: Carmouche vs Bishop 2 for the first PFL women's flyweight title",
-            "body": "Liz Carmouche and Jena Bishop rematch at Wintrust Arena for the inaugural belt. Main card airs on ESPN2 at 11 PM ET (10 PM CT); early card from 7 PM ET. Co-main: Timur Khizriev vs Gabriel Braga in a featherweight rematch.",
-            "url": "https://pflmma.com/news/how-to-watch-pfl-chicago-october-2026"
+            "source": "FIGHTMAG",
+            "hed": "Jena Bishop beats Liz Carmouche for the first PFL women's flyweight title",
+            "body": "Bishop avenged last year's TKO loss with a unanimous decision (48-47 on all three cards) at Wintrust Arena, nearly finishing a rear-naked choke in the fifth. Timur Khizriev edged Gabriel Braga by split decision in the co-main.",
+            "url": "https://www.fightmag.com/pfl-chicago-carmouche-vs-bishop-live-results/"
           },
           {
             "source": "UFC.com",
-            "hed": "UFC Edmonton Saturday: Buckley vs Malott headlines Rogers Place",
-            "body": "Joaquin Buckley meets Mike Malott in the welterweight main event; Erin Blanchfield vs Jasmine Jasudavicius is the co-main. Prelims 5 PM ET, main card 8 PM ET, entire card on Paramount+ in the U.S.",
+            "hed": "Tonight: UFC Edmonton, Buckley vs Malott at Rogers Place",
+            "body": "Joaquin Buckley meets Mike Malott in the welterweight main event; Erin Blanchfield vs Jasmine Jasudavicius is the co-main. Prelims 4 PM CT, main card 7 PM CT, entire card on Paramount+ in the U.S.",
             "url": "https://www.ufc.com/news/ufc-edmonton-results-buckley-vs-malott"
           },
           {
             "source": "AP News",
-            "hed": "Fundora defends the WBC super welterweight title against Hadribeaj",
+            "hed": "Tonight: Fundora defends the WBC super welterweight title against Hadribeaj",
             "body": "Sebastian Fundora (24-1-1, 16 KOs) meets unbeaten mandatory challenger Ermal Hadribeaj Saturday at The Chelsea inside The Cosmopolitan. Fundora is riding a four-fight streak and eyeing an undisputed shot.",
             "url": "https://apnews.com/article/sebastian-fundora-ermal-hadribeaj-boxing-las-vegas-wbc-102fe1af826651d1e8c2079fcd035159"
           }
@@ -297,16 +297,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The hour of Venus",
-        "body": "Friday is Venus's day in the old planetary week ('vendredi' in French; Frigg's day in English, since the Romans matched Frigg with Venus). The Solomonic grimoires give the first hour after sunrise to the day's planet. Venus rules love, beauty, art, music and the bonds that draw people together. Magicians saved that hour for works of attraction and for finishing anything meant to be seen. Make one thing beautiful today."
+        "hed": "The day of Saturn",
+        "body": "Saturday is the only English weekday still named for a Roman god: Saturn's day. In the old planetary order Saturn is the outermost, slowest planet, ruling time, limits, structure and the long game. The Solomonic grimoires give him the first hour after sunrise today, the hour magicians saved for binding, protection and work meant to last. Build something today that still holds next month."
       },
       {
-        "hed": "Harmony, not tug-of-war",
-        "body": "Hermetic writers treat Venus as the planet of harmony — the force that joins opposites without crushing either side. The practical reading: stop forcing outcomes that only hold when you push. Build the version that holds when you walk away. If today's work only works under pressure, redesign it so it attracts on its own."
+        "hed": "Ialdabaoth's sphere",
+        "body": "In the Ophite diagram described by Origen in Against Celsus, the seven archons ruling the planetary spheres are listed in order, and the outermost, Saturn's, belongs to Ialdabaoth, the lion-faced chief of the archons who thinks he is the highest god. For the Gnostics, Saturn's sphere is the last gate before freedom. The practical reading: the walls that feel most permanent are often just the last checkpoint."
       },
       {
-        "hed": "Thomas, Saying 70: bring it forth",
-        "body": "The Gospel of Thomas says: 'If you bring forth what is within you, what you bring forth will save you. If you do not bring forth what is within you, what you do not bring forth will destroy you.' The mystics read it as a rule for creation: the unfinished draft, the unsent offer, the unused skill — those are the real drains. Bring one of them into the light today."
+        "hed": "What the soul gives up at the seventh gate",
+        "body": "In the Poimandres, the first Hermetic treatise, the ascending soul hands back one vice at each planetary zone. At the seventh, Saturn's, it surrenders 'the falsehood that lies in ambush.' The mystics read it as the last thing to drop before clarity: the lie you tell yourself about why you can't start. Name yours today and leave it at the gate."
       }
     ]
   },
@@ -314,9 +314,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Better a little with quiet",
-    "body": "Solomon wrote: 'Better is a dry morsel with quietness, than a house full of sacrifices with strife' (Proverbs 17:1). Peace with a little beats plenty with noise. On Venus's day, the counsel is simple: choose the clean win over the crowded one, and protect the quiet that lets good work land.",
-    "practice": "After four rounds of box breathing, name one noisy commitment you can shrink or delay this weekend. Write it in one line. Then start the 3-minute opener and protect that quiet for the rest of the morning."
+    "hed": "Prepare the field, then build",
+    "body": "Solomon wrote: 'Prepare thy work without, and make it fit for thyself in the field; and afterwards build thine house' (Proverbs 24:27). Get the income, the groundwork and the plan in order before the visible project. On Saturn's day the counsel is plain: set the frame first, and the house goes up faster.",
+    "practice": "After four rounds of box breathing, write next week's three must-dos on one line each. Put the hardest one on the calendar as a real block. Then start the 3-minute opener and protect that block like a fight date."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -343,14 +343,14 @@
         "done": false
       },
       {
-        "id": "tech-demo-tool",
-        "text": "Must-do #1: pick one free tool from the Tech Demo list and use it on a real 7EightMade task",
+        "id": "week-frame",
+        "text": "Must-do #1: build next week's frame (three must-dos + one 7EightMade work block on the calendar)",
         "priority": "high",
         "done": false
       },
       {
-        "id": "venus-attract",
-        "text": "Must-do #2: finish one small thing meant to be seen (story slide, offer line, or creator draft)",
+        "id": "tech-demo-tool",
+        "text": "Must-do #2: test one tool from the Tech Demo AI list on a real 7EightMade task",
         "priority": "high",
         "done": false
       }
@@ -364,22 +364,22 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "20 websites that feel too useful to be free",
-    "author": "@sadhna6389",
-    "url": "https://x.com/sadhna6389/status/2109528772575965492",
-    "bookmarkUrl": "https://x.com/sadhna6389/status/2109528772575965492",
+    "pick": "AI: No longer a promise, but your reality — a numbered AI tool list",
+    "author": "@AkterBrist39045",
+    "url": "https://x.com/AkterBrist39045/status/2109469010916192287",
+    "bookmarkUrl": "https://x.com/AkterBrist39045/status/2109469010916192287",
     "linkLabel": "Open bookmark",
-    "note": "Rotated: @milliemyang on Muse is still at the top of your bookmarks (same Sep 21 post used in XLII) and nothing newer has landed since Oct 14. Next in the Oct 12 queue: @sadhna6389's list of 20 free useful sites — PDF editor (PDFgear), paywall remover, text-to-voice, Photopea, JustWatch, Archive.org, and more. Open the bookmark for the full numbered list.",
-    "skipped": "Still queued: @He1s_Sammy prompts.chat (used Oct 13), @AkterBrist39045 AI tool list, @RoundtableSpace business-building video, @maxwell_lenoir YouTube monetization (ES), @himanshubuildss vibe-coding resources.",
+    "note": "Rotated: no new bookmarks since Oct 12, and @milliemyang on Muse is still at the top. Next in the Oct 12 queue: @AkterBrist39045's numbered list of AI tools, one per job — an answer-anything assistant, AI subtitles, logo creation, voice cloning, document design, and more. The tool links are shortened in the post, so open the bookmark for the full list.",
+    "skipped": "Still queued: @RoundtableSpace business-building video, @maxwell_lenoir YouTube monetization (ES), @himanshubuildss vibe-coding resources, @Hartdrawss creative design tools, @iamtanzil_ design resources. Already used: @sadhna6389 (Oct 16), @He1s_Sammy (Oct 13), @milliemyang (Oct 14).",
     "lesson": {
-      "oneLiner": "Bookmark utility, not hype.",
+      "oneLiner": "One tool per job, not one tool for everything.",
       "beats": [
-        "A free tool only matters if it kills a real step in your week — PDF merge, image edit, or finding where a show streams.",
-        "Pick two from the list that match 7EightMade work (PDFgear for drop files, Photopea for story slides, JustWatch when you need a break).",
-        "Test one today on a live task instead of saving the thread and forgetting it.",
-        "If it saves five minutes twice, keep it. If it doesn't, archive the bookmark."
+        "Lists like this sort AI tools by the job they do: answers, subtitles, logos, voice, documents.",
+        "Match each job to a real 7EightMade task: subtitles for story videos, document design for drop PDFs, logos for new offers.",
+        "Test one tool on one live task today and time it against how you do it now.",
+        "Keep it only if it's faster and the output is good enough to ship; archive the rest."
       ],
-      "takeaway": "Open the list, try one tool on a real 7EightMade task before noon, and keep only what you actually use."
+      "takeaway": "Pick the one job you do most for 7EightMade, try the matching tool from the list today, and keep only what saves real time."
     }
   }
 }
