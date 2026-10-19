@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE BATCAVE</title>
+<style>
+  :root { --bg:#0C0E12; --teal:#00F5E6; --dim:#5a6b6b; --panel:#12151c; --amber:#ffb000; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--teal); font-family:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace; padding:24px 16px 64px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  header { border-bottom:1px solid #1e2a2a; padding-bottom:16px; margin-bottom:24px; }
+  h1 { font-size:28px; letter-spacing:4px; }
+  .tag { color:var(--dim); font-size:12px; margin-top:6px; letter-spacing:1px; }
+  h2 { font-size:14px; letter-spacing:3px; color:var(--dim); margin:32px 0 12px; }
+  h2::before { content:"> "; color:var(--teal); }
+  .mod { background:var(--panel); border:1px solid #1e2a2a; border-left:3px solid var(--teal); padding:16px; margin-bottom:12px; }
+  .mod.locked { border-left-color:var(--dim); opacity:.55; }
+  .mod h3 { font-size:16px; letter-spacing:2px; margin-bottom:6px; }
+  .mod p { color:#9fb3b3; font-size:13px; line-height:1.6; margin-bottom:12px; }
+  .mod .meta { font-size:11px; color:var(--dim); margin-bottom:12px; }
+  .open { display:inline-block; border:1px solid var(--teal); color:var(--teal); text-decoration:none; padding:8px 20px; font-size:13px; letter-spacing:2px; }
+  .open:hover { background:var(--teal); color:#000; }
+  .soon { display:inline-block; border:1px solid var(--dim); color:var(--dim); padding:8px 20px; font-size:13px; letter-spacing:2px; }
+  .log { background:var(--panel); border:1px solid #1e2a2a; padding:16px; font-size:12px; line-height:1.8; color:#9fb3b3; }
+  .log .d { color:var(--amber); }
+  .barcomp { background:#0a0d11; border:1px solid #1e2a2a; }
+  .bc-head { display:flex; align-items:center; gap:6px; padding:8px 12px; border-bottom:1px solid #1e2a2a; }
+  .bc-dot { width:10px; height:10px; border-radius:50%; background:#1e2a2a; }
+  .bc-dot:first-child { background:var(--amber); }
+  .bc-title { margin-left:8px; font-size:11px; color:var(--dim); letter-spacing:1px; }
+  .bc-body { padding:14px 16px 16px; }
+  .bc-prompt { color:var(--amber); font-size:13px; }
+  .bc-cmd { color:#e6ffff; font-size:13px; }
+  .bc-cursor { display:inline-block; width:8px; height:15px; background:var(--teal); vertical-align:-2px; animation:bcblink 1.1s steps(1) infinite; }
+  @keyframes bcblink { 50% { opacity:0; } }
+  .bc-link { display:flex; align-items:baseline; gap:12px; text-decoration:none; padding:9px 10px; margin-top:6px; border:1px solid transparent; font-size:13px; }
+  a.bc-link:hover { background:var(--teal); border-color:var(--teal); }
+  a.bc-link:hover .c, a.bc-link:hover .d, a.bc-link:hover .go { color:#000; }
+  .bc-link .c { color:var(--teal); letter-spacing:1px; min-width:200px; }
+  .bc-link .c::before { content:"> "; }
+  .bc-link .d { color:var(--dim); font-size:12px; flex:1; }
+  .bc-link .go { color:var(--dim); font-size:12px; letter-spacing:1px; white-space:nowrap; }
+  .bc-link.off { opacity:.45; cursor:default; }
+  .bc-priv { display:none; }
+  .bc-priv.unlocked { display:flex; }
+  .bc-unlock { display:flex; align-items:center; gap:10px; margin-top:10px; flex-wrap:wrap; }
+  .bc-pass { background:transparent; border:1px solid #1e2a2a; color:var(--teal); font:inherit; font-size:13px; padding:6px 10px; width:200px; outline:none; caret-color:var(--teal); border-radius:0; }
+  .bc-pass:focus { border-color:var(--teal); }
+  .bc-pass::placeholder { color:var(--dim); }
+  .bc-btn { background:transparent; border:1px solid var(--teal); color:var(--teal); font:inherit; font-size:12px; letter-spacing:2px; padding:7px 14px; cursor:pointer; border-radius:0; }
+  .bc-btn:hover:not(:disabled) { background:var(--teal); color:#000; }
+  .bc-btn:disabled { opacity:.45; cursor:wait; }
+  .bc-lock { color:var(--dim); font-size:12px; text-decoration:none; letter-spacing:1px; }
+  .bc-lock:hover { color:var(--teal); }
+  .bc-status { font-size:12px; margin-top:8px; min-height:18px; letter-spacing:1px; }
+  .bc-status.ok { color:var(--teal); }
+  .bc-status.err { color:#ff6b61; }
+  @keyframes bcshake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+  .bc-shake { animation:bcshake .35s; }
+  footer { margin-top:40px; color:var(--dim); font-size:11px; letter-spacing:1px; }
+  a { color:var(--teal); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>THE BATCAVE</h1>
+    <div class="tag">PRIVATE // TRAINING GROUNDS // EYES ONLY</div>
+  </header>
+
+  <h2>BAT COMPUTER</h2>
+  <div class="barcomp">
+    <div class="bc-head">
+      <span class="bc-dot"></span><span class="bc-dot"></span><span class="bc-dot"></span>
+      <span class="bc-title">dom@batcave: ~/pages</span>
+    </div>
+    <div class="bc-body">
+      <div><span class="bc-prompt">dom@batcave:~$</span> <span class="bc-cmd">open --all-pages</span><span class="bc-cursor"></span></div>
+      <form id="bc-unlock-form" class="bc-unlock" autocomplete="off">
+        <span class="bc-prompt">dom@batcave:~$</span>
+        <span class="bc-cmd">unlock dom-times</span>
+        <input id="bc-pass" type="password" class="bc-pass" placeholder="passphrase" autocomplete="off" aria-label="passphrase">
+        <button id="bc-go" type="submit" class="bc-btn">[UNLOCK]</button>
+        <a href="#" id="bc-lock" class="bc-lock" style="display:none">[lock]</a>
+      </form>
+      <div id="bc-status" class="bc-status" aria-live="polite"></div>
+      <a class="bc-link" href="tier-1.html"><span class="c">tier-1</span><span class="d">network-engineer roleplay // 12 levels</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link" href="broker-flashcards.html"><span class="c">broker-flashcards</span><span class="d">talk-track drills // 29 cards</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link" href="hyperbolic-time-chamber.html"><span class="c">hyperbolic-time-chamber</span><span class="d">rapid fire + gauntlet // 30 questions</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link" href="workout.html"><span class="c">workout</span><span class="d">guided player // full + quick + inferno</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link bc-priv" href="https://dom1w0w.github.io/7EightMadeConsultation/dom-times-live/" target="_blank" rel="noopener"><span class="c">dom-times</span><span class="d">private edition // unlocked in-bar — Vol XLVI</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link bc-priv" href="https://github.com/dom1w0w/dom-times-private/tree/main/archive" target="_blank" rel="noopener"><span class="c">dom-times-archive</span><span class="d">past editions // 11 issues, Oct 8–19</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link bc-priv" href="https://dom1w0w.github.io/7EightMadeConsultation/team-live/" target="_blank" rel="noopener"><span class="c">team</span><span class="d">dom-times // team page</span><span class="go">[OPEN]</span></a>
+      <a class="bc-link bc-priv" href="https://dom1w0w.github.io/7EightMadeConsultation/dom-watch/" target="_blank" rel="noopener"><span class="c">watch</span><span class="d">dom-times // watch page</span><span class="go">[OPEN]</span></a>
+    </div>
+  </div>
+
+  <h2>TABLE OF CONTENTS</h2>
+
+  <div class="mod">
+    <h3>WORKOUT</h3>
+    <p>Guided RipStick sessions. Full, Quick, and the Inferno Tabata — coach voice, tick sounds, tap-to-advance sets, effort logging.</p>
+    <div class="meta">STATUS: LIVE &nbsp;//&nbsp; 3 SESSIONS &nbsp;//&nbsp; v1.0</div>
+    <a class="open" href="workout.html">OPEN APP</a>
+  </div>
+
+  <div class="mod">
+    <h3>TIER 1</h3>
+    <p>Network engineer roleplay. Day-one tickets in a simulated terminal — ping to DDoS. 12 levels, 4 stages, Sunday 2 AM finale.</p>
+    <div class="meta">STATUS: LIVE &nbsp;//&nbsp; 12 LEVELS &nbsp;//&nbsp; v1.0</div>
+    <a class="open" href="tier-1.html">OPEN APP</a>
+  </div>
+
+  <div class="mod">
+    <h3>BROKER FLASHCARDS</h3>
+    <p>Talk-track drills. 29 cards — fits, flow, bridge, objections, rules. Shuffled answers. Win at 3 in a row or 3 passes.</p>
+    <div class="meta">STATUS: LIVE &nbsp;//&nbsp; 29 CARDS &nbsp;//&nbsp; v1.0</div>
+    <a class="open" href="broker-flashcards.html">OPEN APP</a>
+  </div>
+
+  <div class="mod">
+    <h3>HYPERBOLIC TIME CHAMBER</h3>
+    <p>Rapid-fire timed drills, the Gauntlet streak mode, and the full talk track on the wall. One hour in here is worth a week out there.</p>
+    <div class="meta">STATUS: LIVE &nbsp;//&nbsp; 30 QUESTIONS &nbsp;//&nbsp; v1.0</div>
+    <a class="open" href="hyperbolic-time-chamber.html">OPEN APP</a>
+  </div>
+
+  <h2>UPDATE LOG</h2>
+  <div class="log" id="updatelog">Loading…</div>
+  <p style="margin-top:8px;font-size:11px;color:var(--dim);">Full history: <a href="UPDATELOG.md">UPDATELOG.md</a></p>
+
+  <footer>// END OF LINE</footer>
+</div>
+<script>
+/* BAT COMPUTER passphrase gate — mirrors the dom-times-live unlock page crypto.
+   Verify-only: the decrypted bytes are discarded immediately; nothing is rendered or stored. */
+(function(){
+  var BLOB_URL = 'https://dom1w0w.github.io/7EightMadeConsultation/dom-times-live/data.enc.json';
+  var form   = document.getElementById('bc-unlock-form');
+  var pass   = document.getElementById('bc-pass');
+  var btn    = document.getElementById('bc-go');
+  var status = document.getElementById('bc-status');
+  var lock   = document.getElementById('bc-lock');
+  var privRows = Array.prototype.slice.call(document.querySelectorAll('.bc-priv'));
+
+  function fromB64(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
+
+  function validBlob(b){
+    return b && b.v === 1 && b.kdf === 'PBKDF2' && b.cipher === 'AES-GCM'
+      && Number(b.iterations) >= 100000
+      && typeof b.salt === 'string' && typeof b.iv === 'string' && typeof b.ciphertext === 'string';
+  }
+
+  function setStatus(msg, cls){ status.textContent = msg; status.className = 'bc-status' + (cls ? ' ' + cls : ''); }
+
+  function reveal(){
+    privRows.forEach(function(r){ r.classList.add('unlocked'); });
+    lock.style.display = 'inline';
+    setStatus('access granted — private pages unlocked.', 'ok');
+  }
+  function conceal(){
+    privRows.forEach(function(r){ r.classList.remove('unlocked'); });
+    lock.style.display = 'none';
+    setStatus('', '');
+  }
+  lock.addEventListener('click', function(e){ e.preventDefault(); conceal(); pass.focus(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var phrase = pass.value; /* verbatim — no trim, no normalization */
+    if(!phrase){ pass.focus(); return; }
+    btn.disabled = true;
+    btn.textContent = 'deriving key…';
+    setStatus('', '');
+    fetch(BLOB_URL, {cache:'no-store'}).then(function(r){
+      if(!r.ok) throw new Error('fetch');
+      return r.json();
+    }).then(function(blob){
+      if(!validBlob(blob)) throw new Error('damaged');
+      var te = new TextEncoder();
+      return crypto.subtle.importKey('raw', te.encode(phrase), 'PBKDF2', false, ['deriveKey'])
+        .then(function(base){
+          return crypto.subtle.deriveKey(
+            {name:'PBKDF2', hash:'SHA-256', salt:fromB64(blob.salt), iterations:Number(blob.iterations)},
+            base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+        })
+        .then(function(key){
+          return crypto.subtle.decrypt({name:'AES-GCM', iv:fromB64(blob.iv)}, key, fromB64(blob.ciphertext));
+        });
+    }).then(function(pt){
+      pt = null;      /* verified only — discard decrypted bytes immediately */
+      phrase = null;  /* passphrase never leaves this scope, never stored */
+      pass.value = '';
+      btn.disabled = false;
+      btn.textContent = '[UNLOCK]';
+      reveal();
+    }).catch(function(){
+      phrase = null;
+      btn.disabled = false;
+      btn.textContent = '[UNLOCK]';
+      setStatus('access denied — try again.', 'err');
+      pass.classList.remove('bc-shake');
+      void pass.offsetWidth;
+      pass.classList.add('bc-shake');
+      pass.focus();
+      pass.select();
+    });
+  });
+})();
+</script>
+<script>
+fetch('UPDATELOG.md').then(r=>r.text()).then(t=>{
+  const esc = t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  document.getElementById('updatelog').innerHTML =
+    esc.split('\n').map(l=>l.startsWith('## ')?'<div class="d">'+l.slice(3)+'</div>':l).join('<br>');
+}).catch(()=>{document.getElementById('updatelog').textContent='Log unavailable.';});
+</script>
+</body>
+</html>
