@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORKOUT // THE BATCAVE</title>
+<style>
+:root{--bg:#0C0E12;--teal:#00F5E6;--dim:#5a6b6b;--panel:#12151c;--amber:#ffb000;--cream:#F2E8CF;--red:#ff5f56;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--teal);font-family:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;padding:24px 16px 64px;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:760px;margin:0 auto}
+header{border-bottom:1px solid #1e2a2a;padding-bottom:16px;margin-bottom:24px}
+h1{font-size:24px;letter-spacing:4px}
+.prompt{color:var(--amber);font-size:13px}
+.tag{color:var(--dim);font-size:12px;margin-top:6px;letter-spacing:1px}
+h2{font-size:14px;letter-spacing:3px;color:var(--dim);margin:28px 0 12px}
+h2::before{content:"> ";color:var(--teal)}
+.panel{background:var(--panel);border:1px solid #1e2a2a;border-left:3px solid var(--teal);padding:18px;margin-bottom:14px}
+.panel .lbl{font-size:11px;letter-spacing:3px;color:var(--dim);margin-bottom:12px}
+.pickrow{display:flex;flex-wrap:wrap;gap:10px}
+.pick{flex:1 1 140px;border:1px solid #2a3a3a;background:#0a0d11;color:var(--teal);padding:14px 10px;font:inherit;font-size:13px;letter-spacing:1px;cursor:pointer;text-align:center}
+.pick small{display:block;color:var(--dim);font-size:11px;margin-top:6px;letter-spacing:1px}
+.pick.sel{border-color:var(--teal);background:#0e2a28;box-shadow:0 0 12px rgba(0,245,230,.25)}
+.pick:active{transform:scale(.97)}
+select.voicesel{width:100%;background:#0a0d11;color:var(--teal);border:1px solid #2a3a3a;font:inherit;font-size:13px;padding:12px;margin-top:4px}
+.bigbtn{display:block;width:100%;border:1px solid var(--teal);background:transparent;color:var(--teal);font:inherit;font-size:16px;letter-spacing:4px;padding:18px;cursor:pointer;margin-top:8px}
+.bigbtn:hover{background:var(--teal);color:#000}
+.bigbtn:active{transform:scale(.98)}
+.bigbtn.ghost{border-color:var(--dim);color:var(--dim);font-size:13px;padding:12px;margin-top:16px}
+#diagram{width:100%;max-width:420px;display:block;margin:0 auto}
+.stepcount{font-size:11px;letter-spacing:3px;color:var(--dim)}
+.stepname{font-size:26px;letter-spacing:2px;margin:10px 0 6px;color:#e6ffff}
+.stepcue{font-size:13px;color:var(--dim);letter-spacing:1px;margin-bottom:8px}
+.timer{font-size:56px;letter-spacing:4px;color:var(--teal);text-align:center;margin:14px 0;text-shadow:0 0 18px rgba(0,245,230,.5)}
+.setline{font-size:15px;letter-spacing:2px;text-align:center;margin:14px 0;color:var(--amber)}
+.pbar{height:8px;background:#0a0d11;border:1px solid #1e2a2a;margin:16px 0 4px}
+.pbar i{display:block;height:100%;background:var(--teal);width:0%;transition:width .3s}
+.effrow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.eff{flex:1 1 44px;min-width:44px;border:1px solid #2a3a3a;background:#0a0d11;color:var(--teal);font:inherit;font-size:16px;padding:14px 0;cursor:pointer;text-align:center}
+.eff.sel{border-color:var(--teal);background:var(--teal);color:#000;font-weight:bold}
+.hist{font-size:12px;line-height:2;color:#9fb3b3}
+.hist .e{color:var(--amber)}
+.cursor{display:inline-block;width:9px;height:17px;background:var(--teal);vertical-align:-3px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+footer{margin-top:40px;color:var(--dim);font-size:11px;letter-spacing:1px}
+.note{font-size:11px;color:var(--dim);line-height:1.7;margin-top:10px}
+</style>
+<style>body{padding-top:44px !important}</style>
+</head>
+<body>
+<style>
+#_bcnav{position:fixed;top:0;left:0;right:0;z-index:99999;background:#0C0E12;border-bottom:1px solid #1e2a2a;
+font-family:Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;display:flex;gap:4px;padding:8px 12px;align-items:center;overflow-x:auto;white-space:nowrap}
+#_bcnav a{color:#00F5E6;text-decoration:none;padding:4px 10px;border:1px solid transparent}
+#_bcnav a:hover{border-color:#00F5E6}
+#_bcnav a.cur{background:#00F5E6;color:#000}
+#_bcnav .t{color:#5a6b6b;margin-right:8px}
+</style>
+<nav id="_bcnav"><span class="t">BATCAVE //</span><a href="index.html">BATCAVE</a><a href="tier-1.html">TIER 1</a><a href="broker-flashcards.html">FLASHCARDS</a><a href="hyperbolic-time-chamber.html">TIME CHAMBER</a><a href="workout.html" class="cur">WORKOUT</a></nav>
+
+<div class="wrap">
+<header>
+  <div><span class="prompt">dom@batcave:~/workout$</span> <span class="cursor"></span></div>
+  <h1>WORKOUT LOG</h1>
+  <div class="tag">RIPSTICK PILL // GUIDED PLAYER // EYES ONLY</div>
+</header>
+
+<!-- ============ SETUP ============ -->
+<section id="setup">
+  <h2>SESSION</h2>
+  <div class="panel">
+    <div class="lbl">SELECT SESSION LENGTH</div>
+    <div class="pickrow" id="sessRow">
+      <button class="pick sel" data-sess="full">FULL<small>~30 MIN</small></button>
+      <button class="pick" data-sess="quick">QUICK<small>~10 MIN</small></button>
+      <button class="pick" data-sess="inferno">INFERNO<small>2:00 TABATA</small></button>
+    </div>
+  </div>
+
+  <h2>COACH VOICE</h2>
+  <div class="panel">
+    <div class="lbl">SPOKEN CUES // WEB SPEECH API</div>
+    <select class="voicesel" id="voiceSel"><option>loading voices…</option></select>
+  </div>
+
+  <h2>BACKGROUND SOUND</h2>
+  <div class="panel">
+    <div class="lbl">WEB AUDIO // NO FILES</div>
+    <div class="pickrow" id="sndRow">
+      <button class="pick sel" data-snd="60">TICKS<small>60 BPM</small></button>
+      <button class="pick" data-snd="80">TICKS<small>80 BPM</small></button>
+      <button class="pick" data-snd="100">TICKS<small>100 BPM</small></button>
+      <button class="pick" data-snd="120">TICKS<small>120 BPM</small></button>
+      <button class="pick" data-snd="drone">DRONE<small>MONOTONE</small></button>
+      <button class="pick" data-snd="off">OFF<small>SILENCE</small></button>
+    </div>
+  </div>
+
+  <button class="bigbtn" id="startBtn">START SESSION ▸</button>
+  <div class="note">Inferno = 4 rounds × 20s work / 10s rest: Push Pulls (fast, max tension) → Front Clips (alternating) → Back Clips (squeeze hard) → Push Pulls (all-out finisher).</div>
+</section>
+
+<!-- ============ PLAYER ============ -->
+<section id="player" hidden>
+  <div class="panel">
+    <div class="stepcount" id="stepCount">STEP 1/11</div>
+    <div class="stepname" id="stepName">Warm-Up</div>
+    <div class="stepcue" id="stepCue">loose pulls // easy tension</div>
+    <svg id="diagram" viewBox="0 0 400 210" role="img" aria-label="Two RipStick pills joined by a resistance band">
+      <path id="band" d="" fill="none" stroke="#2a2e37" stroke-width="12" stroke-linecap="round"/>
+      <path id="bandGlow" d="" fill="none" stroke="#00F5E6" stroke-width="2" opacity="0.45"/>
+      <g id="pillL">
+        <rect x="-14" y="-48" width="28" height="96" rx="14" fill="#F2E8CF" stroke="#b8a77e" stroke-width="2"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#b8a77e" stroke-width="2"/>
+      </g>
+      <g id="pillR">
+        <rect x="-14" y="-48" width="28" height="96" rx="14" fill="#F2E8CF" stroke="#b8a77e" stroke-width="2"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#b8a77e" stroke-width="2"/>
+      </g>
+      <text id="mechLabel" x="200" y="202" text-anchor="middle" fill="#5a6b6b" font-size="11" letter-spacing="4" font-family="Menlo,Consolas,monospace">REST</text>
+    </svg>
+    <div class="timer" id="timerDisplay">5:00</div>
+    <div class="setline" id="setDisplay" hidden></div>
+    <button class="bigbtn" id="advanceBtn">TAP WHEN SET DONE</button>
+    <div class="pbar"><i id="progFill"></i></div>
+    <button class="bigbtn ghost" id="abortBtn">ABORT SESSION</button>
+  </div>
+</section>
+
+<!-- ============ DONE ============ -->
+<section id="done" hidden>
+  <div class="panel">
+    <div class="lbl">SESSION COMPLETE</div>
+    <div class="stepname" id="doneTitle">Full — done.</div>
+    <div class="stepcue">Log your effort // 1 = easy … 10 = destroyed</div>
+    <div class="effrow" id="effRow"></div>
+    <div class="stepcue" id="saveMsg" style="color:var(--teal)"></div>
+    <button class="bigbtn" id="againBtn">BACK TO SETUP</button>
+  </div>
+</section>
+
+<h2>SESSION HISTORY</h2>
+<div class="panel">
+  <div class="lbl">LOCAL // THIS DEVICE</div>
+  <div class="hist" id="histList">No sessions logged yet.</div>
+  <div class="hist" id="streakLine" style="margin-top:8px"></div>
+</div>
+
+<footer>// END OF LINE</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- session definitions ---------- */
+function T(name,cue,dur,mech){return{kind:'timed',name:name,cue:cue,dur:dur,mech:mech};}
+function S(name,cue,sets,reps,mech){return{kind:'sets',name:name,cue:cue,sets:sets,reps:reps,mech:mech};}
+var REST='rest';
+var SESSIONS={
+  full:{label:'Full',steps:[
+    T('Warm-Up','loose pulls // easy tension',300,'pull'),
+    S('Push Pulls','chest height // apart wide',3,'12 reps','pull'),
+    T('Rest','breathe // shake it out',60,REST),
+    S('Front Clips','straight out front',3,'10 / side','grip'),
+    T('Rest','breathe // shake it out',60,REST),
+    S('Back Clips','behind // squeeze',3,'10 / side','push'),
+    T('Rest','breathe // shake it out',60,REST),
+    T('Finisher: Max Push Pulls','empty the tank',60,'pull'),
+    T('Rest','30 seconds',30,REST),
+    T('Finisher: Alternating Clips','front / back / front / back',60,'grip'),
+    T('Cooldown','slow pulls // deep breaths',120,'pull')
+  ]},
+  quick:{label:'Quick',steps:[
+    T('Warm-Up','loose pulls // easy tension',120,'pull'),
+    S('Push Pulls','chest height // apart wide',2,'12 reps','pull'),
+    T('Rest','breathe',30,REST),
+    S('Front Clips','straight out front',2,'10 / side','grip'),
+    T('Rest','breathe',30,REST),
+    S('Back Clips','behind // squeeze',2,'10 / side','push'),
+    T('Rest','breathe',30,REST),
+    T('Finisher: Max Push Pulls','empty the tank',30,'pull'),
+    T('Rest','30 seconds',30,REST),
+    T('Finisher: Alternating Clips','front / back / front / back',30,'grip'),
+    T('Cooldown','slow pulls // deep breaths',60,'pull')
+  ]},
+  inferno:{label:'Inferno',steps:[
+    T('Push Pulls','fast // MAX tension',20,'pull'),
+    T('Rest','10 seconds',10,REST),
+    T('Front Clips','alternating sides',20,'grip'),
+    T('Rest','10 seconds',10,REST),
+    T('Back Clips','squeeze HARD',20,'push'),
+    T('Rest','10 seconds',10,REST),
+    T('Push Pulls','ALL-OUT finisher',20,'pull')
+  ]}
+};
+
+/* ---------- state ---------- */
+var sessKey='full', sndMode='60';
+var steps=[], stepIdx=0, setIdx=0, timerId=null, stepEnd=0, running=false;
+
+/* ---------- dom refs ---------- */
+function $(id){return document.getElementById(id);}
+var setupEl=$('setup'), playerEl=$('player'), doneEl=$('done');
+var stepCount=$('stepCount'), stepName=$('stepName'), stepCue=$('stepCue');
+var timerDisplay=$('timerDisplay'), setDisplay=$('setDisplay');
+var advanceBtn=$('advanceBtn'), progFill=$('progFill');
+
+/* ---------- picker wiring ---------- */
+function wireRow(rowId, attr, cb){
+  var row=$(rowId);
+  row.addEventListener('click',function(e){
+    var b=e.target.closest('.pick'); if(!b)return;
+    var all=row.querySelectorAll('.pick');
+    for(var i=0;i<all.length;i++)all[i].classList.remove('sel');
+    b.classList.add('sel'); cb(b.getAttribute(attr));
+  });
+}
+wireRow('sessRow','data-sess',function(v){sessKey=v;});
+wireRow('sndRow','data-snd',function(v){sndMode=v;});
+
+/* ---------- coach voice (Web Speech API) ---------- */
+var voiceSel=$('voiceSel');
+function loadVoices(){
+  try{
+    var vs=window.speechSynthesis?speechSynthesis.getVoices():[];
+    voiceSel.innerHTML='';
+    if(!vs.length){voiceSel.innerHTML='<option value="">(no voices — silent mode)</option>';return;}
+    vs.forEach(function(v){
+      var o=document.createElement('option');o.value=v.name;
+      o.textContent=v.name+' ('+v.lang+')';voiceSel.appendChild(o);
+    });
+    var def=vs.find(function(v){return v.lang&&v.lang.indexOf('en-US')===0;})||vs[0];
+    if(def)voiceSel.value=def.name;
+  }catch(e){voiceSel.innerHTML='<option value="">(voice unavailable)</option>';}
+}
+loadVoices();
+if(window.speechSynthesis)speechSynthesis.onvoiceschanged=loadVoices;
+function speak(text){
+  try{
+    if(!window.speechSynthesis)return;
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(text);
+    var vs=speechSynthesis.getVoices();
+    var v=vs.find(function(x){return x.name===voiceSel.value;});
+    if(v)u.voice=v; u.rate=1.02;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- background sound (Web Audio API) ---------- */
+var actx=null, tickTimer=null, drone=null;
+function playTick(){
+  if(!actx)return;
+  var t=actx.currentTime;
+  var o=actx.createOscillator(), g=actx.createGain();
+  o.type='square'; o.frequency.value=1800;
+  g.gain.setValueAtTime(0.12,t);
+  g.gain.exponentialRampToValueAtTime(0.001,t+0.05);
+  o.connect(g); g.connect(actx.destination);
+  o.start(t); o.stop(t+0.07);
+}
+function startSound(){
+  stopSound();
+  if(sndMode==='off')return;
+  try{
+    var AC=window.AudioContext||window.webkitAudioContext;
+    if(!AC)return;
+    actx=actx||new AC();
+    if(actx.state==='suspended')actx.resume();
+    if(sndMode==='drone'){
+      var o=actx.createOscillator(), g=actx.createGain(), f=actx.createBiquadFilter();
+      o.type='sine'; o.frequency.value=55;
+      f.type='lowpass'; f.frequency.value=220;
+      g.gain.value=0.07;
+      o.connect(f); f.connect(g); g.connect(actx.destination); o.start();
+      drone={stop:function(){try{o.stop();}catch(e){} o.disconnect();}};
+    }else{
+      var bpm=parseInt(sndMode,10)||60;
+      playTick();
+      tickTimer=setInterval(playTick,60000/bpm);
+    }
+  }catch(e){}
+}
+function stopSound(){
+  if(tickTimer){clearInterval(tickTimer);tickTimer=null;}
+  if(drone){drone.stop();drone=null;}
+}
+
+/* ---------- animated pill diagram ---------- */
+var mech=REST, animT=0, lastTs=0;
+var pillL=$('pillL'), pillR=$('pillR'), band=$('band'), bandGlow=$('bandGlow'), mechLabel=$('mechLabel');
+var CX=200, CY=96;
+function renderDiagram(){
+  var s=Math.sin(animT*4.2);
+  var off=48, sc=1, dy=0, sag=26, label='REST';
+  if(mech==='pull'){off=48+24*Math.abs(s);sag=26-14*Math.abs(s);label='PULL';}
+  else if(mech==='grip'){sc=1-0.12*Math.abs(s);off=48+5*Math.abs(s);label='GRIP';}
+  else if(mech==='push'){dy=-10*Math.abs(s);off=48+16*Math.abs(s);sc=1+0.05*Math.abs(s);label='PUSH';}
+  else{off=48+3*s;label='REST';}
+  var lx=CX-off, rx=CX+off, y=CY+dy;
+  pillL.setAttribute('transform','translate('+lx.toFixed(1)+' '+y.toFixed(1)+') scale('+sc.toFixed(3)+' '+sc.toFixed(3)+')');
+  pillR.setAttribute('transform','translate('+rx.toFixed(1)+' '+y.toFixed(1)+') scale('+sc.toFixed(3)+' '+sc.toFixed(3)+')');
+  var d='M '+(lx+14).toFixed(1)+' '+y.toFixed(1)+' Q '+CX+' '+(y+sag*2).toFixed(1)+' '+(rx-14).toFixed(1)+' '+y.toFixed(1);
+  band.setAttribute('d',d); bandGlow.setAttribute('d',d);
+  mechLabel.textContent=label;
+}
+function loop(ts){
+  if(lastTs)animT+=(ts-lastTs)/1000;
+  lastTs=ts; renderDiagram();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+/* ---------- session engine ---------- */
+function fmt(sec){
+  sec=Math.max(0,Math.ceil(sec));
+  var m=Math.floor(sec/60), s=sec%60;
+  return m+':'+(s<10?'0':'')+s;
+}
+function show(el){el.hidden=false;}
+function hide(el){el.hidden=true;}
+
+function startSession(){
+  steps=SESSIONS[sessKey].steps.slice();
+  stepIdx=0; setIdx=0; running=true;
+  hide(setupEl); hide(doneEl); show(playerEl);
+  window.scrollTo(0,0);
+  startSound();
+  speak('Starting '+SESSIONS[sessKey].label+' session.');
+  runStep();
+}
+function runStep(){
+  clearInterval(timerId); timerId=null;
+  var st=steps[stepIdx];
+  mech=st.mech; setIdx=0;
+  stepCount.textContent='STEP '+(stepIdx+1)+'/'+steps.length;
+  stepName.textContent=st.name;
+  stepCue.textContent=st.cue;
+  progFill.style.width=Math.round(stepIdx/steps.length*100)+'%';
+  if(st.kind==='timed'){
+    hide(setDisplay); show(timerDisplay);
+    stepEnd=Date.now()+st.dur*1000;
+    timerDisplay.textContent=fmt(st.dur);
+    advanceBtn.textContent='SKIP STEP ▸';
+    speak(st.name+'. '+st.cue+'. '+st.dur+' seconds. Go.');
+    timerId=setInterval(function(){
+      var left=(stepEnd-Date.now())/1000;
+      if(left<=0){nextStep();return;}
+      timerDisplay.textContent=fmt(left);
+    },250);
+  }else{
+    show(setDisplay); hide(timerDisplay);
+    advanceBtn.textContent='TAP WHEN SET DONE';
+    updateSetLine();
+    speak(st.name+'. '+st.sets+' sets of '+st.reps+'.');
+  }
+}
+function updateSetLine(){
+  var st=steps[stepIdx];
+  setDisplay.textContent='SET '+(setIdx+1)+'/'+st.sets+' — '+st.reps;
+}
+advanceBtn.addEventListener('click',function(){
+  if(!running)return;
+  var st=steps[stepIdx];
+  if(st.kind==='sets'){
+    setIdx++;
+    if(setIdx>=st.sets){nextStep();}
+    else{updateSetLine();speak('Set '+(setIdx+1)+'.');}
+  }else{nextStep();}
+});
+document.addEventListener('keydown',function(e){
+  if(e.code==='Space'&&running&&!playerEl.hidden){e.preventDefault();advanceBtn.click();}
+});
+function nextStep(){
+  clearInterval(timerId); timerId=null;
+  stepIdx++;
+  if(stepIdx>=steps.length){completeSession();return;}
+  runStep();
+}
+function abortSession(){
+  running=false;
+  clearInterval(timerId); timerId=null;
+  stopSound(); mech=REST;
+  try{if(window.speechSynthesis)speechSynthesis.cancel();}catch(e){}
+  hide(playerEl); hide(doneEl); show(setupEl);
+  window.scrollTo(0,0);
+}
+$('startBtn').addEventListener('click',startSession);
+$('abortBtn').addEventListener('click',abortSession);
+$('againBtn').addEventListener('click',function(){hide(doneEl);show(setupEl);window.scrollTo(0,0);});
+
+/* ---------- effort logging + history (localStorage) ---------- */
+var LS_KEY='batcave_workout_v1';
+function loadStore(){
+  try{var s=JSON.parse(localStorage.getItem(LS_KEY));return s&&s.history?s:{history:[]};}
+  catch(e){return{history:[]};}
+}
+function saveStore(s){try{localStorage.setItem(LS_KEY,JSON.stringify(s));}catch(e){}}
+var effRow=$('effRow'), chosenEff=0;
+for(var n=1;n<=10;n++){
+  (function(v){
+    var b=document.createElement('button');
+    b.className='eff'; b.textContent=v;
+    b.addEventListener('click',function(){
+      chosenEff=v;
+      var all=effRow.querySelectorAll('.eff');
+      for(var i=0;i<all.length;i++)all[i].classList.remove('sel');
+      b.classList.add('sel');
+      var st=loadStore();
+      st.history.push({d:new Date().toISOString().slice(0,10),session:SESSIONS[sessKey].label,effort:v});
+      saveStore(st); renderHistory();
+      $('saveMsg').textContent='✓ logged '+SESSIONS[sessKey].label+' — effort '+v+'/10';
+      speak('Effort '+v+' logged. Nice work.');
+    });
+    effRow.appendChild(b);
+  })(n);
+}
+function calcStreak(){
+  var daySet={};
+  loadStore().history.forEach(function(h){daySet[h.d]=1;});
+  var iso=function(d){return d.toISOString().slice(0,10);};
+  var d=new Date();
+  if(!daySet[iso(d)])d.setDate(d.getDate()-1);
+  var streak=0;
+  while(daySet[iso(d)]){streak++;d.setDate(d.getDate()-1);}
+  return streak;
+}
+function renderHistory(){
+  var h=loadStore().history.slice(-8).reverse();
+  if(!h.length){$('histList').textContent='No sessions logged yet.';}
+  else{
+    $('histList').innerHTML=h.map(function(x){
+      return '<div>'+x.d+' — '+x.session+' — effort <span class="e">'+x.effort+'/10</span></div>';
+    }).join('');
+  }
+  var st=calcStreak();
+  $('streakLine').innerHTML='STREAK: <span class="e">'+st+' day'+(st===1?'':'s')+'</span> <span class="cursor"></span>';
+}
+function completeSession(){
+  running=false;
+  clearInterval(timerId); timerId=null;
+  stopSound(); mech=REST;
+  progFill.style.width='100%';
+  chosenEff=0;
+  var all=effRow.querySelectorAll('.eff');
+  for(var i=0;i<all.length;i++)all[i].classList.remove('sel');
+  $('saveMsg').textContent='';
+  $('doneTitle').textContent=SESSIONS[sessKey].label+' — done.';
+  hide(playerEl); show(doneEl);
+  window.scrollTo(0,0);
+  speak('Session complete. Log your effort.');
+  renderHistory();
+}
+renderHistory();
+})();
+</script>
+</body>
+</html>
