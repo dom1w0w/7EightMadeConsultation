@@ -1,0 +1,2367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="data:," />
+    <title>TIER 1 — Network Engineer Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #02090a;
+        --bg2: #04141a;
+        --panel: #05181f;
+        --panel2: #07222b;
+        --line: #0e3d47;
+        --line-bright: #14606f;
+        --ink: #c9fff2;
+        --teal: #2ef2c0;
+        --teal-dim: #57bfa4;
+        --teal-faint: #2a7a68;
+        --term-bg: #020c0e;
+        --term-ink: #4dffcf;
+        --term-dim: #2ba583;
+        --term-faint: #176650;
+        --amber: #ffc857;
+        --red: #ff5d73;
+        --good: #63ff9b;
+        --glow: 0 0 6px rgba(46, 242, 192, .45);
+        --term-glow: 0 0 5px rgba(77, 255, 207, .35);
+        --scan: rgba(0, 0, 0, .22);
+        --shadow: 0 18px 50px rgba(0, 0, 0, .55);
+        --chip: #07252e;
+      }
+      /* The brief is a phosphor terminal: dark in both system schemes.
+         Light mode gets a "dim room" lift — same terminal, softer blacks. */
+      @media (prefers-color-scheme: light) {
+        :root {
+          color-scheme: dark;
+          --bg: #0a1512;
+          --bg2: #0e1f1a;
+          --panel: #10241e;
+          --panel2: #163028;
+          --line: #1d4a3e;
+          --line-bright: #2a7a68;
+          --shadow: 0 18px 40px rgba(0, 0, 0, .35);
+          --chip: #143129;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(1200px 600px at 80% -10%, rgba(46, 242, 192, .07), transparent 60%),
+          linear-gradient(180deg, var(--bg2), var(--bg));
+        color: var(--ink);
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 15px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection { background: var(--teal); color: #02120e; }
+      button { font: inherit; cursor: pointer; }
+      .hidden { display: none !important; }
+
+      /* ---------- top bar ---------- */
+      .topbar {
+        position: sticky; top: 0; z-index: 40;
+        display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+        padding: 10px 18px;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .brand { display: flex; align-items: baseline; gap: 10px; }
+      .brand .logo {
+        font-weight: 800; font-size: 22px; letter-spacing: .14em; color: var(--teal);
+        text-shadow: var(--glow);
+      }
+      .brand .logo .blk { color: var(--ink); }
+      .brand .studio { font-size: 10px; letter-spacing: .28em; color: var(--teal-faint); text-transform: uppercase; }
+      .topbar .spacer { flex: 1; }
+      .rank-chip {
+        display: flex; align-items: center; gap: 10px;
+        border: 1px solid var(--line-bright); background: var(--chip);
+        padding: 5px 12px; border-radius: 3px; font-size: 12px;
+      }
+      .rank-chip .rk { color: var(--teal); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .xpwrap { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--teal-dim); }
+      .xpbar { width: 110px; height: 7px; border: 1px solid var(--line-bright); background: var(--bg); position: relative; }
+      .xpbar i { position: absolute; inset: 0; right: auto; background: var(--teal); box-shadow: var(--glow); transition: width .5s ease; }
+      .tbtn {
+        background: transparent; color: var(--teal); border: 1px solid var(--line-bright);
+        padding: 6px 12px; border-radius: 3px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+      }
+      .tbtn:hover { background: var(--panel2); border-color: var(--teal); }
+      .tbtn.danger { color: var(--red); border-color: color-mix(in srgb, var(--red) 55%, transparent); }
+      .tbtn.danger.armed { background: var(--red); color: #fff; }
+
+      /* ---------- layout ---------- */
+      .wrap { max-width: 1440px; margin: 0 auto; padding: 18px; }
+      .game-grid {
+        display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 16px; align-items: start;
+      }
+      @media (max-width: 980px) {
+        .game-grid { grid-template-columns: minmax(0, 1fr); }
+      }
+
+      /* ---------- terminal ---------- */
+      .terminal {
+        background: var(--term-bg);
+        border: 1px solid var(--line-bright);
+        border-radius: 6px;
+        box-shadow: var(--shadow), inset 0 0 60px rgba(0, 0, 0, .35);
+        overflow: hidden;
+        position: relative;
+      }
+      .terminal::after {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(0deg, transparent 0 2px, var(--scan) 2px 3px);
+        opacity: .5; mix-blend-mode: multiply;
+      }
+      .term-head {
+        display: flex; align-items: center; gap: 8px;
+        padding: 8px 12px; border-bottom: 1px solid var(--line);
+        background: rgba(0, 0, 0, .25); color: var(--term-dim);
+        font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+        position: relative; z-index: 2;
+      }
+      .term-head .dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--term-faint); }
+      .term-head .dot.on { background: var(--term-ink); box-shadow: var(--term-glow); }
+      .term-head .ttl { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .term-head .lvl { color: var(--term-ink); }
+      #termOut {
+        height: 520px; overflow-y: auto; padding: 14px 16px 6px;
+        color: var(--term-ink); text-shadow: var(--term-glow);
+        font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; word-break: break-word;
+        position: relative; z-index: 1; scrollbar-width: thin; scrollbar-color: var(--term-faint) transparent;
+      }
+      @media (max-width: 640px) { #termOut { height: 46vh; font-size: 12.5px; } }
+      #termOut .ln { min-height: 1.2em; }
+      #termOut .cmd { color: #eafff8; font-weight: 600; }
+      #termOut .dim { color: var(--term-dim); text-shadow: none; }
+      #termOut .faint { color: var(--term-faint); text-shadow: none; }
+      #termOut .warn { color: var(--amber); text-shadow: none; }
+      #termOut .bad { color: var(--red); text-shadow: none; }
+      #termOut .good { color: var(--good); text-shadow: none; }
+      #termOut .mentor { color: #9be7ff; text-shadow: 0 0 5px rgba(155, 231, 255, .3); }
+      .term-form {
+        display: flex; align-items: center; gap: 8px;
+        padding: 10px 16px 14px; position: relative; z-index: 2;
+        border-top: 1px dashed color-mix(in srgb, var(--term-faint) 50%, transparent);
+      }
+      #prompt { color: var(--term-ink); font-weight: 700; white-space: nowrap; text-shadow: var(--term-glow); font-size: 13.5px; }
+      #termIn {
+        flex: 1; min-width: 0; background: transparent; border: 0; outline: 0;
+        color: #eafff8; font: inherit; font-size: 16px; caret-color: var(--term-ink);
+        text-shadow: var(--term-glow);
+      }
+      #termIn::placeholder { color: var(--term-faint); text-shadow: none; }
+
+      /* ---------- side cards ---------- */
+      .side { display: flex; flex-direction: column; gap: 14px; }
+      .card {
+        background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+        padding: 14px 16px; box-shadow: var(--shadow);
+      }
+      .card h3 {
+        margin: 0 0 8px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase;
+        color: var(--teal-faint); font-weight: 800; display: flex; justify-content: space-between; align-items: center;
+      }
+      .ticket .subj { font-size: 16px; font-weight: 800; color: var(--ink); margin: 2px 0 6px; }
+      .ticket .meta { font-size: 11.5px; color: var(--teal-dim); display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+      .ticket .body { font-size: 13px; color: var(--ink); opacity: .92; }
+      .prio { padding: 1px 7px; border: 1px solid currentColor; border-radius: 2px; font-size: 10px; letter-spacing: .12em; }
+      .prio.p2 { color: var(--amber); } .prio.p1 { color: var(--red); } .prio.p3 { color: var(--teal-dim); }
+      .prio.boss { color: #fff; background: var(--red); border-color: var(--red); font-weight: 800; }
+      @media (prefers-color-scheme: light) { .prio.boss { color: #fff; } }
+
+      .obj-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+      .obj-list li {
+        display: flex; gap: 10px; align-items: flex-start; font-size: 13px;
+        color: var(--teal-dim); padding: 7px 9px; border: 1px solid transparent; border-radius: 4px;
+        transition: all .3s ease;
+      }
+      .obj-list li .box {
+        flex: none; width: 16px; height: 16px; margin-top: 1px;
+        border: 1px solid var(--line-bright); border-radius: 2px; position: relative;
+      }
+      .obj-list li.active { color: var(--ink); border-color: var(--line); background: var(--panel2); }
+      .obj-list li.done { color: var(--teal-faint); text-decoration: line-through; }
+      .obj-list li.done .box { background: var(--teal); border-color: var(--teal); }
+      .obj-list li.done .box::after {
+        content: "✓"; position: absolute; inset: 0; display: grid; place-items: center;
+        color: #02120e; font-size: 12px; font-weight: 800; text-decoration: none;
+      }
+      .obj-list li.flash { animation: objflash .8s ease; }
+      @keyframes objflash { 0% { background: rgba(46, 242, 192, .35); } 100% { background: transparent; } }
+      @media (prefers-reduced-motion: reduce) { .obj-list li.flash { animation: none; } }
+
+      .mentor-card .who { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+      .mentor-card .avatar {
+        flex: none; width: 44px; height: 44px; border: 1px solid var(--line-bright); border-radius: 4px;
+        display: grid; place-items: center; font-weight: 800; color: var(--teal); background: var(--chip);
+        text-shadow: var(--glow); letter-spacing: .05em;
+      }
+      .mentor-card .who .nm { font-weight: 800; font-size: 13.5px; }
+      .mentor-card .who .rl { font-size: 11px; color: var(--teal-faint); letter-spacing: .06em; }
+      #mentorLog { display: flex; flex-direction: column; gap: 8px; max-height: 260px; overflow-y: auto; scrollbar-width: thin; }
+      #mentorLog .msg {
+        font-size: 13px; border-left: 2px solid var(--line-bright); padding: 4px 0 4px 10px; color: var(--ink);
+      }
+      #mentorLog .msg.sys { border-color: var(--amber); color: var(--amber); font-size: 12px; }
+      .hint-btn {
+        margin-top: 12px; width: 100%; background: transparent; border: 1px dashed var(--line-bright);
+        color: var(--amber); padding: 8px; border-radius: 4px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+      }
+      .hint-btn:hover { border-color: var(--amber); }
+      #hintText { font-size: 12.5px; color: var(--amber); margin-top: 10px; display: none; }
+      #hintText.show { display: block; }
+      .side .mini { font-size: 11px; color: var(--teal-faint); }
+
+      /* ---------- queue view ---------- */
+      .queue-head { max-width: 860px; margin: 8px 0 22px; }
+      .queue-head h1 {
+        font-size: clamp(30px, 6vw, 52px); margin: 0 0 6px; font-weight: 800; letter-spacing: .06em;
+        color: var(--ink); line-height: 1.05;
+      }
+      .queue-head h1 .t { color: var(--teal); text-shadow: var(--glow); }
+      .queue-head p { color: var(--teal-dim); max-width: 640px; margin: 6px 0; font-size: 14px; }
+      .queue-head .cta-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+      .big-btn {
+        background: var(--teal); color: #02120e; border: 1px solid var(--teal); font-weight: 800;
+        padding: 11px 20px; border-radius: 4px; letter-spacing: .08em; text-transform: uppercase; font-size: 13px;
+        box-shadow: var(--glow);
+      }
+      .big-btn:hover { filter: brightness(1.1); }
+      .ghost-btn {
+        background: transparent; color: var(--teal); border: 1px solid var(--line-bright);
+        padding: 11px 18px; border-radius: 4px; letter-spacing: .08em; text-transform: uppercase; font-size: 13px;
+      }
+      .ghost-btn:hover { border-color: var(--teal); }
+      .stage-block { margin: 26px 0 8px; }
+      .stage-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+      .stage-head .sn { font-size: 11px; letter-spacing: .3em; color: var(--teal-faint); text-transform: uppercase; }
+      .stage-head h2 { margin: 0; font-size: 20px; letter-spacing: .04em; }
+      .stage-head .ranktag { font-size: 11px; color: var(--amber); border: 1px solid currentColor; padding: 1px 8px; border-radius: 2px; letter-spacing: .1em; }
+      .stage-head .clear-tag { font-size: 11px; color: var(--good); letter-spacing: .1em; }
+      .lvl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+      .lvl-card {
+        text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+        padding: 14px 16px; color: var(--ink); display: flex; flex-direction: column; gap: 6px;
+        transition: border-color .2s ease, transform .2s ease; width: 100%;
+      }
+      .lvl-card:not(:disabled):hover { border-color: var(--teal); transform: translateY(-2px); }
+      .lvl-card:disabled { opacity: .45; cursor: not-allowed; }
+      .lvl-card .row1 { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--teal-faint); letter-spacing: .14em; }
+      .lvl-card .ttl { font-size: 16px; font-weight: 800; }
+      .lvl-card .skill { font-size: 12px; color: var(--teal-dim); }
+      .lvl-card .row3 { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; font-size: 11px; }
+      .lvl-card .xp { color: var(--amber); }
+      .lvl-card .st-done { color: var(--good); font-weight: 800; letter-spacing: .08em; }
+      .lvl-card .st-lock { color: var(--teal-faint); }
+      .lvl-card .st-open { color: var(--teal); font-weight: 800; letter-spacing: .08em; }
+      .lvl-card.is-boss { border-color: color-mix(in srgb, var(--red) 45%, var(--line)); }
+      .rank-ladder {
+        display: flex; gap: 0; flex-wrap: wrap; margin: 18px 0 4px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+      }
+      .rank-ladder .step {
+        flex: 1 1 150px; padding: 10px 14px; background: var(--panel); border-right: 1px solid var(--line);
+        font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--teal-faint);
+      }
+      .rank-ladder .step:last-child { border-right: 0; }
+      .rank-ladder .step b { display: block; font-size: 13px; color: var(--teal-dim); margin-top: 2px; text-transform: none; letter-spacing: 0; }
+      .rank-ladder .step.now { background: var(--panel2); color: var(--amber); }
+      .rank-ladder .step.now b { color: var(--ink); }
+      .rank-ladder .step.got b { color: var(--teal); }
+      .foot-note { margin: 26px 0 10px; font-size: 11.5px; color: var(--teal-faint); max-width: 720px; }
+
+      /* ---------- modal ---------- */
+      .modal-veil {
+        position: fixed; inset: 0; z-index: 60; background: rgba(1, 8, 10, .78);
+        display: grid; place-items: center; padding: 16px; backdrop-filter: blur(3px);
+      }
+      .modal {
+        width: min(620px, 100%); max-height: 88vh; overflow-y: auto;
+        background: var(--panel); border: 1px solid var(--teal); border-radius: 6px;
+        box-shadow: var(--shadow), var(--glow); padding: 24px 26px; color: var(--ink);
+      }
+      .modal .stamp {
+        display: inline-block; border: 2px solid var(--good); color: var(--good); font-weight: 800;
+        letter-spacing: .2em; padding: 4px 12px; border-radius: 3px; transform: rotate(-2deg);
+        font-size: 13px; margin-bottom: 14px; text-transform: uppercase;
+      }
+      .modal .stamp.red { border-color: var(--red); color: var(--red); }
+      .modal h2 { margin: 0 0 4px; font-size: 22px; }
+      .modal .sub { color: var(--teal-dim); font-size: 13px; margin-bottom: 14px; }
+      .modal h4 { margin: 16px 0 6px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--teal-faint); }
+      .modal ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+      .modal ul li { margin: 4px 0; }
+      .modal .cmds { display: flex; flex-wrap: wrap; gap: 6px; }
+      .modal .cmds code {
+        background: var(--term-bg); color: var(--term-ink); border: 1px solid var(--line);
+        padding: 2px 8px; border-radius: 3px; font-size: 12px;
+      }
+      .modal .stats { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; margin-top: 6px; }
+      .modal .stats b { color: var(--teal); font-size: 17px; display: block; }
+      .modal .mentor-line { border-left: 2px solid var(--line-bright); padding-left: 12px; font-size: 13.5px; margin-top: 14px; }
+      .modal .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+      .promo-banner {
+        border: 1px solid var(--amber); color: var(--amber); border-radius: 4px; padding: 10px 14px;
+        font-size: 13.5px; margin-top: 16px; letter-spacing: .03em;
+      }
+    </style>
+  <style>body{padding-top:44px !important}</style></head>
+  <body>
+<style>
+#_bcnav{position:fixed;top:0;left:0;right:0;z-index:99999;background:#0C0E12;border-bottom:1px solid #1e2a2a;
+font-family:Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;display:flex;gap:4px;padding:8px 12px;align-items:center}
+#_bcnav a{color:#00F5E6;text-decoration:none;padding:4px 10px;border:1px solid transparent}
+#_bcnav a:hover{border-color:#00F5E6}
+#_bcnav a.cur{background:#00F5E6;color:#000}
+#_bcnav .t{color:#5a6b6b;margin-right:8px}
+</style>
+<nav id="_bcnav"><span class="t">BATCAVE //</span><a href="index.html">BATCAVE</a><a href="tier-1.html" class="cur">TIER 1</a><a href="broker-flashcards.html">FLASHCARDS</a><a href="hyperbolic-time-chamber.html">TIME CHAMBER</a></nav>
+
+<header class="topbar">
+      <div class="brand">
+        <span class="logo">TIER<span class="blk">_</span>1</span>
+        <span class="studio">7EightMade Studio</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="xpwrap" title="Experience points">
+        <span>XP</span>
+        <div class="xpbar"><i id="xpFill" style="width:0%"></i></div>
+        <span id="xpText">0</span>
+      </div>
+      <div class="rank-chip">RANK&nbsp;<span class="rk" id="rankText">Help Desk</span></div>
+      <button class="tbtn" id="queueBtn" type="button">Ticket Queue</button>
+      <button class="tbtn danger" id="resetBtn" type="button">Reset Career</button>
+    </header>
+
+    <div class="wrap">
+      <!-- ============ QUEUE VIEW ============ -->
+      <section id="queueView">
+        <div class="queue-head">
+          <h1>DAY ONE.<br /><span class="t">THE NETWORK IS YOURS.</span></h1>
+          <p>You're the new network engineer at 7EightMade HQ. Tickets land in the queue, you fix them from a real terminal — ping, ipconfig, SSH, Cisco IOS — one concept at a time. Ray Okafor, senior engineer, is watching your screen. Don't embarrass him.</p>
+          <p>Twelve tickets. Four stages. Clear them all and you walk out a Security Engineer.</p>
+          <div class="cta-row">
+            <button class="big-btn" id="continueBtn" type="button">Start Shift ▸</button>
+            <button class="ghost-btn" id="howBtn" type="button">How it works</button>
+          </div>
+          <div class="rank-ladder" id="rankLadder"></div>
+        </div>
+        <div id="stageList"></div>
+        <p class="foot-note">Progress is saved in this browser. Every command in the terminal is simulated — nothing you type leaves this page, and no real network was harmed. Commands accept common abbreviations (try <b>sh ip route</b>, <b>conf t</b>, <b>no shut</b>), just like real IOS.</p>
+      </section>
+
+      <!-- ============ GAME VIEW ============ -->
+      <section id="gameView" class="hidden">
+        <div class="game-grid">
+          <div class="terminal" id="terminalBox">
+            <div class="term-head">
+              <span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+              <span class="ttl">TIER-1 LAB CONSOLE — 7EIGHTMADE HQ NETWORK</span>
+              <span class="lvl" id="termLvl"></span>
+            </div>
+            <div id="termOut" aria-live="polite"></div>
+            <form class="term-form" id="termForm" autocomplete="off">
+              <span id="prompt">C:\&gt;</span>
+              <input id="termIn" type="text" spellcheck="false" autocapitalize="off" autocomplete="off"
+                     placeholder="type a command — try: help" aria-label="Terminal command input" />
+            </form>
+          </div>
+
+          <aside class="side">
+            <div class="card ticket">
+              <h3><span>Ticket</span><span id="ticketNo"></span></h3>
+              <div class="subj" id="ticketSubj"></div>
+              <div class="meta"><span id="ticketFrom"></span><span id="ticketPrio"></span></div>
+              <div class="body" id="ticketBody"></div>
+            </div>
+            <div class="card">
+              <h3><span>Objectives</span><span id="objCount"></span></h3>
+              <ul class="obj-list" id="objList"></ul>
+            </div>
+            <div class="card mentor-card">
+              <h3><span>Mentor</span><span>on comms</span></h3>
+              <div class="who">
+                <div class="avatar">RO</div>
+                <div>
+                  <div class="nm">Ray Okafor</div>
+                  <div class="rl">SENIOR NETWORK ENGINEER · 19 YRS</div>
+                </div>
+              </div>
+              <div id="mentorLog"></div>
+              <button class="hint-btn" id="hintBtn" type="button">Ask Ray for a hint</button>
+              <div id="hintText"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ MODAL ============ -->
+    <div class="modal-veil hidden" id="modalVeil">
+      <div class="modal" role="dialog" aria-modal="true" id="modalBox"></div>
+    </div>
+
+<script>
+"use strict";
+/* =====================================================================
+   TIER 1 — network engineer simulator
+   Engine + simulation helpers. Level data lives further down.
+   ===================================================================== */
+
+/* ---------- small utils ---------- */
+function norm(s) {
+  return String(s).toLowerCase().replace(/\s+/g, " ").replace(/[.\s]+$/, "").trim();
+}
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+/* canonical interface name: gi0/1, gig0/1, gigabitethernet 0/1 -> Gi0/1 ; fa0/12 -> Fa0/12 */
+function normIf(raw) {
+  var s = String(raw).toLowerCase().replace(/\s+/g, "");
+  var m = s.match(/^(gigabitethernet|gigethernet|gi|ge|fastethernet|fa|fe|ethernet|eth)(\d+)\/(\d+)(?:\/(\d+))?$/);
+  if (!m) return null;
+  var pre = /^(fa|fast|fe)/.test(m[1]) ? "Fa" : "Gi";
+  return pre + m[2] + "/" + m[3] + (m[4] ? "/" + m[4] : "");
+}
+function ifShort(full) { return full; }
+
+/* ---------- output generators (Windows-flavoured host tools) ---------- */
+function pingOut(target, times, opts) {
+  opts = opts || {};
+  var lines = ["", "Pinging " + target + " with 32 bytes of data:"];
+  var recv = 0;
+  times.forEach(function (t) {
+    if (t === null) { lines.push("Request timed out."); }
+    else if (t === "unreach") { lines.push("Reply from " + (opts.fromIp || "192.168.1.50") + ": Destination host unreachable."); }
+    else if (t === "genfail") { lines.push("PING: transmit failed. General failure."); }
+    else { recv++; lines.push("Reply from " + target + ": bytes=32 time" + (t < 1 ? "<1ms" : "=" + Math.round(t) + "ms") + " TTL=" + (opts.ttl || 64)); }
+  });
+  var sent = times.length, lost = sent - recv;
+  if (opts.hideStats) return lines;
+  lines.push("", "Ping statistics for " + target + ":",
+    "    Packets: Sent = " + sent + ", Received = " + recv + ", Lost = " + lost + " (" + Math.round(lost / sent * 100) + "% loss),");
+  if (recv > 0) {
+    var ok = times.filter(function (t) { return typeof t === "number"; });
+    var mn = Math.min.apply(null, ok), mx = Math.max.apply(null, ok);
+    var av = ok.reduce(function (a, b) { return a + b; }, 0) / ok.length;
+    lines.push("Approximate round trip times in milli-seconds:",
+      "    Minimum = " + Math.floor(mn) + "ms, Maximum = " + Math.ceil(mx) + "ms, Average = " + Math.round(av) + "ms");
+  }
+  return lines;
+}
+function tracertOut(target, hops, complete) {
+  var lines = ["", "Tracing route to " + target + " over a maximum of 30 hops:", ""];
+  hops.forEach(function (h, i) {
+    var n = "  " + (i + 1);
+    n = n.slice(-3);
+    if (h === null) { lines.push(n + "     *        *        *     Request timed out."); }
+    else {
+      var cells = h.ms.map(function (t) { return t < 1 ? "   <1 ms" : ("    " + Math.round(t) + " ms").slice(-8); });
+      lines.push(n + "  " + cells.join("  ") + "  " + h.ip + (h.name ? "  [" + h.name + "]" : ""));
+    }
+  });
+  if (complete) lines.push("", "Trace complete.");
+  return lines;
+}
+function nslookupOk(name, ip, server, serverIp) {
+  return ["", "Server:  " + server, "Address:  " + serverIp, "",
+    "Non-authoritative answer:", "Name:    " + name, "Address:  " + ip];
+}
+function nslookupFail(name, server, serverIp, why) {
+  return ["", "Server:  " + server, "Address:  " + serverIp, "",
+    "*** " + server + " can't find " + name + ": " + (why || "Non-existent domain")];
+}
+
+/* ---------- Cisco IOS device shell ----------
+   handler(dev, c) returns: string | string[] | null (null = invalid input)
+   dev = { name, mode:'user'|'priv'|'config', sub:{kind,target}|null, S: levelState }
+*/
+function iosPrompt(dev) {
+  if (dev.mode === "user") return dev.name + ">";
+  if (dev.mode === "priv") return dev.name + "#";
+  var sub = dev.sub ? dev.sub.kind : "";
+  return dev.name + "(config" + sub + ")#";
+}
+function makeDevice(name, state, handler) {
+  return { name: name, mode: "user", sub: null, S: state, handler: handler };
+}
+function iosExec(dev, raw) {
+  var c = norm(raw);
+  /* --- generic IOS housekeeping --- */
+  if (c === "enable" || c === "en") {
+    if (dev.mode === "user") { dev.mode = "priv"; return [""]; }
+    return [""];
+  }
+  if (c === "disable") { dev.mode = "user"; dev.sub = null; return [""]; }
+  if (c === "exit") {
+    if (dev.sub) { dev.sub = null; return [""]; }
+    if (dev.mode === "config") { dev.mode = "priv"; return [""]; }
+    return { disconnect: true, out: ["", "Connection closed by foreign host."] };
+  }
+  if (c === "logout") return { disconnect: true, out: ["", "Connection closed by foreign host."] };
+  if (c === "end") {
+    if (dev.mode === "config") { dev.mode = "priv"; dev.sub = null; return [""]; }
+    return ["% Invalid input detected at '^' marker."];
+  }
+  if (/^(conf(igure)?|confg)\s+t(erminal)?$/.test(c) || c === "conf t") {
+    if (dev.mode !== "priv") return ["% Enable mode required — type: enable"];
+    dev.mode = "config"; dev.sub = null;
+    return ["Enter configuration commands, one per line.  End with CNTL/Z."];
+  }
+  if (c === "write memory" || c === "wr mem" || c === "copy running-config startup-config" || c === "copy run start") {
+    if (dev.mode !== "priv") return ["% Invalid input detected at '^' marker."];
+    dev.S.saved = true;
+    return ["Building configuration...", "[OK]"];
+  }
+  if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if") {
+    if (c === "shutdown" || c === "shut") { dev.S.ifState[dev.sub.target] = "down"; return [""]; }
+    if (c === "no shutdown" || c === "no shut") {
+      dev.S.ifState[dev.sub.target] = "up";
+      return ["", "%LINK-5-CHANGED: Interface " + dev.sub.target + ", changed state to up",
+              "%LINEPROTO-5-UPDOWN: Line protocol on Interface " + dev.sub.target + ", changed state to up"];
+    }
+  }
+  var res = dev.handler(dev, c);
+  if (res === null || res === undefined) {
+    return ["% Invalid input detected at '^' marker."];
+  }
+  return res;
+}
+
+/* =====================================================================
+   LEVEL DATA
+   Each level: setup() -> sim state S
+               exec(ctx, raw) -> { out:[lines], ctx }   ctx = 'pc' or device
+   Sim contract: S.devices = { ip: device }, S.active = null | device
+   ===================================================================== */
+var LEVELS = [];
+
+/* ================= LEVEL 1 — "It's down" ================= */
+LEVELS.push({
+  id: "l1", stage: 0, ticketNo: "#1041", prio: "P2", title: "It's down",
+  skill: "Ping · IPConfig · DHCP — check your own connection first",
+  from: "You (your own desk, WS-114)",
+  body: "Your workstation has no internet. Outlook is spinning, the intranet won't load, and your first ticket of the day is... you. Before you touch anyone else's machine, prove where the break is. Start with your own connection.",
+  xp: 100,
+  mentorIntro: [
+    "Morning. I'm Ray. Rule one of this job: the problem is guilty until proven innocent, and the first suspect is always your own machine.",
+    "Your desk PC lost its lease overnight. Look at its config before you blame the network. Type: ipconfig"
+  ],
+  objectives: [
+    { text: "Inspect your own IP configuration (ipconfig)", hint: "Run: ipconfig — look at the IPv4 address and whether a Default Gateway exists at all.",
+      test: function (S) { return !!S.sawIpconfig; }, mentor: "See it? 169.254.x.x is an APIPA address — your PC shouted for DHCP, nobody answered, so it made up its own address. No gateway, no network. That's the whole outage, and it's layer 1 of your own desk." },
+    { text: "Try the gateway — confirm it's unreachable (ping 192.168.1.1)", hint: "Run: ping 192.168.1.1 — with an APIPA address it can't even leave the desk.",
+      test: function (S) { return !!S.pingedGwFail || !!S.pingedGwOk; }, mentor: "General failure. Confirmed: you're not ON the network yet. No point pinging the internet — fix the lease first." },
+    { text: "Release the bad lease (ipconfig /release)", hint: "Run: ipconfig /release",
+      test: function (S) { return !!S.released; }, mentor: "Lease dropped. Now ask DHCP for a fresh one." },
+    { text: "Renew the lease (ipconfig /renew)", hint: "Run: ipconfig /renew — DHCP should hand you a real 192.168.1.x address, a gateway, and DNS.",
+      test: function (S) { return !!S.renewed; }, mentor: "192.168.1.50, gateway .1, DNS .10. That's a real address. Now verify like an engineer, not a hopeful person." },
+    { text: "Verify the gateway answers (ping 192.168.1.1)", hint: "Run: ping 192.168.1.1 again — it should reply this time.",
+      test: function (S) { return !!S.pingedGwOk; }, mentor: "Gateway's alive. One more: prove you can leave the building." },
+    { text: "Verify the internet answers (ping 8.8.8.8)", hint: "Run: ping 8.8.8.8 — Google's public DNS. If that replies, you're fully back.",
+      test: function (S) { return !!S.pingedNetOk; }, mentor: "Full path verified: desk → gateway → internet. That's a closed ticket." }
+  ],
+  hints: ["Start at home: ipconfig shows you what your machine THINKS it is.", "169.254.x.x = APIPA. DHCP failed. /release, then /renew.", "Always verify in rings: own config → gateway → outside world."],
+  learned: [
+    "An address starting 169.254 is APIPA — self-assigned because DHCP never answered. It can talk to almost nothing.",
+    "ipconfig /release drops a lease; ipconfig /renew asks DHCP for a fresh address, gateway, and DNS server.",
+    "Troubleshoot in rings: your config first, then the default gateway, then something outside. Never skip ring one."
+  ],
+  commands: ["ipconfig", "ping", "ipconfig /release", "ipconfig /renew"],
+  mentorClose: "First ticket closed and you diagnosed it in the right order. Most people reboot three times and call me. You're already ahead.",
+  setup: function () {
+    return { renewed: false, released: false, sawIpconfig: false, pingedGwFail: false, pingedGwOk: false, pingedNetOk: false, devices: {}, active: null };
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (c === "ipconfig" || c === "ipconfig /all" || c === "ifconfig") {
+      S.sawIpconfig = true;
+      if (!S.renewed) return ["",
+        "Windows IP Configuration", "",
+        "Ethernet adapter Ethernet0:",
+        "   Media State . . . . . . . . . . . : Media connected",
+        "   IPv4 Address. . . . . . . . . . . : 169.254.14.22(Preferred)",
+        "   Subnet Mask . . . . . . . . . . . : 255.255.0.0",
+        "   Default Gateway . . . . . . . . . :",
+        "   DNS Servers . . . . . . . . . . . :"];
+      return ["",
+        "Windows IP Configuration", "",
+        "Ethernet adapter Ethernet0:",
+        "   IPv4 Address. . . . . . . . . . . : 192.168.1.50(Preferred)",
+        "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+        "   Default Gateway . . . . . . . . . : 192.168.1.1",
+        "   DNS Servers . . . . . . . . . . . : 192.168.1.10"];
+    }
+    if (c === "ipconfig /release") {
+      if (S.renewed) return ["The operation failed as no adapter is in the state permissible for this operation."];
+      S.released = true;
+      return ["", "Windows IP Configuration", "", "Ethernet adapter Ethernet0:", "   IPv4 Address. . . . . . . . . . . : 0.0.0.0"];
+    }
+    if (c === "ipconfig /renew") {
+      if (!S.released) return ["", "Renewing interface Ethernet0 ... timed out. The stale APIPA lease is still bound.", "Hint from the field: release the old lease first."];
+      S.renewed = true;
+      return ["", "Windows IP Configuration", "",
+        "Ethernet adapter Ethernet0:",
+        "   IPv4 Address. . . . . . . . . . . : 192.168.1.50(Preferred)",
+        "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+        "   Lease Obtained. . . . . . . . . . : Monday, October 19, 2026 8:02 AM",
+        "   Default Gateway . . . . . . . . . : 192.168.1.1",
+        "   DNS Servers . . . . . . . . . . . : 192.168.1.10"];
+    }
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.1.1" || t === "gateway") {
+        if (!S.renewed) { S.pingedGwFail = true; return pingOut("192.168.1.1", ["genfail", "genfail", "genfail", "genfail"]); }
+        S.pingedGwOk = true; return pingOut("192.168.1.1", [0.4, 0.3, 0.5, 0.3]);
+      }
+      if (t === "8.8.8.8" || t === "1.1.1.1") {
+        if (!S.renewed) return pingOut(t, ["genfail", "genfail", "genfail", "genfail"]);
+        S.pingedNetOk = true; return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      }
+      if (t === "localhost" || t === "127.0.0.1") return pingOut("127.0.0.1", [0.2, 0.2, 0.2, 0.2]);
+      if (!S.renewed) return pingOut(t, ["genfail", "genfail", "genfail", "genfail"]);
+      return pingOut(t, [null, null, null, null]);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 2 — "What's my IP?" ================= */
+LEVELS.push({
+  id: "l2", stage: 0, ticketNo: "#1047", prio: "P3", title: "What's my IP?",
+  skill: "IP addressing · default gateway · DNS resolution",
+  from: "Priya Nair — Finance (new hire, desk WS-118)",
+  body: "\"Hi! IT set up my PC but I need to give Facilities my IP address for the badge printer enrolment, and I don't know where to find it. Also — the intranet page won't open when I type its name, but IT said it works. Can you check?\" Document her addressing and prove name resolution works from her desk.",
+  xp: 100,
+  mentorIntro: [
+    "Ticket two. Sounds like a nothing question — 'what's my IP?' — but it hides the three numbers every engineer reads fluently: address, gateway, DNS.",
+    "Full detail lives behind ipconfig /all. Run it and actually read every line."
+  ],
+  objectives: [
+    { text: "Pull the full configuration (ipconfig /all)", hint: "Run: ipconfig /all — plain ipconfig hides the DNS servers and DHCP details.",
+      test: function (S) { return !!S.sawAll; }, mentor: "There it is: 192.168.1.118, mask /24, gateway 192.168.1.1, DNS 192.168.1.10, DHCP on the same box. That block of text IS the machine's identity on the network." },
+    { text: "Verify the default gateway answers (ping 192.168.1.1)", hint: "Run: ping 192.168.1.1 — the gateway is her door to every other subnet.",
+      test: function (S) { return !!S.pingedGw; }, mentor: "Gateway replies. Anything off her own subnet routes through that box." },
+    { text: "Resolve the intranet's name (nslookup intranet.7eightmade.local)", hint: "Run: nslookup intranet.7eightmade.local — this asks the DNS server at 192.168.1.10 to translate name → address.",
+      test: function (S) { return !!S.nsOk; }, mentor: "192.168.1.20. DNS works fine from this desk — so if her browser failed earlier, it was the old cached page, not the network. Names are for humans; the network only speaks numbers." },
+    { text: "Prove end-to-end reachability by name (ping intranet.7eightmade.local)", hint: "Run: ping intranet.7eightmade.local — ping resolves the name itself, then tests the path.",
+      test: function (S) { return !!S.pingedName; }, mentor: "Name resolved AND host answered. Two separate systems proven in one command. Document the numbers on the ticket and close it." }
+  ],
+  hints: ["ipconfig /all is the full story — address, mask, gateway, DNS, DHCP server.", "If a name fails but the IP works, it's DNS. If both fail, it's routing or the host.", "nslookup talks to DNS directly; ping tests the whole chain."],
+  learned: [
+    "Every host needs three things to work off-subnet: its own IP, a subnet mask, and a default gateway.",
+    "DNS translates names to IPs. Applications use names; packets use numbers — so 'the site is down' is very often 'DNS is down'.",
+    "nslookup queries DNS directly, which separates a name problem from a connectivity problem."
+  ],
+  commands: ["ipconfig /all", "ping <gateway>", "nslookup <name>", "ping <name>"],
+  mentorClose: "You just read a machine's identity and proved two systems healthy. That's the entire foundation — everything after this is scale.",
+  setup: function () {
+    return { sawAll: false, pingedGw: false, nsOk: false, pingedName: false, devices: {}, active: null };
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (c === "ipconfig /all" || c === "ifconfig") {
+      S.sawAll = true;
+      return ["", "Windows IP Configuration", "",
+        "   Host Name . . . . . . . . . . . . : WS-118",
+        "   Primary Dns Suffix  . . . . . . . : 7eightmade.local", "",
+        "Ethernet adapter Ethernet0:",
+        "   Description . . . . . . . . . . . : Intel(R) Ethernet Connection",
+        "   Physical Address. . . . . . . . . : 3C-7A-9F-22-41-B8",
+        "   DHCP Enabled. . . . . . . . . . . : Yes",
+        "   IPv4 Address. . . . . . . . . . . : 192.168.1.118(Preferred)",
+        "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+        "   Default Gateway . . . . . . . . . : 192.168.1.1",
+        "   DHCP Server . . . . . . . . . . . : 192.168.1.10",
+        "   DNS Servers . . . . . . . . . . . : 192.168.1.10"];
+    }
+    if (c === "ipconfig") return ["", "Windows IP Configuration", "", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.1.118(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.1.1",
+      "", "(No DNS shown — try ipconfig /all for the full picture.)"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.1.1") { S.pingedGw = true; return pingOut(t, [0.4, 0.3, 0.4, 0.3]); }
+      if (t === "intranet.7eightmade.local" || t === "intranet") {
+        S.pingedName = true;
+        return ["", "Pinging intranet.7eightmade.local [192.168.1.20] with 32 bytes of data:"]
+          .concat(pingOut("192.168.1.20", [0.6, 0.5, 0.6, 0.5]).slice(2));
+      }
+      if (t === "192.168.1.20") return pingOut(t, [0.6, 0.5, 0.6, 0.5]);
+      if (t === "192.168.1.10") return pingOut(t, [0.4, 0.4, 0.3, 0.4]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 12, 11, 10], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (/^nslookup\s+/.test(c)) {
+      var n = c.split(/\s+/)[1];
+      if (n === "intranet.7eightmade.local" || n === "intranet") { S.nsOk = true; return nslookupOk("intranet.7eightmade.local", "192.168.1.20", "dns1.7eightmade.local", "192.168.1.10"); }
+      if (n === "files.7eightmade.local") return nslookupOk(n, "192.168.1.21", "dns1.7eightmade.local", "192.168.1.10");
+      return nslookupFail(n, "dns1.7eightmade.local", "192.168.1.10");
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 3 — BOSS: "The whole floor is offline" ================= */
+LEVELS.push({
+  id: "l3", stage: 0, ticketNo: "#1052", prio: "BOSS", boss: true, title: "The whole floor is offline",
+  skill: "Fault isolation — you, the switch, or the router?",
+  from: "Facilities — 40 staff, Floor 2",
+  body: "EVERY workstation on Floor 2 lost network at 8:04 AM. Forty people are standing around with coffee. Your desk on Floor 1 works fine. Isolate the fault — your side, their switch, or the router — and bring the floor back. The floor's gateway is 192.168.2.1, their switch SW2 manages at 192.168.1.12, and a test desk PC down there is 192.168.2.50.",
+  xp: 200,
+  mentorIntro: [
+    "Boss ticket. Forty people down, and the worst move is guessing. We isolate: is it them, us, or the box between?",
+    "Your floor works — so work outward. Ping their gateway 192.168.2.1 first, then think."
+  ],
+  objectives: [
+    { text: "Test Floor 2's gateway (ping 192.168.2.1)", hint: "Run: ping 192.168.2.1 — if your own gateway works but theirs doesn't, the break is between the floors.",
+      test: function (S) { return !!S.pingedGw2Fail || !!S.uplinkUp; }, mentor: "Dead. Now the key question: can you reach their switch's management address? If SW2 answers on 192.168.1.12, the switch is alive — and the fault is one link, not a dead box." },
+    { text: "Reach SW2's management IP (ping 192.168.1.12)", hint: "Run: ping 192.168.1.12 — the switch answers management traffic on the Floor 1 side.",
+      test: function (S) { return !!S.pingedSw; }, mentor: "SW2 is alive and reachable. So the router's fine, your side's fine — the break is SW2's link toward Floor 2's gateway. Get on the box: ssh 192.168.1.12" },
+    { text: "SSH into SW2 (ssh 192.168.1.12)", hint: "Run: ssh 192.168.1.12 — then 'enable' for privileged mode.",
+      test: function (S) { return !!S.onSw; }, mentor: "You're in. Now look at the ports — show interfaces status tells you the truth about every link at a glance." },
+    { text: "Inspect SW2's ports (show interfaces status)", hint: "On SW2: enable, then: show interfaces status — find the uplink, Gi0/1.",
+      test: function (S) { return !!S.sawStatus; }, mentor: "Gi0/1 — the uplink to the router — is administratively down. Somebody shut it during last night's cable tidy and never brought it back. Forty people, one 'shutdown'. Fix it: configure terminal → interface gi0/1 → no shutdown." },
+    { text: "Bring the uplink up (interface gi0/1 → no shutdown)", hint: "On SW2: conf t → interface gi0/1 → no shutdown → end",
+      test: function (S) { return !!S.uplinkUp; }, mentor: "Link's up. Don't trust it — verify from your desk. Exit the switch and ping the Floor 2 test PC, 192.168.2.50." },
+    { text: "Verify Floor 2 is back (ping 192.168.2.50)", hint: "Exit SSH (type: exit), then from your PC: ping 192.168.2.50",
+      test: function (S) { return !!S.floorBack; }, mentor: "Floor's back. Forty people sit down like nothing happened. That's the job." }
+  ],
+  hints: ["Isolate in rings: your gateway → their gateway → their switch → the link.", "A switch can be alive on management while its uplink is shut. Check interface status.", "no shutdown under the interface is the fix. Verify from the PC afterwards — always."],
+  learned: [
+    "Fault isolation beats guessing: test each segment in order and the surviving segment names the culprit.",
+    "A device answering on management proves power and CPU — a dead uplink is a configuration/link fault, not a dead box.",
+    "'Administratively down' in show interfaces status means a human shut the port. Humans are the leading cause of outages."
+  ],
+  commands: ["ping", "ssh", "enable", "show interfaces status", "configure terminal", "interface", "no shutdown"],
+  mentorClose: "Boss ticket cleared. You isolated instead of panicking — that's the entire difference between help desk and engineering. Promotion board noticed, by the way.",
+  setup: function () {
+    var S = { pingedGw2Fail: false, pingedSw: false, onSw: false, sawStatus: false, uplinkUp: false, floorBack: false,
+      ifState: { "Gi0/1": "down", "Gi0/2": "up" }, saved: false, devices: {}, active: null };
+    S.devices["192.168.1.12"] = makeDevice("SW2", S, function (dev, c) {
+      if (/^sh(ow)?\s+int(erfaces)?\s+status/.test(c) || c === "show interfaces status") {
+        S.sawStatus = true;
+        return ["", "Port      Name               Status       Vlan       Duplex  Speed Type",
+          "Gi0/1     UPLINK-TO-R1       " + (S.uplinkUp ? "connected    " : "disabled     ") + "1            a-full a-1000 10/100/1000BaseTX",
+          "Gi0/2     FLOOR2-DESKS       connected    1            a-full a-1000 10/100/1000BaseTX",
+          "Gi0/3     FLOOR2-DESKS       connected    1            a-full a-100  10/100/1000BaseTX",
+          "Fa0/1     DESK-201           connected    1            a-full a-100  10/100BaseTX"];
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        return ["", "Building configuration...", "", "hostname SW2", "!",
+          "interface GigabitEthernet0/1", " description UPLINK-TO-R1", S.uplinkUp ? " no shutdown" : " shutdown", "!",
+          "interface GigabitEthernet0/2", " description FLOOR2-DESKS", "!"];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if" && dev.sub.target === "Gi0/1" && c === "no shutdown") { /* handled generically */ }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      if (S.active.name === "SW2" && S.ifState["Gi0/1"] === "up" && !S.uplinkUp) { S.uplinkUp = true; }
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) {
+        S.active = S.devices[ip]; S.onSw = true;
+        return ["", "Warning: Permanently added '" + ip + "' (ECDSA) to the list of known hosts.", "", S.active.name + ">"];
+      }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.1.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.1.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.1.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.1.1") return pingOut(t, [0.4, 0.3, 0.4, 0.3]);
+      if (t === "192.168.2.1") {
+        if (!S.uplinkUp) { S.pingedGw2Fail = true; return pingOut(t, [null, null, null, null]); }
+        return pingOut(t, [1, 1, 2, 1]);
+      }
+      if (t === "192.168.1.12") {
+        S.pingedSw = true; return pingOut(t, [1, 0.8, 1, 0.9]);
+      }
+      if (t === "192.168.2.50") {
+        if (!S.uplinkUp) return pingOut(t, [null, null, null, null]);
+        S.floorBack = true; return pingOut(t, [1, 2, 1, 1]);
+      }
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (/^tracert\s+/.test(c) || /^traceroute\s+/.test(c)) {
+      var d = c.split(/\s+/)[1];
+      if (!S.uplinkUp && (d === "192.168.2.50" || d === "192.168.2.1")) {
+        return tracertOut(d, [{ ip: "192.168.1.1", ms: [0.4, 0.3, 0.4] }, null, null], false);
+      }
+      return tracertOut(d, [{ ip: "192.168.1.1", ms: [0.4, 0.3, 0.4] }, { ip: d, ms: [1, 1, 2] }], true);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 4 — "Sales can't see the printers" ================= */
+LEVELS.push({
+  id: "l4", stage: 1, ticketNo: "#1073", prio: "P2", title: "Sales can't see the printers",
+  skill: "VLANs · switchport access assignment",
+  from: "Marcus Webb — Sales Lead",
+  body: "\"None of the Sales team can print. The printer PRN-SALES-01 at 192.168.30.10 worked Friday. Nobody touched anything (somebody touched something). We have a client deck in one hour — please.\" The printer lives on the Printers VLAN 30. Core switch SW1 manages at 192.168.10.2 and routes between VLANs.",
+  xp: 120,
+  mentorIntro: [
+    "Welcome to Junior Admin. New world: VLANs. Same physical switch, many virtual networks — and traffic only crosses between them through the router.",
+    "Sales sits on VLAN 20, printers on VLAN 30. First move is always the same: ping the printer, see how dead it is."
+  ],
+  objectives: [
+    { text: "Test the printer (ping 192.168.30.10)", hint: "Run: ping 192.168.30.10 — from your desk on VLAN 10.",
+      test: function (S) { return !!S.pingedPrnFail || !!S.portFixed; }, mentor: "Unreachable. Your desk reaches other things fine, so inter-VLAN routing works — suspicion moves to the printer's own port. Get on SW1: ssh 192.168.10.2" },
+    { text: "SSH into the core switch (ssh 192.168.10.2)", hint: "Run: ssh 192.168.10.2, then enable.",
+      test: function (S) { return !!S.onSw1; }, mentor: "Now ask the switch where the printer's port actually lives: show vlan brief. VLANs are just port assignments — read the table." },
+    { text: "Read the VLAN table (show vlan brief)", hint: "On SW1: show vlan brief — find port Gi1/0/12, the printer's port.",
+      test: function (S) { return !!S.sawVlan; }, mentor: "There it is. Gi1/0/12 — the printer's port — sits in VLAN 1, the default. Facilities moved the printer Friday and plugged it into a spare wall jack that was never configured. The printer has a VLAN 30 address but shouts into VLAN 1, where nobody answers. Move the port: conf t → interface gi1/0/12 → switchport access vlan 30." },
+    { text: "Move the printer port to VLAN 30 (switchport access vlan 30)", hint: "On SW1: conf t → interface gi1/0/12 → switchport mode access → switchport access vlan 30 → end",
+      test: function (S) { return !!S.portFixed; }, mentor: "Port's home. Verify from your desk like always — exit and ping the printer." },
+    { text: "Verify printing path (ping 192.168.30.10)", hint: "Exit SSH, then: ping 192.168.30.10",
+      test: function (S) { return !!S.prnBack; }, mentor: "Replies. Marcus gets his deck, and you learned the golden rule of VLAN tickets: the port IS the network." }
+  ],
+  hints: ["If one device is dark while its neighbours live, suspect its port's VLAN before the routing.", "show vlan brief lists every port's VLAN. The printer port should say 30.", "Fix chain: conf t → interface gi1/0/12 → switchport access vlan 30 → end → verify with ping."],
+  learned: [
+    "A VLAN is a virtual LAN: ports assigned to it form one broadcast domain, regardless of where they physically sit.",
+    "A device with a VLAN 30 IP plugged into a VLAN 1 port is stranded — right address, wrong neighbourhood.",
+    "Inter-VLAN traffic routes through a gateway; same-VLAN traffic never leaves the switch."
+  ],
+  commands: ["ping", "ssh", "show vlan brief", "interface", "switchport access vlan"],
+  mentorClose: "VLANs demystified. Ninety percent of 'the network is broken' tickets at this tier are one port in the wrong VLAN.",
+  setup: function () {
+    var S = { pingedPrnFail: false, onSw1: false, sawVlan: false, portFixed: false, prnBack: false,
+      portVlan: 1, saved: false, ifState: {}, devices: {}, active: null };
+    S.devices["192.168.10.2"] = makeDevice("SW1", S, function (dev, c) {
+      if (/^sh(ow)?\s+vlan\s+br/.test(c)) {
+        S.sawVlan = true;
+        return ["", "VLAN Name                             Status    Ports",
+          "---- -------------------------------- --------- -------------------------------",
+          "1    default                          active    " + (S.portVlan === 1 ? "Gi1/0/12, Gi1/0/20" : "Gi1/0/20"),
+          "10   STAFF                            active    Gi1/0/1, Gi1/0/2",
+          "20   SALES                            active    Gi1/0/5, Gi1/0/6, Gi1/0/7",
+          "30   PRINTERS                         active    " + (S.portVlan === 30 ? "Gi1/0/12" : "")];
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        return ["", "Building configuration...", "", "hostname SW1", "!",
+          "interface GigabitEthernet1/0/12", " description PRN-SALES-01",
+          " switchport access vlan " + S.portVlan, " switchport mode access", "!"];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if") {
+        if (/^switchport\s+mode\s+access/.test(c)) return [""];
+        var m = c.match(/^switchport\s+access\s+vlan\s+(\d+)$/);
+        if (m) {
+          if (dev.sub.target === "Gi1/0/12") {
+            S.portVlan = parseInt(m[1], 10);
+            if (S.portVlan === 30) { S.portFixed = true; return ["% Access VLAN added successfully."]; }
+            return [""];
+          }
+          return [""];
+        }
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip]; S.onSw1 = true;
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "SW1>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.30.10") {
+        if (!S.portFixed) { S.pingedPrnFail = true; return pingOut(t, ["unreach", "unreach", "unreach", "unreach"], { fromIp: "192.168.10.1" }); }
+        S.prnBack = true; return pingOut(t, [1, 1, 2, 1]);
+      }
+      if (t === "192.168.10.1" || t === "192.168.10.2") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 5 — "The new branch can't connect" ================= */
+LEVELS.push({
+  id: "l5", stage: 1, ticketNo: "#1081", prio: "P2", title: "The new branch can't connect",
+  skill: "Static routing · reading a routing table",
+  from: "Dana Whitfield — Branch Manager, Schaumburg",
+  body: "\"Our new branch office opened Monday. We can reach the internet fine, but nothing at HQ — the file server, the intranet, all dead. HQ IT said 'the route is on your side'. Is it?\" Branch LAN is 10.20.0.0/24. HQ router R1 (192.168.10.1) links to the branch router over WAN 172.16.0.0/30 — the branch router is 172.16.0.2. Branch server: 10.20.0.10.",
+  xp: 120,
+  mentorIntro: [
+    "Routing. A router only knows networks it's told about — connected ones it sees, the rest it must learn, by static command or by protocol.",
+    "Hypothesis before you touch anything: R1 has no idea 10.20.0.0/24 exists. Test it: ping the branch server."
+  ],
+  objectives: [
+    { text: "Test the branch server (ping 10.20.0.10)", hint: "Run: ping 10.20.0.10 — expect failure. Read HOW it fails: 'unreachable' from your own gateway means YOUR router doesn't know the way.",
+      test: function (S) { return !!S.pingedBranchFail || !!S.routeAdded; }, mentor: "Notice the failure came from 192.168.10.1 itself — R1 shrugged. The packet never left HQ. Now prove it on the box: ssh 192.168.10.1" },
+    { text: "SSH into HQ's router (ssh 192.168.10.1)", hint: "Run: ssh 192.168.10.1, then enable.",
+      test: function (S) { return !!S.onR1; }, mentor: "Read the routing table — show ip route. Every destination R1 knows is in that list. Find me a 10.20.0.0. You won't." },
+    { text: "Read the routing table (show ip route)", hint: "On R1: show ip route — C = connected, S = static, and the gateway of last resort is the internet path.",
+      test: function (S) { return !!S.sawRoute; }, mentor: "Confirmed: 10.20.0.0/24 is nowhere. Branch IT already added their return route, Dana was right — it's on us. Teach R1: conf t → ip route 10.20.0.0 255.255.255.0 172.16.0.2" },
+    { text: "Add the static route (ip route 10.20.0.0 255.255.255.0 172.16.0.2)", hint: "On R1 in config mode: ip route 10.20.0.0 255.255.255.0 172.16.0.2 — destination, mask, next hop.",
+      test: function (S) { return !!S.routeAdded; }, mentor: "Route's in. Read the table again — engineers verify their own work before users do." },
+    { text: "Confirm the route exists (show ip route)", hint: "On R1: show ip route — look for the S entry for 10.20.0.0/24 via 172.16.0.2.",
+      test: function (S) { return !!S.sawRouteAfter; }, mentor: "S 10.20.0.0/24 via 172.16.0.2. Beautiful. Save it — write memory — or it vanishes at the next reboot. Remember that sentence; it'll matter later. Then get off the box and ping the branch." },
+    { text: "Save the config (write memory)", hint: "On R1 in privileged mode: write memory (or: copy run start).",
+      test: function (S) { return !!S.savedCfg; }, mentor: "Saved. Now the only test that matters — the user's." },
+    { text: "Verify the branch answers (ping 10.20.0.10)", hint: "Exit SSH, then: ping 10.20.0.10",
+      test: function (S) { return !!S.branchBack; }, mentor: "Branch is live. Static routes: simple, exact, and your responsibility forever — that's the trade you'll fix with dynamic routing on the next ticket." }
+  ],
+  hints: ["'Destination unreachable' FROM your gateway = your router lacks a route. Timeouts usually mean the far end dropped it.", "show ip route is the map. If the network isn't in the table, packets die at that router.", "Static route syntax: ip route <network> <mask> <next-hop>. Then write memory. Always write memory."],
+  learned: [
+    "Routers forward by table lookup. No entry, no forwarding — the packet dies at the router that lacks the route.",
+    "A static route names a destination network, its mask, and the next-hop router that takes it from there.",
+    "Running-config lives in RAM. Until you write memory, every fix is one reboot away from never having happened."
+  ],
+  commands: ["ping", "ssh", "show ip route", "ip route", "write memory"],
+  mentorClose: "Routing clicks now. Next ticket, the routes start moving on their own — and one of them is lying to you.",
+  setup: function () {
+    var S = { pingedBranchFail: false, onR1: false, sawRoute: false, routeAdded: false, sawRouteAfter: false,
+      savedCfg: false, branchBack: false, saved: false, ifState: {}, devices: {}, active: null };
+    S.devices["192.168.10.1"] = makeDevice("R1", S, function (dev, c) {
+      if (/^sh(ow)?\s+ip\s+route/.test(c)) {
+        S.sawRoute = true; if (S.routeAdded) S.sawRouteAfter = true;
+        var lines = ["", "Codes: C - connected, S - static, R - RIP, O - OSPF",
+          "", "Gateway of last resort is 203.0.113.1 to network 0.0.0.0", "",
+          "C    192.168.10.0/24 is directly connected, GigabitEthernet0/0",
+          "C    172.16.0.0/30 is directly connected, GigabitEthernet0/1"];
+        if (S.routeAdded) lines.push("S    10.20.0.0/24 [1/0] via 172.16.0.2");
+        lines.push("S*   0.0.0.0/0 [1/0] via 203.0.113.1");
+        return lines;
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        var l = ["", "Building configuration...", "", "hostname R1", "!",
+          "interface GigabitEthernet0/0", " ip address 192.168.10.1 255.255.255.0", "!",
+          "interface GigabitEthernet0/1", " ip address 172.16.0.1 255.255.255.252", "!"];
+        if (S.routeAdded) l.push("ip route 10.20.0.0 255.255.255.0 172.16.0.2");
+        l.push("ip route 0.0.0.0 0.0.0.0 203.0.113.1", "!");
+        return l;
+      }
+      if (dev.mode === "config") {
+        var m = c.match(/^ip\s+route\s+10\.20\.0\.0\s+255\.255\.255\.0\s+172\.16\.0\.2$/);
+        if (m) { S.routeAdded = true; return [""]; }
+        if (/^ip\s+route\s+/.test(c)) return ["% Invalid next hop or network — check the ticket: branch is 10.20.0.0/24 via 172.16.0.2."];
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      if (S.active.name === "R1" && S.saved) S.savedCfg = true;
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip]; S.onR1 = true;
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "R1>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "10.20.0.10") {
+        if (!S.routeAdded) { S.pingedBranchFail = true; return pingOut(t, ["unreach", "unreach", "unreach", "unreach"], { fromIp: "192.168.10.1" }); }
+        S.branchBack = true; return pingOut(t, [3, 2, 3, 2]);
+      }
+      if (t === "192.168.10.1") return pingOut(t, [0.4, 0.3, 0.4, 0.3]);
+      if (t === "172.16.0.2") return pingOut(t, [1, 1, 2, 1]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (/^tracert\s+/.test(c) || /^traceroute\s+/.test(c)) {
+      var d = c.split(/\s+/)[1];
+      if (d === "10.20.0.10" && !S.routeAdded) return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }], false)
+        .concat(["", "192.168.10.1 reports: Destination net unreachable."]);
+      if (d === "10.20.0.10") return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }, { ip: "172.16.0.2", ms: [1, 1, 2] }, { ip: "10.20.0.10", ms: [3, 2, 3] }], true);
+      return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }, { ip: d, ms: [2, 2, 2] }], true);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 6 — BOSS: "Traffic's taking the long way" ================= */
+LEVELS.push({
+  id: "l6", stage: 1, ticketNo: "#1090", prio: "BOSS", boss: true, title: "Traffic's taking the long way",
+  skill: "OSPF neighbours · spanning-tree loops",
+  from: "Network Monitoring — automated alert + Dana at the branch",
+  body: "Branch traffic to HQ is crawling. The direct R1↔R2 link (172.16.12.0/30) should carry it, but monitoring shows packets wandering R1 → R3 → R2 instead. Separately, HQ users report brief freezes every few minutes — like the LAN hiccups. Two symptoms. Possibly two faults. R1: 192.168.10.1 · SW1: 192.168.10.2 · Branch server: 10.20.0.10.",
+  xp: 220,
+  mentorIntro: [
+    "Boss ticket, Junior Admin edition. Static routes were honest. Dynamic routing negotiates — and negotiations break.",
+    "Eyes first: traceroute to the branch server and watch the path it actually takes."
+  ],
+  objectives: [
+    { text: "Trace the real path (traceroute 10.20.0.10)", hint: "Run: traceroute 10.20.0.10 (or tracert) — three hops where two should do means the direct link is out of the conversation.",
+      test: function (S) { return !!S.sawLongPath || !!S.ospfFixed; }, mentor: "R1 → R3 → R2 → branch. The direct 172.16.12.0/30 link isn't being used at all. OSPF decides paths from neighbour relationships — so check who's actually talking: get on R1 and show ip ospf neighbor." },
+    { text: "Check OSPF neighbours on R1 (show ip ospf neighbor)", hint: "ssh 192.168.10.1 → enable → show ip ospf neighbor. R2 (172.16.12.2) should be there. It won't be.",
+      test: function (S) { return !!S.sawNeighbors; }, mentor: "Only R3 is a neighbour. R2 is missing — the direct link's interface was never added to OSPF, so as far as the protocol knows, that link doesn't exist. Fix: conf t → router ospf 1 → network 172.16.12.0 0.0.0.3 area 0." },
+    { text: "Advertise the direct link (network 172.16.12.0 0.0.0.3 area 0)", hint: "On R1: conf t → router ospf 1 → network 172.16.12.0 0.0.0.3 area 0 → end. The 0.0.0.3 is a wildcard mask for a /30.",
+      test: function (S) { return !!S.ospfFixed; }, mentor: "Neighbour should be forming — check show ip ospf neighbor again later. Now the second symptom: those LAN freezes smell like a broadcast storm. On SW1, spanning-tree is the referee. ssh 192.168.10.2 and show spanning-tree." },
+    { text: "Inspect spanning-tree on SW1 (show spanning-tree)", hint: "ssh 192.168.10.2 → enable → show spanning-tree. Look for a port that keeps changing state — TCN storms mean a loop is flapping.",
+      test: function (S) { return !!S.sawStp; }, mentor: "Gi1/0/24: thousands of topology changes. Somebody patched a desk switch into two wall jacks and built a loop — spanning-tree is fighting it and losing every few minutes; each fight floods the LAN. Kill the loop at the port: conf t → interface gi1/0/24 → shutdown." },
+    { text: "Kill the loop (shutdown on Gi1/0/24)", hint: "On SW1: conf t → interface gi1/0/24 → shutdown → end",
+      test: function (S) { return !!S.loopKilled; }, mentor: "Loop's dead, freezes over. Last step, the engineer's signature: prove the path healed. Off the boxes — traceroute the branch again." },
+    { text: "Verify the short path (traceroute 10.20.0.10)", hint: "From your PC: traceroute 10.20.0.10 — expect R1 → 172.16.12.2 → server. Two hops of WAN, not three.",
+      test: function (S) { return !!S.shortPath; }, mentor: "Direct. Two faults, two mechanisms, one ticket. That's a boss clear." }
+  ],
+  hints: ["Traceroute shows the path packets ACTUALLY take — trust it over the diagram.", "Missing OSPF neighbour = the link was never advertised. router ospf 1 → network <net> <wildcard> area 0.", "Topology-change counters exploding in spanning-tree = a loop flapping somewhere. Find the port, shut the port."],
+  learned: [
+    "OSPF routers only use links they've formed neighbour relationships over; an unadvertised interface is invisible to the protocol.",
+    "The network statement uses a wildcard mask (0.0.0.3 for a /30) to choose which interfaces join OSPF.",
+    "A switching loop causes broadcast storms; spanning-tree fights it, and constant topology changes are the fingerprint. Shutting the rogue port ends the storm."
+  ],
+  commands: ["traceroute", "show ip ospf neighbor", "router ospf", "network ... area 0", "show spanning-tree", "shutdown"],
+  mentorClose: "You just ran dynamic routing and layer-2 loop control on one ticket. Stage 2 done — the Engineer stage is where we stop fixing symptoms and start reading the network's diary.",
+  setup: function () {
+    var S = { sawLongPath: false, sawNeighbors: false, ospfFixed: false, sawStp: false, loopKilled: false, shortPath: false,
+      saved: false, ifState: { "Gi1/0/24": "up" }, devices: {}, active: null };
+    S.devices["192.168.10.1"] = makeDevice("R1", S, function (dev, c) {
+      if (/^sh(ow)?\s+ip\s+ospf\s+neigh/.test(c)) {
+        var l = ["", "Neighbor ID     Pri   State           Dead Time   Address         Interface",
+          "172.16.13.2       1   FULL/DR         00:00:38    172.16.13.2     GigabitEthernet0/2"];
+        S.sawNeighbors = true;
+        if (S.ospfFixed) l.push("172.16.12.2       1   FULL/DR         00:00:31    172.16.12.2     GigabitEthernet0/1");
+        return l;
+      }
+      if (/^sh(ow)?\s+ip\s+route/.test(c)) {
+        var l = ["", "Codes: C - connected, S - static, O - OSPF", "",
+          "C    192.168.10.0/24 is directly connected, GigabitEthernet0/0",
+          "C    172.16.12.0/30 is directly connected, GigabitEthernet0/1",
+          "C    172.16.13.0/30 is directly connected, GigabitEthernet0/2"];
+        if (S.ospfFixed) l.push("O    10.20.0.0/24 [110/2] via 172.16.12.2, GigabitEthernet0/1");
+        else l.push("O    10.20.0.0/24 [110/3] via 172.16.13.2, GigabitEthernet0/2");
+        return l;
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        var l = ["", "Building configuration...", "", "hostname R1", "!", "router ospf 1",
+          " network 192.168.10.0 0.0.0.255 area 0", " network 172.16.13.0 0.0.0.3 area 0"];
+        if (S.ospfFixed) l.push(" network 172.16.12.0 0.0.0.3 area 0");
+        l.push("!");
+        return l;
+      }
+      if (dev.mode === "config" && /^router\s+ospf\s+1$/.test(c)) { dev.sub = { kind: "-router", target: "ospf1" }; return [""]; }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-router") {
+        if (/^network\s+172\.16\.12\.0\s+0\.0\.0\.3\s+area\s+0$/.test(c)) {
+          if (!S.ospfFixed) { S.ospfFixed = true;
+            return ["", "%OSPF-5-ADJCHG: Process 1, Nbr 172.16.12.2 on GigabitEthernet0/1 from LOADING to FULL, Loading Done"]; }
+          return [""];
+        }
+        if (/^network\s+/.test(c)) return ["% OSPF: network does not match the direct link 172.16.12.0/30 — check the ticket."];
+      }
+      return null;
+    });
+    S.devices["192.168.10.2"] = makeDevice("SW1", S, function (dev, c) {
+      if (/^sh(ow)?\s+span/.test(c)) {
+        S.sawStp = true;
+        return ["", "VLAN0010", "  Spanning tree enabled protocol rstp",
+          "  Root ID    Priority    32778", "             Address     0019.aa42.7f00",
+          "  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)",
+          "", "Interface           Role Sts Cost      Prio.Nbr Type",
+          "------------------- ---- --- --------- -------- --------------------------------",
+          "Gi1/0/1             Desg FWD 4         128.1    P2p",
+          "Gi1/0/24            Desg FWD 4         128.24   P2p  <-- 18,432 topology changes in 1h",
+          "", S.loopKilled ? "Gi1/0/24 is now administratively down. Topology stable." : "Topology change counter is climbing as you read this. There is a loop."];
+      }
+      if (/^sh(ow)?\s+int(erfaces)?\s+status/.test(c)) {
+        return ["", "Port      Name               Status       Vlan       Duplex  Speed Type",
+          "Gi1/0/1   UPLINK-R1          connected    10           a-full a-1000 10/100/1000BaseTX",
+          "Gi1/0/24  WALL-JACK-2B       " + (S.loopKilled ? "disabled     " : "connected    ") + "10           a-full a-1000 10/100/1000BaseTX"];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      if (S.active.name === "SW1" && S.ifState["Gi1/0/24"] === "down") S.loopKilled = true;
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip];
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", S.active.name + ">"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "10.20.0.10") return pingOut(t, S.ospfFixed ? [3, 2, 3, 2] : [26, 31, 24, 29]);
+      if (t === "192.168.10.1" || t === "192.168.10.2") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (/^tracert\s+/.test(c) || /^traceroute\s+/.test(c)) {
+      var d = c.split(/\s+/)[1];
+      if (d === "10.20.0.10") {
+        if (!S.ospfFixed) { S.sawLongPath = true;
+          return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4], name: "R1" },
+            { ip: "172.16.13.2", ms: [9, 8, 10], name: "R3" },
+            { ip: "172.16.32.2", ms: [18, 17, 19], name: "R2" },
+            { ip: "10.20.0.10", ms: [26, 25, 27] }], true);
+        }
+        if (S.loopKilled) S.shortPath = true;
+        return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4], name: "R1" },
+          { ip: "172.16.12.2", ms: [1, 1, 2], name: "R2" },
+          { ip: "10.20.0.10", ms: [3, 2, 3] }], true);
+      }
+      return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }, { ip: d, ms: [2, 2, 2] }], true);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 7 — "Find what changed" ================= */
+LEVELS.push({
+  id: "l7", stage: 2, ticketNo: "#1118", prio: "P2", title: "Find what changed",
+  skill: "Syslog · running vs startup config · change forensics",
+  from: "Everyone, apparently — 14 tickets by 9 AM",
+  body: "\"Nothing resolves by name since this morning. Intranet, file shares by name, all dead — but the internet works if you type IP addresses, and nobody changed anything.\" (Somebody changed something. Somebody always changes something.) Your DNS forwarder is R1 at 192.168.10.1. Find what changed, and when.",
+  xp: 150,
+  mentorIntro: [
+    "Engineer stage now. Rule of the tier: it worked yesterday, it's broken today, therefore a human touched it. Your job is archaeology.",
+    "Reproduce first: from your PC, try resolving the intranet name."
+  ],
+  objectives: [
+    { text: "Reproduce the failure (nslookup intranet.7eightmade.local)", hint: "Run: nslookup intranet.7eightmade.local — SERVFAIL from the forwarder means R1 can't resolve anything right now.",
+      test: function (S) { return !!S.nsFail || !!S.dnsFixed; }, mentor: "SERVFAIL — and note pinging by IP still works, so this is purely name resolution. R1 forwards your queries to a DNS server. Which one? It changed. Prove it with the log: ssh 192.168.10.1" },
+    { text: "SSH into R1 (ssh 192.168.10.1)", hint: "Run: ssh 192.168.10.1, then enable.",
+      test: function (S) { return !!S.onR1; }, mentor: "Devices confess everything — in their logs. show logging, and read the timestamps like a timeline." },
+    { text: "Read the syslog (show logging)", hint: "On R1: show logging — look for CONFIG entries around 2 AM. Change windows are always at 2 AM.",
+      test: function (S) { return !!S.sawLog; }, mentor: "02:13:47 — a config session changed ip name-server to 10.255.255.9, a decommissioned lab box, and never saved. So the running config is poisoned but the startup config still holds the truth. Compare: show startup-config | include name-server." },
+    { text: "Check the saved config's DNS (show startup-config | include name-server)", hint: "On R1: show startup-config | include name-server — the pipe filters output to matching lines. Expect 192.168.10.10.",
+      test: function (S) { return !!S.sawStartup; }, mentor: "Startup says 192.168.10.10 — the real DNS server. The running config was edited at 2 AM and never saved. Fix the running config: conf t → no ip name-server 10.255.255.9 → ip name-server 192.168.10.10 → end." },
+    { text: "Restore the correct DNS server (ip name-server 192.168.10.10)", hint: "On R1: conf t → no ip name-server 10.255.255.9 → ip name-server 192.168.10.10 → end",
+      test: function (S) { return !!S.dnsFixed; }, mentor: "Forwarder's honest again. Now — save it, or the 2 AM ghost returns at the next reboot. write memory, then verify from your PC." },
+    { text: "Save it (write memory)", hint: "On R1, privileged mode: write memory.",
+      test: function (S) { return !!S.savedCfg; }, mentor: "Saved. Verify from the PC — resolution is a user-facing promise, so test it where users live." },
+    { text: "Verify resolution works (nslookup intranet.7eightmade.local)", hint: "Exit SSH, then on the PC: nslookup intranet.7eightmade.local",
+      test: function (S) { return !!S.nsOk; }, mentor: "Names resolve. Fourteen tickets close with one root cause — write the postmortem line on the ticket: who, what, when. The log told you all three." }
+  ],
+  hints: ["Reproduce first, then read the device's diary: show logging.", "The | include pipe is an engineer's scalpel: show startup-config | include name-server.", "Running config = what's live now. Startup config = what survives reboot. When they differ, someone edited and didn't save."],
+  learned: [
+    "Syslog timestamps turn 'nothing changed' into a timeline: who connected, when, and what they typed.",
+    "Running-config is live RAM; startup-config is disk. Comparing them isolates unsaved changes instantly.",
+    "The | include filter cuts hundred-line configs down to the one line you need."
+  ],
+  commands: ["nslookup", "ssh", "show logging", "show startup-config | include", "ip name-server", "write memory"],
+  mentorClose: "Forensics beats folklore. From here on, 'it broke by itself' is a sentence you'll never say again.",
+  setup: function () {
+    var S = { nsFail: false, onR1: false, sawLog: false, sawStartup: false, dnsFixed: false, savedCfg: false, nsOk: false,
+      saved: false, ifState: {}, devices: {}, active: null };
+    S.devices["192.168.10.1"] = makeDevice("R1", S, function (dev, c) {
+      if (/^sh(ow)?\s+log/.test(c)) {
+        S.sawLog = true;
+        return ["", "Syslog logging: enabled (23 messages dropped, 41 messages rate-limited)",
+          "", "Oct 18 23:58:01 R1: %LINK-3-UPDOWN: Interface GigabitEthernet0/1, changed state to up",
+          "Oct 19 02:13:44 R1: %SYS-5-CONFIG_I: Configured from console by m.okafor on vty0 (10.10.8.4)",
+          "Oct 19 02:13:47 R1: %PARSER-5-CFGLOG: User:m.okafor  logged command:no ip name-server 192.168.10.10",
+          "Oct 19 02:13:47 R1: %PARSER-5-CFGLOG: User:m.okafor  logged command:ip name-server 10.255.255.9",
+          "Oct 19 02:14:02 R1: %SYS-5-CONFIG_I: Configured from console by m.okafor — session ended (no save)",
+          "Oct 19 08:57:12 R1: %DNS-3-SERVFAIL: Unable to resolve host queries via 10.255.255.9 (no route / timeout)"];
+      }
+      if (/^sh(ow)?\s+(startup-config|run)/.test(c)) {
+        var isStart = /startup/.test(c);
+        if (isStart) S.sawStartup = true;
+        var dns = (isStart || S.dnsFixed) ? "192.168.10.10" : "10.255.255.9";
+        if (/name-server/.test(c)) {
+          return ["", "ip name-server " + dns];
+        }
+        return ["", "Building configuration...", "", "hostname R1", "!",
+          "ip domain-lookup", "ip name-server " + dns, "ip dns server", "!",
+          "interface GigabitEthernet0/0", " ip address 192.168.10.1 255.255.255.0", "!"];
+      }
+      if (dev.mode === "config") {
+        if (c === "no ip name-server 10.255.255.9") { S.removedBad = true; return [""]; }
+        if (c === "ip name-server 192.168.10.10") {
+          S.dnsFixed = true;
+          return ["", "% DNS forwarder now pointing at 192.168.10.10 (dns1.7eightmade.local)"];
+        }
+        if (/^ip\s+name-server\s+/.test(c)) return ["% That address is not the company DNS server. The ticket trail points to 192.168.10.10."];
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      if (S.active.name === "R1" && S.saved) S.savedCfg = true;
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip]; S.onR1 = true;
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "R1>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (/^nslookup\s+/.test(c)) {
+      var n = c.split(/\s+/)[1];
+      if (!S.dnsFixed) {
+        S.nsFail = true;
+        return ["", "Server:  r1.7eightmade.local", "Address:  192.168.10.1", "",
+          "*** r1.7eightmade.local can't find " + n + ": Server failed", "",
+          "(R1's upstream forwarder 10.255.255.9 is not answering.)"];
+      }
+      S.nsOk = true;
+      if (n === "intranet.7eightmade.local" || n === "intranet") return nslookupOk("intranet.7eightmade.local", "192.168.10.20", "r1.7eightmade.local", "192.168.10.1");
+      return nslookupOk(n, "192.168.10.20", "r1.7eightmade.local", "192.168.10.1");
+    }
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.10.20" || t === "192.168.10.1") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      if (t === "intranet.7eightmade.local") {
+        if (!S.dnsFixed) return ["Ping request could not find host intranet.7eightmade.local. Please check the name and try again."];
+        return pingOut("192.168.10.20", [0.6, 0.5, 0.6, 0.5]);
+      }
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.1"];
+    return null;
+  }
+});
+
+/* ================= LEVEL 8 — "Do it 50 times" ================= */
+LEVELS.push({
+  id: "l8", stage: 2, ticketNo: "#1126", prio: "P3", title: "Do it 50 times",
+  skill: "Automation thinking · interface range",
+  from: "Sales Ops — floor refit",
+  body: "The Sales floor got a brand-new 48-port switch (SW-NEW, 192.168.10.3). Every port Fa0/1 through Fa0/48 needs the same three things before Monday: access mode, VLAN 20, and the description WORKSTATION. Forty-eight ports. Same config. Your call how long this takes.",
+  xp: 150,
+  mentorIntro: [
+    "This ticket is a trap. The junior move is to configure 48 ports one at a time and age a year. The engineer move is to notice they're identical — and never type the same thing twice.",
+    "Go look at the switch first. ssh 192.168.10.3, show interfaces status."
+  ],
+  objectives: [
+    { text: "Survey the new switch (show interfaces status on SW-NEW)", hint: "ssh 192.168.10.3 → enable → show interfaces status. 48 ports, all VLAN 1, all blank. That's the workload.",
+      test: function (S) { return !!S.sawStatus; }, mentor: "Forty-eight identical ports. Do ONE by hand so you feel the cost — interface fa0/1, switchport access vlan 20. Then I'll show you the door out of this loop." },
+    { text: "Configure one port by hand (Fa0/1 → switchport access vlan 20)", hint: "On SW-NEW: conf t → interface fa0/1 → switchport mode access → switchport access vlan 20.",
+      test: function (S) { return !!S.manualOne; }, mentor: "One down. Forty-seven to go. At ninety seconds a port, that's over an hour of your life, and port 31 is where your first typo lives. Stop. IOS has a word for 'all of them': range. conf t → interface range fa0/1 - 48." },
+    { text: "Select all ports at once (interface range fa0/1 - 48)", hint: "On SW-NEW in config mode: interface range fa0/1 - 48 — the prompt changes to (config-if-range)#. Everything you type now lands on all 48 ports.",
+      test: function (S) { return !!S.rangeUsed; }, mentor: "You're now standing in 48 interfaces simultaneously. Type the config once. It applies 48 times. This is the whole philosophy of automation in one command." },
+    { text: "Apply the VLAN to the range (switchport access vlan 20)", hint: "In (config-if-range)#: switchport mode access, then switchport access vlan 20.",
+      test: function (S) { return !!S.rangeVlan; }, mentor: "Forty-eight ports, one command. Now the label — descriptions are how the next engineer reads your mind." },
+    { text: "Label every port (description WORKSTATION)", hint: "Still in range mode: description WORKSTATION — then end.",
+      test: function (S) { return !!S.rangeDesc; }, mentor: "Done and documented. Verify the whole fleet at a glance — show interfaces status — and then save it. Forty-eight ports of work, protected from the next reboot." },
+    { text: "Verify all ports (show interfaces status)", hint: "On SW-NEW: show interfaces status — every Fa0 port should read VLAN 20.",
+      test: function (S) { return !!S.verified; }, mentor: "All 48, uniform. End the job properly: write memory." },
+    { text: "Save the configuration (write memory)", hint: "Privileged mode: write memory.",
+      test: function (S) { return !!S.savedCfg; }, mentor: "Saved. Total typing: a dozen lines for 48 ports. The script version of this — Python pushing to 50 switches — is the same idea with a bigger blast radius. Respect both." }
+  ],
+  hints: ["Identical repeated work is a signal, not a sentence. Find the tool that multiplies your input.", "interface range fa0/1 - 48 puts you in config-if-range mode — commands apply to every port in the range.", "Order inside the range: switchport mode access → switchport access vlan 20 → description WORKSTATION."],
+  learned: [
+    "interface range configures many ports with one command block — the CLI's built-in multiplier.",
+    "Automation mindset: if you're about to type the same thing a third time, stop and find the mechanism that does it once.",
+    "Descriptions are documentation that lives where the work is. Future-you says thanks."
+  ],
+  commands: ["show interfaces status", "interface range", "switchport access vlan", "description", "write memory"],
+  mentorClose: "You did a 50-port job with 12 lines. Scripts, templates, ranges — same muscle. That's the Engineer tier in one ticket.",
+  setup: function () {
+    var S = { sawStatus: false, manualOne: false, rangeUsed: false, rangeVlan: false, rangeDesc: false, verified: false,
+      savedCfg: false, saved: false, portCfg: {}, ifState: {}, devices: {}, active: null };
+    for (var i = 1; i <= 48; i++) S.portCfg["Fa0/" + i] = { vlan: 1, desc: "" };
+    S.devices["192.168.10.3"] = makeDevice("SW-NEW", S, function (dev, c) {
+      if (/^sh(ow)?\s+int(erfaces)?\s+status/.test(c)) {
+        S.sawStatus = true;
+        if (S.rangeVlan) S.verified = true;
+        var lines = ["", "Port      Name               Status       Vlan       Duplex  Speed Type"];
+        for (var i = 1; i <= 48; i++) {
+          var p = S.portCfg["Fa0/" + i];
+          var nm = (p.desc || "").padEnd(18, " ").slice(0, 18);
+          lines.push(("Fa0/" + i).padEnd(10, " ") + nm + " connected    " + String(p.vlan).padEnd(11, " ") + "a-full a-100  10/100BaseTX");
+        }
+        return lines;
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        return ["", "Building configuration...", "", "hostname SW-NEW", "!",
+          "interface FastEthernet0/1", " description " + (S.portCfg["Fa0/1"].desc || ""), " switchport access vlan " + S.portCfg["Fa0/1"].vlan, "!",
+          "... (remaining 47 interfaces follow the same template)"];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+range\s+/.test(c)) {
+        var rc = c.replace(/^int(erface)?\s+range\s+/, "");
+        if (/fa(stethernet)?\s?0\/1\s*-\s*48/.test(rc.replace(/\s+/g, " ")) || /0\/1\s*-\s*0\/48/.test(rc)) {
+          dev.sub = { kind: "-if-range", target: "Fa0/1-48" }; S.rangeUsed = true; return [""];
+        }
+        return ["% Range must cover Fa0/1 - 48 for this job."];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && (dev.sub.kind === "-if" || dev.sub.kind === "-if-range")) {
+        if (/^switchport\s+mode\s+access/.test(c)) return [""];
+        var m = c.match(/^switchport\s+access\s+vlan\s+(\d+)$/);
+        if (m) {
+          var v = parseInt(m[1], 10);
+          if (dev.sub.kind === "-if-range") {
+            for (var j = 1; j <= 48; j++) S.portCfg["Fa0/" + j].vlan = v;
+            if (v === 20) S.rangeVlan = true;
+          } else {
+            S.portCfg[dev.sub.target].vlan = v;
+            if (dev.sub.target === "Fa0/1" && v === 20) S.manualOne = true;
+          }
+          return [""];
+        }
+        var d = c.match(/^description\s+(.+)$/);
+        if (d) {
+          if (dev.sub.kind === "-if-range") {
+            for (var k = 1; k <= 48; k++) S.portCfg["Fa0/" + k].desc = d[1].toUpperCase();
+            if (/workstation/.test(d[1])) S.rangeDesc = true;
+          } else {
+            S.portCfg[dev.sub.target].desc = d[1].toUpperCase();
+          }
+          return [""];
+        }
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      if (S.active.name === "SW-NEW" && S.saved) S.savedCfg = true;
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip];
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "SW-NEW>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.10.1" || t === "192.168.10.3") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 9 — BOSS: "The mystery latency" ================= */
+LEVELS.push({
+  id: "l9", stage: 2, ticketNo: "#1131", prio: "BOSS", boss: true, title: "The mystery latency",
+  skill: "Traceroute hop isolation · interface errors · duplex",
+  from: "App team — 'the CRM feels like it's underwater'",
+  body: "The CRM app server (10.30.0.25, behind router R2) responds, but every click takes seconds. Nothing is DOWN — everything is SLOW, which users hate more. Path: your desk → R1 (192.168.10.1) → R2 (WAN 172.16.0.2, manages at 192.168.10.9) → app VLAN. Find the bad hop and fix it.",
+  xp: 220,
+  mentorIntro: [
+    "Boss ticket, Engineer stage. 'Slow' is the hardest word in networking — no errors, no alarms, just suffering.",
+    "Your weapon is comparison. Ping the app server and READ the times, not just the replies."
+  ],
+  objectives: [
+    { text: "Measure the pain (ping 10.30.0.25)", hint: "Run: ping 10.30.0.25 — replies at ~180ms on a LAN path that should be 2ms. It's alive; it's limping.",
+      test: function (S) { return !!S.pingedSlow || !!S.duplexFixed; }, mentor: "180 milliseconds to a server in the same building. Something on the path is chewing every packet. Traceroute names names — one hop at a time." },
+    { text: "Isolate the hop (traceroute 10.30.0.25)", hint: "Run: traceroute 10.30.0.25 — the latency appears AT a hop and stays for everything beyond it. The first slow hop is the crime scene.",
+      test: function (S) { return !!S.sawTrace; }, mentor: "Hop 1: under a millisecond. Hop 2 — R2 at 172.16.0.2 — jumps to 180 and everything behind it inherits the delay. The fault lives on the R1↔R2 link, at R2's door. Get on R2: ssh 192.168.10.9, then interrogate its interface: show interfaces gi0/0." },
+    { text: "Interrogate R2's interface (show interfaces gi0/0)", hint: "ssh 192.168.10.9 → enable → show interfaces gi0/0. Look at duplex and the error counters — CRC errors are a confession.",
+      test: function (S) { return !!S.sawInt; }, mentor: "Textbook duplex mismatch. R2's Gi0/0 is nailed to HALF duplex while R1's side runs full — so R2 keeps colliding with traffic it can't hear coming. 61,000 CRC errors don't lie. Fix: conf t → interface gi0/0 → duplex full." },
+    { text: "Fix the duplex (duplex full on Gi0/0)", hint: "On R2: conf t → interface gi0/0 → duplex full → end. Both ends of a link must agree, or the link negotiates a fight.",
+      test: function (S) { return !!S.duplexFixed; }, mentor: "Full duplex both ends. The collisions stop instantly. Prove the cure with the same test that found the disease — ping the app server from your desk." },
+    { text: "Verify the cure (ping 10.30.0.25)", hint: "Exit SSH, then: ping 10.30.0.25 — expect single-digit milliseconds.",
+      test: function (S) { return !!S.pingedFast; }, mentor: "180 down to 2. The CRM team will call it magic. It was one word: full. That's engineering." }
+  ],
+  hints: ["Latency that starts at one hop and persists past it = the fault is at that hop's link.", "CRC and input errors on an interface mean layer-1/2 pain — duplex mismatch is the classic cause.", "Fix chain: interface gi0/0 → duplex full. Verify with the same ping that measured the problem."],
+  learned: [
+    "Traceroute isolates latency per hop: the first slow hop owns the fault; everything downstream just inherits it.",
+    "A duplex mismatch (one end full, one end half) causes collisions and CRC errors — links work, but terribly.",
+    "Error counters are evidence. show interfaces turns 'feels slow' into numbers you can act on."
+  ],
+  commands: ["ping", "traceroute", "ssh", "show interfaces", "duplex full"],
+  mentorClose: "Stage 3 cleared. You measure, you isolate, you prove. Next stage, the tickets stop being accidents — somebody out there is hostile. Security wants you.",
+  setup: function () {
+    var S = { pingedSlow: false, sawTrace: false, sawInt: false, duplexFixed: false, pingedFast: false,
+      saved: false, ifState: {}, devices: {}, active: null };
+    S.devices["192.168.10.9"] = makeDevice("R2", S, function (dev, c) {
+      if (/^sh(ow)?\s+int(erfaces)?(\s+gi\w*0\/0)?/.test(c)) {
+        S.sawInt = true;
+        return ["", "GigabitEthernet0/0 is up, line protocol is up",
+          "  Hardware is MV96340 Ethernet, address is 0019.e86a.4100",
+          "  Internet address is 172.16.0.2/30",
+          "  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec",
+          "  " + (S.duplexFixed ? "Full Duplex, 1000Mbps" : "Half Duplex, 1000Mbps") + ", link type is auto, media type is 10/100/1000BaseTX",
+          "  input flow-control is unsupported, output flow-control is unsupported",
+          "  Last input 00:00:00, output 00:00:00, output hang never",
+          "    88412044 packets input, 9211442031 bytes",
+          S.duplexFixed ? "    12 input errors, 9 CRC, 0 frame, 0 overrun" : "    84221 input errors, 61309 CRC, 412 frame, 0 overrun",
+          "    61993021 packets output, 7012883471 bytes",
+          S.duplexFixed ? "    0 output errors, 0 collisions" : "    39117 output errors, 58230 collisions, 1204 late collisions"];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if") {
+        if (c === "duplex full") {
+          if (dev.sub.target === "Gi0/0") { S.duplexFixed = true;
+            return ["", "%LINK-3-UPDOWN: Interface GigabitEthernet0/0 — duplex renegotiated: FULL"]; }
+          return [""];
+        }
+        if (c === "duplex half" || c === "duplex auto") return ["% That recreates the mismatch. The ticket needs: duplex full"];
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip];
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "R2>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "10.30.0.25") {
+        if (!S.duplexFixed) { S.pingedSlow = true; return pingOut(t, [182, 175, 190, 179]); }
+        S.pingedFast = true; return pingOut(t, [2, 1, 2, 2]);
+      }
+      if (t === "192.168.10.1" || t === "192.168.10.9") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "172.16.0.2") return pingOut(t, S.duplexFixed ? [1, 1, 1, 1] : [88, 92, 85, 90]);
+      if (t === "8.8.8.8") return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (/^tracert\s+/.test(c) || /^traceroute\s+/.test(c)) {
+      var d = c.split(/\s+/)[1];
+      if (d === "10.30.0.25") {
+        S.sawTrace = true;
+        if (!S.duplexFixed) return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4], name: "R1" },
+          { ip: "172.16.0.2", ms: [181, 176, 188], name: "R2" },
+          { ip: "10.30.0.25", ms: [183, 179, 191] }], true);
+        return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4], name: "R1" },
+          { ip: "172.16.0.2", ms: [1, 1, 2], name: "R2" },
+          { ip: "10.30.0.25", ms: [2, 2, 3] }], true);
+      }
+      return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }, { ip: d, ms: [2, 2, 2] }], true);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 10 — "Block them" ================= */
+LEVELS.push({
+  id: "l10", stage: 3, ticketNo: "#1204", prio: "P1", title: "Block them",
+  skill: "Extended ACLs · implicit deny · access-group",
+  from: "Security alert — FW1 edge firewall",
+  body: "An external host, 203.0.113.66, has spent two hours rattling every door we own — SSH, RDP, SMB probes against the whole HQ range. Threat intel flags it as a known scanner. Block it at the edge firewall FW1 (192.168.10.254) before it finds something soft. Do NOT take the company offline doing it.",
+  xp: 160,
+  mentorIntro: [
+    "Security stage. Everything before was accidents — this is an adversary. ACLs are the firewall's bouncer list: ordered rules, first match wins.",
+    "And the trap every rookie hits: an ACL ends with an invisible 'deny everything'. Forget your permit line and YOU become the outage. Start by reading what's already there: ssh 192.168.10.254, show access-lists."
+  ],
+  objectives: [
+    { text: "Review the current rules (show access-lists on FW1)", hint: "ssh 192.168.10.254 → enable → show access-lists. Nothing blocks our scanner yet.",
+      test: function (S) { return !!S.sawAcls; }, mentor: "Empty list. A blank page — you'll write the rules in order. Build a named extended ACL: conf t → ip access-list extended BLOCKLIST." },
+    { text: "Create the ACL (ip access-list extended BLOCKLIST)", hint: "On FW1 in config mode: ip access-list extended BLOCKLIST — the prompt becomes (config-ext-nacl)#. Rules you type now are added in order.",
+      test: function (S) { return !!S.aclCreated; }, mentor: "Now the verdict for our scanner, first line, first match: deny ip host 203.0.113.66 any." },
+    { text: "Deny the attacker (deny ip host 203.0.113.66 any)", hint: "In (config-ext-nacl)#: deny ip host 203.0.113.66 any",
+      test: function (S) { return !!S.denyAdded; }, mentor: "Blocked — on paper. But right now this ACL also implicitly denies the entire internet's legitimate traffic the moment it's applied. Add the safety line: permit ip any any." },
+    { text: "Permit everything else (permit ip any any)", hint: "Still in the ACL: permit ip any any — everything not matched above flows. Order matters: deny first, permit second.",
+      test: function (S) { return !!S.permitAdded; }, mentor: "Deny the bad, permit the rest. Now the ACL is a scalpel instead of a hammer. An ACL does nothing until it's applied to an interface: interface gi0/0 → ip access-group BLOCKLIST in." },
+    { text: "Apply it inbound on Gi0/0 (ip access-group BLOCKLIST in)", hint: "exit the ACL, then: interface gi0/0 → ip access-group BLOCKLIST in → end. Gi0/0 is the internet-facing interface; 'in' filters traffic as it arrives.",
+      test: function (S) { return !!S.aclApplied; }, mentor: "Live. The scanner's packets now die at the edge. Prove it — show access-lists and watch the match counter on your deny line climb. Those are real attacks being eaten." },
+    { text: "Watch it work (show access-lists)", hint: "On FW1: show access-lists — the deny line should show matches. If the counter moves, the rule is firing.",
+      test: function (S) { return !!S.sawMatches; }, mentor: "Matches climbing — every one a probe that went nowhere. And legitimate traffic still flows on the permit. That's a clean block: surgical, verified, and nobody else noticed a thing." }
+  ],
+  hints: ["ACLs are read top-down, first match wins, and every ACL ends in an invisible implicit deny.", "Named ACL flow: ip access-list extended BLOCKLIST → deny ip host 203.0.113.66 any → permit ip any any.", "An ACL is inert until applied: interface gi0/0 → ip access-group BLOCKLIST in."],
+  learned: [
+    "Extended ACLs filter by source, destination, and protocol — and evaluate rules in order, first match wins.",
+    "Every ACL ends with an implicit deny all. A permit statement is what keeps your block surgical instead of catastrophic.",
+    "Rules only bite when applied to an interface in a direction with ip access-group."
+  ],
+  commands: ["show access-lists", "ip access-list extended", "deny ip host", "permit ip any any", "ip access-group"],
+  mentorClose: "First blood drawn and it wasn't ours. Next alert is louder — when they come back, they won't come alone.",
+  setup: function () {
+    var S = { sawAcls: false, aclCreated: false, denyAdded: false, permitAdded: false, aclApplied: false, sawMatches: false,
+      matches: 0, saved: false, ifState: {}, devices: {}, active: null };
+    S.devices["192.168.10.254"] = makeDevice("FW1", S, function (dev, c) {
+      if (/^sh(ow)?\s+access-lists/.test(c)) {
+        S.sawAcls = true;
+        if (!S.aclCreated) { return ["", "(No access lists configured on FW1.)"]; }
+        if (S.aclApplied) { S.matches += 7; S.sawMatches = S.denyAdded && S.matches > 0; }
+        var l = ["", "Extended IP access list BLOCKLIST"];
+        if (S.denyAdded) l.push("    10 deny ip host 203.0.113.66 any" + (S.aclApplied ? " (" + S.matches + " matches)" : ""));
+        if (S.permitAdded) l.push("    20 permit ip any any" + (S.aclApplied ? " (48120 matches)" : ""));
+        return l;
+      }
+      if (dev.mode === "config" && /^ip\s+access-list\s+extended\s+blocklist$/.test(c)) {
+        dev.sub = { kind: "-ext-nacl", target: "BLOCKLIST" }; S.aclCreated = true; return [""];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-ext-nacl") {
+        if (/^deny\s+ip\s+host\s+203\.0\.113\.66\s+any$/.test(c) || /^deny\s+ip\s+203\.0\.113\.66\s+0\.0\.0\.0\s+any$/.test(c)) { S.denyAdded = true; return [""]; }
+        if (/^permit\s+ip\s+any\s+any$/.test(c)) { S.permitAdded = true; return [""]; }
+        if (/^(deny|permit)\s+/.test(c)) return ["% Rule noted, but it doesn't match this incident — the scanner is 203.0.113.66, and the safety line is permit ip any any."];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if") {
+        if (/^ip\s+access-group\s+blocklist\s+in$/.test(c)) {
+          if (dev.sub.target === "Gi0/0") {
+            S.aclApplied = true;
+            if (!S.permitAdded) return ["", "% ACL BLOCKLIST applied — WARNING: no permit statement. Implicit deny is now blocking ALL inbound traffic. Add permit ip any any to the ACL, fast."];
+            return [""];
+          }
+          return ["% Gi0/0 is the internet-facing interface for this block."];
+        }
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        var l = ["", "Building configuration...", "", "hostname FW1", "!"];
+        if (S.aclCreated) { l.push("ip access-list extended BLOCKLIST");
+          if (S.denyAdded) l.push(" deny ip host 203.0.113.66 any");
+          if (S.permitAdded) l.push(" permit ip any any");
+          l.push("!"); }
+        l.push("interface GigabitEthernet0/0", " description INTERNET-EDGE", " ip address 203.0.113.2 255.255.255.0");
+        if (S.aclApplied) l.push(" ip access-group BLOCKLIST in");
+        l.push("!");
+        return l;
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip];
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "FW1>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "203.0.113.66") return pingOut(t, [null, null, null, null]);
+      if (t === "192.168.10.1" || t === "192.168.10.254") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "8.8.8.8") {
+        if (S.aclApplied && !S.permitAdded) return pingOut(t, [null, null, null, null]);
+        return pingOut(t, [11, 10, 12, 11], { ttl: 117 });
+      }
+      return pingOut(t, [null, null, null, null]);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 11 — "We're being flooded" ================= */
+LEVELS.push({
+  id: "l11", stage: 3, ticketNo: "#1219", prio: "P1", title: "We're being flooded",
+  skill: "DDoS recognition · top talkers · mitigation ACL",
+  from: "NOC alert — FW1 link saturation, web services timing out",
+  body: "The company website (192.168.10.20) is timing out for customers and FW1's internet link is pinned at capacity. Nobody's config changed. Something out there is pointing a firehose at us. Identify the shape of the attack on FW1 (192.168.10.254), then blunt it — without blocking legitimate customers.",
+  xp: 160,
+  mentorIntro: [
+    "That's not a spike, that's weather. When the link is full and no single user did it, think flood: many sources, one victim.",
+    "Evidence before action. On FW1, look at the edge interface — show interfaces gi0/0 — and read the rates, not just the up/down."
+  ],
+  objectives: [
+    { text: "Read the flood (show interfaces gi0/0 on FW1)", hint: "ssh 192.168.10.254 → enable → show interfaces gi0/0. ~950 Mbps of input on a link that idles at 40 is the attack, measured.",
+      test: function (S) { return !!S.sawFlood; }, mentor: "950 megabits in, drops everywhere, and the output side is calm — this is inbound junk drowning real requests. Whose junk? Ask the flow data: show ip flow top-talkers." },
+    { text: "Name the sources (show ip flow top-talkers)", hint: "On FW1: show ip flow top-talkers — one destination (our web server) and three fat source networks is a botnet's signature.",
+      test: function (S) { return !!S.sawTalkers; }, mentor: "There's the shape: thousands of hosts, three /24 networks doing 86% of it, all aimed at 192.168.10.20 port 80. That's a DDoS — no single IP to block, so we block the three poisoned networks and let everyone else through. Build ACL DDOS-SHIELD: deny each /24 (wildcard 0.0.0.255), then permit ip any any." },
+    { text: "Deny botnet net 1 (deny ip 45.148.10.0 0.0.0.255 any)", hint: "In the ACL (ip access-list extended DDOS-SHIELD): deny ip 45.148.10.0 0.0.0.255 any — the 0.0.0.255 wildcard covers the whole /24.",
+      test: function (S) { return !!S.deny1; }, mentor: "One network dark. Two to go — same pattern." },
+    { text: "Deny botnet nets 2 and 3 (91.108.22.0 /24, 103.75.190.0 /24)", hint: "deny ip 91.108.22.0 0.0.0.255 any — then: deny ip 103.75.190.0 0.0.0.255 any",
+      test: function (S) { return !!S.deny3; }, mentor: "All three botnet ranges denied. Now the line that keeps customers alive: permit ip any any. Then apply it inbound on Gi0/0, same as last ticket." },
+    { text: "Permit the legitimate world (permit ip any any)", hint: "In the ACL: permit ip any any",
+      test: function (S) { return !!S.permitAdded; }, mentor: "Good. Apply it: exit → interface gi0/0 → ip access-group DDOS-SHIELD in." },
+    { text: "Apply the shield (ip access-group DDOS-SHIELD in)", hint: "On FW1: interface gi0/0 → ip access-group DDOS-SHIELD in → end",
+      test: function (S) { return !!S.aclApplied; }, mentor: "Shield's up. Don't declare victory — measure it. show interfaces gi0/0 again and watch the input rate fall off the cliff." },
+    { text: "Verify the flood broke (show interfaces gi0/0)", hint: "On FW1: show interfaces gi0/0 — input should be back near the ~40 Mbps baseline.",
+      test: function (S) { return !!S.verified; }, mentor: "From 950 to baseline. The bots are still out there shouting — they're just shouting at a wall now. The site breathes, customers get through, and you never touched the legitimate rules. That's mitigation." }
+  ],
+  hints: ["DDoS = many sources, one target, link saturation. One bad IP is an ACL job; three bad /24s is the same job, wider net.", "show ip flow top-talkers ranks who's actually sending the traffic.", "Wildcard for a /24 is 0.0.0.255. Deny the three botnet nets, permit any any, apply inbound."],
+  learned: [
+    "A DDoS is recognised by shape: link saturation, one victim service, source traffic spread across many networks.",
+    "Flow/top-talker data turns 'we're slow' into named source networks you can act on.",
+    "Mitigation ≠ blocking the internet: deny the hostile ranges precisely, permit everything else, and verify rates return to baseline."
+  ],
+  commands: ["show interfaces", "show ip flow top-talkers", "ip access-list extended", "deny ip <net> 0.0.0.255 any", "ip access-group"],
+  mentorClose: "You held the wall during a live flood and kept the doors open for real customers. One ticket left. It's the big one — and it lands at 2 AM, like they all do.",
+  setup: function () {
+    var S = { sawFlood: false, sawTalkers: false, aclCreated: false, deny1: false, deny2: false, deny3: false,
+      permitAdded: false, aclApplied: false, verified: false, matches: 0, saved: false, ifState: {}, devices: {}, active: null };
+    S.devices["192.168.10.254"] = makeDevice("FW1", S, function (dev, c) {
+      if (/^sh(ow)?\s+int(erfaces)?(\s+gi\w*0\/0)?/.test(c)) {
+        S.sawFlood = true;
+        if (!S.aclApplied) {
+          return ["", "GigabitEthernet0/0 is up, line protocol is up",
+            "  Description: INTERNET-EDGE",
+            "  MTU 1500 bytes, BW 1000000 Kbit/sec",
+            "  30 second input rate 948211000 bits/sec, 812044 packets/sec",
+            "  30 second output rate 38214000 bits/sec, 51209 packets/sec",
+            "  991288471 packets input, 118902144102 bytes",
+            "  4829103 input errors, 0 CRC — interface dropping under load",
+            "  Total output drops: 2911874"];
+        }
+        S.verified = true;
+        return ["", "GigabitEthernet0/0 is up, line protocol is up",
+          "  Description: INTERNET-EDGE",
+          "  MTU 1500 bytes, BW 1000000 Kbit/sec",
+          "  30 second input rate 41023000 bits/sec, 48911 packets/sec",
+          "  30 second output rate 36541000 bits/sec, 47220 packets/sec",
+          "  Input rate back at baseline. Drops stopped."];
+      }
+      if (/^sh(ow)?\s+ip\s+flow\s+top/.test(c) || /^sh(ow)?\s+ip\s+netflow/.test(c)) {
+        S.sawTalkers = true;
+        return ["", "SrcIf         SrcIPaddress    DstIf         DstIPaddress    Pr Pkts",
+          "Gi0/0         45.148.10.0/24  Local         192.168.10.20   TCP  38% of total",
+          "Gi0/0         91.108.22.0/24  Local         192.168.10.20   TCP  27% of total",
+          "Gi0/0         103.75.190.0/24 Local         192.168.10.20   TCP  21% of total",
+          "Gi0/0         (all others)    Local         various         ---  14% of total",
+          "", "Destination port 80 across all top sources. Thousands of unique hosts inside those /24s."];
+      }
+      if (/^sh(ow)?\s+access-lists/.test(c)) {
+        if (!S.aclCreated) return ["", "Extended IP access list BLOCKLIST", "    10 deny ip host 203.0.113.66 any (2291 matches)", "    20 permit ip any any"];
+        var l = ["", "Extended IP access list DDOS-SHIELD"];
+        if (S.deny1) l.push("    10 deny ip 45.148.10.0 0.0.0.255 any" + (S.aclApplied ? " (812044 matches)" : ""));
+        if (S.deny2) l.push("    20 deny ip 91.108.22.0 0.0.0.255 any" + (S.aclApplied ? " (590311 matches)" : ""));
+        if (S.deny3) l.push("    30 deny ip 103.75.190.0 0.0.0.255 any" + (S.aclApplied ? " (460208 matches)" : ""));
+        if (S.permitAdded) l.push("    40 permit ip any any" + (S.aclApplied ? " (48911 matches)" : ""));
+        return l;
+      }
+      if (dev.mode === "config" && /^ip\s+access-list\s+extended\s+ddos-shield$/.test(c)) {
+        dev.sub = { kind: "-ext-nacl", target: "DDOS-SHIELD" }; S.aclCreated = true; return [""];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-ext-nacl") {
+        if (/^deny\s+ip\s+45\.148\.10\.0\s+0\.0\.0\.255\s+any$/.test(c)) { S.deny1 = true; return [""]; }
+        if (/^deny\s+ip\s+91\.108\.22\.0\s+0\.0\.0\.255\s+any$/.test(c)) { S.deny2 = true; return [""]; }
+        if (/^deny\s+ip\s+103\.75\.190\.0\s+0\.0\.0\.255\s+any$/.test(c)) { S.deny3 = true; return [""]; }
+        if (/^permit\s+ip\s+any\s+any$/.test(c)) { S.permitAdded = true; return [""]; }
+        if (/^(deny|permit)\s+/.test(c)) return ["% That rule doesn't match the flow data. Targets: 45.148.10.0/24, 91.108.22.0/24, 103.75.190.0/24 (wildcard 0.0.0.255), then permit ip any any."];
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if") {
+        if (/^ip\s+access-group\s+ddos-shield\s+in$/.test(c)) {
+          if (dev.sub.target === "Gi0/0") { S.aclApplied = S.deny1 && S.deny2 && S.deny3;
+            if (!S.aclApplied) return ["% Shield incomplete — all three botnet /24s must be denied before this will hold."];
+            return [""]; }
+          return ["% Gi0/0 is the internet-facing interface."];
+        }
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip];
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "FW1>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0:",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "192.168.10.20") {
+        if (!S.aclApplied) return pingOut(t, [null, 812, null, 940]);
+        return pingOut(t, [1, 1, 2, 1]);
+      }
+      if (t === "192.168.10.1" || t === "192.168.10.254") return pingOut(t, [0.5, 0.4, 0.5, 0.4]);
+      if (t === "8.8.8.8") return pingOut(t, [40, 55, 38, 61], { ttl: 117 });
+      return pingOut(t, [null, null, null, null]);
+    }
+    return null;
+  }
+});
+
+/* ================= LEVEL 12 — FINALE: "Sunday 2 AM outage" ================= */
+LEVELS.push({
+  id: "l12", stage: 3, ticketNo: "#1300", prio: "BOSS", boss: true, finale: true, title: "Sunday 2 AM outage",
+  skill: "Everything — you run the war room",
+  from: "Monitoring — TOTAL OUTAGE, all services",
+  body: "02:00 Sunday. A power event took the building; UPS held, but the network didn't come back clean. Internet: dead. Branch: dead. The CRM app: dead. Ray is on a plane. The war room is you, this terminal, and everything you've learned. HQ core is R1 (192.168.10.1). Branch server 10.20.0.10 (via 172.16.0.2). App: https://app.7eightmade.local (10.30.0.25). Bring it all back — and save your work.",
+  xp: 300,
+  mentorIntro: [
+    "— R.O., from 30,000 feet, on terrible plane Wi-Fi: It's all yours tonight. Triage first: what's actually down?",
+    "Work it like we practised. Rings. Evidence. One fault at a time. I'll be reading over your shoulder when I can."
+  ],
+  objectives: [
+    { text: "Triage the scope (ping 8.8.8.8)", hint: "Run: ping 8.8.8.8 — dead. Then ping 192.168.10.1 to prove R1 itself is alive before you blame it.",
+      test: function (S) { return !!S.triaged || !!S.wanUp; }, mentor: "Internet dead, but your pings to R1 answer — the core lives. Get on it and look at its interfaces. One of them will confess." },
+    { text: "Find the dead link (show interfaces status on R1)", hint: "ssh 192.168.10.1 → enable → show interfaces status. Gi0/1 is the ISP uplink.",
+      test: function (S) { return !!S.sawStatus; }, mentor: "Gi0/1 — the ISP link — administratively down since the power event. A config from a maintenance session rode the reboot. Bring it up: interface gi0/1 → no shutdown." },
+    { text: "Restore the WAN link (no shutdown on Gi0/1)", hint: "On R1: conf t → interface gi0/1 → no shutdown → end",
+      test: function (S) { return !!S.wanUp; }, mentor: "Link lights. Verify the internet from your desk before moving on — one green check at a time." },
+    { text: "Verify the internet (ping 8.8.8.8)", hint: "Off R1, from your PC: ping 8.8.8.8",
+      test: function (S) { return !!S.netBack; }, mentor: "Internet: restored. Now the branch — ping 10.20.0.10. I suspect an old friend." },
+    { text: "Test the branch (ping 10.20.0.10)", hint: "Run: ping 10.20.0.10 — unreachable FROM R1 means the route died. Where do routes go when a router reboots and nobody saved them?",
+      test: function (S) { return !!S.branchFail || !!S.routeBack; }, mentor: "Exactly. The static route from ticket #1081 lived in running-config; last week's change session never saved, so the reboot restored a startup config without it. On R1: show ip route to confirm, then put it back — ip route 10.20.0.0 255.255.255.0 172.16.0.2." },
+    { text: "Restore the branch route (ip route 10.20.0.0 255.255.255.0 172.16.0.2)", hint: "On R1 in config mode: ip route 10.20.0.0 255.255.255.0 172.16.0.2 — then ping the branch server to prove it.",
+      test: function (S) { return !!S.routeBack; }, mentor: "Route restored. You already know the next command before I say it. The one that makes tonight permanent." },
+    { text: "Save everything (write memory)", hint: "On R1, privileged mode: write memory. Non-negotiable this time.",
+      test: function (S) { return !!S.savedCfg; }, mentor: "Saved. Two services green. The app is still sulking — and notice the app server ANSWERS ping. Reachable but refusing the actual work? That's not routing. Test it like a user: curl https://app.7eightmade.local" },
+    { text: "Test the app like a user (curl https://app.7eightmade.local)", hint: "From your PC: curl https://app.7eightmade.local — port 443 times out while ping works. Packets arrive; service traffic is being filtered. Who filters? ACLs. Back to R1: show access-lists.",
+      test: function (S) { return !!S.curlFailed || !!S.aclRemoved; }, mentor: "Ping passes, 443 dies — a filter is eating exactly one kind of traffic. On R1, show access-lists. Look for something with 'MAINT' in the name and a guilty conscience." },
+    { text: "Find the rogue filter (show access-lists on R1)", hint: "On R1: show access-lists — APP-FREEZE denies tcp to 10.30.0.25 eq 443, a leftover from a maintenance window that was never removed.",
+      test: function (S) { return !!S.sawAcl; }, mentor: "APP-FREEZE. A maintenance ACL from two weeks ago, applied to Gi0/0 inbound, still strangling the app. Maintenance windows end; their ACLs must too. Detach it: interface gi0/0 → no ip access-group APP-FREEZE in." },
+    { text: "Detach the rogue ACL (no ip access-group APP-FREEZE in)", hint: "On R1: conf t → interface gi0/0 → no ip access-group APP-FREEZE in → end",
+      test: function (S) { return !!S.aclRemoved; }, mentor: "Filter detached. Final proof, the full sweep, like a user at 9 AM Monday: curl the app." },
+    { text: "Close the war room (curl https://app.7eightmade.local)", hint: "From your PC: curl https://app.7eightmade.local — expect HTTP 200 and the CRM login page.",
+      test: function (S) { return !!S.appBack; }, mentor: "200 OK. Internet, branch, app — all green, all saved. War room closed. — R.O." }
+  ],
+  hints: ["Rings, always: your desk → R1 → WAN → branch → app. Each green segment acquits itself.", "Reboots resurrect startup-config. Anything that lived only in running-config is gone — routes included.", "Ping working + app dead = filtering. show access-lists, find the leftover, detach it from the interface."],
+  learned: [
+    "Real outages are compound: a power event stacked three unrelated faults, and only segment-by-segment triage untangles them.",
+    "Unsaved work is undone work — the finale's route vanished for exactly the reason ticket #1081 warned about.",
+    "Service-level tests (curl) catch what ping can't: a filter that passes ICMP and eats HTTPS looks like 'the app is down'."
+  ],
+  commands: ["ping", "show interfaces status", "no shutdown", "show ip route", "ip route", "write memory", "curl", "show access-lists", "no ip access-group"],
+  mentorClose: "Ticket #1300 closed at 03:47 AM. You ran the war room alone and the company never knew. That's not Tier 1 anymore — that's the engineer they call. Welcome to Security Engineer. Now go to bed.",
+  setup: function () {
+    var S = { triaged: false, sawStatus: false, wanUp: false, netBack: false, branchFail: false, routeBack: false,
+      savedCfg: false, curlFailed: false, sawAcl: false, aclRemoved: false, appBack: false,
+      saved: false, ifState: { "Gi0/1": "down", "Gi0/0": "up", "Gi0/2": "up" }, devices: {}, active: null };
+    S.devices["192.168.10.1"] = makeDevice("R1", S, function (dev, c) {
+      if (/^sh(ow)?\s+int(erfaces)?\s+status/.test(c)) {
+        S.sawStatus = true;
+        return ["", "Port      Name               Status       Vlan       Duplex  Speed Type",
+          "Gi0/0     LAN-HQ             connected    routed     a-full a-1000 10/100/1000BaseTX",
+          "Gi0/1     WAN-ISP            " + (S.wanUp ? "connected    " : "disabled     ") + "routed     a-full a-1000 10/100/1000BaseTX",
+          "Gi0/2     TO-R2-BRANCH       connected    routed     a-full a-1000 10/100/1000BaseTX"];
+      }
+      if (/^sh(ow)?\s+ip\s+route/.test(c)) {
+        var l = ["", "Codes: C - connected, S - static, O - OSPF", "",
+          "C    192.168.10.0/24 is directly connected, GigabitEthernet0/0",
+          "C    172.16.0.0/30 is directly connected, GigabitEthernet0/2",
+          "C    10.30.0.0/24 is directly connected via R2 (OSPF) "];
+        if (S.routeBack) l.push("S    10.20.0.0/24 [1/0] via 172.16.0.2");
+        if (S.wanUp) l.push("S*   0.0.0.0/0 [1/0] via 203.0.113.1, GigabitEthernet0/1");
+        else l.push("     (no gateway of last resort — Gi0/1 is down)");
+        return l;
+      }
+      if (/^sh(ow)?\s+access-lists/.test(c)) {
+        S.sawAcl = true;
+        return ["", "Extended IP access list APP-FREEZE",
+          "    10 deny tcp any host 10.30.0.25 eq 443 (" + (S.aclRemoved ? "0" : "18441") + " matches)",
+          "    20 permit ip any any",
+          "", "Applied: GigabitEthernet0/0, inbound" + (S.aclRemoved ? " — REMOVED" : "")];
+      }
+      if (/^sh(ow)?\s+run/.test(c)) {
+        var l = ["", "Building configuration...", "", "hostname R1", "!",
+          "interface GigabitEthernet0/0", " ip address 192.168.10.1 255.255.255.0"];
+        if (!S.aclRemoved) l.push(" ip access-group APP-FREEZE in");
+        l.push("!", "interface GigabitEthernet0/1", " ip address 203.0.113.2 255.255.255.0", S.wanUp ? " no shutdown" : " shutdown", "!");
+        if (S.routeBack) l.push("ip route 10.20.0.0 255.255.255.0 172.16.0.2");
+        l.push("!");
+        return l;
+      }
+      if (dev.mode === "config" && /^int(erface)?\s+/.test(c)) {
+        var f = normIf(c.replace(/^int(erface)?\s+/, ""));
+        if (f) { dev.sub = { kind: "-if", target: f }; return [""]; }
+        return ["% Invalid interface."];
+      }
+      if (dev.mode === "config" && dev.sub && dev.sub.kind === "-if" && dev.sub.target === "Gi0/0") {
+        if (/^no\s+ip\s+access-group\s+app-freeze\s+in$/.test(c)) { S.aclRemoved = true; return [""]; }
+      }
+      if (dev.mode === "config") {
+        var m = c.match(/^ip\s+route\s+10\.20\.0\.0\s+255\.255\.255\.0\s+172\.16\.0\.2$/);
+        if (m) { S.routeBack = true; return [""]; }
+        if (/^no\s+ip\s+access-list\s+extended\s+app-freeze$/.test(c)) { S.aclRemoved = true; return [""]; }
+      }
+      return null;
+    });
+    return S;
+  },
+  exec: function (S, raw) {
+    var c = norm(raw);
+    if (S.active) {
+      var r = iosExec(S.active, raw);
+      if (r && r.disconnect) { S.active = null; return r.out; }
+      if (S.active.name === "R1") {
+        if (S.ifState["Gi0/1"] === "up") S.wanUp = true;
+        if (S.saved) S.savedCfg = true;
+      }
+      return r;
+    }
+    if (/^ssh\s+/.test(c)) {
+      var ip = c.split(/\s+/)[1].replace(/^.*@/, "");
+      if (S.devices[ip]) { S.active = S.devices[ip];
+        return ["", "Warning: Permanently added '" + ip + "' to the list of known hosts.", "", "R1>"]; }
+      return ["ssh: connect to host " + ip + " port 22: Connection refused"];
+    }
+    if (/^curl\s+/.test(c)) {
+      if (!/app\.7eightmade\.local/.test(c)) return ["curl: (6) Could not resolve host: " + c.split(/\s+/).pop()];
+      if (!S.aclRemoved) { S.curlFailed = true;
+        return ["curl: (28) Failed to connect to app.7eightmade.local port 443 after 21044 ms: Connection timed out",
+          "", "(TCP to 10.30.0.25:443 never completes — yet ping answers. Something is filtering.)"]; }
+      S.appBack = true;
+      return ["", "<!doctype html><html><head><title>7EightMade CRM — Sign in</title></head>",
+        "<body><h1>7EightMade CRM</h1><p>Sign in to continue.</p></body></html>",
+        "", "HTTP/1.1 200 OK — app is serving."];
+    }
+    if (/^nslookup\s+/.test(c)) {
+      var n = c.split(/\s+/)[1];
+      if (n === "app.7eightmade.local" || n === "app") return nslookupOk("app.7eightmade.local", "10.30.0.25", "dns1.7eightmade.local", "192.168.10.10");
+      if (n === "intranet.7eightmade.local") return nslookupOk(n, "192.168.10.20", "dns1.7eightmade.local", "192.168.10.10");
+      return nslookupFail(n, "dns1.7eightmade.local", "192.168.10.10");
+    }
+    if (c === "ipconfig" || c === "ipconfig /all") return ["", "Ethernet adapter Ethernet0 (VPN — on-call laptop):",
+      "   IPv4 Address. . . . . . . . . . . : 192.168.10.50(Preferred)",
+      "   Subnet Mask . . . . . . . . . . . : 255.255.255.0",
+      "   Default Gateway . . . . . . . . . : 192.168.10.1",
+      "   DNS Servers . . . . . . . . . . . : 192.168.10.10"];
+    if (/^ping\s+/.test(c)) {
+      var t = c.split(/\s+/)[1];
+      if (t === "8.8.8.8") {
+        if (!S.wanUp) { S.triaged = true; return pingOut(t, [null, null, null, null]); }
+        S.netBack = true; return pingOut(t, [12, 11, 13, 12], { ttl: 117 });
+      }
+      if (t === "192.168.10.1") return pingOut(t, [1, 1, 2, 1]);
+      if (t === "10.20.0.10") {
+        if (!S.routeBack) { S.branchFail = true; return pingOut(t, ["unreach", "unreach", "unreach", "unreach"], { fromIp: "192.168.10.1" }); }
+        return pingOut(t, [3, 2, 3, 2]);
+      }
+      if (t === "10.30.0.25" || t === "app.7eightmade.local") return pingOut("10.30.0.25", [2, 2, 3, 2]);
+      return pingOut(t, [null, null, null, null]);
+    }
+    if (/^tracert\s+/.test(c) || /^traceroute\s+/.test(c)) {
+      var d = c.split(/\s+/)[1];
+      if (d === "10.30.0.25") return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }, { ip: "172.16.0.2", ms: [1, 1, 2] }, { ip: "10.30.0.25", ms: [2, 2, 3] }], true);
+      if (d === "10.20.0.10" && !S.routeBack) return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }], false).concat(["", "192.168.10.1 reports: Destination net unreachable."]);
+      return tracertOut(d, [{ ip: "192.168.10.1", ms: [0.4, 0.3, 0.4] }, { ip: d, ms: [2, 2, 2] }], true);
+    }
+    return null;
+  }
+});
+
+/* =====================================================================
+   ENGINE + UI
+   ===================================================================== */
+var STAGES = [
+  { name: "Help Desk", rank: "Help Desk", blurb: "Foundation — your own machine, addressing, and isolating a fault." },
+  { name: "Junior Admin", rank: "Junior Admin", blurb: "VLANs and routing — the network beyond one desk." },
+  { name: "Engineer", rank: "Network Engineer", blurb: "Logs, automation, and performance — read the network's diary." },
+  { name: "Security", rank: "Security Engineer", blurb: "Hostile traffic — ACLs, floods, and the 2 AM war room." }
+];
+var RANKS = ["Help Desk", "Junior Admin", "Network Engineer", "Security Engineer"];
+var MAX_XP = LEVELS.reduce(function (a, l) { return a + l.xp; }, 0);
+
+/* ---------- save ---------- */
+var SAVE_KEY = "tier1.save.v1";
+var save = { done: {}, xp: 0 };
+try {
+  var rawSave = localStorage.getItem(SAVE_KEY);
+  if (rawSave) { var parsed = JSON.parse(rawSave); if (parsed && parsed.done) save = parsed; }
+} catch (e) { /* private mode etc. — play session-only */ }
+function persist() {
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(save)); } catch (e) {}
+}
+function stagesCleared() {
+  var n = 0;
+  for (var s = 0; s < 4; s++) {
+    var lv = LEVELS.filter(function (l) { return l.stage === s; });
+    if (lv.every(function (l) { return save.done[l.id]; })) n++;
+    else break;
+  }
+  return n;
+}
+function currentRank() { return RANKS[Math.min(stagesCleared(), 3)]; }
+function isUnlocked(idx) {
+  if (idx === 0) return true;
+  return !!save.done[LEVELS[idx - 1].id];
+}
+function firstUnfinished() {
+  for (var i = 0; i < LEVELS.length; i++) if (!save.done[LEVELS[i].id]) return i;
+  return LEVELS.length - 1;
+}
+
+/* ---------- dom refs ---------- */
+var termOut = document.getElementById("termOut");
+var termIn = document.getElementById("termIn");
+var promptEl = document.getElementById("prompt");
+var mentorLog = document.getElementById("mentorLog");
+var hintText = document.getElementById("hintText");
+
+/* ---------- session state ---------- */
+var cur = null; /* { idx, level, S, startTs, hintsUsed, hintStage, objDone:[], finished } */
+var cmdHist = [], histPos = -1;
+var busy = false;
+
+function printLine(text, cls) {
+  var d = document.createElement("div");
+  d.className = "ln" + (cls ? " " + cls : "");
+  d.textContent = text;
+  termOut.appendChild(d);
+  termOut.scrollTop = termOut.scrollHeight;
+}
+function printLines(lines, cls) {
+  if (!lines) return;
+  lines.forEach(function (l) { printLine(l, cls); });
+}
+function mentorSay(text, sys) {
+  var d = document.createElement("div");
+  d.className = "msg" + (sys ? " sys" : "");
+  d.textContent = text;
+  mentorLog.appendChild(d);
+  while (mentorLog.children.length > 30) mentorLog.removeChild(mentorLog.firstChild);
+  mentorLog.scrollTop = mentorLog.scrollHeight;
+}
+function currentPrompt() {
+  if (!cur) return "C:\\>";
+  if (cur.S.active) return iosPrompt(cur.S.active);
+  return "C:\\Users\\engineer>";
+}
+function refreshPrompt() { promptEl.textContent = currentPrompt(); }
+
+/* ---------- queue view ---------- */
+function renderHeader() {
+  document.getElementById("rankText").textContent = currentRank();
+  document.getElementById("xpText").textContent = save.xp + " / " + MAX_XP;
+  document.getElementById("xpFill").style.width = Math.round(save.xp / MAX_XP * 100) + "%";
+  var cont = document.getElementById("continueBtn");
+  var doneCount = Object.keys(save.done).length;
+  cont.textContent = doneCount === 0 ? "Start Shift ▸" : (doneCount >= LEVELS.length ? "Replay a Ticket ▸" : "Continue Shift ▸");
+  var ladder = document.getElementById("rankLadder");
+  ladder.innerHTML = "";
+  var sc = stagesCleared();
+  RANKS.forEach(function (r, i) {
+    var d = document.createElement("div");
+    d.className = "step" + (i === sc && !(sc === 3 && stagesCleared() === 4) ? " now" : "") + (i < sc ? " got" : "");
+    if (i < sc) d.classList.add("got");
+    if (i === Math.min(sc, 3) && doneCount < LEVELS.length) d.classList.add("now");
+    d.innerHTML = "Stage " + (i + 1) + " cleared →<b>" + esc(r) + "</b>";
+    ladder.appendChild(d);
+  });
+}
+function renderQueue() {
+  renderHeader();
+  var host = document.getElementById("stageList");
+  host.innerHTML = "";
+  STAGES.forEach(function (st, si) {
+    var block = document.createElement("div");
+    block.className = "stage-block";
+    var lv = LEVELS.map(function (l, i) { return { l: l, i: i }; }).filter(function (x) { return x.l.stage === si; });
+    var cleared = lv.every(function (x) { return save.done[x.l.id]; });
+    var head = document.createElement("div");
+    head.className = "stage-head";
+    head.innerHTML = "<span class='sn'>Stage " + (si + 1) + "</span><h2>" + esc(st.name) + "</h2>" +
+      "<span class='ranktag'>RANK: " + esc(st.rank.toUpperCase()) + "</span>" +
+      (cleared ? "<span class='clear-tag'>✓ STAGE CLEARED</span>" : "") +
+      "<span class='mini' style='font-size:12px;color:var(--teal-faint)'>" + esc(st.blurb) + "</span>";
+    block.appendChild(head);
+    var grid = document.createElement("div");
+    grid.className = "lvl-grid";
+    lv.forEach(function (x) {
+      var l = x.l, unlocked = isUnlocked(x.i), done = !!save.done[l.id];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "lvl-card" + (l.boss ? " is-boss" : "");
+      b.disabled = !unlocked;
+      b.innerHTML =
+        "<span class='row1'><span>TICKET " + esc(l.ticketNo) + "</span><span>" + (l.boss ? "★ BOSS" : "LEVEL " + (x.i + 1)) + "</span></span>" +
+        "<span class='ttl'>" + esc(l.title) + "</span>" +
+        "<span class='skill'>" + esc(l.skill) + "</span>" +
+        "<span class='row3'><span class='xp'>" + l.xp + " XP</span>" +
+        (done ? "<span class='st-done'>✓ RESOLVED</span>" : unlocked ? "<span class='st-open'>OPEN ▸</span>" : "<span class='st-lock'>🔒 LOCKED</span>") + "</span>";
+      b.addEventListener("click", function () { startLevel(x.i); });
+      grid.appendChild(b);
+    });
+    block.appendChild(grid);
+    host.appendChild(block);
+  });
+}
+function showQueue() {
+  document.getElementById("gameView").classList.add("hidden");
+  document.getElementById("queueView").classList.remove("hidden");
+  cur = null;
+  renderQueue();
+  window.scrollTo({ top: 0 });
+}
+
+/* ---------- level flow ---------- */
+function startLevel(idx) {
+  var level = LEVELS[idx];
+  var S = level.setup();
+  cur = { idx: idx, level: level, S: S, startTs: Date.now(), hintsUsed: 0, hintStage: 0, finished: false,
+          objDone: level.objectives.map(function () { return false; }) };
+  document.getElementById("queueView").classList.add("hidden");
+  document.getElementById("gameView").classList.remove("hidden");
+  document.getElementById("termLvl").textContent = "TICKET " + level.ticketNo;
+  document.getElementById("ticketNo").textContent = level.ticketNo;
+  document.getElementById("ticketSubj").textContent = level.title;
+  document.getElementById("ticketFrom").textContent = "FROM: " + level.from;
+  var pr = document.getElementById("ticketPrio");
+  pr.innerHTML = "<span class='prio " + (level.boss ? "boss" : level.prio.toLowerCase()) + "'>" +
+    (level.boss ? (level.finale ? "★ FINALE" : "★ BOSS") : "PRIORITY " + level.prio) + "</span>";
+  document.getElementById("ticketBody").textContent = level.body;
+  termOut.innerHTML = "";
+  mentorLog.innerHTML = "";
+  hintText.className = ""; hintText.textContent = "";
+  document.getElementById("hintBtn").textContent = "Ask Ray for a hint";
+  renderObjectives();
+  refreshPrompt();
+  /* boot sequence */
+  busy = true;
+  var boot = [
+    { t: "TIER-1 LAB CONSOLE v2.4 — 7EightMade HQ simulated network", c: "faint" },
+    { t: "Connected: workstation WS-114 · all devices are simulated · type 'help' anytime", c: "faint" },
+    { t: "", c: "" },
+    { t: "═══ INCOMING TICKET " + level.ticketNo + " ═══", c: "warn" },
+    { t: level.title.toUpperCase(), c: "cmd" },
+    { t: "From: " + level.from, c: "dim" },
+    { t: "", c: "" }
+  ];
+  var delay = 0;
+  boot.forEach(function (b) {
+    setTimeout(function () { printLine(b.t, b.c); }, delay);
+    delay += 90;
+  });
+  setTimeout(function () {
+    busy = false;
+    level.mentorIntro.forEach(function (m) { mentorSay(m); });
+    mentorSay("Ticket " + level.ticketNo + " is live. Objectives are on your right — work them top to bottom.", true);
+    termIn.focus();
+  }, delay + 120);
+  window.scrollTo({ top: 0 });
+}
+function renderObjectives() {
+  var ul = document.getElementById("objList");
+  ul.innerHTML = "";
+  var doneCount = 0;
+  cur.level.objectives.forEach(function (o, i) {
+    if (cur.objDone[i]) doneCount++;
+    var li = document.createElement("li");
+    li.id = "obj-" + i;
+    li.className = (cur.objDone[i] ? "done" : "") + (!cur.objDone[i] && i === firstOpenObjective() ? " active" : "");
+    li.innerHTML = "<span class='box'></span><span>" + esc(o.text) + "</span>";
+    ul.appendChild(li);
+  });
+  document.getElementById("objCount").textContent = doneCount + " / " + cur.level.objectives.length;
+}
+function firstOpenObjective() {
+  for (var i = 0; i < cur.objDone.length; i++) if (!cur.objDone[i]) return i;
+  return -1;
+}
+function checkObjectives() {
+  var changed = false;
+  cur.level.objectives.forEach(function (o, i) {
+    if (!cur.objDone[i] && o.test(cur.S)) {
+      cur.objDone[i] = true; changed = true;
+      var li = document.getElementById("obj-" + i);
+      printLine("", "");
+      printLine("✓ OBJECTIVE COMPLETE: " + o.text, "good");
+      if (o.mentor) mentorSay(o.mentor);
+      if (li) { li.classList.add("flash"); }
+    }
+  });
+  if (changed) {
+    renderObjectives();
+    cur.level.objectives.forEach(function (o, i) {
+      var li = document.getElementById("obj-" + i);
+      if (li && cur.objDone[i]) li.classList.add("done");
+    });
+  }
+  if (!cur.finished && cur.objDone.every(Boolean)) {
+    cur.finished = true;
+    setTimeout(finishLevel, 650);
+  }
+}
+function finishLevel() {
+  var level = cur.level;
+  var elapsed = Math.round((Date.now() - cur.startTs) / 1000);
+  var mm = Math.floor(elapsed / 60), ss = ("0" + (elapsed % 60)).slice(-2);
+  var already = !!save.done[level.id];
+  var earned = 0;
+  if (!already) {
+    earned = Math.max(40, level.xp - cur.hintsUsed * 10);
+    save.done[level.id] = { xp: earned, at: Date.now() };
+    save.xp += earned;
+    persist();
+  }
+  renderHeader();
+  var nextIdx = cur.idx + 1;
+  var hasNext = nextIdx < LEVELS.length;
+  var stageDone = LEVELS.filter(function (l) { return l.stage === level.stage; })
+    .every(function (l) { return save.done[l.id]; });
+  var allDone = Object.keys(save.done).length >= LEVELS.length;
+  var promo = "";
+  if (!already && stageDone && level.stage < 3) {
+    promo = "<div class='promo-banner'>⬆ PROMOTION — You are now <b>" + esc(RANKS[level.stage + 1]) + "</b>. Ray signed the form without being asked twice.</div>";
+  }
+  if (allDone && level.finale) {
+    promo = "<div class='promo-banner'>🏁 CAREER COMPLETE — Final rank: <b>Security Engineer</b>. All 12 tickets resolved. The queue is empty, the network is quiet, and it's not even Monday. Replay any ticket from the queue to keep the skills warm.</div>";
+  }
+  var box = document.getElementById("modalBox");
+  box.innerHTML =
+    "<span class='stamp'>Ticket Resolved</span>" +
+    "<h2>" + esc(level.title) + "</h2>" +
+    "<div class='sub'>Ticket " + esc(level.ticketNo) + " · " + esc(STAGES[level.stage].name) + " · cleared in " + mm + ":" + ss + (already ? " · replay (XP already banked)" : "") + "</div>" +
+    "<div class='stats'><span><b>" + (already ? 0 : earned) + "</b>XP earned</span><span><b>" + save.xp + "</b>Total XP</span><span><b>" + esc(currentRank()) + "</b>Rank</span><span><b>" + cur.hintsUsed + "</b>Hints used</span></div>" +
+    promo +
+    "<h4>What you learned</h4><ul>" + level.learned.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" +
+    "<h4>Commands in your kit now</h4><div class='cmds'>" + level.commands.map(function (x) { return "<code>" + esc(x) + "</code>"; }).join("") + "</div>" +
+    "<div class='mentor-line'><b>Ray:</b> " + esc(level.mentorClose) + "</div>" +
+    "<div class='btn-row'>" +
+    (hasNext ? "<button class='big-btn' id='mNext' type='button'>Next Ticket ▸</button>" : "") +
+    "<button class='ghost-btn' id='mQueue' type='button'>Ticket Queue</button>" +
+    "<button class='ghost-btn' id='mReplay' type='button'>Replay</button>" +
+    "</div>";
+  document.getElementById("modalVeil").classList.remove("hidden");
+  var nb = document.getElementById("mNext");
+  if (nb) nb.addEventListener("click", function () { closeModal(); startLevel(nextIdx); });
+  document.getElementById("mQueue").addEventListener("click", function () { closeModal(); showQueue(); });
+  document.getElementById("mReplay").addEventListener("click", function () { closeModal(); startLevel(cur.idx); });
+}
+function closeModal() { document.getElementById("modalVeil").classList.add("hidden"); }
+
+/* ---------- command dispatch ---------- */
+var PC_HELP = [
+  "Available on this workstation:",
+  "  ipconfig [/all] [/release] [/renew]   show / manage this PC's IP configuration",
+  "  ping <ip|name>                       test reachability",
+  "  tracert <ip|name>                    trace the route (alias: traceroute)",
+  "  nslookup <name>                      ask DNS to resolve a name",
+  "  ssh <ip>                             log into a network device",
+  "  curl <url>                           fetch a web service (when a ticket calls for it)",
+  "  clear                                clear the screen",
+  "  help                                 this list"
+];
+var IOS_HELP = [
+  "IOS commands available in this sim:",
+  "  enable / disable                     enter / leave privileged mode",
+  "  show interfaces status               port states at a glance",
+  "  show vlan brief                      VLAN-to-port map (switches)",
+  "  show ip route                        routing table (routers)",
+  "  show ip ospf neighbor                OSPF adjacencies",
+  "  show spanning-tree                   loop-prevention state",
+  "  show logging                         the device's diary",
+  "  show running-config / startup-config live vs saved config",
+  "  show access-lists                    firewall rules + match counts",
+  "  configure terminal                   enter config mode (alias: conf t)",
+  "  interface <name> / interface range   select port(s) to configure",
+  "  write memory                         save running-config (alias: copy run start)",
+  "  exit / end                           step back / back to privileged mode"
+];
+function handleCommand(rawInput) {
+  var raw = String(rawInput).trim();
+  printLine(currentPrompt() + " " + raw, "cmd");
+  if (!raw) { refreshPrompt(); return; }
+  var c = norm(raw);
+  if (c === "clear" || c === "cls") { termOut.innerHTML = ""; refreshPrompt(); return; }
+  if (c === "help" || c === "?") {
+    printLines(cur.S.active ? IOS_HELP : PC_HELP, "dim");
+    refreshPrompt(); return;
+  }
+  var out = null;
+  try { out = cur.level.exec(cur.S, raw); } catch (e) { out = ["(simulator hiccup — try that command again)"]; }
+  if (out === null || out === undefined) {
+    if (cur.S.active) printLine("% Invalid input detected at '^' marker.", "bad");
+    else {
+      var first = c.split(/\s+/)[0];
+      printLine("'" + first + "' is not recognized as an internal or external command,", "bad");
+      printLine("operable program or batch file. (Try: help)", "bad");
+    }
+  } else {
+    var cls = null;
+    if (Array.isArray(out)) {
+      out.forEach(function (l) {
+        var lc = null;
+        if (/^%|can't find|timed out|Server failed|not recognized/i.test(l)) lc = "bad";
+        else if (/changed state to up|ADJCHG|200 OK|added successfully/i.test(l)) lc = "good";
+        else if (/Warning|WARNING/i.test(l)) lc = "warn";
+        printLine(l, lc);
+      });
+    } else printLine(String(out));
+  }
+  refreshPrompt();
+  checkObjectives();
+}
+
+/* ---------- events ---------- */
+document.getElementById("termForm").addEventListener("submit", function (ev) {
+  ev.preventDefault();
+  if (!cur || busy) return;
+  var v = termIn.value;
+  termIn.value = "";
+  if (v.trim()) { cmdHist.unshift(v); if (cmdHist.length > 60) cmdHist.pop(); }
+  histPos = -1;
+  handleCommand(v);
+});
+termIn.addEventListener("keydown", function (ev) {
+  if (ev.key === "ArrowUp") { ev.preventDefault(); if (histPos < cmdHist.length - 1) { histPos++; termIn.value = cmdHist[histPos] || ""; } }
+  else if (ev.key === "ArrowDown") { ev.preventDefault(); if (histPos > 0) { histPos--; termIn.value = cmdHist[histPos] || ""; } else { histPos = -1; termIn.value = ""; } }
+  else if (ev.key === "l" && ev.ctrlKey) { ev.preventDefault(); termOut.innerHTML = ""; }
+});
+document.getElementById("terminalBox").addEventListener("click", function () { termIn.focus(); });
+document.getElementById("hintBtn").addEventListener("click", function () {
+  if (!cur || cur.finished) return;
+  var i = firstOpenObjective();
+  if (i < 0) return;
+  var o = cur.level.objectives[i];
+  cur.hintsUsed++;
+  var stages = [o.hint, cur.level.hints[Math.min(cur.hintStage, cur.level.hints.length - 1)]];
+  var txt = stages[Math.min(cur.hintStage, stages.length - 1)];
+  cur.hintStage++;
+  hintText.textContent = "Ray: " + txt + (cur.hintsUsed > 0 ? "  (−10 XP on this ticket)" : "");
+  hintText.className = "show";
+  document.getElementById("hintBtn").textContent = "Ask Ray again (escalate hint)";
+});
+document.getElementById("queueBtn").addEventListener("click", function () { closeModal(); showQueue(); });
+document.getElementById("continueBtn").addEventListener("click", function () { startLevel(firstUnfinished()); });
+document.getElementById("howBtn").addEventListener("click", function () {
+  var box = document.getElementById("modalBox");
+  box.innerHTML =
+    "<span class='stamp' style='border-color:var(--teal);color:var(--teal)'>Field Manual</span>" +
+    "<h2>How TIER 1 works</h2>" +
+    "<div class='sub'>You are the new network engineer. Ray Okafor, senior engineer, mentors you through 12 real-style tickets.</div>" +
+    "<ul>" +
+    "<li><b>Read the ticket</b> (right panel) — it names the devices, addresses, and symptoms you need.</li>" +
+    "<li><b>Type real commands</b> in the terminal: ipconfig, ping, nslookup, tracert, ssh, then Cisco IOS on the devices (enable, show…, configure terminal).</li>" +
+    "<li><b>Objectives</b> check off as you genuinely fix things — in order, top to bottom.</li>" +
+    "<li><b>Stuck?</b> Ask Ray for a hint. Hints escalate; each one costs 10 XP on that ticket.</li>" +
+    "<li><b>Boss tickets</b> (3, 6, 9, 12) combine earlier skills. The finale is everything at once.</li>" +
+    "<li><b>Promotions</b> land as you clear stages: Help Desk → Junior Admin → Network Engineer → Security Engineer.</li>" +
+    "<li>IOS abbreviations work: <b>sh ip route</b>, <b>conf t</b>, <b>no shut</b>. Command history: ↑ / ↓. Ctrl+L clears.</li>" +
+    "</ul>" +
+    "<div class='btn-row'><button class='big-btn' id='mClose' type='button'>Back to the queue</button></div>";
+  document.getElementById("modalVeil").classList.remove("hidden");
+  document.getElementById("mClose").addEventListener("click", closeModal);
+});
+document.getElementById("modalVeil").addEventListener("click", function (ev) {
+  if (ev.target === this) closeModal();
+});
+var resetBtn = document.getElementById("resetBtn");
+var resetArmed = false, resetTimer = null;
+resetBtn.addEventListener("click", function () {
+  if (!resetArmed) {
+    resetArmed = true;
+    resetBtn.textContent = "Click again to wipe career";
+    resetBtn.classList.add("armed");
+    resetTimer = setTimeout(function () {
+      resetArmed = false; resetBtn.textContent = "Reset Career"; resetBtn.classList.remove("armed");
+    }, 3500);
+    return;
+  }
+  clearTimeout(resetTimer);
+  resetArmed = false;
+  resetBtn.textContent = "Reset Career";
+  resetBtn.classList.remove("armed");
+  save = { done: {}, xp: 0 };
+  persist();
+  closeModal();
+  showQueue();
+});
+
+/* ---------- boot ---------- */
+renderQueue();
+</script>
+</body>
+</html>
