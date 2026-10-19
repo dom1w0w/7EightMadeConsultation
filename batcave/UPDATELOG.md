@@ -48,3 +48,8 @@
 ## 2026-10-19 — Batcave pushed live
 - Published to GitHub Pages: https://dom1w0w.github.io/7EightMadeConsultation/batcave/ (all 5 pages + UPDATELOG.md). Verified live: title, BAT COMPUTER, and passphrase gate all present.
 - The passphrase gate now runs in its proper environment: HTTPS (secure context for crypto.subtle) and same-origin fetch of data.enc.json.
+
+## 2026-10-19 — Full-page entry gate + studio menu link
+- Entry gate: the whole batcave now starts locked behind a full-page terminal overlay ("BAT COMPUTER // RESTRICTED ACCESS", "who's there?", passphrase + [UNLOCK]). Crypto refactored into one shared `BatcaveAuth.verify` (same PBKDF2-SHA256/AES-GCM-256 as dom-times-live, verify-only, nothing stored). Unlock fades the overlay and reveals the bat computer + table of contents; reload re-locks.
+- The in-bar gate stays as the second layer: the 4 private rows (dom-times, dom-times-archive, team, watch) still need the in-bar passphrase after entry unlock.
+- Studio nav: "Batcave" link added to the studio menu bar (studio/index.html → ../batcave/, studio/art/index.html → ../../batcave/).
