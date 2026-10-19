@@ -44,3 +44,7 @@
 - Private rows are hidden by default (display:none): dom-times, dom-times-archive, plus new team (→ team-live/) and watch (→ dom-watch/) rows — the live page's own nav links.
 - Unlock runs the live page's exact crypto: fetch data.enc.json (no-store), PBKDF2-SHA256 600k → AES-GCM-256, passphrase verbatim. Success → "access granted", rows revealed for the session, field cleared. Failure → "access denied — try again.", input shake, re-select. Button shows "deriving key…" while deriving.
 - Security model matches his page: passphrase lives in a JS variable only (cleared after use), decrypted bytes discarded immediately (verify-only, nothing rendered/stored), reload re-locks, [lock] link re-hides manually. tier-1 / flashcards / time-chamber / workout stay always visible.
+
+## 2026-10-19 — Batcave pushed live
+- Published to GitHub Pages: https://dom1w0w.github.io/7EightMadeConsultation/batcave/ (all 5 pages + UPDATELOG.md). Verified live: title, BAT COMPUTER, and passphrase gate all present.
+- The passphrase gate now runs in its proper environment: HTTPS (secure context for crypto.subtle) and same-origin fetch of data.enc.json.
