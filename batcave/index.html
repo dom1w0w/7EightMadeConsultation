@@ -58,11 +58,41 @@
   .bc-status.err { color:#ff6b61; }
   @keyframes bcshake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
   .bc-shake { animation:bcshake .35s; }
+  /* full-page entry gate */
+  body.locked { overflow:hidden; }
+  body.locked .wrap { visibility:hidden; }
+  #entry-gate { position:fixed; inset:0; z-index:50; background:var(--bg); display:flex; align-items:center; justify-content:center; padding:20px; transition:opacity .45s ease; }
+  #entry-gate.gone { opacity:0; pointer-events:none; }
+  .entry-card { width:100%; max-width:520px; background:#0a0d11; border:1px solid #1e2a2a; }
+  .entry-body { padding:22px 22px 24px; }
+  .entry-title { font-size:15px; letter-spacing:3px; color:var(--teal); margin-bottom:8px; }
+  .entry-sub { font-size:12px; color:var(--dim); letter-spacing:1px; margin-bottom:20px; }
+  .entry-sub::before { content:"> "; color:var(--teal); }
+  .entry-row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .entry-row .bc-pass { flex:1; min-width:200px; }
+  #entry-status { min-height:18px; }
   footer { margin-top:40px; color:var(--dim); font-size:11px; letter-spacing:1px; }
   a { color:var(--teal); }
 </style>
 </head>
-<body>
+<body class="locked">
+<div id="entry-gate" role="dialog" aria-label="Restricted access">
+  <div class="entry-card">
+    <div class="bc-head">
+      <span class="bc-dot"></span><span class="bc-dot"></span><span class="bc-dot"></span>
+      <span class="bc-title">dom@batcave: ~/restricted</span>
+    </div>
+    <div class="entry-body">
+      <div class="entry-title">BAT COMPUTER // RESTRICTED ACCESS</div>
+      <div class="entry-sub">who's there?</div>
+      <form id="entry-form" class="entry-row" autocomplete="off">
+        <input id="entry-pass" type="password" class="bc-pass" placeholder="passphrase" autocomplete="off" aria-label="passphrase">
+        <button id="entry-go" type="submit" class="bc-btn">[UNLOCK]</button>
+      </form>
+      <div id="entry-status" class="bc-status" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
 <div class="wrap">
   <header>
     <h1>THE BATCAVE</h1>
@@ -133,16 +163,11 @@
   <footer>// END OF LINE</footer>
 </div>
 <script>
-/* BAT COMPUTER passphrase gate — mirrors the dom-times-live unlock page crypto.
-   Verify-only: the decrypted bytes are discarded immediately; nothing is rendered or stored. */
-(function(){
+/* Shared passphrase verifier — mirrors the dom-times-live unlock page crypto.
+   Verify-only: decrypted bytes are discarded immediately; nothing is rendered or stored.
+   Passphrase lives in JS-locals only, never localStorage/sessionStorage/cookies. */
+var BatcaveAuth = (function(){
   var BLOB_URL = 'https://dom1w0w.github.io/7EightMadeConsultation/dom-times-live/data.enc.json';
-  var form   = document.getElementById('bc-unlock-form');
-  var pass   = document.getElementById('bc-pass');
-  var btn    = document.getElementById('bc-go');
-  var status = document.getElementById('bc-status');
-  var lock   = document.getElementById('bc-lock');
-  var privRows = Array.prototype.slice.call(document.querySelectorAll('.bc-priv'));
 
   function fromB64(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
 
@@ -151,6 +176,91 @@
       && Number(b.iterations) >= 100000
       && typeof b.salt === 'string' && typeof b.iv === 'string' && typeof b.ciphertext === 'string';
   }
+
+  /* Resolves on correct passphrase (plaintext discarded), rejects otherwise. */
+  function verify(phrase){
+    if(!(window.crypto && window.crypto.subtle)) return Promise.reject(new Error('nosubtle'));
+    return fetch(BLOB_URL, {cache:'no-store'}).then(function(r){
+      if(!r.ok) throw new Error('fetch');
+      return r.json();
+    }).then(function(blob){
+      if(!validBlob(blob)) throw new Error('damaged');
+      var te = new TextEncoder();
+      return crypto.subtle.importKey('raw', te.encode(phrase), 'PBKDF2', false, ['deriveKey'])
+        .then(function(base){
+          return crypto.subtle.deriveKey(
+            {name:'PBKDF2', hash:'SHA-256', salt:fromB64(blob.salt), iterations:Number(blob.iterations)},
+            base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+        })
+        .then(function(key){
+          return crypto.subtle.decrypt({name:'AES-GCM', iv:fromB64(blob.iv)}, key, fromB64(blob.ciphertext));
+        });
+    });
+  }
+
+  function shake(el){
+    el.classList.remove('bc-shake');
+    void el.offsetWidth;
+    el.classList.add('bc-shake');
+    el.focus();
+    el.select();
+  }
+
+  function deniedMsg(err){
+    return (err && err.message === 'nosubtle')
+      ? 'this browser blocks decryption here.'
+      : 'access denied — try again.';
+  }
+
+  return { verify: verify, shake: shake, deniedMsg: deniedMsg };
+})();
+
+/* ENTRY GATE — full-page lock. Unlock reveals the bat computer + table of contents. */
+(function(){
+  var gate   = document.getElementById('entry-gate');
+  var form   = document.getElementById('entry-form');
+  var pass   = document.getElementById('entry-pass');
+  var btn    = document.getElementById('entry-go');
+  var status = document.getElementById('entry-status');
+
+  function setStatus(msg, cls){ status.textContent = msg; status.className = 'bc-status' + (cls ? ' ' + cls : ''); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var phrase = pass.value; /* verbatim — no trim, no normalization */
+    if(!phrase){ pass.focus(); return; }
+    btn.disabled = true;
+    btn.textContent = 'deriving key…';
+    setStatus('', '');
+    BatcaveAuth.verify(phrase).then(function(pt){
+      pt = null;      /* verified only — discard decrypted bytes immediately */
+      phrase = null;  /* passphrase never leaves this scope, never stored */
+      pass.value = '';
+      setStatus('access granted.', 'ok');
+      setTimeout(function(){
+        gate.classList.add('gone');
+        document.body.classList.remove('locked');
+        setTimeout(function(){ gate.remove(); }, 500);
+      }, 350);
+    }).catch(function(err){
+      phrase = null;
+      btn.disabled = false;
+      btn.textContent = '[UNLOCK]';
+      setStatus(BatcaveAuth.deniedMsg(err), 'err');
+      BatcaveAuth.shake(pass);
+    });
+  });
+  pass.focus();
+})();
+
+/* IN-BAR GATE — second layer for the 4 private rows (dom-times, archive, team, watch). */
+(function(){
+  var form   = document.getElementById('bc-unlock-form');
+  var pass   = document.getElementById('bc-pass');
+  var btn    = document.getElementById('bc-go');
+  var status = document.getElementById('bc-status');
+  var lock   = document.getElementById('bc-lock');
+  var privRows = Array.prototype.slice.call(document.querySelectorAll('.bc-priv'));
 
   function setStatus(msg, cls){ status.textContent = msg; status.className = 'bc-status' + (cls ? ' ' + cls : ''); }
 
@@ -173,38 +283,19 @@
     btn.disabled = true;
     btn.textContent = 'deriving key…';
     setStatus('', '');
-    fetch(BLOB_URL, {cache:'no-store'}).then(function(r){
-      if(!r.ok) throw new Error('fetch');
-      return r.json();
-    }).then(function(blob){
-      if(!validBlob(blob)) throw new Error('damaged');
-      var te = new TextEncoder();
-      return crypto.subtle.importKey('raw', te.encode(phrase), 'PBKDF2', false, ['deriveKey'])
-        .then(function(base){
-          return crypto.subtle.deriveKey(
-            {name:'PBKDF2', hash:'SHA-256', salt:fromB64(blob.salt), iterations:Number(blob.iterations)},
-            base, {name:'AES-GCM', length:256}, false, ['decrypt']);
-        })
-        .then(function(key){
-          return crypto.subtle.decrypt({name:'AES-GCM', iv:fromB64(blob.iv)}, key, fromB64(blob.ciphertext));
-        });
-    }).then(function(pt){
+    BatcaveAuth.verify(phrase).then(function(pt){
       pt = null;      /* verified only — discard decrypted bytes immediately */
       phrase = null;  /* passphrase never leaves this scope, never stored */
       pass.value = '';
       btn.disabled = false;
       btn.textContent = '[UNLOCK]';
       reveal();
-    }).catch(function(){
+    }).catch(function(err){
       phrase = null;
       btn.disabled = false;
       btn.textContent = '[UNLOCK]';
-      setStatus('access denied — try again.', 'err');
-      pass.classList.remove('bc-shake');
-      void pass.offsetWidth;
-      pass.classList.add('bc-shake');
-      pass.focus();
-      pass.select();
+      setStatus(BatcaveAuth.deniedMsg(err), 'err');
+      BatcaveAuth.shake(pass);
     });
   });
 })();
