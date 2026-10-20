@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="data:," />
+    <title>Bootstrap Paradox — 7EightMade Studio</title>
+    <meta name="description" content="A brass pocket watch with no maker. Become the time traveler, close the loop, and try to find where the watch came from." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        --bg:#0b0f14;
+        --bg-2:#0e141b;
+        --panel:#111922;
+        --panel-2:#0d141c;
+        --ink:#eef0ea;
+        --muted:#a7b4b8;
+        --faint:#6e7f85;
+        --teal:#5fb3c9;
+        --teal-deep:#12333d;
+        --gold:#e9cf9a;
+        --gold-deep:#8a6f35;
+        --line:rgba(238,240,234,.13);
+        --line-soft:rgba(238,240,234,.07);
+        --radius:18px;
+        --font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+        --font-head:"Fraunces",Georgia,"Times New Roman",serif;
+      }
+      *{box-sizing:border-box;}
+      [hidden]{display:none !important;}
+      html{scroll-behavior:smooth;}
+      body{
+        margin:0;
+        background:var(--bg);
+        color:var(--ink);
+        font-family:var(--font-body);
+        font-size:17px;
+        line-height:1.65;
+        -webkit-font-smoothing:antialiased;
+      }
+      ::selection{background:var(--teal);color:#06222b;}
+      a{color:var(--teal);}
+      button{font-family:inherit;cursor:pointer;}
+      button:focus-visible,a:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px;}
+
+      /* ---------- sticky nav ---------- */
+      .nav{
+        position:sticky;top:0;z-index:50;
+        background:rgba(11,15,20,.92);
+        backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--line-soft);
+      }
+      .nav-in{
+        max-width:1060px;margin:0 auto;padding:0 20px;
+        height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+      }
+      .brand{
+        font-family:var(--font-head);font-weight:900;font-size:20px;letter-spacing:.01em;
+        color:var(--ink);text-decoration:none;white-space:nowrap;
+      }
+      .brand span{color:var(--teal);font-weight:650;font-size:.82em;}
+      .nav-links{display:flex;gap:6px;align-items:center;}
+      .about-link{color:var(--muted);text-decoration:none;font-size:14.5px;font-weight:500;padding:9px 13px;border-radius:9px;white-space:nowrap;}
+      .about-link:hover{color:var(--ink);}
+      .nav-links a{
+        color:var(--muted);text-decoration:none;font-size:14.5px;font-weight:500;
+        padding:9px 13px;border-radius:999px;
+      }
+      .nav-links a:hover{color:var(--ink);background:var(--panel);}
+      @media (max-width:700px){ .brand{font-size:16.5px;} }
+      @media (max-width:560px){
+        .nav-in{height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;row-gap:2px;}
+        .nav-links a{padding:7px 9px;font-size:13.5px;}
+        .brand{font-size:15px;}
+      }
+
+      .wrap{max-width:1060px;margin:0 auto;padding:0 20px;}
+
+      /* ---------- hero ---------- */
+      .hero{padding:64px 0 30px;display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:center;}
+      @media (max-width:820px){ .hero{grid-template-columns:1fr;padding-top:44px;} }
+      .eyebrow{
+        font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+        color:var(--teal);margin:0 0 18px;
+      }
+      h1{
+        font-family:var(--font-head);font-weight:900;
+        font-size:clamp(44px,7.5vw,84px);line-height:.98;letter-spacing:-.01em;
+        margin:0 0 20px;
+      }
+      h1 em{font-style:italic;font-weight:650;color:var(--gold);}
+      .lede{font-size:clamp(17px,2.4vw,20.5px);color:var(--muted);max-width:34em;margin:0 0 28px;}
+      .lede strong{color:var(--ink);font-weight:600;}
+      .hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:9px;
+        min-height:54px;padding:13px 28px;border-radius:999px;
+        font-size:16.5px;font-weight:600;text-decoration:none;
+        border:1px solid transparent;transition:transform .15s ease,background .15s ease,border-color .15s ease;
+      }
+      .btn:active{transform:scale(.98);}
+      .btn-teal{background:var(--teal);color:#062630;}
+      .btn-teal:hover{background:#77c3d6;}
+      .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+      .btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+      .hero-note{font-size:14px;color:var(--faint);margin:16px 0 0;}
+
+      .watch-stage{display:flex;justify-content:center;}
+      .watch-svg{width:min(300px,72vw);height:auto;overflow:visible;}
+      .watch-ring{transform-origin:150px 168px;animation:spin 90s linear infinite;}
+      .watch-hand-sec{transform-origin:150px 168px;animation:spin 60s linear infinite;}
+      @keyframes spin{to{transform:rotate(360deg);}}
+
+      /* ---------- instrument ---------- */
+      .instrument{
+        margin:34px 0 10px;
+        background:linear-gradient(180deg,var(--panel),var(--panel-2));
+        border:1px solid var(--line);border-radius:26px;
+        padding:clamp(22px,4.5vw,44px);
+      }
+      .inst-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:8px;}
+      .inst-kicker{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:0 0 8px;}
+      h2{font-family:var(--font-head);font-weight:900;font-size:clamp(28px,4.4vw,40px);line-height:1.08;margin:0;}
+      .chapter-dots{display:flex;gap:8px;align-items:center;padding-bottom:6px;}
+      .cdot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--faint);background:transparent;transition:all .3s ease;}
+      .cdot.now{border-color:var(--teal);box-shadow:0 0 0 4px rgba(95,179,201,.18);}
+      .cdot.done{background:var(--gold);border-color:var(--gold);}
+
+      .story{min-height:238px;display:flex;flex-direction:column;}
+      @media (max-width:560px){ .story{min-height:288px;} }
+      .story.swap{animation:swap .45s ease;}
+      @keyframes swap{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+      .ch-kicker{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:14px 0 6px;}
+      .ch-title{font-family:var(--font-head);font-weight:650;font-size:clamp(24px,3.6vw,31px);margin:0 0 12px;line-height:1.15;}
+      .ch-body{color:var(--muted);font-size:clamp(16.5px,2.2vw,18.5px);max-width:38em;margin:0 0 26px;}
+      .ch-body strong{color:var(--ink);}
+      .ch-body .q{color:var(--gold);font-style:italic;}
+      .story .btn{align-self:flex-start;min-width:min(320px,100%);}
+      .done-note{color:var(--teal);font-weight:600;font-size:16px;margin:2px 0 0;}
+
+      /* timeline */
+      .timeline-box{margin-top:26px;border-top:1px solid var(--line-soft);padding-top:22px;}
+      .timeline-svg{width:100%;height:auto;display:block;}
+      .tl-seg,.tl-arc{fill:none;stroke:var(--teal);stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset 1.15s ease;}
+      .tl-arc{stroke:var(--gold);}
+      .tl-base{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:3 7;stroke-linecap:round;}
+      .tl-node{fill:var(--bg-2);stroke:var(--faint);stroke-width:2.5;transition:all .4s ease;}
+      .tl-node.now{stroke:var(--teal);}
+      .tl-node.done{fill:var(--gold);stroke:var(--gold);}
+      .tl-dot{transition:cx 1s ease,cy 1s ease;}
+      .tl-label{fill:var(--ink);font-family:var(--font-body);font-size:14.5px;font-weight:600;}
+      .tl-sub{fill:var(--faint);font-family:var(--font-body);font-size:12.5px;}
+      .tl-loop-label{fill:var(--gold);font-family:var(--font-head);font-style:italic;font-size:16.5px;opacity:0;transition:opacity .8s ease .5s;}
+      .tl-loop-label.show{opacity:1;}
+      .holder-line{margin:14px 0 0;font-size:15.5px;color:var(--muted);text-align:center;}
+      .holder-line strong{color:var(--gold);font-weight:600;}
+
+      /* reveal */
+      .reveal{
+        display:none;margin-top:30px;border:1px solid var(--gold-deep);
+        background:rgba(233,207,154,.06);border-radius:var(--radius);padding:24px 26px;
+      }
+      .reveal.show{display:block;animation:swap .5s ease;}
+      .reveal h3{font-family:var(--font-head);font-weight:900;font-size:clamp(23px,3.4vw,30px);margin:0 0 10px;color:var(--gold);}
+      .reveal p{color:var(--muted);margin:0;max-width:42em;}
+      .reveal p strong{color:var(--ink);}
+
+      /* tracer */
+      .tracer{display:none;margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;background:var(--panel-2);}
+      .tracer.show{display:block;animation:swap .5s ease;}
+      .tracer h3{font-family:var(--font-head);font-weight:650;font-size:23px;margin:0 0 6px;}
+      .tracer .sub{color:var(--muted);margin:0 0 18px;font-size:15.5px;}
+      .trace-list{list-style:none;margin:0 0 20px;padding:0;counter-reset:tr;}
+      .trace-list li{
+        position:relative;padding:11px 0 11px 44px;color:var(--muted);
+        border-bottom:1px dashed var(--line-soft);font-size:16.5px;
+        animation:swap .4s ease;
+      }
+      .trace-list li:last-child{border-bottom:none;}
+      .trace-list li::before{
+        counter-increment:tr;content:counter(tr,decimal-leading-zero);
+        position:absolute;left:0;top:12px;font-size:12.5px;font-weight:700;color:var(--teal);letter-spacing:.08em;
+      }
+      .trace-list li strong{color:var(--ink);}
+      .trace-list li.final{
+        color:var(--gold);font-weight:700;letter-spacing:.04em;font-size:17.5px;
+        border:1px solid var(--gold-deep);border-radius:12px;padding:14px 16px 14px 60px;margin-top:12px;background:rgba(233,207,154,.07);
+      }
+      .trace-list li.final::before{top:16px;left:16px;color:var(--gold);}
+      .tracer .btn{min-width:min(300px,100%);}
+
+      /* vote */
+      .vote{display:none;margin-top:22px;border-top:1px solid var(--line-soft);padding-top:30px;}
+      .vote.show{display:block;animation:swap .5s ease;}
+      .vote h3{font-family:var(--font-head);font-weight:900;font-size:clamp(25px,3.8vw,34px);margin:0 0 8px;}
+      .vote .sub{color:var(--muted);margin:0 0 20px;}
+      .vote-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+      @media (max-width:560px){ .vote-grid{grid-template-columns:1fr;} }
+      .vote-opt{
+        min-height:62px;padding:16px 20px;border-radius:999px;text-align:left;
+        background:transparent;border:1.5px solid var(--line);color:var(--ink);
+        font-size:17px;font-weight:600;display:flex;align-items:center;gap:12px;
+        transition:border-color .15s ease,background .15s ease;
+      }
+      .vote-opt:hover{border-color:var(--teal);}
+      .vote-opt .tick{
+        width:22px;height:22px;border-radius:50%;border:1.5px solid var(--faint);flex:none;
+        display:inline-flex;align-items:center;justify-content:center;font-size:13px;color:#062630;
+      }
+      .vote-opt.picked{border-color:var(--gold);background:rgba(233,207,154,.08);}
+      .vote-opt.picked .tick{background:var(--gold);border-color:var(--gold);}
+      .vote-grid.locked .vote-opt{cursor:default;}
+      .vote-grid.locked .vote-opt:not(.picked){opacity:.55;}
+      .breakdowns{display:none;margin-top:24px;}
+      .breakdowns.show{display:block;animation:swap .5s ease;}
+      .breakdowns h4{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin:0 0 14px;}
+      .bd{border:1px solid var(--line-soft);border-radius:14px;padding:16px 18px;margin-bottom:10px;background:var(--panel-2);}
+      .bd.mine{border-color:var(--gold-deep);}
+      .bd .bd-tag{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:none;margin-bottom:5px;}
+      .bd.mine .bd-tag{display:block;}
+      .bd h5{font-family:var(--font-head);font-size:19px;font-weight:650;margin:0 0 5px;}
+      .bd p{margin:0;color:var(--muted);font-size:15.5px;}
+      .again-row{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+      .again-note{color:var(--faint);font-size:14.5px;margin:0;}
+
+      /* ---------- prose sections ---------- */
+      section.block{padding:56px 0 6px;}
+      .sec-kicker{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:0 0 10px;}
+      section.block h2{margin-bottom:18px;}
+      .prose{max-width:44em;color:var(--muted);font-size:17.5px;}
+      .prose p{margin:0 0 18px;}
+      .prose strong{color:var(--ink);font-weight:600;}
+      .prose em{color:var(--gold);}
+
+      .answers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+      @media (max-width:720px){ .answers{grid-template-columns:1fr;} }
+      .answer{border:1px solid var(--line-soft);border-radius:var(--radius);padding:22px 24px;background:var(--bg-2);}
+      .answer h3{font-family:var(--font-head);font-weight:650;font-size:21px;margin:0 0 8px;color:var(--gold);}
+      .answer p{margin:0;color:var(--muted);font-size:16px;}
+
+      .history{
+        display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10px;
+        border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;
+      }
+      @media (max-width:820px){ .history{grid-template-columns:1fr 1fr;} }
+      @media (max-width:520px){ .history{grid-template-columns:1fr;} }
+      .h-cell{padding:22px 22px 24px;background:var(--bg-2);border-right:1px solid var(--line-soft);}
+      .h-cell:last-child{border-right:none;}
+      @media (max-width:820px){ .h-cell{border-bottom:1px solid var(--line-soft);} }
+      .h-year{font-family:var(--font-head);font-weight:900;font-size:30px;color:var(--teal);margin:0 0 4px;}
+      .h-title{font-weight:700;font-size:16px;margin:0 0 6px;}
+      .h-cell p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55;}
+
+      .deeper{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px;}
+      @media (max-width:820px){ .deeper{grid-template-columns:1fr;} }
+      .deep-card{
+        display:block;text-decoration:none;color:var(--ink);
+        border:1px solid var(--line-soft);border-radius:var(--radius);padding:22px 24px;background:var(--bg-2);
+        transition:border-color .15s ease;
+      }
+      .deep-card:hover{border-color:var(--teal);}
+      .deep-card .src{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin:0 0 8px;}
+      .deep-card h3{font-family:var(--font-head);font-weight:650;font-size:21px;margin:0 0 7px;}
+      .deep-card p{margin:0;color:var(--muted);font-size:15px;}
+      .deep-card .arrow{color:var(--gold);font-weight:700;}
+
+      footer{margin-top:70px;border-top:1px solid var(--line-soft);padding:34px 0 44px;text-align:center;}
+      .foot-line{font-family:var(--font-head);font-style:italic;font-weight:650;font-size:clamp(21px,3.4vw,27px);color:var(--gold);margin:0 0 8px;}
+      .foot-sub{color:var(--faint);font-size:14px;margin:0;}
+
+      @media (prefers-reduced-motion: reduce){
+        html{scroll-behavior:auto;}
+        .watch-ring,.watch-hand-sec{animation:none;}
+        .story.swap,.reveal.show,.tracer.show,.vote.show,.breakdowns.show,.trace-list li{animation:none;}
+        .tl-seg,.tl-arc,.tl-dot,.cdot,.tl-node{transition:none;}
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-in">
+        <a class="about-link" href="../">← About this app</a>
+        <a class="brand" href="https://dom1w0w.github.io/7EightMadeConsultation/">Bootstrap Paradox <span>· 7EightMade Studio</span></a>
+        <div class="nav-links">
+          <a href="#instrument">The loop</a>
+          <a href="#paradox">The paradox</a>
+          <a href="#deeper">Go deeper</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrap">
+
+      <!-- ================= HERO ================= -->
+      <header class="hero">
+        <div>
+          <p class="eyebrow">7EightMade · Apps · Free</p>
+          <h1>The Bootstrap<br /><em>Paradox</em></h1>
+          <p class="lede">An old man hands you a brass pocket watch. Forty years later, you hand it to him. Somewhere between those two moments, <strong>somebody had to make the watch</strong>. Nobody did. Step into the loop and try to find where it came from.</p>
+          <div class="hero-cta">
+            <a class="btn btn-teal" href="#instrument">Become the traveler</a>
+            <a class="btn btn-ghost" href="#paradox">Read the paradox first</a>
+          </div>
+          <p class="hero-note">One watch. Four chapters. No way out.</p>
+        </div>
+        <div class="watch-stage" aria-hidden="true">
+          <svg class="watch-svg" viewBox="0 0 300 340" role="img" aria-label="A brass pocket watch">
+            <!-- bow ring -->
+            <circle cx="150" cy="34" r="20" fill="none" stroke="#e9cf9a" stroke-width="6"/>
+            <!-- crown -->
+            <rect x="136" y="48" width="28" height="18" rx="5" fill="#e9cf9a"/>
+            <rect x="143" y="62" width="14" height="16" fill="#c9a85e"/>
+            <!-- case -->
+            <circle cx="150" cy="168" r="98" fill="#141c26" stroke="#e9cf9a" stroke-width="7"/>
+            <circle cx="150" cy="168" r="84" fill="none" stroke="#8a6f35" stroke-width="1.5"/>
+            <!-- rotating dashed minute ring -->
+            <g class="watch-ring">
+              <circle cx="150" cy="168" r="74" fill="none" stroke="#5fb3c9" stroke-width="2" stroke-dasharray="4 10" opacity="0.65"/>
+            </g>
+            <!-- ticks -->
+            <g stroke="#eef0ea" stroke-width="3" stroke-linecap="round" opacity="0.85">
+              <line x1="150" y1="96" x2="150" y2="108"/>
+              <line x1="150" y1="228" x2="150" y2="240"/>
+              <line x1="78" y1="168" x2="90" y2="168"/>
+              <line x1="210" y1="168" x2="222" y2="168"/>
+              <line x1="99" y1="117" x2="107" y2="125"/>
+              <line x1="193" y1="211" x2="201" y2="219"/>
+              <line x1="201" y1="117" x2="193" y2="125"/>
+              <line x1="107" y1="211" x2="99" y2="219"/>
+            </g>
+            <!-- hands: set to no particular hour — the watch keeps loop time -->
+            <line x1="150" y1="168" x2="150" y2="118" stroke="#eef0ea" stroke-width="6" stroke-linecap="round"/>
+            <line x1="150" y1="168" x2="196" y2="190" stroke="#eef0ea" stroke-width="6" stroke-linecap="round"/>
+            <g class="watch-hand-sec">
+              <line x1="150" y1="180" x2="150" y2="104" stroke="#5fb3c9" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <circle cx="150" cy="168" r="7" fill="#e9cf9a"/>
+          </svg>
+        </div>
+      </header>
+
+      <!-- ================= INSTRUMENT ================= -->
+      <main>
+      <section class="instrument" id="instrument">
+        <div class="inst-head">
+          <div>
+            <p class="inst-kicker">The instrument</p>
+            <h2>Run the loop yourself</h2>
+          </div>
+          <div class="chapter-dots" id="chapterDots" aria-hidden="true">
+            <span class="cdot now"></span><span class="cdot"></span><span class="cdot"></span><span class="cdot"></span>
+          </div>
+        </div>
+
+        <div class="story" id="story" aria-live="polite">
+          <p class="ch-kicker" id="chKicker">Chapter 1 of 4</p>
+          <h3 class="ch-title" id="chTitle">The stranger</h3>
+          <p class="ch-body" id="chBody"></p>
+          <button class="btn btn-teal" id="chBtn" type="button">Take the watch</button>
+          <p class="done-note" id="doneNote" hidden>The loop is closed. There is no fifth chapter — there never was.</p>
+        </div>
+
+        <div class="timeline-box">
+          <svg class="timeline-svg" viewBox="0 0 640 300" role="img" aria-label="Timeline of the loop: you receive the watch, travel back forty years, hand it over, and the loop closes back to the start.">
+            <!-- base guide -->
+            <path class="tl-base" d="M90,110 L550,110" />
+            <path class="tl-base" d="M550,110 C 550,235 90,235 96,132" opacity="0.55"/>
+            <!-- drawn segments -->
+            <path class="tl-seg" id="seg1" d="M90,110 L320,110" />
+            <path class="tl-seg" id="seg2" d="M320,110 L550,110" />
+            <path class="tl-arc" id="arc" d="M550,110 C 550,235 90,235 96,132" marker-end="url(#arrowGold)"/>
+            <defs>
+              <marker id="arrowGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#e9cf9a"/>
+              </marker>
+            </defs>
+            <!-- nodes -->
+            <circle class="tl-node now" id="node1" cx="90" cy="110" r="14"/>
+            <circle class="tl-node" id="node2" cx="320" cy="110" r="14"/>
+            <circle class="tl-node" id="node3" cx="550" cy="110" r="14"/>
+            <!-- the watch, traveling -->
+            <circle class="tl-dot" id="watchDot" cx="90" cy="110" r="6" fill="#e9cf9a" stroke="#0b0f14" stroke-width="2"/>
+            <!-- labels -->
+            <text class="tl-label" x="90" y="76" text-anchor="middle">You receive it</text>
+            <text class="tl-sub" x="90" y="94" text-anchor="middle">today</text>
+            <text class="tl-label" x="320" y="76" text-anchor="middle">You arrive in the past</text>
+            <text class="tl-sub" x="320" y="94" text-anchor="middle">40 years ago</text>
+            <text class="tl-label" x="550" y="76" text-anchor="middle">You hand it over</text>
+            <text class="tl-sub" x="550" y="94" text-anchor="middle">40 years ago</text>
+            <text class="tl-loop-label" id="loopLabel" x="320" y="262" text-anchor="middle">…and the watch goes around again</text>
+          </svg>
+          <p class="holder-line" id="holderLine">Holding the watch: <strong>the old stranger</strong></p>
+        </div>
+
+        <!-- reveal -->
+        <div class="reveal" id="reveal">
+          <h3>The old stranger was you.</h3>
+          <p>There was never a second person in this story. The face you almost recognized was yours, forty years older. The words he said to you were the words you said to him — because <strong>they were the same words, spoken by the same man, at two points on one circle</strong>. The watch passed from your hand to your hand. So trace it back. Find the moment it was made. Go on — the tracer is right there.</p>
+        </div>
+
+        <!-- origin tracer -->
+        <div class="tracer" id="tracer">
+          <h3>The origin tracer</h3>
+          <p class="sub">Every object has a chain of custody. Follow this one backward, link by link, until you reach the maker.</p>
+          <ol class="trace-list" id="traceList"></ol>
+          <button class="btn btn-teal" id="traceBtn" type="button">Trace the origin</button>
+        </div>
+
+        <!-- vote -->
+        <div class="vote" id="vote">
+          <h3>Who made the watch?</h3>
+          <p class="sub">Four answers get offered for this paradox. Every one of them is satisfying for about five seconds. Pick yours — then watch it break.</p>
+          <div class="vote-grid" id="voteGrid">
+            <button class="vote-opt" type="button" data-v="you"><span class="tick"></span>You did</button>
+            <button class="vote-opt" type="button" data-v="older"><span class="tick"></span>Your older self</button>
+            <button class="vote-opt" type="button" data-v="noone"><span class="tick"></span>No one made it</button>
+            <button class="vote-opt" type="button" data-v="loop"><span class="tick"></span>The loop itself</button>
+          </div>
+          <div class="breakdowns" id="breakdowns">
+            <h4>Why every answer breaks</h4>
+            <div class="bd" data-bd="you">
+              <span class="bd-tag">Your answer</span>
+              <h5>“You did.”</h5>
+              <p>Breaks here: you never made anything. You received the watch and you delivered it. At no point in your life did you cast brass, cut a gear, or assemble a movement. Carrying is not creating.</p>
+            </div>
+            <div class="bd" data-bd="older">
+              <span class="bd-tag">Your answer</span>
+              <h5>“Your older self.”</h5>
+              <p>Breaks here: he didn't make it either. He received it from a stranger when he was young — a stranger who turned out to be you. Pointing at him just moves the question one lap around the loop.</p>
+            </div>
+            <div class="bd" data-bd="noone">
+              <span class="bd-tag">Your answer</span>
+              <h5>“No one made it.”</h5>
+              <p>Breaks here: the watch is real. Brass, glass, a ticking movement — it exists, it works, it can be dropped and dented. “No one made it” means a finished machine can exist with no cause at all. Everything else you own got here some other way.</p>
+            </div>
+            <div class="bd" data-bd="loop">
+              <span class="bd-tag">Your answer</span>
+              <h5>“The loop itself.”</h5>
+              <p>Breaks here: a loop is a shape, not a craftsman. At no point on the circle does anyone perform the act of making — the watch is simply already there, at every point, forever. The circle explains the path. It never explains the thing traveling it.</p>
+            </div>
+            <div class="again-row">
+              <button class="btn btn-ghost" id="againBtn" type="button">Run the loop again</button>
+              <p class="again-note">It ends the same way. That's the point.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= THE PARADOX ================= -->
+      <section class="block" id="paradox">
+        <p class="sec-kicker">The idea</p>
+        <h2>The paradox</h2>
+        <div class="prose">
+          <p>The name comes from Robert A. Heinlein's 1941 story <strong>“By His Bootstraps”</strong> — after the old impossible saying about lifting yourself off the ground by pulling up on your own bootstraps. Philosophers also call it the <strong>ontological paradox</strong>, or a <strong>causal loop</strong>: an object, a person, or a piece of information that exists inside a closed circle of cause and effect, so it has effects everywhere and an origin nowhere.</p>
+          <p>The watch is the gentle version. The famous one is music: a time traveler takes the scores of Beethoven's symphonies back to Beethoven, who copies them out and publishes them as his own. The scores exist. The music exists. <em>Who composed it?</em> Not the traveler — he only carried it. Not Beethoven — he only copied it. The symphonies were never written by anyone.</p>
+          <p>Hollywood runs on this loop. In <em>The Terminator</em> (1984), the wreckage of a machine sent back to kill Sarah Connor is recovered and reverse-engineered — and the chip inside it becomes the seed of Skynet, the system that builds the machine. Skynet is its own ancestor. And in <em>Somewhere in Time</em> (1980), the whole romance turns on a pocket watch an old woman presses into a young man's hand — a watch he will one day press into hers. It is never bought, never made. It just goes around, aging with the loop, forever.</p>
+        </div>
+      </section>
+
+      <!-- ================= HOW PEOPLE ANSWER IT ================= -->
+      <section class="block" id="answers">
+        <p class="sec-kicker">The positions</p>
+        <h2>How people answer it</h2>
+        <div class="answers">
+          <div class="answer">
+            <h3>“You did.”</h3>
+            <p>The traveler-centric answer. Without your choices — taking the watch, boarding the machine, making the handover — nothing circulates. On this view, “made” just means “is responsible for,” and the only agent anywhere in the story is you. The loop has no craftsman, but it has an author, and it's the person inside it.</p>
+          </div>
+          <div class="answer">
+            <h3>“Your older self.”</h3>
+            <p>The deferral. Every hand in the chain points at the hand before it, and the oldest hand in the story belongs to the stranger — so the origin must be his, offstage, before the curtain rose. It feels like an answer because it pushes the mystery out of sight. It works right up until you remember his biography is identical to yours.</p>
+          </div>
+          <div class="answer">
+            <h3>“No one made it.”</h3>
+            <p>The physicist's shrug, and maybe the honest one. Some solutions to Einstein's equations allow closed timelike curves — paths through spacetime that return to their own past. An object on such a path doesn't need a creation event; it needs only to be consistent at every point. It was never made. It was also never not there.</p>
+          </div>
+          <div class="answer">
+            <h3>“The loop itself.”</h3>
+            <p>The geometric answer. “Where did it come from?” assumes causes run in a straight line with a first link — true of chains, false of circles. On a circle, every point is explained by the point before it, and the whole figure explains itself. The demand for an origin isn't unanswered; it's the wrong shape of question.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HISTORY ================= -->
+      <section class="block" id="history">
+        <p class="sec-kicker">The trail</p>
+        <h2>A brief history of the loop</h2>
+        <div class="history">
+          <div class="h-cell">
+            <p class="h-year">1941</p>
+            <p class="h-title">“By His Bootstraps”</p>
+            <p>Robert A. Heinlein publishes the story in <em>Astounding Science Fiction</em>. His traveler keeps meeting older and younger versions of himself — and the paradox gets its name.</p>
+          </div>
+          <div class="h-cell">
+            <p class="h-year">1980</p>
+            <p class="h-title">Somewhere in Time</p>
+            <p>An elderly woman presses a pocket watch into Christopher Reeve's hand: “Come back to me.” The watch he later gives her younger self is the same one. It was never made.</p>
+          </div>
+          <div class="h-cell">
+            <p class="h-year">1984</p>
+            <p class="h-title">The Terminator</p>
+            <p>Cyberdyne recovers a chip from a crushed Terminator and builds Skynet from it. The machines end up engineering their own creator.</p>
+          </div>
+          <div class="h-cell">
+            <p class="h-year">1980s</p>
+            <p class="h-title">The Novikov principle</p>
+            <p>Physicist Igor Novikov proposes the self-consistency principle: loops may exist, but only ones that never contradict themselves. The watch can go around — it just can't be stopped, started, or broken.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GO DEEPER ================= -->
+      <section class="block" id="deeper">
+        <p class="sec-kicker">Keep going</p>
+        <h2>Go deeper</h2>
+        <div class="deeper">
+          <a class="deep-card" href="https://plato.stanford.edu/entries/time-travel/" target="_blank" rel="noopener">
+            <p class="src">Stanford Encyclopedia of Philosophy</p>
+            <h3>Time Travel <span class="arrow">→</span></h3>
+            <p>The full philosophical treatment: what time travel would require, and why loops like this one don't obviously break logic.</p>
+          </a>
+          <a class="deep-card" href="https://en.wikipedia.org/wiki/Causal_loop" target="_blank" rel="noopener">
+            <p class="src">Wikipedia</p>
+            <h3>Causal Loop <span class="arrow">→</span></h3>
+            <p>The bootstrap paradox by its other name — with the Beethoven example, the watch from <em>Somewhere in Time</em>, and the physics underneath.</p>
+          </a>
+          <a class="deep-card" href="../../dichotomy-zeno/app/">
+            <p class="src">7EightMade Studio</p>
+            <h3>Dichotomy Zeno <span class="arrow">→</span></h3>
+            <p>The sibling paradox: to arrive anywhere, you must first cross half the distance — then half of what remains, forever. Find it on the Studio's paradox shelf.</p>
+          </a>
+        </div>
+      </section>
+      </main>
+
+      <footer>
+        <p class="foot-line">Fall down seven. Stand up eight.</p>
+        <p class="foot-sub">7EightMade · Apps · The Bootstrap Paradox — a loop with no first link.</p>
+      </footer>
+    </div>
+
+    <script>
+      (function(){
+        "use strict";
+
+        /* ---------- story chapters ---------- */
+        var chapters = [
+          {
+            kicker:"Chapter 1 of 4", title:"The stranger",
+            body:"An old man stops you on the street. No introduction, no explanation. He presses a <strong>brass pocket watch</strong> into your palm and folds your fingers over it. <span class=\"q\">“Keep it ticking,”</span> he says. <span class=\"q\">“You'll know when to pass it on.”</span> Then he walks off into the crowd — and you stand there holding the watch, certain of one thing: <strong>you know that face.</strong>",
+            btn:"Take the watch", holder:"you"
+          },
+          {
+            kicker:"Chapter 2 of 4", title:"The machine",
+            body:"Decades pass. The watch never leaves you. Then comes the machine: one seat, one passenger, and it throws you <strong>exactly forty years into the past</strong> — no more, no less, one trip each way. You pack light. In your coat pocket, still ticking, already old: <strong>the watch.</strong> You finally understand what it's for.",
+            btn:"Travel back 40 years", holder:"you — forty years in the past"
+          },
+          {
+            kicker:"Chapter 3 of 4", title:"The handover",
+            body:"You know the street. You know the date, the hour, which direction he'll come from. And there he is — <strong>you, forty years younger</strong>, not a line on his face. You step into his path. You press the watch into his palm and fold his fingers over it. The words come out of you like a recording: <span class=\"q\">“Keep it ticking. You'll know when to pass it on.”</span>",
+            btn:"Hand over the watch", holder:"your younger self"
+          },
+          {
+            kicker:"Chapter 4 of 4", title:"The return",
+            body:"You climb back into the machine and ride it home, forty years forward, empty-handed. The watch stays behind — in a young man's pocket, on a street in the past. He'll keep it his whole life. He'll watch it tick through forty years. And then, one day, he'll climb into a machine, ride it back… <strong>and press it into your hand.</strong>",
+            btn:"Return to the present", holder:"your younger self — who will keep it forty years, ride back, and hand it to you"
+          }
+        ];
+
+        var stage = 0; // chapters completed
+        var storyEl = document.getElementById("story");
+        var kickerEl = document.getElementById("chKicker");
+        var titleEl = document.getElementById("chTitle");
+        var bodyEl = document.getElementById("chBody");
+        var btnEl = document.getElementById("chBtn");
+        var doneNote = document.getElementById("doneNote");
+        var holderLine = document.getElementById("holderLine");
+        var dots = document.querySelectorAll("#chapterDots .cdot");
+        var nodes = [document.getElementById("node1"), document.getElementById("node2"), document.getElementById("node3")];
+        var dot = document.getElementById("watchDot");
+        var segs = [document.getElementById("seg1"), document.getElementById("seg2")];
+        var arc = document.getElementById("arc");
+        var loopLabel = document.getElementById("loopLabel");
+        var reveal = document.getElementById("reveal");
+        var tracer = document.getElementById("tracer");
+        var vote = document.getElementById("vote");
+        var nodePos = [{x:90,y:110},{x:320,y:110},{x:550,y:110}];
+
+        function prep(path){
+          var len = path.getTotalLength();
+          path.style.strokeDasharray = len;
+          path.style.strokeDashoffset = len;
+          return len;
+        }
+        var segLens = segs.map(prep);
+        var arcLen = prep(arc);
+
+        function draw(path, len){
+          path.style.strokeDashoffset = 0;
+        }
+        function undraw(path, len){
+          path.style.strokeDashoffset = len;
+        }
+
+        function renderChapter(i){
+          var ch = chapters[i];
+          kickerEl.textContent = ch.kicker;
+          titleEl.textContent = ch.title;
+          bodyEl.innerHTML = ch.body;
+          btnEl.textContent = ch.btn;
+          btnEl.hidden = false;
+          storyEl.classList.remove("swap");
+          void storyEl.offsetWidth;
+          storyEl.classList.add("swap");
+          dots.forEach(function(d, di){
+            d.className = "cdot" + (di < i ? " done" : di === i ? " now" : "");
+          });
+        }
+
+        btnEl.addEventListener("click", function(){
+          if (stage >= 4) return;
+          var done = stage; // chapter just completed (0-based)
+          stage++;
+
+          /* timeline consequences */
+          if (done === 0){
+            nodes[0].classList.remove("now"); nodes[0].classList.add("done");
+            nodes[1].classList.add("now");
+          }
+          if (done === 1){
+            draw(segs[0], segLens[0]);
+            nodes[1].classList.remove("now"); nodes[1].classList.add("done");
+            nodes[2].classList.add("now");
+            dot.setAttribute("cx", nodePos[1].x); dot.setAttribute("cy", nodePos[1].y);
+          }
+          if (done === 2){
+            draw(segs[1], segLens[1]);
+            nodes[2].classList.remove("now"); nodes[2].classList.add("done");
+            dot.setAttribute("cx", nodePos[2].x); dot.setAttribute("cy", nodePos[2].y);
+          }
+          if (done === 3){
+            draw(arc, arcLen);
+            loopLabel.classList.add("show");
+            dot.setAttribute("cx", nodePos[0].x); dot.setAttribute("cy", nodePos[0].y);
+          }
+          holderLine.innerHTML = "Holding the watch: <strong>" + chapters[done].holder + "</strong>";
+
+          if (stage < 4){
+            renderChapter(stage);
+          } else {
+            kickerEl.textContent = "The loop is closed";
+            titleEl.textContent = "There is no Chapter 5";
+            bodyEl.innerHTML = "You are home. The watch is forty years behind you and somehow already in your future — an old man is going to hand it to you on a street you haven't walked down yet. Every event in this story has a cause. <strong>Except the watch.</strong>";
+            btnEl.hidden = true;
+            doneNote.hidden = false;
+            dots.forEach(function(d){ d.className = "cdot done"; });
+            storyEl.classList.remove("swap");
+            void storyEl.offsetWidth;
+            storyEl.classList.add("swap");
+            reveal.classList.add("show");
+            tracer.classList.add("show");
+            vote.classList.add("show");
+            setTimeout(function(){
+              reveal.scrollIntoView({behavior:"smooth", block:"center"});
+            }, 650);
+          }
+        });
+
+        /* ---------- origin tracer ---------- */
+        var traceSteps = [
+          "The watch in the young man's pocket <strong>came from you</strong> — you pressed it into his hand yourself.",
+          "And you got it, decades earlier, <strong>from the old stranger</strong> on the street.",
+          "The stranger <strong>was your older self</strong>. Same face, forty years on.",
+          "He got it <strong>from his younger self</strong> — which is you, arriving from the future with it in your coat.",
+          "And he got it from the old stranger. And the stranger got it from him. <strong>Around, and around, and around…</strong>",
+          "ORIGIN: UNKNOWN — the chain has no first link."
+        ];
+        var traceIdx = 0;
+        var traceList = document.getElementById("traceList");
+        var traceBtn = document.getElementById("traceBtn");
+        traceBtn.addEventListener("click", function(){
+          if (traceIdx >= traceSteps.length) return;
+          var li = document.createElement("li");
+          li.innerHTML = traceSteps[traceIdx];
+          if (traceIdx === traceSteps.length - 1) li.className = "final";
+          traceList.appendChild(li);
+          traceIdx++;
+          if (traceIdx === traceSteps.length){
+            traceBtn.textContent = "There is no further back";
+            traceBtn.disabled = true;
+            traceBtn.style.opacity = ".55";
+            traceBtn.style.cursor = "default";
+          } else if (traceIdx === traceSteps.length - 1){
+            traceBtn.textContent = "One more link…";
+          } else {
+            traceBtn.textContent = "Trace further back";
+          }
+        });
+
+        /* ---------- vote ---------- */
+        var voteGrid = document.getElementById("voteGrid");
+        var breakdowns = document.getElementById("breakdowns");
+        var bdOrder = Array.prototype.slice.call(breakdowns.querySelectorAll(".bd"));
+        var againRow = breakdowns.querySelector(".again-row");
+        var voted = false;
+        voteGrid.addEventListener("click", function(e){
+          var opt = e.target.closest(".vote-opt");
+          if (!opt || voted) return;
+          voted = true;
+          var v = opt.getAttribute("data-v");
+          opt.classList.add("picked");
+          opt.querySelector(".tick").textContent = "✓";
+          voteGrid.classList.add("locked");
+          voteGrid.querySelectorAll(".vote-opt").forEach(function(o){ o.disabled = true; });
+          var mine = breakdowns.querySelector('[data-bd="' + v + '"]');
+          mine.classList.add("mine");
+          breakdowns.insertBefore(mine, breakdowns.children[1]);
+          breakdowns.classList.add("show");
+          setTimeout(function(){
+            breakdowns.scrollIntoView({behavior:"smooth", block:"nearest"});
+          }, 150);
+        });
+
+        /* ---------- reset ---------- */
+        document.getElementById("againBtn").addEventListener("click", function(){
+          stage = 0;
+          undraw(segs[0], segLens[0]);
+          undraw(segs[1], segLens[1]);
+          undraw(arc, arcLen);
+          loopLabel.classList.remove("show");
+          nodes.forEach(function(n){ n.classList.remove("done"); });
+          nodes[1].classList.remove("now"); nodes[2].classList.remove("now");
+          nodes[0].classList.add("now");
+          dot.setAttribute("cx", nodePos[0].x); dot.setAttribute("cy", nodePos[0].y);
+          holderLine.innerHTML = "Holding the watch: <strong>the old stranger</strong>";
+          doneNote.hidden = true;
+          reveal.classList.remove("show");
+          tracer.classList.remove("show");
+          vote.classList.remove("show");
+          traceList.innerHTML = "";
+          traceIdx = 0;
+          traceBtn.textContent = "Trace the origin";
+          traceBtn.disabled = false;
+          traceBtn.style.opacity = "";
+          traceBtn.style.cursor = "";
+          voted = false;
+          voteGrid.classList.remove("locked");
+          voteGrid.querySelectorAll(".vote-opt").forEach(function(o){
+            o.disabled = false; o.classList.remove("picked");
+            o.querySelector(".tick").textContent = "";
+          });
+          bdOrder.forEach(function(bd){ bd.classList.remove("mine"); breakdowns.insertBefore(bd, againRow); });
+          breakdowns.classList.remove("show");
+          renderChapter(0);
+          document.getElementById("instrument").scrollIntoView({behavior:"smooth"});
+        });
+
+        /* init */
+        bodyEl.innerHTML = chapters[0].body;
+      })();
+    </script>
+  </body>
+</html>
