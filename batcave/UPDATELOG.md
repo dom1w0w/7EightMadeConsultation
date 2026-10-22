@@ -1,5 +1,9 @@
 # BATCAVE UPDATE LOG
 
+## 2026-10-21 — Core Burn session added + Inferno rebuilt
+- New `core` session (6th picker button, ~4 min): Core Burn circuit ×3 rounds — Plank Hold 30s → Mountain Climbers 20s → Russian Twist (Stick Loaded) 20/side, 15s rests between rounds. Mirrors the Core Burn finisher added to the workout-log app the same night (adapted from an IG reel by @khodor_kataya — plank / climbers / twists, 3 rounds).
+- Inferno rebuilt to match the app's new Inferno: 6 RipStick stations × 30s work / 15s rest = 4:15 (was a 2:00 tabata) — Push Pulls → Front Clips → Back Clips → Overhead Press → Squat to Press → Russian Twist. Button now reads "4:15 CIRCUIT".
+
 ## 2026-10-21 — Posture Reset session added to workout page
 - New `posture` session (5th picker button, ~5 min): Wall Angels 3×10 slow (3s up / 3s down) + a 30s reset step.
 - Mirrors the Posture Reset daily add-on added to the workout-log app the same night (adapted from an IG reel by @swolotips — wall angels daily for 30 days; cues: back flat, ribs down, wrists glued, wrist lifting off = broken rep; 4-week arc Wk1 contact → Wk2 chest opens → Wk3 scapula set → Wk4 full range).
