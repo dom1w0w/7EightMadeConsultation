@@ -1,5 +1,8 @@
 # BATCAVE UPDATE LOG
 
+## 2026-10-22 — Core Burn moves renamed to stick versions
+- Core Burn steps renamed to match the workout-log app (Dom's pick): Plank Hold → Stick Plank Crush (high plank, hands crushing the pills into the floor), Mountain Climbers → Stick Climbers (high plank on the pills as handles). Cues + mechanics updated (climbers now grip); sets/durations unchanged.
+
 ## 2026-10-21 — Core Burn session added + Inferno rebuilt
 - New `core` session (6th picker button, ~4 min): Core Burn circuit ×3 rounds — Plank Hold 30s → Mountain Climbers 20s → Russian Twist (Stick Loaded) 20/side, 15s rests between rounds. Mirrors the Core Burn finisher added to the workout-log app the same night (adapted from an IG reel by @khodor_kataya — plank / climbers / twists, 3 rounds).
 - Inferno rebuilt to match the app's new Inferno: 6 RipStick stations × 30s work / 15s rest = 4:15 (was a 2:00 tabata) — Push Pulls → Front Clips → Back Clips → Overhead Press → Squat to Press → Russian Twist. Button now reads "4:15 CIRCUIT".
