@@ -1,5 +1,10 @@
 # BATCAVE UPDATE LOG
 
+## 2026-10-21 — Forearm Flush session added to workout page
+- New `flush` session (4th picker button, ~15 min): Pronated Stick Curl 3×15 → Stick Dead-Hold 3×40s → Towel-Grip Stick Hold 3×30s → Rice-Bucket Wrist Stir 3×30s → Fingertip Push-Ups 3×8–12, 30s rests between moves. 15 sets.
+- Mirrors the Forearm Flush finisher added to the workout-log app the same night (adapted from an IG reel by @fitybox — pronated curls, dead hangs, towel hangs, rice-bucket drills, fingertip push-ups, rebuilt for the RipStick).
+- Finisher positioning kept: stacks after any session; Full/Quick/Inferno untouched.
+
 ## 2026-10-19 — Batcave-native workout page (nothing locked)
 - Built `workout.html`: static guided workout player in terminal aesthetic, so the BAT COMPUTER now links every page — zero [LOCKED] rows.
 - Sessions: Full (~30 min — warm-up, 3×12 Push Pulls / 3×10 Front+Back Clips, 60s rests, 60s finisher, cooldown), Quick (~10 min compact version), Inferno (2:00 tabata — 4 rounds × 20s work / 10s rest).
