@@ -75,6 +75,7 @@ font-family:Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;display:f
       <button class="pick" data-sess="quick">QUICK<small>~10 MIN</small></button>
       <button class="pick" data-sess="inferno">INFERNO<small>2:00 TABATA</small></button>
       <button class="pick" data-sess="flush">FOREARM FLUSH<small>~15 MIN</small></button>
+      <button class="pick" data-sess="posture">POSTURE RESET<small>~5 MIN</small></button>
     </div>
   </div>
 
@@ -100,6 +101,7 @@ font-family:Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;display:f
   <button class="bigbtn" id="startBtn">START SESSION ▸</button>
   <div class="note">Inferno = 4 rounds × 20s work / 10s rest: Push Pulls (fast, max tension) → Front Clips (alternating) → Back Clips (squeeze hard) → Push Pulls (all-out finisher).</div>
   <div class="note">Forearm Flush = finisher add-on (stack it after any session): Pronated Stick Curl → Stick Dead-Hold → Towel-Grip Stick Hold → Rice-Bucket Wrist Stir → Fingertip Push-Ups. 15 sets, short rests — blood in, nowhere for it to go.</div>
+  <div class="note">Posture Reset = wall angels, daily: back flat, ribs down, wrists glued — if a wrist lifts off the wall, that's the broken rep. 30-day arc: Wk1 contact → Wk2 chest opens → Wk3 scapula set → Wk4 full range.</div>
 </section>
 
 <!-- ============ PLAYER ============ -->
@@ -204,6 +206,10 @@ var SESSIONS={
     S('Rice-Bucket Wrist Stir','small circles // band stays stretched',3,'30 sec','grip'),
     T('Rest','shake it out',30,REST),
     S('Fingertip Push-Ups','fingertips only // slow + controlled',3,'8-12 reps','push')
+  ]},
+  posture:{label:'Posture Reset',steps:[
+    S('Wall Angels','back FLAT // ribs down // wrists GLUED — a wrist lifting off = broken rep',3,'10 reps // 3s up, 3s down','push'),
+    T('Reset','step off the wall // stand tall // breathe',30,REST)
   ]}
 };
 
