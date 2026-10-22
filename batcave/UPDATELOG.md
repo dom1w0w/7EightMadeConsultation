@@ -1,5 +1,10 @@
 # BATCAVE UPDATE LOG
 
+## 2026-10-21 — Posture Reset session added to workout page
+- New `posture` session (5th picker button, ~5 min): Wall Angels 3×10 slow (3s up / 3s down) + a 30s reset step.
+- Mirrors the Posture Reset daily add-on added to the workout-log app the same night (adapted from an IG reel by @swolotips — wall angels daily for 30 days; cues: back flat, ribs down, wrists glued, wrist lifting off = broken rep; 4-week arc Wk1 contact → Wk2 chest opens → Wk3 scapula set → Wk4 full range).
+- Daily habit positioning: stacks onto any day; other sessions untouched.
+
 ## 2026-10-21 — Forearm Flush session added to workout page
 - New `flush` session (4th picker button, ~15 min): Pronated Stick Curl 3×15 → Stick Dead-Hold 3×40s → Towel-Grip Stick Hold 3×30s → Rice-Bucket Wrist Stir 3×30s → Fingertip Push-Ups 3×8–12, 30s rests between moves. 15 sets.
 - Mirrors the Forearm Flush finisher added to the workout-log app the same night (adapted from an IG reel by @fitybox — pronated curls, dead hangs, towel hangs, rice-bucket drills, fingertip push-ups, rebuilt for the RipStick).
