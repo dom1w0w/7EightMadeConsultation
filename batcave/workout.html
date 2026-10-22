@@ -74,6 +74,7 @@ font-family:Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;display:f
       <button class="pick sel" data-sess="full">FULL<small>~30 MIN</small></button>
       <button class="pick" data-sess="quick">QUICK<small>~10 MIN</small></button>
       <button class="pick" data-sess="inferno">INFERNO<small>2:00 TABATA</small></button>
+      <button class="pick" data-sess="flush">FOREARM FLUSH<small>~15 MIN</small></button>
     </div>
   </div>
 
@@ -98,6 +99,7 @@ font-family:Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;display:f
 
   <button class="bigbtn" id="startBtn">START SESSION ▸</button>
   <div class="note">Inferno = 4 rounds × 20s work / 10s rest: Push Pulls (fast, max tension) → Front Clips (alternating) → Back Clips (squeeze hard) → Push Pulls (all-out finisher).</div>
+  <div class="note">Forearm Flush = finisher add-on (stack it after any session): Pronated Stick Curl → Stick Dead-Hold → Towel-Grip Stick Hold → Rice-Bucket Wrist Stir → Fingertip Push-Ups. 15 sets, short rests — blood in, nowhere for it to go.</div>
 </section>
 
 <!-- ============ PLAYER ============ -->
@@ -191,6 +193,17 @@ var SESSIONS={
     T('Back Clips','squeeze HARD',20,'push'),
     T('Rest','10 seconds',10,REST),
     T('Push Pulls','ALL-OUT finisher',20,'pull')
+  ]},
+  flush:{label:'Forearm Flush',steps:[
+    S('Pronated Stick Curl','palms DOWN // crush the grip // pull apart at chest',3,'15 reps','pull'),
+    T('Rest','shake it out',30,REST),
+    S('Stick Dead-Hold','MAX squeeze // arms long in front',3,'40 sec hold','grip'),
+    T('Rest','shake it out',30,REST),
+    S('Towel-Grip Stick Hold','awkward grip // crush + hold',3,'30 sec hold','grip'),
+    T('Rest','shake it out',30,REST),
+    S('Rice-Bucket Wrist Stir','small circles // band stays stretched',3,'30 sec','grip'),
+    T('Rest','shake it out',30,REST),
+    S('Fingertip Push-Ups','fingertips only // slow + controlled',3,'8-12 reps','push')
   ]}
 };
 
