@@ -71,6 +71,15 @@
   .entry-row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
   .entry-row .bc-pass { flex:1; min-width:200px; }
   #entry-status { min-height:18px; }
+  .status-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:20px 0 8px; }
+  .status-card { background:var(--panel); border:1px solid #1e2a2a; border-left:3px solid var(--teal); padding:14px 16px; min-height:88px; }
+  .status-card .lbl { font-size:11px; letter-spacing:2px; color:var(--dim); margin-bottom:8px; }
+  .status-card .body { font-size:13px; line-height:1.55; color:#e6ffff; }
+  .status-card .body .line { display:block; }
+  .status-card .count { color:var(--amber); }
+  @media (max-width:640px) {
+    .status-strip { grid-template-columns:1fr; }
+  }
   footer { margin-top:40px; color:var(--dim); font-size:11px; letter-spacing:1px; }
   a { color:var(--teal); }
 </style>
@@ -125,6 +134,24 @@
       <a class="bc-link bc-priv" href="https://dom1w0w.github.io/7EightMadeConsultation/dom-watch/" target="_blank" rel="noopener"><span class="c">watch</span><span class="d">dom-times // watch page</span><span class="go">[OPEN]</span></a>
     </div>
   </div>
+
+  <section class="status-strip" aria-label="Live status" data-source="placeholder">
+    <article class="status-card" id="status-next">
+      <div class="lbl">NEXT</div>
+      <div class="body">
+        <span class="line">9:30 Design review</span>
+        <span class="line">11:00 1:1 with Sam</span>
+      </div>
+    </article>
+    <article class="status-card" id="status-reminders">
+      <div class="lbl">REMINDERS</div>
+      <div class="body"><span class="count">2</span> open — Call the dentist 10:00</div>
+    </article>
+    <article class="status-card" id="status-waiting">
+      <div class="lbl">WAITING</div>
+      <div class="body"><span class="count">1</span> waiting</div>
+    </article>
+  </section>
 
   <h2>TABLE OF CONTENTS</h2>
 
