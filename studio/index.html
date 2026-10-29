@@ -28,8 +28,23 @@
 </head>
 <body class="home">
   <a class="skip" href="#main">Skip to content</a>
+  <header class="snav">
+    <div class="snav__in">
+      <a class="snav__brand" href="./" aria-current="page"><b>7EightMade</b> Studio</a>
+      <nav class="snav__links" aria-label="Studio">
+        <a href="#works">Works</a>
+        <a href="#apps">Apps</a>
+        <a href="art/">Art</a>
+        <a href="#about">About</a>
+        <span class="snav__sep" aria-hidden="true"></span>
+        <a href="../batcave/">Batcave</a>
+        <a class="snav__back" href="../">← 7EightMade</a>
+      </nav>
+      <a class="pill pill--fill snav__cta" href="../#contact">Book an audit</a>
+    </div>
+  </header>
   <!-- PULSE LAUNCH BANNER: countdown until midnight CT 2026-10-29, live after. Presentation-gated; demo link reveals at midnight. -->
-  <div id="pulse-banner" style="background:#2f6bff;color:#fff;text-align:center;font-weight:700;font-size:15px;padding:12px 16px;letter-spacing:.3px"></div>
+  <div id="pulse-banner" style="margin-top:calc(var(--navh) + 1px);background:#2f6bff;color:#fff;text-align:center;font-weight:700;font-size:15px;padding:12px 16px;letter-spacing:.3px"></div>
   <script>
   (function(){
     var target = new Date('2026-10-29T05:00:00Z').getTime();
@@ -56,21 +71,6 @@
     render(); setInterval(render, 1000);
   })();
   </script>
-  <header class="snav">
-    <div class="snav__in">
-      <a class="snav__brand" href="./" aria-current="page"><b>7EightMade</b> Studio</a>
-      <nav class="snav__links" aria-label="Studio">
-        <a href="#works">Works</a>
-        <a href="#apps">Apps</a>
-        <a href="art/">Art</a>
-        <a href="#about">About</a>
-        <span class="snav__sep" aria-hidden="true"></span>
-        <a href="../batcave/">Batcave</a>
-        <a class="snav__back" href="../">← 7EightMade</a>
-      </nav>
-      <a class="pill pill--fill snav__cta" href="../#contact">Book an audit</a>
-    </div>
-  </header>
 
   <!-- Small scroll readout -->
   <div class="readout" aria-hidden="true">
