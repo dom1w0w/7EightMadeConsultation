@@ -1504,6 +1504,28 @@
   </style>
 </head>
 <body id="top">
+  <!-- PULSE LAUNCH BANNER: countdown until midnight CT 2026-10-29, live after. Presentation-gated; demo link reveals at midnight. -->
+  <div id="pulse-banner" style="background:#2f6bff;color:#fff;text-align:center;font-weight:700;font-size:15px;padding:12px 16px;letter-spacing:.3px"></div>
+  <script>
+  (function(){
+    var target = new Date('2026-10-29T05:00:00Z').getTime();
+    var demo = 'https://muse.ai/s/pulse-web-demo-xsxs6xaxjdnqxqms/d_bnj9SP87znXkx4jvXcDaMgn9fW5shhYGPdirWRw9g';
+    var el = document.getElementById('pulse-banner');
+    function render(){
+      var now = Date.now();
+      if (now >= target) {
+        el.innerHTML = '<a href="' + demo + '" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">PULSE IS LIVE \u2014 Your camera is the sensor. Try it now \u2192</a>';
+      } else {
+        var s = Math.max(0, Math.floor((target - now) / 1000));
+        var h = String(Math.floor(s / 3600)).padStart(2, '0');
+        var m = String(Math.floor(s % 3600 / 60)).padStart(2, '0');
+        var sec = String(s % 60).padStart(2, '0');
+        el.innerHTML = '<a href="pulse/" style="color:#fff;text-decoration:underline">PULSE DROPS AT MIDNIGHT \u2014 ' + h + ':' + m + ':' + sec + ' to go. See what it is \u2192</a>';
+      }
+    }
+    render(); setInterval(render, 1000);
+  })();
+  </script>
 
   <!-- Brand sprites: #brand-mark (app/favicon 7) + #brand-lockup (nav 7+Eight+MADE). Option A — fall 7 rise 8 -->
   <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
