@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pulse — Drops at Midnight | 7EightMade</title>
-<meta name="description" content="7EightMade Pulse: your phone camera is the sensor. Finger, flashlight, heartbeat — live. Drops at midnight Chicago time.">
+<title>Pulse — Drops at 6 AM | 7EightMade</title>
+<meta name="description" content="7EightMade Pulse: your phone camera is the sensor. Finger, flashlight, heartbeat — live. Drops at 6 AM Chicago time.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0b0e13;color:#e8ecf1;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.6}
@@ -54,8 +54,8 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
 
   <div class="timer" id="countdown">
     <div class="t" id="clock">--:--:--</div>
-    <div class="lbl">UNTIL MIDNIGHT · CHICAGO TIME</div>
-    <noscript><p class="note">The live countdown needs JavaScript. Pulse drops at midnight Chicago time.</p></noscript>
+    <div class="lbl">UNTIL 6 AM · CHICAGO TIME</div>
+    <noscript><p class="note">The live countdown needs JavaScript. Pulse drops at 6 AM Chicago time.</p></noscript>
   </div>
 
   <div class="live" id="liveblock">
@@ -100,8 +100,8 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
 </div>
 <script>
 (function(){
-  // Midnight Chicago time, Oct 29 2026. Chicago is CDT (UTC-5) until Nov 1.
-  var target = new Date('2026-10-29T05:00:00Z').getTime();
+  // 6 AM Chicago time, Oct 29 2026. Chicago is CDT (UTC-5) until Nov 1.
+  var target = new Date('2026-10-29T11:00:00Z').getTime();
   var clock = document.getElementById('clock');
   var cd = document.getElementById('countdown');
   var live = document.getElementById('liveblock');
