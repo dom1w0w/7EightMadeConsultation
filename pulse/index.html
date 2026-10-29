@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse — Drops at Midnight | 7EightMade</title>
+<meta name="description" content="7EightMade Pulse: your phone camera is the sensor. Finger, flashlight, heartbeat — live. Drops at midnight Chicago time.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0e13;color:#e8ecf1;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.6}
+a{color:#9fd0ff}
+.wrap{max-width:760px;margin:0 auto;padding:28px 24px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-bottom:20px;border-bottom:1px solid #1c2330}
+.logo{font-weight:800;letter-spacing:2px;font-size:15px}
+.logo span{color:#2f6bff}
+.top a{color:#8a94a3;text-decoration:none;font-size:13px;letter-spacing:1px}
+.hero{text-align:center;padding:52px 0 20px}
+.kicker{color:#2f6bff;font-size:12px;letter-spacing:4px;font-weight:700}
+h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
+.tag{color:#aeb8c4;font-size:20px}
+.timer{margin:34px auto 8px;background:#10151d;border:1px solid #232c3d;border-radius:18px;padding:28px 20px;text-align:center}
+.timer .t{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:56px;font-weight:800;letter-spacing:2px}
+.timer .lbl{color:#8a94a3;font-size:13px;letter-spacing:2px;margin-top:8px}
+.live{display:none;margin:34px auto 8px;background:#12233f;border:1px solid #2f6bff;border-radius:18px;padding:30px 20px;text-align:center}
+.live h2{font-size:34px;margin-bottom:10px}
+.btn{display:inline-block;background:#2f6bff;color:#fff!important;font-weight:700;font-size:18px;padding:15px 34px;border-radius:12px;text-decoration:none;margin-top:14px}
+.sec{margin-top:44px}
+.sec h2{font-size:26px;margin-bottom:12px}
+.sec h3{font-size:18px;margin:18px 0 6px}
+.sec p,.sec li{color:#c7d3e2;font-size:16.5px}
+.sec ul{padding-left:22px}
+.sec li{margin-bottom:8px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:3px 9px;border-radius:99px;margin-left:8px;vertical-align:2px}
+.badge.ok{background:#12351f;color:#34d399}
+.badge.est{background:#3a2a08;color:#fbbf24}
+.badge.flag{background:#3a1508;color:#fb923c}
+.note{color:#8a94a3;font-size:14px}
+.foot{margin-top:56px;padding-top:22px;border-top:1px solid #1c2330;text-align:center;color:#525d6f;font-size:13px;letter-spacing:1px}
+.foot b{color:#8a94a3}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="logo">7EIGHT<span>MADE</span> — STUDIO</div>
+    <div><a href="../">← 7EightMade</a> &nbsp;·&nbsp; <a href="../studio/">Studio</a></div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">7EIGHTMADE STUDIO · NEW DEMO</div>
+    <h1>Pulse.</h1>
+    <p class="tag">Your camera is the sensor. Finger, flashlight, heartbeat — live.</p>
+  </div>
+
+  <div class="timer" id="countdown">
+    <div class="t" id="clock">--:--:--</div>
+    <div class="lbl">UNTIL MIDNIGHT · CHICAGO TIME</div>
+    <noscript><p class="note">The live countdown needs JavaScript. Pulse drops at midnight Chicago time.</p></noscript>
+  </div>
+
+  <div class="live" id="liveblock">
+    <h2>It's live.</h2>
+    <p class="note">Pulse is out. Open it on your phone, turn your flashlight on, and put your finger over the camera.</p>
+    <a class="btn" href="https://muse.ai/s/pulse-web-demo-xsxs6xaxjdnqxqms/d_bnj9SP87znXkx4jvXcDaMgn9fW5shhYGPdirWRw9g" target="_blank" rel="noopener">Try Pulse now →</a>
+    <p class="note" style="margin-top:14px">Runs in your browser. Nothing is uploaded or saved.</p>
+  </div>
+
+  <div class="sec">
+    <h2>What it is</h2>
+    <p>Pulse is a 7EightMade Studio demo that turns your phone's rear camera into a heart-rate reader. No watch, no sensor band, no sign-up. Your fingertip over the lens, the flashlight on, and the camera watches the tiny color changes in your skin as blood pulses through — that's the reading.</p>
+    <p style="margin-top:12px">Seven readings, each labeled honestly for what it is:</p>
+    <ul>
+      <li><b>Heart Rate (BPM)</b><span class="badge ok">ACCURATE AT REST</span> — the headline number, from your actual pulse.</li>
+      <li><b>Live Pulse Waveform</b><span class="badge ok">RAW SIGNAL</span> — your pulse, drawn live. Not an estimate.</li>
+      <li><b>HRV</b><span class="badge est">ESTIMATE · TREND ONLY</span> — the variation between beats. Camera frame rates are too coarse for clinical precision, so this is a trend across days, not a diagnosis.</li>
+      <li><b>Breathing Rate</b><span class="badge est">ESTIMATE</span> — approximate, from the slow rise and fall in the signal.</li>
+      <li><b>Irregular Rhythm Flag</b><span class="badge flag">FLAG ONLY</span> — it can notice an irregular pattern. It cannot diagnose anything; only an ECG and a clinician can.</li>
+      <li><b>SpO2</b><span class="badge est">ESTIMATE ONLY</span> — not a measurement. Phone cameras have no infrared sensor, and it runs worse across skin tones. Only a real pulse oximeter measures it.</li>
+      <li><b>Blood Pressure</b><span class="badge est">ESTIMATE ONLY · NOT VALIDATED</span> — not a measurement. Only a cuff makes it one.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>How it works</h2>
+    <ul>
+      <li><b>1. Flashlight on.</b> Open Control Center and switch the flashlight on first — Safari can't turn it on for you, so the demo will prompt you if the signal is weak.</li>
+      <li><b>2. Fingertip over the rear camera.</b> One finger covers the lens and the flash beside it, gentle pressure.</li>
+      <li><b>3. Hold still, 15–30 seconds.</b> Warm hands help. Don't press hard, don't move.</li>
+      <li><b>4. Watch it read.</b> The waveform draws live, then the readings fill in. If the signal is poor, it tells you what to fix instead of guessing a number.</li>
+    </ul>
+    <p class="note" style="margin-top:14px">Everything is processed on your phone. Nothing is uploaded, nothing is saved.</p>
+  </div>
+
+  <div class="sec">
+    <h2>Not medical advice</h2>
+    <p class="note">7EightMade Pulse is a passion project, not a medical product. We are not doctors or medical professionals, and this app is not a medical device. It does not diagnose, treat, cure, or prevent any condition. Readings are for education, wellness, and demonstration only, and some are estimates, as labeled above. Do not use them to make health decisions. If you have a health concern, talk to a qualified healthcare professional.</p>
+  </div>
+
+  <div class="foot">7EIGHTMADE · <b>FALL DOWN 7 STAND UP 8</b><br><a href="../">7EightMade</a> · <a href="../studio/">Studio</a></div>
+</div>
+<script>
+(function(){
+  // Midnight Chicago time, Oct 29 2026. Chicago is CDT (UTC-5) until Nov 1.
+  var target = new Date('2026-10-29T05:00:00Z').getTime();
+  var clock = document.getElementById('clock');
+  var cd = document.getElementById('countdown');
+  var live = document.getElementById('liveblock');
+  function tick(){
+    var diff = target - Date.now();
+    if (diff <= 0) {
+      cd.style.display = 'none';
+      live.style.display = 'block';
+      return true;
+    }
+    var s = Math.floor(diff / 1000);
+    var h = String(Math.floor(s / 3600)).padStart(2, '0');
+    var m = String(Math.floor(s % 3600 / 60)).padStart(2, '0');
+    var sec = String(s % 60).padStart(2, '0');
+    clock.textContent = h + ':' + m + ':' + sec;
+    return false;
+  }
+  if (!tick()) { setInterval(tick, 1000); }
+})();
+</script>
+</body>
+</html>
