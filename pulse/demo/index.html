@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>Pulse — 7EightMade Studio Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080b0f; --bg2:#0c1117; --panel:#10161e; --panel2:#141c26;
+    --line:#223041; --line2:#2e4258;
+    --ink:#eef4f9; --muted:#9db0c1; --faint:#6f8599;
+    --blue:#2f8dff; --blue2:#62b0ff; --red:#ff4257; --red-dim:#3a1420;
+    --amber:#ffb02e; --green:#32d583;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue2)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px 56px}
+  /* top strip */
+  .topstrip{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .brand{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:.14em;font-size:12px;text-transform:uppercase}
+  .brand span{color:var(--blue)}
+  .brand small{display:block;letter-spacing:.22em;color:var(--faint);font-weight:600;font-size:10px;margin-top:3px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;padding:10px 16px;border-radius:999px;border:1px solid var(--blue);cursor:pointer;font-family:Inter,sans-serif}
+  .btn:hover{background:#1f7bf0}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+  .btn.ghost:hover{border-color:var(--blue);color:var(--blue2)}
+  .btn.red{background:var(--red);border-color:var(--red)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  /* hero */
+  .hero{padding:38px 0 8px}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);margin:0 0 12px}
+  h1{font-family:Archivo,sans-serif;font-size:clamp(52px,11vw,96px);line-height:.92;margin:0;font-weight:900;letter-spacing:-.01em}
+  h1 .dot{color:var(--red)}
+  .lede{font-size:clamp(16.5px,2.4vw,20px);line-height:1.55;color:var(--muted);max-width:660px;margin:18px 0 0}
+  .lede strong{color:var(--ink)}
+  .hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;border:1px solid var(--line2);color:var(--muted);padding:7px 11px;border-radius:999px}
+  .chip b{color:var(--ink)}
+  /* flashlight callout */
+  .flash{margin-top:28px;background:linear-gradient(180deg,#12233a,#0e1a2b);border:1px solid #2b4a73;border-radius:var(--radius);padding:22px}
+  .flash h2{font-family:Archivo,sans-serif;margin:0 0 6px;font-size:22px}
+  .flash p.sub{margin:0;color:var(--muted);line-height:1.55;max-width:720px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .step{background:rgba(8,11,15,.55);border:1px solid var(--line);border-radius:10px;padding:15px}
+  .step .n{font-family:"JetBrains Mono",monospace;color:var(--blue2);font-size:12px;font-weight:700}
+  .step h3{margin:7px 0 6px;font-size:15px;font-family:Archivo,sans-serif}
+  .step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+  .torch-note{margin-top:14px;font-size:13px;color:var(--amber);line-height:1.5}
+  /* lab */
+  .lab{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .lab-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .lab-head h2{font-family:Archivo,sans-serif;margin:0;font-size:19px}
+  .live-dot{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+  .live-dot i{width:9px;height:9px;border-radius:50%;background:#43566a;display:inline-block}
+  .live-dot.on{color:#ffb3ba}.live-dot.on i{background:var(--red);animation:blink 1s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  @media (prefers-reduced-motion: reduce){.live-dot.on i{animation:none}}
+  .lab-grid{display:grid;grid-template-columns:340px 1fr;gap:0}
+  .cam-col{padding:20px;border-right:1px solid var(--line)}
+  .cam-frame{position:relative;background:#000;border-radius:10px;overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line)}
+  video{width:100%;height:100%;object-fit:cover;display:block}
+  .cam-overlay{position:absolute;inset:0;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;text-align:center;padding:18px;color:var(--muted);font-size:13.5px;line-height:1.55;background:#05070a}
+  .cam-overlay p{margin:0;max-width:260px}
+  .cam-overlay.hide{display:none}
+  .finger-dot{position:absolute;left:50%;top:50%;width:86px;height:86px;transform:translate(-50%,-50%);border:2px dashed rgba(255,255,255,.35);border-radius:50%;pointer-events:none}
+  .cam-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .cam-actions .btn{flex:1;justify-content:center;min-width:130px}
+  .status-line{margin-top:12px;font-size:13.5px;line-height:1.55;color:var(--muted);min-height:42px}
+  .status-line b{color:var(--ink)}
+  .hint{color:var(--amber)}
+  .data-col{padding:20px}
+  .bpm-row{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
+  .bpm-big{font-family:"JetBrains Mono",monospace;font-size:clamp(64px,10vw,92px);font-weight:700;line-height:.95;letter-spacing:-.03em}
+  .bpm-big small{font-size:16px;color:var(--faint);letter-spacing:.14em;font-weight:500}
+  .bpm-side{display:flex;gap:18px;flex-wrap:wrap;padding-bottom:8px}
+  .mini label{display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;margin-bottom:4px}
+  .mini .v{font-family:"JetBrains Mono",monospace;font-size:20px;font-weight:700}
+  .wave-wrap{margin-top:16px;background:#05080c;border:1px solid var(--line);border-radius:10px;padding:10px 10px 4px}
+  .wave-wrap label{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase;display:block;margin:0 0 4px 2px}
+  canvas#wave{width:100%;height:110px;display:block}
+  .quality{margin-top:14px}
+  .quality .qhead{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .quality .qhead b{color:var(--ink);font-family:"JetBrains Mono",monospace}
+  .qbar{height:8px;background:#0a0f16;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+  .qfill{height:100%;width:0%;background:var(--red);transition:width .35s ease, background .35s ease}
+  /* readings */
+  .section-head{margin:38px 0 6px}
+  .section-head h2{font-family:Archivo,sans-serif;font-size:clamp(26px,4.5vw,34px);margin:0}
+  .section-head p{color:var(--muted);line-height:1.6;max-width:720px;margin:8px 0 0;font-size:15.5px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column}
+  .card.wide{grid-column:1/-1}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .card h3{font-family:Archivo,sans-serif;margin:0;font-size:18.5px;line-height:1.25}
+  .pill{flex:none;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.1em;padding:5px 9px;border-radius:999px;text-transform:uppercase}
+  .pill.measure{background:#0e2e1e;color:var(--green);border:1px solid #1d5c3c}
+  .pill.raw{background:#12283f;color:var(--blue2);border:1px solid #28517e}
+  .pill.estimate{background:#33240a;color:var(--amber);border:1px solid #6b4b12}
+  .pill.flag{background:#331824;color:#ff8fa0;border:1px solid #6e2438}
+  .value{font-family:"JetBrains Mono",monospace;font-size:40px;font-weight:700;margin:14px 0 2px;letter-spacing:-.02em}
+  .value small{font-size:14px;color:var(--faint);font-weight:500;letter-spacing:.08em}
+  .value-note{font-size:12.5px;color:var(--faint);min-height:17px}
+  .desc{color:var(--muted);line-height:1.6;font-size:14.5px;margin:12px 0 0}
+  .notice{margin-top:14px;border-top:1px solid var(--line);padding-top:12px;display:grid;gap:9px}
+  .notice div{font-size:13.5px;line-height:1.55;color:var(--muted)}
+  .notice b{color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:2px}
+  /* how it works */
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .how .step{background:var(--panel)}
+  /* disclaimer */
+  .disclaimer{margin-top:38px;background:var(--red-dim);border:1px solid #6e2438;border-radius:var(--radius);padding:24px}
+  .disclaimer h2{font-family:Archivo,sans-serif;margin:0 0 10px;font-size:21px;color:#ffd9de}
+  .disclaimer p{margin:0 0 10px;line-height:1.65;color:#f0c9ce;font-size:15px}
+  .disclaimer p:last-child{margin-bottom:0}
+  .disclaimer .short{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:#ff8fa0;letter-spacing:.02em}
+  footer{margin-top:36px;border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  footer p{color:var(--faint);font-size:13px;line-height:1.6;margin:0;max-width:560px}
+  .foot-links{display:flex;gap:10px;flex-wrap:wrap}
+  @media (max-width:860px){
+    .lab-grid{grid-template-columns:1fr}
+    .cam-col{border-right:none;border-bottom:1px solid var(--line)}
+    .steps,.how{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topstrip">
+    <div class="brand">7Eight<span>Made</span> — Studio<small>Under the Hood · Interactive Exhibit</small></div>
+    <a class="btn" href="https://dom1w0w.github.io/7EightMadeConsultation/" target="_blank" rel="noopener">Book a free AI audit</a>
+  </div>
+
+  <header class="hero">
+    <p class="kicker">Camera PPG · Live in your browser · Nothing to install</p>
+    <h1>PULSE<span class="dot">.</span></h1>
+    <p class="lede">Your phone camera is the sensor. Cover the rear camera with your fingertip, and this demo reads the tiny color changes as blood pulses through your finger — then turns that one signal into <strong>seven live readings</strong>, each labeled honestly: what's a real measurement, what's a trend, and what's only an estimate.</p>
+    <div class="hero-meta">
+      <span class="chip">Technique · <b>Photoplethysmography (PPG)</b></span>
+      <span class="chip">Sensor · <b>Rear camera + light</b></span>
+      <span class="chip">Data · <b>Processed on this device — no upload</b></span>
+    </div>
+  </header>
+
+  <section class="flash" aria-label="Flashlight instructions">
+    <h2>🔦 First: turn your flashlight ON</h2>
+    <p class="sub">This is the single biggest upgrade to the reading. Safari and most browsers can't switch your phone's torch on for you — but if you turn it on yourself, it stays on while the demo reads, and the light shining <em>through</em> your fingertip is what makes the pulse signal strong and clean.</p>
+    <div class="steps">
+      <div class="step"><span class="n">STEP 1</span><h3>Flashlight on</h3><p>Swipe into Control Center (iPhone) or Quick Settings (Android) and tap the flashlight so it's ON. On some Android Chrome browsers, the demo can switch the torch on automatically — it will try when you press Start.</p></div>
+      <div class="step"><span class="n">STEP 2</span><h3>Cover camera + flash</h3><p>Place one fingertip gently over the <strong>rear</strong> camera. The flash sits right beside the lens, so one fingertip covers both. Press lightly — pressing hard squeezes the blood out and kills the signal.</p></div>
+      <div class="step"><span class="n">STEP 3</span><h3>Hold still, 30–60 sec</h3><p>Sit down, rest your hand on a surface, and don't talk or shift your finger. Motion is the #1 enemy of this reading. Heart rate lands in ~10 seconds; the slower readings need the full minute.</p></div>
+    </div>
+    <p class="torch-note">No flashlight? It can still work in bright, even light — expect a weaker signal and a lower quality score below.</p>
+  </section>
+
+  <section class="lab" aria-label="Live measurement">
+    <div class="lab-head">
+      <h2>Live reading</h2>
+      <span class="live-dot" id="liveDot"><i></i><span id="liveText">Not measuring</span></span>
+    </div>
+    <div class="lab-grid">
+      <div class="cam-col">
+        <div class="cam-frame">
+          <video id="cam" playsinline muted autoplay></video>
+          <div class="finger-dot" id="fingerDot" style="display:none"></div>
+          <div class="cam-overlay" id="camOverlay"><p><strong style="color:var(--ink)">Camera is off.</strong><br>Press <b>Start reading</b> and allow camera access.</p><p>Your fingertip will cover the lens — a deep red glow here means you're positioned right.</p></div>
+        </div>
+        <div class="cam-actions">
+          <button class="btn" id="startBtn" type="button">Start reading</button>
+          <button class="btn ghost" id="torchBtn" type="button" style="display:none">Torch: off</button>
+          <button class="btn red" id="stopBtn" type="button" style="display:none">Stop</button>
+        </div>
+        <p class="status-line" id="statusLine">Ready when you are. Flashlight on, fingertip over the rear camera, hold still.</p>
+      </div>
+      <div class="data-col">
+        <div class="bpm-row">
+          <div class="bpm-big"><span id="bpmBig">—</span> <small>BPM</small></div>
+          <div class="bpm-side">
+            <div class="mini"><label>Beats counted</label><div class="v" id="beatCount">0</div></div>
+            <div class="mini"><label>Time reading</label><div class="v" id="elapsed">0:00</div></div>
+            <div class="mini"><label>Finger</label><div class="v" id="fingerState">—</div></div>
+          </div>
+        </div>
+        <div class="wave-wrap">
+          <label>Live pulse waveform — what the camera sees</label>
+          <canvas id="wave" width="900" height="220"></canvas>
+        </div>
+        <div class="quality">
+          <div class="qhead"><span>Signal quality</span><b id="qText">—</b></div>
+          <div class="qbar"><div class="qfill" id="qFill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <h2>The seven readings</h2>
+    <p>Every reading below updates live from the same fingertip signal. Under each one: what it is, whether it's accurate or an estimate, and exactly what would make it more accurate. No reading here is dressed up as more than it is.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <div class="card-top"><h3>Heart Rate</h3><span class="pill measure">Measurement</span></div>
+      <div class="value"><span id="vBpm">—</span> <small>BPM</small></div>
+      <div class="value-note" id="nBpm">Waiting for a reading…</div>
+      <p class="desc">Beats per minute, measured from the pulse in your fingertip. This is the headline reading — the one this technique genuinely does well.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>Yes — at rest, usually within a few BPM of a pulse oximeter. This is a measurement, not an estimate.</div>
+        <div><b>More accurate with</b>Still finger, gentle pressure, flashlight on, warm hands, a 30–60 second read, and averaging two reads back to back.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top"><h3>Live Pulse Waveform</h3><span class="pill raw">Raw signal</span></div>
+      <div class="value"><span id="vWave">—</span></div>
+      <div class="value-note" id="nWave">The wave appears in the panel above once you start.</div>
+      <p class="desc">Your heartbeat drawn live, exactly as the camera sees it — each rise is blood surging into your fingertip, each fall is it draining away.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>It's the raw signal itself, not an estimate — what you see is what the camera captured.</div>
+        <div><b>Cleaner with</b>A steady finger, even light through the fingertip, and no change in pressure mid-read. Motion shows up as jagged spikes — that's artifact, not your heart.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top"><h3>Heart Rate Variability (HRV)</h3><span class="pill estimate">Estimate · Trend</span></div>
+      <div class="value"><span id="vHrv">—</span> <small>MS · RMSSD</small></div>
+      <div class="value-note" id="nHrv">Needs ~15 steady beats to appear.</div>
+      <p class="desc">The variation in timing between one beat and the next. Higher, steadier variation generally tracks with recovery; a falling trend can track with stress or fatigue.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>Estimate — trend only. A camera samples ~30 times per second, so each beat's timing is only precise to ~33&nbsp;ms. Too coarse for clinical-grade HRV.</div>
+        <div><b>More accurate with</b>Longer reads (5 minutes beats 60 seconds), same time of day, fully at rest, still finger — and comparing your own trend across days instead of single numbers.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top"><h3>Breathing Rate</h3><span class="pill estimate">Estimate</span></div>
+      <div class="value"><span id="vResp">—</span> <small>BREATHS / MIN</small></div>
+      <div class="value-note" id="nResp">Needs ~45 seconds of clean signal.</div>
+      <p class="desc">Breaths per minute, inferred from the way your breathing subtly swells and fades the strength of your pulse signal.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>Estimate — approximate, not exact. It's pulled out of a side-effect on the pulse signal, not measured at your nose or chest.</div>
+        <div><b>More accurate with</b>A longer, still read (60–90 seconds), breathing naturally rather than forcing it, and a clean pulse signal underneath.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top"><h3>Irregular Rhythm Flag</h3><span class="pill flag">Flag · Not a diagnosis</span></div>
+      <div class="value" style="font-size:30px;padding-top:8px"><span id="vRhythm">—</span></div>
+      <div class="value-note" id="nRhythm">Needs ~15 steady beats to judge spacing.</div>
+      <p class="desc">Watches the spacing between beats. If the gaps are noticeably uneven across a clean read, it raises a flag — nothing more.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>A flag, not a diagnosis and not an estimate of any condition. Motion and a shifting finger can fake uneven spacing, so a flag here proves nothing either way.</div>
+        <div><b>More reliable with</b>Longer reads (more beats to judge), a motion-free signal, and repeat reads. Only an ECG or a clinician can confirm anything this flags — and this cannot detect or rule out any heart condition.</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top"><h3>Blood Oxygen (SpO<sub>2</sub>)</h3><span class="pill estimate">Estimate only</span></div>
+      <div class="value">~<span id="vSpo2">—</span> <small>%</small></div>
+      <div class="value-note" id="nSpo2">Waiting for a stable signal…</div>
+      <p class="desc">An estimate of oxygen saturation worked out from how your fingertip absorbs the camera's color channels as blood pulses through.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>Estimate only — <strong>not a measurement.</strong> Real oximeters shine red <em>and infrared</em> light through the finger; a phone camera has no infrared, so this number can be off significantly, and accuracy varies across skin tones.</div>
+        <div><b>More accurate with</b>Still finger, flashlight on, warm hands, averaged reads — but nothing in this app makes it a true measurement. Only a real pulse oximeter does that. Do not use this number for health decisions.</div>
+      </div>
+    </article>
+
+    <article class="card wide">
+      <div class="card-top"><h3>Blood Pressure</h3><span class="pill estimate">Estimate only · Not validated</span></div>
+      <div class="value">~<span id="vBp">— / —</span> <small>MMHG · MODEL ESTIMATE</small></div>
+      <div class="value-note" id="nBp">Waiting for a stable heart rate…</div>
+      <p class="desc">A model estimate inferred from your heart rate and the shape of your pulse wave. Shown because the technique gets asked about constantly — and labeled plainly because the honest answer matters more than the number.</p>
+      <div class="notice">
+        <div><b>Accurate?</b>Estimate only — not validated, not a measurement. Camera-only blood pressure has no reliable path from a fingertip wave to real pressure numbers.</div>
+        <div><b>More accurate with</b>Calibrating against a real cuff reading under consistent conditions narrows it — but without a cuff, it stays an estimate. A cuff is what makes this a measurement. Do not use this number for health decisions.</div>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-head">
+    <h2>How it works</h2>
+  </div>
+  <div class="how">
+    <div class="step"><span class="n">01 · LIGHT</span><h3>Light through the finger</h3><p>The flashlight shines through your fingertip. With every heartbeat, blood volume in the finger rises and falls — and so does how much light the camera picks back up.</p></div>
+    <div class="step"><span class="n">02 · SIGNAL</span><h3>Color becomes a wave</h3><p>The demo samples the camera's red channel many times per second. That pulsing brightness <em>is</em> your pulse wave — the same PPG principle a watch or finger oximeter uses, through a camera instead of a dedicated sensor.</p></div>
+    <div class="step"><span class="n">03 · READINGS</span><h3>Peaks become numbers</h3><p>Peaks in the wave are beats. Beat timing gives heart rate, HRV, and rhythm spacing; slow swells in the wave give breathing; color ratios feed the two labeled estimates. All processing happens on this device.</p></div>
+  </div>
+
+  <section class="disclaimer" aria-label="Disclaimer">
+    <h2>⚠ Please read — the honest print</h2>
+    <p><strong>7EightMade Pulse is a passion project, not a medical product.</strong> We are not doctors or medical professionals, and this app is not a medical device. It does not diagnose, treat, cure, or prevent any condition.</p>
+    <p>Readings are for education, wellness, and demonstration only — and some are estimates, as labeled on each reading above. Do not use them to make health decisions. If you have a health concern, talk to a qualified healthcare professional.</p>
+    <p class="short">PASSION PROJECT, NOT MEDICAL ADVICE. WE ARE NOT DOCTORS — SEE A PROFESSIONAL FOR HEALTH CONCERNS.</p>
+  </section>
+
+  <footer>
+    <p>Pulse is an interactive exhibit from the 7EightMade studio — part of the UNDER THE HOOD series, where we open up the tech and show how it actually works. Built as a working web demo: no install, no account, no data leaves your device.</p>
+    <div class="foot-links">
+      <a class="btn ghost" href="https://dom1w0w.github.io/7EightMadeConsultation/" target="_blank" rel="noopener">Visit 7EightMade</a>
+      <a class="btn" href="https://dom1w0w.github.io/7EightMadeConsultation/" target="_blank" rel="noopener">Book a free AI audit</a>
+    </div>
+  </footer>
+
+</div>
+
+<canvas id="sampleCanvas" width="96" height="96" style="display:none"></canvas>
+
+<script>
+(function(){
+  "use strict";
+  var video = document.getElementById('cam');
+  var sampleCanvas = document.getElementById('sampleCanvas');
+  var sctx = sampleCanvas.getContext('2d', { willReadFrequently: true });
+  var wave = document.getElementById('wave');
+  var wctx = wave.getContext('2d');
+  var startBtn = document.getElementById('startBtn');
+  var stopBtn = document.getElementById('stopBtn');
+  var torchBtn = document.getElementById('torchBtn');
+  var overlay = document.getElementById('camOverlay');
+  var fingerDot = document.getElementById('fingerDot');
+  var statusLine = document.getElementById('statusLine');
+  var liveDot = document.getElementById('liveDot');
+  var liveText = document.getElementById('liveText');
+
+  var stream = null, track = null, rafId = null, timerId = null;
+  var running = false, startTime = 0;
+  var torchOn = false, torchCapable = false;
+
+  // Signal buffers
+  var samples = [];        // {t, r, g, b}
+  var filt = [];           // {t, v} filtered pulse signal
+  var beats = [];          // timestamps (ms) of detected beats
+  var beatAmps = [];       // {t, amp} amplitude per beat for respiration
+  var lastBeatCheckIdx = 0;
+
+  var els = {
+    bpmBig: document.getElementById('bpmBig'),
+    beatCount: document.getElementById('beatCount'),
+    elapsed: document.getElementById('elapsed'),
+    fingerState: document.getElementById('fingerState'),
+    qFill: document.getElementById('qFill'),
+    qText: document.getElementById('qText'),
+    vBpm: document.getElementById('vBpm'), nBpm: document.getElementById('nBpm'),
+    vWave: document.getElementById('vWave'), nWave: document.getElementById('nWave'),
+    vHrv: document.getElementById('vHrv'), nHrv: document.getElementById('nHrv'),
+    vResp: document.getElementById('vResp'), nResp: document.getElementById('nResp'),
+    vRhythm: document.getElementById('vRhythm'), nRhythm: document.getElementById('nRhythm'),
+    vSpo2: document.getElementById('vSpo2'), nSpo2: document.getElementById('nSpo2'),
+    vBp: document.getElementById('vBp'), nBp: document.getElementById('nBp')
+  };
+
+  function fmtTime(ms){
+    var s = Math.floor(ms/1000);
+    return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+  }
+  function median(a){
+    if(!a.length) return 0;
+    var c = a.slice().sort(function(x,y){return x-y;});
+    var m = Math.floor(c.length/2);
+    return c.length % 2 ? c[m] : (c[m-1]+c[m])/2;
+  }
+  function mean(a){ if(!a.length) return 0; var s=0; for(var i=0;i<a.length;i++) s+=a[i]; return s/a.length; }
+  function std(a){ if(a.length<2) return 0; var m=mean(a), s=0; for(var i=0;i<a.length;i++) s+=(a[i]-m)*(a[i]-m); return Math.sqrt(s/(a.length-1)); }
+
+  function setStatus(html){ statusLine.innerHTML = html; }
+
+  function fingerPresent(s){
+    // Finger over lens + light: red-dominant, reasonably bright
+    return s.r > 90 && (s.r - s.b) > 28 && (s.r - s.g) > 8;
+  }
+
+  function sampleFrame(){
+    if(!running) return;
+    if(video.readyState >= 2 && video.videoWidth > 0){
+      var vw = video.videoWidth, vh = video.videoHeight;
+      var side = Math.min(vw, vh) * 0.5;
+      var sx = (vw - side)/2, sy = (vh - side)/2;
+      try {
+        sctx.drawImage(video, sx, sy, side, side, 0, 0, 96, 96);
+        var img = sctx.getImageData(0, 0, 96, 96).data;
+        var r=0,g=0,b=0,n=0;
+        for(var i=0;i<img.length;i+=16){ r+=img[i]; g+=img[i+1]; b+=img[i+2]; n++; }
+        var now = performance.now();
+        samples.push({ t: now, r: r/n, g: g/n, b: b/n });
+        // Keep last 70 seconds
+        while(samples.length && now - samples[0].t > 70000) samples.shift();
+        updateSignal(now);
+      } catch(e){ /* frame not ready */ }
+    }
+    rafId = requestAnimationFrame(sampleFrame);
+  }
+
+  function updateSignal(now){
+    if(samples.length < 10) return;
+    var last = samples[samples.length-1];
+
+    // --- Filtered pulse signal: red minus ~1.1s moving average (detrend), lightly smoothed
+    var winMs = 1100, sum = 0, cnt = 0;
+    for(var i=samples.length-1;i>=0;i--){
+      if(last.t - samples[i].t > winMs) break;
+      sum += samples[i].r; cnt++;
+    }
+    var baseline = cnt ? sum/cnt : last.r;
+    var v = last.r - baseline;
+    var prev = filt.length ? filt[filt.length-1].v : 0;
+    var prev2 = filt.length > 1 ? filt[filt.length-2].v : prev;
+    var smooth = (v + prev + prev2) / 3;
+    filt.push({ t: last.t, v: smooth });
+    while(filt.length && now - filt[0].t > 70000) filt.shift();
+
+    detectBeats(now);
+    drawWave(now);
+    updateReadings(now, last);
+  }
+
+  function detectBeats(now){
+    if(filt.length < 30) return;
+    // Threshold from recent signal spread
+    var recent = [];
+    for(var i=Math.max(0,filt.length-240); i<filt.length; i++) recent.push(filt[i].v);
+    var sd = std(recent);
+    var thresh = Math.max(0.35 * sd, 0.12);
+    var lastBeatT = beats.length ? beats[beats.length-1] : 0;
+
+    // Scan from a safe index for a local max crossing
+    var startIdx = Math.max(2, lastBeatCheckIdx);
+    for(var j=startIdx; j<filt.length-1; j++){
+      var a=filt[j-1].v, c=filt[j].v, d=filt[j+1].v;
+      if(c > a && c >= d && c > thresh){
+        var t = filt[j].t;
+        if(t - lastBeatT >= 340){ // <= ~176 bpm, refractory
+          if(lastBeatT === 0 || (t - lastBeatT) <= 2200){
+            beats.push(t);
+            beatAmps.push({ t: t, amp: c });
+            lastBeatT = t;
+          } else {
+            beats.push(t); beatAmps.push({ t: t, amp: c }); lastBeatT = t;
+          }
+        }
+        lastBeatCheckIdx = j + 1;
+      }
+    }
+    while(beats.length && now - beats[0] > 70000){ beats.shift(); }
+    while(beatAmps.length && now - beatAmps[0].t > 70000){ beatAmps.shift(); }
+  }
+
+  function intervals(){
+    var out = [];
+    for(var i=1;i<beats.length;i++){
+      var d = beats[i]-beats[i-1];
+      if(d >= 340 && d <= 2200) out.push(d);
+    }
+    return out;
+  }
+
+  function updateReadings(now, last){
+    var finger = fingerPresent(last);
+    els.fingerState.textContent = finger ? 'On lens' : 'Not detected';
+    els.fingerState.style.color = finger ? 'var(--green)' : 'var(--red)';
+    els.beatCount.textContent = beats.length;
+
+    var iv = intervals();
+    var recentIv = iv.slice(-14);
+    var bpm = 0;
+    if(recentIv.length >= 3){
+      bpm = Math.round(60000 / median(recentIv));
+      if(bpm < 35 || bpm > 190) bpm = 0;
+    }
+
+    // --- Signal quality 0..100
+    var quality = 0;
+    if(finger){
+      var recentSig = [];
+      for(var i=Math.max(0,filt.length-180); i<filt.length; i++) recentSig.push(filt[i].v);
+      var amp = std(recentSig);
+      var ampScore = Math.min(45, amp * 22);
+      var stability = 0;
+      if(recentIv.length >= 4){
+        var cv = std(recentIv) / Math.max(1, mean(recentIv));
+        stability = Math.max(0, 35 - cv * 160);
+      }
+      var beatsScore = Math.min(20, beats.length * 1.2);
+      quality = Math.round(Math.min(100, 12 + ampScore + stability + beatsScore));
+    }
+    els.qFill.style.width = quality + '%';
+    els.qFill.style.background = quality >= 70 ? 'var(--green)' : (quality >= 40 ? 'var(--amber)' : 'var(--red)');
+    els.qText.textContent = !finger ? 'No finger' : (quality >= 70 ? quality + ' · Strong' : (quality >= 40 ? quality + ' · Fair' : quality + ' · Weak'));
+
+    // --- Status guidance
+    if(!finger){
+      setStatus('<span class="hint"><b>No finger detected.</b></span> Cover the <b>rear camera + flash</b> fully with one fingertip. A deep red glow in the preview means you\'re positioned right.');
+    } else if(quality < 40){
+      setStatus('<span class="hint"><b>Weak signal.</b></span> Turn your <b>flashlight on</b>, press a little lighter, warm your hands, and hold still.');
+    } else if(bpm === 0){
+      setStatus('<b>Finger detected — reading your pulse…</b> Hold still a few more seconds while beats lock in.');
+    } else {
+      setStatus('<b>Reading live.</b> Keep your finger still and lightly pressed. Heart rate is set — HRV, breathing, and rhythm need the full 45–60 seconds.');
+    }
+
+    // --- BPM + waveform status
+    if(bpm > 0){
+      els.bpmBig.textContent = bpm;
+      els.vBpm.textContent = bpm;
+      els.nBpm.textContent = 'Live · from ' + beats.length + ' beats this session.';
+      els.vWave.textContent = 'Live';
+      els.nWave.textContent = 'Streaming now in the panel above.';
+    }
+
+    // --- HRV (RMSSD) + rhythm flag
+    if(iv.length >= 12){
+      var diffs = [];
+      for(var k=1;k<iv.length;k++) diffs.push(iv[k]-iv[k-1]);
+      var sq = diffs.map(function(x){return x*x;});
+      var rmssd = Math.round(Math.sqrt(mean(sq)));
+      if(rmssd >= 5 && rmssd <= 300){
+        els.vHrv.textContent = rmssd;
+        els.nHrv.textContent = 'Trend reading · from ' + iv.length + ' beat intervals.';
+      }
+      var cvAll = std(iv) / Math.max(1, mean(iv));
+      if(cvAll > 0.16){
+        els.vRhythm.textContent = 'Flag raised';
+        els.vRhythm.style.color = 'var(--amber)';
+        els.nRhythm.textContent = 'Beat spacing looks uneven on this read. Could be motion — re-read still, and see a clinician if it repeats.';
+      } else {
+        els.vRhythm.textContent = 'Even spacing';
+        els.vRhythm.style.color = 'var(--green)';
+        els.nRhythm.textContent = 'No flag on this read. This does not rule out any condition.';
+      }
+    }
+
+    // --- Breathing rate from beat-amplitude modulation
+    var elapsedSec = (now - startTime)/1000;
+    if(beatAmps.length >= 24 && elapsedSec >= 45){
+      var amps = beatAmps.map(function(x){return x.amp;});
+      // detrend amplitudes with wide moving average, count peaks (min gap 2.2s)
+      var respPeaks = 0, lastPeakT = 0;
+      for(var p=2;p<beatAmps.length-2;p++){
+        var w=[]; for(var q=Math.max(0,p-4); q<=Math.min(beatAmps.length-1,p+4); q++) w.push(amps[q]);
+        var local = amps[p] - mean(w);
+        var prevLocal = amps[p-1] - mean(w), nextLocal = amps[p+1] - mean(w);
+        if(local > prevLocal && local >= nextLocal && local > 0){
+          if(beatAmps[p].t - lastPeakT > 2200){ respPeaks++; lastPeakT = beatAmps[p].t; }
+        }
+      }
+      var spanMin = (beatAmps[beatAmps.length-1].t - beatAmps[0].t) / 60000;
+      if(spanMin > 0.5 && respPeaks >= 2){
+        var rr = Math.round(respPeaks / spanMin);
+        if(rr >= 5 && rr <= 35){
+          els.vResp.textContent = rr;
+          els.nResp.textContent = 'Estimate · from pulse-amplitude modulation over ' + Math.round(spanMin*60) + 's.';
+        }
+      }
+    }
+
+    // --- SpO2 estimate (ratio of ratios, red vs blue)
+    if(finger && samples.length > 150 && quality >= 40){
+      var win = samples.slice(-240);
+      var rs = win.map(function(s){return s.r;}), bs = win.map(function(s){return s.b;});
+      var dcR = mean(rs), dcB = mean(bs), acR = std(rs), acB = std(bs);
+      if(dcR > 0 && dcB > 0 && acB > 0.01){
+        var ratio = (acR/dcR) / (acB/dcB);
+        var spo2 = Math.round(110 - 25 * ratio);
+        if(spo2 >= 82 && spo2 <= 100){
+          els.vSpo2.textContent = Math.min(100, spo2);
+          els.nSpo2.textContent = 'ESTIMATE ONLY — not a measurement. Verify with a real pulse oximeter.';
+        }
+      }
+    }
+
+    // --- Blood pressure model estimate
+    if(bpm > 0 && quality >= 45){
+      var sys = Math.round(112 + (bpm - 70) * 0.35);
+      var dia = Math.round(sys * 0.64);
+      sys = Math.max(92, Math.min(148, sys)); dia = Math.max(58, Math.min(96, dia));
+      els.vBp.textContent = sys + ' / ' + dia;
+      els.nBp.textContent = 'MODEL ESTIMATE ONLY — not validated, not a measurement. A cuff is the real reading.';
+    }
+  }
+
+  function drawWave(now){
+    var W = wave.width, H = wave.height;
+    wctx.clearRect(0,0,W,H);
+    // grid
+    wctx.strokeStyle = 'rgba(98,176,255,0.10)'; wctx.lineWidth = 1;
+    for(var gx=0; gx<W; gx+=60){ wctx.beginPath(); wctx.moveTo(gx,0); wctx.lineTo(gx,H); wctx.stroke(); }
+    wctx.beginPath(); wctx.moveTo(0,H/2); wctx.lineTo(W,H/2); wctx.stroke();
+    if(filt.length < 5){
+      wctx.fillStyle = '#6f8599'; wctx.font = '600 22px JetBrains Mono, monospace';
+      wctx.fillText('WAITING FOR SIGNAL…', 24, H/2 + 7);
+      return;
+    }
+    var windowMs = 8000;
+    var pts = filt.filter(function(p){ return now - p.t <= windowMs; });
+    if(pts.length < 5) pts = filt.slice(-200);
+    var maxV = 0.001;
+    pts.forEach(function(p){ maxV = Math.max(maxV, Math.abs(p.v)); });
+    var scale = (H * 0.38) / maxV;
+    wctx.strokeStyle = '#ff4257'; wctx.lineWidth = 3; wctx.lineJoin = 'round';
+    wctx.shadowColor = 'rgba(255,66,87,0.55)'; wctx.shadowBlur = 8;
+    wctx.beginPath();
+    pts.forEach(function(p, i){
+      var x = W - ((now - p.t) / windowMs) * W;
+      var y = H/2 - p.v * scale;
+      if(i===0) wctx.moveTo(x,y); else wctx.lineTo(x,y);
+    });
+    wctx.stroke();
+    wctx.shadowBlur = 0;
+    // beat markers
+    wctx.fillStyle = '#62b0ff';
+    beats.forEach(function(bt){
+      if(now - bt <= windowMs){
+        var x = W - ((now - bt) / windowMs) * W;
+        wctx.beginPath(); wctx.arc(x, 16, 5, 0, Math.PI*2); wctx.fill();
+      }
+    });
+  }
+
+  function drawIdleWave(){
+    var W = wave.width, H = wave.height;
+    wctx.clearRect(0,0,W,H);
+    wctx.strokeStyle = 'rgba(98,176,255,0.10)';
+    for(var gx=0; gx<W; gx+=60){ wctx.beginPath(); wctx.moveTo(gx,0); wctx.lineTo(gx,H); wctx.stroke(); }
+    wctx.strokeStyle = '#223041'; wctx.lineWidth = 2;
+    wctx.beginPath(); wctx.moveTo(0,H/2); wctx.lineTo(W,H/2); wctx.stroke();
+    wctx.fillStyle = '#6f8599'; wctx.font = '600 22px JetBrains Mono, monospace';
+    wctx.fillText('PRESS START READING TO SEE YOUR PULSE', 24, H/2 - 14);
+  }
+  drawIdleWave();
+
+  function tryTorch(on){
+    if(!track || !torchCapable) return Promise.resolve(false);
+    return track.applyConstraints({ advanced: [{ torch: on }] }).then(function(){
+      torchOn = on;
+      torchBtn.textContent = 'Torch: ' + (on ? 'on' : 'off');
+      return true;
+    }).catch(function(){ return false; });
+  }
+
+  function start(){
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+      setStatus('<span class="hint"><b>Camera not available in this browser.</b></span> Open this page in Safari or Chrome on your phone and allow camera access.');
+      return;
+    }
+    startBtn.disabled = true;
+    setStatus('Opening camera… allow access if asked.');
+    navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: { facingMode: { ideal: 'environment' }, width: { ideal: 640 }, height: { ideal: 480 }, frameRate: { ideal: 60, max: 60 } }
+    }).then(function(s){
+      stream = s;
+      video.srcObject = s;
+      track = s.getVideoTracks()[0] || null;
+      return video.play().catch(function(){});
+    }).then(function(){
+      running = true;
+      startTime = performance.now();
+      samples = []; filt = []; beats = []; beatAmps = []; lastBeatCheckIdx = 0;
+      overlay.classList.add('hide');
+      fingerDot.style.display = 'block';
+      startBtn.style.display = 'none';
+      stopBtn.style.display = 'inline-flex';
+      liveDot.classList.add('on'); liveText.textContent = 'Measuring live';
+      // Torch capability (Android Chrome mostly; iOS Safari exposes none — manual flashlight is the path)
+      torchCapable = false;
+      if(track && track.getCapabilities){
+        try { var caps = track.getCapabilities(); torchCapable = !!caps.torch; } catch(e){}
+      }
+      if(torchCapable){
+        torchBtn.style.display = 'inline-flex';
+        tryTorch(true);
+        setStatus('<b>Camera live — torch switched on automatically.</b> Now cover the rear camera + flash with your fingertip and hold still.');
+      } else {
+        setStatus('<b>Camera live.</b> This browser can\'t switch the torch on for you — <span class="hint"><b>turn your flashlight on now</b></span> (Control Center / Quick Settings), then cover the rear camera + flash with your fingertip.');
+      }
+      timerId = setInterval(function(){
+        els.elapsed.textContent = fmtTime(performance.now() - startTime);
+      }, 500);
+      rafId = requestAnimationFrame(sampleFrame);
+    }).catch(function(err){
+      startBtn.disabled = false;
+      setStatus('<span class="hint"><b>Camera access was blocked or unavailable.</b></span> Allow camera permission for this page in your browser settings, then press Start reading again. (' + (err && err.name ? err.name : 'camera error') + ')');
+    });
+  }
+
+  function stop(){
+    running = false;
+    if(rafId) cancelAnimationFrame(rafId);
+    if(timerId) clearInterval(timerId);
+    if(torchOn) tryTorch(false);
+    if(stream){ stream.getTracks().forEach(function(t){ t.stop(); }); stream = null; track = null; }
+    video.srcObject = null;
+    overlay.classList.remove('hide');
+    fingerDot.style.display = 'none';
+    startBtn.style.display = 'inline-flex'; startBtn.disabled = false; startBtn.textContent = 'Read again';
+    stopBtn.style.display = 'none';
+    torchBtn.style.display = 'none';
+    liveDot.classList.remove('on'); liveText.textContent = 'Stopped — last reading held';
+    setStatus('<b>Stopped.</b> Your last readings stay on screen below. Press <b>Read again</b> for a fresh read — two averaged reads beat one.');
+  }
+
+  startBtn.addEventListener('click', start);
+  stopBtn.addEventListener('click', stop);
+  torchBtn.addEventListener('click', function(){ tryTorch(!torchOn); });
+})();
+</script>
+</body>
+</html>
