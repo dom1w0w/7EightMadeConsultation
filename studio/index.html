@@ -48,7 +48,7 @@
   <script>
   (function(){
     var target = new Date('2026-10-29T11:00:00Z').getTime();
-    var demo = 'https://muse.ai/s/pulse-web-demo-xsxs6xaxjdnqxqms/d_bnj9SP87znXkx4jvXcDaMgn9fW5shhYGPdirWRw9g';
+    var demo = '../pulse/demo/';
     var el = document.getElementById('pulse-banner');
     function render(){
       var now = Date.now();
@@ -195,9 +195,9 @@
         <article id="pulse-card" class="card card--pulse" style="display:none">
             <div class="card__body">
               <p class="card__kick">Studio demo \u00b7 Your camera is the sensor</p>
-              <h3 class="card__title"><a href="https://muse.ai/s/pulse-web-demo-xsxs6xaxjdnqxqms/d_bnj9SP87znXkx4jvXcDaMgn9fW5shhYGPdirWRw9g" target="_blank" rel="noopener">Pulse</a></h3>
+              <h3 class="card__title"><a href="../pulse/demo/" target="_blank" rel="noopener">Pulse</a></h3>
               <p>Finger, flashlight, heartbeat \u2014 live. Heart rate, pulse waveform, and honest estimates, right from your phone camera.</p>
-              <div class="card__links"><a class="pill pill--fill" href="https://muse.ai/s/pulse-web-demo-xsxs6xaxjdnqxqms/d_bnj9SP87znXkx4jvXcDaMgn9fW5shhYGPdirWRw9g" target="_blank" rel="noopener">Try it<span class="sr-only"> (opens in a new tab)</span></a><a class="pill" href="../pulse/">About</a></div>
+              <div class="card__links"><a class="pill pill--fill" href="../pulse/demo/" target="_blank" rel="noopener">Try it<span class="sr-only"> (opens in a new tab)</span></a><a class="pill" href="../pulse/">About</a></div>
             </div>
           </article>
         <article id="business-tools" class="card card--till">
@@ -312,5 +312,8 @@
   </footer>
 
   <script src="home.js" defer></script>
+
+<!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
 </body>
 </html>
