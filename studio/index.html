@@ -53,7 +53,7 @@
     function render(){
       var now = Date.now();
       if (now >= target) {
-        el.innerHTML = '<a href="' + demo + '" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">PULSE IS LIVE \u2014 Your camera is the sensor. Try it now \u2192</a>';
+        el.innerHTML = '<a href="../pulse/demo/" style="color:#fff;text-decoration:underline">PULSE IS LIVE \u2014 Your camera is the sensor. Try it now \u2192</a>';
       } else {
         var s = Math.max(0, Math.floor((target - now) / 1000));
         var h = String(Math.floor(s / 3600)).padStart(2, '0');
