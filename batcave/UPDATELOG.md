@@ -70,3 +70,7 @@
 - Entry gate: the whole batcave now starts locked behind a full-page terminal overlay ("BAT COMPUTER // RESTRICTED ACCESS", "who's there?", passphrase + [UNLOCK]). Crypto refactored into one shared `BatcaveAuth.verify` (same PBKDF2-SHA256/AES-GCM-256 as dom-times-live, verify-only, nothing stored). Unlock fades the overlay and reveals the bat computer + table of contents; reload re-locks.
 - The in-bar gate stays as the second layer: the 4 private rows (dom-times, dom-times-archive, team, watch) still need the in-bar passphrase after entry unlock.
 - Studio nav: "Batcave" link added to the studio menu bar (studio/index.html → ../batcave/, studio/art/index.html → ../../batcave/).
+
+## 2026-11-03 — Inferno returns to batcave workout player
+- 2-minute Inferno preset re-added to the session picker (was stripped in the Oct 27 basics-only cut, restored per Dom's Nov 2 ask): 6 rounds x 20s continuous, zero rest — Push Pulls → Mountain Climbers → Front Clips → Push-Ups → Back Clips → Russian Twist finisher. 120s of work in 120s; muscle-group rotation is the recovery.
+- Matches the optimized Inferno rebuilt in the workout-log app the same night.
