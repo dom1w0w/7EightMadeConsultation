@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>Echo — 7EightMade Studio Demo</title>
+<meta name="description" content="Echo: your microphone is the sensor. One clap reveals the room. Processed on your phone, nothing uploaded or saved." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080b0f; --bg2:#0c1117; --panel:#10161e; --panel2:#141c26;
+    --line:#223041; --line2:#2e4258;
+    --ink:#eef4f9; --muted:#9db0c1; --faint:#6f8599;
+    --amber:#f2b23e; --amber2:#ffd27a; --blue:#2f8dff; --blue2:#62b0ff;
+    --red:#ff4257; --green:#32d583;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue2)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px}
+  .topstrip{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .brand{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:.14em;font-size:12px;text-transform:uppercase}
+  .brand span{color:var(--amber)}
+  .brand small{display:block;letter-spacing:.22em;color:var(--faint);font-weight:600;font-size:10px;margin-top:3px}
+  .topstrip nav a{color:var(--muted);text-decoration:none;font-size:13px;margin-left:16px}
+  .topstrip nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--amber);color:#1a1200;text-decoration:none;font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;border:1px solid var(--amber);cursor:pointer;font-family:Inter,sans-serif}
+  .btn:hover{background:var(--amber2)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+  .btn.ghost:hover{border-color:var(--amber);color:var(--amber2)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.small{font-size:13.5px;padding:10px 18px}
+  /* chamber */
+  .chamber{text-align:center;padding:44px 0 8px}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:0 0 12px}
+  h1{font-family:Archivo,sans-serif;font-size:clamp(56px,13vw,96px);line-height:.92;margin:0;font-weight:900;letter-spacing:-.01em}
+  h1 .dot{color:var(--amber)}
+  .lede{font-size:clamp(16.5px,2.4vw,20px);line-height:1.55;color:var(--muted);max-width:600px;margin:18px auto 0}
+  .lede strong{color:var(--ink)}
+  .stage{position:relative;width:min(320px,86vw);height:min(320px,86vw);margin:34px auto 10px}
+  #liveCanvas{width:100%;height:100%;display:block;border-radius:50%}
+  .ring{position:absolute;inset:0;border:1px solid var(--line2);border-radius:50%;pointer-events:none}
+  .ring.armed{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 0 44px rgba(242,178,62,.25)}
+  .ring.live{border-color:var(--amber2);box-shadow:0 0 0 1px var(--amber2),0 0 60px rgba(242,178,62,.35)}
+  .stage-caption{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);pointer-events:none;padding:0 34px}
+  .stage-caption .big{font-family:Archivo,sans-serif;font-weight:800;font-size:21px;line-height:1.25}
+  .stage-caption .small{color:var(--muted);font-size:13.5px;margin-top:8px;line-height:1.5}
+  .phase{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.08em;color:var(--muted);min-height:20px;margin:14px 0 6px}
+  .phase b{color:var(--amber2)}
+  .controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .micline{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);margin-top:16px;line-height:1.7}
+  .micline b{color:var(--muted)}
+  /* panels */
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;margin-top:26px}
+  .panel h2{font-family:Archivo,sans-serif;font-size:24px;margin:0 0 4px;font-weight:800}
+  .panel h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:22px 0 10px}
+  .panel p{color:var(--muted);font-size:15px;line-height:1.6;margin:8px 0}
+  .panel p strong{color:var(--ink)}
+  canvas.chart{width:100%;display:block;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+  .tail-big{font-family:"JetBrains Mono",monospace;font-size:15px;color:var(--ink);margin:6px 0 2px}
+  .tail-big b{color:var(--amber2);font-size:22px}
+  .pill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.12em;padding:4px 12px;border-radius:99px;border:1px solid var(--amber);color:var(--amber2);margin-top:8px}
+  .fine{font-size:12.5px;color:var(--faint);line-height:1.6}
+  .roomname{margin-top:14px}
+  .roomname label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .roomname input{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:10px;color:var(--ink);font-family:Inter,sans-serif;font-size:16px;padding:11px 14px;outline:none}
+  .roomname input:focus{border-color:var(--amber)}
+  .sig{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#0a0d12}
+  .err{border-color:#5a1f28;background:#1a0d10}
+  .err h2{color:#ffb4bd}
+  .err p{color:#d99aa2}
+  .note{color:var(--faint);font-size:13px;line-height:1.6}
+  .foot{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);text-align:center;color:#525d6f;font-size:13px;letter-spacing:1px;line-height:1.9}
+  .foot b{color:#8a94a3}
+  .hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topstrip">
+    <div class="brand">7EIGHT<span>MADE</span> — STUDIO<small>ECHO · CLAP MODE</small></div>
+    <nav><a href="../">← 7EightMade</a><a href="../studio/">Studio</a><a href="../pulse/demo/">Pulse</a></nav>
+  </div>
+
+  <div class="chamber">
+    <p class="kicker">7EightMade Studio · Sound Experiment</p>
+    <h1>Echo<span class="dot">.</span></h1>
+    <p class="lede">Your microphone is the sensor. <strong>One clap reveals the room.</strong></p>
+
+    <div class="stage">
+      <canvas id="liveCanvas" width="640" height="640"></canvas>
+      <div class="ring" id="ring"></div>
+      <div class="stage-caption" id="stageCaption">
+        <div class="big">Make the room answer.</div>
+        <div class="small">One clap. No speaker, no sweep, no playback.</div>
+      </div>
+    </div>
+
+    <div class="phase" id="phase">Microphone is off. Nothing is recorded until you start.</div>
+
+    <div class="controls">
+      <button class="btn" id="startBtn">Start listening</button>
+      <button class="btn ghost hidden" id="cancelBtn">Stop</button>
+    </div>
+    <div class="micline hidden" id="micLine"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="panel hidden" id="resultPanel">
+    <h2 id="resultTitle">Your room answered.</h2>
+    <p id="resultSub">One clap, captured live on this phone. Nothing was uploaded or saved.</p>
+
+    <div class="roomname">
+      <label for="roomName">Room name — optional</label>
+      <input id="roomName" type="text" maxlength="40" placeholder="e.g. Living room" autocomplete="off" />
+    </div>
+
+    <h3>Clap waveform · 500 ms</h3>
+    <canvas class="chart" id="waveCanvas" width="1200" height="280"></canvas>
+    <p class="fine">Raw captured sound around the clap — 100 ms before it, 400 ms after. This is the recording itself, not an interpretation.</p>
+
+    <h3>Approximate tail</h3>
+    <div class="tail-big">Tail ≈ <b id="tailValue">—</b></div>
+    <div><span class="pill" id="tailPill">—</span></div>
+    <p class="fine" id="tailNote">Approximate broadband tail, clap + this phone. A relative experiment, not a room quality grade — and not a calibrated RT60 measurement. The clap itself can affect the reading.</p>
+
+    <h3>Sound energy fading after the clap</h3>
+    <canvas class="chart" id="decayCanvas" width="1200" height="360"></canvas>
+    <p class="fine">Energy decay curve (Schroeder backward integral). The straight line is the fit from −5 to −25&nbsp;dB, extrapolated to a 60&nbsp;dB decay as 3&nbsp;×&nbsp;T20.</p>
+
+    <h3>Echo Signature</h3>
+    <div id="sigWrap"></div>
+    <p class="fine">Drawn from your actual capture — the rings follow the room's decay, the ribbon is your clap. Every room draws a different one.</p>
+
+    <div class="controls" style="justify-content:flex-start;margin-top:22px">
+      <button class="btn" id="againBtn">Listen in this room again</button>
+      <button class="btn ghost" id="curtainsBtn">Add curtains / pillows and retest</button>
+      <button class="btn ghost" id="saveBtn">Save artwork</button>
+    </div>
+  </div>
+
+  <!-- ERROR -->
+  <div class="panel err hidden" id="errorPanel">
+    <h2 id="errorTitle">No result this time.</h2>
+    <p id="errorBody">Something went wrong. Try again.</p>
+    <div class="controls" style="justify-content:flex-start;margin-top:18px">
+      <button class="btn" id="retryBtn">Try again</button>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:34px">
+    <h2 style="font-size:19px">How it works</h2>
+    <p><strong>Direct sound</strong> is the clap travelling straight from your hands to the phone. <strong>Reflected sound</strong> is the same clap bouncing off walls, floor, ceiling and furniture, arriving a fraction later, over and over, each time a little quieter. Echo listens to that fading trail and draws it.</p>
+    <p class="note">Processed on your phone. Your recording is not uploaded or saved — it lives only in this tab, and refreshing or closing the tab removes it. The microphone is off until you press Start listening, and it switches off again the moment the capture ends. Microphone audio is never played back through the speaker.</p>
+  </div>
+
+  <div class="foot">7EIGHTMADE · <b>FALL DOWN 7 STAND UP 8</b><br><a href="../">7EightMade</a> · <a href="../studio/">Studio</a> · <a href="../pulse/demo/">Pulse</a></div>
+</div>
+<script>
+'use strict';
+
+/* ============ Echo core milestone: mic capture + clap waveform + approximate tail + signature art + mic shutdown ============ */
+const $ = id => document.getElementById(id);
+const startBtn=$('startBtn'), cancelBtn=$('cancelBtn'), phaseEl=$('phase'),
+  ring=$('ring'), caption=$('stageCaption'), micLine=$('micLine'),
+  resultPanel=$('resultPanel'), errorPanel=$('errorPanel'),
+  liveCanvas=$('liveCanvas'), liveCtx=liveCanvas.getContext('2d');
+
+const TAIL_LABELS=[[0.35,'SHORT TAIL'],[0.75,'MEDIUM TAIL'],[Infinity,'LONG TAIL']];
+function tailLabel(t){ for(const [max,l] of TAIL_LABELS){ if(t<max) return l; } return 'LONG TAIL'; }
+
+let audioCtx=null, stream=null, source=null, procNode=null, workletReady=false;
+let sampleRate=48000;
+let session=null, sessionLen=0, sessionCap=0;      // contiguous capture buffer
+let phase='idle';                                    // idle|quiet|armed|capturing|processing|done|error
+let quietSumSq=0, quietCount=0, noiseFloorRMS=0;
+let clapIndex=-1, clapPeak=0, clippedSamples=0, secondClap=false;
+let armedAt=0, quietUntil=0;
+let liveBuf=new Float32Array(0);
+let rafId=0, statusTimer=0, statusStep=0;
+let lastSigSVG='', lastTail=null;
+
+const STATUS_ROT=['Hearing the first return…','Reading the tail…','Drawing your room…'];
+
+function setPhase(t){ phaseEl.innerHTML=t; }
+function show(el){ el.classList.remove('hidden'); }
+function hide(el){ el.classList.add('hidden'); }
+
+function fmtDb(x){ return (x>=0?'+':'')+x.toFixed(1); }
+
+/* ---------- live circle drawing ---------- */
+function drawLive(){
+  const W=liveCanvas.width, H=liveCanvas.height, cx=W/2, cy=H/2, R=W/2-8;
+  liveCtx.clearRect(0,0,W,H);
+  liveCtx.save();
+  liveCtx.beginPath(); liveCtx.arc(cx,cy,R,0,Math.PI*2); liveCtx.clip();
+  // faint chamber fill
+  const g=liveCtx.createRadialGradient(cx,cy,10,cx,cy,R);
+  g.addColorStop(0,'rgba(242,178,62,0.10)');
+  g.addColorStop(0.7,'rgba(242,178,62,0.02)');
+  g.addColorStop(1,'rgba(0,0,0,0)');
+  liveCtx.fillStyle=g; liveCtx.fillRect(0,0,W,H);
+  // waveform trace across the circle
+  const n=liveBuf.length;
+  if(n>16){
+    liveCtx.strokeStyle = phase==='armed'||phase==='capturing' ? '#ffd27a' : 'rgba(157,176,193,0.55)';
+    liveCtx.lineWidth=3; liveCtx.beginPath();
+    const step=Math.max(1, Math.floor(n/(R*2)));
+    for(let px=-R; px<=R; px+=2){
+      const idx=Math.floor((px+R)/(R*2)*(n-1));
+      const v=liveBuf[idx]||0;
+      const y=cy + Math.max(-R+6, Math.min(R-6, v*R*1.4));
+      if(px===-R) liveCtx.moveTo(cx+px,y); else liveCtx.lineTo(cx+px,y);
+    }
+    liveCtx.stroke();
+  }
+  // center dot
+  liveCtx.fillStyle = phase==='armed' ? '#f2b23e' : '#6f8599';
+  liveCtx.beginPath(); liveCtx.arc(cx,cy,5,0,Math.PI*2); liveCtx.fill();
+  liveCtx.restore();
+  if(phase==='armed'||phase==='capturing'||phase==='quiet') rafId=requestAnimationFrame(drawLive);
+}
+
+/* ---------- session buffer ---------- */
+function sessionEnsure(extra){
+  const need=sessionLen+extra;
+  if(need<=sessionCap) return;
+  let cap=Math.max(48000*11, sessionCap*2, need);
+  const nb=new Float32Array(cap);
+  if(session) nb.set(session.subarray(0,sessionLen));
+  session=nb; sessionCap=cap;
+}
+function sessionPush(chunk){
+  sessionEnsure(chunk.length);
+  session.set(chunk, sessionLen);
+  sessionLen+=chunk.length;
+  // live viz: keep last 0.4 s
+  const keep=Math.floor(sampleRate*0.4);
+  const all=session.subarray(Math.max(0,sessionLen-keep), sessionLen);
+  liveBuf=new Float32Array(all);
+}
+
+/* ---------- mic setup ---------- */
+const WORKLET_SRC=`class EchoCap extends AudioWorkletProcessor{
+  constructor(){ super(); this.acc=[]; this.len=0; }
+  process(inputs){
+    const ch=inputs[0]&&inputs[0][0];
+    if(ch){
+      const c=new Float32Array(ch); this.acc.push(c); this.len+=ch.length;
+      if(this.len>=4096){
+        const out=new Float32Array(this.len); let o=0;
+        for(const a of this.acc){ out.set(a,o); o+=a.length; }
+        this.acc=[]; this.len=0;
+        this.port.postMessage(out,[out.buffer]);
+      }
+    }
+    return true;
+  }
+}
+registerProcessor('echo-cap',EchoCap);`;
+
+async function startListening(){
+  if(!window.isSecureContext){ return fail('not-secure','This page needs HTTPS','Echo can only use the microphone over a secure connection. This site is served over HTTPS — if you opened a local copy, use the live link instead.'); }
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){ return fail('no-mic','Microphone unavailable','This browser does not expose microphone access. Try Safari or Chrome on your phone.'); }
+  hide(resultPanel); hide(errorPanel);
+  setPhase('Asking for the microphone…');
+  startBtn.disabled=true;
+  try{
+    stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false},video:false});
+  }catch(e){
+    startBtn.disabled=false;
+    return fail('denied','Microphone permission was not granted','Echo cannot listen without microphone access. Allow it in the browser prompt, or check your browser and system microphone settings, then try again.');
+  }
+  const track=stream.getAudioTracks()[0];
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(audioCtx.state==='suspended'){ try{ await audioCtx.resume(); }catch(e){} }
+  sampleRate=audioCtx.sampleRate;
+  source=audioCtx.createMediaStreamSource(stream);
+  // reset capture state
+  session=null; sessionLen=0; sessionCap=0;
+  quietSumSq=0; quietCount=0; noiseFloorRMS=0;
+  clapIndex=-1; clapPeak=0; clippedSamples=0; secondClap=false;
+  liveBuf=new Float32Array(0);
+  // mic settings line (actual state, not requested state)
+  const s=track.getSettings?track.getSettings():{};
+  const proc=[];
+  proc.push('echo cancellation '+(s.echoCancellation===undefined?'?':(s.echoCancellation?'ON':'off')));
+  proc.push('noise suppression '+(s.noiseSuppression===undefined?'?':(s.noiseSuppression?'ON':'off')));
+  proc.push('auto gain '+(s.autoGainControl===undefined?'?':(s.autoGainControl?'ON':'off')));
+  const processingOn=(s.echoCancellation===true||s.noiseSuppression===true||s.autoGainControl===true);
+  micLine.innerHTML='Mic: <b>'+sampleRate.toLocaleString()+' Hz · '+(s.channelCount||1)+' ch</b> · '+proc.join(' · ')+(processingOn?'<br>Your phone applied its own voice processing — the tail below is a rough sketch, treat it as such.':'');
+  show(micLine);
+  // connect capture node (never to audible output)
+  try{
+    const blob=new Blob([WORKLET_SRC],{type:'application/javascript'});
+    await audioCtx.audioWorklet.addModule(URL.createObjectURL(blob));
+    procNode=new AudioWorkletNode(audioCtx,'echo-cap');
+    procNode.port.onmessage=e=>onAudio(e.data);
+    source.connect(procNode);
+    workletReady=true;
+  }catch(e){
+    workletReady=false;
+    procNode=audioCtx.createScriptProcessor(4096,1,1);
+    procNode.onaudioprocess=ev=>onAudio(new Float32Array(ev.inputBuffer.getChannelData(0)));
+    source.connect(procNode);
+    procNode.connect(audioCtx.destination); // ScriptProcessor needs a destination link to run; mic is NOT routed to it — only the processor taps the stream
+  }
+  // quiet sampling phase
+  phase='quiet';
+  ring.className='ring';
+  caption.innerHTML='<div class="big">Let the room get quiet…</div><div class="small">Sampling the background noise for one second.</div>';
+  setPhase('<b>Sampling background noise…</b> hold still, stay quiet.');
+  show(cancelBtn); startBtn.disabled=true;
+  quietUntil=performance.now()+1000;
+  rafId=requestAnimationFrame(drawLive);
+}
+
+function onAudio(chunk){
+  if(phase==='done'||phase==='error'||phase==='idle') return;
+  sessionPush(chunk);
+  // clipping scan
+  for(let i=0;i<chunk.length;i++){ if(Math.abs(chunk[i])>=0.99) clippedSamples++; }
+  const now=performance.now();
+  if(phase==='quiet'){
+    for(let i=0;i<chunk.length;i++){ quietSumSq+=chunk[i]*chunk[i]; }
+    quietCount+=chunk.length;
+    if(now>=quietUntil){
+      noiseFloorRMS=Math.sqrt(quietSumSq/Math.max(1,quietCount));
+      if(noiseFloorRMS>0.015){
+        shutdownMic();
+        return fail('noisy','Too noisy in here','Background noise is too loud to hear a clean clap ('+fmtDb(20*Math.log10(noiseFloorRMS))+' dBFS). Move somewhere quieter, close windows, turn off fans, and try again.');
+      }
+      phase='armed'; armedAt=now;
+      ring.className='ring armed';
+      caption.innerHTML='<div class="big">Clap once, near the phone.</div><div class="small">One sharp clap — then stay quiet while the room answers.</div>';
+      setPhase('<b>Listening…</b> clap once, near the phone. 5 seconds.');
+    }
+    return;
+  }
+  if(phase==='armed'){
+    const hit=scanOnset(sessionLen-chunk.length, sessionLen, 8*Math.max(noiseFloorRMS,0.0015));
+    if(hit>=0){
+      clapIndex=hit; clapPeak=peakNear(hit);
+      phase='capturing';
+      ring.className='ring live';
+      caption.innerHTML='<div class="big">Heard it.</div><div class="small">Recording the room’s answer…</div>';
+      setPhase('<b>Clap captured.</b> Recording the tail — stay quiet.');
+    }else if(now-armedAt>5000){
+      shutdownMic();
+      return fail('noclap','No clap heard','Nothing sharp enough crossed the threshold in five seconds. Clap once, close to the phone, with a quick dry snap — not a soft pat — and try again.');
+    }
+    return;
+  }
+  if(phase==='capturing'){
+    // second-clap watch (refractory 150 ms, needs to be at least half as loud as the first)
+    const from=clapIndex+Math.floor(sampleRate*0.15);
+    const start=Math.max(from, sessionLen-chunk.length);
+    if(sessionLen>from){
+      const hit=scanOnset(start, sessionLen, Math.max(0.5*clapPeak, 8*Math.max(noiseFloorRMS,0.0015)));
+      if(hit>=0) secondClap=true;
+    }
+    if(sessionLen>=clapIndex+Math.floor(sampleRate*4)){
+      shutdownMic();
+      analyze();
+    }
+  }
+}
+
+/* sharp-onset scan: |x| over threshold AND 5 ms after much louder than 20 ms before */
+function scanOnset(from, to, thresh){
+  from=Math.max(1,from);
+  for(let i=from;i<to;i++){
+    if(Math.abs(session[i])<thresh) continue;
+    const pre0=Math.max(0,i-Math.floor(sampleRate*0.02));
+    let ePre=0; for(let j=pre0;j<i;j++){ ePre+=session[j]*session[j]; }
+    ePre=Math.sqrt(ePre/Math.max(1,i-pre0));
+    const post1=Math.min(sessionLen,i+Math.floor(sampleRate*0.005));
+    let ePost=0; for(let j=i;j<post1;j++){ ePost+=session[j]*session[j]; }
+    ePost=Math.sqrt(ePost/Math.max(1,post1-i));
+    if(ePost>6*Math.max(ePre,1e-5)) return i;
+  }
+  return -1;
+}
+function peakNear(idx){
+  let p=0; const end=Math.min(sessionLen, idx+Math.floor(sampleRate*0.02));
+  for(let i=Math.max(0,idx-2);i<end;i++){ p=Math.max(p,Math.abs(session[i])); }
+  return p;
+}
+
+function shutdownMic(){
+  if(rafId) cancelAnimationFrame(rafId);
+  rafId=0;
+  try{ if(source) source.disconnect(); }catch(e){}
+  try{ if(procNode){ procNode.disconnect(); if(procNode.port) procNode.port.onmessage=null; } }catch(e){}
+  try{ if(stream) stream.getAudioTracks().forEach(t=>t.stop()); }catch(e){}
+  try{ if(audioCtx&&audioCtx.state!=='closed') audioCtx.close(); }catch(e){}
+  stream=null; source=null; procNode=null; audioCtx=null;
+  hide(cancelBtn); startBtn.disabled=false;
+  setPhase('Microphone is off.');
+  ring.className='ring';
+  caption.innerHTML='<div class="big">Make the room answer.</div><div class="small">One clap. No speaker, no sweep, no playback.</div>';
+  drawLive();
+}
+
+function fail(code,title,body){
+  phase='error';
+  $('errorTitle').textContent=title;
+  $('errorBody').textContent=body;
+  hide(resultPanel); show(errorPanel);
+  errorPanel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ---------- analysis: approximate T20-style tail ---------- */
+function analyze(){
+  phase='processing';
+  statusStep=0;
+  setPhase('<b>'+STATUS_ROT[0]+'</b>');
+  statusTimer=setInterval(()=>{
+    statusStep=(statusStep+1)%STATUS_ROT.length;
+    setPhase('<b>'+STATUS_ROT[statusStep]+'</b>');
+  },750);
+  setTimeout(()=>{
+    clearInterval(statusTimer);
+    doAnalyze();
+  }, 400);
+}
+
+function doAnalyze(){
+  const pre=Math.floor(sampleRate*0.1);
+  const start=Math.max(0, clapIndex-pre);
+  const end=Math.min(sessionLen, clapIndex+Math.floor(sampleRate*4));
+  const samples=session.subarray(start,end);
+  const clapAt=clapIndex-start;
+  if(clippedSamples>8){
+    return fail('clip','The clap clipped','The microphone overloaded — the loudest part of the clap hit the ceiling and the shape is lost. Clap a little softer, or hold the phone a touch further away, and try again.');
+  }
+  if(secondClap){
+    return fail('multi','More than one clap','A second sharp clap landed inside the capture. Echo needs exactly one clap so the tail belongs to a single sound. One clap, then silence.');
+  }
+  let peak=0; for(let i=0;i<samples.length;i++){ peak=Math.max(peak,Math.abs(samples[i])); }
+  const snr=20*Math.log10(Math.max(peak,1e-6)/Math.max(noiseFloorRMS,1e-6));
+  if(snr<20){
+    return fail('quiet','Too quiet to read','The clap barely rose above the room noise ('+snr.toFixed(0)+' dB above the floor). Clap sharper and closer to the phone, in a quieter moment, and try again.');
+  }
+  // Schroeder backward integral from the clap onward
+  const n=samples.length;
+  const E=new Float64Array(n);
+  for(let i=0;i<n;i++){ const v=samples[i]; E[i]=v*v; }
+  // 5 ms smoothing
+  const win=Math.max(1,Math.floor(sampleRate*0.005));
+  const Es=new Float64Array(n);
+  let run=0;
+  for(let i=0;i<n;i++){ run+=E[i]; if(i>=win) run-=E[i-win]; Es[i]=run/Math.min(i+1,win); }
+  const total=Es.reduce((a,b)=>a+b,0);
+  if(total<=0){ return fail('tail','No usable tail','The captured sound had no measurable decay to fit. Try a sharper clap in a quieter room.'); }
+  const edc=new Float64Array(n);
+  let rev=0;
+  for(let i=n-1;i>=0;i--){ rev+=Es[i]; edc[i]=10*Math.log10(Math.max(rev,1e-12)/total); }
+  // noise floor of the EDC: where the decay meets the room noise
+  const noiseE=noiseFloorRMS*noiseFloorRMS;
+  const edcFloor=10*Math.log10(Math.max(noiseE*n/total,1e-12));
+  // find -5 and -25 dB crossings after the direct sound (skip first 8 ms)
+  const skip=Math.floor(sampleRate*0.008);
+  let t5=-1, t25=-1;
+  for(let i=clapAt+skip;i<n;i++){
+    if(t5<0&&edc[i]<=-5) t5=i;
+    if(t25<0&&edc[i]<=-25){ t25=i; break; }
+  }
+  if(t5<0||t25<0||(t25-t5)<Math.floor(sampleRate*0.05)||(-25)<edcFloor+3){
+    return fail('tail','No usable tail','The sound faded into the room noise before a clean −25 dB decay could be measured. Try a sharper clap, a quieter room, or a bigger, emptier space.');
+  }
+  // linear regression over the -5..-25 segment
+  let sx=0, sy=0, sxx=0, sxy=0, cnt=0;
+  for(let i=t5;i<=t25;i++){ const x=(i-clapAt)/sampleRate, y=edc[i]; sx+=x; sy+=y; sxx+=x*x; sxy+=x*y; cnt++; }
+  const denom=cnt*sxx-sx*sx;
+  if(denom===0){ return fail('tail','No usable tail','The decay fit did not converge. Try again.'); }
+  const slope=(cnt*sxy-sx*sy)/denom; // dB per second, negative
+  if(slope>=-1){ return fail('tail','No usable tail','The decay was too flat to fit a tail. Try again.'); }
+  const T20=20/(-slope);
+  const tail=3*T20;
+  if(!(tail>0.03&&tail<4)){ return fail('tail','No usable tail','The fitted tail fell outside any plausible room range. Try a sharper clap in a quieter room.'); }
+  lastTail=tail;
+  showResult(samples, clapAt, edc, t5, t25, slope, tail);
+}
+
+/* ---------- result rendering ---------- */
+function showResult(samples, clapAt, edc, t5, t25, slope, tail){
+  phase='done';
+  clearInterval(statusTimer);
+  setPhase('Microphone is off. <b>Your room answered.</b>');
+  $('tailValue').textContent=tail.toFixed(2)+' s';
+  $('tailPill').textContent=tailLabel(tail);
+  hide(errorPanel); show(resultPanel);
+
+  // --- 500 ms waveform: 100 ms pre + 400 ms post ---
+  const wc=$('waveCanvas'), wx=wc.getContext('2d');
+  const W=wc.width, H=wc.height;
+  wx.clearRect(0,0,W,H);
+  wx.fillStyle='#0c1117'; wx.fillRect(0,0,W,H);
+  const wStart=Math.max(0, clapAt-Math.floor(sampleRate*0.1));
+  const wEnd=Math.min(samples.length, clapAt+Math.floor(sampleRate*0.4));
+  const seg=samples.subarray(wStart,wEnd);
+  const mid=H/2;
+  wx.strokeStyle='rgba(47,141,255,0.25)';
+  wx.lineWidth=1; wx.beginPath(); wx.moveTo(0,mid); wx.lineTo(W,mid); wx.stroke();
+  wx.strokeStyle='#f2b23e'; wx.lineWidth=2; wx.beginPath();
+  const cols=W;
+  for(let px=0; px<cols; px++){
+    const i0=Math.floor(px/cols*seg.length), i1=Math.max(i0+1, Math.floor((px+1)/cols*seg.length));
+    let mn=1, mx=-1;
+    for(let i=i0;i<i1;i++){ const v=seg[i]; if(v<mn)mn=v; if(v>mx)mx=v; }
+    const y1=mid-mx*(mid-8), y2=mid-mn*(mid-8);
+    if(px===0) wx.moveTo(px,y1); else wx.lineTo(px,y1);
+    wx.lineTo(px,y2);
+  }
+  wx.stroke();
+  // clap marker
+  const clapX=(clapAt-wStart)/(wEnd-wStart)*W;
+  wx.strokeStyle='#ff4257'; wx.lineWidth=2;
+  wx.beginPath(); wx.moveTo(clapX,8); wx.lineTo(clapX,H-8); wx.stroke();
+  wx.fillStyle='#ff4257'; wx.font='700 20px "JetBrains Mono", monospace';
+  wx.fillText('CLAP', clapX+8, 28);
+
+  // --- decay chart: EDC 0..-60 dB over 0..4 s, with fit line ---
+  const dc=$('decayCanvas'), dx=dc.getContext('2d');
+  const DW=dc.width, DH=dc.height, padL=70, padR=24, padT=24, padB=40;
+  dx.clearRect(0,0,DW,DH);
+  dx.fillStyle='#0c1117'; dx.fillRect(0,0,DW,DH);
+  const tMax=4, dMin=-60;
+  const X=t=>padL+(t/tMax)*(DW-padL-padR);
+  const Y=d=>padT+((0-d)/(0-dMin))*(DH-padT-padB);
+  dx.strokeStyle='#223041'; dx.lineWidth=1;
+  dx.fillStyle='#6f8599'; dx.font='500 18px "JetBrains Mono", monospace';
+  for(let d=0;d>=-60;d-=10){
+    dx.beginPath(); dx.moveTo(padL,Y(d)); dx.lineTo(DW-padR,Y(d)); dx.stroke();
+    dx.fillText(d+' dB', 10, Y(d)+6);
+  }
+  for(let t=0;t<=4;t++){
+    dx.fillText(t+'s', X(t)-6, DH-12);
+  }
+  // EDC curve
+  dx.strokeStyle='#62b0ff'; dx.lineWidth=3; dx.beginPath();
+  const n=edc.length;
+  for(let i=clapAt;i<n;i++){
+    const t=(i-clapAt)/sampleRate;
+    if(t>tMax) break;
+    const y=Math.max(Y(dMin), Math.min(Y(0), Y(edc[i])));
+    if(i===clapAt) dx.moveTo(X(t),y); else dx.lineTo(X(t),y);
+  }
+  dx.stroke();
+  // fit line over -5..-25 segment, extended
+  const x5=(t5-clapAt)/sampleRate, x25=(t25-clapAt)/sampleRate;
+  const yAt=t=>{ // regression line: passes through fit; use slope and point at t5
+    return -5+slope*(t-x5);
+  };
+  dx.strokeStyle='#f2b23e'; dx.lineWidth=2; dx.setLineDash([8,6]); dx.beginPath();
+  dx.moveTo(X(x5), Y(-5));
+  dx.lineTo(X(Math.min(tMax, x25+0.3)), Y(Math.max(dMin, yAt(Math.min(tMax, x25+0.3)))));
+  dx.stroke(); dx.setLineDash([]);
+  // markers
+  dx.fillStyle='#f2b23e';
+  dx.beginPath(); dx.arc(X(x5),Y(-5),6,0,Math.PI*2); dx.fill();
+  dx.beginPath(); dx.arc(X(x25),Y(-25),6,0,Math.PI*2); dx.fill();
+  dx.fillStyle='#9db0c1'; dx.font='700 18px "JetBrains Mono", monospace';
+  dx.fillText('−5 dB', X(x5)+10, Y(-5)-8);
+  dx.fillText('−25 dB', X(x25)+10, Y(-25)-8);
+
+  // --- signature art ---
+  buildSignature(samples, clapAt, edc, tail);
+  resultPanel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ---------- Echo Signature: SVG art from the actual capture ---------- */
+function buildSignature(samples, clapAt, edc, tail){
+  const S=1080, cx=S/2, cy=S/2-20;
+  const roomName=($('roomName').value||'').trim();
+  // rings: sample the decay at log-spaced times, radius grows with time, fade with energy
+  let rings='';
+  const R0=110, R1=470;
+  const ringCount=26;
+  for(let k=0;k<ringCount;k++){
+    const f=k/(ringCount-1);                    // 0..1
+    const t=0.02*Math.pow(100,f);               // 0.02 s .. 2 s, log spaced
+    const idx=Math.min(edc.length-1, clapAt+Math.floor(t*sampleRate));
+    const raw=edc[idx];
+    const db=Math.max(-60, Math.min(0, (raw===undefined||raw===null)?-60:raw));
+    const r=R0+(R1-R0)*f;
+    const op=0.12+0.75*Math.max(0,(db+60)/60);
+    const w=1.5+4.5*Math.max(0,(db+60)/60);
+    rings+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r.toFixed(1)+'" fill="none" stroke="#f2b23e" stroke-opacity="'+op.toFixed(2)+'" stroke-width="'+w.toFixed(1)+'"/>';
+  }
+  // waveform ribbon across the middle, from the 500 ms window
+  const wStart=Math.max(0, clapAt-Math.floor(sampleRate*0.1));
+  const wEnd=Math.min(samples.length, clapAt+Math.floor(sampleRate*0.4));
+  const seg=samples.subarray(wStart,wEnd);
+  const pts=180;
+  let d='';
+  for(let p=0;p<=pts;p++){
+    const i=Math.floor(p/pts*(seg.length-1));
+    const v=seg[i]||0;
+    const x=90+(p/pts)*(S-180);
+    const y=cy+Math.max(-160,Math.min(160, v*300));
+    d+=(p===0?'M':'L')+x.toFixed(1)+' '+y.toFixed(1)+' ';
+  }
+  const ribbon='<path d="'+d+'" fill="none" stroke="#ffd27a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>';
+  // clap dot
+  const dot='<circle cx="'+cx+'" cy="'+cy+'" r="14" fill="#f2b23e"/><circle cx="'+cx+'" cy="'+cy+'" r="26" fill="none" stroke="#f2b23e" stroke-opacity="0.5" stroke-width="2"/>';
+  const label=tailLabel(tail);
+  const nameLine=roomName?('<text x="'+cx+'" y="982" text-anchor="middle" font-family="Inter, sans-serif" font-size="30" fill="#eef4f9">'+escapeXml(roomName)+'</text>'):'';
+  const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">'
+    +'<defs><radialGradient id="g" cx="50%" cy="46%" r="55%">'
+    +'<stop offset="0%" stop-color="#2a1f08"/><stop offset="55%" stop-color="#0d1117"/><stop offset="100%" stop-color="#080b0f"/>'
+    +'</radialGradient></defs>'
+    +'<rect width="1080" height="1080" fill="url(#g)"/>'
+    +rings+ribbon+dot
+    +'<text x="64" y="92" font-family="\'JetBrains Mono\', monospace" font-size="26" letter-spacing="6" fill="#f2b23e">ECHO</text>'
+    +'<text x="1016" y="92" text-anchor="end" font-family="\'JetBrains Mono\', monospace" font-size="26" letter-spacing="4" fill="#6f8599">7EIGHTMADE</text>'
+    +'<text x="'+cx+'" y="930" text-anchor="middle" font-family="\'JetBrains Mono\', monospace" font-size="30" letter-spacing="3" fill="#9db0c1">TAIL ≈ '+tail.toFixed(2)+' S · '+label+'</text>'
+    +nameLine
+    +'</svg>';
+  lastSigSVG=svg;
+  $('sigWrap').innerHTML=svg;
+  const svgEl=$('sigWrap').querySelector('svg');
+  if(svgEl){ svgEl.setAttribute('class','sig'); svgEl.removeAttribute('width'); svgEl.removeAttribute('height'); }
+}
+function escapeXml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ---------- wiring ---------- */
+startBtn.addEventListener('click', startListening);
+cancelBtn.addEventListener('click', ()=>{ shutdownMic(); setPhase('Stopped. Microphone is off.'); });
+$('retryBtn').addEventListener('click', ()=>{ hide(errorPanel); startListening(); });
+$('againBtn').addEventListener('click', ()=>{ hide(resultPanel); startListening(); });
+$('curtainsBtn').addEventListener('click', ()=>{ hide(resultPanel); startListening(); setPhase('Add something soft, then clap again — same room, new answer.'); });
+$('saveBtn').addEventListener('click', ()=>{
+  if(!lastSigSVG) return;
+  const blob=new Blob([lastSigSVG],{type:'image/svg+xml'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='echo-signature.svg';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 5000);
+});
+$('roomName').addEventListener('input', ()=>{
+  $('resultTitle').textContent = $('roomName').value.trim() ? 'Your room answered — '+$('roomName').value.trim()+'.' : 'Your room answered.';
+  if(lastTail!==null && phase==='done'){
+    // rebuild signature with the name (needs last capture; stored on window)
+    if(window.__lastCap) buildSignature(window.__lastCap.samples, window.__lastCap.clapAt, window.__lastCap.edc, lastTail);
+  }
+});
+// keep last capture for signature rebuilds
+const _showResult=showResult;
+showResult=function(samples, clapAt, edc, t5, t25, slope, tail){
+  window.__lastCap={samples:samples, clapAt:clapAt, edc:edc};
+  _showResult(samples, clapAt, edc, t5, t25, slope, tail);
+};
+document.addEventListener('visibilitychange', ()=>{ if(document.hidden&&(phase==='armed'||phase==='quiet'||phase==='capturing')){ shutdownMic(); setPhase('Paused — microphone is off.'); } });
+drawLive();
+</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
+</body>
+</html>
