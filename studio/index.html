@@ -43,32 +43,12 @@
       <a class="pill pill--fill snav__cta" href="../#contact">Book an audit</a>
     </div>
   </header>
-  <!-- PULSE LAUNCH BANNER: countdown until 6 AM CT 2026-10-29, live after. Presentation-gated; demo link reveals at 6 AM. -->
-  <div id="pulse-banner" style="margin-top:calc(var(--navh) + 1px);background:#2f6bff;color:#fff;text-align:center;font-weight:700;font-size:15px;padding:12px 16px;letter-spacing:.3px"></div>
+  <!-- MARY'S ROOM LAUNCH BANNER: links to the Mary's Room intro page. -->
+  <div id="marys-room-banner" style="margin-top:calc(var(--navh) + 1px);background:#e5484d;color:#fff;text-align:center;font-weight:700;font-size:15px;padding:12px 16px;letter-spacing:.3px"><a href="../marys-room/" style="color:#fff;text-decoration:underline">MARY'S ROOM IS LIVE \u2014 She knows everything about color. Step inside \u2192</a></div>
   <script>
   (function(){
-    var target = new Date('2026-10-29T11:00:00Z').getTime();
-    var demo = '../pulse/demo/';
-    var el = document.getElementById('pulse-banner');
-    function render(){
-      var now = Date.now();
-      if (now >= target) {
-        el.innerHTML = '<a href="../pulse/demo/" style="color:#fff;text-decoration:underline">PULSE IS LIVE \u2014 Your camera is the sensor. Try it now \u2192</a>';
-      } else {
-        var s = Math.max(0, Math.floor((target - now) / 1000));
-        var h = String(Math.floor(s / 3600)).padStart(2, '0');
-        var m = String(Math.floor(s % 3600 / 60)).padStart(2, '0');
-        var sec = String(s % 60).padStart(2, '0');
-        el.innerHTML = '<a href="../pulse/" style="color:#fff;text-decoration:underline">PULSE DROPS AT 6 AM \u2014 ' + h + ':' + m + ':' + sec + ' to go. See what it is \u2192</a>';
-      }
-      var card = document.getElementById('pulse-card');
-      var brow = document.querySelector('.index__head .eyebrow');
-      if (card && now >= target) {
-        card.style.display = '';
-        if (brow && brow.textContent.indexOf('06 apps') !== -1) { brow.textContent = 'Index \u00b7 07 apps + art'; }
-      }
-    }
-    render(); setInterval(render, 1000);
+    var card = document.getElementById('pulse-card');
+    if (card) { card.style.display = ''; }
   })();
   </script>
 
@@ -186,7 +166,7 @@
     <!-- 5 · Full index -->
     <section class="index wrap" id="apps" aria-labelledby="appsH">
       <div class="index__head">
-        <p class="eyebrow">Index · 06 apps + art</p>
+        <p class="eyebrow">Index · 08 apps + art</p>
         <h2 class="sec" id="appsH">Everything in the Studio</h2>
         <p class="lead">Each app has a short page that says what it is, and the app itself one click further. No sign-up, no price.</p>
       </div>
