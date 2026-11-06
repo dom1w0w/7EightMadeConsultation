@@ -80,6 +80,32 @@
   @media (max-width:640px) {
     .status-strip { grid-template-columns:1fr; }
   }
+
+  .dt-panel { margin-top:6px; }
+  .dt-panel .dt-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:4px; }
+  .dt-panel .dt-vol { color:var(--amber); font-size:12px; letter-spacing:1px; }
+  .dt-panel .dt-tag { color:var(--dim); font-size:12px; }
+  .dt-panel .dt-body { font-size:13px; color:#9fb3b3; line-height:1.65; margin-bottom:12px; }
+  .dt-secs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-bottom:12px; }
+  .dt-sec { background:#0a0d11; border:1px solid #1e2a2a; padding:12px 14px; }
+  .dt-sec .k { font-size:10px; letter-spacing:2px; color:var(--teal); margin-bottom:8px; }
+  .dt-sec .k::before { content:"> "; }
+  .dt-item { margin-bottom:9px; }
+  .dt-item:last-child { margin-bottom:0; }
+  .dt-item .t { color:#e6ffff; font-size:12.5px; line-height:1.45; }
+  .dt-item a { color:#00F5E6; text-decoration:none; }
+  .dt-item a:hover { text-decoration:underline; }
+  .dt-item .b { color:#8da3a3; font-size:12px; line-height:1.5; margin-top:2px; }
+  .dt-item .m { color:var(--dim); font-size:11px; margin-top:2px; }
+  .dt-full { width:100%; border-left:2px solid var(--amber); }
+  .dt-full .k { color:var(--amber); }
+  .dt-goal { gap:6px; }
+  .dt-goal .line { margin-bottom:6px; }
+  .dt-goal .line .amt { color:var(--amber); font-size:16px; letter-spacing:1px; }
+  .dt-goal .line .lbl { color:var(--dim); font-size:10px; letter-spacing:2px; }
+  .dt-foot { margin-top:10px; font-size:11px; color:var(--dim); line-height:1.6; }
+  @media (max-width:640px) { .dt-secs { grid-template-columns:1fr; } }
+
   footer { margin-top:40px; color:var(--dim); font-size:11px; letter-spacing:1px; }
   a { color:var(--teal); }
 </style>
@@ -181,6 +207,20 @@
     <p>Rapid-fire timed drills, the Gauntlet streak mode, and the full talk track on the wall. One hour in here is worth a week out there.</p>
     <div class="meta">STATUS: LIVE &nbsp;//&nbsp; 30 QUESTIONS &nbsp;//&nbsp; v1.0</div>
     <a class="open" href="hyperbolic-time-chamber.html">OPEN APP</a>
+  </div>
+
+
+  <div class="mod dt-panel" id="dom-times-panel">
+    <div class="dt-head">
+      <h3 id="dt-title">DOM TIMES · PUBLIC</h3>
+      <span class="dt-vol" id="dt-vol">…</span>
+      <span class="dt-tag" id="dt-when">…</span>
+    </div>
+    <p class="dt-body" id="dt-tag">We checked your phone, so you don't have to.</p>
+    <div class="dt-secs" id="dt-secs">
+      <div class="dt-sec"><div class="k">LOADING</div><div class="dt-item"><div class="t">fetching the edition…</div></div></div>
+    </div>
+    <div class="dt-foot" id="dt-foot"></div>
   </div>
 
   <h2>UPDATE LOG</h2>
@@ -333,6 +373,98 @@ fetch('UPDATELOG.md').then(r=>r.text()).then(t=>{
   document.getElementById('updatelog').innerHTML =
     esc.split('\n').map(l=>l.startsWith('## ')?'<div class="d">'+l.slice(3)+'</div>':l).join('<br>');
 }).catch(()=>{document.getElementById('updatelog').textContent='Log unavailable.';});
+</script>
+
+
+<script>
+/* DOM TIMES · public summary — reads the scrubbed public edition (batcave/data/public.json).
+   No emails, no money details; same JSON EA writes each morning. Panel sits inside the Batcave
+   full-page gate, so it renders only after the passphrase unlocks this page. */
+(function(){
+  function esc(x){ return String(x == null ? '' : x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function arr(x){ return Array.isArray(x) ? x : []; }
+  function safe(u){ return /^https?:\/\//i.test(String(u||'')) ? u : ''; }
+  function sec(k, items, full){
+    if(!items.length) return '';
+    return '<div class="dt-sec' + (full ? ' dt-full' : '') + '"><div class="k">' + esc(k) + '</div>' +
+      items.join('') + '</div>';
+  }
+  function item(t, b, m, url){
+    var title = esc(t);
+    var link = url && safe(url) ? ' <a href="'+esc(url)+'" target="_blank" rel="noopener">[↗]</a>' : '';
+    return '<div class="dt-item"><div class="t">' + title + link + '</div>' +
+      (b ? '<div class="b">'+esc(b)+'</div>' : '') +
+      (m ? '<div class="m">'+esc(m)+'</div>' : '') + '</div>';
+  }
+
+  /* Manifestation block — 7EightMade savings visualization. Fill in your own targets here. */
+  var GOALS = [
+    { label: 'TYPE IT HERE', amount: '$[amount]', note: 'What you’re stacking for — say it like it’s already on the calendar.' },
+    { label: 'THIS WEEK', amount: '$[amount]', note: 'One set-aside. Small, automatic, already yours.' }
+  ];
+
+  fetch('data/public.json', { cache:'no-store' }).then(function(r){
+    if(!r.ok) throw new Error('http ' + r.status);
+    return r.json();
+  }).then(function(d){
+    var mh = d.masthead || {};
+    document.getElementById('dt-title').textContent = 'DOM TIMES · PUBLIC';
+    document.getElementById('dt-vol').textContent = 'VOL ' + (mh.volume || '—');
+    document.getElementById('dt-when').textContent = (mh.asOf || '') + (mh.city ? ' · ' + mh.city : '');
+    document.getElementById('dt-tag').textContent = mh.tagline || '';
+
+    var html = '';
+
+    // Front page
+    if(d.lead && d.lead.headline){
+      html += sec('FRONT PAGE', [ item(d.lead.headline, d.lead.subhead, d.lead.source, d.lead.url) ], true);
+    }
+
+    // AI / Grok + Meta desk
+    var ai = (d.news && (d.news.ai || (d.news.desks && d.news.desks.ai))) || null;
+    if(ai && arr(ai.items).length){
+      html += sec('GROK · META · AI', arr(ai.items).slice(0,3).map(function(n){
+        return item(n.hed, n.body, n.source, n.url);
+      }));
+    }
+
+    // X bookmarks (tech demo) as the X update row
+    var td = d.techDemo || {};
+    var brain = arr(d.brainFood && d.brainFood.items).slice(0,2).map(function(b){
+      return item(b.hed, b.body, d.brainFood.title || 'Brain Food');
+    });
+    var xitems = [];
+    if(td.pick){
+      xitems.push(item(td.pick, td.note || '', td.author || 'From your X bookmarks', td.bookmarkUrl || td.url));
+    }
+    if(xitems.length || brain.length){
+      html += sec('X · BRAIN FOOD', xitems.concat(brain));
+    }
+
+    // Opening bell / mindset
+    var ob = d.openingBell || {};
+    var om = ob.mindset || {};
+    if(om.hed){
+      html += sec('OPENING BELL', [ item(om.hed, om.body, ob.kicker || ob.title) ], true);
+    }
+
+    // Manifest — savings goals as OURS, in the voice of visualization
+    var goals = GOALS.map(function(g){
+      return '<div class="dt-item line"><div class="lbl">'+esc(g.label)+'</div><div class="amt">'+esc(g.amount)+'</div><div class="b">'+esc(g.note)+'</div></div>';
+    });
+    html += '<div class="dt-sec dt-full dt-goal"><div class="k">MANIFEST · SET IT ASIDE</div>' +
+      goals.join('') +
+      '<div class="m">Name the number. Put it on the page like it’s already done. fall down 7 stand up 8.</div>' +
+      '</div>';
+
+    document.getElementById('dt-secs').innerHTML = html;
+    document.getElementById('dt-foot').textContent = 'Public scrubbed edition only. Encrypted live paper stays on its own page.';
+  }).catch(function(){
+    document.getElementById('dt-secs').innerHTML =
+      '<div class="dt-sec"><div class="k">OFFLINE</div><div class="dt-item"><div class="t">couldn’t load the public edition</div></div></div>';
+    document.getElementById('dt-foot').textContent = '';
+  });
+})();
 </script>
 
 <!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
