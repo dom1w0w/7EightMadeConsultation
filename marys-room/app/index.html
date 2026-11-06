@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mary's Room — the experiment | 7EightMade Studio</title>
+<meta name="description" content="Mary knows everything about color and has never seen it. Step into her black-and-white room, learn the facts with her, then leave the room — and feel the difference between knowing and seeing.">
+<link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/marys-room/app/">
+<meta name="theme-color" content="#0b0e13">
+<link rel="icon" href="../../brand/favicon.svg" type="image/svg+xml">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{background:#0b0e13;color:#e8ecf1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;overflow:hidden}
+  .app{position:fixed;inset:0;display:flex;flex-direction:column}
+  /* The room: everything inside .stage is grayscale until stage 3. */
+  .stage{flex:1;position:relative;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(20px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom));overflow-y:auto}
+  .stage.active{display:flex}
+  .gray .stage{filter:grayscale(1)}
+  .stage.gray-off{filter:none}
+  .topbar{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 18px 0;font-size:12px;letter-spacing:2px;color:#8a94a3;z-index:5}
+  .topbar a{color:#8a94a3;text-decoration:none}
+  .topbar .dots{letter-spacing:4px}
+  .topbar .dots b{color:#e8ecf1}
+  .inner{max-width:520px;width:100%;margin:auto}
+  h1{font-size:clamp(30px,7vw,44px);line-height:1.15;margin-bottom:14px}
+  h1 .red{color:#ff5a50}
+  p{color:#aeb8c4;font-size:16.5px;line-height:1.65}
+  p.lede{font-size:17.5px;color:#c7d3e2}
+  .mary{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d7d7d7,#8f8f8f 55%,#4a4a4a);margin:0 auto 22px;position:relative}
+  .mary:after{content:"";position:absolute;inset:32px 28px auto 28px;height:11px;border-radius:99px;background:#1c1c1c;box-shadow:0 20px 0 #1c1c1c}
+  .fact{font-size:11px;letter-spacing:3px;color:#8a94a3;margin-top:18px}
+  .btn{display:inline-block;margin-top:26px;background:#e8ecf1;color:#111;border:none;border-radius:99px;padding:15px 30px;font-weight:700;font-size:16px;cursor:pointer;font-family:inherit}
+  .btn:active{transform:scale(.97)}
+  .btn.red{background:#e5484d;color:#fff}
+  .btn.ghost{background:transparent;color:#c7d3e2;border:1px solid #3a4556}
+  .btn:disabled{opacity:.45;cursor:default}
+  .linkbtn{background:none;border:none;color:#8a94a3;font-size:13.5px;text-decoration:underline;cursor:pointer;margin-top:18px;font-family:inherit}
+  .camnote{margin-top:14px;font-size:13px;color:#8a94a3;line-height:1.5;min-height:20px}
+  /* video room */
+  #cam{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:0}
+  #cam.on{display:block}
+  .stage .scrim{position:absolute;inset:0;background:rgba(11,14,19,.72);display:none;z-index:1}
+  .stage .scrim.on{display:block}
+  .stage .inner,.stage .topbar{position:relative;z-index:2}
+  /* facts */
+  .factcard{background:#181d24;border:1px solid #232c3d;border-radius:14px;padding:16px 18px;margin:14px auto 0;text-align:left;max-width:460px}
+  .factcard .k{font-size:11px;letter-spacing:2px;color:#8a94a3;margin-bottom:4px}
+  .factcard .v{font-size:17px;font-weight:700;color:#e8ecf1}
+  .factcard .d{font-size:14px;color:#aeb8c4;line-height:1.5;margin-top:2px}
+  .q{margin-top:26px;font-style:italic;color:#c7d3e2;font-size:16px;line-height:1.6}
+  /* stage 3: color */
+  .stage3{background:linear-gradient(180deg,#7a0e12 0%,#c81e24 45%,#ff4d42 100%);color:#fff}
+  .stage3 p{color:rgba(255,255,255,.88)}
+  .stage3 .topbar{color:rgba(255,255,255,.75)}
+  .stage3 .topbar a{color:rgba(255,255,255,.75)}
+  .stage3 .topbar .dots b{color:#fff}
+  .redfield{margin:22px auto 0;max-width:460px;border-radius:18px;background:radial-gradient(circle at 50% 40%,#ff6b5e,#d21f26 60%,#8f0f14);padding:64px 20px}
+  .redfield span{font-size:clamp(56px,14vw,84px);font-weight:800;letter-spacing:1px;color:#fff}
+  .vote{margin-top:24px}
+  .vote .vq{font-size:19px;font-weight:700;color:#fff}
+  .vote .btns{display:flex;gap:12px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+  .vote .btn{margin-top:0;background:#fff;color:#111}
+  .vote .btn.picked{background:#111;color:#fff;outline:2px solid #fff}
+  .vote .vnote{margin-top:14px;font-size:14.5px;color:rgba(255,255,255,.9);min-height:22px}
+  /* stage 4: explanation */
+  .stage4{align-items:flex-start;text-align:left;justify-content:flex-start;padding-top:calc(64px + env(safe-area-inset-top))}
+  .split{display:flex;border-radius:12px;overflow:hidden;margin-bottom:20px}
+  .split div{flex:1;padding:12px 10px;text-align:center;font-size:11px;font-weight:700;letter-spacing:2px}
+  .split .k{background:linear-gradient(90deg,#555,#888);color:#111}
+  .split .s{background:linear-gradient(90deg,#c81e24,#ff4d42);color:#fff}
+  .stage4 p{margin-bottom:14px}
+  .stage4 p b{color:#fff}
+  .term{background:#181d24;border:1px solid #232c3d;border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.6;color:#aeb8c4;margin-bottom:14px}
+  .term b{color:#fff}
+  .you{background:#e8ecf1;color:#111;border-radius:12px;padding:15px 17px;font-size:15.5px;line-height:1.6;margin-bottom:8px}
+  .you b{color:#c81e24}
+  .rowbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+  .rowbtns .btn{margin-top:0}
+  .fine{margin-top:22px;font-size:12.5px;color:#525d6f;line-height:1.7}
+  .fine a{color:#8a94a3}
+  /* color burst */
+  @keyframes burst{from{filter:grayscale(1)}to{filter:grayscale(0)}}
+  .burst{animation:burst 1.1s ease-out both}
+  @media (prefers-reduced-motion: reduce){
+    .burst{animation:none}
+    .btn:active{transform:none}
+  }
+</style>
+</head>
+<body class="gray">
+<div class="app" id="app" aria-live="polite">
+
+  <!-- STAGE 1 · THE ROOM -->
+  <section class="stage active" id="s1" aria-label="The room">
+    <video id="cam" autoplay muted playsinline aria-hidden="true"></video>
+    <div class="scrim" id="scrim"></div>
+    <div class="topbar"><a href="../">← Mary's Room</a><span class="dots"><b>●</b> ○ ○ ○</span><a href="../../studio/">Studio</a></div>
+    <div class="inner">
+      <div class="mary" aria-hidden="true"></div>
+      <h1>Mary knows everything about color.</h1>
+      <p class="lede">She has lived her whole life in a black-and-white room, learning color from books and lectures. She has never seen red.</p>
+      <p class="fact">THE WORLD, IN GRAYSCALE</p>
+      <div><button class="btn" id="to2">She knows it all — continue ↓</button></div>
+      <div><button class="linkbtn" id="camBtn">Use your camera as the room</button></div>
+      <p class="camnote" id="camNote"></p>
+    </div>
+  </section>
+
+  <!-- STAGE 2 · THE FACTS -->
+  <section class="stage" id="s2" aria-label="The facts">
+    <div class="topbar"><a href="../">← Mary's Room</a><span class="dots"><b>● ●</b> ○ ○</span><a href="../../studio/">Studio</a></div>
+    <div class="inner">
+      <h1>Everything there is to know about red.</h1>
+      <p>Mary has the complete physical story. Nothing is missing — except the seeing.</p>
+      <div class="factcard"><div class="k">WAVELENGTH</div><div class="v">620 – 750 nm</div><div class="d">Long-wave light, the lowest frequency the eye can see.</div></div>
+      <div class="factcard"><div class="k">THE EYE</div><div class="v">L-cones fire</div><div class="d">Long-wave cones in the retina respond most to red.</div></div>
+      <div class="factcard"><div class="k">THE BRAIN</div><div class="v">Area V4 lights up</div><div class="d">Color processing regions activate in a known pattern.</div></div>
+      <p class="q">"She knows all of this. Does she know what red looks like?"</p>
+      <div><button class="btn" id="to3">Leave the room →</button></div>
+    </div>
+  </section>
+
+  <!-- STAGE 3 · LEAVE THE ROOM -->
+  <section class="stage stage3" id="s3" aria-label="Leave the room">
+    <div class="topbar"><a href="../">← Mary's Room</a><span class="dots"><b>● ● ●</b> ○</span><a href="../../studio/">Studio</a></div>
+    <div class="inner">
+      <h1>She steps outside.</h1>
+      <p>For the first time, the world is in color. A red rose, in full red, on her screen — and on yours.</p>
+      <div class="redfield" aria-hidden="true"><span>RED</span></div>
+      <div class="vote">
+        <p class="vq">Did she learn something new?</p>
+        <div class="btns">
+          <button class="btn" id="voteYes">Yes — something new</button>
+          <button class="btn" id="voteNo">No — she knew it all</button>
+        </div>
+        <p class="vnote" id="voteNote"></p>
+        <div><button class="btn ghost" id="to4" disabled style="background:#111;color:#fff;border-color:#fff">See the explanation →</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE 4 · THE EXPLANATION -->
+  <section class="stage stage4" id="s4" aria-label="The explanation">
+    <div class="topbar"><a href="../">← Mary's Room</a><span class="dots"><b>● ● ● ●</b></span><a href="../../studio/">Studio</a></div>
+    <div class="inner">
+      <div class="split"><div class="k">KNOWING</div><div class="s">SEEING</div></div>
+      <h1>Knowing about red is not <span class="red">knowing red.</span></h1>
+      <p>Mary knew <b>every physical fact</b> — the wavelength, the cones, the brain. What she didn't have was what red <b>is like</b>.</p>
+      <p>That gap has a name: philosophers call the what-it's-like of an experience <b>qualia</b>. Jackson's argument is simple — if Mary learns something when she leaves the room, then physical facts alone don't capture everything about the mind.</p>
+      <div class="term"><b>Honest footnote:</b> Jackson later changed his mind. He decided Mary gains a new <b>ability</b> — to recognize, imagine, remember red — not a new fact. The argument still stands as the sharpest test of whether the mind is more than the machine.</div>
+      <div class="you"><b>You felt it too.</b> Screen 2 gave you the facts. Screen 3 still hit different.</div>
+      <div class="rowbtns">
+        <button class="btn red" id="again">Run it again</button>
+        <a class="btn ghost" href="../../studio/" style="text-decoration:none">Back to the Studio →</a>
+      </div>
+      <p class="fine">Mary's Room is Frank Jackson's thought experiment, from "Epiphenomenal Qualia" (The Philosophical Quarterly, 1982). Your answer stays on this device — nothing is uploaded, and the camera, if you used it, never leaves your phone. Part of the <a href="../../studio/">7EightMade Studio</a> Paradox series. Fall down seven. Stand up eight.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var app = document.getElementById('app');
+  var stages = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3'), document.getElementById('s4')];
+  var current = 0;
+  var voted = null;
+  try { voted = localStorage.getItem('marys-room-vote'); } catch(e) {}
+  if (voted) markVote(voted, true);
+
+  function show(i){
+    stages[current].classList.remove('active');
+    current = i;
+    stages[current].classList.add('active');
+    stages[current].scrollTop = 0;
+    window.scrollTo(0,0);
+  }
+  function markVote(v, silent){
+    voted = v;
+    try { localStorage.setItem('marys-room-vote', v); } catch(e) {}
+    var y = document.getElementById('voteYes'), n = document.getElementById('voteNo');
+    y.classList.toggle('picked', v === 'yes');
+    n.classList.toggle('picked', v === 'no');
+    document.getElementById('to4').disabled = false;
+    if (!silent) {
+      document.getElementById('voteNote').textContent =
+        v === 'yes' ? 'You said yes. Hold that thought — the explanation is next.'
+                    : 'You said no. Hold that thought — the explanation is next.';
+    }
+  }
+
+  document.getElementById('to2').addEventListener('click', function(){ show(1); });
+  document.getElementById('to3').addEventListener('click', function(){
+    document.body.classList.remove('gray');
+    stages[2].classList.add('burst');
+    stopCam();
+    show(2);
+  });
+  document.getElementById('to4').addEventListener('click', function(){ show(3); });
+  document.getElementById('voteYes').addEventListener('click', function(){ markVote('yes'); });
+  document.getElementById('voteNo').addEventListener('click', function(){ markVote('no'); });
+  document.getElementById('again').addEventListener('click', function(){
+    document.body.classList.add('gray');
+    stages[2].classList.remove('burst');
+    show(0);
+  });
+
+  /* Camera as the room: rear camera, grayscale, on-device only. */
+  var camBtn = document.getElementById('camBtn');
+  var camNote = document.getElementById('camNote');
+  var video = document.getElementById('cam');
+  var scrim = document.getElementById('scrim');
+  var stream = null;
+  function stopCam(){
+    if (stream) { stream.getTracks().forEach(function(t){ t.stop(); }); stream = null; }
+    video.classList.remove('on');
+    scrim.classList.remove('on');
+    camBtn.textContent = 'Use your camera as the room';
+  }
+  camBtn.addEventListener('click', function(){
+    if (stream) { stopCam(); camNote.textContent = ''; return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      camNote.textContent = 'This browser cannot open the camera — the room works without it.';
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false })
+      .then(function(s){
+        stream = s;
+        video.srcObject = s;
+        video.classList.add('on');
+        scrim.classList.add('on');
+        camBtn.textContent = 'Turn the camera off';
+        camNote.textContent = 'Your camera is the room now — grayscale, on this device only. It stops when you leave the room.';
+      })
+      .catch(function(){
+        camNote.textContent = 'Camera unavailable — the room works without it.';
+      });
+  });
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) stopCam(); });
+  window.addEventListener('pagehide', stopCam);
+})();
+</script>
+
+<!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
+</body>
+</html>
