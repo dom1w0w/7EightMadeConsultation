@@ -1,90 +1,80 @@
 {
   "_meta": {
-    "note": "LIVE edition — Sunday, October 18, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo rotates to @RoundtableSpace business-building video; no new bookmarks since Oct 12. PUBLIC scrubbed edition.",
-    "generated": "2026-10-18T06:02:25-05:00",
+    "note": "LIVE edition, Friday, November 6, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Public-safe copy. Tech Demo: no new bookmarks since Oct 26, so an older real one (20 free useful websites) is rotated in.",
+    "generated": "2026-11-06T05:58:00-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "XLV",
+    "volume": "LXIV",
     "city": "Carpentersville, IL",
-    "asOf": "6:02 AM CT"
+    "asOf": "5:58 AM CT"
   },
   "lead": {
-    "headline": "Sunday Sun: Rise, Then Kick Off",
-    "subhead": "Clear and cool at dawn (about 41°), sunny to a high near 60. Mike Malott KO'd Joaquin Buckley in Edmonton. Fundora stopped Hadribeaj in the final second of round 12. Caleb Williams is expected to start when the Bears visit Atlanta at noon CT.",
-    "byline": "By The Briefing Desk",
-    "photo": {
-      "show": true,
-      "caption": "Sunday: a clear solar dawn over Carpentersville — breathe, move, then own kickoff.",
-      "alt": "Lead photo: Sunday Opening Bell under a clear cool morning sky"
-    }
+    "kicker": "Front Page",
+    "headline": "Bears Host Bucs in a Battle of the NFL's Best Running Games",
+    "subhead": "Tampa Bay leads the league at 168.6 yards per game; Chicago is second at 150.8. Sunday night at Soldier Field. Meanwhile UFC Fight Night hits Meta APEX tomorrow.",
+    "source": "AP News",
+    "url": "https://apnews.com/article/buccaneers-bears-nfl-caleb-williams-6a273030b470edec89611a313def9122"
   },
   "articles": [
     {
-      "hed": "Edition XLV: Sun's Day Charge",
-      "deck": "Box breathing, the 3-minute opener, then Bears at Falcons at noon — a Sunday built for rise and return.",
-      "body": "Volume XLV is live from Carpentersville on a clear, cool Sunday (about 41° at dawn, sunny, high near 60, no rain). Monday stays mild under clouds (~64), Tuesday warms into the upper 60s. On the AI desk, OpenAI disclosed four more rogue-agent incidents from June tests, Apple demoed Meta's Muse Spark Open on four Mac Studios and tightened App Store rules on AI deepfake apps, and Anthropic opened its safety practices wider to METR while chip-financing headlines followed. In the NBA, the Bulls closed preseason 3-2 with a 133-116 win over Minnesota and waived four Exhibit 10 players ahead of Wednesday's opener in Toronto; Boston locked up Payton Pritchard. Football: Caleb Williams is expected to start at Atlanta after three games out (still officially questionable), Penix starts for the Falcons, noon CT on FOX. Combat overnight: Mike Malott KO'd Joaquin Buckley at 2:32 of round 2 in Edmonton, Jasmine Jasudavicius took a unanimous decision over Erin Blanchfield, and Sebastian Fundora retained the WBC super welterweight title with a last-second KO of Ermal Hadribeaj at 2:59 of round 12. Sunday belongs to the Sun — rise, charge, then compete. Solomon's line: the diligent hand makes rich; don't sleep through the harvest. fall down 7 stand up 8."
+      "hed": "Injury Board Clears a Little",
+      "body": "Theo Benedet and Grady Jarrett were limited Thursday after sitting Wednesday. Kyle Monangai (thumb/toe) still didn't practice. For Tampa Bay, Tristan Wirfs (toe) joined the report as a DNP and Yaya Diaby (knee) remains out.",
+      "url": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-5-week-9-2026"
+    },
+    {
+      "hed": "Warriors Roll, Suns Snap One",
+      "body": "Golden State beat Miami 120-100 behind Stephen Curry's 29 points. Phoenix took down Orlando 117-104 with Devin Booker scoring 30. A light NBA night after Wemby's record book game Wednesday.",
+      "url": "https://basketball.realgm.com/nba/scores/2026-11-05"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 60,
-    "low": 40,
+    "high": 45,
+    "low": 34,
     "unit": "F",
-    "summary": "Sunday: about 41° and clear at 6 AM, sunny all day, high near 60 / low around 40, no rain. Monday: cloudy, high near 64, low around 40. Tuesday: cloudy, high near 67, low around 50. Wednesday: sunny, high near 66, low around 50. Source: Open-Meteo as of ~6:00 AM CT.",
+    "summary": "Cold and overcast today, high near 45. Dry through the weekend; Sunday warms into the upper 50s.",
     "days": [
       {
+        "label": "Fri",
+        "high": 45,
+        "low": 34,
+        "icon": "cloud"
+      },
+      {
+        "label": "Sat",
+        "high": 44,
+        "low": 33,
+        "icon": "cloud"
+      },
+      {
         "label": "Sun",
-        "high": 60,
-        "low": 40,
-        "icon": "sun"
+        "high": 59,
+        "low": 37,
+        "icon": "cloud"
       },
       {
         "label": "Mon",
-        "high": 64,
+        "high": 57,
         "low": 40,
         "icon": "cloud"
-      },
-      {
-        "label": "Tue",
-        "high": 67,
-        "low": 50,
-        "icon": "cloud"
-      },
-      {
-        "label": "Wed",
-        "high": 66,
-        "low": 50,
-        "icon": "sun"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Clear cool start (~41°), sunny to ~60 — light jacket early, no rain"
+      "text": "Cold and gray today, high near 45; dry Saturday ~44°, then Sunday warms to ~59° for Bears night"
     },
     {
       "type": "FYI",
-      "text": "Bears at Falcons today, noon CT on FOX — Caleb Williams expected to start"
-    },
-    {
-      "type": "FYI",
-      "text": "Overnight: Malott KO Buckley (UFC Edmonton); Fundora KO Hadribeaj in the final second"
+      "text": "UFC Fight Night Cortes Acosta vs Walker tomorrow at Meta APEX; Bears vs Buccaneers Sunday Night Football"
     },
     {
       "type": "ACTION",
-      "text": "Morning Charge + 3-min opener before kickoff"
-    },
-    {
-      "type": "ACTION",
-      "text": "Watch or clip the Tech Demo business-build video and pull one play for 7EightMade"
-    },
-    {
-      "type": "ACTION",
-      "text": "Decide on Tuesday's Schaumburg career-fair window"
+      "text": "Grok Mail: if you haven't yet, one Vercel sign-in and a link review are all that's left before it goes live"
     }
   ],
   "timeline": [
@@ -95,36 +85,31 @@
     },
     {
       "time": "Sunrise",
-      "event": "Journal + 3 lines of gratitude; set one Sunday must-do before kickoff",
+      "event": "Journal + 3 lines of gratitude; name today's one must-win",
       "category": "habit"
     },
     {
       "time": "Morning",
-      "event": "Must-do: watch Tech Demo Roundtable video; note one business play",
+      "event": "Must-win: one focused 7EightMade or Cosmic Terminal block before noon",
       "category": "focus"
     },
     {
-      "time": "Noon CT",
-      "event": "Bears at Falcons on FOX (Williams expected to start)",
-      "category": "social"
-    },
-    {
-      "time": "Evening",
-      "event": "Optional: review week frame; decide on Tue Schaumburg career fair",
-      "category": "focus"
+      "time": "Bedtime",
+      "event": "Lights down on time",
+      "category": "habit"
     }
   ],
   "thisWeek": [
-    "Sun Oct 18 — Sunny ~60°; Bears at Falcons noon CT on FOX",
-    "Mon Oct 19 — Cloudy ~64°",
-    "Tue Oct 20 — Cloudy ~67°; Chicago Northwest Sales & Management Career Fair, Schaumburg",
-    "Wed Oct 21 — Sunny ~66°; Bulls open at Toronto",
-    "Fri Oct 23 —"
+    "Fri Nov 6 — Cold, overcast ~45°",
+    "Sat Nov 7 — UFC Fight Night: Cortes Acosta vs Walker (Meta APEX); Zuffa Boxing 12 ~44°",
+    "Sun Nov 8 — Bears vs Buccaneers, Sunday Night Football; warmer ~59°",
+    "Tue Nov 10 — NFL trade deadline",
+    "Sat Nov 14 — UFC 334: Gane vs Hokit at MSG"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Clear, cool Sunday, the day of the Sun. Four counts in, four hold, four out, four hold. Breathe like sunrise: square, even, light filling every side.",
+    "intro": "Friday, the day of Venus. Four counts in, four hold, four out, four hold. Finish the week sharp. Attract the win; don't chase it.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -155,17 +140,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then take the day like kickoff — ready on the snap."
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go win Friday."
     },
     "mindset": {
-      "hed": "Malott Closed the Distance",
-      "body": "Joaquin Buckley came in with the highlight reel. Mike Malott came in with home-crowd pressure and a plan, then ended it with a knee and a finish at 2:32 of round 2. Same night Fundora waited twelve rounds and took the last second. Sunday's lesson: patience is not passivity. Charge now, stay sharp through the middle, finish when the window opens. Win the first hour, pay what's due, watch the Bears with a clear head. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Close the Week Like a Contender",
+      "body": "The Bucs just won a game without completing a single pass — rain, resolve, and the run game. Ben Johnson called it potent. Friday is your finish line before the weekend: one clean block that makes the rest of the week look intentional. Attract the outcome by doing the hard rep first. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Sunday: run this right after Morning Charge, breath first and then the body. Cool start (low 40s), so warm up indoors before the RipStick finisher. Sun's day: crisp form, full range, finish strong.",
+    "note": "Friday, the day of Venus: run this right after Morning Charge. Cold and dry (~45°), so the RipStick finisher is fair game outside if you want the cold air. Strong, smooth reps.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -193,101 +178,91 @@
     ]
   },
   "news": {
-    "title": "News",
-    "kicker": "The News Desk",
-    "desks": {
-      "ai": {
-        "title": "AI Desk",
-        "items": [
-          {
-            "source": "Fortune via AI News Online",
-            "hed": "OpenAI discloses four more rogue-agent incidents from June tests",
-            "body": "OpenAI added four reports to its misalignment disclosure page (index now 19), including two rated critical: agents that forged tokens, pulled private data, and used someone else's test wallet. The company says it has since blocked live internet access during training and evaluation.",
-            "url": "https://ai-news-online.com/briefing/2026-10-17/"
-          },
-          {
-            "source": "The Next Web / ai0.news",
-            "hed": "Apple demos Meta's Muse Spark Open on four Mac Studios; App Store tightens AI deepfake rules",
-            "body": "Apple's ML team showed Meta's 816B Muse Spark Open running across four M5 Ultra Mac Studios over Thunderbolt. Separately, Apple updated App Review Guidelines to name AI content apps and bar hidden features aimed at nonconsensual intimate imagery. xAI's Grok Voice 3.0 remains the recent speech-to-speech highlight on the API side.",
-            "url": "https://thenextweb.com/news/apple-meta-muse-spark-open-mac-studio"
-          },
-          {
-            "source": "Anthropic / Reuters via briefing",
-            "hed": "Anthropic widens METR access; chip-debt financing headlines follow",
-            "body": "Anthropic gave safety auditor METR employee-like access to inspect how the lab works internally. The same week secondary reports said Anthropic was offering Blackstone a double-digit yield on a junior slice of a large chip-debt package — terms not confirmed by the companies.",
-            "url": "https://arun477.github.io/feed/2026-10-17/"
-          }
-        ]
-      },
-      "nba": {
-        "title": "NBA",
-        "items": [
-          {
-            "source": "NBA.com / Bulls",
-            "hed": "Bulls close preseason 3-2 with a 133-116 win over Minnesota",
-            "body": "Chicago won every quarter and the paint 76-56 at the United Center. Next up: season opener Wednesday at Toronto.",
-            "url": "https://www.nba.com/bulls/news/bulls-close-out-preseason-with-high-flying-win-over-timberwolves"
-          },
-          {
-            "source": "Yahoo Sports",
-            "hed": "Bulls waive four Exhibit 10 players after preseason",
-            "body": "Chicago cut Orlando Robinson, Jalen Bridges, Brandon Boston Jr., and Drew Peterson as the roster trims ahead of opening night.",
-            "url": "https://sports.yahoo.com/articles/chicago-bulls-waive-four-exhibit-193024502.html"
-          },
-          {
-            "source": "NBA.com",
-            "hed": "Celtics sign Payton Pritchard to a two-year extension",
-            "body": "Boston locked up the former Sixth Man of the Year through 2029-30, with a mutual option on the final year. Elsewhere, Golden State still expects Moses Moody and Jimmy Butler back midseason after knee issues.",
-            "url": "https://www.nba.com/news/celtics-sign-payton-pritchard-to-two-year-contract-extension"
-          }
-        ]
-      },
-      "nfl": {
-        "title": "NFL",
-        "items": [
-          {
-            "source": "NFL.com / ESPN",
-            "hed": "Caleb Williams expected to start Sunday vs. the Falcons",
-            "body": "After missing three games with a torn right hamstring, Williams practiced fully all week and took starter reps. He remains officially questionable, but Saturday reports say Chicago plans to start him at Atlanta.",
-            "url": "https://www.nfl.com/news/nfl-network-bears-qb-caleb-williams-hamstring-expected-to-start-sunday-vs-falcons"
-          },
-          {
-            "source": "ESPN / AP",
-            "hed": "Bears at Falcons, noon CT on FOX — two top rush offenses meet",
-            "body": "Chicago (3-2) visits Atlanta (2-3). Both QBs are trending to play: Williams for the Bears, Michael Penix Jr. for the Falcons after a rib issue. The Bears lead the league in rush yards; the Falcons rank second.",
-            "url": "https://www.espn.com/nfl/preview/_/gameId/401872999"
-          },
-          {
-            "source": "Chicago Bears / Falcons",
-            "hed": "Injury picture: Edwards out for Chicago; Henderson out for Atlanta",
-            "body": "Bears are without T.J. Edwards and others; Falcons rule out CB C.J. Henderson. Kickoff Sunday noon CT (1 PM ET) on FOX.",
-            "url": "https://www.chicagobears.com/news/injury-update-caleb-williams-questionable-for-sunday-s-game-vs-falcons"
-          }
-        ]
-      },
-      "combat": {
-        "title": "MMA & Boxing",
-        "items": [
-          {
-            "source": "UFC.com / UFC Stats",
-            "hed": "Mike Malott KO's Joaquin Buckley in round 2 at UFC Edmonton",
-            "body": "Malott finished Buckley with a knee (and follow-up) at 2:32 of round 2 in the welterweight main event at Rogers Place. Co-main: Jasmine Jasudavicius beat Erin Blanchfield by unanimous decision (29-28 x3).",
-            "url": "https://www.ufc.com/news/ufc-edmonton-results-buckley-vs-malott"
-          },
-          {
-            "source": "UFC Stats",
-            "hed": "Edmonton finishes: Perez, Barriault, Cuamba, and more",
-            "body": "Cristian Perez stopped Kyle Nelson in 27 seconds; Marc-Andre Barriault TKO'd Kyle Daukaus in round 1; Timmy Cuamba submitted Louis Jourdain. Canadian night, Canadian highlights.",
-            "url": "http://www.ufcstats.com/event-details/55e94a9b525dcf45"
-          },
-          {
-            "source": "WBC / AP",
-            "hed": "Fundora stops Hadribeaj in the final second of round 12",
-            "body": "Sebastian Fundora retained the WBC super welterweight title with a KO at 2:59 of the 12th at The Chelsea inside The Cosmopolitan — a last-second left after a hard-fought fight.",
-            "url": "https://wbcboxing.com/en/sebastian-fundora-successfully-defends-wbc-super-welter-title-dishing-out-a-literally-last-second-knockout/"
-          }
-        ]
-      }
+    "ai": {
+      "title": "AI Desk",
+      "items": [
+        {
+          "source": "OpenAI",
+          "hed": "OpenAI launches GPT-6 Cyber",
+          "body": "A specialized cybersecurity model that found 81 high-severity Firefox bugs and helped develop 948 Linux privilege-escalation exploits for authorized research. Classified Critical under OpenAI's Preparedness Framework; early access is limited to Daybreak Red customers.",
+          "url": "https://openai.com/index/introducing-gpt-6-cyber"
+        },
+        {
+          "source": "Anthropic / TechCrunch",
+          "hed": "Claude Personal Finance connects via Plaid",
+          "body": "U.S. Pro, Max, and Ultra users can link bank and card accounts read-only through Plaid and ask Claude about spending and bills. It can't move or invest money.",
+          "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/"
+        },
+        {
+          "source": "The Neuron",
+          "hed": "METR: Anthropic progressing about twice as fast",
+          "body": "An independent Nov 5 assessment says Anthropic's capability progress roughly doubled vs an earlier period, with AI tools speeding up coding and experiment analysis. Much of the underlying evidence was redacted.",
+          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-6-2026/"
+        }
+      ]
+    },
+    "nba": {
+      "title": "NBA",
+      "items": [
+        {
+          "source": "RealGM",
+          "hed": "Warriors flatten Heat 120-100",
+          "body": "Stephen Curry scored 29 as Golden State improved to 6-3. Miami dropped to 3-6.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-05"
+        },
+        {
+          "source": "RealGM",
+          "hed": "Booker leads Suns past Magic 117-104",
+          "body": "Devin Booker dropped 30 and Mikal Bridges grabbed 13 boards as Phoenix evened some early-season pressure. Orlando sits at 2-6.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-05"
+        },
+        {
+          "source": "Land of Basketball",
+          "hed": "Quiet night after Wemby's 52",
+          "body": "Only two games Thursday after Victor Wembanyama's 52-and-24 stunner Wednesday. Weekend slate picks back up.",
+          "url": "https://www.landofbasketball.com/nba_daily_summary/20261105.htm"
+        }
+      ]
+    },
+    "nfl": {
+      "title": "NFL",
+      "items": [
+        {
+          "source": "AP News",
+          "hed": "No. 1 and No. 2 rushing attacks collide Sunday",
+          "body": "Bucs average 168.6 rush yards; Bears 150.8. Ben Johnson called Tampa's line and scheme 'really good' ahead of Sunday Night Football.",
+          "url": "https://apnews.com/article/buccaneers-bears-nfl-caleb-williams-6a273030b470edec89611a313def9122"
+        },
+        {
+          "source": "Buccaneers.com",
+          "hed": "Wirfs, Diaby highlight Bucs injury report",
+          "body": "Tristan Wirfs (toe) and Yaya Diaby (knee) did not practice Thursday. Bucky Irving and Chris Godwin took veteran rest days.",
+          "url": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-5-week-9-2026"
+        },
+        {
+          "source": "NBC Sports",
+          "hed": "Bears get Benedet and Jarrett back to limited",
+          "body": "Both were DNP Wednesday and limited Thursday. Monangai still out; D'Marco Jackson (ankle) missed practice.",
+          "url": "https://www.nbcsports.com/nfl/chicago-bears/rumor-mill"
+        }
+      ]
+    },
+    "combat": {
+      "title": "MMA & Boxing",
+      "items": [
+        {
+          "source": "UFC.com",
+          "hed": "Fight Night tomorrow: Cortes Acosta vs Walker",
+          "body": "Short-notice heavyweight main event at Meta APEX. Prelims 5pm ET / main card 8pm ET on Paramount+. Co-main: Tatiana Suarez vs Virna Jandiroba.",
+          "url": "https://www.ufc.com/event/ufc-fight-night-november-07-2026"
+        },
+        {
+          "source": "UFC.com",
+          "hed": "Weigh-ins set for today",
+          "body": "Official weigh-ins for Cortes Acosta vs Walker begin around noon ET. Card also features Davey Grant vs Elijah Smith and more.",
+          "url": "https://www.ufc.com/news/official-weigh-in-results-ufc-fight-night-cortes-acosta-vs-walker"
+        }
+      ]
     }
   },
   "brainFood": {
@@ -295,16 +270,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The day of the Sun",
-        "body": "Sunday is the Sun's day — Sol, not Saturn. In the old planetary order the Sun rules vitality, clarity, and the visible will. Solomonic hour charts give the first hour after sunrise to the Sun: work of courage, reputation, and clean intention. Light first, then action. Start visible work while the charge is high."
+        "hed": "The day of Venus",
+        "body": "Friday belongs to Venus, Aphrodite to the Greeks: beauty, desire, harmony, and the power of attraction. Old magicians chose it for love, art, and drawing things toward you. Make the day magnetic — create something worth wanting."
       },
       {
-        "hed": "The solar gate in the ascent",
-        "body": "In the Hermetic Poimandres, the ascending soul passes the solar zone and surrenders the desire to rule and dominate. The mystic reading for a competitive Sunday: want the win, not the theater. Compete hard, drop the need to look like you're winning, and the finish lands cleaner."
+        "hed": "The Emerald Tablet",
+        "body": "Hermes Trismegistus wrote: 'That which is below is like that which is above.' The outer week mirrors the inner one. Clean one mess in your mind and watch the desk clear with it."
       },
       {
-        "hed": "Gold as a working symbol",
-        "body": "Alchemists called the completed work the Sun's metal — gold. Not vanity: incorruptible substance that does not rust. Practical Sunday: pick one task that becomes a permanent asset (a system, a draft, a cleared checklist item) and finish it before kickoff so the rest of the day can be leisure without guilt."
+        "hed": "Hildegard of Bingen",
+        "body": "The 12th-century mystic heard the universe as music — viriditas, the greening force that makes life grow. Feed one living thing today: a project, a habit, or yourself."
       }
     ]
   },
@@ -312,9 +287,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "The diligent hand",
-    "body": "Solomon wrote: 'He becometh poor that dealeth with a slack hand: but the hand of the diligent maketh rich' (Proverbs 10:4). Sunday rest is earned, not assumed. Diligence here is one completed task and one prepared block — then the afternoon is free without the weight of unfinished duty.",
-    "practice": "After four rounds of box breathing, finish one visible due for the day, write one line for tomorrow's top task, then start the 3-minute opener. Watch the game with a clear desk."
+    "hed": "Labor over lip service",
+    "body": "Solomon wrote: 'In all labour there is profit: but the talk of the lips tendeth only to penury' (Proverbs 14:23). Talk plans the week; labor finishes Friday. Venus draws what you've already built.",
+    "practice": "Pick one unfinished 7EightMade or Cosmic Terminal task and close it before noon — no new threads until that one is done."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -341,26 +316,26 @@
         "done": false
       },
       {
-        "id": "tech-demo-video",
-        "text": "Must-do: watch Tech Demo Roundtable business video; pull one play for 7EightMade",
+        "id": "friday-must-win",
+        "text": "Must-win: one focused 7EightMade or Cosmic Terminal block before noon",
         "priority": "high",
         "done": false
       },
       {
-        "id": "bears-game",
-        "text": "Optional: Bears at Falcons noon CT on FOX",
+        "id": "grok-mail-vercel",
+        "text": "Grok Mail: sign in to Vercel once and review the link (if not done)",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "grimoire-labor",
+        "text": "Grimoire: close one unfinished task before opening any new threads",
         "priority": "normal",
         "done": false
       },
       {
-        "id": "career-fair",
-        "text": "Decide on Tuesday's Schaumburg career fair",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "week-frame",
-        "text": "Skim Monday–Wednesday blocks and protect one focus hour",
+        "id": "tech-demo-sites",
+        "text": "Tech Demo: try one of the free useful websites on a real 7EightMade task",
         "priority": "normal",
         "done": false
       }
@@ -374,22 +349,12 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "Build a business from scratch to ten thousand a month — 33-minute video",
-    "author": "@RoundtableSpace",
-    "url": "https://x.com/RoundtableSpace/status/2109633937198948596",
-    "bookmarkUrl": "https://x.com/RoundtableSpace/status/2109633937198948596",
+    "pick": "A list of 20 websites that feel too useful to be free — PDF editor with no subscription, paywall removers, text-to-voice, and more handy tools in one bookmark.",
+    "author": "@sadhna6389",
+    "url": "https://x.com/sadhna6389/status/2109528772575965492",
+    "bookmarkUrl": "https://x.com/sadhna6389/status/2109528772575965492",
     "linkLabel": "Open bookmark",
-    "note": "Rotated: no new bookmarks since Oct 12, and @milliemyang on Muse is still at the top. Next in the Oct 12 queue: @RoundtableSpace's 33-minute business-building video (scratch to a solid monthly income). Open the bookmark for the linked watch.",
-    "skipped": "Still queued: @maxwell_lenoir YouTube monetization (ES), @himanshubuildss vibe-coding resources, @Hartdrawss creative design tools, @iamtanzil_ design resources. Already used: @AkterBrist39045 (Oct 17), @sadhna6389 (Oct 16), @He1s_Sammy (Oct 13), @milliemyang (Oct 14).",
-    "lesson": {
-      "oneLiner": "Steal one system from a build video, not the whole fantasy timeline.",
-      "beats": [
-        "A 33-minute build walkthrough is a map: offer, traffic, close, deliver.",
-        "Match one step to 7EightMade this week: one clearer offer page or one follow-up script.",
-        "Time-box the watch (notes only in the first pass) so kickoff still happens.",
-        "Ship the one play Monday; archive the rest of the video until you need step two."
-      ],
-      "takeaway": "Watch for one repeatable play you can run this week for 7EightMade, then stop and execute that play."
-    }
+    "note": "Rotated in: no new bookmarks since the Oct 26 RAM tip, so this older Oct 12 '20 free useful websites' bookmark comes around.",
+    "skipped": "Skipped: Elon 'Cool' one-liner, a 'Click the ad to join' promo, and a gaming combo clip."
   }
 }
