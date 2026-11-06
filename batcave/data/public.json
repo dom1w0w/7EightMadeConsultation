@@ -1,0 +1,361 @@
+{
+  "_meta": {
+    "note": "LIVE edition, Thursday, November 5, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Oct 26, so an older real one (the 'Hey Grok' on iPhone tip) is rotated back in.",
+    "generated": "2026-11-05T06:01:58-06:00",
+    "source": "live"
+  },
+  "masthead": {
+    "title": "The Dom Times",
+    "tagline": "We checked your phone, so you don't have to.",
+    "volume": "LXIII",
+    "city": "Carpentersville, IL",
+    "asOf": "6:08 AM CT"
+  },
+  "lead": {
+    "kicker": "Front Page",
+    "headline": "Wemby Drops 52 and 24 as Spurs Edge Mavs",
+    "subhead": "Career highs, eight blocks, and the winning free throw with 24 seconds left. Meanwhile the 6-2 Bears get to work for Sunday night against Tampa Bay.",
+    "source": "Field Level Media",
+    "url": "https://fieldlevelmedia.com/nba/nba-roundup-spurs-edge-mavs-behind-victor-wembanyamas-52-and-24/"
+  },
+  "articles": [
+    {
+      "hed": "A Night for the Record Books",
+      "body": "Victor Wembanyama posted 52 points, 24 rebounds and eight blocks in a 112-111 win over Dallas, joining Bob McAdoo as the only players with 50, 20 and five blocks in a game. Luka Doncic added 40 for the Lakers, his sixth straight game of 35 or more.",
+      "url": "https://www.eurohoops.net/en/nba-news/2030924/nba-roundup-wemby-scored-52-doncic-had-40-triple-double-for-jokic-and-overtime-win-for-giannis/"
+    },
+    {
+      "hed": "Bears Reload for Sunday Night",
+      "body": "Chicago put DT Kentavius Street on injured reserve and LT Braxton Jones is done for the year after knee surgery. Caleb Williams has 860 yards, four TDs and no picks over his last three games heading into the Bucs matchup at Soldier Field.",
+      "url": "https://www.shawlocal.com/bears/2026/11/04/what-chicago-bears-ben-johnson-said-wednesday-after-beating-the-seahawks/"
+    }
+  ],
+  "weather": {
+    "location": "Carpentersville / Chicago Area",
+    "high": 51,
+    "low": 43,
+    "unit": "F",
+    "summary": "Light drizzle possible (26%), cool and gray. Dry and colder Friday through the weekend.",
+    "days": [
+      {
+        "label": "Thu",
+        "high": 51,
+        "low": 43,
+        "icon": "rain"
+      },
+      {
+        "label": "Fri",
+        "high": 45,
+        "low": 36,
+        "icon": "cloud"
+      },
+      {
+        "label": "Sat",
+        "high": 49,
+        "low": 34,
+        "icon": "cloud"
+      },
+      {
+        "label": "Sun",
+        "high": 53,
+        "low": 36,
+        "icon": "cloud"
+      }
+    ]
+  },
+  "needsALook": [
+    {
+      "type": "FYI",
+      "text": "Cool and gray today, high near 51; dry but cold Friday through Sunday (low near 34 Saturday)"
+    },
+    {
+      "type": "FYI",
+      "text": "Bears host Tampa Bay Sunday night; UFC Fight Night Cortes Acosta vs Walker is Saturday"
+    },
+    {
+      "type": "ACTION",
+      "text": "Grok Mail: if you haven't yet, one Vercel sign-in and a link review are all that's left before it goes live"
+    }
+  ],
+  "timeline": [
+    {
+      "time": "~6:00 AM",
+      "event": "Morning Charge (box breathing) + 3-min opener",
+      "category": "habit"
+    },
+    {
+      "time": "Sunrise",
+      "event": "Journal + 3 lines of gratitude; name today's one must-win",
+      "category": "habit"
+    },
+    {
+      "time": "Morning",
+      "event": "Must-win: one focused 7EightMade or Cosmic Terminal block before noon",
+      "category": "focus"
+    },
+    {
+      "time": "Bedtime",
+      "event": "Lights down on time",
+      "category": "habit"
+    }
+  ],
+  "thisWeek": [
+    "Thu Nov 5 — Drizzle possible ~51°",
+    "Fri Nov 6 — Cold, ~45°",
+    "Sat Nov 7 — UFC Fight Night: Cortes Acosta vs Walker; Zuffa Boxing 12 (Mosley Jr. vs Bentley) ~49°",
+    "Sun Nov 8 — Bears vs Buccaneers, Sunday Night Football",
+    "Tue Nov 10 — NFL trade deadline",
+    "Sat Nov 14 — UFC 334: Gane vs Hokit at MSG"
+  ],
+  "openingBell": {
+    "title": "The Opening Bell",
+    "kicker": "Morning Charge",
+    "intro": "Thursday, the day of Jupiter. Four counts in, four hold, four out, four hold. Think big, then go take it.",
+    "breathing": {
+      "title": "Box Breathing — 4 · 4 · 4 · 4",
+      "pattern": "4-4-4-4",
+      "secondsPerPhase": 4,
+      "cycles": 4,
+      "startLabel": "Start",
+      "pauseLabel": "Pause",
+      "idleLabel": "Ready",
+      "phases": [
+        {
+          "id": "inhale",
+          "label": "INHALE",
+          "cue": "Draw in through the nose — even, quiet, full."
+        },
+        {
+          "id": "hold-in",
+          "label": "HOLD",
+          "cue": "Stillness at the top. No strain. Own the pause."
+        },
+        {
+          "id": "exhale",
+          "label": "EXHALE",
+          "cue": "Release — controlled, complete."
+        },
+        {
+          "id": "hold-out",
+          "label": "HOLD",
+          "cue": "Empty and steady. Reset the line."
+        }
+      ],
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go win Wednesday."
+    },
+    "mindset": {
+      "hed": "Show Up Day One",
+      "body": "Jeffery Simmons was traded on Thursday and three days later he was sacking the Super Bowl champs on his fourth snap in a Bears uniform. No settling-in period, no excuses about a new playbook. Today, whatever's new or unfamiliar on your plate, don't wait to feel ready. Make your first rep count. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+    }
+  },
+  "bodyOpener": {
+    "title": "3-Minute Opener",
+    "kicker": "Body Desk",
+    "note": "Thursday, the day of Jupiter: run this right after Morning Charge. Around 45° with drizzle possible, so keep the RipStick finisher in the driveway only if it's dry. Big, strong reps.",
+    "duration": "~3:00",
+    "reference": {
+      "label": "RipStick form — RipRight",
+      "url": "https://www.riprightsticks.com/"
+    },
+    "moves": [
+      {
+        "name": "Push-ups",
+        "reps": "× 30",
+        "time": "~60 sec",
+        "body": "Crisp reps, chest to floor. If you hit 30 early, hold high plank until the minute mark."
+      },
+      {
+        "name": "Plank",
+        "reps": "× 60 seconds",
+        "time": "60 sec",
+        "body": "Elbows or hands. Ribs down, glutes on. Breathe slow."
+      },
+      {
+        "name": "RipStick finisher",
+        "reps": "continuous",
+        "time": "~60–75 sec",
+        "body": "Dom's RipStick (RipRight): hold sticks at chest → inhale and pull apart as wide as possible → with bands open, exhale and push arms straight out while keeping them apart (dynamic isometrics / Push-Pulls). Smooth continuous reps for the remaining time."
+      }
+    ]
+  },
+  "news": {
+    "ai": {
+      "title": "AI Desk",
+      "items": [
+        {
+          "source": "The Neuron",
+          "hed": "Apple opens Siri AI to every app developer",
+          "body": "A developer preview in the iOS 27.3 betas lets apps plug content and actions into Siri through App Intents, with 'skills' that chain several steps into one request.",
+          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/"
+        },
+        {
+          "source": "AIToolsRecap",
+          "hed": "Anthropic releases FlashProve",
+          "body": "An open-source prototype that uses cryptographic proofs to verify a reply really came from the model a provider claims, without revealing the weights. Still experimental.",
+          "url": "https://aitoolsrecap.com/Blog/ai-news-november-04-2026"
+        },
+        {
+          "source": "vanemmerik.ai",
+          "hed": "OpenAI tightens security; xAI swaps Grok Imagine API models",
+          "body": "OpenAI brought in Cathedral Systems for a security sprint and showed a Codex device designed by GPT-6 Astra in under a week. xAI now serves its quality and pro image API calls with a cheaper Grok Imagine Image 2.0 setting.",
+          "url": "https://vanemmerik.ai/days/2026-11-04/"
+        }
+      ]
+    },
+    "nba": {
+      "title": "NBA",
+      "items": [
+        {
+          "source": "Field Level Media",
+          "hed": "Wembanyama 52 and 24, Spurs edge Mavs 112-111",
+          "body": "Career highs in points and boards plus eight blocks, and the winning free throw with 24.2 seconds left. San Antonio has won six straight.",
+          "url": "https://fieldlevelmedia.com/nba/nba-roundup-spurs-edge-mavs-behind-victor-wembanyamas-52-and-24/"
+        },
+        {
+          "source": "NBC Sports",
+          "hed": "Klay's corner three wins it in OT",
+          "body": "Klay Thompson hit the game-winner with one second left for 30 points as Miami came back from 20 down to beat the Clippers 117-116.",
+          "url": "https://www.nbcsports.com/nba/news/watch-klay-thompson-hit-overtime-game-winner-to-beat-clippers-cap-30-point-night"
+        },
+        {
+          "source": "Fox Sports",
+          "hed": "Knicks rout the Bulls again",
+          "body": "New York opened 43-21 in the first quarter. Chicago has lost five straight and sits at 1-7.",
+          "url": "https://www.foxsports.com.au/basketball/nba/nba-2026-dyson-daniels-careerbest-rebounds-for-atlanta-hawks-josh-giddey-struggles-for-chicago-bulls-new-york-knicks-washington-wizards-results-scores-and-highlights/news-story/1c1a7c790c045cf9d33cc3fdb1c6e240"
+        }
+      ]
+    },
+    "nfl": {
+      "title": "NFL",
+      "items": [
+        {
+          "source": "AP News",
+          "hed": "Bears put Kentavius Street on IR",
+          "body": "Street left the Seattle win with a knee injury and is likely done for the year. TE Stephen Carlson was promoted to the active roster.",
+          "url": "https://apnews.com/article/bears-street-monangai-a1e52b9d086fa9463c891815a856c105"
+        },
+        {
+          "source": "NBC Sports",
+          "hed": "Braxton Jones out for the season",
+          "body": "The left tackle had season-ending knee surgery Tuesday. Theo Benedet stays at left tackle.",
+          "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bears-ot-braxton-jones-to-miss-rest-of-season-after-knee-surgery"
+        },
+        {
+          "source": "Bears Wire",
+          "hed": "Injury watch before Sunday night vs. Tampa",
+          "body": "Kyle Monangai (toe), Grady Jarrett (groin) and Theo Benedet (shoulder) did not participate in Wednesday's walkthrough.",
+          "url": "https://bearswire.usatoday.com/story/sports/nfl/bears/2026/11/04/bears-bucs-injury-report-wednesday-grady-jarrett/92615469007/"
+        }
+      ]
+    },
+    "combat": {
+      "title": "MMA & Boxing",
+      "items": [
+        {
+          "source": "UFC.com",
+          "hed": "Fight week: Cortes Acosta vs Walker Saturday",
+          "body": "UFC returns to the Meta APEX on Nov 7, then heads to Madison Square Garden Nov 14 for Gane vs Hokit.",
+          "url": "https://www.ufc.com/news/the-10-november-not-short-on-action"
+        },
+        {
+          "source": "UFC.com",
+          "hed": "Zuffa Boxing 12: Mosley Jr. vs Bentley",
+          "body": "Shane Mosley Jr. faces Denzel Bentley in Saturday's co-main in London. Bentley was stripped, so no belt is on the line.",
+          "url": "https://www.ufc.com/news/shane-mosley-jr-wants-show-his-championship-quality-zuffa-boxing-12"
+        }
+      ]
+    }
+  },
+  "brainFood": {
+    "title": "Brain Food",
+    "kicker": "Gnostic · Esoteric · Forbidden",
+    "items": [
+      {
+        "hed": "The day of Jupiter",
+        "body": "Thursday belongs to Jupiter, Zeus to the Greeks: king of the gods, ruler of expansion, generosity and rightful authority. Old magicians chose it for petitions, growth and big asks. Ask for the bigger thing today."
+      },
+      {
+        "hed": "The Pleroma",
+        "body": "The Gnostics called the divine fullness the Pleroma, the source every spark of light came from. Their path was remembering that you carry a piece of it. Act like it."
+      },
+      {
+        "hed": "Meister Eckhart",
+        "body": "The medieval mystic taught that God is found in the ground of the soul, reached by letting go of clutter. Cut one distraction today and see what's underneath."
+      }
+    ]
+  },
+  "grimoire": {
+    "title": "Grimoire",
+    "kicker": "Magick Knowledge of the Day",
+    "source": "From the wisdom attributed to Solomon",
+    "hed": "The counsel of many",
+    "body": "Solomon wrote: 'Without counsel purposes are disappointed: but in the multitude of counsellors they are established' (Proverbs 15:22). Big plans die in one head. Jupiter's day is for widening the circle: run your plan past someone sharp before you commit.",
+    "practice": "Pick one 7EightMade move you're weighing and get one honest outside opinion on it before noon."
+  },
+  "inboxSummary": {
+    "title": "Quick Inbox Summary",
+    "asOf": "",
+    "urgent": [],
+    "needsLook": [],
+    "fyi": [],
+    "cleanupNote": ""
+  },
+  "todo": {
+    "title": "To-Do",
+    "kicker": "Check the boxes",
+    "items": [
+      {
+        "id": "morning-charge",
+        "text": "Morning Charge + 3-min opener today",
+        "priority": "habit",
+        "done": false
+      },
+      {
+        "id": "journal-gratitude",
+        "text": "Journal + 3 lines of gratitude",
+        "priority": "habit",
+        "done": false
+      },
+      {
+        "id": "thursday-must-win",
+        "text": "Must-win: one focused 7EightMade or Cosmic Terminal block before noon",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "grok-mail-vercel",
+        "text": "Grok Mail: sign in to Vercel once and review the link (if not done)",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "grimoire-diligence",
+        "text": "Grimoire: 25 focused minutes on your most valuable skill",
+        "priority": "normal",
+        "done": false
+      },
+      {
+        "id": "tech-demo-design",
+        "text": "Tech Demo: save three examples for one 7EightMade site section",
+        "priority": "normal",
+        "done": false
+      }
+    ]
+  },
+  "moneyDesk": {
+    "title": "Later / Admin",
+    "kicker": "Quiet block — after the morning wins",
+    "items": []
+  },
+  "techDemo": {
+    "title": "Tech Demo",
+    "kicker": "Fast learn · from your X bookmarks",
+    "pick": "Say 'Hey Grok' on iPhone and Grok Bot voice chat opens, using a setup built into iOS with no extra apps and no cost. A neat trick if you want hands-free Grok while you work.",
+    "author": "From your X bookmarks",
+    "url": "https://x.com/i/status/2114217410823688573",
+    "bookmarkUrl": "https://x.com/i/status/2114217410823688573",
+    "linkLabel": "Open bookmark",
+    "note": "Rotated back in: no new bookmarks since the Oct 26 RAM tip, so this older 'Hey Grok' bookmark comes back around.",
+    "skipped": "Skipped: a 'Click the ad to join' promo and a gaming combo clip."
+  }
+}
