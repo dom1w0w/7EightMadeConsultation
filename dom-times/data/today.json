@@ -1,76 +1,76 @@
 {
   "_meta": {
-    "note": "LIVE edition, Saturday, November 7, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Oct 26, so an older real one (a free open-source AI prompt library) is rotated in.",
-    "generated": "2026-11-07T06:06:00-06:00",
+    "note": "LIVE edition, Sunday, November 8, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Oct 26, so an older real one (a Grok Mail web inbox) is rotated in.",
+    "generated": "2026-11-08T06:07:00-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXV",
+    "volume": "LXVI",
     "city": "Carpentersville, IL",
-    "asOf": "6:06 AM CT"
+    "asOf": "6:07 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Monangai Practices for First Time in a Month as Bears Ready for Bucs",
-    "subhead": "The running back is questionable for Sunday Night Football after a limited Friday. Benedet, Jarrett and D'Marco Jackson were full go. Chicago is chasing 7-2 before the bye. Tonight: UFC heavyweights at Meta APEX.",
+    "headline": "Bears Host Buccaneers on Sunday Night Football, Chasing 7-2",
+    "subhead": "Chicago (6-2) seeks a fourth straight win and a sixth in seven games against Tampa Bay (3-5) at Soldier Field, 7:20 PM CT on NBC. The league's top two rushing offenses meet top-four run defenses. Monangai, Stevenson and Malik Muhammad II are questionable; Tampa's Yaya Diaby is out.",
     "source": "ChicagoBears.com",
-    "url": "https://www.chicagobears.com/news/kyle-monangai-back-at-practice-questionable-for-buccaneers-game-injury-update"
+    "url": "https://www.chicagobears.com/news/bears-buccaneers-game-preview-2026-week-9"
   },
   "articles": [
     {
-      "hed": "Bucs Lose Diaby, Egbuka Expected to Go",
-      "body": "Tampa Bay ruled out OLB Yaya Diaby (knee). WR Emeka Egbuka is questionable but practiced fully Thursday and Friday. Tristan Wirfs (toe) got back to a limited session and carries no designation.",
-      "url": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-6-week-9-2026"
+      "hed": "Swift Leads the NFL in Rushing Touchdowns",
+      "body": "D'Andre Swift has 10 rushing scores after three against Seattle, the most in the league, and the Bears have 17 rushing touchdowns through eight games. Tampa Bay has held each of its last seven opponents under 100 rushing yards and blanked Atlanta 16-0 last week without completing a pass.",
+      "url": "https://www.chicagobears.com/news/bears-buccaneers-game-preview-2026-week-9"
     },
     {
-      "hed": "Luka Ties the Big O",
-      "body": "Luka Dončić's seventh straight game with 35+ points, 5+ boards and 5+ assists ties Oscar Robertson's record, and the Lakers beat Portland 124-118 to move into first in the West. Wembanyama and the Spurs made it seven straight wins.",
-      "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-nov-6"
+      "hed": "Walker Comes Back to Stop Cortes Acosta",
+      "body": "Johnny Walker took last night's heavyweight main event on short notice and knocked out Waldo Cortes Acosta at 2:27 of round 3 with a question-mark kick and follow-up punches, his second straight finish since moving up. Tatiana Suarez also stayed in the strawweight title mix with a decision over Virna Jandiroba.",
+      "url": "https://www.ufc.com/news/ufc-fight-night-cortes-acosta-vs-walker-results"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 46,
-    "low": 31,
+    "high": 58,
+    "low": 37,
     "unit": "F",
-    "summary": "Cold, overcast and dry today, high near 46 after a freezing start. Morning fog Sunday, then a mild, dry stretch in the mid-50s to 60 through Tuesday.",
+    "summary": "Sunny and milder today after a chilly, clear dawn near 38° (feels like 31°). High near 58 and dry. Monday turns cloudier and cooler, then another mild day Tuesday before a chance of rain Wednesday.",
     "days": [
       {
-        "label": "Sat",
-        "high": 46,
-        "low": 31,
-        "icon": "cloud"
-      },
-      {
         "label": "Sun",
-        "high": 55,
-        "low": 35,
-        "icon": "fog"
+        "high": 58,
+        "low": 37,
+        "icon": "sun"
       },
       {
         "label": "Mon",
-        "high": 56,
-        "low": 39,
+        "high": 52,
+        "low": 34,
         "icon": "cloud"
       },
       {
         "label": "Tue",
-        "high": 60,
-        "low": 44,
+        "high": 59,
+        "low": 42,
         "icon": "cloud"
+      },
+      {
+        "label": "Wed",
+        "high": 54,
+        "low": 43,
+        "icon": "rain"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Freezing start (~31°), dry and gray, high near 46; Sunday ~55° for Bears night"
+      "text": "Sunny and milder, high near 58 after a chilly start around 38°"
     },
     {
       "type": "FYI",
-      "text": "UFC Fight Night tonight: Cortes Acosta vs Walker, main card 7 PM CT (Paramount+); Bears vs Buccaneers tomorrow, Sunday Night Football"
+      "text": "Bears vs Buccaneers tonight, Sunday Night Football, 7:20 PM CT on NBC at Soldier Field"
     },
     {
       "type": "ACTION",
@@ -90,30 +90,30 @@
     },
     {
       "time": "Morning",
-      "event": "Must-win: one focused 7EightMade or Cosmic Terminal block before noon",
+      "event": "Must-win: one focused 7EightMade or Cosmic Terminal block before kickoff",
       "category": "focus"
     },
     {
-      "time": "4:00 PM",
-      "event": "UFC Fight Night prelims (main card 7 PM CT)",
+      "time": "7:20 PM",
+      "event": "Bears vs Buccaneers, Sunday Night Football (NBC)",
       "category": "fun"
     },
     {
       "time": "Bedtime",
-      "event": "Lights down on time",
+      "event": "Lights down after the game",
       "category": "habit"
     }
   ],
   "thisWeek": [
-    "Sat Nov 7 — UFC Fight Night: Cortes Acosta vs Walker (Meta APEX); cold, gray ~46°",
-    "Sun Nov 8 — Bears vs Buccaneers, Sunday Night Football, 7:20 PM CT; ~55°",
-    "Tue Nov 10 — NFL trade deadline; mild ~60°",
+    "Sun Nov 8 — Bears vs Buccaneers, Sunday Night Football, 7:20 PM CT; sunny ~58°",
+    "Tue Nov 10 — NFL trade deadline; cloudy ~59°",
+    "Wed Nov 11 — Veterans Day; chance of rain ~54°",
     "Sat Nov 14 — UFC 334: Gane vs Hokit at MSG"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Saturday, the day of Saturn. Four counts in, four hold, four out, four hold. Saturn rewards structure: build while everyone else sleeps in.",
+    "intro": "Sunday, the day of the Sun. Four counts in, four hold, four out, four hold. The Sun rewards what you make visible: show up, shine, and let the work be seen.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -144,17 +144,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go own Saturday."
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go own Sunday."
     },
     "mindset": {
-      "hed": "The Weekend Is Where the Gap Opens",
-      "body": "Kyle Monangai sat a month and came back the first day his body let him. Johnny Walker took a heavyweight main event on short notice, giving up 23 pounds. Nobody hands out the spot; you show up ready when it opens. Saturday is the day most people coast. Put in one real block before noon and you're a week ahead of them by Monday. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Show Up When the Lights Are On",
+      "body": "Johnny Walker was losing after two rounds and still found the kick that ended the night. The Bears have three straight wins and another prime-time stage tonight. Nobody waits for a softer schedule. Put in one real block before kickoff, then go watch Chicago chase 7-2. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Saturday, the day of Saturn: run this right after Morning Charge. Near freezing outside (~31° at dawn), so keep the RipStick finisher indoors this morning. Strong, smooth reps.",
+    "note": "Sunday, the day of the Sun: run this right after Morning Charge. Dawn is still chilly (about 38°, feels near 31°) even with clear skies, so keep the RipStick finisher indoors this morning. By kickoff it should be in the 50s. Strong, smooth reps.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -186,22 +186,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "Real Python",
-          "hed": "Apple opens its new Siri AI to every app",
-          "body": "A developer preview lets apps hand their actions to Siri AI through App Intents, so you can ask in plain words to check a delivery or book a table inside an app. Customers get it in a few months; App Store submissions open in the spring.",
-          "url": "https://realpython.com/ai-news-weekly-2026-11-06/"
+          "source": "Apple Newsroom",
+          "hed": "Apple's first touchscreen MacBook Pro is in stores",
+          "body": "The new 14- and 16-inch MacBook Pros pair a tandem OLED PROLED XDR display with M5 Pro and M5 Max chips, and they put a Dynamic Island on the Mac for the first time. Availability began Friday after late-October pre-orders.",
+          "url": "https://www.apple.com/newsroom/2026/10/apple-unveils-groundbreaking-macbook-pro-with-proled-xdr-display/"
         },
         {
-          "source": "Real Python",
-          "hed": "Grok text gets a hidden watermark starting today",
-          "body": "From Nov 7, text from xAI's Grok models in the API carries an invisible watermark by default. It steers word choice slightly so the company can later recognize AI-written text; it says quality and speed are unchanged.",
-          "url": "https://realpython.com/ai-news-weekly-2026-11-06/"
+          "source": "OpenAI",
+          "hed": "OpenAI teams with Hacktron to hunt its own bugs",
+          "body": "OpenAI is partnering with security firm Hacktron to probe how its systems talk to third-party services. Engineers from both sides will pick high-priority tests, and Hacktron gets wider access to frontier models through the Daybreak Red program.",
+          "url": "https://openai.com/index/partnering-with-hacktron/"
         },
         {
-          "source": "The Neuron",
-          "hed": "METR: Anthropic moving about twice as fast",
-          "body": "An independent review says AI tools are roughly doubling Anthropic's pace on coding and experiments. OpenAI meanwhile shipped GPT-6 Cyber for vetted security researchers. Much of the METR evidence was redacted.",
-          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-6-2026/"
+          "source": "Anthropic",
+          "hed": "Anthropic open-sources FlashProve",
+          "body": "FlashProve is a research prototype that lets anyone check an AI reply really came from the model a provider claims, without handing over the weights. Anthropic published the code, a technical report and formal proofs; it is not running inside Claude yet.",
+          "url": "https://www.anthropic.com/research/provable-inference"
         }
       ]
     },
@@ -209,22 +209,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "NBA.com",
-          "hed": "Lakers top Blazers 124-118, take first in the West",
-          "body": "Luka Dončić tied Oscar Robertson with a seventh straight game of 35+ points, 5+ rebounds and 5+ assists.",
-          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-nov-6"
+          "source": "ESPN",
+          "hed": "Wemby scores 29 in 24 minutes as Spurs run it to eight straight",
+          "body": "San Antonio blew out Portland 125-103. Victor Wembanyama needed only 13 shots (9 of 13) for 29 points before sitting the fourth. The Spurs are 8-2 and never trailed.",
+          "url": "https://www.espn.com/nba/recap/_/gameId/401909944"
         },
         {
-          "source": "NBA.com",
-          "hed": "Wemby joins Kareem and Shaq",
-          "body": "Spurs beat the Kings 124-109 for seven straight. Wembanyama has 250+ points, 100+ rebounds and 35+ blocks through nine games, a mark only Kareem and Shaq had reached.",
-          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-nov-6"
+          "source": "The Sunday Guardian",
+          "hed": "Curry drops 41 as Warriors outlast Magic in OT",
+          "body": "Stephen Curry scored 41 and Golden State beat Orlando 126-119 in overtime to move to 7-3. Franz Wagner had 30 and 11 assists in the loss.",
+          "url": "https://sundayguardianlive.com/sports/nba-results-november-7-victor-wembanyama-leads-spurs-to-eighth-straight-win-stephen-curry-stars-with-41-points-319361/"
         },
         {
-          "source": "RealGM",
-          "hed": "Celtics bury Hornets 119-80",
-          "body": "Jayson Tatum had 34, 8 and 9 as Boston hit 24 threes. Ajay Mitchell's career-high 35 led OKC past Memphis 128-97.",
-          "url": "https://basketball.realgm.com/schedules/2026-11-06/NBA"
+          "source": "The Sunday Guardian",
+          "hed": "Thunder flatten Wizards 114-75",
+          "body": "Shai Gilgeous-Alexander scored 30 without playing the fourth quarter. Washington's 75 points were the lowest total of the NBA season. Oklahoma City is also 8-2.",
+          "url": "https://sundayguardianlive.com/sports/nba-results-november-7-victor-wembanyama-leads-spurs-to-eighth-straight-win-stephen-curry-stars-with-41-points-319361/"
         }
       ]
     },
@@ -233,20 +233,20 @@
       "items": [
         {
           "source": "ChicagoBears.com",
-          "hed": "Monangai questionable after first practice since Week 4",
-          "body": "Ben Johnson said the toe injury has been 'fickle.' CBs Tyrique Stevenson and Malik Muhammad II are also questionable.",
-          "url": "https://www.chicagobears.com/news/kyle-monangai-back-at-practice-questionable-for-buccaneers-game-injury-update"
+          "hed": "Bears host Bucs in the last of three straight prime-time games",
+          "body": "Chicago (6-2) seeks a fourth straight win tonight at Soldier Field after beating the Patriots and Seahawks. Tampa Bay (3-5) has won two straight, including a 16-0 shutout of Atlanta last week without completing a pass.",
+          "url": "https://www.chicagobears.com/news/bears-buccaneers-game-preview-2026-week-9"
         },
         {
-          "source": "Bears Wire",
-          "hed": "Bears chase 7-2 in third straight prime-time game",
-          "body": "Benedet, Jarrett and D'Marco Jackson shed their designations after full Friday practices. The bye comes after Sunday.",
-          "url": "https://bearswire.usatoday.com/story/sports/nfl/bears/2026/11/06/bears-bucs-final-injury-report-game-designations/92645846007/"
+          "source": "ChicagoBears.com",
+          "hed": "Monangai, Stevenson and Muhammad II are questionable",
+          "body": "Kyle Monangai (thumb/toe) is questionable after a limited Friday. CBs Tyrique Stevenson Sr. (thumb) and Malik Muhammad II (toe) are also questionable. Benedet, Jarrett and D'Marco Jackson cleared after full practices.",
+          "url": "https://www.chicagobears.com/team/injury-report/"
         },
         {
           "source": "Buccaneers.com",
-          "hed": "Diaby out for Tampa Bay",
-          "body": "OLB Yaya Diaby (knee) is ruled out; Emeka Egbuka (foot) is questionable but practiced fully twice.",
+          "hed": "Diaby is out; Egbuka is questionable",
+          "body": "Tampa Bay ruled out OLB Yaya Diaby (knee). WR Emeka Egbuka (foot) is questionable after two full practices. The Bucs lead the NFL in rushing; the Bears are second. Both rank in the top four against the run.",
           "url": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-6-week-9-2026"
         }
       ]
@@ -255,16 +255,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "MMA Fighting",
-          "hed": "Cortes Acosta has 23 pounds on Walker",
-          "body": "Cortes Acosta weighed 262, Walker 239 for tonight's short-notice heavyweight main event at Meta APEX. Main card 7 PM CT on Paramount+.",
-          "url": "https://www.mmafighting.com/ufc/519766/ufc-vegas-124-weigh-in-results-waldo-cortes-acosta-has-23-pound-edge-over-johnny-walker-in-main-event"
+          "source": "UFC.com",
+          "hed": "Walker rallies to knock out Cortes Acosta",
+          "body": "Johnny Walker stopped Waldo Cortes Acosta at 2:27 of round 3 with a question-mark kick and follow-up punches, his second straight heavyweight finish after taking the short-notice main event. That punches his ticket toward the top 10.",
+          "url": "https://www.ufc.com/news/ufc-fight-night-cortes-acosta-vs-walker-results"
         },
         {
-          "source": "Sherdog",
-          "hed": "All 28 fighters make weight",
-          "body": "Co-main Tatiana Suarez (115.5) vs Virna Jandiroba (116) could set up a strawweight title shot. Prelims start 4 PM CT.",
-          "url": "https://www.sherdog.com/news/news/UFC-Vegas-124-weighin-results-All-fighters-make-weight-203521"
+          "source": "UFC.com",
+          "hed": "Suarez outpoints Jandiroba, stays in the title mix",
+          "body": "Tatiana Suarez beat Virna Jandiroba by unanimous decision (30-27, 30-27, 29-28), her third straight win. A date with strawweight champion Mackenzie Dern could be next.",
+          "url": "https://www.ufc.com/news/ufc-fight-night-cortes-acosta-vs-walker-results"
+        },
+        {
+          "source": "UFC.com",
+          "hed": "Elijah Smith sparks Grant in one minute",
+          "body": "Elijah Smith knocked out Davey Grant at 1:00 of round 1, moving to 4-0 in the UFC and nine straight overall. It was the final fight of his current contract.",
+          "url": "https://www.ufc.com/news/ufc-fight-night-cortes-acosta-vs-walker-results"
         }
       ]
     }
@@ -274,16 +280,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The day of Saturn",
-        "body": "Saturday belongs to Saturn, Kronos to the Greeks: time, limits, discipline and the long game. Old magicians used it for binding, endurance and laying foundations. Saturn is a hard teacher, but what you build under him lasts."
+        "hed": "The day of the Sun",
+        "body": "Sunday belongs to Sol: gold, vitality, clarity and the heart. Old magicians used it for success, healing and making hidden things visible. What you start under the Sun should be something you are willing to stand behind in daylight."
       },
       {
-        "hed": "The Gnostic Archons",
-        "body": "In Gnostic myth the Archons are rulers who keep souls asleep with distraction and routine. The cure was gnosis, direct knowing. Notice one thing today you do on autopilot and do it awake."
+        "hed": "The divine spark",
+        "body": "Gnostic teachers said a fragment of living light is hidden in every person, buried under habit and noise. The work was not to invent a new self but to remember that spark. Today, notice one moment you dim yourself and choose to stay lit."
       },
       {
-        "hed": "Meister Eckhart",
-        "body": "The 14th-century German mystic taught that God is found in letting go, not in grasping. 'The eye through which I see God is the same eye through which God sees me.' Do the work fully and drop the worry about the result."
+        "hed": "Marsilio Ficino",
+        "body": "The Renaissance magician-priest taught that sunlight feeds the spirit as food feeds the body. He told melancholy students to walk in the sun and turn the mind toward bright work. After the opener, take two minutes of actual daylight before you sit down to build."
       }
     ]
   },
@@ -291,9 +297,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Diligence over appetite",
-    "body": "Solomon wrote: 'The soul of the sluggard desireth, and hath nothing: but the soul of the diligent shall be made fat' (Proverbs 13:4). Wanting is free; Saturn only pays out for the hours you actually put in.",
-    "practice": "Before the fights tonight, finish one concrete 7EightMade or Cosmic Terminal deliverable you can point to."
+    "hed": "A path that brightens",
+    "body": "Solomon wrote: 'But the path of the just is as the shining light, that shineth more and more unto the perfect day' (Proverbs 4:18). You do not need the whole staircase at dawn. Take the next honest step and let it get brighter as you walk.",
+    "practice": "Before kickoff tonight, finish one concrete 7EightMade or Cosmic Terminal deliverable you can point to."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -320,8 +326,8 @@
         "done": false
       },
       {
-        "id": "saturday-must-win",
-        "text": "Must-win: one focused 7EightMade or Cosmic Terminal block before noon",
+        "id": "sunday-must-win",
+        "text": "Must-win: one focused 7EightMade or Cosmic Terminal block before kickoff",
         "priority": "high",
         "done": false
       },
@@ -332,14 +338,14 @@
         "done": false
       },
       {
-        "id": "grimoire-diligence",
-        "text": "Grimoire: ship one concrete deliverable before the fights tonight",
+        "id": "grimoire-light",
+        "text": "Grimoire: ship one concrete deliverable before kickoff tonight",
         "priority": "normal",
         "done": false
       },
       {
-        "id": "tech-demo-prompts",
-        "text": "Tech Demo: grab one prompt from the free prompt library and use it on a real 7EightMade task",
+        "id": "tech-demo-grokmail",
+        "text": "Tech Demo: skim the Grok Mail bookmark and compare it with what you still need for Vercel",
         "priority": "normal",
         "done": false
       }
@@ -353,12 +359,12 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "One of the largest free AI prompt libraries: the open-source collection formerly called Awesome ChatGPT Prompts, with 167K+ GitHub stars, covering ChatGPT, Claude, Gemini and other models.",
-    "author": "@dyfwsammy",
-    "url": "https://x.com/dyfwsammy/status/2109658019868905866",
-    "bookmarkUrl": "https://x.com/dyfwsammy/status/2109658019868905866",
+    "pick": "Grok Mail app is now live: a phone-friendly web inbox for your bot's email, with search, sending and +tags, hosted on your own Vercel. The bookmark says just ask Grok Bot to build it.",
+    "author": "@DanRichards0n",
+    "url": "https://x.com/DanRichards0n/status/2112295654038905161",
+    "bookmarkUrl": "https://x.com/DanRichards0n/status/2112295654038905161",
     "linkLabel": "Open bookmark",
-    "note": "Rotated in: no new bookmarks since the Oct 26 RAM tip, so this older Oct 12 prompt-library bookmark comes around.",
+    "note": "Rotated in: no new bookmarks since the Oct 26 RAM tip, so this older Oct 19 Grok Mail app bookmark comes around.",
     "skipped": "Skipped: Elon 'Cool' one-liner, a 'Click the ad to join' promo, and a gaming combo clip."
   }
 }
