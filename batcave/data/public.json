@@ -1,64 +1,64 @@
 {
   "_meta": {
-    "note": "LIVE edition, Monday, November 9, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Oct 26, so an older real one is rotated in.",
-    "generated": "2026-11-09T05:55:00-06:00",
+    "note": "LIVE edition, Tuesday, November 10, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Oct 26, so an older real one is rotated in.",
+    "generated": "2026-11-10T06:04:13-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXVII",
+    "volume": "LXVIII",
     "city": "Carpentersville, IL",
-    "asOf": "5:55 AM CT"
+    "asOf": "6:04 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Bears Beat Buccaneers 27-24 on a Walk-Off Field Goal, Now 7-2",
-    "subhead": "Chicago led 14-0, watched Tampa Bay tie it at 24-24 with 2:51 left, then Caleb Williams hit Colston Loveland for 38 yards and Cairo Santos drilled a 38-yard field goal as time expired. Four straight wins. Seven is the stumble; eight is the stand.",
-    "source": "ChicagoBears.com",
-    "url": "https://www.chicagobears.com/news/bears-hold-off-late-rally-to-edge-buccaneers-extend-winning-streak-to-four-game-recap"
+    "headline": "Wembanyama Drops 40 and Nine Blocks as Spurs Win Ninth Straight",
+    "subhead": "San Antonio opened the season 0-2 and hasn't lost since. Victor Wembanyama turned the rim into a no-go zone in a 122-96 win at Phoenix. A slow start is not the story; the streak after it is.",
+    "source": "ESPN / Basketball Streams",
+    "url": "https://basketballstreams.com/articles/nba-morning-recap-2026-11-10/"
   },
   "articles": [
     {
-      "hed": "Williams Answers After a Rough Night",
-      "body": "Caleb Williams threw four interceptions and still engineered the eight-play, 49-yard winning drive in the final minutes. Chicago held on for a 27-24 win at Soldier Field before 60,470 fans. Ugly night, perfect finish: the rebound is the whole story.",
-      "url": "https://www.espn.com/nfl/recap?gameId=401873050"
+      "hed": "Flagg Scores 43 as Dallas Rallies Late",
+      "body": "Down 13 to Indiana, the Mavericks won the fourth quarter 35-29. Cooper Flagg finished with 43 points and 10 rebounds, Kyrie Irving added 35, and Dallas closed out a 125-122 win. Down big, still found the finish.",
+      "url": "https://basketballstreams.com/articles/nba-morning-recap-2026-11-10/"
     },
     {
-      "hed": "Sixers Start 9-2 With LeBron in the Mix",
-      "body": "Philadelphia beat the Bulls 127-121 behind Jaylen Brown's 29 and Tyrese Maxey's 27 for its best 11-game start since 2000-01. Meanwhile Austin Reaves poured in 43 to carry the Lakers past Detroit without Luka Doncic.",
-      "url": "https://www.sportsnet.ca/nba/article/reaves-scores-43-points-leads-doncic-less-lakers-past-pistons/"
+      "hed": "Trade Deadline Day: 4 PM ET",
+      "body": "The Bears already struck early for Jeffery Simmons, and Jacksonville went all in Monday with three defensive deals. Every contender is working the phones today. Front offices that move with urgency set the tone for the second half.",
+      "url": "https://apnews.com/article/nfl-trade-deadline-dec70beddd54ac37337dc64fabb9f9f8"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 57,
-    "low": 35,
+    "high": 64,
+    "low": 41,
     "unit": "F",
-    "summary": "Cloudy and cool after a cold dawn near 36° (feels like 31°). High near 57. Tuesday stays mild near 58, showers possible Wednesday, then a colder turn Thursday near 45.",
+    "summary": "Clear, crisp dawn near 41°, then mostly cloudy and mild with a high near 64, the warmest day of the week. Light drizzle possible Wednesday near 56, then a colder turn with highs in the low 40s Thursday and Friday.",
     "days": [
       {
-        "label": "Mon",
-        "high": 57,
-        "low": 35,
-        "icon": "cloud"
-      },
-      {
         "label": "Tue",
-        "high": 58,
-        "low": 39,
+        "high": 64,
+        "low": 41,
         "icon": "cloud"
       },
       {
         "label": "Wed",
-        "high": 55,
-        "low": 44,
+        "high": 56,
+        "low": 40,
         "icon": "rain"
       },
       {
         "label": "Thu",
-        "high": 45,
+        "high": 44,
         "low": 31,
+        "icon": "cloud"
+      },
+      {
+        "label": "Fri",
+        "high": 41,
+        "low": 28,
         "icon": "cloud"
       }
     ]
@@ -66,11 +66,11 @@
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Cloudy, high near 57 after a cold start near 36°"
+      "text": "Mild Tuesday, high near 64: best weather of the week, get outside at lunch"
     },
     {
       "type": "FYI",
-      "text": "Bears won 27-24 and sit at 7-2; NFL trade deadline is Tuesday 4 PM ET"
+      "text": "NFL trade deadline today at 4 PM ET (3 PM CT)"
     },
     {
       "type": "ACTION",
@@ -90,8 +90,13 @@
     },
     {
       "time": "Midday",
-      "event": "One focused 7EightMade or Cosmic Terminal block",
+      "event": "Walk outside in the 60s, then one focused 7EightMade or Cosmic Terminal block",
       "category": "focus"
+    },
+    {
+      "time": "3:00 PM",
+      "event": "NFL trade deadline passes (4 PM ET)",
+      "category": "fyi"
     },
     {
       "time": "Evening",
@@ -100,14 +105,14 @@
     }
   ],
   "thisWeek": [
-    "Tue Nov 10 — NFL trade deadline, 4 PM ET; cloudy ~58°",
-    "Wed Nov 11 — Veterans Day; showers possible ~55°",
-    "Sat Nov 14 — UFC 334 at MSG: Gane vs Hokit, Harrison vs Nunes"
+    "Wed Nov 11 — Veterans Day; drizzle possible ~56°",
+    "Thu Nov 12 — colder turn, high ~44°",
+    "Sat Nov 14 — UFC 334 at MSG: Gane vs Hokit, Harrison vs Nunes (main card 8 PM CT)"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Monday, the day of the Moon. Four counts in, four hold, four out, four hold. The Moon rules tides and instinct: set the rhythm of the week before the week sets it for you.",
+    "intro": "Tuesday, the day of Mars. Four counts in, four hold, four out, four hold. Mars is the warrior's planet: drive, courage, the first strike. Breathe like a fighter before the bell.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -138,17 +143,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go own Monday."
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go take Tuesday."
     },
     "mindset": {
-      "hed": "Be the Closer at 2:51 Left",
-      "body": "The Bears were up 24-13, got tied, and still found a way in the last minute. Williams had a rough night and kept swinging. Sales works the same way: the call that goes sideways is not the last call. Make the next dial, make the next ask, finish the drive. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Ninth Straight Starts With the Third",
+      "body": "The Spurs were 0-2 and nobody was talking about them. Nine wins later, they're the story. The Mavs were down 13 and still closed. Sales is a streak game: one good call makes the next one easier. Start the streak this morning with the first dial. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Monday, the day of the Moon: run this right after Morning Charge. Dawn is cold (about 36°, feels near 31°), so keep the RipStick finisher indoors. Strong, smooth reps to start the week.",
+    "note": "Tuesday, the day of Mars: run this right after Morning Charge. Dawn is clear and about 41°, so the RipStick finisher can go on the porch if you want the fresh air. Fast, aggressive reps.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -180,22 +185,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "DeAI Daily",
-          "hed": "xAI turns on Grok API text watermarking by default",
-          "body": "As of Nov 7, text from seven current Grok model variants carries an invisible statistical watermark on every xAI API endpoint, with a per-request header integrators can read. xAI cites EU AI Act compliance ahead of the Dec 2 deadline.",
-          "url": "https://www.deai.org/news/daily-brief-2026-11-08"
+          "source": "vanemmerik.ai",
+          "hed": "Anthropic ships Claude Fable 5.2, up to 30% faster",
+          "body": "Fable 5.2 reached the Claude API, AWS, Google Cloud and Azure on Nov 9 with a lower price than 5.1 and about 55% fewer safeguard blocks. Mythos 5.2 stays limited to vetted researchers.",
+          "url": "https://vanemmerik.ai/days/2026-11-09/"
         },
         {
-          "source": "Web AI News",
-          "hed": "Apple eyes an agentic Siri as soon as next year",
-          "body": "Bloomberg's Mark Gurman reports Apple wants Siri to act more like an agent, and CEO John Ternus told Craig Federighi to accelerate the roadmap. Apple also documented MCP access so outside agents can build in Xcode.",
-          "url": "https://webainews.com/dailyai-briefing-anthropic-buys-3-4bn-of-gas-generators-plus-4-more/"
+          "source": "AI for Business and Life",
+          "hed": "Grok Bot expands to SuperGrok and Cursor plans; Apple races on agentic Siri",
+          "body": "Grok Bot is now available on SuperGrok, Cursor Pro and Cursor Teams plans. Separately, Bloomberg reports Apple CEO John Ternus is pushing Siri to control native apps in iOS 27.3.",
+          "url": "https://aiforbusinessandlife.com/ai-updates/ai-updates-november-9-2026"
         },
         {
-          "source": "AI SI Daily",
-          "hed": "OpenAI's Dots can now fill sign-in codes from a connected inbox",
-          "body": "With permission, OpenAI's Dots agent can use sign-in codes sent to a connected inbox to log in. OpenAI staff also clarified that all Pro plans have no five-hour limits.",
-          "url": "https://aisidaily.com/daily/ai-daily-2026-11-08/"
+          "source": "AI Week Daily",
+          "hed": "OpenAI teams up with Hacktron on security testing",
+          "body": "OpenAI engineers will work with Hacktron researchers to probe high-priority areas, especially connections between OpenAI systems and outside services.",
+          "url": "https://aiweekdaily.com/digest/2026-11-09"
         }
       ]
     },
@@ -203,22 +208,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "Sportsnet",
-          "hed": "Reaves drops 43 as Lakers beat Pistons without Doncic",
-          "body": "Austin Reaves scored 43 and Walker Kessler added 12 points and 16 boards as Los Angeles won 121-116 in Detroit.",
-          "url": "https://www.sportsnet.ca/nba/article/reaves-scores-43-points-leads-doncic-less-lakers-past-pistons/"
+          "source": "Basketball Streams",
+          "hed": "Wemby 40-11-9 as Spurs win ninth straight",
+          "body": "Victor Wembanyama had 40 points, 11 rebounds and nine blocks in a 122-96 win at Phoenix. San Antonio won the glass 55-35.",
+          "url": "https://basketballstreams.com/articles/nba-morning-recap-2026-11-10/"
         },
         {
-          "source": "KP Sports",
-          "hed": "Flagg posts career-high 12 assists as Mavs rout Nets 130-93",
-          "body": "Cooper Flagg had 25 points and 12 assists for his third straight double-double. Giannis added 29 and 14 boards in Miami's 114-108 win at Sacramento.",
-          "url": "https://keithparnell.com/basketball/nba/scores/?date=2026-11-08"
+          "source": "ESPN",
+          "hed": "Warriors rout Pelicans 138-87 for eighth straight",
+          "body": "Stephen Curry and Brandin Podziemski scored 25 apiece. Curry passed DeMar DeRozan for 16th on the career scoring list.",
+          "url": "https://www.espn.com/nba/recap?gameId=401909959"
         },
         {
-          "source": "Sportsnet",
-          "hed": "Sixers improve to 9-2 with LeBron's best Philly night",
-          "body": "Jaylen Brown scored 29, Maxey 27 and LeBron a season-high 22 in a 127-121 win over the Bulls. Minnesota (8-3) has won four straight, and Boston beat Milwaukee 117-97.",
-          "url": "https://www.sportsnet.ca/nba/article/reaves-scores-43-points-leads-doncic-less-lakers-past-pistons/"
+          "source": "Basketball Streams",
+          "hed": "Luka back with 32 and 10 as Lakers win sixth straight",
+          "body": "Doncic returned to lead a 124-114 win in Atlanta. Flagg scored 43 in Dallas' comeback over Indiana, and Houston beat Denver 110-100.",
+          "url": "https://basketballstreams.com/articles/nba-morning-recap-2026-11-10/"
         }
       ]
     },
@@ -226,22 +231,22 @@
       "title": "NFL",
       "items": [
         {
-          "source": "ChicagoBears.com",
-          "hed": "Bears edge Bucs 27-24 on Santos' walk-off kick",
-          "body": "Chicago led 24-13 entering the fourth, then Tampa tied it. Williams hit Loveland for 38 yards and Santos kicked the 38-yard winner at the gun. The Bears have won four straight.",
-          "url": "https://www.chicagobears.com/news/bears-hold-off-late-rally-to-edge-buccaneers-extend-winning-streak-to-four-game-recap"
+          "source": "AP",
+          "hed": "Jaguars go all in before the deadline",
+          "body": "Jacksonville added Jordan Davis, Jessie Bates and Davon Godchaux on Monday. More trades are expected before 4 PM ET today.",
+          "url": "https://apnews.com/article/nfl-trade-deadline-dec70beddd54ac37337dc64fabb9f9f8"
+        },
+        {
+          "source": "NBC Sports",
+          "hed": "Bills smother Vikings 23-6 on Monday night",
+          "body": "Buffalo's defense held Minnesota to 81 passing yards, and the Vikings are now under pressure to find a quarterback by the deadline.",
+          "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/kevin-oconnell-on-potential-quarterback-trade-ill-defer-to-nolan-teasley-on-that"
         },
         {
           "source": "NFL.com",
-          "hed": "Trade deadline is Tuesday at 4 PM ET",
-          "body": "Chicago already added Jeffery Simmons, San Francisco added DeForest Buckner, Seattle added Quenton Nelson and Baltimore added Jacoby Brissett. A flurry could come before the cutoff.",
-          "url": "https://www.nfl.com/news/nfl-trade-deadline-track-every-move-since-start-of-2026-regular-season"
-        },
-        {
-          "source": "ESPN",
-          "hed": "Week 9 takeaways: 49ers 7-1 after beating Las Vegas 38-17",
-          "body": "San Francisco got Nick Bosa and Demarcus Robinson back from injury and holds the NFC's top seed in sight. Seattle's defense again held a foe to three points.",
-          "url": "https://www.espn.com/nfl/story/_/id/50369510/week-9-sunday-games-takeaways-questions-2026"
+          "hed": "Trade grades for every deal so far",
+          "body": "Kevin Patra grades every move since the season started, including Chicago's early Jeffery Simmons blockbuster and Detroit's pickup of Andre Cisco.",
+          "url": "https://www.nfl.com/news/nfl-trade-grades-evaluating-every-deal-made-ahead-of-the-2026-deadline"
         }
       ]
     },
@@ -249,22 +254,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "MMAjunkie",
-          "hed": "UFC 334 countdown: Gane vs. Hokit at MSG",
-          "body": "Champion Ciryl Gane makes his first heavyweight title defense against unbeaten Josh Hokit on Nov 14 in New York. The Countdown episode dropped Sunday.",
-          "url": "https://mmajunkie.usatoday.com/videos/sports/ufc/2026/11/08/ufc-334-ciryl-gane-and-josh-hokit-prep-for-heavyweight-title-fight/92681283007/"
+          "source": "UFC.com",
+          "hed": "UFC 334 fight-by-fight preview",
+          "body": "Ciryl Gane defends heavyweight gold against unbeaten Josh Hokit Saturday at Madison Square Garden, with Kayla Harrison vs. Amanda Nunes in the co-main.",
+          "url": "https://www.ufc.com/news/fight-fight-preview-polymarket-ufc-334-gane-vs-hokit"
         },
         {
-          "source": "MMA Scene",
-          "hed": "UFC 334 card is complete, with Thompson's final fight",
-          "body": "Kayla Harrison defends against Amanda Nunes in the co-main, and Stephen Thompson meets Charles Radtke in the final fight of his career.",
-          "url": "https://www.mmascene.com/news/ufc-334-card-complete-alatengheili-juan-diaz/"
+          "source": "Sherdog",
+          "hed": "Hokit says Jones gave him the blueprint",
+          "body": "Hokit (10-0) points to Jon Jones' first-round guillotine of Gane as proof his Jackson-Wink coaches know how to beat the champion.",
+          "url": "https://www.sherdog.com/news/news/Josh-Hokit-says-Jon-Jones-win-gives-him-blueprint-to-beat-Ciryl-Gane-203563"
         },
         {
-          "source": "MMA Fighting",
-          "hed": "Johnny Walker volunteers as UFC 334 backup",
-          "body": "Fresh off his head-kick knockout of Waldo Cortes-Acosta, Walker says he is ready for a short-notice call at MSG and wants a title shot after one more win.",
-          "url": "https://www.mmafighting.com/ufc/520135/johnny-walker-open-to-7-day-turnaround-backup-spot-for-ciryl-gane-vs-josh-hokit-at-ufc-334"
+          "source": "talkSPORT",
+          "hed": "Alatengheili added to UFC 334 on a week's notice",
+          "body": "The veteran steps in against unbeaten Juan Diaz, and Stephen Thompson still meets Charles Radtke in his retirement fight.",
+          "url": "https://talksport.com/mma/4694924/ufc-334-card-late-addition-fights-msg-new-york/"
         }
       ]
     }
@@ -274,16 +279,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The day of the Moon",
-        "body": "Monday belongs to Luna: intuition, tides, dreams and the cycle of return. Old magicians used it for beginnings and for seeing what is hidden. Start the week by writing one intention you will check again at night."
+        "hed": "The day of Mars",
+        "body": "Tuesday is ruled by Mars: iron, fire, courage and decisive action. Old grimoires set it aside for workings of strength and victory. Pick the one hard conversation or ask you've been avoiding and make it today."
       },
       {
-        "hed": "Sophia's fall and return",
-        "body": "In the Gnostic myth, Sophia, Wisdom, falls out of the fullness and is lifted back by her own longing. It is the oldest fall-and-rise story in the book. Today, name one place you fell and the single step that brings you back."
+        "hed": "The Pistis Sophia and the thirteen repentances",
+        "body": "In this Gnostic text, Sophia cries out thirteen times before she is lifted from chaos. The lesson is persistence: the breakthrough came after the thirteenth try, not the first. Keep asking."
       },
       {
-        "hed": "Hermes Trismegistus: as above, so below",
-        "body": "The Emerald Tablet teaches that the inner and outer worlds answer each other. Fix the small pattern and the large one shifts. Make your bed of work today: one tidy, finished task sets the tone for the rest."
+        "hed": "Meister Eckhart on doing the work",
+        "body": "The medieval mystic taught that God is found as much in the kitchen as in the chapel, if the work is done wholeheartedly. Give your most ordinary task today full attention and see what it gives back."
       }
     ]
   },
@@ -291,13 +296,13 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Seven falls, eight stands",
-    "body": "Solomon wrote: 'For a just man falleth seven times, and riseth up again' (Proverbs 24:16). The proverb itself counts the falls and still ends on the rise. A setback is not a verdict; the getting up is the character.",
-    "practice": "Today, when one call or task goes sideways, take a breath and make the next attempt within five minutes."
+    "hed": "Iron sharpens iron",
+    "body": "Solomon wrote: 'Iron sharpeneth iron; so a man sharpeneth the countenance of his friend' (Proverbs 27:17). Edges are made by contact, not isolation. The people you talk shop with shape how sharp you get.",
+    "practice": "Today, trade one real tactic with a colleague or fellow builder: give one, take one."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
-    "asOf": "",
+    "asOf": "6:04 AM CT",
     "urgent": [],
     "needsLook": [],
     "fyi": [],
@@ -326,20 +331,26 @@
         "done": false
       },
       {
+        "id": "outside-walk",
+        "text": "Take a walk outside while it's in the 60s",
+        "priority": "normal",
+        "done": false
+      },
+      {
         "id": "journal-gratitude",
         "text": "Journal + 3 lines of gratitude",
         "priority": "habit",
         "done": false
       },
       {
-        "id": "grimoire-rise",
-        "text": "Grimoire: bounce back within five minutes the first time something slips",
+        "id": "grimoire-iron",
+        "text": "Grimoire: trade one real tactic with a colleague or fellow builder",
         "priority": "normal",
         "done": false
       },
       {
-        "id": "tech-demo-muse",
-        "text": "Tech Demo: skim the bookmarked Muse take and note one idea for your own pitch",
+        "id": "tech-demo-tools",
+        "text": "Tech Demo: open the bookmarked AI tools list and try one tool for 7EightMade",
         "priority": "normal",
         "done": false
       }
@@ -353,12 +364,12 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "A bookmarked take that Muse could beat the big chatbots for mainstream users because it is built on Instagram data, making it search on steroids.",
-    "author": "@milliemyang",
-    "url": "https://x.com/milliemyang/status/2102129344206573589",
-    "bookmarkUrl": "https://x.com/milliemyang/status/2102129344206573589",
+    "pick": "A bookmarked thread titled 'AI: No Longer a Promise, But Your Reality' that lists AI tools by job: one that answers everything, AI subtitles, logo creation, voice cloning and document design.",
+    "author": "Bookmarked post",
+    "url": "https://x.com/i/status/2109469010916192287",
+    "bookmarkUrl": "https://x.com/i/status/2109469010916192287",
     "linkLabel": "Open bookmark",
-    "note": "Rotated in: no new bookmarks since the Oct 26 RAM tip, so this older real bookmark comes around.",
+    "note": "Rotated in: no new bookmarks since the Oct 26 RAM tip, so this older real bookmark comes around. Try the logo or document-design tool on one 7EightMade asset.",
     "skipped": "Skipped: promo, gaming and one-liner posts."
   }
 }
