@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ZENO — Dichotomy | 7EightMade</title>
+  <meta name="description" content="Narrow the gap between thumb and index. Halve it forever. It never closes. Dichotomy Zeno, a free 7EightMade app — now on the Studio site.">
+  <meta property="og:title" content="ZENO — Dichotomy">
+  <meta property="og:description" content="Narrow the gap between thumb and index. Halve it forever. It never closes.">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/dichotomy-zeno/preview.webp">
+  <meta name="theme-color" content="#090a0c">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/dichotomy-zeno/play/">
+  <link rel="icon" href="../../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../brand/fonts.css">
+  <link rel="stylesheet" href="../../studio/appbar.css">
+  <style>
+    :root {
+      --ink: #efeae2;
+      --bg: #090a0c;
+      --bg2: #13151a;
+      --panel: #101216;
+      --muted: #a29d94;
+      --line: rgba(239,234,226,.12);
+      --gold: #d6b16a;
+      --gold-dim: rgba(214,177,106,.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh;
+    }
+    a { color: var(--gold); }
+    .kicker { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    .layout { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 380px; min-height: 0; }
+    /* ---- stage ---- */
+    .stage { position: relative; min-width: 0; min-height: 420px; overflow: hidden; background: radial-gradient(120% 100% at 50% 0%, #101318 0%, var(--bg) 62%); }
+    .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+    .stage .mark { position: absolute; inset: 0; margin: auto; width: min(88%, 760px); height: auto; opacity: .14; pointer-events: none; }
+    .top { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: none; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 18px 20px; pointer-events: none; }
+    .top > * { pointer-events: auto; }
+    .top h1, .panel h1 { font-family: Fraunces, Georgia, serif; font-weight: 600; letter-spacing: .02em; line-height: 1; }
+    .top h1 { font-size: 34px; }
+    .top-measure { font-family: Fraunces, Georgia, serif; font-size: 30px; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.05; }
+    .top-measure small { font-size: 15px; color: var(--muted); margin-left: 4px; }
+    /* ---- panel ---- */
+    .panel { background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; }
+    .panel-inner { padding: 26px 24px 30px; display: flex; flex-direction: column; gap: 18px; min-height: 100%; }
+    .brand-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .panel h1 { font-size: 40px; }
+    .studio { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex: none; }
+    .lang button { appearance: none; background: transparent; border: 0; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 13px; min-height: 38px; cursor: pointer; }
+    .lang button[aria-pressed="true"] { background: var(--gold); color: #17130a; }
+    .readout .measure { font-family: Fraunces, Georgia, serif; font-size: 56px; line-height: 1.02; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+    .readout .measure .unit { font-size: 24px; color: var(--gold); margin-left: 6px; }
+    .stage-name { font-family: Fraunces, Georgia, serif; font-size: 21px; margin-top: 4px; }
+    .range { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .pips { display: flex; gap: 6px; flex-wrap: wrap; }
+    .pip { appearance: none; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--muted); background: rgba(239,234,226,.04); border: 1px solid var(--line); border-radius: 999px; padding: 8px 13px; min-height: 38px; cursor: pointer; }
+    .pip.is-on { color: #17130a; background: var(--gold); border-color: var(--gold); }
+    .track { height: 6px; border-radius: 999px; background: rgba(239,234,226,.08); overflow: hidden; }
+    .track-fill { height: 100%; background: var(--gold); transform-origin: left center; transform: scaleX(0); }
+    .sentence { font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.35; min-height: 2.6em; }
+    .sentence.is-hot { color: var(--gold); }
+    .slider-label { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .slider { width: 100%; accent-color: var(--gold); height: 32px; cursor: pointer; background: transparent; }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn { appearance: none; display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 11px 18px; border-radius: 999px; font: inherit; font-weight: 700; font-size: 14px; background: transparent; color: var(--ink); border: 1px solid rgba(239,234,226,.25); cursor: pointer; }
+    .btn-primary { background: var(--gold); border-color: var(--gold); color: #17130a; }
+    .btn-wide { width: 100%; }
+    .hint, .keys { font-size: 13px; color: var(--muted); }
+    .paradox { border-top: 1px solid var(--line); padding-top: 18px; }
+    .paradox h2 { font-family: Fraunces, Georgia, serif; font-size: 22px; font-weight: 600; margin: 8px 0 10px; }
+    .paradox p { font-size: 14.5px; color: var(--muted); margin-bottom: 10px; }
+    .grow { flex: 1; }
+    .panel.is-primed { box-shadow: inset 3px 0 0 var(--gold); }
+    /* ---- intro ---- */
+    .intro { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(9,10,12,.72); backdrop-filter: blur(6px); }
+    .intro[hidden] { display: none; }
+    .intro-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 20px; padding: 28px; max-width: 430px; width: 100%; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+    .intro-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    .intro-card h2 { font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1.12; margin-bottom: 14px; }
+    .intro-card ul { list-style: none; margin-bottom: 22px; }
+    .intro-card li { padding: 7px 0 7px 20px; position: relative; color: var(--muted); font-size: 15px; }
+    .intro-card li::before { content: ""; position: absolute; left: 0; top: 15px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; grid-template-rows: minmax(320px, 46dvh) 1fr; }
+      .panel { border-left: 0; border-top: 1px solid var(--line); }
+      .top { display: flex; }
+      .brand-block { display: none; }
+      .readout .measure { font-size: 46px; }
+    }
+    :focus-visible { outline: 2px solid #4D7CF6; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <nav class="sappbar" aria-label="Studio" style="--sab:#D6B16A">
+    <a href="../">← About this app</a>
+    <span class="sappbar__name" aria-hidden="true"><b>ZENO</b> · 7EightMade Studio</span>
+    <a href="../../studio/">Studio</a>
+  </nav>
+
+  <div class="layout">
+    <div class="stage" id="stage">
+      <canvas id="pad" aria-label="The gap between two fingers. Pinch, drag, scroll, or tap to halve."></canvas>
+      <svg class="mark" viewBox="0 0 800 480" aria-hidden="true">
+        <g stroke-linecap="round" stroke-linejoin="round">
+          <path d="M640 230 C 520 228, 400 188, 230 128" stroke="#d6b16a" stroke-width="54" fill="none"/>
+          <path d="M610 268 C 500 300, 380 340, 236 292" stroke="#d6b16a" stroke-width="62" fill="none"/>
+          <circle cx="668" cy="262" r="86" fill="#d6b16a"/>
+          <path d="M640 230 C 520 228, 400 188, 230 128" stroke="#efeae2" stroke-width="38" fill="none"/>
+          <path d="M610 268 C 500 300, 380 340, 236 292" stroke="#efeae2" stroke-width="46" fill="none"/>
+          <circle cx="668" cy="262" r="72" fill="#efeae2"/>
+        </g>
+      </svg>
+      <div class="top" aria-hidden="true">
+        <div>
+          <p class="kicker" id="tKicker">Dichotomy</p>
+          <h1 id="tTitle">ZENO</h1>
+        </div>
+        <p class="top-measure"><span id="tMeasure">21.0</span><small id="tUnit">mm</small></p>
+      </div>
+
+      <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="zeno-intro-title">
+        <div class="intro-card">
+          <div class="intro-top">
+            <p class="kicker" id="iKicker">Dichotomy</p>
+            <div class="lang" role="group" aria-label="Language" id="iLang"></div>
+          </div>
+          <h2 id="zeno-intro-title">The gap does not close</h2>
+          <ul id="iList"></ul>
+          <button type="button" class="btn btn-primary btn-wide" id="iBegin">Begin</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel" id="panel">
+      <div class="panel-inner">
+        <div class="brand-block">
+          <div class="brand-row">
+            <div>
+              <p class="kicker" id="pKicker">Dichotomy</p>
+              <h1 id="pTitle">ZENO</h1>
+            </div>
+            <div class="lang" role="group" aria-label="Language" id="pLang"></div>
+          </div>
+          <p class="studio" id="pStudio">A 7EightMade instrument</p>
+        </div>
+
+        <div class="readout">
+          <p class="kicker" id="rKicker">Gap</p>
+          <p class="measure"><span id="rValue">21.0</span><span class="unit" id="rUnit">mm</span></p>
+          <p class="stage-name" id="rStage">Outline</p>
+          <p class="range"><span id="rRangeLabel">This world</span> · <span id="rRange">21 mm – 0.80 mm</span></p>
+        </div>
+
+        <div class="pips" role="tablist" id="pips" aria-label="This world"></div>
+
+        <div class="track" aria-hidden="true"><div class="track-fill" id="trackFill"></div></div>
+
+        <p class="sentence" id="sentence">To arrive, first cross half.</p>
+
+        <div>
+          <div class="slider-label"><span id="sWide">Wide</span><span id="sNarrow">Narrow</span></div>
+          <input class="slider" id="slider" type="range" min="0" max="1000" step="1" value="0" aria-label="Gap">
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn" id="bHalve">Halve</button>
+          <button type="button" class="btn btn-primary" id="bAlt">Double</button>
+          <button type="button" class="btn" id="bReset">Reset</button>
+          <button type="button" class="btn btn-wide" id="bGrasp" hidden>Grasp</button>
+        </div>
+
+        <p class="hint" id="hint">Pinch in to narrow. Pinch out to widen. Tap the picture to halve.</p>
+        <p class="keys" id="keys">Enter halves · ← widens · → narrows · G grasps</p>
+
+        <section class="paradox" aria-labelledby="zeno-paradox-title">
+          <p class="kicker" id="xKicker">The paradox</p>
+          <h2 id="zeno-paradox-title">Why the gap never closes</h2>
+          <div id="xBody"></div>
+        </section>
+
+        <div class="grow"></div>
+        <p class="studio" id="pStudioFoot">A 7EightMade instrument</p>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+    var PHI = 1.618033988749895; // scene proportions only (finger length : palm)
+    var LAYERS = ['outline', 'print', 'cell', 'atom'];
+    var WORLD = {
+      outline: { wide: 0.021,  narrow: 8e-4 },
+      print:   { wide: 8e-4,   narrow: 25e-6 },
+      cell:    { wide: 4e-5,   narrow: 6e-7 },
+      atom:    { wide: 2e-9,   narrow: 15e-11 }
+    };
+    var STR = {
+      en: {
+        title: 'ZENO', kicker: 'Dichotomy', studio: 'A 7EightMade instrument',
+        gap: 'Gap', remainder: 'Remainder', wide: 'Wide', narrow: 'Narrow',
+        halve: 'Halve', double: 'Double', reveal: 'Open', reset: 'Reset',
+        grasp: 'Grasp', release: 'Release', begin: 'Begin',
+        introTitle: 'The gap does not close',
+        intro: ['Narrow the space between thumb and index.',
+                'Pinch, slide, or halve it exactly in two.',
+                'At the floor of a world, open outward.',
+                'Outline. Print. Cell. Atom.'],
+        hint: 'Pinch in to narrow. Pinch out to widen. Tap the picture to halve.',
+        keys: 'Enter halves · ← widens · → narrows · G grasps',
+        langLabel: 'Language',
+        paradoxKicker: 'The paradox', paradoxTitle: 'Why the gap never closes',
+        paradox: [
+          'Zeno of Elea argued that motion cannot finish. To cross any distance you must first reach the halfway point, then halfway of what remains, then half of that. The steps are infinite, so the trip never ends. The remainder shrinks forever and is never zero.',
+          'These fingers are that argument. Each exact half walks you from outline to fingerprint, to cell, to atom. Opening outward enters the next world. You can grasp one atom. The next half is still there.'
+        ],
+        stages: { outline: 'Outline', print: 'Fingerprint', cell: 'Cell', atom: 'Atom' },
+        lines: {
+          outline: 'To arrive, first cross half.',
+          print: 'The line was a fingerprint.',
+          cell: 'The valley, opened, is made of cells.',
+          atom: 'You can grasp one atom. Not the end.'
+        },
+        primed: {
+          outline: 'Open outward. The print is inside the line.',
+          print: 'Open outward. Cells sit in the ridge.',
+          cell: 'Open outward. One atom is left.',
+          atom: 'Halve again. The gap shrinks. It does not end.'
+        },
+        graspLine: 'Held. The next half is still there.',
+        extra: function (n) { return 'Halved ' + n + ' more past the atom. Still not zero.'; },
+        range: 'This world'
+      },
+      ja: {
+        title: 'ゼノン', kicker: '二分法', studio: '7EightMade の器械',
+        gap: '隙間', remainder: '余り', wide: '広い', narrow: '狭い',
+        halve: '二分', double: '倍', reveal: 'ひらく', reset: '戻す',
+        grasp: 'つかむ', release: 'はなす', begin: 'はじめる',
+        introTitle: '隙間は閉じない',
+        intro: ['親指と人さし指のあいだを狭める。',
+                'ピンチ、スライダー、または正確に二分。',
+                'その世界の底まできたら、外へひらく。',
+                '輪郭。指紋。細胞。原子。'],
+        hint: 'ピンチインで狭める。ピンチアウトで広げる。画面タップで二分。',
+        keys: 'Enter 二分 · ← 広げる · → 狭める · G つかむ',
+        langLabel: '言語',
+        paradoxKicker: 'この逆説', paradoxTitle: 'なぜ隙間は閉じないか',
+        paradox: [
+          'エレアのゼノンは、運動は完了しないと論じた。距離を渡るには、まず半分に着き、残りの半分、さらにその半分を越える。段階は無限なので、旅は終わらない。余りはどこまでも縮み、ゼロにはならない。',
+          'この指は、その議論そのものだ。正確に二分するたび、輪郭から指紋、細胞、原子へ進む。外へひらくと次の世界に入る。原子はつかめる。次の半分は、まだそこにある。'
+        ],
+        stages: { outline: '輪郭', print: '指紋', cell: '細胞', atom: '原子' },
+        lines: {
+          outline: '着くには、まず半分を越える。',
+          print: '線だと思ったものは、指紋だった。',
+          cell: '谷をひらくと、細胞がいる。',
+          atom: '原子はつかめる。終わりはない。'
+        },
+        primed: {
+          outline: '外へひらく。線の内側が指紋になる。',
+          print: '外へひらく。隆線のあいだが細胞になる。',
+          cell: '外へひらく。残るのは原子がひとつ。',
+          atom: 'もう半分。隙間は縮む。終わらない。'
+        },
+        graspLine: 'つかんだ。次の半分は、まだそこにある。',
+        extra: function (n) { return '原子の先を、さらに' + n + '回半分にした。ゼロにはならない。'; },
+        range: 'この世界'
+      }
+    };
+
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function gapAt(layer, open) {
+      var w = WORLD[layer];
+      return w.narrow * Math.pow(w.wide / w.narrow, clamp(open, 0, 1));
+    }
+    function openAt(layer, gap) {
+      var w = WORLD[layer];
+      return Math.log(clamp(gap, w.narrow, w.wide) / w.narrow) / Math.log(w.wide / w.narrow);
+    }
+    function currentGap() {
+      if (state.layer === 'atom' && state.extra > 0) return WORLD.atom.narrow / Math.pow(2, state.extra);
+      return gapAt(state.layer, state.open);
+    }
+    function fmt(m) {
+      var a = Math.abs(m), units = [
+        { min: 1e-3, scale: 1e3, unit: 'mm' },
+        { min: 1e-6, scale: 1e6, unit: 'μm' },
+        { min: 1e-9, scale: 1e9, unit: 'nm' },
+        { min: 0, scale: 1e12, unit: 'pm' }
+      ], u = units[units.length - 1];
+      for (var i = 0; i < units.length; i++) if (a >= units[i].min) { u = units[i]; break; }
+      var v = a * u.scale;
+      var dec = v >= 100 ? 0 : v >= 10 ? 1 : 2;
+      return { value: v.toFixed(dec), unit: u.unit };
+    }
+    function fmtBare(m) { var f = fmt(m); return f.value + ' ' + f.unit; }
+    function rangeText(layer) {
+      return fmtBare(WORLD[layer].wide) + ' – ' + fmtBare(WORLD[layer].narrow);
+    }
+
+    var state = {
+      lang: 'en', layer: 'outline', open: 1, primed: false,
+      extra: 0, grasping: false, introduced: false, reduced: false
+    };
+    var LS_LANG = 'zeno-lang', LS_INTRO = 'zeno-intro';
+    try {
+      if (localStorage.getItem(LS_LANG) === 'ja') state.lang = 'ja';
+      if (localStorage.getItem(LS_INTRO) === '1') state.introduced = true;
+    } catch (e) {}
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) state.reduced = true;
+
+    function nextLayer(openVal) {
+      var i = LAYERS.indexOf(state.layer);
+      return { layer: LAYERS[Math.min(LAYERS.length - 1, i + 1)], open: openVal, primed: false, extra: 0, grasping: false };
+    }
+    function prevLayer() {
+      var i = LAYERS.indexOf(state.layer);
+      if (i <= 0) return { layer: 'outline', open: 1, primed: false, extra: 0, grasping: false };
+      return { layer: LAYERS[i - 1], open: 0.1, primed: true, extra: 0, grasping: false };
+    }
+    function setOpen(val) {
+      var n = clamp(val, 0.02, 1);
+      if (state.primed && state.layer !== 'atom' && n > state.open && n > 0.16) { assign(nextLayer(0.86)); return; }
+      if (n >= 0.995 && state.open > 0.97 && state.layer !== 'outline' && !state.primed) { assign(prevLayer()); return; }
+      state.open = n;
+      state.primed = n < 0.11 ? true : n > 0.2 ? false : state.primed;
+      state.extra = 0;
+      if (n > 0.5) state.grasping = false;
+      render();
+    }
+    function nudge(d) {
+      if (state.layer === 'atom' && state.extra > 0 && d > 0.045) {
+        state.extra -= 1; state.primed = true; render(); return;
+      }
+      var n = clamp(state.open + d, 0.02, 1);
+      if (state.primed && state.layer !== 'atom' && d > 0 && n > 0.16) { assign(nextLayer(0.86)); return; }
+      if (d > 0 && n >= 0.995 && state.layer !== 'outline' && !state.primed && state.open > 0.97) { assign(prevLayer()); return; }
+      state.open = n;
+      state.primed = n < 0.11 ? true : n > 0.2 ? false : state.primed;
+      if (state.layer !== 'atom') state.extra = 0;
+      if (n > 0.5) state.grasping = false;
+      render();
+    }
+    function halve() {
+      if (state.layer === 'atom' && (state.primed || state.extra > 0 || state.open <= 0.12)) {
+        state.primed = true; state.extra += 1; state.open = Math.min(state.open, 0.08); render(); return;
+      }
+      var t = gapAt(state.layer, state.open) / 2;
+      if (t <= gapAt(state.layer, 0) * 1.04) {
+        if (state.layer === 'atom') { state.primed = true; state.extra += 1; state.open = 0.06; render(); return; }
+        assign(nextLayer(0.62)); return;
+      }
+      var n = openAt(state.layer, t);
+      state.open = n; state.primed = n < 0.11; state.extra = 0; state.grasping = false;
+      render();
+    }
+    function dbl() {
+      if (state.layer === 'atom' && state.extra > 0) { state.extra -= 1; state.primed = true; render(); return; }
+      var t = gapAt(state.layer, state.open) * 2;
+      if (t >= gapAt(state.layer, 1)) {
+        if (state.open > 0.97 && state.layer !== 'outline') { assign(prevLayer()); return; }
+        state.open = 1; state.primed = false; state.extra = 0; render(); return;
+      }
+      state.open = openAt(state.layer, t); state.primed = false; state.extra = 0; state.grasping = false;
+      render();
+    }
+    function reset() { state.layer = 'outline'; state.open = 1; state.primed = false; state.extra = 0; state.grasping = false; render(); }
+    function jump(layer) { state.layer = layer; state.open = layer === 'atom' ? 0.72 : 0.9; state.primed = false; state.extra = 0; state.grasping = false; render(); }
+    function toggleGrasp() { if (state.layer === 'atom') { state.grasping = !state.grasping; render(); } }
+    function assign(o) {
+      state.layer = o.layer; state.open = o.open; state.primed = o.primed; state.extra = o.extra; state.grasping = o.grasping;
+      render();
+    }
+
+    /* ---------- DOM ---------- */
+    function $(id) { return document.getElementById(id); }
+    var els = {
+      panel: $('panel'), pips: $('pips'), slider: $('slider'), sentence: $('sentence'),
+      rKicker: $('rKicker'), rValue: $('rValue'), rUnit: $('rUnit'), rStage: $('rStage'),
+      rRangeLabel: $('rRangeLabel'), rRange: $('rRange'), trackFill: $('trackFill'),
+      bHalve: $('bHalve'), bAlt: $('bAlt'), bReset: $('bReset'), bGrasp: $('bGrasp'),
+      intro: $('intro'), stage: $('stage'), pad: $('pad'),
+      tMeasure: $('tMeasure'), tUnit: $('tUnit')
+    };
+
+    function buildLang(container) {
+      container.innerHTML = '';
+      [['en', 'EN'], ['ja', '日本語']].forEach(function (pair) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = pair[1];
+        b.setAttribute('aria-pressed', state.lang === pair[0] ? 'true' : 'false');
+        b.addEventListener('click', function () { setLang(pair[0]); });
+        container.appendChild(b);
+      });
+    }
+    function setLang(l) {
+      state.lang = l;
+      try { localStorage.setItem(LS_LANG, l); } catch (e) {}
+      document.documentElement.lang = l === 'ja' ? 'ja' : 'en';
+      render();
+    }
+
+    function render() {
+      var y = STR[state.lang];
+      document.title = y.title + ' — ' + y.kicker + ' | 7EightMade';
+      // static labels
+      $('tKicker').textContent = y.kicker; $('tTitle').textContent = y.title;
+      $('pKicker').textContent = y.kicker; $('pTitle').textContent = y.title;
+      $('pStudio').textContent = y.studio; $('pStudioFoot').textContent = y.studio;
+      $('iKicker').textContent = y.kicker;
+      $('zeno-intro-title').textContent = y.introTitle;
+      $('sWide').textContent = y.wide; $('sNarrow').textContent = y.narrow;
+      $('hint').textContent = y.hint; $('keys').textContent = y.keys;
+      $('xKicker').textContent = y.paradoxKicker; $('zeno-paradox-title').textContent = y.paradoxTitle;
+      $('iBegin').textContent = y.begin;
+      var list = $('iList'); list.innerHTML = '';
+      y.intro.forEach(function (line) { var li = document.createElement('li'); li.textContent = line; list.appendChild(li); });
+      var xb = $('xBody'); xb.innerHTML = '';
+      y.paradox.forEach(function (para) { var p = document.createElement('p'); p.textContent = para; xb.appendChild(p); });
+      document.querySelectorAll('.lang').forEach(function (c) { c.setAttribute('aria-label', y.langLabel); });
+      buildLang($('iLang')); buildLang($('pLang'));
+      // readout
+      var g = fmt(currentGap());
+      els.rValue.textContent = g.value; els.rUnit.textContent = g.unit;
+      els.tMeasure.textContent = g.value; els.tUnit.textContent = g.unit;
+      els.rKicker.textContent = state.extra > 0 ? y.remainder : y.gap;
+      els.rStage.textContent = y.stages[state.layer];
+      els.rRangeLabel.textContent = y.range;
+      els.rRange.textContent = rangeText(state.layer);
+      // pips
+      els.pips.setAttribute('aria-label', y.range);
+      els.pips.innerHTML = '';
+      LAYERS.forEach(function (ly) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('role', 'tab');
+        b.setAttribute('aria-selected', state.layer === ly ? 'true' : 'false');
+        b.className = 'pip' + (state.layer === ly ? ' is-on' : '');
+        b.textContent = y.stages[ly];
+        b.addEventListener('click', function () { jump(ly); });
+        els.pips.appendChild(b);
+      });
+      // track + slider
+      els.trackFill.style.transform = 'scaleX(' + (1 - state.open).toFixed(4) + ')';
+      var sv = Math.round((1 - state.open) * 1000);
+      if (Number(els.slider.value) !== sv) els.slider.value = sv;
+      els.slider.setAttribute('aria-label', y.gap);
+      // sentence
+      var hot = state.primed && state.layer !== 'atom';
+      var text = state.grasping ? y.graspLine : state.extra > 0 ? y.extra(state.extra) : state.primed ? y.primed[state.layer] : y.lines[state.layer];
+      els.sentence.textContent = text;
+      els.sentence.className = 'sentence' + ((hot || state.extra > 0) ? ' is-hot' : '');
+      // buttons
+      els.bHalve.textContent = y.halve;
+      els.bReset.textContent = y.reset;
+      els.bAlt.textContent = hot ? y.reveal : y.double;
+      els.bHalve.className = 'btn' + (hot ? '' : ' btn-primary');
+      els.bAlt.className = 'btn' + (hot ? ' btn-primary' : '');
+      els.panel.className = 'panel' + (hot ? ' is-primed' : '');
+      els.bGrasp.style.display = state.layer === 'atom' ? '' : 'none';
+      els.bGrasp.textContent = state.grasping ? y.release : y.grasp;
+      // intro visibility
+      els.intro.hidden = state.introduced;
+      requestDraw();
+    }
+
+    /* ---------- stage scene (2D canvas, layered worlds) ---------- */
+    var ctx = els.pad.getContext('2d');
+    var view = { w: 0, h: 0, dpr: 1 };
+    var anim = { from: null, to: null, start: 0, dur: 260 };
+    var lastDrawn = null;
+
+    function visualState() {
+      var w = WORLD[state.layer];
+      var frac = clamp((currentGap() - w.narrow) / (w.wide - w.narrow), 0, 1);
+      return { layer: state.layer, open: state.open, extra: state.extra, frac: frac, grasping: state.grasping };
+    }
+    function blend(a, b, t) {
+      return {
+        layer: t < 0.5 ? a.layer : b.layer, extra: t < 0.5 ? a.extra : b.extra,
+        grasping: t < 0.5 ? a.grasping : b.grasping, open: a.open + (b.open - a.open) * t,
+        frac: a.frac + (b.frac - a.frac) * t
+      };
+    }
+    function requestDraw() {
+      var now = performance.now();
+      anim.from = lastDrawn; anim.to = visualState(); anim.start = now;
+      if (state.reduced || !anim.from) { lastDrawn = anim.to; draw(); return; }
+      cancelAnimationFrame(requestDraw._raf);
+      var step = function () {
+        var t = clamp((performance.now() - anim.start) / anim.dur, 0, 1);
+        var e = 1 - Math.pow(1 - t, 3);
+        draw(blend(anim.from, anim.to, e));
+        if (t < 1) requestDraw._raf = requestAnimationFrame(step);
+        else lastDrawn = anim.to;
+      };
+      requestDraw._raf = requestAnimationFrame(step);
+    }
+
+    function draw(v) {
+      v = v || visualState();
+      var wpx = view.w, hpx = view.h;
+      if (!wpx || !hpx) return;
+      ctx.setTransform(view.dpr, 0, 0, view.dpr, 0, 0);
+      ctx.clearRect(0, 0, wpx, hpx);
+      var cx = wpx / 2, cy = hpx / 2;
+      ctx.fillStyle = '#090a0c';
+      ctx.fillRect(0, 0, wpx, hpx);
+      if (v.layer === 'outline') drawOutline(cx, cy, wpx, hpx, v);
+      else if (v.layer === 'print') drawPrint(cx, cy, wpx, hpx, v);
+      else if (v.layer === 'cell') drawCell(cx, cy, wpx, hpx, v);
+      else drawAtom(cx, cy, wpx, hpx, v);
+    }
+
+    function fingerPair(cx, cy, halfGap, len, thick, vertical) {
+      ctx.lineCap = 'round';
+      var dx = vertical ? 0 : halfGap, dy = vertical ? halfGap : 0;
+      var reach = len * 1.6; // fingers extend past the stage edge
+      // gold casing
+      ctx.strokeStyle = '#d6b16a'; ctx.lineWidth = thick * 1.42;
+      seg(cx - dx, cy - dy, cx - dx - (vertical ? 0 : reach), cy - dy - (vertical ? reach : 0));
+      seg(cx + dx, cy + dy, cx + dx + (vertical ? 0 : reach), cy + dy + (vertical ? reach : 0));
+      // skin
+      ctx.strokeStyle = '#efeae2'; ctx.lineWidth = thick;
+      seg(cx - dx, cy - dy, cx - dx - (vertical ? 0 : reach), cy - dy - (vertical ? reach : 0));
+      seg(cx + dx, cy + dy, cx + dx + (vertical ? 0 : reach), cy + dy + (vertical ? reach : 0));
+      // fingertips
+      ctx.fillStyle = '#d6b16a';
+      ctx.beginPath(); ctx.arc(cx - dx, cy - dy, thick * 0.71, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(cx + dx, cy + dy, thick * 0.71, 0, 7); ctx.fill();
+      ctx.fillStyle = '#efeae2';
+      ctx.beginPath(); ctx.arc(cx - dx, cy - dy, thick * 0.5, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.arc(cx + dx, cy + dy, thick * 0.5, 0, 7); ctx.fill();
+    }
+    function seg(x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+
+    function drawOutline(cx, cy, wpx, hpx, v) {
+      var S = Math.min(wpx, hpx);
+      var maxHalf = S * 0.30, minHalf = S * 0.018;
+      var half = minHalf + (maxHalf - minHalf) * v.frac;
+      fingerPair(cx, cy, half, S * 0.34, S * 0.075, false);
+      ticks(cx, cy + S * 0.24, S * 0.62, v);
+    }
+    function ticks(cx, y, width, v) {
+      ctx.strokeStyle = 'rgba(239,234,226,.28)'; ctx.lineWidth = 1.5;
+      seg(cx - width / 2, y, cx + width / 2, y);
+      var x = cx - width / 2, rem = width;
+      ctx.strokeStyle = '#d6b16a';
+      for (var i = 0; i < 10; i++) {
+        rem /= 2; x += rem;
+        seg(x, y - 7, x, y + 7);
+        if (rem < 1.5) break;
+      }
+      ctx.fillStyle = 'rgba(239,234,226,.55)';
+      ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('½', cx - width / 4, y - 12);
+      ctx.fillText('¼', cx + width / 4, y - 12);
+      ctx.fillText('⅛', cx + width * 0.375, y - 12);
+    }
+    function drawPrint(cx, cy, wpx, hpx, v) {
+      var S = Math.min(wpx, hpx);
+      var R = S * (0.16 + 0.30 * v.frac);
+      ctx.save(); ctx.translate(cx, cy);
+      for (var i = 9; i >= 0; i--) {
+        ctx.beginPath();
+        ctx.ellipse(0, 0, R * (0.35 + 0.065 * i) * PHI / 1.35, R * (0.35 + 0.065 * i), -0.5, 0, 7);
+        ctx.strokeStyle = i % 2 ? 'rgba(214,177,106,.55)' : 'rgba(239,234,226,.5)';
+        ctx.lineWidth = Math.max(1.4, S * 0.006);
+        ctx.stroke();
+      }
+      ctx.restore();
+      gapMarker(cx, cy, S * 0.5 * v.frac + 4);
+    }
+    function drawCell(cx, cy, wpx, hpx, v) {
+      var S = Math.min(wpx, hpx);
+      var R = S * (0.14 + 0.30 * v.frac);
+      ctx.save(); ctx.translate(cx, cy);
+      hexPath(0, 0, R);
+      ctx.fillStyle = 'rgba(214,177,106,.10)'; ctx.fill();
+      ctx.strokeStyle = 'rgba(239,234,226,.8)'; ctx.lineWidth = Math.max(1.6, S * 0.008); ctx.stroke();
+      // neighbours
+      ctx.strokeStyle = 'rgba(239,234,226,.22)'; ctx.lineWidth = Math.max(1.2, S * 0.005);
+      [[1.78, 0], [-1.78, 0], [0.89, 1.55], [-0.89, 1.55], [0.89, -1.55], [-0.89, -1.55]].forEach(function (o) {
+        hexPath(o[0] * R, o[1] * R, R); ctx.stroke();
+      });
+      // nucleus + organelles
+      ctx.beginPath(); ctx.arc(-R * 0.22, -R * 0.1, R * 0.34, 0, 7);
+      ctx.fillStyle = 'rgba(214,177,106,.5)'; ctx.fill();
+      ctx.strokeStyle = 'rgba(214,177,106,.9)'; ctx.lineWidth = 1.4; ctx.stroke();
+      ctx.fillStyle = 'rgba(239,234,226,.5)';
+      [[0.35, 0.3], [0.15, -0.42], [-0.45, 0.38], [0.5, -0.05]].forEach(function (o) {
+        ctx.beginPath(); ctx.arc(o[0] * R, o[1] * R, Math.max(1.6, R * 0.045), 0, 7); ctx.fill();
+      });
+      ctx.restore();
+      gapMarker(cx, cy, S * 0.5 * v.frac + 4);
+    }
+    function hexPath(x, y, r) {
+      ctx.beginPath();
+      for (var i = 0; i < 6; i++) {
+        var a = Math.PI / 3 * i + Math.PI / 6;
+        var px = x + r * Math.cos(a), py = y + r * Math.sin(a);
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+    }
+    function drawAtom(cx, cy, wpx, hpx, v) {
+      var S = Math.min(wpx, hpx);
+      var shrink = Math.pow(0.82, v.extra);
+      var R = S * (0.10 + 0.24 * v.frac) * shrink;
+      ctx.save(); ctx.translate(cx, cy);
+      // electron cloud
+      var grad = ctx.createRadialGradient(0, 0, R * 0.2, 0, 0, R * 2.1);
+      grad.addColorStop(0, 'rgba(214,177,106,.20)');
+      grad.addColorStop(1, 'rgba(214,177,106,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath(); ctx.arc(0, 0, R * 2.1, 0, 7); ctx.fill();
+      // orbits
+      ctx.strokeStyle = 'rgba(239,234,226,.35)'; ctx.lineWidth = 1.3;
+      [0.5, 1.05, -0.65].forEach(function (rot) {
+        ctx.save(); ctx.rotate(rot);
+        ctx.beginPath(); ctx.ellipse(0, 0, R * 1.9, R * 0.72, 0, 0, 7); ctx.stroke();
+        ctx.restore();
+      });
+      // electrons
+      ctx.fillStyle = '#efeae2';
+      [0.5, 1.05, -0.65].forEach(function (rot, idx) {
+        var a = rot * 2 + idx * 2.1 + v.extra * 0.7;
+        var ex = Math.cos(a) * R * 1.9, ey = Math.sin(a) * R * 0.72;
+        var rx = ex * Math.cos(rot) - ey * Math.sin(rot), ry = ex * Math.sin(rot) + ey * Math.cos(rot);
+        ctx.beginPath(); ctx.arc(rx, ry, Math.max(2, R * 0.09), 0, 7); ctx.fill();
+      });
+      // nucleus
+      ctx.beginPath(); ctx.arc(0, 0, Math.max(3, R * 0.42), 0, 7);
+      ctx.fillStyle = v.grasping ? '#efeae2' : '#d6b16a'; ctx.fill();
+      ctx.lineWidth = 2; ctx.strokeStyle = v.grasping ? '#d6b16a' : 'rgba(239,234,226,.7)'; ctx.stroke();
+      ctx.restore();
+      if (v.grasping) {
+        // held between two small fingertips
+        fingerPair(cx, cy, Math.max(6, R * 0.55), S * 0.16, S * 0.028, false);
+      }
+      gapMarker(cx, cy, S * 0.5 * v.frac * shrink + 3);
+    }
+    function gapMarker(cx, cy, halfPx) {
+      var y = cy + Math.min(view.h * 0.36, 190);
+      ctx.strokeStyle = 'rgba(214,177,106,.85)'; ctx.lineWidth = 2;
+      seg(cx - halfPx, y, cx + halfPx, y);
+      seg(cx - halfPx, y - 6, cx - halfPx, y + 6);
+      seg(cx + halfPx, y - 6, cx + halfPx, y + 6);
+    }
+
+    function resize() {
+      var r = els.stage.getBoundingClientRect();
+      view.w = Math.max(280, r.width); view.h = Math.max(280, r.height);
+      view.dpr = Math.min(2, window.devicePixelRatio || 1);
+      els.pad.width = Math.round(view.w * view.dpr);
+      els.pad.height = Math.round(view.h * view.dpr);
+      draw();
+    }
+
+    /* ---------- controls ---------- */
+    els.bHalve.addEventListener('click', halve);
+    els.bAlt.addEventListener('click', function () {
+      if (state.primed && state.layer !== 'atom') { assign(nextLayer(0.86)); return; }
+      dbl();
+    });
+    els.bReset.addEventListener('click', reset);
+    els.bGrasp.addEventListener('click', toggleGrasp);
+    els.slider.addEventListener('input', function () { setOpen(1 - Number(els.slider.value) / 1000); });
+    $('iBegin').addEventListener('click', function () {
+      state.introduced = true;
+      try { localStorage.setItem(LS_INTRO, '1'); } catch (e) {}
+      render();
+    });
+
+    /* ---------- pointer gestures on the stage ---------- */
+    var pointers = new Map();
+    var mode = 'none', pinchDist = 0, downInfo = { x: 0, y: 0, t: 0 }, lastY = 0;
+    function dist2() {
+      var pts = Array.from(pointers.values());
+      if (pts.length < 2) return 0;
+      return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+    }
+    els.pad.addEventListener('pointerdown', function (e) {
+      if (!state.introduced) return;
+      els.pad.setPointerCapture(e.pointerId);
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size >= 2) { mode = 'pinch'; pinchDist = dist2(); return; }
+      mode = 'none'; downInfo = { x: e.clientX, y: e.clientY, t: performance.now() }; lastY = e.clientY;
+    });
+    els.pad.addEventListener('pointermove', function (e) {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size >= 2) {
+        var d = dist2();
+        if (pinchDist > 8 && d > 8) nudge(Math.log2(d / pinchDist) * 0.85);
+        pinchDist = d; mode = 'pinch'; return;
+      }
+      if (mode !== 'drag' && Math.hypot(e.clientX - downInfo.x, e.clientY - downInfo.y) > 12) mode = 'drag';
+      if (mode === 'drag') { nudge(-(e.clientY - lastY) * 0.0032); lastY = e.clientY; }
+    });
+    function pointerEnd(e) {
+      var moved = Math.hypot(e.clientX - downInfo.x, e.clientY - downInfo.y);
+      var dt = performance.now() - downInfo.t;
+      pointers.delete(e.pointerId);
+      if (pointers.size < 2) pinchDist = 0;
+      if (pointers.size === 0) {
+        if (mode !== 'drag' && mode !== 'pinch' && dt < 340 && moved < 12) halve();
+        mode = 'none';
+      }
+    }
+    els.pad.addEventListener('pointerup', pointerEnd);
+    els.pad.addEventListener('pointercancel', pointerEnd);
+    els.pad.addEventListener('wheel', function (e) {
+      if (!state.introduced) return;
+      e.preventDefault();
+      nudge(-clamp(e.deltaY * 0.0011, -0.14, 0.14));
+    }, { passive: false });
+    els.pad.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+
+    /* ---------- keyboard ---------- */
+    window.addEventListener('keydown', function (e) {
+      var tag = (e.target && e.target.tagName) || '';
+      if (tag === 'TEXTAREA' || (tag === 'INPUT' && e.target.type === 'text')) return;
+      if (!state.introduced && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        state.introduced = true;
+        try { localStorage.setItem(LS_INTRO, '1'); } catch (err) {}
+        render(); return;
+      }
+      if (tag === 'INPUT') return; // slider keeps its native arrows
+      if (e.key === 'Enter') { e.preventDefault(); halve(); }
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); nudge(0.045); }
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); nudge(-0.045); }
+      else if (e.key === 'g' || e.key === 'G') toggleGrasp();
+      else if (e.key === 'r' || e.key === 'R') reset();
+      else if (e.key === '1') jump('outline');
+      else if (e.key === '2') jump('print');
+      else if (e.key === '3') jump('cell');
+      else if (e.key === '4') jump('atom');
+    });
+
+    window.addEventListener('resize', resize);
+    document.documentElement.lang = state.lang === 'ja' ? 'ja' : 'en';
+    resize();
+    render();
+  })();
+  </script>
+
+<!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
+</body>
+</html>
