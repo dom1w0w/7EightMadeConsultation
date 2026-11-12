@@ -1,80 +1,80 @@
 {
   "_meta": {
-    "note": "LIVE edition, Wednesday, November 11, 2026 (Veterans Day). Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Oct 26, so an older real one is rotated in.",
-    "generated": "2026-11-11T06:00:30-06:00",
+    "note": "LIVE edition, Thursday, November 12, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: new bookmark from Nov 11. Public edition.",
+    "generated": "2026-11-12T05:57:09-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXIX",
+    "volume": "LXX",
     "city": "Carpentersville, IL",
-    "asOf": "6:00 AM CT"
+    "asOf": "5:57 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Paul George Drops 36 in Philly as Celtics Take the East Lead",
-    "subhead": "Traded in the summer blockbuster, George walked into his old arena and hit six threes, including 14 points in the fourth, in a 123-101 Boston win. The Celtics are 9-2, best in the East. New jersey, same killer instinct.",
-    "source": "News Talk 580 KMJ (Reuters)",
-    "url": "https://www.kmjnow.com/2026/11/10/nba-roundup-in-reunion-with-jaylen-brown-celtics-thump-sixers/"
+    "headline": "Franz Wagner Backs Up 33 With 38 as Orlando Stacks Wins",
+    "subhead": "One night after snapping the Magic's skid with a season-high 33 in Sacramento, Wagner went bigger: 38 points and 8 boards in a 123-108 win at Utah. Two nights, two statements. Momentum isn't luck; it's the second night proving the first one wasn't a fluke.",
+    "source": "RealGM",
+    "url": "https://basketball.realgm.com/nba/scores/2026-11-11"
   },
   "articles": [
     {
-      "hed": "Dame Time Returns as Portland Runs Past OKC",
-      "body": "Damian Lillard scored 13 of his 25 in the third quarter and sat the fourth as the Trail Blazers beat the Thunder 123-103, only their second win over OKC in 21 meetings. One hot quarter flipped a tied game into a rout.",
-      "url": "https://www.kmjnow.com/2026/11/10/nba-roundup-in-reunion-with-jaylen-brown-celtics-thump-sixers/"
+      "hed": "Cousins Back in Purple, Ready to Start",
+      "body": "One day after the deadline deal, Kirk Cousins is expected to start right away for Minnesota in the offense he already knows. A familiar system and a fresh chance, the kind of second act every grinder recognizes.",
+      "url": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-10-172837798.html"
     },
     {
-      "hed": "Cousins Goes Home to Minnesota at the Deadline",
-      "body": "The Vikings brought Kirk Cousins back from Las Vegas for a 2027 third-round pick, one of six final-day deals as 18 in-season trades closed out the 2026 deadline. Sometimes the best move is the one you already know works.",
-      "url": "https://www.thescore.com/nfl/news/3642475/nfl-trade-deadline-catch-up-on-every-deal"
+      "hed": "Luka Drops 32 as the Lakers Go 11-2",
+      "body": "Luka Doncic poured in 32 in Milwaukee and the Lakers won 123-112, tied for the best start in the league. Steady wins, stacked one on top of another.",
+      "url": "https://basketball.realgm.com/nba/scores/2026-11-11"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 52,
-    "low": 40,
+    "high": 45,
+    "low": 33,
     "unit": "F",
-    "summary": "Overcast and about 41° at dawn, with light rain likely (around 56%) and a high near 52. Then a colder, drier stretch: low 40s Thursday through Saturday with lows dipping into the upper 20s.",
+    "summary": "Clear and about 38° at dawn, then clouds roll in with a high near 45 and almost no chance of rain. Cool and dry the rest of the way: low 40s Friday and Saturday, then sunny and 47 Sunday.",
     "days": [
       {
-        "label": "Wed",
-        "high": 52,
-        "low": 40,
-        "icon": "rain"
-      },
-      {
         "label": "Thu",
-        "high": 43,
+        "high": 45,
         "low": 33,
         "icon": "cloud"
       },
       {
         "label": "Fri",
-        "high": 41,
-        "low": 28,
+        "high": 43,
+        "low": 31,
         "icon": "cloud"
       },
       {
         "label": "Sat",
-        "high": 43,
+        "high": 44,
         "low": 28,
-        "icon": "cloud"
+        "icon": "sun"
+      },
+      {
+        "label": "Sun",
+        "high": 47,
+        "low": 31,
+        "icon": "sun"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Veterans Day today: a good moment to thank a vet you know"
-    },
-    {
-      "type": "FYI",
-      "text": "Light rain likely, high near 52: grab a jacket"
+      "text": "Dry and cool, high near 45: a jacket and you're set"
     },
     {
       "type": "ACTION",
       "text": "Work block first: one concrete BD II pipeline push at MHCCNA before lunch"
+    },
+    {
+      "type": "FYI",
+      "text": "UFC 334 is Saturday at MSG: Gane vs Hokit for the heavyweight title"
     }
   ],
   "timeline": [
@@ -100,14 +100,15 @@
     }
   ],
   "thisWeek": [
-    "Wed Nov 11 — Veterans Day; light rain, high ~52°",
-    "Thu Nov 12 — colder turn, high ~43°; OpenAI 'Cyber at the Frontier' keynote",
-    "Sat Nov 14 — UFC 334 at MSG: Gane vs Hokit, Harrison vs Nunes (main card 8 PM CT)"
+    "Thu Nov 12 — cool and dry, high ~45°",
+    "Fri Nov 13 — high ~43°, close the week strong",
+    "Sat Nov 14 — UFC 334 at MSG: Gane vs Hokit, Harrison vs Nunes (main card 8 PM CT)",
+    "Sun Nov 15 — sunny, high ~47°; NFL Week 10"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Wednesday, the day of Mercury. Four counts in, four hold, four out, four hold. Mercury is the messenger: speed, wit, the right words at the right moment. Breathe slow so you can talk sharp.",
+    "intro": "Thursday, the day of Jupiter. Four counts in, four hold, four out, four hold. Jupiter is the king's planet: expansion, confidence, generosity, big asks. Breathe slow and think big.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -138,17 +139,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go take Wednesday."
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go take Thursday."
     },
     "mindset": {
-      "hed": "Walk Into the Building and Score",
-      "body": "Paul George got traded, walked back into the arena he used to call home, and dropped 36. Nobody handed him the moment; he took it in the fourth quarter. Midweek is where the grinders separate from the talkers. Every call today is a chance to take the fourth quarter. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Back It Up",
+      "body": "Franz Wagner dropped 33 one night and 38 the next. The first big night gets the headline; the second one builds the reputation. Yesterday's good call means nothing if today's dials are soft. Show up again, same intensity, and make the streak undeniable. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Wednesday, the day of Mercury: run this right after Morning Charge. It's damp and about 41° outside, so keep the RipStick finisher indoors today. Quick hands, quick reps.",
+    "note": "Thursday, the day of Jupiter: run this right after Morning Charge. It's clear, dry and about 38° outside, so the RipStick finisher can go on the porch if you want the cold air. Big reps, big energy.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -180,22 +181,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "AI Radar",
-          "hed": "Grok 4.8 finishes pretraining, soft rollout to Grok Bot this week",
-          "body": "Musk confirmed Grok 4.8 is done pretraining and in reinforcement learning, with a gradual rollout to Grok Bot users later this week after xAI rewrote its training and inference stack.",
-          "url": "https://maxassistant.app/en/news/releases/ai-radar-2026-11-10/"
+          "source": "The Neuron",
+          "hed": "Anthropic hits the road for its Nasdaq IPO",
+          "body": "The Claude maker launched its roadshow for a listing under ANT and rolled out Claude Sheets, Whiteboards, Data dashboards and a Claude Meetings beta that can start tasks during a Google Meet call.",
+          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-11-2026/"
         },
         {
-          "source": "9to5Mac",
-          "hed": "Apple building 'Harbor' to run AI models locally on Macs",
-          "body": "A leaked Apple app turns a Mac into a private AI server for open-weight models, and can pool several Macs over Thunderbolt 5 to run bigger models. Nothing leaves your hardware.",
-          "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/"
+          "source": "Training Data Daily",
+          "hed": "OpenAI's quarterly revenue climbs about 50%",
+          "body": "Enterprise sales pushed OpenAI to roughly $10 billion in Q3, and its new Business Hub beta lets companies claim profiles and build shopper-facing agents inside ChatGPT.",
+          "url": "https://trainingdatadaily.com/archive/2026-11-11/"
         },
         {
-          "source": "Techmeme",
-          "hed": "Anthropic launches IPO roadshow; OpenAI opens Businesses in ChatGPT",
-          "body": "Anthropic plans to list on Nasdaq under ANT and also rolled out Claude Whiteboards, Sheets and Data. OpenAI put Businesses in ChatGPT in beta, letting companies claim listings and run agents.",
-          "url": "https://www.techmeme.com/261110/h1910"
+          "source": "The Trillioniar",
+          "hed": "Apple's Harbor would turn Macs into private AI servers",
+          "body": "A leaked Claris app runs open-weight models on Apple silicon and pools memory across Macs over Thunderbolt 5. Private preview only, no launch date yet.",
+          "url": "https://blogs.thetrillioniar.me/blog/ai-news-November-11-anthropic-ipo-raise-act-apple-harbor"
         }
       ]
     },
@@ -203,22 +204,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "KMJ / Reuters",
-          "hed": "George 36 as Celtics hammer Sixers 123-101",
-          "body": "Boston hit 22 threes and moved to 9-2, best in the East. Payton Pritchard added 18.",
-          "url": "https://www.kmjnow.com/2026/11/10/nba-roundup-in-reunion-with-jaylen-brown-celtics-thump-sixers/"
+          "source": "RealGM",
+          "hed": "Wagner 38 as Magic beat Jazz 123-108",
+          "body": "Franz Wagner followed a 33-point night with 38 and 8 rebounds in Salt Lake City.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-11"
         },
         {
-          "source": "KMJ / Reuters",
-          "hed": "Knicks roll Bucks 117-85; Towns double-double streak hits 14",
-          "body": "Karl-Anthony Towns had 21 and 16, Jalen Brunson scored 23, and New York won for the sixth time in seven games.",
-          "url": "https://www.kmjnow.com/2026/11/10/nba-roundup-in-reunion-with-jaylen-brown-celtics-thump-sixers/"
+          "source": "CBS Sports",
+          "hed": "Celtics grind out Toronto 98-93, move to 10-2",
+          "body": "Jayson Tatum had 24 and 8 assists as Boston erased a slow first quarter and kept the East lead.",
+          "url": "https://www.cbssports.com/nba/scoreboard/"
         },
         {
           "source": "Land of Basketball",
-          "hed": "Suns hit season-high 22 threes; Franz Wagner drops 33",
-          "body": "Phoenix routed the Clippers 133-110, Giannis had 30 and 11 in Miami's win at Utah, and Wagner's season high snapped Orlando's skid in Sacramento.",
-          "url": "https://www.landofbasketball.com/nba_daily_summary/20261110.htm"
+          "hed": "Nets score 145 in a 34-point rout",
+          "body": "Brooklyn's 145-111 win in New Orleans is one of the biggest in franchise history; Harden scored 32 as Cleveland won at MSG.",
+          "url": "https://www.landofbasketball.com/nba_daily_summary/20261111.htm"
         }
       ]
     },
@@ -226,22 +227,22 @@
       "title": "NFL",
       "items": [
         {
-          "source": "theScore",
-          "hed": "Deadline closes with 18 in-season trades",
-          "body": "Final-day deals sent Kirk Cousins to Minnesota, Josh Downs to Kansas City, Keenan Allen to San Francisco and Amani Hooker to Buffalo.",
-          "url": "https://www.thescore.com/nfl/news/3642475/nfl-trade-deadline-catch-up-on-every-deal"
+          "source": "Yahoo Sports",
+          "hed": "Cousins expected to start right away in Minnesota",
+          "body": "The Vikings landed their old quarterback for a third-round pick, and Deshaun Watson cleared protocol to start for Cleveland.",
+          "url": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-10-172837798.html"
         },
         {
-          "source": "The Guardian",
-          "hed": "Colts keep Jonathan Taylor as deadline passes",
-          "body": "Indianapolis moved Downs and Allen but held onto its star running back; the full rundown of all 18 deals and what they cost.",
-          "url": "https://www.theguardian.com/sport/live/2026/nov/10/nfl-trade-deadline-2026-live-updates-deals-rumors-news"
+          "source": "NFL.com",
+          "hed": "Joe Burrow climbs to No. 1 in Week 10 QB rankings",
+          "body": "Burrow has 23 touchdown passes in eight games and passed Josh Allen for the top spot.",
+          "url": "https://www.nfl.com/news/nfl-qb-rankings-index-week-10-2026-nfl-season"
         },
         {
-          "source": "NBC Sports",
-          "hed": "Bears' early Simmons blockbuster still the deadline's biggest swing",
-          "body": "Chicago landed Jeffery Simmons before the rush; PFT's tracker covers every deal and rumor from deadline week.",
-          "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/2026-nfl-trade-deadline-live-updates-tracker-deals-news-rumors-analysis"
+          "source": "ESPN",
+          "hed": "Week 10 buzz: why Taylor, Jones and Thomas stayed put",
+          "body": "Fowler and Graziano break down the deadline's biggest non-moves and what Cousins means for the NFC North race.",
+          "url": "https://www.espn.com/nfl/story/_/id/50442934/week-10-buzz-fantasy-predictions-graziano-fowler-2026-trades"
         }
       ]
     },
@@ -249,22 +250,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "MMA Sucka",
-          "hed": "Hokit plans to drown Gane in pace at UFC 334",
-          "body": "The unbeaten challenger (10-0) says he'll push forward, wrestle and drag the champion into deep waters Saturday at MSG. Chris Weidman is picking Hokit.",
-          "url": "https://mmasucka.com/news/josh-hokit-warns-he-will-suffocate-ciryl-gane-in-deep-waters-at-ufc-334/"
-        },
-        {
           "source": "UFC.com",
-          "hed": "UFC 334 card updates",
-          "body": "Alatengheili replaces Adrian Yanez against Juan Diaz, and Sadykhov vs. Nascimento is off the card.",
-          "url": "https://www.ufc.com/news/updates-polymarket-ufc-334-gane-vs-hokit"
+          "hed": "Josh Hokit is ready to take over",
+          "body": "The 10-0 challenger promises relentlessness against Gane Saturday at MSG. Main card 8 PM CT on Paramount+.",
+          "url": "https://www.ufc.com/news/josh-hokit-ready-take-over-polymarket-ufc-334-heavyweight-title"
         },
         {
-          "source": "BBC Sport",
-          "hed": "UFC 334: all you need to know",
-          "body": "Gane makes his first undisputed defense; Amanda Nunes returns against Kayla Harrison, and Stephen Thompson meets Charles Radtke on the prelims.",
-          "url": "https://www.bbc.com/sport/mixed-martial-arts/articles/c6n494my0g32o"
+          "source": "Bloody Elbow",
+          "hed": "Gane shrugs off Times Square face-off: 'It's all for show'",
+          "body": "The champion stayed calm through Hokit's trash talk and says it's a character, not the man.",
+          "url": "https://bloodyelbow.com/2026/11/11/ciryl-gane-reacts-to-first-face-off-with-josh-hokit-after-receiving-abuse-its-all-for-show/"
+        },
+        {
+          "source": "MMA Fighting",
+          "hed": "Hokit open to Aspinall after UFC 334",
+          "body": "'When I'm champion, anybody can get a fight,' Hokit said at media day.",
+          "url": "https://www.mmafighting.com/ufc/520549/josh-hokit-open-to-fight-tom-aspinall-after-ufc-334-but-i-dont-think-he-wants-to-come-back"
         }
       ]
     }
@@ -274,16 +275,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The day of Mercury",
-        "body": "Wednesday belongs to Mercury, the Roman Hermes: messenger, trader and patron of quick minds and good deals. Old grimoires set it aside for workings of speech, commerce and learning. A sales day if there ever was one: say it clearly and ask for the close."
+        "hed": "The day of Jupiter",
+        "body": "Thursday belongs to Jupiter, the Greek Zeus: king of the gods, ruler of growth, honor and abundance. Old grimoires set it aside for workings of wealth, favor and leadership. Make the bigger ask today."
       },
       {
-        "hed": "Hermes Trismegistus and the Corpus Hermeticum",
-        "body": "The Hermetic texts teach that mind (Nous) shapes the world, and that the one who knows himself knows the All. The practical edge: what you hold steady in your head shows up in how you carry the room."
+        "hed": "Meister Eckhart and the ground of the soul",
+        "body": "The 14th-century Dominican taught that there is a still place in the soul that nothing outside can touch. He preached it to working people, not just monks. Calm at the core is what lets you move fast on the surface."
       },
       {
-        "hed": "Jacob Boehme, the shoemaker mystic",
-        "body": "A cobbler in 1600, Boehme saw sunlight glint off a pewter dish and said the whole hidden order of things opened to him. He kept making shoes and kept writing. Revelation doesn't require quitting the day job."
+        "hed": "The Gospel of Truth",
+        "body": "This Valentinian text from Nag Hammadi says error grew from forgetting, and that knowing who you are dissolves it like fog at sunrise. Remembering your aim is half the work."
       }
     ]
   },
@@ -291,9 +292,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "A soft answer, a sharp edge",
-    "body": "Solomon wrote: 'A soft answer turneth away wrath: but grievous words stir up anger' (Proverbs 15:1). In sales the calm voice wins the objection. Meet pushback with steadiness, not heat, and the deal stays alive.",
-    "practice": "Today, when someone pushes back, slow your voice down and ask one question before you answer."
+    "hed": "Diligence beats haste",
+    "body": "Solomon wrote: 'The thoughts of the diligent tend only to plenteousness; but of every one that is hasty only to want' (Proverbs 21:5). The rushed pitch leaves money on the table. Plan the call, then work the plan.",
+    "practice": "Before your first big call, write down the one outcome you want and the one question that gets you there."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -326,26 +327,20 @@
         "done": false
       },
       {
-        "id": "thank-a-vet",
-        "text": "Veterans Day: thank a vet you know",
-        "priority": "normal",
-        "done": false
-      },
-      {
         "id": "journal-gratitude",
         "text": "Journal + 3 lines of gratitude",
         "priority": "habit",
         "done": false
       },
       {
-        "id": "grimoire-soft",
-        "text": "Grimoire: meet one objection with a slower voice and a question",
+        "id": "grimoire-plan",
+        "text": "Grimoire: write the one outcome and one question before your first big call",
         "priority": "normal",
         "done": false
       },
       {
-        "id": "tech-demo-ram",
-        "text": "Tech Demo: check your PC's RAM speed in Task Manager",
+        "id": "tech-demo-sticker",
+        "text": "Tech Demo: turn a GIF into a WhatsApp sticker",
         "priority": "normal",
         "done": false
       }
@@ -359,12 +354,12 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "HYPERTUNE's Windows tip: your RAM may be running slower than you paid for. Open Task Manager, go to Performance, then Memory, and compare the Speed at the bottom to your RAM's rated speed.",
-    "author": "@hypertune_",
-    "url": "https://x.com/hypertune_/status/2114632573510918162",
-    "bookmarkUrl": "https://x.com/hypertune_/status/2114632573510918162",
+    "pick": "Zooey's two-step trick: copy any GIF, paste it into a WhatsApp message, and it becomes a new sticker. That's it.",
+    "author": "@Mavis_newt",
+    "url": "https://x.com/Mavis_newt/status/2120456745738711360",
+    "bookmarkUrl": "https://x.com/Mavis_newt/status/2120456745738711360",
     "linkLabel": "Open bookmark",
-    "note": "Rotated in: no new bookmarks since this Oct 26 tip, so it comes back around. Takes 30 seconds on any Windows PC you're allowed to check.",
-    "skipped": "Skipped: promo, gaming and one-liner posts."
+    "note": "Fresh bookmark from Nov 11. Also new: @KutaTweaks' Nov 10 thread on trimming Windows AI and background overhead for gaming, worth a look on your home PC.",
+    "skipped": "Skipped: promo, gaming-combo and one-liner posts."
   }
 }
