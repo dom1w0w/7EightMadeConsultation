@@ -45,13 +45,6 @@
   </header>
   <!-- MARY'S ROOM LAUNCH BANNER: links to the Mary's Room intro page. -->
   <div id="marys-room-banner" style="margin-top:calc(var(--navh) + 1px);background:#e5484d;color:#fff;text-align:center;font-weight:700;font-size:15px;padding:12px 16px;letter-spacing:.3px"><a href="../marys-room/" style="color:#fff;text-decoration:underline">MARY'S ROOM IS LIVE — She knows everything about color. Step inside →</a></div>
-  <script>
-  (function(){
-    var card = document.getElementById('pulse-card');
-    if (card) { card.style.display = ''; }
-  })();
-  </script>
-
   <!-- Small scroll readout -->
   <div class="readout" aria-hidden="true">
     <span class="readout__row"><span class="readout__k">Falls</span><b id="rFalls">0</b><span class="readout__of">/7</span></span>
@@ -97,21 +90,22 @@
       <div class="pin">
         <div class="works__grid">
           <div class="works__text">
-            <p class="eyebrow">Featured · 06</p>
-            <h2 class="sec" id="worksH">Six works</h2>
-            <p class="lead">A register you can rehearse on, a one-minute breath, a map of the Philippines, a way to see inside any software, a wall of ink drawings, and a time loop with no beginning. Pick one.</p>
+            <p class="eyebrow">Featured · 07</p>
+            <h2 class="sec" id="worksH">Seven works</h2>
+            <p class="lead">A heartbeat read by your phone camera, a register you can rehearse on, a one-minute breath, a map of the Philippines, a way to see inside any software, a wall of ink drawings, and a time loop with no beginning. Pick one.</p>
             <ol class="works__list">
-              <li><a href="../till/"><span>01</span> Till</a></li>
-              <li><a href="../vortex-breath/"><span>02</span> Vortex Breath</a></li>
-              <li><a href="../archipelago/"><span>03</span> Atlas</a></li>
-              <li><a href="glassbox/"><span>04</span> Glassbox</a></li>
-              <li><a href="art/"><span>05</span> Art</a></li>
-              <li><a href="../bootstrap-paradox/"><span>06</span> Bootstrap Paradox</a></li>
+              <li><a href="../pulse/"><span>01</span> Pulse</a></li>
+              <li><a href="../till/"><span>02</span> Till</a></li>
+              <li><a href="../vortex-breath/"><span>03</span> Vortex Breath</a></li>
+              <li><a href="../archipelago/"><span>04</span> Atlas</a></li>
+              <li><a href="glassbox/"><span>05</span> Glassbox</a></li>
+              <li><a href="art/"><span>06</span> Art</a></li>
+              <li><a href="../bootstrap-paradox/"><span>07</span> Bootstrap Paradox</a></li>
             </ol>
           </div>
           <div class="diamond" id="diamond">
-            <a class="tile" href="../till/" style="--c:var(--till)" data-pos="top" tabindex="-1" aria-hidden="true">
-              <span class="tile__in"><img src="img/feat-till.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Till</b><small>Tap to pay, rehearsed</small></span></span>
+            <a class="tile" href="../pulse/" style="--c:var(--pulse)" data-pos="top" tabindex="-1" aria-hidden="true">
+              <span class="tile__in"><img src="img/feat-pulse.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Pulse</b><small>Your camera is the sensor</small></span></span>
             </a>
             <a class="tile" href="../vortex-breath/" style="--c:var(--vortex)" data-pos="left" tabindex="-1" aria-hidden="true">
               <span class="tile__in"><img src="img/feat-vortex-breath.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Vortex Breath</b><small>One free minute</small></span></span>
@@ -122,7 +116,10 @@
             <a class="tile" href="art/" style="--c:var(--art)" data-pos="bottom" tabindex="-1" aria-hidden="true">
               <span class="tile__in"><img src="art/drawing-03.webp" alt="" width="800" height="1000"><span class="tile__lab"><b>Art</b><small>Memento Mori</small></span></span>
             </a>
-            <a class="tile" href="glassbox/" style="--c:var(--glassbox)" data-pos="center" tabindex="-1" aria-hidden="true">
+            <a class="tile" href="../till/" style="--c:var(--till)" data-pos="center" tabindex="-1" aria-hidden="true">
+              <span class="tile__in"><img src="img/feat-till.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Till</b><small>Tap to pay, rehearsed</small></span></span>
+            </a>
+            <a class="tile" href="glassbox/" style="--c:var(--glassbox)" data-pos="sat2" tabindex="-1" aria-hidden="true">
               <span class="tile__in"><img src="img/feat-glassbox.webp" alt="" width="1280" height="800"><span class="tile__lab"><b>Glassbox</b><small>Every app has secrets</small></span></span>
             </a>
             <a class="tile" href="../bootstrap-paradox/" style="--c:var(--paradox)" data-pos="sat" tabindex="-1" aria-hidden="true">
@@ -172,7 +169,8 @@
       </div>
 
       <div class="cards index__cards">
-        <article id="pulse-card" class="card card--pulse" style="display:none">
+        <article id="pulse-card" class="card card--pulse">
+            <a class="card__img" href="../pulse/" tabindex="-1" aria-hidden="true"><img src="img/feat-pulse.webp" alt="" width="1280" height="800" loading="lazy"></a>
             <div class="card__body">
               <p class="card__kick">Studio demo · Your camera is the sensor</p>
               <p style="margin:10px 0 2px"><span style="display:inline-block;background:#2f6bff;color:#fff;font-weight:700;font-size:12px;letter-spacing:2px;padding:5px 12px;border-radius:999px">SOLD · NOV 2, 2026</span></p>
