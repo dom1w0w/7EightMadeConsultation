@@ -1464,6 +1464,25 @@
     .oc-bridge a { white-space: nowrap; }
     .oc-bridge a:hover { text-decoration-color: currentColor; }
     .oc-bridge a::after { content: ' →'; }
+    /* Pulse feature — the studio piece that sold, lead block after the hero */
+    .pulse-feature { padding: 72px 0 64px; scroll-margin-top: calc(var(--nav-h) + 24px); }
+    .pulse-feature__card {
+      background: var(--surface); border: 1px solid var(--sand); border-top: 3px solid var(--cobalt);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 44px 44px 40px;
+    }
+    .pulse-feature__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .pulse-feature__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cobalt-text); }
+    .sold-badge { display: inline-block; background: #2f6bff; color: #fff; font-weight: 700; font-size: 12px; letter-spacing: 2px; padding: 5px 12px; border-radius: 999px; white-space: nowrap; }
+    .pulse-feature__title { font-size: clamp(44px, 6vw, 64px); line-height: 1.02; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 14px; }
+    .pulse-feature__hook { font-size: 20px; line-height: 1.5; color: var(--ink-soft); max-width: 640px; margin: 0 0 12px; }
+    .pulse-feature__note { font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 640px; margin: 0; }
+    .pulse-feature__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    @media (max-width: 600px) {
+      .pulse-feature { padding: 48px 0 40px; }
+      .pulse-feature__card { padding: 30px 22px 28px; }
+      .pulse-feature__hook { font-size: 17px; }
+      .pulse-feature__ctas .btn { width: 100%; min-height: 48px; }
+    }
     .studio-strip { padding: 48px 0 56px; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--nav-h) + 24px); }
     .studio-strip__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
     .studio-strip__label {
@@ -1662,7 +1681,24 @@
 
   <main>
 
-
+    <!-- Pulse feature: the studio piece that sold — front and center -->
+    <section class="pulse-feature" id="pulse" aria-labelledby="pulseFeatureTitle">
+      <div class="container">
+        <div class="pulse-feature__card">
+          <div class="pulse-feature__top">
+            <p class="pulse-feature__eyebrow">From the studio — the one that sold</p>
+            <span class="sold-badge">SOLD · NOV 2, 2026</span>
+          </div>
+          <h2 class="pulse-feature__title" id="pulseFeatureTitle">Pulse</h2>
+          <p class="pulse-feature__hook">Your camera is the sensor. Finger on the lens, flashlight on — Pulse reads your heart rate and pulse waveform live, right from your phone.</p>
+          <p class="pulse-feature__note">The Pulse idea has been sold — the demo stays up as a portfolio piece, so you can still try it.</p>
+          <div class="pulse-feature__ctas">
+            <a class="btn btn--cobalt" href="pulse/demo/">Try it</a>
+            <a class="btn btn--outline" href="pulse/">About Pulse</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section section--paper2 process" id="process">
       <div class="container">
