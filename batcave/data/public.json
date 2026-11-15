@@ -1,64 +1,64 @@
 {
   "_meta": {
-    "note": "LIVE edition, Friday, November 13, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 11, rotated the Nov 10 @KutaTweaks post. Public edition.",
-    "generated": "2026-11-13T05:59:25-06:00",
+    "note": "LIVE edition, Sunday, November 15, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: rotated the Oct 26 @hypertune_ post (no new bookmarks).",
+    "generated": "2026-11-15T06:02:28-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXI",
+    "volume": "LXXIII",
     "city": "Carpentersville, IL",
-    "asOf": "5:59 AM CT"
+    "asOf": "6:02 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Cade Cunningham Drops 52 as Detroit Outlasts Washington in Double Overtime",
-    "subhead": "Cunningham poured in 52 points and the Pistons survived a 144-140 two-overtime thriller in D.C., the highest-scoring game of the season. When regulation wasn't enough, he kept going, and then went again. Closers don't stop at the buzzer.",
-    "source": "RealGM",
-    "url": "https://basketball.realgm.com/scores/2026-11-12"
+    "headline": "Bulls Beat the Delay, the Injuries and the Wolves",
+    "subhead": "Grounded flights got Chicago to Minneapolis only on game day, three rotation players sat out, and the Bulls still won 117-106 for a second win in two nights. Norman Powell scored 23, Matas Buzelis added 18 and nine rebounds, and Minnesota's five-game streak ended. A short-handed team on no sleep still won. No excuses.",
+    "source": "AP",
+    "url": "https://apnews.com/article/bulls-timberwolves-score-59a4aa80400d9bf31286e70c2a7aacc1"
   },
   "articles": [
     {
-      "hed": "Diggs Scores With 57 Seconds Left, Commanders Stun Giants",
-      "body": "Jayden Daniels shook off two interceptions and hit Stefon Diggs for a 32-yard go-ahead touchdown with 57 seconds left, a 24-21 win in a must-win game. Bad quarters don't decide the night; the last drive does.",
-      "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/thursday-night-football-stefon-diggs-late-td-gives-commanders-24-21-win"
+      "hed": "Gane Holds the Belt After an All-Time Brawl",
+      "body": "Josh Hokit came out at a pace that looked impossible to survive for three rounds. Ciryl Gane survived it, then won the last two rounds and kept his heavyweight title 48-47 on all three cards at UFC 334. Champions find another gear when the other guy is out of gas.",
+      "url": "https://mmajunkie.usatoday.com/story/sports/ufc/2026/11/15/ufc-334-results-ciryl-gane-vs-josh-hokit/92793148007/"
     },
     {
-      "hed": "Sixers Move to 10-3 Behind Maxey",
-      "body": "Tyrese Maxey had 27 points and 8 assists as Philadelphia handled Toronto 123-112. Steady work, stacked wins, top of the conversation in the East.",
-      "url": "https://basketball.realgm.com/scores/2026-11-12"
+      "hed": "Harrison Weathers Nunes, Then Finishes",
+      "body": "Amanda Nunes took the early rounds, but Kayla Harrison kept working her judo throws and locked in a rear-naked choke in the fourth to keep her bantamweight title. Absorb the surge, stay on your game plan, and close.",
+      "url": "https://www.cbssports.com/ufc/news/ufc-334-fight-card-ciryl-gane-josh-hokit-results-winners/"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 43,
-    "low": 31,
+    "high": 48,
+    "low": 28,
     "unit": "F",
-    "summary": "Clear and right around freezing at dawn, then clouds fill in with a high near 43 and essentially no chance of rain. The weekend warms a touch: mostly sunny and 47 Saturday, 47 Sunday, then near 49 Monday, all dry.",
+    "summary": "Clear and about 29° at dawn, then clouds roll in with a high near 48 and no rain. Monday stays dry near 49, then a warm-up to 53 Tuesday and 56 Wednesday.",
     "days": [
       {
-        "label": "Fri",
-        "high": 43,
-        "low": 31,
-        "icon": "cloud"
-      },
-      {
-        "label": "Sat",
-        "high": 47,
-        "low": 31,
-        "icon": "sun"
-      },
-      {
         "label": "Sun",
-        "high": 47,
-        "low": 31,
-        "icon": "sun"
+        "high": 48,
+        "low": 28,
+        "icon": "cloud"
       },
       {
         "label": "Mon",
         "high": 49,
-        "low": 34,
+        "low": 28,
+        "icon": "cloud"
+      },
+      {
+        "label": "Tue",
+        "high": 53,
+        "low": 35,
+        "icon": "cloud"
+      },
+      {
+        "label": "Wed",
+        "high": 56,
+        "low": 38,
         "icon": "cloud"
       }
     ]
@@ -66,15 +66,15 @@
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Cold start, about 32° at dawn and a high near 43: grab the warmer jacket"
-    },
-    {
-      "type": "ACTION",
-      "text": "Close the week: one concrete BD II pipeline push at MHCCNA before lunch, and set up Monday's first call"
+      "text": "Cold, clear start near 29°, high near 48 and dry all day"
     },
     {
       "type": "FYI",
-      "text": "UFC 334 is tomorrow at MSG: Gane vs Hokit and Harrison vs Nunes, main card 8 PM CT"
+      "text": "NFL Sunday: Patriots-Lions from Munich at 8:30 AM CT, Vikings-Packers at noon, 49ers-Cowboys 3:25 PM, Steelers-Bengals 7:20 PM. Bears are on the bye at 7-2"
+    },
+    {
+      "type": "ACTION",
+      "text": "Sunday reset: plan the week and book Monday's first MHCCNA conversation"
     }
   ],
   "timeline": [
@@ -84,31 +84,46 @@
       "category": "habit"
     },
     {
+      "time": "8:30 AM",
+      "event": "Patriots at Lions (Munich), if you want it on in the background",
+      "category": "fun"
+    },
+    {
       "time": "Morning",
-      "event": "MHCCNA: first call block, push your top deals before the weekend",
+      "event": "7EightMade / Cosmic Terminal build block: ship one thing",
       "category": "focus"
+    },
+    {
+      "time": "Noon",
+      "event": "Vikings at Packers: Cousins back in purple at Lambeau",
+      "category": "fun"
     },
     {
       "time": "Afternoon",
-      "event": "Week wrap: write down three wins and next week's first move",
+      "event": "Week plan: top 3 MHCCNA targets + Monday's first call",
       "category": "focus"
     },
     {
-      "time": "Evening",
-      "event": "One focused 7EightMade or Cosmic Terminal block; journal + 3 lines of gratitude",
+      "time": "7:20 PM",
+      "event": "Sunday Night Football: Steelers at Bengals",
+      "category": "fun"
+    },
+    {
+      "time": "Night",
+      "event": "Journal + 3 lines of gratitude",
       "category": "habit"
     }
   ],
   "thisWeek": [
-    "Fri Nov 13 — clear and cold early, high ~43°; close the week strong",
-    "Sat Nov 14 — UFC 334 at MSG: Gane vs Hokit, Harrison vs Nunes (main card 8 PM CT); mostly sunny, ~47°",
-    "Sun Nov 15 — sunny, ~47°; NFL Week 10 Sunday slate",
-    "Mon Nov 16 — dry, ~49°; fresh week, first call booked"
+    "Sun Nov 15 — clouds, ~48°; NFL Week 10 (Bears on bye at 7-2)",
+    "Mon Nov 16 — dry, ~49°; first call booked, Bulls at Cleveland",
+    "Tue Nov 17 — dry, ~53°; keep the streak going",
+    "Wed Nov 18 — dry, ~56°; midweek push"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Friday, the day of Venus. Four counts in, four hold, four out, four hold. Venus rules attraction and relationships, the exact things that close deals. Breathe slow, get magnetic, then go finish the week.",
+    "intro": "Sunday, the day of the Sun. Four counts in, four hold, four out, four hold. The Sun is the old symbol of the center, the self that radiates on purpose. Breathe square, set your center, and plan the week from strength.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -139,17 +154,17 @@
           "cue": "Empty and steady. Reset the line."
         }
       ],
-      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go close out Friday."
+      "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go build."
     },
     "mindset": {
-      "hed": "Finish Like Cade",
-      "body": "Cade Cunningham didn't stop at 40, and he didn't stop when regulation ended. He went to a second overtime and finished with 52. Friday is your overtime. Most people coast into the weekend; that's exactly when the closer makes the extra call, sends the follow-up, and books Monday. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Win Without Perfect Conditions",
+      "body": "The Bulls' flight got grounded. They landed on game day, missing three players, and still beat a team on a five-game heater. Conditions are never perfect: the pipeline is thin, the week is long, the market is noisy. Winners play anyway and play harder. Plan the week today like you're already ahead of it. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Friday, the day of Venus: run this right after Morning Charge. It's about 32° and clear outside, so keep the RipStick finisher indoors or make it a quick, brave porch set. Finish the week with clean reps.",
+    "note": "Sunday, the day of the Sun: run this right after Morning Charge. It's about 29° and clear outside, so keep the RipStick finisher indoors. Start the week's body work before the week starts.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -181,22 +196,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "TechSifted",
-          "hed": "Claude adds Sheets, Whiteboards and Data",
-          "body": "Anthropic's new Whiteboards and Sheets betas let teams turn a plan into a board with owners and dates, or build a shared spreadsheet from one prompt; Claude Data is now generally available on paid plans.",
-          "url": "https://techsifted.com/posts/3-things-ai-2026-11-12/"
+          "source": "Zeniteq",
+          "hed": "Grok 4.8 starts a limited rollout to Bot users",
+          "body": "xAI's official Grok account says a soft rollout of Grok 4.8 is underway for Grok Bot users; general app and API access hasn't been announced yet.",
+          "url": "https://www.zeniteq.com/news/grok-4-8-begins-a-limited-rollout-to-bot-users-r10idz"
         },
         {
-          "source": "9to5Mac",
-          "hed": "Grok Bot hits 1.0 and plugs into Apple's Mac apps",
-          "body": "xAI's Grok Bot on Mac can now use Messages, Mail, Notes, Reminders, Calendar, Location and Contacts, as the app officially leaves beta.",
-          "url": "https://9to5mac.com/2026/11/12/grok-bot-for-mac-adds-integration-with-apple-mail-messages-notes-and-more/"
+          "source": "Silicon Report",
+          "hed": "Apple's MLX now runs trillion-scale models across Mac Studios",
+          "body": "An MLX update lets developers split huge open models across several M5 Ultra Mac Studios over Thunderbolt. Apple showed an 816B model running at more than 36 tokens per second.",
+          "url": "https://www.siliconreport.com/apple-updates-mlx-to-run-trillion-parameter-models-across-mac-studios"
         },
         {
-          "source": "THEJO Ai",
-          "hed": "OpenAI's Control Room can halt research models in 35 seconds",
-          "body": "OpenAI detailed a system that blocks output from research models once permission is withdrawn, while Apple's Claris briefly listed Harbor, a Mac app for running local open-weight models.",
-          "url": "https://thejoai.com/ai-news/anthropic-apple-and-openai-detail-new-ai-developments/"
+          "source": "AI SI Daily",
+          "hed": "Claude Duet clears its US waitlist",
+          "body": "Anthropic sent Claude Duet invites to every US Pro, Max and Ultra subscriber on the waitlist, and opened a self-hosted Claude Managed Agents beta. OpenAI's ChatGPT Wallet is also rolling out to US Pro users.",
+          "url": "https://aisidaily.com/daily/ai-daily-2026-11-14/"
         }
       ]
     },
@@ -204,22 +219,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "RealGM",
-          "hed": "Cunningham 52 as Pistons win 144-140 in 2OT",
-          "body": "Cade Cunningham scored 52 in Washington; Detroit moves to 8-3 in the season's highest-scoring game.",
-          "url": "https://basketball.realgm.com/scores/2026-11-12"
+          "source": "AP",
+          "hed": "Short-handed Bulls make it two in a row",
+          "body": "Powell 23, Buzelis 18 and 9 as Chicago beat Minnesota 117-106 after a game-day arrival. Next: at Cleveland on Monday.",
+          "url": "https://apnews.com/article/bulls-timberwolves-score-59a4aa80400d9bf31286e70c2a7aacc1"
         },
         {
-          "source": "Land of Basketball",
-          "hed": "Timberwolves rout Dallas by 39",
-          "body": "Minnesota's 133-94 win is one of the largest in franchise history and lifts the Wolves to 9-3.",
-          "url": "https://www.landofbasketball.com/nba_daily_summary/20261112.htm"
+          "source": "AP",
+          "hed": "Giannis 34, Heat block 14 shots",
+          "body": "Miami ran past Detroit 137-117 for a fourth straight win. Antetokounmpo added 14 rebounds and eight assists.",
+          "url": "https://apnews.com/article/pistons-heat-score-0106f11e9e07bf6efa5b59b6b44435cd"
         },
         {
-          "source": "ESPN",
-          "hed": "Booker's 30 carries Phoenix past Charlotte",
-          "body": "Devin Booker scored 30 in a 101-96 Suns win, while Philadelphia beat Toronto 123-112 to reach 10-3.",
-          "url": "https://www.espn.com/nba/lite/scoreboard?date=20261112"
+          "source": "NBA.com",
+          "hed": "Spurs streak at 11, Sengun's historic 43",
+          "body": "San Antonio opened on an 18-0 run in a wire-to-wire Cup win, and Alperen Sengun joined Hakeem and Yao with a 40-10-5 on 70% shooting.",
+          "url": "https://www.nba.com/news/starting-5-november-14-2026"
         }
       ]
     },
@@ -227,22 +242,22 @@
       "title": "NFL",
       "items": [
         {
-          "source": "NBC Sports",
-          "hed": "Diggs' late TD lifts Commanders over Giants 24-21",
-          "body": "Jayden Daniels found Stefon Diggs for a 32-yard score with 57 seconds left on Thursday Night Football.",
-          "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/thursday-night-football-stefon-diggs-late-td-gives-commanders-24-21-win"
+          "source": "NFL.com",
+          "hed": "Lions favored over the Patriots in Munich",
+          "body": "Detroit (6-2) is a 2.5-point favorite against New England (5-4) at 8:30 AM CT on FOX.",
+          "url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
         },
         {
-          "source": "USA Today",
-          "hed": "Washington now owns the tiebreaker in the NFC East",
-          "body": "The win pulls the Commanders within two games of the division-leading Giants with the head-to-head edge.",
-          "url": "https://www.usatoday.com/story/sports/nfl/2026/11/13/who-won-nfl-game-thursday-night-football-giants-commanders/92753928007/"
+          "source": "CBS Sports",
+          "hed": "Mendoza's first start comes against Seattle",
+          "body": "No. 1 pick Fernando Mendoza debuts for the Raiders against the league's stingiest pass defense; Steelers-Bengals (both 6-2) closes the night.",
+          "url": "https://www.cbssports.com/nfl/news/week-10-underrated-games-browns-texans-raiders-seahawks/"
         },
         {
-          "source": "AP via 12News",
-          "hed": "Daniels channels his rookie-year magic",
-          "body": "Teammates said the comeback felt like 2024 all over again, the franchise quarterback answering two picks with a game-winning drive.",
-          "url": "https://www.12news.com/article/syndication/associatedpress/jayden-daniels-and-commanders-rally-to-stun-the-giants-24-21-and-keep-their-hopes-alive-another-week/616-eb83c69e-894d-4e9a-9c12-ce48b765d762"
+          "source": "Action Network",
+          "hed": "Cousins is back in Minnesota for Packers week",
+          "body": "Kirk Cousins starts for the Vikings at Lambeau at noon CT; Panthers-Saints decides the NFC South lead.",
+          "url": "https://www.actionnetwork.com/nfl/nfl-week-10-sunday-mega-preview-brandon-anderson-props-picks-parlays"
         }
       ]
     },
@@ -250,22 +265,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "Sherdog",
-          "hed": "UFC 334 weigh-ins are today",
-          "body": "Gane and Hokit hit the scale this morning (7:50 AM CT), with the ceremonial weigh-in at 4 PM CT at Madison Square Garden.",
-          "url": "https://www.sherdog.com/videos/misc.video/Video-UFC-334-early-official-morning-weighin-video-23944"
+          "source": "AP",
+          "hed": "Gane retains heavyweight title at MSG",
+          "body": "Ciryl Gane swept the cards 48-47 against undefeated Josh Hokit in UFC 334's main event.",
+          "url": "https://apnews.com/article/ufc-trump-hokit-harrison-gane-nunes-dana-white-169dd5701ceee867b01634232e5b91c8"
         },
         {
-          "source": "DraftKings Network",
-          "hed": "Harrison's first title defense is against Nunes",
-          "body": "Kayla Harrison defends the women's bantamweight belt against Amanda Nunes in Saturday's co-main; all 26 fighters appear at the ceremonial weigh-in.",
-          "url": "https://dknetwork.draftkings.com/2026/11/12/ufc-334-gane-vs-hokit-ceremonial-weigh-in-date-start-time-location-how-to-watch/"
+          "source": "MMA Fighting",
+          "hed": "Harrison submits Nunes in round four",
+          "body": "Kayla Harrison kept the bantamweight belt with a rear-naked choke at 1:29 of the fourth.",
+          "url": "https://www.mmafighting.com/ufc/520939/ufc-334-results-gane-vs-hokit"
         },
         {
-          "source": "MMA Index",
-          "hed": "Full UFC 334 card: Wonderboy, Holland, Jim Miller",
-          "body": "Stephen Thompson meets Charles Radtke, Kevin Holland faces Uros Medic, and Jim Miller takes on Terrance McKinney across 13 bouts.",
-          "url": "https://www.mmaindex.com/events/ufc-334-2026-11-14/weigh-ins"
+          "source": "CBS Sports",
+          "hed": "Wonderboy's head kick finish",
+          "body": "Stephen Thompson stopped Charles Radtke on the prelims, and Caio Borralho swept Yousri Belgaroui 30-27 on the main card.",
+          "url": "https://www.cbssports.com/ufc/news/ufc-334-fight-card-ciryl-gane-josh-hokit-results-winners/"
         }
       ]
     }
@@ -275,16 +290,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The day of Venus",
-        "body": "Friday takes its name from Frigg and its Latin name from Venus, planet of attraction, harmony and favor. Old grimoires set it aside for workings of love and friendship. In business terms: relationships. Strengthen one today."
+        "hed": "Sol Invictus, the unconquered sun",
+        "body": "Late Romans honored Sol Invictus, the sun that sinks every night and is never defeated. Every dawn proves it. The mystics read that as a picture of the soul: it can go down, and it rises anyway."
       },
       {
-        "hed": "Hermes Trismegistus and the Emerald Tablet",
-        "body": "'As above, so below' comes from a short Hermetic text prized by alchemists for centuries. The idea is that the inner order shapes the outer one. Get your head straight and your day lines up behind it."
+        "hed": "The Hermetic Emerald Tablet",
+        "body": "'That which is below is like that which is above.' The Emerald Tablet, attributed to Hermes Trismegistus, became the motto of alchemy. Practical read: your small daily actions mirror the big life you're building. Fix the small and the large follows."
       },
       {
-        "hed": "Hildegard of Bingen's viriditas",
-        "body": "The 12th-century abbess, mystic and composer wrote of viriditas, the 'greening power' of life pushing through everything. She ran a monastery, wrote medicine and music, and advised kings. Growth is a force; ride it."
+        "hed": "Meister Eckhart's 'ground of the soul'",
+        "body": "The 14th-century Dominican mystic taught that there is a still ground in every person that nothing outside can touch. He also preached that the active life done well beats ecstatic visions. Find the stillness, then go work."
       }
     ]
   },
@@ -292,9 +307,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Diligence earns the room",
-    "body": "Solomon wrote: 'Seest thou a man diligent in his business? he shall stand before kings' (Proverbs 22:29). Skill plus consistency gets you in rooms that talent alone never opens. Finish the week like it matters, because it does.",
-    "practice": "Before you log off today, send one follow-up you've been putting off and put Monday's first call on the calendar."
+    "hed": "Commit the work, and the plans hold",
+    "body": "Solomon wrote: 'Commit thy works unto the LORD, and thy thoughts shall be established' (Proverbs 16:3). Hand over the outcome, keep the effort. A plan you're committed to stops wobbling every time the week pushes on it. Sunday is the day to set the week's plans down firmly.",
+    "practice": "Write the week's three commitments (one MHCCNA, one 7EightMade, one body/habit) on a single card. Read it once tonight and once Monday morning."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -315,33 +330,33 @@
         "done": false
       },
       {
-        "id": "bd-block",
-        "text": "MHCCNA: one focused pipeline block before lunch",
-        "priority": "high",
-        "done": false
-      },
-      {
-        "id": "monday-call",
-        "text": "Book Monday's first call before you log off",
+        "id": "week-plan",
+        "text": "Week plan: top 3 MHCCNA targets + book Monday's first call",
         "priority": "high",
         "done": false
       },
       {
         "id": "7em-block",
-        "text": "One focused 7EightMade or Cosmic Terminal block",
+        "text": "One focused hour on 7EightMade or Cosmic Terminal",
         "priority": "high",
         "done": false
       },
       {
-        "id": "journal-gratitude",
-        "text": "Journal + 3 lines of gratitude, plus three wins from the week",
-        "priority": "habit",
+        "id": "commit-card",
+        "text": "Grimoire card: three commitments for the week",
+        "priority": "normal",
         "done": false
       },
       {
-        "id": "tech-demo-tweaks",
-        "text": "Tech Demo: review the Windows overhead tweaks on your home PC",
+        "id": "tech-demo-ram",
+        "text": "Tech Demo: check your PC's RAM speed in Task Manager",
         "priority": "normal",
+        "done": false
+      },
+      {
+        "id": "journal-gratitude",
+        "text": "Journal + 3 lines of gratitude",
+        "priority": "habit",
         "done": false
       }
     ]
@@ -354,12 +369,21 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "Kuta's PC gamer checklist: strip out Windows AI features and cut background system overhead for higher FPS and lower latency. The thread walks through the settings step by step.",
-    "author": "@KutaTweaks",
-    "url": "https://x.com/KutaTweaks/status/2120212416697135588",
-    "bookmarkUrl": "https://x.com/KutaTweaks/status/2120212416697135588",
+    "pick": "Is your RAM running at the speed you paid for? Open Task Manager, go to Performance and then Memory, and check 'Speed' at the bottom. If it's below your kit's rated speed, XMP/EXPO is probably off in the BIOS.",
+    "author": "@hypertune_",
+    "url": "https://x.com/hypertune_/status/2114632573510918162",
+    "bookmarkUrl": "https://x.com/hypertune_/status/2114632573510918162",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Nov 11, so this is a rotated one: the Nov 10 post that ran as a side note yesterday. Worth ten minutes on the home PC this weekend.",
-    "skipped": "Skipped: promo, gaming-combo and one-liner posts."
+    "note": "No new bookmarks since Nov 11, so this is a rotated one from Oct 26. It's a two-minute check that can mean free FPS.",
+    "skipped": "Skipped: promo, gaming-combo and one-liner posts.",
+    "lesson": {
+      "oneLiner": "RAM ships at a safe default speed; its rated speed needs a BIOS profile.",
+      "beats": [
+        "Task Manager → Performance → Memory → read 'Speed'.",
+        "Compare it to the rating on the stick or box (e.g., 6000 MT/s).",
+        "If it's lower, enable XMP (Intel) or EXPO (AMD) in BIOS and save."
+      ],
+      "takeaway": "One toggle can recover the performance you already paid for."
+    }
   }
 }
