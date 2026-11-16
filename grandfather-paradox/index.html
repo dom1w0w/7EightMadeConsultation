@@ -14,9 +14,33 @@
   <link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../brand/fonts.css">
   <link rel="stylesheet" href="../studio/studio.css">
+  <script>document.documentElement.classList.add('gp-intro-on');</script>
+  <style>
+    /* Grandfather Paradox — the short plays as an intro, then fades into this page */
+    .gp-intro{display:none}
+    .gp-intro-on{overflow:hidden}
+    .gp-intro-on .gp-intro{display:flex}
+    .gp-intro{position:fixed;inset:0;z-index:200;background:#0E0D0C;align-items:center;justify-content:center;opacity:1;transition:opacity .6s ease}
+    .gp-intro--out{opacity:0;pointer-events:none}
+    .gp-intro__video{width:100%;height:100%;object-fit:contain;background:#0E0D0C}
+    .gp-intro__btn{position:absolute;z-index:2;background:rgba(14,13,12,.72);color:#F5EFE6;border:1px solid rgba(245,239,230,.45);border-radius:999px;padding:10px 18px;font:inherit;font-size:15px;line-height:1;cursor:pointer;backdrop-filter:blur(4px)}
+    .gp-intro__btn:hover,.gp-intro__btn:focus-visible{background:#A78BFA;color:#150A26;border-color:#A78BFA}
+    .gp-intro__skip{top:calc(14px + env(safe-area-inset-top));right:16px}
+    .gp-intro__sound{bottom:calc(16px + env(safe-area-inset-bottom));right:16px}
+    .gp-intro__play{top:50%;left:50%;transform:translate(-50%,-50%);background:#A78BFA;color:#150A26;border-color:#A78BFA;padding:18px 30px;font-size:19px;font-weight:600}
+    .gp-intro__play:hover,.gp-intro__play:focus-visible{background:#F5EFE6;border-color:#F5EFE6}
+  </style>
 </head>
 <body class="intro" style="--accent:#A78BFA;--on-accent:#150A26">
   <a class="skip" href="#main">Skip to content</a>
+
+  <div class="gp-intro" id="gpIntro" role="dialog" aria-modal="true" aria-label="Grandfather Paradox — the short">
+    <video class="gp-intro__video" id="gpIntroVideo" src="assets/grandfather-paradox-short.mp4" poster="assets/short-poster.jpg" autoplay muted playsinline preload="auto"></video>
+    <button class="gp-intro__btn gp-intro__play" id="gpIntroPlay" type="button" hidden>▶ Watch the short</button>
+    <button class="gp-intro__btn gp-intro__skip" id="gpIntroSkip" type="button">Skip intro →</button>
+    <button class="gp-intro__btn gp-intro__sound" id="gpIntroSound" type="button" aria-pressed="false">🔊 Sound on</button>
+  </div>
+
   <header class="snav">
     <div class="snav__in">
       <a class="snav__brand" href="../studio/"><b>7EightMade</b> Studio</a>
@@ -42,6 +66,7 @@
         <p class="oneliner">Go back. Stop him. Watch yourself disappear.</p>
         <div class="row">
           <a class="btn-open" href="play/">Open the app <span aria-hidden="true">→</span></a>
+          <button class="pill" id="gpReplay" type="button">▶ Watch the short</button>
           <a class="pill" href="app/">See how it works</a>
         </div>
         </div>
@@ -115,6 +140,72 @@
     </div>
   </footer>
 
+<script>
+(function () {
+  var root = document.documentElement;
+  var intro = document.getElementById('gpIntro');
+  if (!intro) { root.classList.remove('gp-intro-on'); return; }
+  var video = document.getElementById('gpIntroVideo');
+  var skipBtn = document.getElementById('gpIntroSkip');
+  var playBtn = document.getElementById('gpIntroPlay');
+  var soundBtn = document.getElementById('gpIntroSound');
+  var replayBtn = document.getElementById('gpReplay');
+  var open = true, closing = false;
+
+  function updateSound() {
+    soundBtn.textContent = video.muted ? '🔊 Sound on' : '🔇 Sound off';
+    soundBtn.setAttribute('aria-pressed', String(!video.muted));
+  }
+  function tryPlay() {
+    var p = video.play();
+    if (p && p.catch) { p.catch(function () { playBtn.hidden = false; }); }
+  }
+  function dismiss() {
+    if (!open || closing) { return; }
+    closing = true;
+    intro.classList.add('gp-intro--out');
+    try { video.pause(); } catch (e) {}
+    setTimeout(function () {
+      intro.style.display = 'none';
+      intro.classList.remove('gp-intro--out');
+      root.classList.remove('gp-intro-on');
+      open = false; closing = false;
+    }, 650);
+  }
+  function reopen() {
+    intro.style.display = '';
+    root.classList.add('gp-intro-on');
+    open = true; closing = false;
+    playBtn.hidden = true;
+    try { video.currentTime = 0; } catch (e) {}
+    video.muted = false;
+    updateSound();
+    tryPlay();
+  }
+
+  skipBtn.addEventListener('click', dismiss);
+  playBtn.addEventListener('click', function () {
+    video.muted = false; updateSound(); playBtn.hidden = true; tryPlay();
+  });
+  soundBtn.addEventListener('click', function () {
+    video.muted = !video.muted;
+    if (video.paused) { tryPlay(); }
+    updateSound();
+  });
+  video.addEventListener('click', function () {
+    if (video.paused) { playBtn.hidden = true; tryPlay(); } else { video.pause(); }
+  });
+  video.addEventListener('ended', dismiss);
+  video.addEventListener('error', dismiss);
+  document.addEventListener('keydown', function (e) {
+    if (open && (e.key === 'Escape' || e.key === 'Esc')) { dismiss(); }
+  });
+  if (replayBtn) { replayBtn.addEventListener('click', reopen); }
+
+  updateSound();
+  tryPlay();
+})();
+</script>
 <!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
 </body>
