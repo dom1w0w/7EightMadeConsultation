@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GRANDFATHER PARADOX | 7EightMade</title>
+  <meta name="description" content="Go back. Stop him. Watch yourself disappear. The grandfather paradox as a 90-second interactive: erase your family tree, hit the loop, and pick your way out. A free 7EightMade app.">
+  <meta property="og:title" content="GRANDFATHER PARADOX">
+  <meta property="og:description" content="Go back. Stop him. Watch yourself disappear.">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/grandfather-paradox/preview.webp">
+  <meta name="theme-color" content="#08070c">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/grandfather-paradox/play/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23A78BFA' stroke-width='3'/%3E%3Cpath d='M16 8v8l6 4' fill='none' stroke='%23A78BFA' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #EFEAF6;
+      --bg: #08070C;
+      --bg2: #12101C;
+      --panel: #100E1A;
+      --muted: #A79FB5;
+      --line: rgba(239,234,246,.13);
+      --violet: #A78BFA;
+      --violet-dim: rgba(167,139,250,.16);
+      --gold: #D9A441;
+      --danger: #E4572E;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg); color: var(--ink);
+      line-height: 1.55; -webkit-font-smoothing: antialiased;
+      display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh;
+      overflow-x: hidden;
+    }
+    .serif { font-family: Georgia, "Times New Roman", serif; }
+    a { color: var(--violet); }
+    :focus-visible { outline: 2px solid #4D7CF6; outline-offset: 3px; }
+
+    /* ---- top bar (self-contained, mirrors the Studio app bar) ---- */
+    .bar { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; padding: 0 12px; background: #0E0D0C; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .bar a { color: #F2ECE2; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0 6px; border-radius: 6px; white-space: nowrap; }
+    .bar a:hover { color: var(--violet); }
+    .bar__name { font-family: Georgia, serif; font-style: italic; font-weight: 500; font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .bar__name b { color: var(--ink); font-style: normal; }
+    .bar button { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 999px; min-width: 44px; min-height: 32px; font-size: 14px; cursor: pointer; }
+    .bar button:hover { border-color: var(--violet); }
+
+    /* ---- stage ---- */
+    .stage { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 560px; margin: 0 auto; padding: 22px 18px 34px; }
+    .scene { display: none; width: 100%; flex-direction: column; align-items: center; text-align: center; animation: fadein .5s ease both; }
+    .scene.on { display: flex; }
+    @keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .kicker { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--violet); margin-bottom: 12px; }
+    h1.title { font-family: Georgia, serif; font-weight: 600; font-size: clamp(34px, 9vw, 52px); line-height: 1.04; letter-spacing: .01em; }
+    .hook { font-family: Georgia, serif; font-style: italic; font-size: clamp(19px, 5.4vw, 25px); color: var(--ink); margin-top: 16px; line-height: 1.4; }
+    .sub { color: var(--muted); font-size: 15px; margin-top: 12px; max-width: 40ch; }
+    .cap { font-size: clamp(17px, 4.8vw, 21px); line-height: 1.45; min-height: 1.5em; max-width: 30ch; }
+    .cap.small { font-size: 15px; color: var(--muted); }
+    .cap b { color: var(--violet); font-weight: 700; }
+    .cap .gold { color: var(--gold); }
+
+    .btn { appearance: none; border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 15px 30px; border-radius: 999px; background: var(--violet); color: #150A26; font: 700 14px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; box-shadow: 0 18px 50px -18px var(--violet); transition: transform .15s, filter .15s; margin-top: 26px; }
+    .btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line2, rgba(239,234,246,.3)); box-shadow: none; }
+    .btn--danger { background: var(--danger); color: #fff; box-shadow: 0 18px 50px -18px var(--danger); }
+    .btn[disabled] { opacity: .35; pointer-events: none; }
+    .btnrow { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+    /* ---- the tree ---- */
+    .treebox { width: 100%; max-width: 420px; margin-top: 10px; }
+    .treebox svg { width: 100%; height: auto; display: block; }
+    .edge { stroke: rgba(239,234,246,.22); stroke-width: 1.6; transition: opacity .6s; }
+    .edge.hot { stroke: var(--gold); stroke-width: 2.4; filter: drop-shadow(0 0 5px rgba(217,164,65,.8)); }
+    .node circle.face { fill: #1B1830; stroke: rgba(239,234,246,.55); stroke-width: 1.6; transition: opacity .5s; }
+    .node text { fill: var(--muted); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .node.hot circle.face { stroke: var(--gold); filter: drop-shadow(0 0 7px rgba(217,164,65,.85)); }
+    .node.hot text { fill: var(--gold); }
+    .node.you circle.face { stroke: var(--violet); stroke-width: 2.4; filter: drop-shadow(0 0 9px rgba(167,139,250,.8)); }
+    .node.you text { fill: var(--violet); font-weight: 700; }
+    .node.erasing { animation: nodeflick .16s steps(2) 6; }
+    .node.gone { opacity: .07; filter: grayscale(1); }
+    .edge.gone { opacity: .05; }
+    @keyframes nodeflick { 0% { opacity: 1; } 50% { opacity: .15; } 100% { opacity: .8; } }
+    .pulse { animation: pulse 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+    /* ---- 1952 scene ---- */
+    .scene1952 { width: 100%; max-width: 420px; margin-top: 8px; }
+    .scene1952 svg { width: 100%; height: auto; display: block; }
+    .walker { animation: walk 5s linear forwards; }
+    @keyframes walk { from { transform: translateX(0); } to { transform: translateX(118px); } }
+    .walker.stopped { animation-play-state: paused; }
+    .doorGlow { animation: pulse 2s ease-in-out infinite; }
+
+    /* ---- static / glitch ---- */
+    .static { position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0; background-image: repeating-conic-gradient(rgba(255,255,255,.16) 0 .6%, transparent .6% 1.2%), repeating-linear-gradient(0deg, rgba(255,255,255,.1) 0 2px, transparent 2px 4px); mix-blend-mode: screen; }
+    .static.on { opacity: .55; animation: statjump .12s steps(3) infinite; }
+    @keyframes statjump { 0% { transform: translate(0,0); } 33% { transform: translate(-6px,3px); } 66% { transform: translate(5px,-4px); } 100% { transform: translate(0,0); } }
+    .flickA, .flickB { transition: opacity .05s; }
+    .glitching { animation: glitch .14s steps(2) infinite; }
+    @keyframes glitch { 0% { transform: translate(0); } 25% { transform: translate(-3px,1px) skewX(-1.5deg); } 50% { transform: translate(3px,-1px); } 75% { transform: translate(-1px,2px) skewX(1deg); } 100% { transform: translate(0); } }
+
+    /* ---- paradox chain ---- */
+    .chain { list-style: none; margin-top: 18px; display: grid; gap: 8px; width: 100%; max-width: 400px; }
+    .chain li { border: 1px solid var(--line); background: var(--bg2); border-radius: 12px; padding: 11px 14px; font-size: 16px; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
+    .chain li.on { opacity: 1; transform: none; }
+    .chain li b { color: var(--violet); }
+
+    /* ---- escapes ---- */
+    .escapes { display: grid; gap: 12px; width: 100%; max-width: 420px; margin-top: 20px; }
+    .escape { text-align: left; appearance: none; cursor: pointer; background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); font: inherit; transition: border-color .2s, transform .15s; width: 100%; }
+    .escape:hover { border-color: var(--violet); transform: translateY(-1px); }
+    .escape strong { display: block; font-family: Georgia, serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+    .escape span { color: var(--muted); font-size: 14px; display: block; }
+    .escape .seen { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-top: 8px; }
+    .dots { display: flex; gap: 8px; margin-top: 20px; }
+    .dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(239,234,246,.2); }
+    .dots i.on { background: var(--gold); box-shadow: 0 0 8px rgba(217,164,65,.8); }
+
+    .answers { display: grid; gap: 10px; width: 100%; max-width: 400px; margin-top: 22px; }
+    .answers .escape { text-align: center; }
+    .answers .escape strong { font-size: 18px; }
+
+    .foot { margin-top: auto; padding-top: 30px; color: var(--muted); font-size: 13px; text-align: center; }
+    .foot a { text-decoration: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scene, .walker, .pulse, .doorGlow { animation: none !important; }
+      .glitching, .static.on { animation: none !important; }
+      .node.erasing { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="bar" aria-label="Studio">
+    <a href="../">← About</a>
+    <span class="bar__name" aria-hidden="true"><b>GRANDFATHER PARADOX</b> · 7EightMade Studio</span>
+    <span style="display:flex;gap:8px;align-items:center">
+      <button id="sndBtn" type="button" aria-label="Toggle sound" title="Sound on/off">🔊</button>
+      <a href="../../studio/">Studio</a>
+    </span>
+  </nav>
+
+  <main class="stage" id="stage">
+
+    <!-- 0 · PROLOGUE -->
+    <section class="scene on" id="s0" aria-labelledby="t0">
+      <p class="kicker">7EightMade Studio · Paradoxes</p>
+      <h1 class="title serif" id="t0">The Grandfather<br>Paradox</h1>
+      <p class="hook">“Go back. Stop him.<br>Watch yourself disappear.”</p>
+      <p class="sub">Ninety seconds. One hand. A time machine, a family tree, and no clean way out.</p>
+      <button class="btn" id="beginBtn" type="button">Begin →</button>
+      <p class="cap small" style="margin-top:16px">Sound on helps. The clock is already ticking.</p>
+    </section>
+
+    <!-- 1 · THE TREE -->
+    <section class="scene" id="s1" aria-labelledby="t1">
+      <p class="kicker">Now</p>
+      <h2 class="serif" id="t1" style="font-size:30px;font-weight:600">This is you.</h2>
+      <div class="treebox" id="tree1"></div>
+      <p class="cap" id="treeCap">Every line above you <b>had to happen</b> — exactly the way it happened.</p>
+      <button class="btn" id="toMachine" type="button">The time machine →</button>
+    </section>
+
+    <!-- 2 · 1952 -->
+    <section class="scene" id="s2" aria-labelledby="t2">
+      <p class="kicker">1952</p>
+      <h2 class="serif" id="t2" style="font-size:30px;font-weight:600">There he is.</h2>
+      <div class="scene1952" aria-hidden="true">
+        <svg viewBox="0 0 360 210">
+          <rect x="0" y="0" width="360" height="210" fill="#0D0B16"/>
+          <circle cx="316" cy="34" r="17" fill="#E8E2D2" opacity=".85"/>
+          <rect x="0" y="168" width="360" height="42" fill="#17131F"/>
+          <line x1="0" y1="168" x2="360" y2="168" stroke="rgba(239,234,246,.25)" stroke-width="2"/>
+          <!-- diner -->
+          <rect x="238" y="58" width="112" height="110" fill="#1B1830" stroke="rgba(239,234,246,.3)"/>
+          <rect x="252" y="76" width="38" height="26" fill="#2A2450" stroke="rgba(239,234,246,.25)"/>
+          <rect class="doorGlow" x="306" y="102" width="30" height="66" fill="#3A2E18" stroke="#D9A441" stroke-width="2"/>
+          <text x="294" y="48" fill="#D9A441" font-size="15" letter-spacing="4" text-anchor="middle" font-family="Georgia, serif">DINER</text>
+          <!-- grandma at the door -->
+          <g>
+            <circle cx="296" cy="128" r="8" fill="#EFEAF6"/>
+            <path d="M288 168 L296 138 L304 168 Z" fill="#A78BFA"/>
+          </g>
+          <!-- grandpa walking -->
+          <g class="walker" id="walker">
+            <circle cx="60" cy="118" r="9" fill="#EFEAF6"/>
+            <path d="M60 127 L60 152 M60 136 L46 146 M60 136 L74 144 M60 152 L48 168 M60 152 L72 168" stroke="#EFEAF6" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <rect x="50" y="104" width="20" height="5" rx="2" fill="#D9A441"/>
+          </g>
+          <text x="14" y="34" fill="#A79FB5" font-size="12" letter-spacing="3">1952 · THE NIGHT THEY MEET</text>
+        </svg>
+      </div>
+      <p class="cap" id="cap1952">Your grandfather, age nineteen, walking into the diner where your grandmother works. In four minutes, they meet. <b>One choice:</b></p>
+      <div class="btnrow">
+        <button class="btn btn--danger" id="stopBtn" type="button">Stop him</button>
+        <button class="btn btn--ghost" id="letBtn" type="button">Let them meet</button>
+      </div>
+    </section>
+
+    <!-- 3 · ERASURE -->
+    <section class="scene" id="s3" aria-labelledby="t3">
+      <p class="kicker">Undoing</p>
+      <h2 class="serif" id="t3" style="font-size:30px;font-weight:600">You did it.</h2>
+      <div class="treebox" id="tree2"></div>
+      <p class="cap" id="eraseCap" aria-live="polite">He turns around. He never walks in.</p>
+    </section>
+
+    <!-- 4 · PARADOX -->
+    <section class="scene" id="s4" aria-labelledby="t4">
+      <p class="kicker">Paradox</p>
+      <h2 class="serif" id="t4" style="font-size:30px;font-weight:600">Wait.</h2>
+      <div class="treebox" id="tree3"></div>
+      <p class="cap" id="flickCap" aria-live="polite"><b>HE MEETS HER — YOU EXIST</b></p>
+      <ul class="chain" id="chain">
+        <li>If you vanish, <b>nobody went back</b>.</li>
+        <li>So grandpa <b>meets grandma</b>.</li>
+        <li>So you are <b>born</b>.</li>
+        <li>So you <b>go back</b>.</li>
+        <li>So you <b>stop him</b>.</li>
+        <li>So you <b>vanish</b>…</li>
+      </ul>
+      <button class="btn" id="toEscapes" type="button" style="display:none">Find a way out →</button>
+    </section>
+
+    <!-- 5 · ESCAPES -->
+    <section class="scene" id="s5" aria-labelledby="t5">
+      <p class="kicker">Three ways out</p>
+      <h2 class="serif" id="t5" style="font-size:30px;font-weight:600">Pick an escape. Try all three.</h2>
+      <div class="escapes">
+        <button class="escape" type="button" data-esc="fixed"><strong>The Fixed Timeline</strong><span>Novikov's rule: the past protects itself. Try to change it, and something always stops you.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
+        <button class="escape" type="button" data-esc="branch"><strong>Branching Worlds</strong><span>Every change splits the world. You can erase a family tree — just never your own.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
+        <button class="escape" type="button" data-esc="loop"><strong>The Paradox Stands</strong><span>No fix. No branch. The loop simply never resolves.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
+      </div>
+      <div class="dots" aria-hidden="true"><i id="d0"></i><i id="d1"></i><i id="d2"></i></div>
+      <button class="btn" id="toEnd" type="button" disabled>Ask the question →</button>
+    </section>
+
+    <!-- 5a · VIGNETTE -->
+    <section class="scene" id="s6" aria-labelledby="t6">
+      <p class="kicker" id="vigKick">Escape</p>
+      <h2 class="serif" id="t6" style="font-size:30px;font-weight:600">…</h2>
+      <div class="treebox" id="vigBox"></div>
+      <p class="cap" id="vigCap" aria-live="polite"></p>
+      <button class="btn btn--ghost" id="vigDone" type="button" style="display:none">← Back to the escapes</button>
+    </section>
+
+    <!-- 6 · CLOSING -->
+    <section class="scene" id="s7" aria-labelledby="t7">
+      <p class="kicker">The question</p>
+      <h2 class="serif" id="t7" style="font-size:clamp(30px,8vw,42px);font-weight:600;line-height:1.15">Which universe<br>do you live in?</h2>
+      <div class="answers">
+        <button class="escape" type="button" data-ans="fixed"><strong>A fixed one</strong><span>What happened, happened. I was never a threat to it.</span></button>
+        <button class="escape" type="button" data-ans="branch"><strong>A branching one</strong><span>Somewhere there's a tree with my name missing. Not this one.</span></button>
+        <button class="escape" type="button" data-ans="loop"><strong>The loop</strong><span>Ask me again in 1952.</span></button>
+      </div>
+      <p class="cap" id="ansCap" aria-live="polite" style="margin-top:22px"></p>
+      <div class="btnrow">
+        <button class="btn" id="shareBtn" type="button" style="display:none">Share this paradox</button>
+        <button class="btn btn--ghost" id="againBtn" type="button" style="display:none">Play again</button>
+      </div>
+      <p class="foot"><a href="../">About this app</a> · <a href="../../studio/">7EightMade Studio</a><br>Fall down seven. Stand up eight.</p>
+    </section>
+
+  </main>
+
+  <div class="static" id="staticFx" aria-hidden="true"></div>
+
+  <script>
+  (function () {
+    "use strict";
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- sound: all synthesized, no files ---------- */
+    var AC = null, master = null, muted = false;
+    function audio() {
+      if (AC) return AC;
+      try {
+        AC = new (window.AudioContext || window.webkitAudioContext)();
+        master = AC.createGain(); master.gain.value = 0.5; master.connect(AC.destination);
+      } catch (e) { AC = null; }
+      return AC;
+    }
+    function tick(vol) {
+      if (!audio() || muted) return;
+      var t = AC.currentTime, o = AC.createOscillator(), g = AC.createGain();
+      o.type = "square"; o.frequency.value = 1900;
+      g.gain.setValueAtTime(vol || 0.06, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.045);
+      o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.05);
+    }
+    function staticBurst(dur, vol) {
+      if (!audio() || muted) return;
+      var len = Math.floor(AC.sampleRate * dur), buf = AC.createBuffer(1, len, AC.sampleRate), d = buf.getChannelData(0);
+      for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+      var src = AC.createBufferSource(); src.buffer = buf;
+      var f = AC.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 1400; f.Q.value = 0.6;
+      var g = AC.createGain(); g.gain.value = vol || 0.25;
+      src.connect(f); f.connect(g); g.connect(master); src.start();
+    }
+    function chime() {
+      if (!audio() || muted) return;
+      [523.25, 783.99].forEach(function (fr, i) {
+        var t = AC.currentTime + i * 0.14, o = AC.createOscillator(), g = AC.createGain();
+        o.type = "sine"; o.frequency.value = fr;
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.16, t + 0.03);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.7);
+        o.connect(g); g.connect(master); o.start(t); o.stop(t + 0.75);
+      });
+    }
+    var sndBtn = document.getElementById("sndBtn");
+    sndBtn.addEventListener("click", function () {
+      muted = !muted;
+      sndBtn.textContent = muted ? "🔇" : "🔊";
+      if (!muted) tick(0.08);
+    });
+
+    /* ---------- scene switching ---------- */
+    var scenes = ["s0","s1","s2","s3","s4","s5","s6","s7"];
+    function show(id) {
+      scenes.forEach(function (s) { document.getElementById(s).classList.toggle("on", s === id); });
+      window.scrollTo(0, 0);
+    }
+    var staticFx = document.getElementById("staticFx");
+    function staticFlash(ms) {
+      if (reduced) return;
+      staticFx.classList.add("on");
+      setTimeout(function () { staticFx.classList.remove("on"); }, ms);
+    }
+
+    /* ---------- the family tree (built once, cloned per scene) ---------- */
+    var ROWS = [
+      { y: 46,  labels: ["GREAT-GRANDPA", "GREAT-GRANDMA", "GREAT-GRANDPA", "GREAT-GRANDMA", "GREAT-GRANDPA", "GREAT-GRANDMA", "GREAT-GRANDPA", "GREAT-GRANDMA"] },
+      { y: 146, labels: ["GRANDPA", "GRANDMA", "GRANDPA", "GRANDMA"] },
+      { y: 246, labels: ["DAD", "MOM"] },
+      { y: 346, labels: ["YOU"] }
+    ];
+    function pos(row, i) {
+      var n = ROWS[row].labels.length, W = 360;
+      return { x: (i + 0.5) * (W / n), y: ROWS[row].y };
+    }
+    function buildTree(mount, idp) {
+      var s = '<svg viewBox="0 0 360 396" role="img" aria-label="A glowing family tree: you at the bottom, three generations above">';
+      s += '<text x="180" y="14" text-anchor="middle" fill="#A79FB5" font-size="9.5" letter-spacing="3">GREAT-GRANDPARENTS</text>';
+      var r, i, j;
+      for (r = 1; r < 4; r++) {
+        for (i = 0; i < ROWS[r].labels.length; i++) {
+          var c = pos(r, i), p1 = pos(r - 1, i * 2), p2 = pos(r - 1, i * 2 + 1);
+          var hot = (r === 3 && i === 0) || (r === 2 && i === 0) || (r === 1 && i === 0);
+          s += '<line class="edge' + (hot ? " hot" : "") + '" id="' + idp + 'e' + r + '_' + i + 'a" x1="' + c.x + '" y1="' + c.y + '" x2="' + p1.x + '" y2="' + p1.y + '"/>';
+          s += '<line class="edge' + (hot ? " hot" : "") + '" id="' + idp + 'e' + r + '_' + i + 'b" x1="' + c.x + '" y1="' + c.y + '" x2="' + p2.x + '" y2="' + p2.y + '"/>';
+        }
+      }
+      for (r = 0; r < 4; r++) {
+        for (i = 0; i < ROWS[r].labels.length; i++) {
+          var p = pos(r, i);
+          var isYou = r === 3, isHot = isYou || (r === 2 && i === 0) || (r === 1 && i === 0) || (r === 0 && i === 0);
+          var rad = isYou ? 21 : 14;
+          s += '<g class="node' + (isYou ? " you pulse" : "") + (isHot && !isYou ? " hot" : "") + '" id="' + idp + 'n' + r + '_' + i + '">';
+          s += '<circle class="face" cx="' + p.x + '" cy="' + p.y + '" r="' + rad + '"/>';
+          s += '<circle cx="' + (p.x - rad * 0.32) + '" cy="' + (p.y - 2) + '" r="' + (rad * 0.11) + '" fill="#EFEAF6"/>';
+          s += '<circle cx="' + (p.x + rad * 0.32) + '" cy="' + (p.y - 2) + '" r="' + (rad * 0.11) + '" fill="#EFEAF6"/>';
+          s += '<path d="M' + (p.x - rad * 0.38) + ' ' + (p.y + rad * 0.42) + ' Q' + p.x + ' ' + (p.y + rad * 0.05) + ' ' + (p.x + rad * 0.38) + ' ' + (p.y + rad * 0.42) + '" stroke="#EFEAF6" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
+          if (r > 0) s += '<text x="' + p.x + '" y="' + (p.y + rad + 13) + '" text-anchor="middle">' + ROWS[r].labels[i] + '</text>';
+          s += '</g>';
+        }
+      }
+      s += "</svg>";
+      mount.innerHTML = s;
+    }
+    buildTree(document.getElementById("tree1"), "a");
+    buildTree(document.getElementById("tree2"), "b");
+    buildTree(document.getElementById("tree3"), "c");
+
+    function node(idp, r, i) { return document.getElementById(idp + "n" + r + "_" + i); }
+    function edgesOf(idp, r, i) {
+      return [document.getElementById(idp + "e" + r + "_" + i + "a"), document.getElementById(idp + "e" + r + "_" + i + "b")];
+    }
+    function eraseNode(idp, r, i, keepEdges) {
+      var n = node(idp, r, i); if (!n) return;
+      n.classList.add("erasing");
+      staticBurst(0.28, 0.2); staticFlash(180);
+      setTimeout(function () {
+        n.classList.remove("erasing"); n.classList.add("gone");
+        if (!keepEdges && r > 0) edgesOf(idp, r, i).forEach(function (e) { if (e) e.classList.add("gone"); });
+      }, reduced ? 60 : 700);
+    }
+
+    /* ---------- flow ---------- */
+    var timers = [];
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+
+    document.getElementById("beginBtn").addEventListener("click", function () {
+      audio(); tick(0.09);
+      show("s1");
+      var iv = setInterval(function () { tick(0.035); }, 1200);
+      later(function () { clearInterval(iv); }, 20000);
+      timers.push(iv);
+    });
+
+    document.getElementById("toMachine").addEventListener("click", function () {
+      clearTimers(); staticBurst(0.4, 0.22); staticFlash(300);
+      show("s2");
+    });
+
+    document.getElementById("letBtn").addEventListener("click", function () {
+      document.getElementById("cap1952").innerHTML = "That's not why you came. <b>The machine only brought one choice.</b>";
+      tick(0.05);
+    });
+
+    document.getElementById("stopBtn").addEventListener("click", function () {
+      var w = document.getElementById("walker");
+      if (w) w.classList.add("stopped");
+      staticBurst(0.5, 0.3); staticFlash(350);
+      later(function () { show("s3"); runErasure(); }, 650);
+    });
+
+    function runErasure() {
+      var cap = document.getElementById("eraseCap");
+      var tempo = 900, iv = setInterval(function () { tick(0.05); tempo = Math.max(180, tempo - 90); }, 0);
+      clearInterval(iv);
+      var tickIv = setInterval(function () { tick(0.05); }, 700);
+      timers.push(tickIv);
+      var order = [
+        [0,1],[0,3],[0,5],[0,7],[0,2],[0,4],[0,6],
+        [1,2],[1,3],[1,1],
+        [0,0],
+        [1,0],
+        [2,1],[2,0]
+      ];
+      var lines = {
+        6: "Grandpa turns around. He never walks in.",
+        9: "No meeting. No marriage.",
+        10: "<b>Grandpa is never your grandpa.</b>",
+        11: "Your dad is never born.",
+        13: "And neither are <b>you</b>."
+      };
+      order.forEach(function (rc, k) {
+        later(function () {
+          eraseNode("b", rc[0], rc[1]);
+          if (lines[k]) cap.innerHTML = lines[k];
+          if (k === order.length - 1) {
+            later(function () {
+              var you = node("b", 3, 0);
+              you.classList.add("erasing"); staticBurst(0.6, 0.3); staticFlash(400);
+              later(function () {
+                you.classList.remove("erasing", "pulse");
+                you.style.opacity = "0.25";
+                cap.innerHTML = "Your photo is <b>fading</b>.";
+                clearInterval(tickIv);
+                later(function () { show("s4"); runParadox(); }, 1800);
+              }, 800);
+            }, 500);
+          }
+        }, 500 + k * 620);
+      });
+    }
+
+    function runParadox() {
+      var cap = document.getElementById("flickCap");
+      var stage = document.getElementById("stage");
+      var items = document.querySelectorAll("#chain li");
+      items.forEach(function (li, i) { later(function () { li.classList.add("on"); tick(0.06); }, 700 + i * 850); });
+      var states = [
+        { html: "<b>HE MEETS HER — YOU EXIST</b>", gone: false },
+        { html: "<b>YOU STOP HIM — YOU VANISH</b>", gone: true }
+      ];
+      var flip = false, delay = 460, elapsed = 0;
+      stage.classList.add("glitching");
+      function step() {
+        flip = !flip;
+        var st = states[flip ? 1 : 0];
+        cap.innerHTML = st.html;
+        for (var r = 0; r < 4; r++) {
+          var n = ROWS[r].labels.length;
+          for (var i = 0; i < n; i++) {
+            var nd = node("c", r, i);
+            if (nd) nd.style.opacity = st.gone ? (r === 3 ? "0.12" : "0.07") : "";
+          }
+        }
+        if (flip) { staticBurst(0.12, 0.12); }
+        elapsed += delay;
+        delay = Math.max(70, delay * 0.82);
+        if (elapsed < 4600) { later(step, reduced ? 500 : delay); }
+        else {
+          stage.classList.remove("glitching");
+          cap.innerHTML = "Both timelines. <b>At once.</b> That's the paradox.";
+          chime();
+          document.getElementById("toEscapes").style.display = "";
+        }
+      }
+      later(step, 500);
+    }
+
+    document.getElementById("toEscapes").addEventListener("click", function () { clearTimers(); show("s5"); });
+
+    /* ---------- escapes ---------- */
+    var seen = { fixed: false, branch: false, loop: false };
+    var vigBox = document.getElementById("vigBox");
+    document.querySelectorAll("[data-esc]").forEach(function (btn) {
+      btn.addEventListener("click", function () { playEscape(btn.getAttribute("data-esc")); });
+    });
+
+    function miniTreeSVG(idp, split) {
+      if (split) {
+        return '<svg viewBox="0 0 360 240" role="img" aria-label="Two family trees side by side">'
+          + '<line x1="180" y1="10" x2="180" y2="230" stroke="#A78BFA" stroke-width="2" stroke-dasharray="5 6" opacity=".7"/>'
+          + '<g id="vigL">' + treeFrag(90) + '</g><g id="vigR">' + treeFrag(270) + '</g>'
+          + '<text x="90" y="228" text-anchor="middle" fill="#A79FB5" font-size="11" letter-spacing="2">THAT WORLD</text>'
+          + '<text x="270" y="228" text-anchor="middle" fill="#D9A441" font-size="11" letter-spacing="2">YOUR WORLD</text></svg>';
+      }
+      return '<svg viewBox="0 0 360 240" role="img" aria-label="A small family tree">'
+        + '<g id="vigT">' + treeFrag(180) + '</g></svg>';
+    }
+    function treeFrag(cx) {
+      var s = "";
+      var top = { x: cx, y: 34 }, mid1 = { x: cx - 42, y: 104 }, mid2 = { x: cx + 42, y: 104 }, you = { x: cx, y: 178 };
+      s += '<line x1="' + you.x + '" y1="' + you.y + '" x2="' + mid1.x + '" y2="' + mid1.y + '" stroke="#D9A441" stroke-width="2"/>';
+      s += '<line x1="' + you.x + '" y1="' + you.y + '" x2="' + mid2.x + '" y2="' + mid2.y + '" stroke="rgba(239,234,246,.25)" stroke-width="1.6"/>';
+      s += '<line x1="' + mid1.x + '" y1="' + mid1.y + '" x2="' + top.x + '" y2="' + top.y + '" stroke="#D9A441" stroke-width="2"/>';
+      [[top, 13, "#D9A441"], [mid1, 12, "#D9A441"], [mid2, 12, "rgba(239,234,246,.55)"], [you, 17, "#A78BFA"]].forEach(function (nd) {
+        s += '<circle cx="' + nd[0].x + '" cy="' + nd[0].y + '" r="' + nd[1] + '" fill="#1B1830" stroke="' + nd[2] + '" stroke-width="2"/>';
+      });
+      return s;
+    }
+
+    function playEscape(kind) {
+      clearTimers();
+      show("s6");
+      var kick = document.getElementById("vigKick"), h = document.getElementById("t6"),
+          cap = document.getElementById("vigCap"), done = document.getElementById("vigDone");
+      done.style.display = "none";
+      cap.innerHTML = "";
+      function finish() {
+        seen[kind] = true;
+        document.querySelector('[data-esc="' + kind + '"] [data-seen]').style.display = "";
+        var count = (seen.fixed ? 1 : 0) + (seen.branch ? 1 : 0) + (seen.loop ? 1 : 0);
+        for (var i = 0; i < 3; i++) document.getElementById("d" + i).classList.toggle("on", i < count);
+        if (count === 3) document.getElementById("toEnd").removeAttribute("disabled");
+        done.style.display = "";
+        chime();
+      }
+      if (kind === "fixed") {
+        kick.textContent = "Escape one · Novikov";
+        h.textContent = "The Fixed Timeline";
+        vigBox.innerHTML = miniTreeSVG("f", false);
+        var beats = [
+          "You step into his path. <b>A streetcar cuts between you.</b>",
+          "You shout his name. The diner bell drowns it out — <b>he never heard it</b>.",
+          "You grab his sleeve. Your hand passes through, <b>like the past is already printed</b>.",
+          "He walks in. She looks up. <b>It happens anyway.</b>",
+          "The universe doesn't argue. It just <span class='gold'>arranges</span>."
+        ];
+        beats.forEach(function (b, i) {
+          later(function () { cap.innerHTML = b; tick(0.06); if (i === 3) staticFlash(150); }, 400 + i * 1500);
+        });
+        later(finish, 400 + beats.length * 1500);
+      } else if (kind === "branch") {
+        kick.textContent = "Escape two · Many worlds";
+        h.textContent = "Branching Worlds";
+        vigBox.innerHTML = miniTreeSVG("br", true);
+        var beats2 = [
+          "You stop him. The world <b>splits</b> — cleanly, silently.",
+          "In that world, the tree goes dark, branch by branch.",
+          "In yours, <b>every light stays on</b>.",
+          "Somewhere, a you is gone. <span class='gold'>It isn't this you.</span>"
+        ];
+        beats2.forEach(function (b, i) {
+          later(function () {
+            cap.innerHTML = b; tick(0.06);
+            if (i === 1) { var L = document.getElementById("vigL"); if (L) { L.style.transition = "opacity 2.4s"; L.style.opacity = "0.08"; } staticBurst(0.4, 0.2); }
+          }, 400 + i * 1600);
+        });
+        later(finish, 400 + beats2.length * 1600);
+      } else {
+        kick.textContent = "Escape three · No exit";
+        h.textContent = "The Paradox Stands";
+        vigBox.innerHTML = '<div class="serif" id="loopSym" style="font-size:120px;line-height:1.2;color:var(--violet);text-shadow:0 0 34px rgba(167,139,250,.6)">∞</div>';
+        var beats3 = [
+          "No streetcar. No split. <b>Just the loop.</b>",
+          "You vanish, so you don't. You don't, so you do.",
+          "It never resolves. It just <span class='gold'>asks again</span>."
+        ];
+        beats3.forEach(function (b, i) {
+          later(function () {
+            cap.innerHTML = b; tick(0.06);
+            var sym = document.getElementById("loopSym");
+            if (sym && !reduced) { sym.classList.add("glitching"); setTimeout(function () { sym.classList.remove("glitching"); }, 600); }
+          }, 400 + i * 1600);
+        });
+        later(finish, 400 + beats3.length * 1600);
+      }
+    }
+
+    document.getElementById("vigDone").addEventListener("click", function () { clearTimers(); show("s5"); });
+    document.getElementById("toEnd").addEventListener("click", function () { clearTimers(); show("s7"); });
+
+    /* ---------- closing ---------- */
+    var ANSWERS = {
+      fixed: "Then relax. <b>History is load-bearing</b> — and you're part of the structure.",
+      branch: "Then somewhere there's a tree with your name missing. <b>This one kept you.</b>",
+      loop: "Then you're already on your way back. <b>He's about to walk into a diner…</b>"
+    };
+    document.querySelectorAll("[data-ans]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.getElementById("ansCap").innerHTML = ANSWERS[btn.getAttribute("data-ans")];
+        document.getElementById("shareBtn").style.display = "";
+        document.getElementById("againBtn").style.display = "";
+        chime();
+      });
+    });
+    document.getElementById("shareBtn").addEventListener("click", function () {
+      var url = "https://dom1w0w.github.io/7EightMadeConsultation/grandfather-paradox/play/";
+      var data = { title: "The Grandfather Paradox", text: "Go back. Stop him. Watch yourself disappear. Which universe do you live in?", url: url };
+      if (navigator.share) { navigator.share(data).catch(function () {}); }
+      else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          document.getElementById("shareBtn").textContent = "Link copied ✓";
+        }).catch(function () {});
+      }
+    });
+    document.getElementById("againBtn").addEventListener("click", function () { location.reload(); });
+  })();
+  </script>
+</body>
+</html>

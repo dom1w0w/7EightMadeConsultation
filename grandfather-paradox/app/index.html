@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grandfather Paradox: go back, stop him, disappear | 7EightMade</title>
+  <meta name="description" content="The grandfather paradox, explained with pictures: stop your grandfather in 1952 and your family tree erases itself — then the loop starts. Play it free in the Grandfather Paradox app.">
+  <meta property="og:title" content="Grandfather Paradox: go back, stop him, disappear">
+  <meta property="og:description" content="Erase the tree, hit the loop, pick your escape. A free 7EightMade app.">
+  <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/grandfather-paradox/preview.webp">
+  <meta name="theme-color" content="#0b0c0f">
+  <link rel="canonical" href="https://dom1w0w.github.io/7EightMadeConsultation/grandfather-paradox/app/">
+  <link rel="icon" href="../../brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../brand/fonts.css">
+  <link rel="stylesheet" href="../../studio/appbar.css">
+  <style>
+    :root {
+      --ink: #efeae2;
+      --bg: #0b0c0f;
+      --bg2: #13151a;
+      --muted: #a29d94;
+      --line: rgba(239,234,226,.12);
+      --gold: #A78BFA;
+      --gold-dim: rgba(167,139,250,.18);
+      --amber: #D9A441;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 56px 24px 80px; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(40px, 8vw, 68px); font-weight: 600; letter-spacing: -.03em; line-height: 1.02; margin-bottom: 18px; }
+    h2 { font-family: Fraunces, Georgia, serif; font-size: clamp(26px, 4.5vw, 36px); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin: 64px 0 14px; }
+    .lead { font-size: 19px; color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
+    .prose { max-width: 62ch; }
+    .prose p { margin-bottom: 14px; font-size: 16px; }
+    .prose em { color: var(--gold); font-style: normal; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; background: var(--gold); color: #150A26; border: 0; cursor: pointer; font-family: inherit; }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid rgba(239,234,226,.25); }
+    .btn--danger { background: #E4572E; color: #fff; }
+    .figure { background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; padding: 22px; margin: 22px 0 10px; }
+    .figure svg { width: 100%; height: auto; display: block; }
+    .cap { font-size: 13px; color: var(--muted); margin-top: 10px; }
+    .quote { border-left: 2px solid var(--gold); padding: 4px 0 4px 18px; margin: 22px 0; font-family: Fraunces, Georgia, serif; font-size: 20px; line-height: 1.4; max-width: 50ch; }
+    .quote small { display: block; font-family: Inter, sans-serif; font-size: 13px; color: var(--muted); margin-top: 8px; }
+    /* interactive eraser */
+    .eraser__readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .eraser__readout div { background: rgba(239,234,226,.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .eraser__readout b { display: block; font-family: Fraunces, Georgia, serif; font-size: 22px; font-variant-numeric: tabular-nums; }
+    .eraser__readout span { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+    .eraser__btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .gnode { transition: opacity .7s; }
+    .gnode.gone { opacity: .07; }
+    .gedge { transition: opacity .7s; }
+    .gedge.gone { opacity: .05; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+    .cards.three { grid-template-columns: 1fr 1fr 1fr; }
+    .card { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .card strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 18px; margin-bottom: 6px; }
+    .card p { font-size: 14px; color: var(--muted); }
+    .links { list-style: none; display: grid; gap: 10px; margin: 18px 0; }
+    .links a { display: block; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: var(--ink); }
+    .links a:hover { border-color: var(--gold); }
+    .links b { display: block; font-size: 15px; }
+    .links span { font-size: 13px; color: var(--muted); }
+    .try { margin-top: 64px; padding: 28px; border-radius: 20px; background: radial-gradient(120% 140% at 0% 0%, var(--gold-dim), transparent 60%), var(--bg2); border: 1px solid var(--line); }
+    .try h2 { margin-top: 0; }
+    .foot { margin-top: 48px; font-size: 13px; color: var(--muted); }
+    .foot a { text-decoration: none; }
+    @media (max-width: 640px) {
+      .cards, .cards.three { grid-template-columns: 1fr; }
+      .eraser__readout { grid-template-columns: 1fr 1fr; }
+    }
+    :focus-visible { outline: 2px solid #4D7CF6; outline-offset: 3px; }
+    .btn:not(.btn--ghost):focus-visible { outline-color: #F2ECE2; }
+  </style>
+</head>
+<body>
+  <nav class="sappbar" aria-label="Studio" style="--sab:#A78BFA">
+    <a href="../">← About this app</a>
+    <span class="sappbar__name" aria-hidden="true"><b>Grandfather Paradox</b> · 7EightMade Studio</span>
+    <a href="../../studio/">Studio</a>
+  </nav>
+
+  <main class="wrap">
+    <p class="eyebrow">7EightMade · Apps · Free</p>
+    <h1>Watch yourself disappear.</h1>
+    <p class="lead">Go back to 1952. Stop your grandfather from meeting your grandmother. Then watch what happens to the family tree — and to you. This is the grandfather paradox, and the app lets you pull the trigger yourself.</p>
+    <div class="actions">
+      <a class="btn" href="../play/">Open Grandfather Paradox</a>
+      <a class="btn btn--ghost" href="#paradox">Read the paradox</a>
+    </div>
+
+    <div class="figure" aria-hidden="true">
+      <svg viewBox="0 0 760 240" id="heroTree"></svg>
+      <p class="cap">You at the bottom. Three generations above you. The golden line is the one that has to survive for you to exist.</p>
+    </div>
+
+    <section class="prose" id="paradox">
+      <h2>The paradox</h2>
+      <p>Suppose you travel back in time and stop your grandfather from ever meeting your grandmother. Then your parent is never born — and neither are you. But if you were never born, nobody traveled back. So he meets her after all, your parent is born, you are born, and you go back and stop him. Both stories can't be true. Each one <em>causes</em> the other.</p>
+      <p>The puzzle took its classic shape in René Barjavel's 1943 novel <em>Le Voyageur imprudent</em>, where a time traveler meddles with his own ancestry. Physicists and philosophers have been arguing about the exits ever since.</p>
+      <div class="quote">"Go back. Stop him. Watch yourself disappear."<small>The whole paradox in nine words — and the app's opening line</small></div>
+    </section>
+
+    <section class="prose">
+      <h2>Erase it yourself</h2>
+      <p>This is the app's tree in miniature. Press the button and stop the meeting: the generations above you go out one by one, the line that made you goes dark, and your own light fades last.</p>
+    </section>
+    <div class="figure eraser">
+      <svg viewBox="0 0 760 300" id="miniTree" aria-label="A family tree you can erase"></svg>
+      <div class="eraser__readout">
+        <div><b id="eGen">15</b><span>PEOPLE ON THE TREE</span></div>
+        <div><b id="eLine">Lit</b><span>YOUR LINE</span></div>
+        <div><b id="eYou">100%</b><span>YOU</span></div>
+      </div>
+      <div class="eraser__btns">
+        <button class="btn btn--danger" type="button" id="eStop">Stop him (1952)</button>
+        <button class="btn btn--ghost" type="button" id="eReset">Reset the tree</button>
+      </div>
+      <p class="cap" id="eNote">The tree is whole. Every line above you happened.</p>
+    </div>
+
+    <section class="prose">
+      <h2>Three ways out</h2>
+      <p>Nobody has settled this. The app lets you play all three classic escapes and feel which one convinces you.</p>
+    </section>
+    <div class="cards three">
+      <div class="card">
+        <strong>The fixed timeline</strong>
+        <p>The physicist Igor Novikov argued the past can only happen one way: if you go back, you were always part of it. Try to stop the meeting and something — a slip, a crowd, a missed train — stops <em>you</em> instead. Probability itself conspires to keep history consistent.</p>
+      </div>
+      <div class="card">
+        <strong>Branching worlds</strong>
+        <p>In the many-worlds picture, changing the past doesn't rewrite your world — it splits off a new one. You really can stop him, and a family tree really does go dark. Just not yours. The you who went back came from a branch where he walked into that diner.</p>
+      </div>
+      <div class="card">
+        <strong>The paradox stands</strong>
+        <p>Or there is no exit: the loop is the answer. You exist because you went back; you went back because you exist. Some stories — and some readings of physics — leave the contradiction standing and let it hum.</p>
+      </div>
+    </div>
+
+    <section class="try">
+      <h2>Ninety seconds. One choice.</h2>
+      <p class="prose" style="color:var(--muted);margin-bottom:18px">Grandfather Paradox is free and runs in your browser, phone first. See your tree, ride to 1952, pull the trigger, ride out the flicker between timelines, and answer the only question that matters: which universe do you live in?</p>
+      <div class="actions" style="margin-bottom:0">
+        <a class="btn" href="../play/">Open Grandfather Paradox</a>
+        <a class="btn btn--ghost" href="../../studio/">More from the Studio</a>
+      </div>
+    </section>
+
+    <section class="prose">
+      <h2>Go deeper</h2>
+    </section>
+    <ul class="links">
+      <li><a href="../play/"><b>Grandfather Paradox, the app</b><span>Plays right here — the tree, 1952, the erasure, the loop</span></a></li>
+      <li><a href="../../bootstrap-paradox/app/"><b>Bootstrap Paradox</b><span>A watch with no maker, passed hand to hand forever — the cousin of this paradox</span></a></li>
+      <li><a href="../../dichotomy-zeno/app/"><b>Dichotomy Zeno</b><span>Halve the gap forever; it never closes</span></a></li>
+      <li><a href="../../ship-of-theseus/app/"><b>Ship of Theseus</b><span>Replace every plank, then decide which ship is real</span></a></li>
+    </ul>
+
+    <p class="foot"><a href="../../studio/">← Studio</a> · <a href="../../bootstrap-paradox/">Bootstrap</a> · <a href="../../dichotomy-zeno/">Zeno</a> · <a href="../../ship-of-theseus/">Theseus</a> · <a href="../../marys-room/">Mary's Room</a> · Fall down seven. Stand up eight.</p>
+  </main>
+
+  <script>
+    (function () {
+      var NS = 'http://www.w3.org/2000/svg';
+      function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+
+      // rows: [y, count, labels]
+      var ROWS = [
+        { y: 34,  labels: ['GGP','GGM','GGP','GGM','GGP','GGM','GGP','GGM'] },
+        { y: 118, labels: ['GRANDPA','GRANDMA','GRANDPA','GRANDMA'] },
+        { y: 202, labels: ['DAD','MOM'] },
+        { y: 272, labels: ['YOU'] }
+      ];
+      var W = 760;
+      function pos(r, i) { var n = ROWS[r].labels.length; return { x: (i + 0.5) * (W / n), y: ROWS[r].y }; }
+      function hot(r, i) { return (r === 0 && i === 0) || (r === 1 && i === 0) || (r === 2 && i === 0) || r === 3; }
+
+      function drawTree(svg, withLabels) {
+        var r, i;
+        for (r = 1; r < 4; r++) {
+          for (i = 0; i < ROWS[r].labels.length; i++) {
+            var c = pos(r, i), p1 = pos(r - 1, i * 2), p2 = pos(r - 1, i * 2 + 1);
+            var isHot = hot(r, i);
+            el('line', { 'class': 'gedge', 'data-edge': r + '_' + i, x1: c.x, y1: c.y, x2: p1.x, y2: p1.y, stroke: isHot ? '#D9A441' : 'rgba(239,234,226,.22)', 'stroke-width': isHot ? 2.4 : 1.6 }, svg);
+            el('line', { 'class': 'gedge', 'data-edge': r + '_' + i, x1: c.x, y1: c.y, x2: p2.x, y2: p2.y, stroke: isHot ? '#D9A441' : 'rgba(239,234,226,.22)', 'stroke-width': isHot ? 2.4 : 1.6 }, svg);
+          }
+        }
+        for (r = 0; r < 4; r++) {
+          for (i = 0; i < ROWS[r].labels.length; i++) {
+            var p = pos(r, i), isYou = r === 3, rad = isYou ? 17 : 11;
+            var g = el('g', { 'class': 'gnode', 'data-node': r + '_' + i }, svg);
+            el('circle', { cx: p.x, cy: p.y, r: rad, fill: '#1B1830', stroke: isYou ? '#A78BFA' : (hot(r, i) ? '#D9A441' : 'rgba(239,234,226,.5)'), 'stroke-width': isYou ? 2.6 : 1.6 }, g);
+            if (withLabels) {
+              var t = el('text', { x: p.x, y: p.y + rad + 14, 'text-anchor': 'middle', fill: isYou ? '#A78BFA' : '#a29d94', 'font-size': 10, 'letter-spacing': '.08em', 'font-family': 'Inter, sans-serif' }, g);
+              t.textContent = ROWS[r].labels[i];
+            }
+          }
+        }
+      }
+
+      drawTree(document.getElementById('heroTree'), true);
+      var mini = document.getElementById('miniTree');
+      drawTree(mini, true);
+
+      var gen = document.getElementById('eGen'), line = document.getElementById('eLine'),
+          you = document.getElementById('eYou'), note = document.getElementById('eNote'),
+          stopBtn = document.getElementById('eStop'), resetBtn = document.getElementById('eReset');
+      var total = 15, busy = false;
+
+      function setState(left, lineTxt, youPct, noteTxt) {
+        gen.textContent = left; line.textContent = lineTxt; you.textContent = youPct; note.textContent = noteTxt;
+      }
+      stopBtn.onclick = function () {
+        if (busy) return; busy = true;
+        var order = [[0,1],[0,3],[0,5],[0,7],[0,2],[0,4],[0,6],[1,2],[1,3],[1,1],[0,0],[1,0],[2,1],[2,0]];
+        var left = total;
+        order.forEach(function (rc, k) {
+          setTimeout(function () {
+            var n = mini.querySelector('[data-node="' + rc[0] + '_' + rc[1] + '"]');
+            if (n) n.classList.add('gone');
+            mini.querySelectorAll('[data-edge="' + rc[0] + '_' + rc[1] + '"]').forEach(function (e) { e.classList.add('gone'); });
+            left--;
+            if (k < 10) setState(left, 'Lit', '100%', 'Generations are going out…');
+            else if (k === 10) setState(left, 'Dark', '100%', 'Grandpa is gone. The line that made you is dark.');
+            else if (k === 13) setState(left, 'Dark', 'Fading…', 'Your parents are gone. Now you.');
+          }, 260 * (k + 1));
+        });
+        setTimeout(function () {
+          var youNode = mini.querySelector('[data-node="3_0"]');
+          if (youNode) youNode.style.opacity = '0.25';
+          setState(1, 'Dark', '25%', 'One person left on the tree, at a quarter of himself. That\u2019s the paradox — the full version is in the app.');
+          busy = false;
+        }, 260 * (order.length + 1));
+      };
+      resetBtn.onclick = function () {
+        if (busy) return;
+        mini.querySelectorAll('.gone').forEach(function (e) { e.classList.remove('gone'); });
+        var youNode = mini.querySelector('[data-node="3_0"]');
+        if (youNode) youNode.style.opacity = '';
+        setState(total, 'Lit', '100%', 'The tree is whole. Every line above you happened.');
+      };
+    })();
+  </script>
+
+<!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
+</body>
+</html>
