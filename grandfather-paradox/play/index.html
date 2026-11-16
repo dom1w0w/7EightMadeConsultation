@@ -70,6 +70,19 @@
     .fig.gone { opacity: .05; filter: grayscale(1); }
     @keyframes figflick { 0% { opacity: 1; } 50% { opacity: .15; } 100% { opacity: .8; } }
     .pulse { animation: pulse 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .fig .hit { fill: rgba(167,139,250,0); pointer-events: all; }
+    .fig.tappable { cursor: pointer; }
+    .fig.tappable:focus { outline: none; }
+    .fig.tappable:focus .hit { fill: rgba(167,139,250,.18); stroke: #A78BFA; stroke-width: 2; }
+    .fig.met { filter: drop-shadow(0 0 5px rgba(217,164,65,.9)); }
+    .counter { margin-top: 14px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+    .stepswrap { width: 100%; max-width: 400px; margin-top: 16px; }
+    .stepsbar { height: 12px; border-radius: 999px; background: rgba(239,234,246,.14); overflow: hidden; border: 1px solid var(--line); }
+    .stepsbar i { display: block; height: 100%; width: 100%; background: var(--danger); transition: width .5s ease; }
+    .stepslabel { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+    #tlolo, #tloloinner { }
+    .tappable-svg { cursor: pointer; }
+    .tappable-svg:focus { outline: none; }
     @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
     .townbox { width: 100%; max-width: 430px; margin-top: 8px; }
@@ -145,8 +158,9 @@
       <p class="kicker">The bahay · Now</p>
       <h2 id="t1" style="font-family:Georgia,serif;font-size:30px;font-weight:600">The photo on the wall.</h2>
       <div class="frame-box" id="photo1"></div>
-      <p class="cap">Sunday lunch at the bahay. That's <b>you</b>, front and center. Every face in this frame <b>had to happen</b>.</p>
-      <button class="btn" id="toMachine" type="button">Go back →</button>
+      <p class="cap" id="photoCap" aria-live="polite">Sunday lunch at the bahay. <b>Tap each face</b> — every face in this frame <b>had to happen</b>. Tap <b>YOU</b> and <b>LOLO</b> to unlock Go back.</p>
+      <p class="counter" id="faceCounter" aria-live="polite">Faces that had to happen: 0 / 7</p>
+      <button class="btn" id="toMachine" type="button" disabled>Go back →</button>
     </section>
 
     <!-- 2 · THE TOWN, 1950s -->
@@ -154,7 +168,12 @@
       <p class="kicker">A Philippine town · 1950s</p>
       <h2 id="t2" style="font-family:Georgia,serif;font-size:30px;font-weight:600">That's him. That's Lolo.</h2>
       <div class="townbox" id="town1"></div>
-      <p class="cap" id="townCap" aria-live="polite">He's nineteen. In four minutes he walks into the sari-sari store and meets Lola.</p>
+      <p class="cap" id="townCap" aria-live="polite">He's nineteen. He's walking to the sari-sari store to meet Lola. <b>Tap “Step closer” — or tap Lolo himself — to catch him before he gets there.</b></p>
+      <div class="stepswrap" id="interceptUI">
+        <p class="stepslabel" id="stepLabel" aria-live="polite">He reaches the store in 8 steps</p>
+        <div class="stepsbar" role="progressbar" aria-label="Steps before Lolo reaches the store" aria-valuemin="0" aria-valuemax="8" aria-valuenow="8" id="storeBar"><i id="storeBarFill"></i></div>
+        <button class="btn" id="stepBtn" type="button">Step closer</button>
+      </div>
       <div class="btnrow" id="choiceRow" style="display:none">
         <button class="btn btn--danger" id="stopBtn" type="button">Stop him</button>
         <button class="btn btn--ghost" id="letBtn" type="button">Let him go in</button>
@@ -166,7 +185,8 @@
       <p class="kicker">Back at the bahay</p>
       <h2 id="t3" style="font-family:Georgia,serif;font-size:30px;font-weight:600">You did it.</h2>
       <div class="frame-box" id="photo2"></div>
-      <p class="cap" id="eraseCap" aria-live="polite">He turns around. He never walks in.</p>
+      <p class="cap" id="eraseCap" aria-live="polite">He turns around. He never walks in. Now <b>tap each face to erase it</b> — and watch yourself disappear.</p>
+      <p class="counter" id="eraseCounter" aria-live="polite">Faces erased: 0 / 7</p>
     </section>
 
     <!-- 4 · PARADOX -->
@@ -183,6 +203,7 @@
         <li>So you <b>stop him</b>.</li>
         <li>So you <b>vanish</b>…</li>
       </ul>
+      <button class="btn" id="flipBtn" type="button">Flip the timeline</button>
       <button class="btn" id="toEscapes" type="button" style="display:none">Find a way out →</button>
     </section>
 
@@ -306,7 +327,8 @@
       { key: "you",    x: 208, y: 176, r: 16,   shirt: "#A78BFA", base: 238, label: "YOU", you: true }
     ];
     function figure(f, idp) {
-      var s = '<g class="fig' + (f.you ? " pulse" : "") + '" id="' + idp + f.key + '">';
+      var s = '<g class="fig' + (f.you ? " pulse" : "") + '" id="' + idp + f.key + '" data-key="' + f.key + '">';
+      s += '<rect class="hit" x="' + (f.x - 22) + '" y="' + (f.y - 22) + '" width="44" height="' + (f.base - f.y + 30) + '" rx="8"/>';
       s += '<path d="M' + (f.x - f.r * 1.5) + ' ' + f.base + ' L' + (f.x - f.r * 0.52) + ' ' + (f.y + f.r * 0.5) + ' Q' + f.x + ' ' + (f.y + f.r * 0.22) + ' ' + (f.x + f.r * 0.52) + ' ' + (f.y + f.r * 0.5) + ' L' + (f.x + f.r * 1.5) + ' ' + f.base + ' Z" fill="' + f.shirt + '"/>';
       if (f.bun) s += '<circle cx="' + (f.x + f.r * 0.75) + '" cy="' + (f.y - f.r * 0.8) + '" r="' + (f.r * 0.42) + '" fill="#2A1D16"/>';
       s += '<circle cx="' + f.x + '" cy="' + f.y + '" r="' + f.r + '" fill="#E8C39E" stroke="' + (f.you ? "#A78BFA" : "rgba(60,40,20,.45)") + '" stroke-width="' + (f.you ? 2.6 : 1.2) + '"/>';
@@ -331,7 +353,7 @@
       s += '<rect x="36" y="196" width="288" height="62" fill="#C3A878"/>';
       s += '<line x1="36" y1="196" x2="324" y2="196" stroke="rgba(90,70,40,.5)" stroke-width="2"/>';
       FIGS.forEach(function (f) { s += figure(f, idp); });
-      s += '<rect x="36" y="30" width="288" height="228" fill="url(#sheen)" opacity=".18"/>';
+      s += '<rect x="36" y="30" width="288" height="228" fill="url(#sheen)" opacity=".18" pointer-events="none"/>';
       s += '<defs><linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>';
       s += "</svg>";
       mount.innerHTML = s;
@@ -413,89 +435,251 @@
       later(function () { clearInterval(iv); }, 20000);
     });
 
+    /* ---------- S1: tap the faces in the photo ---------- */
+    var FACE_LINES = {
+      uncle: "<b>UNCLE</b> — Lolo's brother. He was there the day Lolo first saw Lola, and he never stopped teasing him about it.",
+      lolo: "<b>LOLO</b> — nineteen in the town scene. If he doesn't walk into that store, none of this frame exists.",
+      lola: "<b>LOLA</b> — she was working the sari-sari store that day. She had to be there. He had to walk in.",
+      dad: "<b>DAD</b> — Lolo and Lola's son. No meeting in that store, no Dad.",
+      mom: "<b>MOM</b> — she married into this photo. Every road she took had to lead to this bahay.",
+      cousin: "<b>COUSIN</b> — front row, Sunday lunch regular. Part of the chain that had to happen.",
+      you: "<b>YOU</b> — front and center. You are the end of the chain. Every face behind you had to happen first."
+    };
+    var metFaces = {};
+    function makeTappable(el, label, handler) {
+      if (!el) return;
+      el.classList.add("tappable");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-label", label);
+      el.addEventListener("click", handler);
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); handler(); }
+      });
+    }
+    FIGS.forEach(function (f) {
+      makeTappable(document.getElementById("a" + f.key), "Meet " + f.label, function () {
+        var cap = document.getElementById("photoCap");
+        cap.innerHTML = FACE_LINES[f.key];
+        tick(0.07);
+        var el = document.getElementById("a" + f.key);
+        if (!metFaces[f.key]) {
+          metFaces[f.key] = true;
+          if (el) el.classList.add("met");
+          var n = Object.keys(metFaces).length;
+          document.getElementById("faceCounter").textContent = "Faces that had to happen: " + n + " / 7";
+          if (metFaces.you && metFaces.lolo) {
+            document.getElementById("toMachine").removeAttribute("disabled");
+            cap.innerHTML = FACE_LINES[f.key] + " <b>Go back is open</b> — you've met YOU and LOLO.";
+            chime();
+          }
+        }
+      });
+    });
+
     document.getElementById("toMachine").addEventListener("click", function () {
       clearTimers(); staticBurst(0.4, 0.22); staticFlash(300);
       show("s2");
-      // the meeting: he walks up, face to face, handshake — then the choice
-      later(function () {
-        var cap = document.getElementById("townCap");
-        cap.innerHTML = "He stops in front of you. Same eyes. Same face, <b>fifty years younger</b>.";
-        tick(0.07);
-      }, reduced ? 300 : 4700);
-      later(function () {
-        var spark = document.getElementById("tspark"), lolo = document.getElementById("tloloinner"), you = document.getElementById("tyou");
-        if (spark) spark.setAttribute("opacity", "1");
-        if (lolo) lolo.classList.add("shake");
-        if (you) you.classList.add("shake");
-        document.getElementById("townCap").innerHTML = "“You look familiar, hijo.” He shakes your hand — then turns toward the store. <b>One choice:</b>";
-        chime();
-      }, reduced ? 900 : 5900);
-      later(function () { document.getElementById("choiceRow").style.display = ""; }, reduced ? 1400 : 6800);
+      startIntercept();
     });
 
+    /* ---------- S2: intercept Lolo yourself ---------- */
+    var TOTAL_STEPS = 8, NEED_CATCH = 4;
+    var loloSteps = 0, catchSteps = 0, interceptTimer = null, interceptDone = false, letTaps = 0;
+    function setLoloPos() {
+      var w = document.getElementById("tlolo");
+      if (w) { w.classList.remove("walker"); w.style.transform = "translateX(" + (loloSteps * 14) + "px)"; }
+      var you = document.getElementById("tyou");
+      if (you) you.style.transform = "translateX(" + (-catchSteps * 10) + "px)";
+      var remain = TOTAL_STEPS - loloSteps;
+      document.getElementById("stepLabel").textContent = "He reaches the store in " + remain + " step" + (remain === 1 ? "" : "s");
+      document.getElementById("storeBarFill").style.width = (remain / TOTAL_STEPS * 100) + "%";
+      document.getElementById("storeBar").setAttribute("aria-valuenow", String(remain));
+    }
+    function stopInterceptTimer() { if (interceptTimer) { clearInterval(interceptTimer); interceptTimer = null; } }
+    function startIntercept() {
+      stopInterceptTimer();
+      loloSteps = 0; catchSteps = 0; interceptDone = false;
+      document.getElementById("choiceRow").style.display = "none";
+      document.getElementById("interceptUI").style.display = "";
+      var spark = document.getElementById("tspark"); if (spark) spark.setAttribute("opacity", "0");
+      setLoloPos();
+      interceptTimer = setInterval(function () {
+        if (interceptDone) return;
+        loloSteps++;
+        tick(0.04);
+        setLoloPos();
+        if (loloSteps >= TOTAL_STEPS) { failIntercept(); }
+      }, reduced ? 1600 : 1150);
+    }
+    function failIntercept() {
+      stopInterceptTimer();
+      staticBurst(0.3, 0.2); staticFlash(200);
+      document.getElementById("townCap").innerHTML = "He walks in. Lola looks up. It happens — <b>the timeline protected itself. Try again, faster.</b>";
+      later(function () {
+        document.getElementById("townCap").innerHTML = "Again. <b>Tap “Step closer” — or tap Lolo — to catch him before he reaches the store.</b>";
+        startIntercept();
+      }, 1800);
+    }
+    function catchLolo() {
+      if (interceptDone) return;
+      catchSteps++;
+      tick(0.08);
+      if (catchSteps < NEED_CATCH) {
+        setLoloPos();
+        document.getElementById("townCap").innerHTML = "Closer. Same eyes. Same face, <b>fifty years younger</b>. " + (NEED_CATCH - catchSteps) + " more step" + (NEED_CATCH - catchSteps === 1 ? "" : "s") + " to catch him.";
+        return;
+      }
+      interceptDone = true;
+      stopInterceptTimer();
+      var w = document.getElementById("tlolo");
+      if (w) w.style.transform = "translateX(112px)";
+      var you = document.getElementById("tyou");
+      if (you) { you.style.transform = "translateX(0px)"; you.classList.add("shake"); }
+      var inner = document.getElementById("tloloinner"); if (inner) inner.classList.add("shake");
+      var spark = document.getElementById("tspark"); if (spark) spark.setAttribute("opacity", "1");
+      document.getElementById("interceptUI").style.display = "none";
+      document.getElementById("townCap").innerHTML = "“You look familiar, hijo.” He shakes your hand — then turns toward the store. <b>One choice:</b>";
+      chime();
+      document.getElementById("choiceRow").style.display = "";
+    }
+    document.getElementById("stepBtn").addEventListener("click", catchLolo);
+    (function () {
+      var loloEl = document.getElementById("tlolo");
+      if (loloEl) {
+        loloEl.classList.add("tappable-svg");
+        loloEl.setAttribute("tabindex", "0");
+        loloEl.setAttribute("role", "button");
+        loloEl.setAttribute("aria-label", "Tap Lolo to step closer and catch him");
+        loloEl.addEventListener("click", catchLolo);
+        loloEl.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); catchLolo(); }
+        });
+      }
+    })();
+
     document.getElementById("letBtn").addEventListener("click", function () {
-      document.getElementById("townCap").innerHTML = "That's not why you came. <b>The machine only brought one choice.</b>";
+      letTaps++;
       tick(0.05);
+      if (letTaps === 1) {
+        document.getElementById("townCap").innerHTML = "That's not why you came. <b>The machine only brought one choice.</b>";
+      } else {
+        letTaps = 0;
+        document.getElementById("townCap").innerHTML = "The moment rewinds. <b>Catch him this time.</b>";
+        startIntercept();
+      }
     });
 
     document.getElementById("stopBtn").addEventListener("click", function () {
+      stopInterceptTimer();
       var w = document.getElementById("tloloinner");
       if (w) { w.classList.remove("shake"); }
       staticBurst(0.5, 0.3); staticFlash(350);
       document.getElementById("townCap").innerHTML = "You step between him and the store. “Don't go in.” He stares — and <b>turns away</b>.";
-      later(function () { show("s3"); runErasure(); }, 1500);
+      later(function () { show("s3"); setupErasure(); }, 1500);
     });
 
-    function runErasure() {
-      var cap = document.getElementById("eraseCap");
-      var tickIv = setInterval(function () { tick(0.05); }, 650);
-      var order = ["uncle", "cousin", "lola", "lolo", "dad", "mom"];
-      var lines = {
-        1: "Faces are going out of the photo.",
-        2: "<b>Lola is gone.</b> He never met her.",
-        3: "<b>Lolo is gone too.</b>",
-        4: "Dad. Gone.",
-        5: "Mom. Gone. The frame is almost empty."
-      };
-      order.forEach(function (key, k) {
-        later(function () {
-          eraseFig("b", key);
-          if (lines[k]) cap.innerHTML = lines[k];
-          if (k === order.length - 1) {
+    /* ---------- S3: erase the photo yourself ---------- */
+    var erasedFaces = {}, youTaps = 0, erasureDone = false;
+    var ERASE_LINES = {
+      uncle: "Uncle is gone. <b>Faces are going out of the photo.</b>",
+      cousin: "Cousin is gone. <b>Faces are going out of the photo.</b>",
+      lola: "<b>Lola is gone.</b> He never met her.",
+      lolo: "<b>Lolo is gone too.</b>",
+      dad: "Dad. Gone.",
+      mom: "Mom. Gone. The frame is almost empty."
+    };
+    function erasedCount() { return Object.keys(erasedFaces).length + (youTaps >= 3 ? 1 : 0); }
+    function maybeFinishErasure() {
+      if (erasureDone) return;
+      var others = ["uncle", "cousin", "lola", "lolo", "dad", "mom"].every(function (k) { return erasedFaces[k]; });
+      if (others && youTaps >= 3) {
+        erasureDone = true;
+        document.getElementById("eraseCap").innerHTML = "And you — <b>you're barely in the photo at all</b>.";
+        later(function () { show("s4"); setupParadox(); }, 1500);
+      }
+    }
+    function setupErasure() {
+      FIGS.forEach(function (f) {
+        makeTappable(document.getElementById("b" + f.key), "Erase " + f.label, function () {
+          if (erasureDone) return;
+          var cap = document.getElementById("eraseCap");
+          if (f.key === "you") {
+            if (youTaps >= 3) return;
+            youTaps++;
+            var you = document.getElementById("byou");
+            you.classList.add("erasing"); staticBurst(0.4, 0.25); staticFlash(250);
+            var op = youTaps === 1 ? "0.6" : (youTaps === 2 ? "0.35" : "0.22");
             later(function () {
-              var you = document.getElementById("byou");
-              you.classList.add("erasing"); staticBurst(0.6, 0.3); staticFlash(400);
-              later(function () {
-                you.classList.remove("erasing", "pulse");
-                you.style.opacity = "0.22";
-                cap.innerHTML = "And you — <b>you're barely in the photo at all</b>.";
-                clearInterval(tickIv);
-                later(function () { show("s4"); runParadox(); }, 1900);
-              }, 800);
-            }, 500);
+              you.classList.remove("erasing");
+              if (youTaps >= 3) you.classList.remove("pulse");
+              you.style.opacity = op;
+            }, reduced ? 60 : 650);
+            if (youTaps === 1) cap.innerHTML = "<b>You don't go easy.</b> You flicker — and hold. Tap YOU again.";
+            else if (youTaps === 2) cap.innerHTML = "<b>Still resisting.</b> Half of you is already not in this photo. One more tap.";
+            else {
+              var others = ["uncle", "cousin", "lola", "lolo", "dad", "mom"].every(function (k) { return erasedFaces[k]; });
+              cap.innerHTML = others ? "And you — <b>you're barely in the photo at all</b>." : "You're at the edge of gone — <b>erase the others first. You're last.</b>";
+            }
+            document.getElementById("eraseCounter").textContent = "Faces erased: " + erasedCount() + " / 7";
+            maybeFinishErasure();
+            return;
           }
-        }, 500 + k * 700);
+          if (erasedFaces[f.key]) return;
+          erasedFaces[f.key] = true;
+          eraseFig("b", f.key);
+          cap.innerHTML = ERASE_LINES[f.key];
+          document.getElementById("eraseCounter").textContent = "Faces erased: " + erasedCount() + " / 7";
+          maybeFinishErasure();
+        });
       });
     }
 
-    function runParadox() {
+    /* ---------- S4: flip the timeline yourself, then it runs away ---------- */
+    var paradoxFlips = 0, paradoxFlipState = false, paradoxDone = false;
+    function applyFlipState() {
+      var cap = document.getElementById("flickCap");
+      var meet = document.getElementById("fmeet"), ghost = document.getElementById("fghost");
+      cap.innerHTML = paradoxFlipState ? "<b>YOU STOP HIM — YOU VANISH</b>" : "<b>HE MEETS LOLA — YOU EXIST</b>";
+      if (meet) meet.setAttribute("opacity", paradoxFlipState ? "0" : "1");
+      if (ghost) ghost.setAttribute("opacity", paradoxFlipState ? "1" : "0");
+    }
+    function setupParadox() {
+      paradoxFlips = 0; paradoxFlipState = false; paradoxDone = false;
+      applyFlipState();
+    }
+    document.getElementById("flipBtn").addEventListener("click", function () {
+      if (paradoxDone || paradoxFlips >= 6) return;
+      paradoxFlipState = !paradoxFlipState;
+      applyFlipState();
+      if (paradoxFlipState) { staticBurst(0.12, 0.12); if (!reduced) staticFlash(120); }
+      tick(0.06);
+      var items = document.querySelectorAll("#chain li");
+      if (items[paradoxFlips]) items[paradoxFlips].classList.add("on");
+      paradoxFlips++;
+      if (paradoxFlips >= 6) {
+        document.getElementById("flipBtn").style.display = "none";
+        runParadoxAuto();
+      }
+    });
+    function runParadoxAuto() {
       var cap = document.getElementById("flickCap");
       var stage = document.getElementById("stage");
-      var items = document.querySelectorAll("#chain li");
-      items.forEach(function (li, i) { later(function () { li.classList.add("on"); tick(0.06); }, 700 + i * 850); });
       var meet = document.getElementById("fmeet"), ghost = document.getElementById("fghost");
-      var flip = false, delay = 460, elapsed = 0;
-      stage.classList.add("glitching");
+      var flip = paradoxFlipState, delay = 460, elapsed = 0;
+      if (!reduced) stage.classList.add("glitching");
       function step() {
         flip = !flip;
+        paradoxFlipState = flip;
         cap.innerHTML = flip ? "<b>YOU STOP HIM — YOU VANISH</b>" : "<b>HE MEETS LOLA — YOU EXIST</b>";
         if (meet) meet.setAttribute("opacity", flip ? "0" : "1");
         if (ghost) ghost.setAttribute("opacity", flip ? "1" : "0");
         if (flip) staticBurst(0.12, 0.12);
         elapsed += delay;
         delay = Math.max(70, delay * 0.82);
-        if (elapsed < 4600) { later(step, reduced ? 500 : delay); }
+        if (elapsed < 3600) { later(step, reduced ? 500 : delay); }
         else {
+          paradoxDone = true;
           stage.classList.remove("glitching");
           if (meet) meet.setAttribute("opacity", "1");
           if (ghost) ghost.setAttribute("opacity", "0.35");
