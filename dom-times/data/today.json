@@ -1,64 +1,64 @@
 {
   "_meta": {
-    "note": "LIVE edition, Sunday, November 15, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: rotated the Oct 26 @hypertune_ post (no new bookmarks).",
-    "generated": "2026-11-15T06:02:28-06:00",
+    "note": "LIVE edition, Monday, November 16, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 10, rotated an older real one.",
+    "generated": "2026-11-16T05:59:12-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXIII",
+    "volume": "LXXIV",
     "city": "Carpentersville, IL",
-    "asOf": "6:02 AM CT"
+    "asOf": "5:59 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Bulls Beat the Delay, the Injuries and the Wolves",
-    "subhead": "Grounded flights got Chicago to Minneapolis only on game day, three rotation players sat out, and the Bulls still won 117-106 for a second win in two nights. Norman Powell scored 23, Matas Buzelis added 18 and nine rebounds, and Minnesota's five-game streak ended. A short-handed team on no sleep still won. No excuses.",
-    "source": "AP",
-    "url": "https://apnews.com/article/bulls-timberwolves-score-59a4aa80400d9bf31286e70c2a7aacc1"
+    "headline": "Mahomes Throws Five, Chiefs Roll in Atlanta",
+    "subhead": "Patrick Mahomes threw five touchdown passes and Kansas City beat the Falcons 35-13 on the road. Elsewhere Sunday, Kirk Cousins won his first game back in purple as Minnesota beat Green Bay 30-10 at Lambeau, and Detroit handled New England 35-10 in Munich. The best keep stacking reps until the scoreboard has no choice.",
+    "source": "Sky Sports",
+    "url": "https://www.skysports.com/nfl/live-blog/13612485/nfl-2026-results-and-highlights-patrick-mahomes-throws-five-touchdowns-while-minnesota-vikings-maul-green-bay-packers"
   },
   "articles": [
     {
-      "hed": "Gane Holds the Belt After an All-Time Brawl",
-      "body": "Josh Hokit came out at a pace that looked impossible to survive for three rounds. Ciryl Gane survived it, then won the last two rounds and kept his heavyweight title 48-47 on all three cards at UFC 334. Champions find another gear when the other guy is out of gas.",
-      "url": "https://mmajunkie.usatoday.com/story/sports/ufc/2026/11/15/ufc-334-results-ciryl-gane-vs-josh-hokit/92793148007/"
+      "hed": "Harrison Wins 10 Months After Neck Surgery",
+      "body": "Ten months after neck and spinal surgery, Kayla Harrison submitted Amanda Nunes in the fourth round at Madison Square Garden to keep her bantamweight title. She's now 20-1 as a pro. Fall down, get rebuilt, stand back up and win the biggest fight of your life.",
+      "url": "https://www.bbc.com/sport/mixed-martial-arts/articles/c5742819x9n3o"
     },
     {
-      "hed": "Harrison Weathers Nunes, Then Finishes",
-      "body": "Amanda Nunes took the early rounds, but Kayla Harrison kept working her judo throws and locked in a rear-naked choke in the fourth to keep her bantamweight title. Absorb the surge, stay on your game plan, and close.",
-      "url": "https://www.cbssports.com/ufc/news/ufc-334-fight-card-ciryl-gane-josh-hokit-results-winners/"
+      "hed": "Fulghum Spoils an Unbeaten Record",
+      "body": "Darius Fulghum pressured the previously unbeaten Diego Pacheco from the opening bell in Carson, California, won the battle of the jabs and took the decision 115-112, 115-112, 114-113. The challenger who shows up hungrier writes the headline.",
+      "url": "https://upfrontmma.com/diego-pacheco-vs-darius-fulghum-results-report/"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 48,
-    "low": 28,
+    "high": 50,
+    "low": 27,
     "unit": "F",
-    "summary": "Clear and about 29° at dawn, then clouds roll in with a high near 48 and no rain. Monday stays dry near 49, then a warm-up to 53 Tuesday and 56 Wednesday.",
+    "summary": "Clear and about 27° at dawn, then clouds with a high near 50 and no rain. A dry warm-up all week: 54 Tuesday, 56 Wednesday, 61 Thursday.",
     "days": [
       {
-        "label": "Sun",
-        "high": 48,
-        "low": 28,
-        "icon": "cloud"
-      },
-      {
         "label": "Mon",
-        "high": 49,
-        "low": 28,
+        "high": 50,
+        "low": 27,
         "icon": "cloud"
       },
       {
         "label": "Tue",
-        "high": 53,
-        "low": 35,
+        "high": 54,
+        "low": 29,
         "icon": "cloud"
       },
       {
         "label": "Wed",
         "high": 56,
-        "low": 38,
+        "low": 40,
+        "icon": "cloud"
+      },
+      {
+        "label": "Thu",
+        "high": 61,
+        "low": 46,
         "icon": "cloud"
       }
     ]
@@ -66,15 +66,15 @@
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Cold, clear start near 29°, high near 48 and dry all day"
-    },
-    {
-      "type": "FYI",
-      "text": "NFL Sunday: Patriots-Lions from Munich at 8:30 AM CT, Vikings-Packers at noon, 49ers-Cowboys 3:25 PM, Steelers-Bengals 7:20 PM. Bears are on the bye at 7-2"
+      "text": "Cold, clear start near 27°, high near 50 and dry all day"
     },
     {
       "type": "ACTION",
-      "text": "Sunday reset: plan the week and book Monday's first MHCCNA conversation"
+      "text": "Monday open: make the first MHCCNA call before 9 and set the week's pace"
+    },
+    {
+      "type": "FYI",
+      "text": "Bulls at Cavaliers tonight, 6 PM CT (DAZN)"
     }
   ],
   "timeline": [
@@ -84,28 +84,23 @@
       "category": "habit"
     },
     {
-      "time": "8:30 AM",
-      "event": "Patriots at Lions (Munich), if you want it on in the background",
-      "category": "fun"
-    },
-    {
-      "time": "Morning",
-      "event": "7EightMade / Cosmic Terminal build block: ship one thing",
+      "time": "~8:00 AM",
+      "event": "On-site at MHCCNA: first call out early, qualify the top leads",
       "category": "focus"
     },
     {
-      "time": "Noon",
-      "event": "Vikings at Packers: Cousins back in purple at Lambeau",
-      "category": "fun"
-    },
-    {
-      "time": "Afternoon",
-      "event": "Week plan: top 3 MHCCNA targets + Monday's first call",
+      "time": "Lunch",
+      "event": "Ten minutes on the Tech Demo pick: one resource, one 7EightMade idea",
       "category": "focus"
     },
     {
-      "time": "7:20 PM",
-      "event": "Sunday Night Football: Steelers at Bengals",
+      "time": "~5:00 PM",
+      "event": "Off the clock: 7EightMade / Cosmic Terminal build block",
+      "category": "focus"
+    },
+    {
+      "time": "6:00 PM",
+      "event": "Bulls at Cavaliers (DAZN)",
       "category": "fun"
     },
     {
@@ -115,15 +110,16 @@
     }
   ],
   "thisWeek": [
-    "Sun Nov 15 — clouds, ~48°; NFL Week 10 (Bears on bye at 7-2)",
-    "Mon Nov 16 — dry, ~49°; first call booked, Bulls at Cleveland",
-    "Tue Nov 17 — dry, ~53°; keep the streak going",
-    "Wed Nov 18 — dry, ~56°; midweek push"
+    "Mon Nov 16 — dry, ~50°; Bulls at Cleveland 6 PM CT",
+    "Tue Nov 17 — dry, ~54°; keep the streak going",
+    "Wed Nov 18 — dry, ~56°; midweek push",
+    "Thu Nov 19 — dry, ~61°; warmest day of the week",
+    "Fri Nov 20 — Bears–Saints preview"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Sunday, the day of the Sun. Four counts in, four hold, four out, four hold. The Sun is the old symbol of the center, the self that radiates on purpose. Breathe square, set your center, and plan the week from strength.",
+    "intro": "Monday, the day of the Moon. Four counts in, four hold, four out, four hold. The Moon is the old symbol of rhythm: it never skips a phase. Breathe square, find your rhythm, and set the week's pace before anyone else does.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -164,7 +160,7 @@
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Sunday, the day of the Sun: run this right after Morning Charge. It's about 29° and clear outside, so keep the RipStick finisher indoors. Start the week's body work before the week starts.",
+    "note": "Monday, the day of the Moon: run this right after Morning Charge. It's about 27° and clear outside, so keep the RipStick finisher indoors. First rep of the week sets the tone.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -196,22 +192,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "Zeniteq",
-          "hed": "Grok 4.8 starts a limited rollout to Bot users",
-          "body": "xAI's official Grok account says a soft rollout of Grok 4.8 is underway for Grok Bot users; general app and API access hasn't been announced yet.",
-          "url": "https://www.zeniteq.com/news/grok-4-8-begins-a-limited-rollout-to-bot-users-r10idz"
+          "source": "Tesla North",
+          "hed": "Grok Imagine moves into the main Grok app",
+          "body": "The Grok Imagine team says image and video creation is now live inside Grok, part of a push to bring xAI's tools into one Grok experience. Imagine Image 2.0 and Imagine Video 1.5 already handle editing and 1080p output.",
+          "url": "https://teslanorth.com/2026/11/15/grok-imagine-image-video-one-app/"
         },
         {
-          "source": "Silicon Report",
-          "hed": "Apple's MLX now runs trillion-scale models across Mac Studios",
-          "body": "An MLX update lets developers split huge open models across several M5 Ultra Mac Studios over Thunderbolt. Apple showed an 816B model running at more than 36 tokens per second.",
-          "url": "https://www.siliconreport.com/apple-updates-mlx-to-run-trillion-parameter-models-across-mac-studios"
+          "source": "Direct AI Solutions",
+          "hed": "Claude Code Projects run parallel work; Grok Bot on Mac plugs into Apple apps",
+          "body": "Anthropic rebuilt Projects in Claude Code so one coordinator chat spins up separate cloud threads for each task and reports back. Grok Bot on Mac can now use Apple's Messages, Mail, Notes, Reminders, Calendar and Contacts.",
+          "url": "https://directaisolutions.com/insights/ai-briefing-2026-11-15"
         },
         {
-          "source": "AI SI Daily",
-          "hed": "Claude Duet clears its US waitlist",
-          "body": "Anthropic sent Claude Duet invites to every US Pro, Max and Ultra subscriber on the waitlist, and opened a self-hosted Claude Managed Agents beta. OpenAI's ChatGPT Wallet is also rolling out to US Pro users.",
-          "url": "https://aisidaily.com/daily/ai-daily-2026-11-14/"
+          "source": "Carly",
+          "hed": "OpenAI ships ChatGPT Wallet",
+          "body": "OpenAI's ChatGPT Wallet lets agents finish purchases for some US Pro subscribers. It charges a payment token, so neither the agent nor the merchant sees the real card details, and each checkout needs approval.",
+          "url": "https://www.usecarly.com/blog/ai-news-2026-11-15/"
         }
       ]
     },
@@ -219,22 +215,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "AP",
-          "hed": "Short-handed Bulls make it two in a row",
-          "body": "Powell 23, Buzelis 18 and 9 as Chicago beat Minnesota 117-106 after a game-day arrival. Next: at Cleveland on Monday.",
-          "url": "https://apnews.com/article/bulls-timberwolves-score-59a4aa80400d9bf31286e70c2a7aacc1"
+          "source": "ESPN",
+          "hed": "Doncic drops 43 as Lakers move to 12-2",
+          "body": "Luka Doncic scored 43 with nine assists and the Lakers beat the Suns 131-123 in Phoenix.",
+          "url": "https://www.espn.com/nba/game/_/gameId/401909986/lakers-suns"
         },
         {
-          "source": "AP",
-          "hed": "Giannis 34, Heat block 14 shots",
-          "body": "Miami ran past Detroit 137-117 for a fourth straight win. Antetokounmpo added 14 rebounds and eight assists.",
-          "url": "https://apnews.com/article/pistons-heat-score-0106f11e9e07bf6efa5b59b6b44435cd"
+          "source": "RealGM",
+          "hed": "Celtics rout Mavericks; Knicks win in OT",
+          "body": "Jayson Tatum scored 32 in a 131-94 Boston win. Jalen Brunson had 28 and nine assists as the Knicks beat Toronto 112-108 in overtime, and Houston ran past Washington 147-119.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-15/All"
         },
         {
-          "source": "NBA.com",
-          "hed": "Spurs streak at 11, Sengun's historic 43",
-          "body": "San Antonio opened on an 18-0 run in a wire-to-wire Cup win, and Alperen Sengun joined Hakeem and Yao with a 40-10-5 on 70% shooting.",
-          "url": "https://www.nba.com/news/starting-5-november-14-2026"
+          "source": "ESPN",
+          "hed": "Bulls chase a third straight win in Cleveland",
+          "body": "Fresh off back-to-back wins over Atlanta and Minnesota, the Bulls visit the Cavaliers tonight at 6 PM CT.",
+          "url": "https://www.espn.com/nba/preview/_/gameId/401909995"
         }
       ]
     },
@@ -242,22 +238,22 @@
       "title": "NFL",
       "items": [
         {
-          "source": "NFL.com",
-          "hed": "Lions favored over the Patriots in Munich",
-          "body": "Detroit (6-2) is a 2.5-point favorite against New England (5-4) at 8:30 AM CT on FOX.",
-          "url": "https://www.nfl.com/news/nfl-picks-week-10-2026-nfl-season"
+          "source": "Sky Sports",
+          "hed": "Mahomes throws five TDs; Cousins wins at Lambeau",
+          "body": "Kansas City beat Atlanta 35-13 behind five Mahomes touchdown passes, and Minnesota beat Green Bay 30-10 in Kirk Cousins' first game back with the Vikings.",
+          "url": "https://www.skysports.com/nfl/live-blog/13612485/nfl-2026-results-and-highlights-patrick-mahomes-throws-five-touchdowns-while-minnesota-vikings-maul-green-bay-packers"
         },
         {
           "source": "CBS Sports",
-          "hed": "Mendoza's first start comes against Seattle",
-          "body": "No. 1 pick Fernando Mendoza debuts for the Raiders against the league's stingiest pass defense; Steelers-Bengals (both 6-2) closes the night.",
-          "url": "https://www.cbssports.com/nfl/news/week-10-underrated-games-browns-texans-raiders-seahawks/"
+          "hed": "49ers outlast Cowboys 46-40",
+          "body": "San Francisco won the shootout in Dallas. Detroit beat New England 35-10 in Munich and Cincinnati beat Pittsburgh 38-18 on Sunday night.",
+          "url": "https://www.cbssports.com/nfl/schedule/"
         },
         {
-          "source": "Action Network",
-          "hed": "Cousins is back in Minnesota for Packers week",
-          "body": "Kirk Cousins starts for the Vikings at Lambeau at noon CT; Panthers-Saints decides the NFC South lead.",
-          "url": "https://www.actionnetwork.com/nfl/nfl-week-10-sunday-mega-preview-brandon-anderson-props-picks-parlays"
+          "source": "NFL.com",
+          "hed": "Week 10: what we learned",
+          "body": "Jacksonville put up 40 on Tennessee, Buffalo beat the Jets 31-12 and the Rams held Arizona to six points. The Bears were on the bye at 7-2.",
+          "url": "https://www.nfl.com/news/2026-nfl-season-week-10-what-we-learned-from-sunday-s-games"
         }
       ]
     },
@@ -265,22 +261,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "AP",
-          "hed": "Gane retains heavyweight title at MSG",
-          "body": "Ciryl Gane swept the cards 48-47 against undefeated Josh Hokit in UFC 334's main event.",
-          "url": "https://apnews.com/article/ufc-trump-hokit-harrison-gane-nunes-dana-white-169dd5701ceee867b01634232e5b91c8"
+          "source": "BBC Sport",
+          "hed": "Harrison submits Nunes; Gane keeps heavyweight belt",
+          "body": "Kayla Harrison choked out Amanda Nunes in the fourth at UFC 334, and Ciryl Gane beat Josh Hokit by decision in a fight with a record 383 significant strikes for a UFC heavyweight bout.",
+          "url": "https://www.bbc.com/sport/mixed-martial-arts/articles/c5742819x9n3o"
         },
         {
-          "source": "MMA Fighting",
-          "hed": "Harrison submits Nunes in round four",
-          "body": "Kayla Harrison kept the bantamweight belt with a rear-naked choke at 1:29 of the fourth.",
-          "url": "https://www.mmafighting.com/ufc/520939/ufc-334-results-gane-vs-hokit"
+          "source": "Upfront MMA",
+          "hed": "Fulghum upsets unbeaten Pacheco",
+          "body": "Darius Fulghum took the WBC Silver and WBO International belts on a decision in Carson. Anthony Olascuaga also retained his WBO flyweight title over Yuberjen Martinez.",
+          "url": "https://upfrontmma.com/diego-pacheco-vs-darius-fulghum-results-report/"
         },
         {
-          "source": "CBS Sports",
-          "hed": "Wonderboy's head kick finish",
-          "body": "Stephen Thompson stopped Charles Radtke on the prelims, and Caio Borralho swept Yousri Belgaroui 30-27 on the main card.",
-          "url": "https://www.cbssports.com/ufc/news/ufc-334-fight-card-ciryl-gane-josh-hokit-results-winners/"
+          "source": "ESPN",
+          "hed": "UFC 334: full results and analysis",
+          "body": "Round-by-round breakdown of Gane-Hokit and Harrison-Nunes from Madison Square Garden.",
+          "url": "https://www.espn.com/mma/story/_/id/50444358/ufc-334-live-results-analysis-ciryl-gane-josh-hokit"
         }
       ]
     }
@@ -290,16 +286,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "Sol Invictus, the unconquered sun",
-        "body": "Late Romans honored Sol Invictus, the sun that sinks every night and is never defeated. Every dawn proves it. The mystics read that as a picture of the soul: it can go down, and it rises anyway."
-      },
-      {
-        "hed": "The Hermetic Emerald Tablet",
-        "body": "'That which is below is like that which is above.' The Emerald Tablet, attributed to Hermes Trismegistus, became the motto of alchemy. Practical read: your small daily actions mirror the big life you're building. Fix the small and the large follows."
+        "hed": "The Moon and the soul's tides",
+        "body": "Monday belongs to the Moon. Hermetic and astrological writers made the Moon the sphere nearest Earth, ruling rhythm, memory and the tides. The lesson: master your cycles and you stop being pushed around by them."
       },
       {
         "hed": "Meister Eckhart's 'ground of the soul'",
-        "body": "The 14th-century Dominican mystic taught that there is a still ground in every person that nothing outside can touch. He also preached that the active life done well beats ecstatic visions. Find the stillness, then go work."
+        "body": "The 14th-century German mystic taught that beneath every passing mood sits a still ground where the soul and the divine meet. Work from that ground and the noise of the day can't knock you off your center."
+      },
+      {
+        "hed": "Pistis Sophia: falling and rising",
+        "body": "In the Gnostic text Pistis Sophia, Sophia falls into the lower realms and sings repentances until she's lifted back up, step by step. It's one of the oldest fall-and-rise stories there is: the climb back is made of repeated effort."
       }
     ]
   },
@@ -307,9 +303,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Commit the work, and the plans hold",
-    "body": "Solomon wrote: 'Commit thy works unto the LORD, and thy thoughts shall be established' (Proverbs 16:3). Hand over the outcome, keep the effort. A plan you're committed to stops wobbling every time the week pushes on it. Sunday is the day to set the week's plans down firmly.",
-    "practice": "Write the week's three commitments (one MHCCNA, one 7EightMade, one body/habit) on a single card. Read it once tonight and once Monday morning."
+    "hed": "Diligence pays; hurry costs",
+    "body": "Solomon wrote: 'The thoughts of the diligent tend only to plenteousness; but of every one that is hasty only to want' (Proverbs 21:5). Steady, planned effort compounds. Rushed effort leaks. Monday is where the week's diligence starts.",
+    "practice": "Before the first call, write the three leads you'll work hardest today and one follow-up you'll finish before lunch. Check them off by 5."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -330,26 +326,26 @@
         "done": false
       },
       {
-        "id": "week-plan",
-        "text": "Week plan: top 3 MHCCNA targets + book Monday's first call",
+        "id": "first-call",
+        "text": "First MHCCNA call out before 9 AM",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "three-leads",
+        "text": "Grimoire card: three leads to work hardest today",
         "priority": "high",
         "done": false
       },
       {
         "id": "7em-block",
-        "text": "One focused hour on 7EightMade or Cosmic Terminal",
+        "text": "One focused hour on 7EightMade or Cosmic Terminal tonight",
         "priority": "high",
         "done": false
       },
       {
-        "id": "commit-card",
-        "text": "Grimoire card: three commitments for the week",
-        "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "tech-demo-ram",
-        "text": "Tech Demo: check your PC's RAM speed in Task Manager",
+        "id": "tech-demo-resource",
+        "text": "Tech Demo: pick one resource from the vibe-coding list and try it",
         "priority": "normal",
         "done": false
       },
@@ -369,21 +365,22 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "Is your RAM running at the speed you paid for? Open Task Manager, go to Performance and then Memory, and check 'Speed' at the bottom. If it's below your kit's rated speed, XMP/EXPO is probably off in the BIOS.",
-    "author": "@hypertune_",
-    "url": "https://x.com/hypertune_/status/2114632573510918162",
-    "bookmarkUrl": "https://x.com/hypertune_/status/2114632573510918162",
+    "pick": "@himanshubuildss shared 25 vibe-coding resources for staying ahead, starting with a library of 600+ award-winning prompts with full source code for 3D and scroll-driven websites, plus 3D scenes and interactive gradients. It's a save-this list, so the value is in picking one and actually using it.",
+    "author": "@himanshubuildss",
+    "url": "https://x.com/himanshubuildss/status/2108633974415524057",
+    "bookmarkUrl": "https://x.com/himanshubuildss/status/2108633974415524057",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Nov 11, so this is a rotated one from Oct 26. It's a two-minute check that can mean free FPS.",
-    "skipped": "Skipped: promo, gaming-combo and one-liner posts.",
+    "note": "No new bookmarks since Nov 10, so this is a rotated older one (saved Oct 9, last featured Nov 2).",
+    "skipped": "Skipped: a @DubbyEnergy ad, an @elonmusk 'Cool' repost and game-combo clips. Recently used: @hypertune_ (Nov 15), @Texas_Twins_Dad (Nov 14), @KutaTweaks (Nov 13).",
     "lesson": {
-      "oneLiner": "RAM ships at a safe default speed; its rated speed needs a BIOS profile.",
+      "oneLiner": "A resource list is only worth something when you ship one thing with it.",
       "beats": [
-        "Task Manager → Performance → Memory → read 'Speed'.",
-        "Compare it to the rating on the stick or box (e.g., 6000 MT/s).",
-        "If it's lower, enable XMP (Intel) or EXPO (AMD) in BIOS and save."
+        "Open the thread and pick the single resource closest to what you're building now, like a 7EightMade landing page.",
+        "Scroll-driven and 3D effects look great, but they cost load time. Use one per page, as the hero moment, not everywhere.",
+        "Copy the prompt or source, swap in your own brand colors and copy, and test it on your phone first.",
+        "Keep what works in a small personal snippets folder so the next drop page starts halfway done."
       ],
-      "takeaway": "One toggle can recover the performance you already paid for."
+      "takeaway": "Save less, ship more: one resource, one page, this week."
     }
   }
 }
