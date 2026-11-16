@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>GRANDFATHER PARADOX | 7EightMade</title>
-  <meta name="description" content="Go back. Stop him. Watch yourself disappear. The grandfather paradox as a 90-second interactive: erase your family tree, hit the loop, and pick your way out. A free 7EightMade app.">
+  <meta name="description" content="Go back. Stop him. Watch yourself disappear. Travel to a 1950s Philippine town, meet your young Lolo face to face, and watch the family photo erase itself. A free 7EightMade app.">
   <meta property="og:title" content="GRANDFATHER PARADOX">
   <meta property="og:description" content="Go back. Stop him. Watch yourself disappear.">
   <meta property="og:image" content="https://dom1w0w.github.io/7EightMadeConsultation/grandfather-paradox/preview.webp">
@@ -16,11 +16,9 @@
       --ink: #EFEAF6;
       --bg: #08070C;
       --bg2: #12101C;
-      --panel: #100E1A;
       --muted: #A79FB5;
       --line: rgba(239,234,246,.13);
       --violet: #A78BFA;
-      --violet-dim: rgba(167,139,250,.16);
       --gold: #D9A441;
       --danger: #E4572E;
     }
@@ -33,11 +31,9 @@
       display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh;
       overflow-x: hidden;
     }
-    .serif { font-family: Georgia, "Times New Roman", serif; }
     a { color: var(--violet); }
     :focus-visible { outline: 2px solid #4D7CF6; outline-offset: 3px; }
 
-    /* ---- top bar (self-contained, mirrors the Studio app bar) ---- */
     .bar { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; padding: 0 12px; background: #0E0D0C; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
     .bar a { color: #F2ECE2; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0 6px; border-radius: 6px; white-space: nowrap; }
     .bar a:hover { color: var(--violet); }
@@ -46,7 +42,6 @@
     .bar button { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 999px; min-width: 44px; min-height: 32px; font-size: 14px; cursor: pointer; }
     .bar button:hover { border-color: var(--violet); }
 
-    /* ---- stage ---- */
     .stage { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 560px; margin: 0 auto; padding: 22px 18px 34px; }
     .scene { display: none; width: 100%; flex-direction: column; align-items: center; text-align: center; animation: fadein .5s ease both; }
     .scene.on { display: flex; }
@@ -56,59 +51,48 @@
     h1.title { font-family: Georgia, serif; font-weight: 600; font-size: clamp(34px, 9vw, 52px); line-height: 1.04; letter-spacing: .01em; }
     .hook { font-family: Georgia, serif; font-style: italic; font-size: clamp(19px, 5.4vw, 25px); color: var(--ink); margin-top: 16px; line-height: 1.4; }
     .sub { color: var(--muted); font-size: 15px; margin-top: 12px; max-width: 40ch; }
-    .cap { font-size: clamp(17px, 4.8vw, 21px); line-height: 1.45; min-height: 1.5em; max-width: 30ch; }
+    .cap { font-size: clamp(17px, 4.8vw, 21px); line-height: 1.45; min-height: 1.5em; max-width: 32ch; }
     .cap.small { font-size: 15px; color: var(--muted); }
     .cap b { color: var(--violet); font-weight: 700; }
     .cap .gold { color: var(--gold); }
 
     .btn { appearance: none; border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 58px; padding: 15px 30px; border-radius: 999px; background: var(--violet); color: #150A26; font: 700 14px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; box-shadow: 0 18px 50px -18px var(--violet); transition: transform .15s, filter .15s; margin-top: 26px; }
     .btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line2, rgba(239,234,246,.3)); box-shadow: none; }
+    .btn--ghost { background: transparent; color: var(--ink); border: 1px solid rgba(239,234,246,.3); box-shadow: none; }
     .btn--danger { background: var(--danger); color: #fff; box-shadow: 0 18px 50px -18px var(--danger); }
     .btn[disabled] { opacity: .35; pointer-events: none; }
     .btnrow { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
-    /* ---- the tree ---- */
-    .treebox { width: 100%; max-width: 420px; margin-top: 10px; }
-    .treebox svg { width: 100%; height: auto; display: block; }
-    .edge { stroke: rgba(239,234,246,.22); stroke-width: 1.6; transition: opacity .6s; }
-    .edge.hot { stroke: var(--gold); stroke-width: 2.4; filter: drop-shadow(0 0 5px rgba(217,164,65,.8)); }
-    .node circle.face { fill: #1B1830; stroke: rgba(239,234,246,.55); stroke-width: 1.6; transition: opacity .5s; }
-    .node text { fill: var(--muted); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; font-family: ui-sans-serif, system-ui, sans-serif; }
-    .node.hot circle.face { stroke: var(--gold); filter: drop-shadow(0 0 7px rgba(217,164,65,.85)); }
-    .node.hot text { fill: var(--gold); }
-    .node.you circle.face { stroke: var(--violet); stroke-width: 2.4; filter: drop-shadow(0 0 9px rgba(167,139,250,.8)); }
-    .node.you text { fill: var(--violet); font-weight: 700; }
-    .node.erasing { animation: nodeflick .16s steps(2) 6; }
-    .node.gone { opacity: .07; filter: grayscale(1); }
-    .edge.gone { opacity: .05; }
-    @keyframes nodeflick { 0% { opacity: 1; } 50% { opacity: .15; } 100% { opacity: .8; } }
+    .frame-box { width: 100%; max-width: 430px; margin-top: 10px; }
+    .frame-box svg { width: 100%; height: auto; display: block; }
+    .fig { transition: opacity .6s; }
+    .fig.erasing { animation: figflick .16s steps(2) 6; }
+    .fig.gone { opacity: .05; filter: grayscale(1); }
+    @keyframes figflick { 0% { opacity: 1; } 50% { opacity: .15; } 100% { opacity: .8; } }
     .pulse { animation: pulse 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-    /* ---- 1952 scene ---- */
-    .scene1952 { width: 100%; max-width: 420px; margin-top: 8px; }
-    .scene1952 svg { width: 100%; height: auto; display: block; }
-    .walker { animation: walk 5s linear forwards; }
-    @keyframes walk { from { transform: translateX(0); } to { transform: translateX(118px); } }
+    .townbox { width: 100%; max-width: 430px; margin-top: 8px; }
+    .townbox svg { width: 100%; height: auto; display: block; }
+    .walker { animation: walk 4.6s linear forwards; }
+    @keyframes walk { from { transform: translateX(0); } to { transform: translateX(112px); } }
     .walker.stopped { animation-play-state: paused; }
-    .doorGlow { animation: pulse 2s ease-in-out infinite; }
+    .shake { animation: shakebob .5s ease-in-out 3; transform-origin: center; transform-box: fill-box; }
+    @keyframes shakebob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+    .kalesa-slide { animation: kslide 2.6s ease-in-out forwards; }
+    @keyframes kslide { from { transform: translateX(-150px); } to { transform: translateX(150px); } }
 
-    /* ---- static / glitch ---- */
     .static { position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0; background-image: repeating-conic-gradient(rgba(255,255,255,.16) 0 .6%, transparent .6% 1.2%), repeating-linear-gradient(0deg, rgba(255,255,255,.1) 0 2px, transparent 2px 4px); mix-blend-mode: screen; }
     .static.on { opacity: .55; animation: statjump .12s steps(3) infinite; }
     @keyframes statjump { 0% { transform: translate(0,0); } 33% { transform: translate(-6px,3px); } 66% { transform: translate(5px,-4px); } 100% { transform: translate(0,0); } }
-    .flickA, .flickB { transition: opacity .05s; }
     .glitching { animation: glitch .14s steps(2) infinite; }
     @keyframes glitch { 0% { transform: translate(0); } 25% { transform: translate(-3px,1px) skewX(-1.5deg); } 50% { transform: translate(3px,-1px); } 75% { transform: translate(-1px,2px) skewX(1deg); } 100% { transform: translate(0); } }
 
-    /* ---- paradox chain ---- */
     .chain { list-style: none; margin-top: 18px; display: grid; gap: 8px; width: 100%; max-width: 400px; }
     .chain li { border: 1px solid var(--line); background: var(--bg2); border-radius: 12px; padding: 11px 14px; font-size: 16px; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
     .chain li.on { opacity: 1; transform: none; }
     .chain li b { color: var(--violet); }
 
-    /* ---- escapes ---- */
     .escapes { display: grid; gap: 12px; width: 100%; max-width: 420px; margin-top: 20px; }
     .escape { text-align: left; appearance: none; cursor: pointer; background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); font: inherit; transition: border-color .2s, transform .15s; width: 100%; }
     .escape:hover { border-color: var(--violet); transform: translateY(-1px); }
@@ -122,14 +106,15 @@
     .answers { display: grid; gap: 10px; width: 100%; max-width: 400px; margin-top: 22px; }
     .answers .escape { text-align: center; }
     .answers .escape strong { font-size: 18px; }
+    .twophoto { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 430px; margin-top: 10px; }
 
     .foot { margin-top: auto; padding-top: 30px; color: var(--muted); font-size: 13px; text-align: center; }
     .foot a { text-decoration: none; }
 
     @media (prefers-reduced-motion: reduce) {
-      .scene, .walker, .pulse, .doorGlow { animation: none !important; }
+      .scene, .walker, .pulse, .shake, .kalesa-slide { animation: none !important; }
       .glitching, .static.on { animation: none !important; }
-      .node.erasing { animation: none !important; }
+      .fig.erasing { animation: none !important; }
     }
   </style>
 </head>
@@ -148,75 +133,51 @@
     <!-- 0 · PROLOGUE -->
     <section class="scene on" id="s0" aria-labelledby="t0">
       <p class="kicker">7EightMade Studio · Paradoxes</p>
-      <h1 class="title serif" id="t0">The Grandfather<br>Paradox</h1>
+      <h1 class="title" id="t0" style="font-family:Georgia,serif">The Grandfather<br>Paradox</h1>
       <p class="hook">“Go back. Stop him.<br>Watch yourself disappear.”</p>
-      <p class="sub">Ninety seconds. One hand. A time machine, a family tree, and no clean way out.</p>
+      <p class="sub">Ninety seconds. One hand. A photograph, a time machine, and your Lolo — young, alive, and about to meet Lola.</p>
       <button class="btn" id="beginBtn" type="button">Begin →</button>
       <p class="cap small" style="margin-top:16px">Sound on helps. The clock is already ticking.</p>
     </section>
 
-    <!-- 1 · THE TREE -->
+    <!-- 1 · THE PHOTO -->
     <section class="scene" id="s1" aria-labelledby="t1">
-      <p class="kicker">Now</p>
-      <h2 class="serif" id="t1" style="font-size:30px;font-weight:600">This is you.</h2>
-      <div class="treebox" id="tree1"></div>
-      <p class="cap" id="treeCap">Every line above you <b>had to happen</b> — exactly the way it happened.</p>
-      <button class="btn" id="toMachine" type="button">The time machine →</button>
+      <p class="kicker">The bahay · Now</p>
+      <h2 id="t1" style="font-family:Georgia,serif;font-size:30px;font-weight:600">The photo on the wall.</h2>
+      <div class="frame-box" id="photo1"></div>
+      <p class="cap">Sunday lunch at the bahay. That's <b>you</b>, front and center. Every face in this frame <b>had to happen</b>.</p>
+      <button class="btn" id="toMachine" type="button">Go back →</button>
     </section>
 
-    <!-- 2 · 1952 -->
+    <!-- 2 · THE TOWN, 1950s -->
     <section class="scene" id="s2" aria-labelledby="t2">
-      <p class="kicker">1952</p>
-      <h2 class="serif" id="t2" style="font-size:30px;font-weight:600">There he is.</h2>
-      <div class="scene1952" aria-hidden="true">
-        <svg viewBox="0 0 360 210">
-          <rect x="0" y="0" width="360" height="210" fill="#0D0B16"/>
-          <circle cx="316" cy="34" r="17" fill="#E8E2D2" opacity=".85"/>
-          <rect x="0" y="168" width="360" height="42" fill="#17131F"/>
-          <line x1="0" y1="168" x2="360" y2="168" stroke="rgba(239,234,246,.25)" stroke-width="2"/>
-          <!-- diner -->
-          <rect x="238" y="58" width="112" height="110" fill="#1B1830" stroke="rgba(239,234,246,.3)"/>
-          <rect x="252" y="76" width="38" height="26" fill="#2A2450" stroke="rgba(239,234,246,.25)"/>
-          <rect class="doorGlow" x="306" y="102" width="30" height="66" fill="#3A2E18" stroke="#D9A441" stroke-width="2"/>
-          <text x="294" y="48" fill="#D9A441" font-size="15" letter-spacing="4" text-anchor="middle" font-family="Georgia, serif">DINER</text>
-          <!-- grandma at the door -->
-          <g>
-            <circle cx="296" cy="128" r="8" fill="#EFEAF6"/>
-            <path d="M288 168 L296 138 L304 168 Z" fill="#A78BFA"/>
-          </g>
-          <!-- grandpa walking -->
-          <g class="walker" id="walker">
-            <circle cx="60" cy="118" r="9" fill="#EFEAF6"/>
-            <path d="M60 127 L60 152 M60 136 L46 146 M60 136 L74 144 M60 152 L48 168 M60 152 L72 168" stroke="#EFEAF6" stroke-width="4" stroke-linecap="round" fill="none"/>
-            <rect x="50" y="104" width="20" height="5" rx="2" fill="#D9A441"/>
-          </g>
-          <text x="14" y="34" fill="#A79FB5" font-size="12" letter-spacing="3">1952 · THE NIGHT THEY MEET</text>
-        </svg>
-      </div>
-      <p class="cap" id="cap1952">Your grandfather, age nineteen, walking into the diner where your grandmother works. In four minutes, they meet. <b>One choice:</b></p>
-      <div class="btnrow">
+      <p class="kicker">A Philippine town · 1950s</p>
+      <h2 id="t2" style="font-family:Georgia,serif;font-size:30px;font-weight:600">That's him. That's Lolo.</h2>
+      <div class="townbox" id="town1"></div>
+      <p class="cap" id="townCap" aria-live="polite">He's nineteen. In four minutes he walks into the sari-sari store and meets Lola.</p>
+      <div class="btnrow" id="choiceRow" style="display:none">
         <button class="btn btn--danger" id="stopBtn" type="button">Stop him</button>
-        <button class="btn btn--ghost" id="letBtn" type="button">Let them meet</button>
+        <button class="btn btn--ghost" id="letBtn" type="button">Let him go in</button>
       </div>
     </section>
 
-    <!-- 3 · ERASURE -->
+    <!-- 3 · THE PHOTO ERASES -->
     <section class="scene" id="s3" aria-labelledby="t3">
-      <p class="kicker">Undoing</p>
-      <h2 class="serif" id="t3" style="font-size:30px;font-weight:600">You did it.</h2>
-      <div class="treebox" id="tree2"></div>
+      <p class="kicker">Back at the bahay</p>
+      <h2 id="t3" style="font-family:Georgia,serif;font-size:30px;font-weight:600">You did it.</h2>
+      <div class="frame-box" id="photo2"></div>
       <p class="cap" id="eraseCap" aria-live="polite">He turns around. He never walks in.</p>
     </section>
 
     <!-- 4 · PARADOX -->
     <section class="scene" id="s4" aria-labelledby="t4">
       <p class="kicker">Paradox</p>
-      <h2 class="serif" id="t4" style="font-size:30px;font-weight:600">Wait.</h2>
-      <div class="treebox" id="tree3"></div>
-      <p class="cap" id="flickCap" aria-live="polite"><b>HE MEETS HER — YOU EXIST</b></p>
+      <h2 id="t4" style="font-family:Georgia,serif;font-size:30px;font-weight:600">Wait.</h2>
+      <div class="townbox" id="town2"></div>
+      <p class="cap" id="flickCap" aria-live="polite"><b>HE MEETS LOLA — YOU EXIST</b></p>
       <ul class="chain" id="chain">
         <li>If you vanish, <b>nobody went back</b>.</li>
-        <li>So grandpa <b>meets grandma</b>.</li>
+        <li>So Lolo <b>meets Lola</b>.</li>
         <li>So you are <b>born</b>.</li>
         <li>So you <b>go back</b>.</li>
         <li>So you <b>stop him</b>.</li>
@@ -228,10 +189,10 @@
     <!-- 5 · ESCAPES -->
     <section class="scene" id="s5" aria-labelledby="t5">
       <p class="kicker">Three ways out</p>
-      <h2 class="serif" id="t5" style="font-size:30px;font-weight:600">Pick an escape. Try all three.</h2>
+      <h2 id="t5" style="font-family:Georgia,serif;font-size:30px;font-weight:600">Pick an escape. Try all three.</h2>
       <div class="escapes">
         <button class="escape" type="button" data-esc="fixed"><strong>The Fixed Timeline</strong><span>Novikov's rule: the past protects itself. Try to change it, and something always stops you.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
-        <button class="escape" type="button" data-esc="branch"><strong>Branching Worlds</strong><span>Every change splits the world. You can erase a family tree — just never your own.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
+        <button class="escape" type="button" data-esc="branch"><strong>Branching Worlds</strong><span>Every change splits the world. A photo can lose its faces — just never yours.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
         <button class="escape" type="button" data-esc="loop"><strong>The Paradox Stands</strong><span>No fix. No branch. The loop simply never resolves.</span><span class="seen" data-seen style="display:none">✓ Played</span></button>
       </div>
       <div class="dots" aria-hidden="true"><i id="d0"></i><i id="d1"></i><i id="d2"></i></div>
@@ -241,8 +202,8 @@
     <!-- 5a · VIGNETTE -->
     <section class="scene" id="s6" aria-labelledby="t6">
       <p class="kicker" id="vigKick">Escape</p>
-      <h2 class="serif" id="t6" style="font-size:30px;font-weight:600">…</h2>
-      <div class="treebox" id="vigBox"></div>
+      <h2 id="t6" style="font-family:Georgia,serif;font-size:30px;font-weight:600">…</h2>
+      <div id="vigBox" style="width:100%;display:flex;flex-direction:column;align-items:center"></div>
       <p class="cap" id="vigCap" aria-live="polite"></p>
       <button class="btn btn--ghost" id="vigDone" type="button" style="display:none">← Back to the escapes</button>
     </section>
@@ -250,11 +211,11 @@
     <!-- 6 · CLOSING -->
     <section class="scene" id="s7" aria-labelledby="t7">
       <p class="kicker">The question</p>
-      <h2 class="serif" id="t7" style="font-size:clamp(30px,8vw,42px);font-weight:600;line-height:1.15">Which universe<br>do you live in?</h2>
+      <h2 id="t7" style="font-family:Georgia,serif;font-size:clamp(30px,8vw,42px);font-weight:600;line-height:1.15">Which universe<br>do you live in?</h2>
       <div class="answers">
         <button class="escape" type="button" data-ans="fixed"><strong>A fixed one</strong><span>What happened, happened. I was never a threat to it.</span></button>
-        <button class="escape" type="button" data-ans="branch"><strong>A branching one</strong><span>Somewhere there's a tree with my name missing. Not this one.</span></button>
-        <button class="escape" type="button" data-ans="loop"><strong>The loop</strong><span>Ask me again in 1952.</span></button>
+        <button class="escape" type="button" data-ans="branch"><strong>A branching one</strong><span>Somewhere there's a photo with my face missing. Not this one.</span></button>
+        <button class="escape" type="button" data-ans="loop"><strong>The loop</strong><span>Ask me again at the sari-sari store.</span></button>
       </div>
       <p class="cap" id="ansCap" aria-live="polite" style="margin-top:22px"></p>
       <div class="btnrow">
@@ -318,7 +279,7 @@
       if (!muted) tick(0.08);
     });
 
-    /* ---------- scene switching ---------- */
+    /* ---------- scenes ---------- */
     var scenes = ["s0","s1","s2","s3","s4","s5","s6","s7"];
     function show(id) {
       scenes.forEach(function (s) { document.getElementById(s).classList.toggle("on", s === id); });
@@ -330,133 +291,190 @@
       staticFx.classList.add("on");
       setTimeout(function () { staticFx.classList.remove("on"); }, ms);
     }
-
-    /* ---------- the family tree (built once, cloned per scene) ---------- */
-    var ROWS = [
-      { y: 46,  labels: ["GREAT-GRANDPA", "GREAT-GRANDMA", "GREAT-GRANDPA", "GREAT-GRANDMA", "GREAT-GRANDPA", "GREAT-GRANDMA", "GREAT-GRANDPA", "GREAT-GRANDMA"] },
-      { y: 146, labels: ["GRANDPA", "GRANDMA", "GRANDPA", "GRANDMA"] },
-      { y: 246, labels: ["DAD", "MOM"] },
-      { y: 346, labels: ["YOU"] }
-    ];
-    function pos(row, i) {
-      var n = ROWS[row].labels.length, W = 360;
-      return { x: (i + 0.5) * (W / n), y: ROWS[row].y };
-    }
-    function buildTree(mount, idp) {
-      var s = '<svg viewBox="0 0 360 396" role="img" aria-label="A glowing family tree: you at the bottom, three generations above">';
-      s += '<text x="180" y="14" text-anchor="middle" fill="#A79FB5" font-size="9.5" letter-spacing="3">GREAT-GRANDPARENTS</text>';
-      var r, i, j;
-      for (r = 1; r < 4; r++) {
-        for (i = 0; i < ROWS[r].labels.length; i++) {
-          var c = pos(r, i), p1 = pos(r - 1, i * 2), p2 = pos(r - 1, i * 2 + 1);
-          var hot = (r === 3 && i === 0) || (r === 2 && i === 0) || (r === 1 && i === 0);
-          s += '<line class="edge' + (hot ? " hot" : "") + '" id="' + idp + 'e' + r + '_' + i + 'a" x1="' + c.x + '" y1="' + c.y + '" x2="' + p1.x + '" y2="' + p1.y + '"/>';
-          s += '<line class="edge' + (hot ? " hot" : "") + '" id="' + idp + 'e' + r + '_' + i + 'b" x1="' + c.x + '" y1="' + c.y + '" x2="' + p2.x + '" y2="' + p2.y + '"/>';
-        }
-      }
-      for (r = 0; r < 4; r++) {
-        for (i = 0; i < ROWS[r].labels.length; i++) {
-          var p = pos(r, i);
-          var isYou = r === 3, isHot = isYou || (r === 2 && i === 0) || (r === 1 && i === 0) || (r === 0 && i === 0);
-          var rad = isYou ? 21 : 14;
-          s += '<g class="node' + (isYou ? " you pulse" : "") + (isHot && !isYou ? " hot" : "") + '" id="' + idp + 'n' + r + '_' + i + '">';
-          s += '<circle class="face" cx="' + p.x + '" cy="' + p.y + '" r="' + rad + '"/>';
-          s += '<circle cx="' + (p.x - rad * 0.32) + '" cy="' + (p.y - 2) + '" r="' + (rad * 0.11) + '" fill="#EFEAF6"/>';
-          s += '<circle cx="' + (p.x + rad * 0.32) + '" cy="' + (p.y - 2) + '" r="' + (rad * 0.11) + '" fill="#EFEAF6"/>';
-          s += '<path d="M' + (p.x - rad * 0.38) + ' ' + (p.y + rad * 0.42) + ' Q' + p.x + ' ' + (p.y + rad * 0.05) + ' ' + (p.x + rad * 0.38) + ' ' + (p.y + rad * 0.42) + '" stroke="#EFEAF6" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
-          if (r > 0) s += '<text x="' + p.x + '" y="' + (p.y + rad + 13) + '" text-anchor="middle">' + ROWS[r].labels[i] + '</text>';
-          s += '</g>';
-        }
-      }
-      s += "</svg>";
-      mount.innerHTML = s;
-    }
-    buildTree(document.getElementById("tree1"), "a");
-    buildTree(document.getElementById("tree2"), "b");
-    buildTree(document.getElementById("tree3"), "c");
-
-    function node(idp, r, i) { return document.getElementById(idp + "n" + r + "_" + i); }
-    function edgesOf(idp, r, i) {
-      return [document.getElementById(idp + "e" + r + "_" + i + "a"), document.getElementById(idp + "e" + r + "_" + i + "b")];
-    }
-    function eraseNode(idp, r, i, keepEdges) {
-      var n = node(idp, r, i); if (!n) return;
-      n.classList.add("erasing");
-      staticBurst(0.28, 0.2); staticFlash(180);
-      setTimeout(function () {
-        n.classList.remove("erasing"); n.classList.add("gone");
-        if (!keepEdges && r > 0) edgesOf(idp, r, i).forEach(function (e) { if (e) e.classList.add("gone"); });
-      }, reduced ? 60 : 700);
-    }
-
-    /* ---------- flow ---------- */
     var timers = [];
     function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
     function clearTimers() { timers.forEach(clearTimeout); timers = []; }
 
+    /* ---------- the family photo (built once, cloned per scene) ---------- */
+    var FIGS = [
+      { key: "uncle",  x: 76,  y: 118, r: 12,   shirt: "#7A4A2B", base: 196, label: "UNCLE" },
+      { key: "lolo",   x: 128, y: 112, r: 13,   shirt: "#EDE6D6", base: 196, label: "LOLO", hat: true },
+      { key: "lola",   x: 180, y: 112, r: 13,   shirt: "#B84A39", base: 196, label: "LOLA", bun: true },
+      { key: "dad",    x: 232, y: 114, r: 12.5, shirt: "#3E5C48", base: 196, label: "DAD" },
+      { key: "mom",    x: 282, y: 114, r: 12.5, shirt: "#5B4A8A", base: 196, label: "MOM", bun: true },
+      { key: "cousin", x: 138, y: 182, r: 10.5, shirt: "#C77B29", base: 238, label: "COUSIN" },
+      { key: "you",    x: 208, y: 176, r: 16,   shirt: "#A78BFA", base: 238, label: "YOU", you: true }
+    ];
+    function figure(f, idp) {
+      var s = '<g class="fig' + (f.you ? " pulse" : "") + '" id="' + idp + f.key + '">';
+      s += '<path d="M' + (f.x - f.r * 1.5) + ' ' + f.base + ' L' + (f.x - f.r * 0.52) + ' ' + (f.y + f.r * 0.5) + ' Q' + f.x + ' ' + (f.y + f.r * 0.22) + ' ' + (f.x + f.r * 0.52) + ' ' + (f.y + f.r * 0.5) + ' L' + (f.x + f.r * 1.5) + ' ' + f.base + ' Z" fill="' + f.shirt + '"/>';
+      if (f.bun) s += '<circle cx="' + (f.x + f.r * 0.75) + '" cy="' + (f.y - f.r * 0.8) + '" r="' + (f.r * 0.42) + '" fill="#2A1D16"/>';
+      s += '<circle cx="' + f.x + '" cy="' + f.y + '" r="' + f.r + '" fill="#E8C39E" stroke="' + (f.you ? "#A78BFA" : "rgba(60,40,20,.45)") + '" stroke-width="' + (f.you ? 2.6 : 1.2) + '"/>';
+      if (f.hat) {
+        s += '<path d="M' + (f.x - f.r) + ' ' + (f.y - f.r * 0.35) + ' A' + f.r + ' ' + f.r + ' 0 0 1 ' + (f.x + f.r) + ' ' + (f.y - f.r * 0.35) + ' Z" fill="#C9A86A"/>';
+        s += '<rect x="' + (f.x - f.r * 1.35) + '" y="' + (f.y - f.r * 0.42) + '" width="' + (f.r * 2.7) + '" height="3" rx="1.5" fill="#C9A86A"/>';
+      }
+      s += '<circle cx="' + (f.x - f.r * 0.33) + '" cy="' + (f.y - 1) + '" r="' + (f.r * 0.1) + '" fill="#2A1D16"/>';
+      s += '<circle cx="' + (f.x + f.r * 0.33) + '" cy="' + (f.y - 1) + '" r="' + (f.r * 0.1) + '" fill="#2A1D16"/>';
+      s += '<path d="M' + (f.x - f.r * 0.36) + ' ' + (f.y + f.r * 0.38) + ' Q' + f.x + ' ' + (f.y + f.r * 0.72) + ' ' + (f.x + f.r * 0.36) + ' ' + (f.y + f.r * 0.38) + '" stroke="#2A1D16" stroke-width="1.5" fill="none" stroke-linecap="round"/>';
+      s += '<text x="' + f.x + '" y="' + (f.base + 13) + '" text-anchor="middle" font-size="8" letter-spacing="1.5" fill="' + (f.you ? "#6D4FC2" : "#5A4632") + '" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="' + (f.you ? "700" : "400") + '">' + f.label + '</text>';
+      s += "</g>";
+      return s;
+    }
+    function buildPhoto(mount, idp) {
+      var s = '<svg viewBox="0 0 360 300" role="img" aria-label="A framed family photo on the wall of a wooden bahay: Lolo, Lola, family, and you in front">';
+      s += '<rect x="0" y="0" width="360" height="300" fill="#241A12"/>';
+      for (var i = 0; i < 6; i++) s += '<line x1="0" y1="' + (50 * i + 25) + '" x2="360" y2="' + (50 * i + 25) + '" stroke="rgba(0,0,0,.35)" stroke-width="2"/>';
+      s += '<rect x="24" y="18" width="312" height="252" fill="#3A2A18" stroke="#120D08" stroke-width="6"/>';
+      s += '<rect x="36" y="30" width="288" height="228" fill="#D8C49A"/>';
+      s += '<rect x="36" y="30" width="288" height="228" fill="none" stroke="#8A6D3B" stroke-width="2"/>';
+      s += '<rect x="36" y="196" width="288" height="62" fill="#C3A878"/>';
+      s += '<line x1="36" y1="196" x2="324" y2="196" stroke="rgba(90,70,40,.5)" stroke-width="2"/>';
+      FIGS.forEach(function (f) { s += figure(f, idp); });
+      s += '<rect x="36" y="30" width="288" height="228" fill="url(#sheen)" opacity=".18"/>';
+      s += '<defs><linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>';
+      s += "</svg>";
+      mount.innerHTML = s;
+    }
+    buildPhoto(document.getElementById("photo1"), "a");
+    buildPhoto(document.getElementById("photo2"), "b");
+
+    function eraseFig(idp, key) {
+      var n = document.getElementById(idp + key); if (!n) return;
+      n.classList.add("erasing");
+      staticBurst(0.28, 0.2); staticFlash(180);
+      setTimeout(function () { n.classList.remove("erasing"); n.classList.add("gone"); }, reduced ? 60 : 700);
+    }
+
+    /* ---------- the town ---------- */
+    function buildTown(mount, idp, mode) {
+      var s = '<svg viewBox="0 0 360 250" role="img" aria-label="A 1950s Philippine town: a bahay on stilts, palm trees, a kalesa, and a sari-sari store">';
+      s += '<defs><linearGradient id="sky' + idp + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17122B"/><stop offset=".7" stop-color="#3A2340"/><stop offset="1" stop-color="#5A3040"/></linearGradient></defs>';
+      s += '<rect x="0" y="0" width="360" height="250" fill="url(#sky' + idp + ')"/>';
+      s += '<circle cx="322" cy="42" r="15" fill="#E8E2D2" opacity=".8"/>';
+      // palms
+      [[26, 150], [338, 158]].forEach(function (p) {
+        s += '<path d="M' + p[0] + ' ' + p[1] + ' Q' + (p[0] + 4) + ' ' + (p[1] - 42) + ' ' + (p[0] + 1) + ' ' + (p[1] - 74) + '" stroke="#0E2A1C" stroke-width="6" fill="none"/>';
+        for (var a = 0; a < 5; a++) {
+          var ang = -Math.PI * (0.15 + a * 0.18), ex = p[0] + 1 + Math.cos(ang) * 30, ey = (p[1] - 74) + Math.sin(ang) * 16 - 4;
+          s += '<path d="M' + (p[0] + 1) + ' ' + (p[1] - 74) + ' Q' + ((p[0] + 1 + ex) / 2) + ' ' + (ey - 9) + ' ' + ex + ' ' + (ey + 5) + '" stroke="#14532D" stroke-width="4" fill="none" stroke-linecap="round"/>';
+        }
+      });
+      // bahay on stilts (left)
+      s += '<g><rect x="34" y="96" width="86" height="52" fill="#4A3421" stroke="rgba(0,0,0,.4)"/>';
+      s += '<path d="M26 98 L77 66 L128 98 Z" fill="#6B4E2A"/>';
+      s += '<rect x="48" y="110" width="24" height="20" fill="#F5C86B" opacity=".9"/><path d="M48 120 H72 M60 110 V130" stroke="rgba(90,60,20,.7)" stroke-width="2"/>';
+      s += '<rect x="88" y="110" width="20" height="38" fill="#33241A"/>';
+      s += '<line x1="44" y1="148" x2="44" y2="186" stroke="#33241A" stroke-width="5"/><line x1="110" y1="148" x2="110" y2="186" stroke="#33241A" stroke-width="5"/>';
+      s += '<path d="M88 148 L74 186 M92 148 L80 186" stroke="#33241A" stroke-width="3"/></g>';
+      // ground / road
+      s += '<rect x="0" y="186" width="360" height="64" fill="#191019"/>';
+      s += '<path d="M0 196 H360" stroke="rgba(239,234,246,.08)" stroke-width="10"/>';
+      // kalesa (parked, center-left)
+      s += '<g id="' + idp + 'kalesa"><circle cx="128" cy="196" r="15" fill="none" stroke="#0A0A0F" stroke-width="4"/><circle cx="164" cy="200" r="10" fill="none" stroke="#0A0A0F" stroke-width="3"/>';
+      s += '<path d="M118 182 H172 L166 158 H126 Z" fill="#0F0D16"/>';
+      s += '<path d="M172 176 L196 168 M196 168 L204 150" stroke="#0A0A0F" stroke-width="4" fill="none"/>';
+      s += '<ellipse cx="212" cy="152" rx="15" ry="9" fill="#0F0D16"/><path d="M224 146 L232 134 L238 142 L228 152 Z" fill="#0F0D16"/>';
+      s += '<path d="M202 158 L200 176 M220 158 L222 176" stroke="#0A0A0F" stroke-width="3"/></g>';
+      // sari-sari store (right)
+      s += '<g><rect x="252" y="92" width="96" height="94" fill="#2E2438" stroke="rgba(0,0,0,.4)"/>';
+      s += '<path d="M246 94 L300 72 L354 94 Z" fill="#59331F"/>';
+      s += '<rect x="262" y="106" width="76" height="16" fill="#120E1C"/><text x="300" y="118" text-anchor="middle" font-size="10.5" letter-spacing="1.5" fill="#F5C86B" font-family="Georgia, serif">SARI-SARI STORE</text>';
+      s += '<rect x="262" y="130" width="76" height="30" fill="#1D1830"/>';
+      [270, 284, 298, 312, 326].forEach(function (jx) { s += '<rect x="' + jx + '" y="140" width="9" height="14" rx="2" fill="#C77B29" opacity=".85"/>'; });
+      s += '<rect x="262" y="160" width="76" height="6" fill="#0F0C18"/></g>';
+      if (mode === "meet") {
+        // Lola at the store
+        s += '<g id="' + idp + 'lola"><circle cx="292" cy="152" r="8" fill="#E8C39E"/><circle cx="298" cy="145" r="3.4" fill="#2A1D16"/><path d="M283 186 L292 161 L301 186 Z" fill="#B84A39"/></g>';
+        // player (you) waiting center
+        s += '<g id="' + idp + 'you"><circle cx="196" cy="146" r="9" fill="#E8C39E" stroke="#A78BFA" stroke-width="2"/><path d="M196 155 V178 M196 163 L184 174 M196 163 L207 170 M196 178 L187 196 M196 178 L205 196" stroke="#A78BFA" stroke-width="4" stroke-linecap="round" fill="none"/></g>';
+        // young Lolo walking in from the left
+        s += '<g class="walker" id="' + idp + 'lolo"><g id="' + idp + 'loloinner"><circle cx="52" cy="146" r="9" fill="#E8C39E"/><rect x="42" y="131" width="20" height="5" rx="2" fill="#C9A86A"/><path d="M52 155 V178 M52 163 L40 172 M52 163 L63 170 M52 178 L43 196 M52 178 L61 196" stroke="#EDE6D6" stroke-width="4" stroke-linecap="round" fill="none"/></g></g>';
+        // handshake spark, appears when he arrives
+        s += '<g id="' + idp + 'spark" opacity="0"><path d="M207 170 L216 164" stroke="#D9A441" stroke-width="3" stroke-linecap="round"/><text x="222" y="140" font-size="15" fill="#D9A441">✦</text></g>';
+      }
+      if (mode === "flicker") {
+        s += '<g id="' + idp + 'meet"><circle cx="292" cy="152" r="8" fill="#E8C39E"/><circle cx="298" cy="145" r="3.4" fill="#2A1D16"/><path d="M283 186 L292 161 L301 186 Z" fill="#B84A39"/>';
+        s += '<circle cx="262" cy="146" r="9" fill="#E8C39E"/><rect x="252" y="131" width="20" height="5" rx="2" fill="#C9A86A"/><path d="M262 155 V178 M262 163 L250 172 M262 163 L274 172 M262 178 L253 196 M262 178 L271 196" stroke="#EDE6D6" stroke-width="4" stroke-linecap="round" fill="none"/>';
+        s += '<circle cx="300" cy="120" r="26" fill="#F5C86B" opacity=".14"/></g>';
+        s += '<g id="' + idp + 'ghost" opacity="0"><circle cx="196" cy="146" r="9" fill="none" stroke="#A78BFA" stroke-width="2" stroke-dasharray="3 3"/><path d="M196 155 V178 M196 163 L184 174 M196 163 L208 174 M196 178 L187 196 M196 178 L205 196" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" fill="none" opacity=".6"/></g>';
+      }
+      s += "</svg>";
+      mount.innerHTML = s;
+    }
+    buildTown(document.getElementById("town1"), "t", "meet");
+    buildTown(document.getElementById("town2"), "f", "flicker");
+
+    /* ---------- flow ---------- */
     document.getElementById("beginBtn").addEventListener("click", function () {
       audio(); tick(0.09);
       show("s1");
       var iv = setInterval(function () { tick(0.035); }, 1200);
       later(function () { clearInterval(iv); }, 20000);
-      timers.push(iv);
     });
 
     document.getElementById("toMachine").addEventListener("click", function () {
       clearTimers(); staticBurst(0.4, 0.22); staticFlash(300);
       show("s2");
+      // the meeting: he walks up, face to face, handshake — then the choice
+      later(function () {
+        var cap = document.getElementById("townCap");
+        cap.innerHTML = "He stops in front of you. Same eyes. Same face, <b>fifty years younger</b>.";
+        tick(0.07);
+      }, reduced ? 300 : 4700);
+      later(function () {
+        var spark = document.getElementById("tspark"), lolo = document.getElementById("tloloinner"), you = document.getElementById("tyou");
+        if (spark) spark.setAttribute("opacity", "1");
+        if (lolo) lolo.classList.add("shake");
+        if (you) you.classList.add("shake");
+        document.getElementById("townCap").innerHTML = "“You look familiar, hijo.” He shakes your hand — then turns toward the store. <b>One choice:</b>";
+        chime();
+      }, reduced ? 900 : 5900);
+      later(function () { document.getElementById("choiceRow").style.display = ""; }, reduced ? 1400 : 6800);
     });
 
     document.getElementById("letBtn").addEventListener("click", function () {
-      document.getElementById("cap1952").innerHTML = "That's not why you came. <b>The machine only brought one choice.</b>";
+      document.getElementById("townCap").innerHTML = "That's not why you came. <b>The machine only brought one choice.</b>";
       tick(0.05);
     });
 
     document.getElementById("stopBtn").addEventListener("click", function () {
-      var w = document.getElementById("walker");
-      if (w) w.classList.add("stopped");
+      var w = document.getElementById("tloloinner");
+      if (w) { w.classList.remove("shake"); }
       staticBurst(0.5, 0.3); staticFlash(350);
-      later(function () { show("s3"); runErasure(); }, 650);
+      document.getElementById("townCap").innerHTML = "You step between him and the store. “Don't go in.” He stares — and <b>turns away</b>.";
+      later(function () { show("s3"); runErasure(); }, 1500);
     });
 
     function runErasure() {
       var cap = document.getElementById("eraseCap");
-      var tempo = 900, iv = setInterval(function () { tick(0.05); tempo = Math.max(180, tempo - 90); }, 0);
-      clearInterval(iv);
-      var tickIv = setInterval(function () { tick(0.05); }, 700);
-      timers.push(tickIv);
-      var order = [
-        [0,1],[0,3],[0,5],[0,7],[0,2],[0,4],[0,6],
-        [1,2],[1,3],[1,1],
-        [0,0],
-        [1,0],
-        [2,1],[2,0]
-      ];
+      var tickIv = setInterval(function () { tick(0.05); }, 650);
+      var order = ["uncle", "cousin", "lola", "lolo", "dad", "mom"];
       var lines = {
-        6: "Grandpa turns around. He never walks in.",
-        9: "No meeting. No marriage.",
-        10: "<b>Grandpa is never your grandpa.</b>",
-        11: "Your dad is never born.",
-        13: "And neither are <b>you</b>."
+        1: "Faces are going out of the photo.",
+        2: "<b>Lola is gone.</b> He never met her.",
+        3: "<b>Lolo is gone too.</b>",
+        4: "Dad. Gone.",
+        5: "Mom. Gone. The frame is almost empty."
       };
-      order.forEach(function (rc, k) {
+      order.forEach(function (key, k) {
         later(function () {
-          eraseNode("b", rc[0], rc[1]);
+          eraseFig("b", key);
           if (lines[k]) cap.innerHTML = lines[k];
           if (k === order.length - 1) {
             later(function () {
-              var you = node("b", 3, 0);
+              var you = document.getElementById("byou");
               you.classList.add("erasing"); staticBurst(0.6, 0.3); staticFlash(400);
               later(function () {
                 you.classList.remove("erasing", "pulse");
-                you.style.opacity = "0.25";
-                cap.innerHTML = "Your photo is <b>fading</b>.";
+                you.style.opacity = "0.22";
+                cap.innerHTML = "And you — <b>you're barely in the photo at all</b>.";
                 clearInterval(tickIv);
-                later(function () { show("s4"); runParadox(); }, 1800);
+                later(function () { show("s4"); runParadox(); }, 1900);
               }, 800);
             }, 500);
           }
-        }, 500 + k * 620);
+        }, 500 + k * 700);
       });
     }
 
@@ -465,30 +483,23 @@
       var stage = document.getElementById("stage");
       var items = document.querySelectorAll("#chain li");
       items.forEach(function (li, i) { later(function () { li.classList.add("on"); tick(0.06); }, 700 + i * 850); });
-      var states = [
-        { html: "<b>HE MEETS HER — YOU EXIST</b>", gone: false },
-        { html: "<b>YOU STOP HIM — YOU VANISH</b>", gone: true }
-      ];
+      var meet = document.getElementById("fmeet"), ghost = document.getElementById("fghost");
       var flip = false, delay = 460, elapsed = 0;
       stage.classList.add("glitching");
       function step() {
         flip = !flip;
-        var st = states[flip ? 1 : 0];
-        cap.innerHTML = st.html;
-        for (var r = 0; r < 4; r++) {
-          var n = ROWS[r].labels.length;
-          for (var i = 0; i < n; i++) {
-            var nd = node("c", r, i);
-            if (nd) nd.style.opacity = st.gone ? (r === 3 ? "0.12" : "0.07") : "";
-          }
-        }
-        if (flip) { staticBurst(0.12, 0.12); }
+        cap.innerHTML = flip ? "<b>YOU STOP HIM — YOU VANISH</b>" : "<b>HE MEETS LOLA — YOU EXIST</b>";
+        if (meet) meet.setAttribute("opacity", flip ? "0" : "1");
+        if (ghost) ghost.setAttribute("opacity", flip ? "1" : "0");
+        if (flip) staticBurst(0.12, 0.12);
         elapsed += delay;
         delay = Math.max(70, delay * 0.82);
         if (elapsed < 4600) { later(step, reduced ? 500 : delay); }
         else {
           stage.classList.remove("glitching");
-          cap.innerHTML = "Both timelines. <b>At once.</b> That's the paradox.";
+          if (meet) meet.setAttribute("opacity", "1");
+          if (ghost) ghost.setAttribute("opacity", "0.35");
+          cap.innerHTML = "Both towns. <b>At once.</b> That's the paradox.";
           chime();
           document.getElementById("toEscapes").style.display = "";
         }
@@ -505,29 +516,6 @@
       btn.addEventListener("click", function () { playEscape(btn.getAttribute("data-esc")); });
     });
 
-    function miniTreeSVG(idp, split) {
-      if (split) {
-        return '<svg viewBox="0 0 360 240" role="img" aria-label="Two family trees side by side">'
-          + '<line x1="180" y1="10" x2="180" y2="230" stroke="#A78BFA" stroke-width="2" stroke-dasharray="5 6" opacity=".7"/>'
-          + '<g id="vigL">' + treeFrag(90) + '</g><g id="vigR">' + treeFrag(270) + '</g>'
-          + '<text x="90" y="228" text-anchor="middle" fill="#A79FB5" font-size="11" letter-spacing="2">THAT WORLD</text>'
-          + '<text x="270" y="228" text-anchor="middle" fill="#D9A441" font-size="11" letter-spacing="2">YOUR WORLD</text></svg>';
-      }
-      return '<svg viewBox="0 0 360 240" role="img" aria-label="A small family tree">'
-        + '<g id="vigT">' + treeFrag(180) + '</g></svg>';
-    }
-    function treeFrag(cx) {
-      var s = "";
-      var top = { x: cx, y: 34 }, mid1 = { x: cx - 42, y: 104 }, mid2 = { x: cx + 42, y: 104 }, you = { x: cx, y: 178 };
-      s += '<line x1="' + you.x + '" y1="' + you.y + '" x2="' + mid1.x + '" y2="' + mid1.y + '" stroke="#D9A441" stroke-width="2"/>';
-      s += '<line x1="' + you.x + '" y1="' + you.y + '" x2="' + mid2.x + '" y2="' + mid2.y + '" stroke="rgba(239,234,246,.25)" stroke-width="1.6"/>';
-      s += '<line x1="' + mid1.x + '" y1="' + mid1.y + '" x2="' + top.x + '" y2="' + top.y + '" stroke="#D9A441" stroke-width="2"/>';
-      [[top, 13, "#D9A441"], [mid1, 12, "#D9A441"], [mid2, 12, "rgba(239,234,246,.55)"], [you, 17, "#A78BFA"]].forEach(function (nd) {
-        s += '<circle cx="' + nd[0].x + '" cy="' + nd[0].y + '" r="' + nd[1] + '" fill="#1B1830" stroke="' + nd[2] + '" stroke-width="2"/>';
-      });
-      return s;
-    }
-
     function playEscape(kind) {
       clearTimers();
       show("s6");
@@ -535,6 +523,7 @@
           cap = document.getElementById("vigCap"), done = document.getElementById("vigDone");
       done.style.display = "none";
       cap.innerHTML = "";
+      vigBox.innerHTML = "";
       function finish() {
         seen[kind] = true;
         document.querySelector('[data-esc="' + kind + '"] [data-seen]').style.display = "";
@@ -547,41 +536,57 @@
       if (kind === "fixed") {
         kick.textContent = "Escape one · Novikov";
         h.textContent = "The Fixed Timeline";
-        vigBox.innerHTML = miniTreeSVG("f", false);
+        var wrap = document.createElement("div"); wrap.className = "townbox"; vigBox.appendChild(wrap);
+        buildTown(wrap, "v", "meet");
+        var lolo = document.getElementById("vlolo");
+        if (lolo) { lolo.classList.remove("walker"); }
         var beats = [
-          "You step into his path. <b>A streetcar cuts between you.</b>",
-          "You shout his name. The diner bell drowns it out — <b>he never heard it</b>.",
-          "You grab his sleeve. Your hand passes through, <b>like the past is already printed</b>.",
-          "He walks in. She looks up. <b>It happens anyway.</b>",
+          "You step into his path. <b>A kalesa rolls between you.</b>",
+          "You call his name. The store radio and the church bells <b>drown you out</b>.",
+          "You grab his arm. Your hand passes through — <b>like the past is already printed</b>.",
+          "He walks in. Lola looks up. <b>It happens anyway.</b>",
           "The universe doesn't argue. It just <span class='gold'>arranges</span>."
         ];
         beats.forEach(function (b, i) {
-          later(function () { cap.innerHTML = b; tick(0.06); if (i === 3) staticFlash(150); }, 400 + i * 1500);
+          later(function () {
+            cap.innerHTML = b; tick(0.06);
+            if (i === 0) { var k = document.getElementById("vkalesa"); if (k) k.classList.add("kalesa-slide"); }
+            if (i === 3) staticFlash(150);
+          }, 400 + i * 1500);
         });
         later(finish, 400 + beats.length * 1500);
       } else if (kind === "branch") {
         kick.textContent = "Escape two · Many worlds";
         h.textContent = "Branching Worlds";
-        vigBox.innerHTML = miniTreeSVG("br", true);
+        var tw = document.createElement("div"); tw.className = "twophoto"; vigBox.appendChild(tw);
+        var left = document.createElement("div"); left.className = "frame-box"; tw.appendChild(left);
+        var right = document.createElement("div"); right.className = "frame-box"; tw.appendChild(right);
+        buildPhoto(left, "L");
+        buildPhoto(right, "R");
         var beats2 = [
           "You stop him. The world <b>splits</b> — cleanly, silently.",
-          "In that world, the tree goes dark, branch by branch.",
-          "In yours, <b>every light stays on</b>.",
-          "Somewhere, a you is gone. <span class='gold'>It isn't this you.</span>"
+          "In that world, the photo empties, face by face.",
+          "In yours, <b>every face stays</b>.",
+          "Somewhere, a you is missing from the frame. <span class='gold'>It isn't this you.</span>"
         ];
         beats2.forEach(function (b, i) {
           later(function () {
             cap.innerHTML = b; tick(0.06);
-            if (i === 1) { var L = document.getElementById("vigL"); if (L) { L.style.transition = "opacity 2.4s"; L.style.opacity = "0.08"; } staticBurst(0.4, 0.2); }
+            if (i === 1) {
+              ["uncle", "lolo", "lola", "dad", "mom", "cousin", "you"].forEach(function (key, j) {
+                later(function () { eraseFig("L", key); }, j * 260);
+              });
+              staticBurst(0.4, 0.2);
+            }
           }, 400 + i * 1600);
         });
         later(finish, 400 + beats2.length * 1600);
       } else {
         kick.textContent = "Escape three · No exit";
         h.textContent = "The Paradox Stands";
-        vigBox.innerHTML = '<div class="serif" id="loopSym" style="font-size:120px;line-height:1.2;color:var(--violet);text-shadow:0 0 34px rgba(167,139,250,.6)">∞</div>';
+        vigBox.innerHTML = '<div id="loopSym" style="font-family:Georgia,serif;font-size:120px;line-height:1.2;color:var(--violet);text-shadow:0 0 34px rgba(167,139,250,.6)">∞</div>';
         var beats3 = [
-          "No streetcar. No split. <b>Just the loop.</b>",
+          "No kalesa. No split. <b>Just the loop.</b>",
           "You vanish, so you don't. You don't, so you do.",
           "It never resolves. It just <span class='gold'>asks again</span>."
         ];
@@ -602,8 +607,8 @@
     /* ---------- closing ---------- */
     var ANSWERS = {
       fixed: "Then relax. <b>History is load-bearing</b> — and you're part of the structure.",
-      branch: "Then somewhere there's a tree with your name missing. <b>This one kept you.</b>",
-      loop: "Then you're already on your way back. <b>He's about to walk into a diner…</b>"
+      branch: "Then somewhere there's a photo with your face missing. <b>This one kept you.</b>",
+      loop: "Then you're already on your way back. <b>He's about to walk into a store…</b>"
     };
     document.querySelectorAll("[data-ans]").forEach(function (btn) {
       btn.addEventListener("click", function () {
