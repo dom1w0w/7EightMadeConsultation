@@ -162,6 +162,129 @@
       .flash { animation: none; }
       .tsize { transition: none; }
     }
+
+    /* ── Mode bar ── */
+    .modebar { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; margin: 26px 0 2px; }
+    .modebtn { appearance: none; cursor: pointer; flex: 1 1 240px; text-align: left; background: var(--bg2); color: var(--ink); border: 1px solid var(--line2); border-radius: 16px; padding: 14px 18px; min-height: 58px; font: 600 15px/1.3 Inter, sans-serif; transition: border-color .2s, background .2s; }
+    .modebtn small { display: block; color: var(--muted); font-weight: 500; font-size: 13px; margin-top: 2px; }
+    .modebtn:hover { border-color: var(--board); }
+    .modebtn[aria-pressed="true"] { background: var(--board-dim); border-color: var(--board); }
+    .modebtn .mb-ic { font-size: 18px; margin-right: 8px; }
+
+    /* ── Shared beat furniture ── */
+    .beat-frame { background: var(--bg2); border: 1px solid var(--line); border-radius: 20px; padding: 18px; margin-top: 18px; }
+    .beat-frame svg { display: block; width: 100%; height: auto; }
+    .beat-read { font-size: 16px; color: #E7E0D2; margin-top: 12px; min-height: 52px; max-width: 76ch; }
+    .beat-read b { color: var(--board); }
+    .beat-read .bad { color: #FF9D7A; font-weight: 700; }
+    .beat-read .warn { color: var(--volt); font-weight: 700; }
+    .pillstat { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line2); border-radius: 999px; padding: 7px 14px; font: 600 13px/1 Inter, sans-serif; color: var(--muted); }
+    .pillstat b { color: var(--ink); font-size: 15px; }
+    .pillstat.hot b { color: #FF9D7A; }
+    .pillstat.good b { color: var(--board); }
+    .ctl-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+    .big-num { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 34px; line-height: 1; color: var(--board); }
+    .big-num small { display: block; font-family: Inter, sans-serif; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 3px; }
+    input[type="range"].big-range { width: 100%; accent-color: var(--board); height: 48px; cursor: pointer; }
+    .range-lab { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-top: -6px; }
+    .gauge { height: 14px; border-radius: 7px; background: rgba(242,236,226,.1); overflow: hidden; margin-top: 8px; }
+    .gauge i { display: block; height: 100%; width: 0%; background: var(--board); border-radius: 7px; transition: width .18s linear; }
+    .gauge i.hot { background: #FF7A4D; }
+    .gauge i.volt { background: var(--volt); }
+    @keyframes shakeX { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
+    .shake { animation: shakeX .45s ease; }
+    @keyframes spinFan { to { transform: rotate(360deg); } }
+    .fanblades { transform-box: fill-box; transform-origin: center; animation: spinFan 1.1s linear infinite; animation-play-state: paused; }
+    .fanblades.spin { animation-play-state: running; }
+    .fanblades.slow { animation-duration: 1.8s; }
+    .fanblades.fast { animation-duration: .38s; }
+    @keyframes ledBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+    .led { animation: ledBlink 1.6s ease-in-out infinite; }
+    @keyframes popIn { 0% { transform: scale(.92); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+    .pop { transform-box: fill-box; transform-origin: center; animation: popIn .28s ease; }
+
+    /* ── Beat 1 · Build & boot ── */
+    .build-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; margin-top: 18px; align-items: start; }
+    @media (max-width: 900px) { .build-grid { grid-template-columns: 1fr; } }
+    .slotshape { fill: rgba(242,236,226,.04); stroke: rgba(242,236,226,.4); stroke-width: 1.5; stroke-dasharray: 6 5; }
+    .slotshape.armed { stroke: var(--board); stroke-width: 2.5; }
+    .slotgroup { cursor: pointer; }
+    .slotgroup text { fill: rgba(242,236,226,.5); font-family: Inter, sans-serif; font-weight: 600; pointer-events: none; }
+    .placedpart { cursor: pointer; }
+    .placedpart .pshape { fill: #26573B; stroke: rgba(242,236,226,.45); stroke-width: 1.5; }
+    .placedpart text { fill: var(--ink); font-family: Inter, sans-serif; font-weight: 600; pointer-events: none; }
+    .build-side { display: flex; flex-direction: column; gap: 14px; }
+    .monitor { background: #05070A; border: 1px solid var(--line2); border-radius: 14px; padding: 16px; min-height: 218px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px; line-height: 1.75; color: #9FE8B4; position: relative; overflow: hidden; }
+    .monitor.off { color: #3A4149; }
+    .monitor .mline { white-space: pre-wrap; word-break: break-word; }
+    .monitor .mline.dim { color: #5E7A67; }
+    .monitor .mline.err { color: #FF9D7A; }
+    .monitor .mline.os { color: var(--ink); font-family: Inter, sans-serif; font-size: 15px; line-height: 1.55; }
+    .monitor .mline.os b { color: var(--board); }
+    .monitor.glitching { animation: glitchBox .12s steps(2) 7; }
+    @keyframes glitchBox { 0% { transform: translate(0); filter: none; } 25% { transform: translate(-5px, 2px); filter: hue-rotate(90deg) contrast(1.6); } 50% { transform: translate(4px, -3px); filter: invert(.12) hue-rotate(-60deg); } 75% { transform: translate(-3px, -1px); filter: contrast(2); } 100% { transform: translate(0); filter: none; } }
+    .powerbtn { appearance: none; cursor: pointer; width: 92px; height: 92px; border-radius: 50%; border: 3px solid var(--line2); background: radial-gradient(circle at 35% 30%, #2A3324, #141A10); color: var(--ink); font: 700 12px/1.25 Inter, sans-serif; letter-spacing: .1em; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; margin: 0 auto; transition: border-color .2s, box-shadow .2s; }
+    .powerbtn .pwr-ic { font-size: 26px; color: var(--muted); transition: color .2s; }
+    .powerbtn:hover { border-color: var(--board); }
+    .powerbtn.on { border-color: var(--board); box-shadow: 0 0 26px rgba(53,194,110,.4); }
+    .powerbtn.on .pwr-ic { color: var(--board); }
+    .beepdots { text-align: center; font-size: 19px; letter-spacing: .35em; color: var(--volt); min-height: 26px; font-weight: 700; }
+    .tray { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .part { appearance: none; cursor: pointer; background: var(--panel); color: var(--ink); border: 1px solid var(--line2); border-radius: 14px; padding: 11px 15px; min-height: 50px; font: 600 13.5px/1.25 Inter, sans-serif; text-align: left; transition: border-color .15s, background .15s, opacity .15s; }
+    .part small { display: block; color: var(--muted); font-weight: 500; font-size: 12px; margin-top: 1px; }
+    .part:hover { border-color: var(--board); }
+    .part.inhand { background: var(--board); border-color: var(--board); color: var(--on-board); }
+    .part.inhand small { color: rgba(7,19,12,.7); }
+    .part.done { opacity: .45; border-style: dashed; }
+    .part.done::after { content: " ✓"; color: var(--board); font-weight: 700; }
+    .checklist { list-style: none; margin-top: 4px; display: flex; flex-direction: column; gap: 7px; font-size: 14.5px; }
+    .checklist li { display: flex; gap: 9px; align-items: baseline; color: var(--muted); }
+    .checklist li .ck { font-weight: 700; width: 17px; flex: none; text-align: center; }
+    .checklist li.ok { color: #E7E0D2; }
+    .checklist li.ok .ck { color: var(--board); }
+    .checklist li.warn { color: var(--volt); }
+    .checklist li.warn .ck { color: var(--volt); }
+    .side-card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 20px 22px; }
+    .side-card h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 22px; margin-bottom: 8px; }
+
+    /* ── Beat 2 · VRM valve ── */
+    .vrm-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 18px; margin-top: 18px; align-items: start; }
+    @media (max-width: 900px) { .vrm-grid { grid-template-columns: 1fr; } }
+    .vzone { position: relative; height: 26px; border-radius: 8px; background: rgba(242,236,226,.08); margin-top: 10px; overflow: visible; }
+    .vzone .zone { position: absolute; top: 0; bottom: 0; background: rgba(53,194,110,.4); border: 1px solid var(--board); border-radius: 8px; transition: left .3s, width .3s; }
+    .vzone .needle { position: absolute; top: -5px; bottom: -5px; width: 4px; border-radius: 2px; background: var(--volt); box-shadow: 0 0 8px rgba(255,196,77,.8); transition: left .12s linear; }
+    .vzone-lab { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); font-weight: 600; margin-top: 5px; }
+    #vWheel { transform-box: fill-box; transform-origin: center; transition: transform .12s linear; }
+
+    /* ── Beat 3 · Gate challenge ── */
+    .gdot { width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--line2); display: inline-block; }
+    .gdot.done { background: var(--board); border-color: var(--board); }
+    .gdot.now { border-color: var(--volt); box-shadow: 0 0 0 3px rgba(255,196,77,.25); }
+    .truth { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    .truth th, .truth td { border: 1px solid var(--line); padding: 7px 9px; text-align: center; }
+    .truth th { color: var(--muted); font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .truth td.pass { color: var(--board); font-weight: 700; }
+    .truth td.fail { color: #FF9D7A; font-weight: 700; }
+
+    /* ── Beat 4 · Overclock ── */
+    .oc-frame { position: relative; }
+    .oc-frame.glitching { animation: glitchBox .12s steps(2) 8; }
+    .heatglow { transition: opacity .3s; }
+    .oc-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 18px; margin-top: 18px; align-items: start; }
+    @media (max-width: 900px) { .oc-grid { grid-template-columns: 1fr; } }
+    .winbanner { display: none; border: 1px solid var(--board); background: var(--board-dim); border-radius: 14px; padding: 14px 18px; font-size: 15.5px; margin-top: 14px; }
+    .winbanner.on { display: block; }
+    .winbanner b { color: var(--board); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fanblades { animation: none !important; }
+      .led { animation: none; }
+      .shake { animation: none; }
+      .pop { animation: none; }
+      .monitor.glitching, .oc-frame.glitching { animation: none; }
+    }
+
+    .beat-frame .vlab { fill: var(--volt); font-family: Fraunces, Georgia, serif; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -174,7 +297,7 @@
   <header class="hero wrap">
     <p class="kicker">How things work · Hardware, first principles</p>
     <h1>The <b>Board</b></h1>
-    <p>A computer is a city built on one idea: a switch with no moving parts. This is the motherboard of the example rig — an <b>Intel i7-13700KF</b>, an <b>RTX 4060 Ti</b>, <b>32 GB of DDR5</b> — taken apart piece by piece. Tap anything. Follow the power. Then zoom all the way down to a single transistor and flip it yourself.</p>
+    <p>A computer is a city built on one idea: a switch with no moving parts. This is the motherboard of the example rig — an <b>Intel i7-13700KF</b>, an <b>RTX 4060 Ti</b>, <b>32 GB of DDR5</b> — taken apart piece by piece. Tap anything. Follow the power. Then zoom all the way down to a single transistor and flip it yourself. Or skip the tour: <b>build the rig with your own hands</b>, then press the power button and find out if it boots.</p>
     <div class="path" role="group" aria-label="Guided path">
       <button type="button" data-goto="power"><i>01</i> Electricity</button>
       <button type="button" data-goto="zoom" data-level="3"><i>02</i> The switch</button>
@@ -187,6 +310,340 @@
   </header>
 
   <main class="wrap">
+
+
+    <!-- ── MODE BAR ─────────────────────────────── -->
+    <div class="modebar" role="group" aria-label="Choose a mode">
+      <button type="button" class="modebtn" id="modeBuild" aria-pressed="true"><span class="mb-ic">🔧</span>Build mode<small>Do it yourself — build the rig, work the power, beat the challenges. Things can go wrong.</small></button>
+      <button type="button" class="modebtn" id="modeExplore" aria-pressed="false"><span class="mb-ic">🔍</span>Explore mode<small>Tap every part and read its story — the guided tour of the same board.</small></button>
+    </div>
+
+    <div id="buildWrap">
+
+    <!-- ── BEAT 1 · BUILD & BOOT ─────────────────────────────── -->
+    <section class="blk" id="build" aria-labelledby="buildH">
+      <div class="blk-head"><h2 id="buildH">Build it, then boot it</h2><span class="step-tag">Build mode · Beat 1</span></div>
+      <p class="blk-sub">Enough tapping parts — here is the empty board and a tray of pieces. Tap a part to pick it up, tap where it belongs to seat it. Some parts have a second step, exactly like the real thing. Then press the power button and find out what kind of builder you are.</p>
+
+      <div class="build-grid">
+        <div class="board-frame">
+          <svg id="buildSvg" viewBox="0 0 900 620" role="group" aria-label="An empty motherboard waiting for its parts">
+            <rect x="20" y="20" width="860" height="580" rx="18" fill="#143527"/>
+            <rect x="20" y="20" width="860" height="580" rx="18" fill="url(#traces)"/>
+            <!-- ambient data pulses live here -->
+            <g id="bPulses"></g>
+            <path d="M858 168 H640 V411 H642" fill="none" stroke="rgba(255,196,77,.14)" stroke-width="3"/>
+            <path d="M430 174 H458" fill="none" stroke="rgba(255,196,77,.14)" stroke-width="3"/>
+            <path d="M346 258 V436" fill="none" stroke="rgba(255,196,77,.14)" stroke-width="3"/>
+
+            <!-- slots (empty state) -->
+            <g class="slotgroup" data-slot="cpu8" tabindex="0" role="button" aria-label="CPU power slot, top left">
+              <rect class="slotshape" x="48" y="42" width="118" height="36" rx="6"/>
+              <text x="107" y="65" text-anchor="middle" font-size="13">CPU POWER</text>
+            </g>
+            <g class="slotgroup" data-slot="fan" tabindex="0" role="button" aria-label="CPU fan header">
+              <rect class="slotshape" x="676" y="42" width="118" height="36" rx="6"/>
+              <text x="735" y="65" text-anchor="middle" font-size="13">FAN HEADER</text>
+            </g>
+            <rect x="182" y="44" width="196" height="30" rx="6" fill="#1C4630" stroke="rgba(242,236,226,.2)"/>
+            <text x="280" y="64" text-anchor="middle" font-size="13" fill="rgba(242,236,226,.55)" font-family="Inter, sans-serif" font-weight="600">VRM</text>
+
+            <g class="slotgroup" data-slot="cpu" tabindex="0" role="button" aria-label="CPU socket">
+              <rect class="slotshape" x="262" y="90" width="168" height="168" rx="10"/>
+              <text x="346" y="180" text-anchor="middle" font-size="15">CPU SOCKET</text>
+            </g>
+            <g class="slotgroup" data-slot="ram" tabindex="0" role="button" aria-label="RAM slots">
+              <rect class="slotshape" x="458" y="76" width="34" height="206" rx="5"/>
+              <rect class="slotshape" x="506" y="76" width="34" height="206" rx="5"/>
+              <rect class="slotshape" x="554" y="76" width="34" height="206" rx="5"/>
+              <rect class="slotshape" x="602" y="76" width="34" height="206" rx="5"/>
+              <text x="547" y="306" text-anchor="middle" font-size="13">RAM SLOTS</text>
+            </g>
+            <g class="slotgroup" data-slot="atx24" tabindex="0" role="button" aria-label="24-pin power slot, right edge">
+              <rect class="slotshape" x="816" y="70" width="42" height="196" rx="6"/>
+              <text x="837" y="172" text-anchor="middle" font-size="13" transform="rotate(90 837 172)">24-PIN</text>
+            </g>
+            <circle cx="150" cy="330" r="30" fill="#1C4630" stroke="rgba(242,236,226,.2)"/>
+            <text x="150" y="336" text-anchor="middle" font-size="12" fill="rgba(242,236,226,.55)" font-family="Inter, sans-serif" font-weight="600">CMOS</text>
+            <circle class="led" id="bLed" cx="64" cy="560" r="7" fill="#FFC44D" opacity=".8"/>
+            <text x="80" y="565" font-size="12" fill="rgba(242,236,226,.55)" font-family="Inter, sans-serif" font-weight="600">standby</text>
+
+            <g class="slotgroup" data-slot="m2" tabindex="0" role="button" aria-label="M.2 slot">
+              <rect class="slotshape" x="466" y="398" width="176" height="26" rx="5"/>
+              <text x="554" y="416" text-anchor="middle" font-size="13">M.2 SLOT</text>
+            </g>
+            <rect x="692" y="326" width="92" height="92" rx="8" fill="#1C4630" stroke="rgba(242,236,226,.2)"/>
+            <text x="738" y="378" text-anchor="middle" font-size="13" fill="rgba(242,236,226,.55)" font-family="Inter, sans-serif" font-weight="600">CHIPSET</text>
+
+            <g class="slotgroup" data-slot="gpu" tabindex="0" role="button" aria-label="PCIe slot for the graphics card">
+              <rect class="slotshape" x="70" y="436" width="586" height="58" rx="8"/>
+              <text x="363" y="472" text-anchor="middle" font-size="14">PCIe x16 — GRAPHICS CARD GOES HERE</text>
+            </g>
+
+            <!-- placed parts (hidden until seated) -->
+            <g class="placedpart" id="pp-cpu8" data-part="cpu8" style="display:none" tabindex="0" role="button" aria-label="Placed: CPU power cable">
+              <rect class="pshape" x="48" y="42" width="118" height="36" rx="6" fill="#3A3F45"/>
+              <text x="107" y="65" text-anchor="middle" font-size="13">8-PIN ✓</text>
+            </g>
+            <g class="placedpart" id="pp-atx24" data-part="atx24" style="display:none" tabindex="0" role="button" aria-label="Placed: 24-pin power cable">
+              <rect class="pshape" x="816" y="70" width="42" height="196" rx="6" fill="#3A3F45"/>
+              <text x="837" y="172" text-anchor="middle" font-size="13" transform="rotate(90 837 172)">24-PIN ✓</text>
+            </g>
+            <g class="placedpart" id="pp-cpu" data-part="cpu" style="display:none" tabindex="0" role="button" aria-label="Placed: CPU">
+              <rect class="pshape" x="262" y="90" width="168" height="168" rx="10"/>
+              <rect x="292" y="120" width="108" height="108" rx="6" fill="#8E9299"/>
+              <text x="346" y="168" text-anchor="middle" font-size="15" fill="#26282C">i7-13700KF</text>
+              <text x="346" y="190" text-anchor="middle" font-size="11" fill="#4A4D52">the brain</text>
+            </g>
+            <g class="placedpart" id="pp-ram" data-part="ram" style="display:none" tabindex="0" role="button" aria-label="Placed: RAM sticks — tap to work the latches">
+              <rect class="pshape" x="506" y="76" width="34" height="206" rx="5"/>
+              <rect class="pshape" x="602" y="76" width="34" height="206" rx="5"/>
+              <rect x="506" y="76" width="34" height="14" fill="#FFC44D" id="latchA"/>
+              <rect x="602" y="76" width="34" height="14" fill="#FFC44D" id="latchB"/>
+              <text x="523" y="196" text-anchor="middle" font-size="12" transform="rotate(90 523 186)">16 GB</text>
+              <text x="619" y="196" text-anchor="middle" font-size="12" transform="rotate(90 619 186)">16 GB</text>
+            </g>
+            <g class="placedpart" id="pp-m2" data-part="m2" style="display:none" tabindex="0" role="button" aria-label="Placed: M.2 drive">
+              <rect class="pshape" x="466" y="398" width="176" height="26" rx="5"/>
+              <text x="554" y="416" text-anchor="middle" font-size="13">NVMe SSD ✓</text>
+            </g>
+            <g class="placedpart" id="pp-gpu" data-part="gpu" style="display:none" tabindex="0" role="button" aria-label="Placed: graphics card">
+              <rect class="pshape" x="70" y="436" width="586" height="58" rx="8"/>
+              <g class="fanblades slow" id="gpuFan1">
+                <path d="M130 465 L130 448 A17 17 0 0 1 143 453 Z" fill="#8E9299"/>
+                <path d="M130 465 L130 448 A17 17 0 0 1 143 453 Z" fill="#8E9299" transform="rotate(120 130 465)"/>
+                <path d="M130 465 L130 448 A17 17 0 0 1 143 453 Z" fill="#8E9299" transform="rotate(240 130 465)"/>
+              </g>
+              <circle cx="130" cy="465" r="19" fill="none" stroke="rgba(242,236,226,.4)" stroke-width="2"/>
+              <g class="fanblades slow" id="gpuFan2">
+                <path d="M196 465 L196 448 A17 17 0 0 1 209 453 Z" fill="#8E9299"/>
+                <path d="M196 465 L196 448 A17 17 0 0 1 209 453 Z" fill="#8E9299" transform="rotate(120 196 465)"/>
+                <path d="M196 465 L196 448 A17 17 0 0 1 209 453 Z" fill="#8E9299" transform="rotate(240 196 465)"/>
+              </g>
+              <circle cx="196" cy="465" r="19" fill="none" stroke="rgba(242,236,226,.4)" stroke-width="2"/>
+              <text x="430" y="472" text-anchor="middle" font-size="15">RTX 4060 Ti ✓</text>
+            </g>
+            <g class="placedpart" id="pp-cooler" data-part="cooler" style="display:none" tabindex="0" role="button" aria-label="Placed: CPU cooler — tap to take it back off">
+              <rect class="pshape" x="252" y="80" width="188" height="188" rx="12" fill="#22262B"/>
+              <circle cx="346" cy="174" r="56" fill="#171B14" stroke="rgba(242,236,226,.4)" stroke-width="2"/>
+              <g class="fanblades slow" id="cpuFan">
+                <path d="M346 174 L346 128 A46 46 0 0 1 376 140 Z" fill="#8E9299"/>
+                <path d="M346 174 L346 128 A46 46 0 0 1 376 140 Z" fill="#8E9299" transform="rotate(72 346 174)"/>
+                <path d="M346 174 L346 128 A46 46 0 0 1 376 140 Z" fill="#8E9299" transform="rotate(144 346 174)"/>
+                <path d="M346 174 L346 128 A46 46 0 0 1 376 140 Z" fill="#8E9299" transform="rotate(216 346 174)"/>
+                <path d="M346 174 L346 128 A46 46 0 0 1 376 140 Z" fill="#8E9299" transform="rotate(288 346 174)"/>
+              </g>
+              <circle cx="346" cy="174" r="10" fill="#3A3F45"/>
+              <path id="fanCable" d="M420 96 C560 40 640 44 700 50" fill="none" stroke="#FFC44D" stroke-width="3" stroke-dasharray="5 6" opacity=".55"/>
+              <text x="346" y="252" text-anchor="middle" font-size="12">COOLER</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="build-side">
+          <div class="monitor off" id="bMonitor" aria-live="polite">
+            <div class="mline dim">— the screen is dark. The machine is waiting for a builder. —</div>
+          </div>
+          <div class="beepdots" id="bBeeps" aria-hidden="true"></div>
+          <button class="powerbtn" id="bPower" type="button"><span class="pwr-ic">⏻</span>Power</button>
+          <div class="side-card">
+            <h3>The checklist</h3>
+            <ul class="checklist" id="bCheck"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tray" id="bTray" aria-label="Parts tray">
+        <button type="button" class="part" data-part="cpu">CPU<small>Intel i7-13700KF</small></button>
+        <button type="button" class="part" data-part="cooler">CPU cooler<small>fan + heatsink</small></button>
+        <button type="button" class="part" data-part="ram">RAM ×2<small>DDR5, 32 GB total</small></button>
+        <button type="button" class="part" data-part="gpu">Graphics card<small>RTX 4060 Ti</small></button>
+        <button type="button" class="part" data-part="m2">M.2 SSD<small>the drive</small></button>
+        <button type="button" class="part" data-part="atx24">24-pin cable<small>main power</small></button>
+        <button type="button" class="part" data-part="cpu8">8-pin cable<small>CPU power</small></button>
+      </div>
+      <p class="beat-read" id="bRead">Pick up a part, then tap where it lives. The checklist keeps you honest — or don't read it, and let the power button grade you. That is also how real building works.</p>
+      <div class="ctl-row">
+        <button class="btn ghost" id="bReset" type="button">↺ Take it all apart</button>
+        <span class="pillstat" id="bScore">Boots: <b>0</b></span>
+        <span class="pillstat" id="bTries">Power presses: <b>0</b></span>
+      </div>
+    </section>
+
+    <!-- ── BEAT 2 · VRM VALVE ─────────────────────────────── -->
+    <section class="blk" id="vrm" aria-labelledby="vrmH">
+      <div class="blk-head"><h2 id="vrmH">You are the VRM now</h2><span class="step-tag">Build mode · Beat 2</span></div>
+      <p class="blk-sub">In Explore mode the VRM does its job while you watch. Here, the job is yours. The CPU is about to launch a game, and its appetite for voltage will move. Work the valve to keep the needle inside the green band — too much cooks it, too little starves it. Hold the band and you win. The real VRM does this thousands of times a second, without being asked, forever.</p>
+
+      <div class="vrm-grid">
+        <div class="beat-frame" style="margin-top:0">
+          <svg id="vrmSvg" viewBox="0 0 640 240" role="img" aria-label="Power flowing from the power supply, through your valve at the VRM, to the CPU">
+            <path class="pwire" id="vw1" d="M140 120 H270" style="stroke-width:6"/>
+            <path class="pwire" id="vw2" d="M390 120 H500" style="stroke-width:6"/>
+            <g id="vPulses"></g>
+            <g>
+              <rect class="pbox" x="20" y="65" width="120" height="110" rx="10"/>
+              <text x="80" y="112" text-anchor="middle" font-size="16" fill="#F2ECE2" font-family="Inter, sans-serif" font-weight="600">PSU</text>
+              <text class="vlab" x="80" y="140" text-anchor="middle" font-size="16">12V</text>
+            </g>
+            <g>
+              <rect class="pbox live" x="270" y="65" width="120" height="110" rx="10"/>
+              <text x="330" y="100" text-anchor="middle" font-size="16" fill="#F2ECE2" font-family="Inter, sans-serif" font-weight="600">VRM</text>
+              <g id="vWheel">
+                <circle cx="330" cy="136" r="21" fill="none" stroke="#FFC44D" stroke-width="5"/>
+                <line x1="330" y1="118" x2="330" y2="154" stroke="#FFC44D" stroke-width="5" stroke-linecap="round"/>
+                <line x1="312" y1="136" x2="348" y2="136" stroke="#FFC44D" stroke-width="5" stroke-linecap="round"/>
+              </g>
+            </g>
+            <g>
+              <rect class="pbox" id="vCpuBox" x="500" y="65" width="120" height="110" rx="10"/>
+              <text x="560" y="112" text-anchor="middle" font-size="16" fill="#F2ECE2" font-family="Inter, sans-serif" font-weight="600">CPU</text>
+              <text class="vlab" id="vCpuV" x="560" y="140" text-anchor="middle" font-size="16">—</text>
+            </g>
+          </svg>
+          <label for="vSlider" style="font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">The valve — what the CPU actually gets</label>
+          <input type="range" class="big-range" id="vSlider" min="0.80" max="1.60" step="0.01" value="1.10" aria-label="VRM output voltage">
+          <div class="range-lab"><span>0.80V · starved</span><span>1.60V · cooked</span></div>
+          <div class="vzone" aria-hidden="true"><div class="zone" id="vZone"></div><div class="needle" id="vNeedle"></div></div>
+          <div class="vzone-lab"><span>what you're giving: <b id="vGive" style="color:var(--volt)">1.10V</b></span><span>what the CPU wants: <b id="vWant" style="color:var(--board)">—</b></span></div>
+        </div>
+
+        <div class="side-card">
+          <h3>The shift</h3>
+          <div class="ctl-row" style="margin-top:0">
+            <span class="big-num"><span id="vTemp">38</span>°<small>CPU temp</small></span>
+            <span class="pillstat" id="vPhase">Load: <b>idle</b></span>
+          </div>
+          <p style="font-size:14.5px;color:var(--muted);margin-top:12px">Hold the needle in the green</p>
+          <div class="gauge"><i class="volt" id="vHoldFill"></i></div>
+          <p class="beat-read" id="vRead" style="min-height:76px">Press start. The CPU will idle, then launch a game. Your only tool is the valve. Good luck — the real VRM sends its regards.</p>
+          <div class="ctl-row">
+            <button class="btn" id="vStart" type="button">▶ Start the shift</button>
+            <span class="pillstat good" id="vWins">Shifts survived: <b>0</b></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BEAT 3 · GATE CHALLENGE ─────────────────────────────── -->
+    <section class="blk" id="challenge" aria-labelledby="chalH">
+      <div class="blk-head"><h2 id="chalH">The gate challenge</h2><span class="step-tag">Build mode · Beat 3</span></div>
+      <p class="blk-sub">No more flipping switches for fun — now there's a spec. Each goal describes exactly when the lamp may light. Choose the wiring, flip the switches, then run the test: the app checks every combination against the goal. Three goals. All of computing is hiding inside them.</p>
+
+      <div class="gates-grid">
+        <div class="gate-frame">
+          <svg id="cSvg" viewBox="0 0 560 300" role="img" aria-label="Your challenge circuit: two switches, a gate, and a lamp">
+            <path class="gwire" id="cw1" d="M70 110 H180"/>
+            <path class="gwire" id="cw2" d="M70 200 H180"/>
+            <path class="gwire" id="cw3" d="M330 155 H470"/>
+            <line class="gblade" id="cb1" x1="180" y1="110" x2="238" y2="80"/>
+            <line class="gblade" id="cb2" x1="180" y1="200" x2="238" y2="170"/>
+            <circle cx="180" cy="110" r="6" fill="#F2ECE2"/><circle cx="250" cy="110" r="6" fill="#F2ECE2"/>
+            <circle cx="180" cy="200" r="6" fill="#F2ECE2"/><circle cx="250" cy="200" r="6" fill="#F2ECE2"/>
+            <text x="215" y="66" text-anchor="middle" font-size="15">A</text>
+            <text x="215" y="248" text-anchor="middle" font-size="15">B</text>
+            <rect x="252" y="105" width="78" height="100" rx="10" fill="#26573B" stroke="rgba(242,236,226,.4)" stroke-width="1.5"/>
+            <text id="cGateLab" x="291" y="162" text-anchor="middle" font-size="19">AND</text>
+            <circle id="cNot" cx="338" cy="155" r="8" fill="#0B0F0C" stroke="#FFC44D" stroke-width="2.5" style="display:none"/>
+            <circle cx="46" cy="155" r="17" fill="#171B14" stroke="rgba(242,236,226,.4)" stroke-width="2"/>
+            <text x="46" y="161" text-anchor="middle" font-size="14" fill="#FFC44D">~</text>
+            <path class="gwire" d="M46 138 V110 H70" fill="none"/>
+            <path class="gwire" d="M46 172 V200 H70" fill="none"/>
+            <circle class="tlamp" id="cLamp" cx="505" cy="155" r="24"/>
+            <text x="505" y="203" text-anchor="middle" font-size="12" fill="#A69C90">the lamp</text>
+          </svg>
+          <table class="truth" id="cTruth" aria-label="Truth table test results" style="display:none">
+            <thead><tr><th>A</th><th>B</th><th>Lamp</th><th>Goal wants</th><th></th></tr></thead>
+            <tbody id="cTruthBody"></tbody>
+          </table>
+        </div>
+
+        <div class="gate-side">
+          <div class="ctl-row" style="margin-top:0">
+            <span class="gdot now" id="gd1"></span><span class="gdot" id="gd2"></span><span class="gdot" id="gd3"></span>
+            <span style="font-size:13px;color:var(--muted);font-weight:600" id="cGoalNum">GOAL 1 OF 3</span>
+          </div>
+          <h3 id="cGoal" style="margin-top:10px">Light the lamp ONLY when both switches are on.</h3>
+          <div class="seg" role="group" aria-label="Gate type">
+            <button type="button" id="cSegAnd" aria-pressed="true">AND</button>
+            <button type="button" id="cSegOr" aria-pressed="false">OR</button>
+          </div>
+          <div class="seg" role="group" aria-label="Inverter" id="cNotWrap" style="display:none">
+            <button type="button" id="cNotBtn" aria-pressed="false">Invert the answer (NOT)</button>
+          </div>
+          <div class="swrow">
+            <button class="sw" id="cSwA" type="button" aria-pressed="false">Switch A · <b>0</b></button>
+            <button class="sw" id="cSwB" type="button" aria-pressed="false">Switch B · <b>0</b></button>
+          </div>
+          <p class="gate-out" id="cOut">Lamp: <b>dark</b></p>
+          <p id="cWhy">Wire it in a row or side by side — pick the gate, play with the switches, and when you think the circuit obeys the goal, run the test.</p>
+          <div class="ctl-row">
+            <button class="btn" id="cTest" type="button">Run the test</button>
+            <button class="btn ghost" id="cNext" type="button" style="display:none">Next goal →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BEAT 4 · OVERCLOCK ─────────────────────────────── -->
+    <section class="blk" id="overclock" aria-labelledby="ocH">
+      <div class="blk-head"><h2 id="ocH">The overclock dial</h2><span class="step-tag">Build mode · Beat 4</span></div>
+      <p class="blk-sub">Free performance, if your chip agrees. Push the clock and the benchmark climbs — but speed drinks voltage, voltage makes heat, and heat makes endings. Hold 5.8 GHz or better for five seconds without crashing and you've won the silicon lottery. Push like a fool and the board will do what boards do.</p>
+
+      <div class="beat-frame oc-frame" id="ocFrame" style="margin-top:18px">
+        <div class="oc-grid" style="margin-top:0">
+          <div>
+            <svg viewBox="0 0 300 220" role="img" aria-label="The CPU under its cooler, fan spinning faster as it gets hotter">
+              <rect x="55" y="30" width="190" height="160" rx="12" fill="#22262B" stroke="rgba(242,236,226,.3)"/>
+              <rect class="heatglow" id="ocGlow" x="55" y="30" width="190" height="160" rx="12" fill="#FF5A2A" opacity="0"/>
+              <circle cx="150" cy="110" r="58" fill="#171B14" stroke="rgba(242,236,226,.4)" stroke-width="2"/>
+              <g class="fanblades spin slow" id="ocFan">
+                <path d="M150 110 L150 62 A48 48 0 0 1 182 76 Z" fill="#8E9299"/>
+                <path d="M150 110 L150 62 A48 48 0 0 1 182 76 Z" fill="#8E9299" transform="rotate(72 150 110)"/>
+                <path d="M150 110 L150 62 A48 48 0 0 1 182 76 Z" fill="#8E9299" transform="rotate(144 150 110)"/>
+                <path d="M150 110 L150 62 A48 48 0 0 1 182 76 Z" fill="#8E9299" transform="rotate(216 150 110)"/>
+                <path d="M150 110 L150 62 A48 48 0 0 1 182 76 Z" fill="#8E9299" transform="rotate(288 150 110)"/>
+              </g>
+              <circle cx="150" cy="110" r="11" fill="#3A3F45"/>
+              <text x="150" y="208" text-anchor="middle" font-size="13" fill="#A69C90" font-family="Inter, sans-serif" font-weight="600">i7-13700KF · under load</text>
+            </svg>
+            <div class="ctl-row" style="justify-content:center">
+              <span class="pillstat" id="ocFanStat">Fan: <b>30%</b></span>
+              <span class="pillstat" id="ocState">State: <b>stable</b></span>
+            </div>
+          </div>
+          <div>
+            <label for="ocClock" style="font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Clock speed</label>
+            <input type="range" class="big-range" id="ocClock" min="3.4" max="6.2" step="0.1" value="5.4" aria-label="Clock speed in gigahertz">
+            <div class="range-lab"><span>3.4 GHz · base</span><span>5.4 · stock boost</span><span>6.2 · send it</span></div>
+            <label for="ocVolt" style="font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Voltage</label>
+            <input type="range" class="big-range" id="ocVolt" min="1.10" max="1.45" step="0.01" value="1.25" aria-label="CPU voltage">
+            <div class="range-lab"><span>1.10V</span><span>1.45V</span></div>
+            <div class="ctl-row">
+              <span class="big-num"><span id="ocGhz">5.4</span><small>GHz</small></span>
+              <span class="big-num"><span id="ocTemp">47</span>°<small>temp</small></span>
+              <span class="big-num"><span id="ocScore">9,200</span><small>bench score</small></span>
+            </div>
+            <p style="font-size:14.5px;color:var(--muted);margin-top:10px">Stability</p>
+            <div class="gauge"><i id="ocStab"></i></div>
+            <p style="font-size:14.5px;color:var(--muted);margin-top:10px">Hold 5.8+ GHz</p>
+            <div class="gauge"><i class="volt" id="ocHold"></i></div>
+          </div>
+        </div>
+        <p class="beat-read" id="ocRead">Stock settings: 5.4 GHz at 1.25 volts — the factory's promise, kept. The dial is yours now. Remember the VRM's lesson: speed is bought with voltage, and voltage is paid for in heat.</p>
+        <div class="winbanner" id="ocWin"></div>
+        <div class="ctl-row">
+          <button class="btn ghost" id="ocReset" type="button">↺ Back to stock</button>
+          <span class="pillstat good" id="ocBest">Best score: <b>—</b></span>
+          <span class="pillstat hot" id="ocCrashes">Crashes: <b>0</b></span>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /buildWrap -->
+
+
+    <div id="exploreWrap">
 
     <!-- ── EXPLORE ─────────────────────────────── -->
     <section class="blk" id="explore" aria-labelledby="exploreH">
@@ -495,6 +952,8 @@
       <p>Electricity, a switch it can flip itself, decisions built from switches, and a board that feeds and connects them — nothing else is in the box. The example rig on Dom's desk is this page, running 5.4 billion flips a second. Fall down seven. Stand up eight.</p>
     </div>
 
+    </div><!-- /exploreWrap -->
+
     <div class="foot">
       <a href="../">← About The Board</a>
       <span>7EightMade Studio · free, no sign-up</span>
@@ -746,6 +1205,649 @@
   renderGate();
 })();
 </script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var state = { build: null, vrm: null, gate: null, oc: null };
+  window.__board = state;
+
+  /* ── Sound (tiny beeps, visual fallback everywhere) ── */
+  var AC = null;
+  function tone(freq, dur, delay) {
+    try {
+      AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+      if (AC.state === "suspended") AC.resume();
+      var o = AC.createOscillator(), g = AC.createGain();
+      o.type = "square"; o.frequency.value = freq; g.gain.value = 0.035;
+      o.connect(g); g.connect(AC.destination);
+      var t = AC.currentTime + (delay || 0);
+      o.start(t); o.stop(t + dur);
+    } catch (e) { /* silence is fine — the dots still flash */ }
+  }
+  function beeps(kind) {
+    var dots = $("bBeeps");
+    if (kind === "ok") { dots.textContent = "♪"; tone(880, 0.14, 0); tone(1318, 0.18, 0.16); }
+    else if (kind === "err3") { dots.textContent = "● ● ●"; tone(620, 0.16, 0); tone(620, 0.16, 0.28); tone(620, 0.16, 0.56); }
+    else if (kind === "errLong") { dots.textContent = "━━ ●"; tone(440, 0.5, 0); tone(440, 0.16, 0.62); }
+    else if (kind === "err2") { dots.textContent = "● ●"; tone(520, 0.16, 0); tone(520, 0.16, 0.3); }
+    else { dots.textContent = ""; }
+    setTimeout(function () { dots.textContent = ""; }, 2600);
+  }
+
+  /* ── Mode switching ── */
+  function setMode(m) {
+    var build = m === "build";
+    $("buildWrap").style.display = build ? "" : "none";
+    $("exploreWrap").style.display = build ? "none" : "";
+    $("modeBuild").setAttribute("aria-pressed", String(build));
+    $("modeExplore").setAttribute("aria-pressed", String(!build));
+  }
+  $("modeBuild").addEventListener("click", function () { setMode("build"); });
+  $("modeExplore").addEventListener("click", function () { setMode("explore"); });
+  /* Guided-path buttons live in Explore mode: switch first (capture phase,
+     so the v1 scroll handler finds a visible target). */
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("[data-goto]")) setMode("explore");
+  }, true);
+  setMode("build");
+
+  /* ══ BEAT 1 · BUILD & BOOT ══ */
+  var B = state.build = {
+    placed: {}, inHand: null, latches: false, fanPlugged: false,
+    booted: false, busy: false, boots: 0, tries: 0, timers: []
+  };
+  var PART_SLOT = { cpu: "cpu", cooler: "cpu", ram: "ram", gpu: "gpu", m2: "m2", atx24: "atx24", cpu8: "cpu8" };
+  var PART_NAME = { cpu: "the CPU", cooler: "the cooler", ram: "the RAM", gpu: "the graphics card", m2: "the M.2 SSD", atx24: "the 24-pin cable", cpu8: "the 8-pin cable" };
+  var WRONG = {
+    cpu: "The CPU only fits its socket — the big square in the middle of the board. Nothing else is shaped like it, on purpose.",
+    cooler: "The cooler sits directly on top of the CPU. One job, one address.",
+    ram: "RAM lives in the long slots beside the CPU — and it clicks at both ends. Remember that when you get there.",
+    gpu: "The graphics card wants the long PCIe slot, the highway running along the bottom of the board.",
+    m2: "The M.2 drive is a little stick of a thing — it lies flat in its own slot, mid-board.",
+    atx24: "The 24-pin is the big main line — it plugs into the right edge of the board.",
+    cpu8: "The 8-pin goes top-left, right beside the socket. Small plug, enormous consequences."
+  };
+  var PLACED_MSG = {
+    cpu: "CPU seated. A thousand-plus contacts just shook hands at once.",
+    cooler: "Cooler on. It presses flat against the chip and drinks its heat — but its fan cable is still dangling. Fans need orders: tap the FAN HEADER, top-right.",
+    ram: "RAM is in the slots — but look at the yellow latches. They're open. A stick that isn't clicked home at both ends is a stick the board can't see. Tap the RAM to shut the latches.",
+    gpu: "Graphics card seated in the x16 slot. This rig's eyes are in.",
+    m2: "M.2 drive screwed down. The machine has somewhere to live now.",
+    atx24: "24-pin in. The board has its main line — standby light's on.",
+    cpu8: "8-pin in. The CPU's private power line is connected. This is the plug everyone forgets. You didn't."
+  };
+  function bSay(html) { $("bRead").innerHTML = html; }
+  function mClear() { $("bMonitor").innerHTML = ""; }
+  function mLine(text, cls) {
+    var d = document.createElement("div");
+    d.className = "mline" + (cls ? " " + cls : "");
+    if (cls === "os") d.innerHTML = text; else d.textContent = text;
+    $("bMonitor").appendChild(d);
+    return d;
+  }
+  function bLater(fn, ms) { B.timers.push(setTimeout(fn, ms)); }
+  function bClearTimers() { B.timers.forEach(clearTimeout); B.timers = []; }
+  function fans(on, fast) {
+    ["cpuFan", "gpuFan1", "gpuFan2"].forEach(function (id) {
+      var f = $(id); if (!f) return;
+      f.classList.toggle("spin", on);
+      f.classList.toggle("fast", !!fast);
+      f.classList.toggle("slow", !fast);
+    });
+  }
+  function updateChecklist() {
+    var p = B.placed;
+    var items = [
+      { ok: !!p.atx24, warn: false, t: p.atx24 ? "24-pin power — plugged in" : "24-pin power — the main line, right edge" },
+      { ok: !!p.cpu8, warn: false, t: p.cpu8 ? "8-pin CPU power — plugged in" : "8-pin CPU power — top-left, beside the socket" },
+      { ok: !!p.cpu, warn: false, t: p.cpu ? "CPU — seated in the socket" : "CPU — still in the tray" },
+      { ok: !!p.cooler && B.fanPlugged, warn: !!p.cooler && !B.fanPlugged, t: !p.cooler ? "Cooler — still in the tray" : (B.fanPlugged ? "Cooler — on, fan plugged in" : "Cooler — on, but the fan cable is UNPLUGGED") },
+      { ok: !!p.ram && B.latches, warn: !!p.ram && !B.latches, t: !p.ram ? "RAM — still in the tray" : (B.latches ? "RAM — clicked home at both ends" : "RAM — in the slots, latches OPEN") },
+      { ok: !!p.gpu, warn: false, t: p.gpu ? "Graphics card — seated" : "Graphics card — still in the tray" },
+      { ok: !!p.m2, warn: false, t: p.m2 ? "M.2 SSD — screwed down" : "M.2 SSD — still in the tray" }
+    ];
+    $("bCheck").innerHTML = items.map(function (i) {
+      return '<li class="' + (i.ok ? "ok" : (i.warn ? "warn" : "")) + '"><span class="ck">' + (i.ok ? "✓" : (i.warn ? "!" : "·")) + "</span><span>" + i.t + "</span></li>";
+    }).join("");
+  }
+  function trayBtn(part) { return document.querySelector('#bTray .part[data-part="' + part + '"]'); }
+  function placePart(part) {
+    B.placed[part] = true;
+    var g = $("pp-" + part);
+    g.style.display = ""; g.classList.remove("pop"); void g.getBBox; g.classList.add("pop");
+    trayBtn(part).classList.add("done"); trayBtn(part).classList.remove("inhand");
+    B.inHand = null;
+    document.querySelectorAll(".slotshape").forEach(function (s) { s.classList.remove("armed"); });
+    if (part === "ram") { B.latches = false; $("latchA").setAttribute("fill", "#FFC44D"); $("latchB").setAttribute("fill", "#FFC44D"); }
+    if (part === "cooler") { B.fanPlugged = false; $("fanCable").setAttribute("stroke-dasharray", "5 6"); $("fanCable").setAttribute("opacity", ".55"); }
+    updateChecklist();
+    bSay(PLACED_MSG[part]);
+  }
+  function unplace(part) {
+    if (B.booted || B.busy) return;
+    if (part === "cpu" && B.placed.cooler) { bSay("The cooler is sitting on the CPU. Take the cooler off first — that's the order, in every build ever."); return; }
+    B.placed[part] = false;
+    $("pp-" + part).style.display = "none";
+    trayBtn(part).classList.remove("done");
+    if (part === "cooler") B.fanPlugged = false;
+    if (part === "ram") B.latches = false;
+    updateChecklist();
+    bSay("Took " + PART_NAME[part] + " back out. It waits in the tray.");
+  }
+  function shutLatches() {
+    B.latches = true;
+    $("latchA").setAttribute("fill", "#35C26E"); $("latchB").setAttribute("fill", "#35C26E");
+    tone(1200, 0.06, 0); tone(1200, 0.06, 0.1);
+    updateChecklist();
+    bSay("<b>Click. Click.</b> Both ends home. That sound is the difference between a working machine and a beep code — every builder learns it exactly once, the hard way or this way.");
+  }
+  function plugFan() {
+    B.fanPlugged = true;
+    $("fanCable").setAttribute("stroke-dasharray", "none"); $("fanCable").setAttribute("opacity", "1");
+    tone(1000, 0.07, 0);
+    updateChecklist();
+    bSay("Fan plugged in. The board can now order the cooler around — and it refuses to boot without hearing that fan spin. Fair enough.");
+  }
+  function wrongSlot(slotEl) {
+    slotEl.classList.remove("shake"); void slotEl.getBBox; slotEl.classList.add("shake");
+    tone(180, 0.15, 0);
+    bSay("<span class='bad'>Won't seat.</span> " + WRONG[B.inHand]);
+  }
+  document.querySelectorAll("#bTray .part").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var part = btn.dataset.part;
+      if (B.placed[part] || B.busy || B.booted) return;
+      if (B.inHand === part) { B.inHand = null; btn.classList.remove("inhand"); document.querySelectorAll(".slotshape").forEach(function (s) { s.classList.remove("armed"); }); return; }
+      B.inHand = part;
+      document.querySelectorAll("#bTray .part").forEach(function (b) { b.classList.toggle("inhand", b === btn); });
+      document.querySelectorAll(".slotgroup").forEach(function (g) {
+        var s = g.querySelector(".slotshape");
+        if (s) s.classList.toggle("armed", PART_SLOT[part] === g.dataset.slot);
+      });
+      bSay("You've got " + PART_NAME[part] + " in hand. The glowing slot is home — tap it. (Or tap the part again to put it down.)");
+    });
+  });
+  document.querySelectorAll("#buildSvg .slotgroup").forEach(function (g) {
+    function tap() {
+      var slot = g.dataset.slot;
+      if (B.busy || B.booted) return;
+      if (slot === "fan") {
+        if (B.placed.cooler && !B.fanPlugged) plugFan();
+        else if (B.inHand) wrongSlot(g);
+        else bSay("The CPU fan header. Four little pins: power for the fan, and a wire for orders. The cooler's cable plugs in here.");
+        return;
+      }
+      if (!B.inHand) { bSay("That's the " + g.getAttribute("aria-label").toLowerCase() + ". Pick the part up from the tray first, then tap here."); return; }
+      if (PART_SLOT[B.inHand] === slot) placePart(B.inHand);
+      else wrongSlot(g);
+    }
+    g.addEventListener("click", tap);
+    g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tap(); } });
+  });
+  document.querySelectorAll("#buildSvg .placedpart").forEach(function (g) {
+    function tap() {
+      var part = g.dataset.part;
+      if (B.busy || B.booted) return;
+      if (B.inHand && PART_SLOT[B.inHand] === PART_SLOT[part]) { placePart(B.inHand); return; }
+      if (part === "ram" && !B.latches) { shutLatches(); return; }
+      unplace(part);
+    }
+    g.addEventListener("click", tap);
+    g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); tap(); } });
+  });
+
+  function monitorOff(text) {
+    $("bMonitor").className = "monitor off";
+    mClear(); mLine(text || "— the screen is dark. —", "dim");
+    $("bPower").classList.remove("on");
+    fans(false);
+  }
+  function postLines(extra) {
+    var lines = [
+      ["7EightMade UEFI — power-on self-test", "dim"],
+      ["CPU ......... i7-13700KF ✓", ""],
+      ["Memory ...... 32 GB DDR5 ✓", ""],
+      ["Graphics .... RTX 4060 Ti ✓", ""],
+      ["Drive ....... NVMe SSD ✓", ""],
+      ["Cooler ...... fan spinning ✓", ""]
+    ];
+    if (extra) lines = extra;
+    lines.forEach(function (l, i) { bLater(function () { mLine(l[0], l[1]); }, 200 + i * 230); });
+    return 200 + lines.length * 230;
+  }
+  function bootSuccess() {
+    $("bMonitor").className = "monitor";
+    mClear();
+    var t = postLines();
+    bLater(function () {
+      mLine("", "");
+      mLine("<b>RIG OS</b> — it boots. i7-13700KF · RTX 4060 Ti · 32 GB DDR5, all present, all fed, all cool. You built a computer out of switches and it knows it.", "os");
+      fans(true, true);
+      $("bPower").classList.add("on");
+      beeps("ok");
+      B.booted = true; B.busy = false; B.boots++;
+      $("bScore").innerHTML = "Boots: <b>" + B.boots + "</b>";
+      bSay("<b>It boots.</b> Seven parts, zero beep codes. Somewhere, a VRM is stepping 12 volts down to 1.2 like it was nothing. Press power again to shut her down, or take it apart and chase a failure state — they're all in there.");
+    }, t + 250);
+  }
+  function pressPower() {
+    if (B.busy) return;
+    if (B.blind) { B.blind = false; monitorOff("— powered down. The fans sigh to a stop. —"); bSay("Off. It was running blind the whole time — a machine with no eyes. Add the graphics card and it will show you something."); return; }
+    if (B.booted) {
+      B.booted = false; monitorOff("— shut down clean. The fans sigh to a stop. —");
+      bSay("Powered down. A well-built machine, resting. Press power to boot her again, or take her apart.");
+      return;
+    }
+    B.tries++; $("bTries").innerHTML = "Power presses: <b>" + B.tries + "</b>";
+    B.busy = true;
+    var p = B.placed;
+    function fail(setup, msg, beepKind) { setup(); bLater(function () { bSay(msg); B.busy = false; }, 450); if (beepKind) beeps(beepKind); }
+    if (!p.atx24) {
+      fail(function () { monitorOff("— nothing. No light, no sound, no mercy. —"); },
+        "<span class='bad'>Stone dead.</span> Not a twitch. Everything on this board — every light, every fan — is fed from one big main line, and it isn't plugged in. Check the tray for the fattest cable there is.",
+        null);
+    } else if (!p.cpu) {
+      fail(function () { monitorOff("— fans hum, screen black, forever. —"); fans(true); bLater(function () { fans(false); }, 900); },
+        "<span class='bad'>Power, but nobody home.</span> The board lights up and waits for instructions from a brain that isn't in the socket. No CPU, no thoughts — it will hum at you until the end of time.",
+        "err2");
+    } else if (!p.cpu8) {
+      fail(function () {
+          monitorOff("— a twitch… then black. —");
+          fans(true); bLater(function () { fans(false); }, 380);
+        },
+        "<span class='bad'>A twitch, then nothing.</span> Hear that beep? The board has power, but the CPU is starving — it has its own private line, separate from the main one, and somebody forgot it. This is the classic first-build panic. The plug lives top-left, beside the socket. Find it.",
+        "errLong");
+    } else if (!p.ram) {
+      fail(function () { monitorOff("— black screen. Three beeps, repeating. —"); },
+        "<span class='bad'>Beep. Beep. Beep.</span> That's the board's oldest sentence: <i>no memory</i>. It woke up with nowhere to hold a single thought. The RAM is still in the tray.",
+        "err3");
+    } else if (!B.latches) {
+      fail(function () { monitorOff("— black screen. Three beeps, repeating. —"); },
+        "<span class='bad'>Beep. Beep. Beep.</span> <i>No memory</i> — but the sticks are right there! They're in the slots without being <i>home</i>. RAM has to click at both ends. Tap the sticks and shut their latches.",
+        "err3");
+    } else if (!p.gpu) {
+      fail(function () { monitorOff("— the machine hums happily. The screen sees none of it. —"); fans(true); B.blind = true; },
+        "<span class='bad'>It booted. You just can't see it.</span> One long beep, two short: <i>no video</i>. This CPU carries no graphics of its own — that's what the F in 13700KF means — so without the graphics card, the screen stays black while the machine runs blind.",
+        "errLong");
+    } else if (!p.m2) {
+      $("bMonitor").className = "monitor"; mClear();
+      var t2 = postLines([
+        ["7EightMade UEFI — power-on self-test", "dim"],
+        ["CPU ......... i7-13700KF ✓", ""],
+        ["Memory ...... 32 GB DDR5 ✓", ""],
+        ["Graphics .... RTX 4060 Ti ✓", ""],
+        ["Drive ....... NOT FOUND", "err"],
+        ["No bootable device. The machine is awake and homeless.", "err"]
+      ]);
+      fans(true);
+      bLater(function () {
+        bSay("<span class='bad'>Alive, but homeless.</span> Every part passed — and there's no drive, so there's no Windows, no files, no home to boot into. The little M.2 stick is still in the tray.");
+        B.busy = false;
+      }, t2 + 200);
+    } else if (p.cooler && !B.fanPlugged) {
+      $("bMonitor").className = "monitor"; mClear();
+      mLine("7EightMade UEFI — power-on self-test", "dim");
+      bLater(function () { mLine("CPU FAN ERROR", "err"); mLine("The board hears no fan spinning on the CPU header, and it refuses to gamble a chip on it.", "err"); }, 500);
+      beeps("err2");
+      bLater(function () {
+        bSay("<span class='bad'>CPU FAN ERROR.</span> The cooler is on, but its cable dangles — the board listens for that fan before it trusts anything. Tap the FAN HEADER, top-right of the board, to plug the cable in.");
+        B.busy = false;
+      }, 800);
+    } else if (!p.cooler) {
+      $("bMonitor").className = "monitor"; mClear();
+      fans(true);
+      var t3 = postLines([
+        ["7EightMade UEFI — power-on self-test", "dim"],
+        ["CPU ......... i7-13700KF ✓", ""],
+        ["Memory ...... 32 GB DDR5 ✓", ""],
+        ["Graphics .... RTX 4060 Ti ✓", ""],
+        ["Drive ....... NVMe SSD ✓", ""],
+        ["Cooler ...... NOT DETECTED — living dangerously", "err"]
+      ]);
+      bLater(function () {
+        mLine("<b>RIG OS</b> — it boots! Enjoy it. Briefly.", "os");
+        var tempLine = mLine("CPU temp: 61° and climbing…", "err");
+        bLater(function () { tempLine.textContent = "CPU temp: 88° and climbing…"; }, 1000);
+        bLater(function () { tempLine.textContent = "CPU temp: 104° —"; }, 2000);
+        bLater(function () {
+          $("bMonitor").classList.add("glitching");
+          mLine("THERMAL SHUTDOWN", "err");
+          fans(false);
+          bLater(function () { $("bMonitor").classList.remove("glitching"); monitorOff("— dark. The smell of hot electronics hangs in the air. —"); }, 900);
+          beeps("errLong");
+          bSay("<span class='bad'>Cooked — politely.</span> A bare CPU under load heats faster than a stove ring. The chip felt itself dying and pulled its own plug: that's a thermal shutdown, and it's the only reason this story doesn't end in smoke. Put the cooler on.");
+          B.busy = false;
+        }, 2900);
+      }, t3 + 300);
+    } else {
+      bootSuccess();
+    }
+  }
+  $("bPower").addEventListener("click", pressPower);
+  $("bReset").addEventListener("click", function () {
+    bClearTimers();
+    B.placed = {}; B.inHand = null; B.blind = false; B.latches = false; B.fanPlugged = false; B.booted = false; B.busy = false;
+    ["cpu", "cooler", "ram", "gpu", "m2", "atx24", "cpu8"].forEach(function (part) {
+      $("pp-" + part).style.display = "none";
+      trayBtn(part).classList.remove("done", "inhand");
+    });
+    document.querySelectorAll(".slotshape").forEach(function (s) { s.classList.remove("armed"); });
+    monitorOff();
+    updateChecklist();
+    bSay("Stripped to a bare board. Seven parts in the tray, one power button, no excuses. Build it again — or build it <i>wrong</i> on purpose and meet the beep codes.");
+  });
+  updateChecklist();
+
+  /* ── Ambient data pulses (build board + VRM wires) ── */
+  var ROUTES = [
+    [[858, 168], [640, 168], [640, 411]],
+    [[346, 258], [346, 436]],
+    [[430, 180], [458, 180], [547, 180]]
+  ];
+  function routePos(route, t) {
+    var lens = [], total = 0, i;
+    for (i = 0; i < route.length - 1; i++) {
+      var dx = route[i + 1][0] - route[i][0], dy = route[i + 1][1] - route[i][1];
+      var l = Math.sqrt(dx * dx + dy * dy); lens.push(l); total += l;
+    }
+    var d = (t % 1) * total;
+    for (i = 0; i < lens.length; i++) {
+      if (d <= lens[i]) {
+        var f = lens[i] ? d / lens[i] : 0;
+        return [route[i][0] + (route[i + 1][0] - route[i][0]) * f, route[i][1] + (route[i + 1][1] - route[i][1]) * f];
+      }
+      d -= lens[i];
+    }
+    return route[route.length - 1];
+  }
+  var pulseDots = [], vPulseDots = [];
+  (function makePulses() {
+    var g = $("bPulses"), NS = "http://www.w3.org/2000/svg", i, c;
+    for (i = 0; i < 7; i++) {
+      c = document.createElementNS(NS, "circle");
+      c.setAttribute("r", 5); c.setAttribute("fill", "#FFC44D"); c.setAttribute("opacity", ".75");
+      g.appendChild(c);
+      pulseDots.push({ el: c, route: ROUTES[i % ROUTES.length], t: i / 7, speed: 0.11 + (i % 3) * 0.03 });
+    }
+    var vg = $("vPulses");
+    ["vw1", "vw2"].forEach(function (pid) {
+      for (i = 0; i < 3; i++) {
+        c = document.createElementNS(NS, "circle");
+        c.setAttribute("r", 6); c.setAttribute("fill", "#FFC44D");
+        vg.appendChild(c);
+        vPulseDots.push({ el: c, path: $(pid), t: i / 3, base: 0.14 });
+      }
+    });
+  })();
+  var lastTs = 0;
+  function pulseLoop(ts) {
+    requestAnimationFrame(pulseLoop);
+    if (RM || document.hidden) return;
+    var dt = Math.min(0.05, (ts - lastTs) / 1000 || 0); lastTs = ts;
+    if ($("buildWrap").style.display !== "none") {
+      pulseDots.forEach(function (d) {
+        d.t += d.speed * dt;
+        var p = routePos(d.route, d.t);
+        d.el.setAttribute("cx", p[0]); d.el.setAttribute("cy", p[1]);
+      });
+    }
+    var vv = state.vrm ? state.vrm.v : 1.1;
+    vPulseDots.forEach(function (d) {
+      d.t += d.base * (0.5 + vv) * dt;
+      var len = d.path.getTotalLength();
+      var p = d.path.getPointAtLength((d.t % 1) * len);
+      d.el.setAttribute("cx", p.x); d.el.setAttribute("cy", p.y);
+      d.el.setAttribute("fill", vv > 1.4 ? "#FF7A4D" : "#FFC44D");
+    });
+  }
+  requestAnimationFrame(pulseLoop);
+
+  /* ══ BEAT 2 · VRM VALVE ══ */
+  var V = state.vrm = { running: false, t: 0, v: 1.10, temp: 38, hold: 0, starve: 0, wins: 0, need: [1.02, 1.18], phase: "idle", timer: null };
+  function vPhaseAt(t) {
+    var c = t % 19;
+    if (c < 5) return { name: "idle — desktop", need: [1.02, 1.18] };
+    if (c < 7) return { name: "launching CS2…", need: [1.14, 1.30] };
+    if (c < 14) return { name: "in game — full send", need: [1.20, 1.33] };
+    return { name: "round over — breathing", need: [1.05, 1.20] };
+  }
+  function vRender() {
+    var pct = (V.v - 0.8) / 0.8 * 100;
+    $("vNeedle").style.left = "calc(" + pct + "% - 2px)";
+    $("vZone").style.left = ((V.need[0] - 0.8) / 0.8 * 100) + "%";
+    $("vZone").style.width = ((V.need[1] - V.need[0]) / 0.8 * 100) + "%";
+    $("vGive").textContent = V.v.toFixed(2) + "V";
+    $("vWant").textContent = V.need[0].toFixed(2) + "–" + V.need[1].toFixed(2) + "V";
+    $("vCpuV").textContent = V.v.toFixed(2) + "V";
+    $("vTemp").textContent = Math.round(V.temp);
+    $("vTemp").parentNode.style.color = V.temp > 90 ? "#FF9D7A" : "";
+    $("vPhase").innerHTML = "Load: <b>" + V.phase + "</b>";
+    $("vHoldFill").style.width = Math.min(100, V.hold / 4 * 100) + "%";
+    $("vWheel").style.transform = "rotate(" + ((V.v - 0.8) / 0.8 * 270 - 135) + "deg)";
+    $("vw1").classList.toggle("live", V.running);
+    $("vw2").classList.toggle("live", V.running);
+  }
+  function vStop(msg) {
+    V.running = false;
+    if (V.timer) { clearInterval(V.timer); V.timer = null; }
+    $("vStart").textContent = "▶ Start the shift";
+    if (msg) $("vRead").innerHTML = msg;
+    vRender();
+  }
+  function vTick() {
+    V.t += 0.1;
+    var ph = vPhaseAt(V.t);
+    V.phase = ph.name; V.need = ph.need;
+    var inBand = V.v >= V.need[0] && V.v <= V.need[1];
+    if (inBand) V.hold += 0.1; else V.hold = Math.max(0, V.hold - 0.15);
+    if (V.v > 1.40) V.temp += (V.v - 1.40) * 26;
+    else if (inBand) V.temp += (58 - V.temp) * 0.02;
+    else V.temp += (47 - V.temp) * 0.02;
+    if (V.v < V.need[0] - 0.08) V.starve += 0.1; else V.starve = 0;
+    if (V.temp >= 105) {
+      vStop("<span class='bad'>Cooked it.</span> The needle sat too high, the heat ran away, and the CPU throttled itself into a crash to survive. Above roughly 1.40 volts, you're not feeding the chip — you're slow-roasting it. The real VRM's whole religion is: never let it get there.");
+      tone(220, 0.4, 0);
+      return;
+    }
+    if (V.starve >= 1.2) {
+      vStop("<span class='bad'>Starved it.</span> The CPU asked for " + V.need[0].toFixed(2) + " volts and got " + V.v.toFixed(2) + ". An underfed chip doesn't slow down politely — it falls over mid-thought and takes the game with it. Voltage is a promise. Keep it.");
+      tone(220, 0.4, 0);
+      return;
+    }
+    if (V.hold >= 4) {
+      V.wins++;
+      $("vWins").innerHTML = "Shifts survived: <b>" + V.wins + "</b>";
+      vStop("<b>Shift survived.</b> You held a moving target inside a tenth of a volt, through idle, launch and full send — by hand, with one dial. The little translator beside the CPU socket does this thousands of times a second, in the dark, for years, and nobody ever thanks it. Now you know what it's doing under that heatsink.");
+      tone(880, 0.14, 0); tone(1318, 0.2, 0.16);
+      return;
+    }
+    vRender();
+  }
+  $("vSlider").addEventListener("input", function () { V.v = +this.value; if (!V.running) vRender(); });
+  $("vStart").addEventListener("click", function () {
+    if (V.running) { vStop("Shift abandoned. The VRM sighs and takes its job back."); return; }
+    V.t = 0; V.temp = 38; V.hold = 0; V.starve = 0; V.running = true;
+    $("vStart").textContent = "❚❚ Give up";
+    $("vRead").textContent = "Shift started. Idle first — easy does it. Watch what the CPU wants, and keep the yellow needle inside the green.";
+    V.timer = setInterval(vTick, 100);
+    vRender();
+  });
+  vRender();
+
+  /* ══ BEAT 3 · GATE CHALLENGE ══ */
+  var G = state.gate = { goal: 0, gate: "AND", inv: false, a: false, b: false, passed: [false, false, false], testing: false, free: false };
+  var GOALS = [
+    { text: "Light the lamp ONLY when both switches are on.", fn: function (a, b) { return a && b; },
+      hint: "That wiring lets the lamp light when it shouldn't. With OR, one switch alone does it — but the goal says ONLY when both are on. Which gate makes both switches necessary?" },
+    { text: "Light it when EITHER switch is on — one is enough — but never when both are off.", fn: function (a, b) { return a || b; },
+      hint: "That wiring leaves the lamp dark when it should glow. With AND, a single switch gets nowhere — but the goal says one is enough. Which gate gives each switch its own road home?" },
+    { text: "Backwards day: the lamp is ON while switch A is OFF, and dark when A turns ON. Switch B sits this one out.", fn: function (a, b) { return !a; }, single: true,
+      hint: "Right now the lamp obeys A — the goal wants the exact opposite. There's a little circle that flips the answer before it reaches the lamp. Find the inverter." }
+  ];
+  function cOut() {
+    var o = G.gate === "AND" ? (G.a && G.b) : (G.a || G.b);
+    return G.inv ? !o : o;
+  }
+  function cBlade(id, on, x, y) {
+    var el = $(id), ang = (on ? -6 : -30) * Math.PI / 180;
+    el.setAttribute("x2", x + 62 * Math.cos(ang));
+    el.setAttribute("y2", y + 62 * Math.sin(ang));
+  }
+  function cRender() {
+    var goal = GOALS[G.goal], out = cOut();
+    $("cGateLab").textContent = G.gate;
+    $("cNot").style.display = G.inv ? "" : "none";
+    $("cSegAnd").setAttribute("aria-pressed", String(G.gate === "AND"));
+    $("cSegOr").setAttribute("aria-pressed", String(G.gate === "OR"));
+    $("cNotBtn").setAttribute("aria-pressed", String(G.inv));
+    $("cSwA").setAttribute("aria-pressed", String(G.a));
+    $("cSwB").setAttribute("aria-pressed", String(G.b));
+    $("cSwA").querySelector("b").textContent = G.a ? "1" : "0";
+    $("cSwB").querySelector("b").textContent = G.b ? "1" : "0";
+    $("cSwB").disabled = !!goal.single && !G.free;
+    $("cSwB").style.opacity = (goal.single && !G.free) ? ".4" : "";
+    cBlade("cb1", G.a, 180, 110); cBlade("cb2", G.b, 180, 200);
+    $("cw1").classList.toggle("live", G.a);
+    $("cw2").classList.toggle("live", G.b);
+    $("cw3").classList.toggle("live", out);
+    $("cLamp").classList.toggle("on", out);
+    $("cOut").innerHTML = "Lamp: <b>" + (out ? "lit" : "dark") + "</b>";
+    [1, 2, 3].forEach(function (n) {
+      var d = $("gd" + n);
+      d.className = "gdot" + (G.passed[n - 1] ? " done" : (n - 1 === G.goal && !G.free ? " now" : ""));
+    });
+    $("cGoalNum").textContent = G.free ? "ALL GOALS COMPLETE — FREE PLAY" : "GOAL " + (G.goal + 1) + " OF 3";
+  }
+  function cSetGoal(n) {
+    G.goal = n; G.a = false; G.b = false; G.inv = false;
+    if (n === 2 || G.free) $("cNotWrap").style.display = "";
+    $("cGoal").textContent = GOALS[n].text;
+    $("cWhy").textContent = n === 2
+      ? "One switch this time. The lamp should burn while A rests, and die when A wakes. The circuit needs flipping — look for the inverter below the gate choice."
+      : "Pick the gate, play with the switches, and when the circuit obeys the goal, run the test.";
+    $("cTruth").style.display = "none";
+    $("cNext").style.display = "none";
+    cRender();
+  }
+  $("cSegAnd").addEventListener("click", function () { if (!G.testing) { G.gate = "AND"; cRender(); } });
+  $("cSegOr").addEventListener("click", function () { if (!G.testing) { G.gate = "OR"; cRender(); } });
+  $("cNotBtn").addEventListener("click", function () { if (!G.testing) { G.inv = !G.inv; cRender(); } });
+  $("cSwA").addEventListener("click", function () { if (!G.testing) { G.a = !G.a; cRender(); } });
+  $("cSwB").addEventListener("click", function () { if (!G.testing && !$("cSwB").disabled) { G.b = !G.b; cRender(); } });
+  $("cTest").addEventListener("click", function () {
+    if (G.testing) return;
+    var goal = GOALS[G.goal];
+    var rows = goal.single && !G.free ? [[0, 0], [1, 0]] : [[0, 0], [1, 0], [0, 1], [1, 1]];
+    G.testing = true;
+    $("cTruth").style.display = "";
+    var body = $("cTruthBody"); body.innerHTML = "";
+    $("cWhy").textContent = "Testing every combination against the goal…";
+    var results = [];
+    rows.forEach(function (row, i) {
+      setTimeout(function () {
+        G.a = !!row[0]; G.b = goal.single && !G.free ? false : !!row[1];
+        cRender();
+        var lamp = cOut(), want = goal.fn(G.a, G.b), pass = lamp === want;
+        results.push(pass);
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td>" + row[0] + "</td><td>" + (goal.single && !G.free ? "—" : row[1]) + "</td><td>" + (lamp ? "lit" : "dark") + "</td><td>" + (want ? "lit" : "dark") + "</td><td class='" + (pass ? "pass" : "fail") + "'>" + (pass ? "✓" : "✗") + "</td>";
+        body.appendChild(tr);
+        tone(pass ? 980 : 300, 0.09, 0);
+        if (i === rows.length - 1) {
+          G.testing = false;
+          var allPass = results.every(function (r) { return r; });
+          if (allPass) {
+            G.passed[G.goal] = true;
+            if (G.goal < 2 && !G.free) {
+              $("cWhy").innerHTML = "<b>Goal beaten.</b> Every combination obeys. That's not a lamp trick — that is a decision, made of switches, exactly the way a chip makes them.";
+              $("cNext").style.display = "";
+              tone(880, 0.14, 0); tone(1318, 0.2, 0.16);
+            } else {
+              G.free = true;
+              $("cNotWrap").style.display = "";
+              $("cGoal").textContent = "Free play — the bench is yours.";
+              $("cWhy").innerHTML = "<b>All three goals beaten.</b> AND, OR, NOT — every decision a computer has ever made is those three, nested a billion deep. Gates like this, flipping billions of times a second, <b>are</b> the CPU. There was never anything else in the box.";
+              tone(880, 0.14, 0); tone(1174, 0.14, 0.15); tone(1568, 0.24, 0.3);
+            }
+          } else {
+            $("cWhy").innerHTML = "<span class='bad'>Not yet.</span> " + goal.hint;
+            tone(220, 0.3, 0);
+          }
+          cRender();
+        }
+      }, 420 * (i + 1));
+    });
+  });
+  $("cNext").addEventListener("click", function () { cSetGoal(G.goal + 1); });
+  cRender();
+
+  /* ══ BEAT 4 · OVERCLOCK ══ */
+  var O = state.oc = { f: 5.4, v: 1.25, temp: 47, inst: 0, hold: 0, best: 0, crashes: 0, won: false, glitching: false };
+  var LOTTERY = [
+    "This chip's lottery ticket said no. Every processor is born slightly different — same model, same box, different luck. Yours tops out lower than the dream.",
+    "The silicon has spoken, and it said: absolutely not. Some chips are golden. Some are this one.",
+    "Crash. The chip reached the edge of what its atoms allow and stepped off. The lottery giveth, and the lottery mostly taketh away.",
+    "Blue-screened by physics. You can want 6 GHz all day — wanting is not a voltage."
+  ];
+  function ocCrash(kind) {
+    O.crashes++;
+    $("ocCrashes").innerHTML = "Crashes: <b>" + O.crashes + "</b>";
+    O.glitching = true; O.won = false; O.hold = 0; O.inst = 0;
+    $("ocFrame").classList.add("glitching");
+    $("ocWin").classList.remove("on");
+    tone(160, 0.5, 0);
+    setTimeout(function () { $("ocFrame").classList.remove("glitching"); O.glitching = false; }, 1050);
+    $("ocClock").value = "5.4"; $("ocVolt").value = "1.25";
+    $("ocRead").innerHTML = "<span class='bad'>" + (kind === "thermal" ? "Thermal crash." : "Voltage crash.") + "</span> " + LOTTERY[(O.crashes - 1) % LOTTERY.length] + " The board glitched, forgot everything, and woke up back at stock — 5.4 GHz, 1.25 volts, dignity dented.";
+  }
+  function ocTick() {
+    if (O.glitching) return;
+    O.f = +$("ocClock").value; O.v = +$("ocVolt").value;
+    var vReq = 1.05 + (O.f - 3.4) * 0.10;
+    var target = 30 + 40 * Math.pow(O.f / 5.4, 2.2) * Math.pow(O.v / 1.25, 2);
+    O.temp += (target - O.temp) * 0.22;
+    var deficit = vReq - O.v;
+    if (deficit > 0.02) O.inst += deficit * 60; else O.inst -= 6;
+    O.inst = Math.max(0, Math.min(100, O.inst));
+    var score = Math.round(9200 * (O.f / 5.4) * (O.inst > 70 ? 1 - (O.inst - 70) / 120 : 1));
+    if (score > O.best) { O.best = score; $("ocBest").innerHTML = "Best score: <b>" + O.best.toLocaleString("en-US") + "</b>"; }
+    var fan = Math.max(30, Math.min(100, Math.round(30 + (O.temp - 40) * 1.3)));
+    $("ocFan").style.animationDuration = (1.9 - (fan - 30) / 70 * 1.62).toFixed(2) + "s";
+    $("ocGlow").setAttribute("opacity", Math.max(0, Math.min(0.55, (O.temp - 55) / 90)).toFixed(2));
+    $("ocGhz").textContent = O.f.toFixed(1);
+    $("ocTemp").textContent = Math.round(O.temp);
+    $("ocTemp").parentNode.style.color = O.temp > 92 ? "#FF9D7A" : "";
+    $("ocScore").textContent = score.toLocaleString("en-US");
+    $("ocFanStat").innerHTML = "Fan: <b>" + fan + "%</b>";
+    $("ocStab").style.width = (100 - O.inst) + "%";
+    $("ocStab").className = O.inst > 55 ? "hot" : "";
+    $("ocHold").style.width = Math.min(100, O.hold / 5 * 100) + "%";
+    var st = O.temp > 95 ? "thermally doomed" : (O.inst > 60 ? "wobbling hard" : (O.inst > 25 ? "wobbling" : (O.f >= 5.8 ? "holding the dream" : "stable")));
+    $("ocState").innerHTML = "State: <b>" + st + "</b>";
+    if (O.temp >= 103) { ocCrash("thermal"); return; }
+    if (O.inst >= 100) { ocCrash("voltage"); return; }
+    if (O.f >= 5.8 && O.inst < 40 && O.temp < 100) O.hold += 0.15; else O.hold = Math.max(0, O.hold - 0.3);
+    if (O.hold >= 5 && !O.won) {
+      O.won = true;
+      $("ocWin").innerHTML = "🏆 <b>Golden chip.</b> " + O.f.toFixed(1) + " GHz, held for five full seconds at " + O.v.toFixed(2) + " volts — bench score <b>" + score.toLocaleString("en-US") + "</b>. Most chips refuse long before this. Yours read the spec sheet and chose violence. This is the silicon lottery, won.";
+      $("ocWin").classList.add("on");
+      $("ocRead").textContent = "It held. Screenshot it, brag accurately, and remember: the only difference between this chip and a crasher is the luck of the atoms it was born with.";
+      tone(880, 0.14, 0); tone(1174, 0.14, 0.15); tone(1568, 0.26, 0.3);
+    }
+  }
+  setInterval(ocTick, 150);
+  $("ocReset").addEventListener("click", function () {
+    $("ocClock").value = "5.4"; $("ocVolt").value = "1.25";
+    O.inst = 0; O.hold = 0; O.won = false;
+    $("ocWin").classList.remove("on");
+    $("ocRead").textContent = "Back to stock: 5.4 GHz at 1.25 volts — the factory's promise, kept. The dial is yours whenever you're ready to break it again.";
+  });
+  ocTick();
+})();
+</script>
+
 <!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
 </body>
