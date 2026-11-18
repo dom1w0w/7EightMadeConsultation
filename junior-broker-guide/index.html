@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:,">
+<title>Junior Broker Reference Guide — Equipment Finance</title>
+<style>
+:root{
+  --bg:#f7f5f0; --bg2:#ffffff; --ink:#17202e; --muted:#5b6575; --line:#e2ddd2;
+  --navy:#0f2f3f; --amber:#b45309; --amber-bg:#fef3c7; --green:#166534; --green-bg:#dcfce7;
+  --red:#991b1b; --card:#ffffff; --chip:#eef2f3;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0e141b; --bg2:#151e29; --ink:#e8edf2; --muted:#9aa8b8; --line:#263240; --navy:#dbeafe; --card:#151e29; --chip:#1e2d3d; --amber-bg:#3a2a0a; --green-bg:#123524; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:var(--navy)}
+button,[role="button"],select,summary,input{ min-height:44px; }
+.topbar{position:sticky;top:0;z-index:20;background:var(--bg2);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.topbar::-webkit-scrollbar{display:none}
+.topbar a{white-space:nowrap;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-radius:999px}
+.topbar a:hover{background:var(--chip);color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 80px}
+.hero{padding:44px 0 28px}
+.kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(36px,6vw,62px);line-height:.98;letter-spacing:-.02em;margin:12px 0 14px;max-width:800px}
+h1 em{font-style:normal;color:var(--navy);text-decoration:underline;text-decoration-color:var(--amber);text-decoration-thickness:4px;text-underline-offset:6px}
+.lede{font-size:19px;line-height:1.5;color:var(--muted);max-width:700px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600}
+.pill b{color:var(--navy)}
+.callout{border:1px solid var(--line);border-left:5px solid var(--amber);background:var(--card);padding:18px 20px;border-radius:0 12px 12px 0;margin:24px 0}
+.callout strong{color:var(--navy)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;line-height:1.1;margin:56px 0 8px;letter-spacing:-.01em}
+h2+p.sub{color:var(--muted);max-width:680px;margin-top:0}
+h3{font-size:17px;margin:0 0 6px}
+.stack{display:grid;gap:8px;margin:24px 0}
+.layer{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);padding:16px 18px;border-radius:12px;cursor:pointer;text-align:left;width:100%;font:inherit;color:inherit}
+.layer:hover{border-color:var(--amber)}
+.layer-num{font-family:ui-monospace,Menlo,monospace;font-weight:700;background:var(--navy);color:#fff;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:14px}
+@media(prefers-color-scheme:dark){.layer-num{background:#e8edf2;color:#0e141b}}
+.layer p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.layer-detail{display:none;background:var(--amber-bg);border:1px solid var(--line);padding:14px 18px;border-radius:10px;font-size:14px}
+.layer-detail.open{display:block}
+.modules{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:760px){.modules{grid-template-columns:1fr}}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.mod-top{display:flex;justify-content:space-between;gap:12px}
+.mod-num{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.1em;color:var(--amber);font-weight:700}
+.mod-time{font-size:12px;color:var(--muted);white-space:nowrap}
+.mod p{color:var(--muted);font-size:14.5px}
+.mod ul{margin:10px 0 0;padding-left:18px;font-size:14.5px}
+.mod li{margin:5px 0}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px;background:var(--chip);margin-top:12px;margin-right:6px}
+.tag.gold{background:var(--amber-bg)} .tag.green{background:var(--green-bg);color:var(--green)}
+.lab{background:var(--navy);color:#eaf2f5;border-radius:16px;padding:24px;margin:16px 0;color-scheme:dark}
+@media(prefers-color-scheme:dark){.lab{background:#1a2f3e}}
+.lab h3{color:#fff;font-size:20px}
+.lab p{color:#c2d2da}
+.lab label{font-size:13px;font-weight:600;display:block;margin-top:12px}
+.lab input,.lab select{width:100%;padding:12px;border-radius:8px;border:1px solid #355264;background:#0f2736;color:#fff;font-size:16px}
+.lab-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:700px){.lab-grid{grid-template-columns:1fr}}
+.result{font-family:ui-monospace,Menlo,monospace;font-size:28px;background:#fff;color:#0f2f3f;padding:16px;border-radius:10px;margin-top:18px;text-align:center;font-weight:700}
+.btn{appearance:none;border:none;background:var(--amber);color:#fff;font-weight:700;padding:12px 18px;border-radius:999px;cursor:pointer;font-size:15px}
+.btn.secondary{background:var(--chip);color:var(--ink)}
+.btn:active{transform:scale(.98)}
+.flash{min-height:150px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center}
+.cheat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:14px 0}
+.cheat pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);padding:14px;border-radius:8px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.6;overflow:auto}
+.gloss{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.gloss{grid-template-columns:1fr}}
+.gloss div{background:var(--card);border:1px solid var(--line);padding:14px 16px;border-radius:10px}
+.gloss dt{font-weight:700} .gloss dd{margin:4px 0 0;color:var(--muted);font-size:14px}
+.steps{counter-reset:s;display:grid;gap:12px}
+.step{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);padding:18px;border-radius:12px}
+.step::before{counter-increment:s;content:counter(s);font-family:ui-monospace,Menlo,monospace;font-weight:700;width:36px;height:36px;border-radius:50%;background:var(--amber);color:#fff;display:grid;place-items:center;flex-shrink:0}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.search{width:100%;padding:14px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:16px;margin:14px 0}
+.score{font-weight:700}
+</style>
+</head>
+<body>
+<nav class="topbar" aria-label="Sections">
+  <a href="#stack">Deal Stack</a><a href="#modules">12 Modules</a><a href="#labs">Labs</a><a href="#boss">Boss Checks</a><a href="#cheat">Talk Tracks</a><a href="#capstone">Capstone</a><a href="#glossary">Glossary</a>
+</nav>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">Role Prep · Junior Broker · Equipment Finance</div>
+  <h1>From qualifying deals to <em>closing</em> them.</h1>
+  <p class="lede">A reference guide and course in one for preparing for the Junior Broker role — the knowledge and skills mapped ground-up, with labs and boss checks to practice each layer. Built around truck &amp; trailer vendor finance and the one gap that matters in the role: closing muscle — structuring, negotiating, credit, and funding.</p>
+  <div class="hero-meta">
+    <span class="pill"><b>12</b> modules</span><span class="pill"><b>7</b>-layer deal stack</span><span class="pill"><b>4</b> working labs</span><span class="pill"><b>5</b> boss checks</span><span class="pill"><b>12 hrs</b> full read · <b>6½ hrs</b> closing sprint</span>
+  </div>
+  <div class="callout"><strong>Principles this guide teaches:</strong> Discovery before pitching — learn <em>who / what / how much / when</em> before talking product. Structure before quoting — build the deal first, price it second. Surface a credit weak spot yourself, with a mitigant. And when a practice scenario reaches a yes, stop there — don’t restructure a closed scenario or keep selling past the yes.</div>
+  <div class="callout" id="upNext"><strong>▶ UP NEXT — Start here:</strong> <span id="upNextText">Module 01 · The Job in One Map (45 min), then work down the stack. In a hurry? Turn on Closing Sprint below and start at Module 04 · Discovery.</span></div>
+  <label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" id="sprintToggle" style="width:22px;height:22px"> Closing Sprint mode — show only the modules that build closing muscle fastest</label>
+  <p id="sprintNote" style="color:var(--muted);font-size:14px;display:none">Sprint cuts theory and background. You keep Modules 4, 5, 6, 8, 10 + all labs. Everything else is reference when you need it.</p>
+</header>
+
+<section id="stack">
+  <h2>The Deal Stack</h2>
+  <p class="sub">Every funded deal passes through all seven layers. Qualifying work lives at the top. Broker work owns the middle — learning to own those middle layers is the whole preparation. Tap a layer.</p>
+  <div class="stack" id="stackList"></div>
+</section>
+
+<section>
+  <h2>Qualifying a deal vs. owning a deal</h2>
+  <div class="grid2">
+    <div class="mod"><h3>Qualifying — the foundation</h3><p>Finding opportunities, making first contact, and checking the basics: is there real equipment, a real amount, and a real timeline? These skills don’t go away — they’re the base a broker builds on.</p><ul><li>Ask complete discovery questions</li><li>Take notes someone else could act on</li><li>Spot a weak or fake deal early</li></ul></div>
+    <div class="mod"><h3>Owning — the Junior Broker skill set</h3><p>Carrying a deal from qualified to funded: structuring it, reading credit the way a credit reviewer reads it, handling objections without giving away the deal, and getting documents right so funding isn’t delayed.</p><ul><li>Quote a structure, not just a payment</li><li>Pre-screen credit before submitting a file</li><li>Negotiate to a yes and stop there</li></ul><span class="tag gold">The prep gap = middle of the stack</span></div>
+  </div>
+</section>
+
+<section id="modules">
+  <h2>12 Modules</h2>
+  <p class="sub">Read in order for the full build, or jump to the layer a practice scenario is stuck on. Times are honest reading + practice time.</p>
+  <input class="search" id="modSearch" type="search" placeholder="Search modules — try “credit”, “lease”, “objection”, “structuring”…" aria-label="Search modules">
+  <div class="modules" id="moduleGrid"></div>
+</section>
+
+<section id="labs">
+  <h2>Labs — practice the broker moves</h2>
+  <p class="sub">Four small tools for rehearsing the core moves. Nothing here saves — it’s in-session practice only.</p>
+
+  <div class="lab">
+    <h3>Lab 1 · Payment Estimator</h3>
+    <p>For structuring conversations only — not a quote. Shows you how amount, down, term, and rate move the payment, so you can talk trade-offs instead of just a number.</p>
+    <div class="lab-grid">
+      <div><label>Amount financed ($)</label><input id="amt" type="number" value="85000"></div>
+      <div><label>Down payment ($)</label><input id="down" type="number" value="8500"></div>
+      <div><label>Term (months)</label><select id="term"><option>36</option><option selected>60</option><option>72</option><option>84</option></select></div>
+      <div><label>Illustrative rate (%)</label><input id="rate" type="number" value="8.5" step="0.25"></div>
+      <div><label>Balloon / residual ($)</label><input id="balloon" type="number" value="0"></div>
+    </div>
+    <div class="result" id="payResult">$1,568 / mo</div>
+    <p style="font-size:13px">Formula: standard amortizing payment on (amount − down), balloon deducted from principal present value. In a real deal, always confirm pricing through proper channels before quoting a customer — this lab teaches the math, not a price.</p>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h3>Lab 2 · Discovery Drill</h3>
+      <p style="color:var(--muted)">A practice lead lands: “Need a trailer, ASAP.” Click through what a broker learns before doing anything else.</p>
+      <div class="flash" id="discoveryCard"><strong>Lead: “Interested in financing — call me.”</strong><p style="color:var(--muted)">No equipment, no amount, no timeline. What’s your first move?</p></div>
+      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="btn" id="nextQ">Reveal the 4 questions →</button><button class="btn secondary" id="resetQ">Reset</button></div>
+      <ol id="qList" style="display:none">
+        <li><strong>Who</strong> — legal business name, time in business, owner, existing relationship Y/N?</li>
+        <li><strong>What</strong> — exact equipment + quantity, new/used, dealer/vendor?</li>
+        <li><strong>How much</strong> — total amount, budget range, down available?</li>
+        <li><strong>When</strong> — need-by date, is the unit on the ground or on order?</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Lab 3 · Credit Triage</h3>
+      <p style="color:var(--muted)">Check what you can verify before a practice file would go to a credit reviewer. 4+ checked = you’re pre-screening like a broker.</p>
+      <div id="triage">
+        <label style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)"><input type="checkbox" class="tri" style="width:22px;height:22px"> Time in business confirmed (not just “established”)</label>
+        <label style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)"><input type="checkbox" class="tri" style="width:22px;height:22px"> Equipment is core to the business (not a side bet)</label>
+        <label style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)"><input type="checkbox" class="tri" style="width:22px;height:22px"> Owner will personally guarantee — asked directly</label>
+        <label style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)"><input type="checkbox" class="tri" style="width:22px;height:22px"> Down payment source is real, not “we’ll figure it out”</label>
+        <label style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)"><input type="checkbox" class="tri" style="width:22px;height:22px"> No open tax / UCC / judgment surprise unmentioned</label>
+        <label style="display:flex;gap:10px;padding:10px 0"><input type="checkbox" class="tri" style="width:22px;height:22px"> Story matches: amount ↔ equipment value ↔ revenue</label>
+      </div>
+      <p class="score" id="triScore">0 / 6 checked</p>
+    </div>
+  </div>
+
+  <div>
+    <h3>Lab 4 · Objection Rehearsal</h3>
+    <p style="color:var(--muted)">Tap the card to flip it. Broker rule: answer the real concern, confirm the yes, stop selling.</p>
+    <div class="flash" id="flashCard" role="button" tabindex="0" aria-label="Flip objection card"><div id="flashText"><strong>“Your rate is higher than the other guy.”</strong><br><span style="color:var(--muted)">Tap to see the broker response →</span></div></div>
+    <div style="display:flex;gap:8px;margin-top:12px"><button class="btn" id="nextFlash">Next objection</button><span style="align-self:center;color:var(--muted);font-size:14px" id="flashCount">1 / 4</span></div>
+  </div>
+</section>
+
+<section id="boss">
+  <h2>Boss Checks — prove the layer before you move on</h2>
+  <p class="sub">One check per sprint module. Pick an answer — you get the verdict and the why immediately. Passing all five in one sitting is the sprint graduation test.</p>
+  <div id="quiz"></div>
+  <p class="score" id="quizScore">0 / 5 passed</p>
+</section>
+
+<section id="cheat">
+  <h2>Talk Tracks &amp; Practice Formats — copy &amp; learn</h2>
+  <p class="sub" style="color:var(--muted);max-width:680px">Learning aids for practice calls and study — formats and phrasing to rehearse until they’re natural.</p>
+
+  <div class="cheat"><h3>Practice call notes — a clean format to learn</h3><p style="color:var(--muted)">When you rehearse or review a practice call, record only what was actually said. Never invent a field you didn’t hear.</p><pre id="t1">Customer:
+Number:
+Existing: Y / N
+Equipment + Qty:
+Budget:
+Contact:
+Follow-up:
+Notes:</pre><button class="btn secondary" data-copy="t1">Copy format</button></div>
+
+  <div class="cheat"><h3>Discovery opener — talk track</h3><pre id="t2">“Thanks for reaching out — so I point you at the right structure, can I ask four quick things? Who’s the business on paper and how long have you been operating? What exactly are you looking to finance, and how many? What total amount and down payment did you have in mind? And when do you need the unit working?”
+
+Then listen. Write down only what they actually say.</pre><button class="btn secondary" data-copy="t2">Copy talk track</button></div>
+
+  <div class="grid2">
+    <div class="cheat"><h3>Structuring — talk track</h3><pre id="t3">“There are three levers on the payment: how much you put down, how long we spread it, and what’s left at the end. Longer lowers the payment but costs more overall. More down lowers both. Let’s look at the trade-off that fits how long you’ll keep the unit.”</pre><button class="btn secondary" data-copy="t3">Copy</button></div>
+    <div class="cheat"><h3>Credit conversation — talk track</h3><pre id="t4">“Before this goes to a credit reviewer, I want to make sure the story holds together — how long in business, whether you’ll personally stand behind it, and where the down payment comes from. Anything that might look weak on paper, I’d rather we name it now and explain it than have it found later.”</pre><button class="btn secondary" data-copy="t4">Copy</button></div>
+  </div>
+  <div class="callout"><strong>Closing talk track to learn:</strong> “Based on what you told me — [equipment] by [date] at $[amount] — here’s the structure that gets you there: [term] months, $[down] down, payment around $[X]. If that works, the next step is getting the credit review started so the timeline holds. Does that work?” Then stop. The scenario ends at the yes.</div>
+</section>
+
+<section id="capstone">
+  <h2>Capstone — work a practice deal end to end</h2>
+  <p class="sub">The proof you’re ready isn’t a test score. It’s working one complete practice scenario through every layer without it bouncing back — the same discipline a real funded deal demands.</p>
+  <div class="steps">
+    <div class="step"><div><h3>Pick the right practice scenario</h3><p style="color:var(--muted);margin:4px 0">Core equipment, a realistic business, a real timeline. Not the biggest scenario — the cleanest one you can work completely.</p></div></div>
+    <div class="step"><div><h3>Discover it completely</h3><p style="color:var(--muted);margin:4px 0">Who / what / how much / when, plus PG, down, and TIB — before you touch structuring or credit.</p></div></div>
+    <div class="step"><div><h3>Structure before you quote</h3><p style="color:var(--muted);margin:4px 0">Term matched to equipment life, down that helps credit, payment the business could carry on a slow month. Show the trade-offs.</p></div></div>
+    <div class="step"><div><h3>Pre-screen like a credit reviewer</h3><p style="color:var(--muted);margin:4px 0">Run Lab 3 on your practice file. Surface the weak spot yourself, with a mitigant — don’t wait for a reviewer to find it.</p></div></div>
+    <div class="step"><div><h3>Close to a clean yes</h3><p style="color:var(--muted);margin:4px 0">One structure, one clear next step, confirmation. No extra options after the yes.</p></div></div>
+    <div class="step"><div><h3>Assemble a funding-ready file</h3><p style="color:var(--muted);margin:4px 0">Practice the documents layer: names matching everywhere, exactly, with title and insurance requirements identified early — not at the deadline.</p></div></div>
+    <div class="step"><div><h3>Review it and learn from it</h3><p style="color:var(--muted);margin:4px 0">Write notes a future broker could re-run the deal from. What slowed it down? That’s your next module to re-read.</p></div></div>
+  </div>
+</section>
+
+<section id="glossary">
+  <h2>Glossary — plain words</h2>
+  <dl class="gloss">
+    <div><dt>FMV Lease</dt><dd>Fair Market Value lease — lower payment, at the end you return, buy at market value, or extend. Good for equipment that ages fast.</dd></div>
+    <div><dt>$1 Buyout / Capital Lease</dt><dd>The customer owns it at the end for $1. Payment is higher than FMV, but the asset is theirs. Common for trucks/trailers kept long-term.</dd></div>
+    <div><dt>TRAC Lease</dt><dd>Terminal Rental Adjustment Clause — common for titled vehicles; end value is agreed up front with a split of sale proceeds.</dd></div>
+    <div><dt>EFA</dt><dd>Equipment Finance Agreement — a loan secured by the equipment. The customer owns it, the lender holds a lien.</dd></div>
+    <div><dt>Personal Guarantee (PG)</dt><dd>Owner personally backs the deal. If they won’t sign, a credit reviewer hears “I don’t believe in this either.”</dd></div>
+    <div><dt>Time in Business (TIB)</dt><dd>How long the business has operated under current ownership. Under 2 years = startup pricing / more conditions, almost everywhere.</dd></div>
+    <div><dt>UCC Filing</dt><dd>Public lien filing on the equipment. Prior UCCs tell a credit reviewer who else has a claim.</dd></div>
+    <div><dt>Credit Package</dt><dd>The file assembled for a credit decision — business, owner, equipment, and financials, put together accurately. Learning to build a clean one is a core broker skill.</dd></div>
+    <div><dt>Floorplan</dt><dd>Dealer inventory financing — a dealer borrows to stock units and repays as they sell. A product to understand, with its own risk logic.</dd></div>
+    <div><dt>Residual / Balloon</dt><dd>Amount left at the end of term. Lowers the payment, raises the end decision. Never hide it in a quote.</dd></div>
+    <div><dt>DSCR</dt><dd>Debt Service Coverage Ratio — cash flow vs. all payments. Below 1.0× means the business doesn’t cover its debts on paper.</dd></div>
+    <div><dt>Vendor Finance</dt><dd>Financing offered at the dealer/vendor point of sale. Speed and dealer trust win deals rate alone doesn’t.</dd></div>
+  </dl>
+</section>
+
+<footer>
+  <p><strong>A note on using this guide:</strong> This is a role-preparation guide. Product and credit concepts here are standard equipment-finance practice, written to teach transferable broker skills — products, discovery, structuring, credit basics, objections, and closing. The Payment Lab is illustrative math, not a rate quote, and practice scenarios are for learning — always confirm a real deal against current programs, pricing, and procedures before quoting. Progress in the labs and checks is in-session only and isn’t saved.</p>
+  <p>Junior Broker Reference Guide · Role Prep · Truck &amp; Trailer Vendor Finance · Equipment Finance</p>
+</footer>
+</div>
+<script>
+var stackData=[
+ ["Lead","A name, an inquiry, a dealer referral.","Learning point: where an opportunity comes from shapes how much you can trust it and what to verify first. Always note the source when you practice."],
+ ["Discovery","Who / what / how much / when.","The broker layer most people rush. Incomplete discovery is why practice deals — and real ones — bounce at Credit and Docs."],
+ ["Structure","Amount, down, term, product (loan vs. lease).","Match term to equipment life. A structure a business can carry in a slow month funds; a fantasy payment doesn't."],
+ ["Credit","Will this business pay, on time, in full?","A credit reviewer reads for story coherence. Your pre-screen (Lab 3) is what separates a broker from a forwarder."],
+ ["Docs","Contracts, title, insurance, exact legal names.","Most funding delays are typos and mismatched names, not credit. Learn to chase them early."],
+ ["Funding","Money moves. Dealer gets paid, customer rolls.","A deal only counts when it's funded — not approved, not docs-out. Funded."],
+ ["Review","What worked, what slowed it, what to learn.","After a practice deal, write the review: which layer was weakest? That tells you what to study next."]
+];
+var stackList=document.getElementById('stackList');
+stackData.forEach(function(s,i){
+  var b=document.createElement('button'); b.className='layer'; b.innerHTML='<span class="layer-num">'+(i+1)+'</span><span><strong>'+s[0]+'</strong> — '+s[1]+'<p>Tap for broker note</p></span>';
+  var d=document.createElement('div'); d.className='layer-detail'; d.textContent=s[2];
+  b.addEventListener('click',function(){ d.classList.toggle('open'); });
+  stackList.appendChild(b); stackList.appendChild(d);
+});
+
+var modules=[
+ [1,"The Job in One Map","45 min","What qualifying, brokering, credit review, and funding each own — and where deals actually die (at the transitions between stages).",["Qualifying finds and checks; brokering owns the outcome","A deal dies at seams, not in stages","Preparing for the role means learning to own the seams"],"Core",false],
+ [2,"Finance Products, Plainly","60 min","Loans / EFA, capital ($1) leases, FMV leases, TRAC for titled vehicles, floorplan — when each fits.",["Own-it vs. use-it is the first fork","Match product to how long they'll keep it","Learn each product's end-of-term story cold"],"Core",false],
+ [3,"Equipment Knowledge","40 min","Truck & trailer is the home turf: types, ages, mileage, titled vs. non-titled — and how equipment itself changes the financing.",["Equipment life drives max sensible term","Age and condition shape credit appetite","A unit's resale story is part of the credit story"],"Reference",false],
+ [4,"Discovery That Qualifies","75 min","The 4 questions, plus PG, TIB, and down — asked early, without interrogating.",["Who / what / how much / when — every time","Ask PG directly, early","Take notes a credit reviewer can use without a callback"],"Closing Sprint",true],
+ [5,"Structuring a Deal","90 min","Amount, down, term, residual — building a payment the business can actually carry.",["Term ≤ useful life, always","Down is a credit tool, not just cash","Use Lab 1 to talk trade-offs, not just price"],"Closing Sprint",true],
+ [6,"Credit — How Credit Decides","90 min","TIB, PG, equipment essentiality, story coherence, prior liens — and how to assemble a file a reviewer can say yes to.",["Accuracy in the file is your reputation","Surface the weak spot + mitigant yourself","You have no shortcut around a thin story"],"Closing Sprint",true],
+ [7,"Pricing & Payment Math","50 min","How rate, term, and down interact — so a quote survives the customer's accountant.",["Never quote a payment you can't explain","Balloon lowers payment, raises the end bill","Illustrative ≠ quoted — say which it is"],"Core",false],
+ [8,"Objections & Negotiation","75 min","Rate, timing, 'send me info', competitor quotes. Answer the real concern, confirm, stop at the yes.",["Rate objection is usually a trust objection","Never restructure after the yes","Trade on structure — don't just give on price"],"Closing Sprint",true],
+ [9,"Deal Notes & File Discipline","45 min","How to keep practice — and real — deal notes clean: what was said, what was promised, what happens next, in the order it happened.",["Record given facts only — never invent","Source and stage, noted every time","If it isn't written down, it didn't happen"],"Core",false],
+ [10,"Docs to Funding","60 min","Legal names, title, insurance, signatures — the unglamorous layer that decides whether an approved deal actually funds.",["Names must match everywhere, exactly","Insurance requirements identified at docs stage, not deadline day","Approved ≠ funded — learn the difference cold"],"Closing Sprint",true],
+ [11,"Anatomy of a Funded Deal","55 min","Worked examples: walk three sample deals end to end — a clean one, a thin-credit one, and one that died at docs — and name the layer that decided each.",["Clean deals are built at discovery, not saved at the end","Thin credit survives on mitigants, not hope","Most docs deaths were preventable at structuring"],"Reference",false],
+ [12,"The Junior Broker Standard","40 min","The study and practice habits that build closing muscle: daily drills, rehearsed talk tracks, and reviewing every practice deal for its weakest layer.",["Rehearse objections out loud, not just in your head","Review one practice deal a week, layer by layer","One practice deal worked cleanly end to end = capstone"],"Core",false]
+];
+var grid=document.getElementById('moduleGrid');
+function renderModules(filter){
+  grid.innerHTML='';
+  modules.forEach(function(m){
+    if(filter && (m[1]+' '+m[3]+' '+m[4].join(' ')).toLowerCase().indexOf(filter.toLowerCase())===-1) return;
+    var el=document.createElement('article'); el.className='mod'; el.dataset.sprint=m[6]?'1':'0';
+    el.innerHTML='<div class="mod-top"><span class="mod-num">MODULE '+String(m[0]).padStart(2,'0')+'</span><span class="mod-time">'+m[2]+'</span></div><h3>'+m[1]+'</h3><p>'+m[3]+'</p><ul>'+m[4].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><span class="tag '+(m[6]?'green':'gold')+'">'+m[5]+'</span>';
+    grid.appendChild(el);
+  });
+  if(!grid.children.length) grid.innerHTML='<p style="color:var(--muted)">No modules match — try a shorter search.</p>';
+  if(document.getElementById('sprintToggle').checked){ document.querySelectorAll('.mod').forEach(function(el){ el.style.display=(el.dataset.sprint==='1')?'':'none'; }); }
+}
+renderModules('');
+document.getElementById('modSearch').addEventListener('input',function(e){ renderModules(e.target.value); });
+document.getElementById('sprintToggle').addEventListener('change',function(e){
+  document.getElementById('sprintNote').style.display=e.target.checked?'block':'none';
+  document.querySelectorAll('.mod').forEach(function(el){ el.style.display=(!e.target.checked||el.dataset.sprint==='1')?'':'none'; });
+});
+
+function calc(){
+  var amt=+document.getElementById('amt').value||0, down=+document.getElementById('down').value||0, term=+document.getElementById('term').value||60, rate=(+document.getElementById('rate').value||0)/100/12, balloon=+document.getElementById('balloon').value||0;
+  var pv=amt-down; var pmt;
+  if(rate===0){ pmt=(pv-balloon)/term; } else { var f=Math.pow(1+rate,term); pmt=(pv - balloon/f)*rate*f/(f-1); }
+  document.getElementById('payResult').textContent='$'+Math.round(pmt).toLocaleString()+' / mo · $'+pv.toLocaleString()+' financed';
+}
+['amt','down','term','rate','balloon'].forEach(function(id){ document.getElementById(id).addEventListener('input',calc); document.getElementById(id).addEventListener('change',calc); }); calc();
+
+document.getElementById('nextQ').addEventListener('click',function(){ document.getElementById('qList').style.display='block'; document.getElementById('discoveryCard').innerHTML='<strong>Broker move:</strong> Don\'t pitch. Ask the 4 questions, in order, and write down only what they actually say.'; });
+document.getElementById('resetQ').addEventListener('click',function(){ document.getElementById('qList').style.display='none'; });
+
+document.querySelectorAll('.tri').forEach(function(c){ c.addEventListener('change',function(){ var n=document.querySelectorAll('.tri:checked').length; document.getElementById('triScore').textContent=n+' / 6 checked'+(n>=4?' — broker-level pre-screen ✓':' — keep going'); }); });
+
+var cards=[
+ ["“Your rate is higher than the other guy.”","“Could be — rate alone doesn't tell us term, down, or what happens at the end. If I match the structure apples-to-apples and we're still apart, that's a real conversation. Can I lay both side by side?” Then confirm the structure, not just the rate."],
+ ["“Just send me some info.”","“Happy to — so I send the right thing: is it the [equipment] for [date] you're pricing, or are you still deciding on the unit?” Info without discovery is a dead lead."],
+ ["“We need to think about it.”","“Of course. While you think — is it the payment, the timing, or the equipment itself that's unsettled? That tells me whether to hold your timeline or step back.” Name the real blocker."],
+ ["“Can you do a lower payment?”","“We can move it — longer term or more down both do it, each with a trade-off. Which matters more: lowest payment, or lowest total cost?” Don't restructure blind; trade, don't give."]
+];
+var ci=0, flipped=false;
+function showCard(){ document.getElementById('flashText').innerHTML='<strong>'+cards[ci][0]+'</strong><br><span style="color:var(--muted)">Tap to see the broker response →</span>'; document.getElementById('flashCount').textContent=(ci+1)+' / '+cards.length; flipped=false; }
+document.getElementById('flashCard').addEventListener('click',function(){ if(!flipped){ document.getElementById('flashText').innerHTML='<p style="margin:0">'+cards[ci][1]+'</p>'; flipped=true; } else showCard(); });
+document.getElementById('flashCard').addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); this.click(); }});
+document.getElementById('nextFlash').addEventListener('click',function(){ ci=(ci+1)%cards.length; showCard(); });
+
+var quizData=[
+ ["Discovery (Mod 04)","A practice lead says only 'need a trailer ASAP.' What's the broker move?",["Pitch the most popular trailer program","Ask who / what / how much / when, in order","Send it straight to a credit reviewer to save time"],1,"Discovery before everything. No equipment, amount, or timeline = not qualified yet, no matter how urgent it sounds."],
+ ["Structuring (Mod 05)","A customer wants the lowest possible payment on a trailer they'll keep 10 years. Best structure talk?",["Longest term + biggest balloon, no discussion","Show term/down trade-offs and flag what the balloon means at the end","Quote the lowest number and move on"],1,"A broker shows trade-offs. A hidden balloon that surprises them at the end kills the relationship — and the referral."],
+ ["Credit (Mod 06)","Your practice file has a weak spot: business is 14 months old. What do you do?",["Don't mention it — a reviewer might not notice","Surface it yourself with a mitigant (strong PG, bigger down, essential equipment)","Decline the deal yourself"],1,"A reviewer will find it. Surfacing it with a mitigant is exactly what separates a broker from a forwarder."],
+ ["Negotiation (Mod 08)","In a role-play, the customer says yes to your structure. Next move?",["Offer two more options so they feel choice","Confirm the yes, state the next step, stop selling","Sweeten the deal with extra concessions"],1,"Scenarios end at the yes. Extra options or concessions after a yes only create doubt."],
+ ["Funding (Mod 10)","A practice deal is approved. When do you chase insurance and title requirements?",["At the funding deadline","Right at the docs stage — names matching everywhere, exactly","After funding, if there's an issue"],1,"Approved ≠ funded. Most funding delays are name mismatches and missing insurance chased too late."]
+];
+var quizEl=document.getElementById('quiz'); var passed={};
+quizData.forEach(function(q,qi){
+  var box=document.createElement('div'); box.className='cheat';
+  box.innerHTML='<h3>Boss Check '+(qi+1)+' · '+q[0]+'</h3><p style="font-weight:600">'+q[1]+'</p>'+q[2].map(function(o,oi){return '<label style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer"><input type="radio" name="q'+qi+'" value="'+oi+'" style="width:22px;height:22px;flex-shrink:0"><span>'+o+'</span></label>'}).join('')+'<p class="qfb" style="display:none;margin-top:10px"></p>';
+  box.querySelectorAll('input').forEach(function(r){ r.addEventListener('change',function(){ var fb=box.querySelector('.qfb'); fb.style.display='block'; var ok=+r.value===q[3]; passed[qi]=ok; fb.innerHTML=(ok?'<strong style="color:var(--green)">✓ Correct.</strong> ':'<strong style="color:var(--red)">✗ Not quite.</strong> ')+q[4]; var n=Object.values(passed).filter(Boolean).length; document.getElementById('quizScore').textContent=n+' / 5 passed'+(n===5?' — Sprint graduated. UP NEXT: run the Capstone practice deal.':''); if(n===5) document.getElementById('upNextText').textContent='All 5 boss checks passed. UP NEXT: the Capstone — work a complete practice deal end to end.'; }); });
+  quizEl.appendChild(box);
+});
+
+document.querySelectorAll('[data-copy]').forEach(function(b){ b.addEventListener('click',function(){ var t=document.getElementById(b.dataset.copy).textContent; if(navigator.clipboard) navigator.clipboard.writeText(t); var orig=b.textContent; b.textContent='Copied ✓'; setTimeout(function(){ b.textContent=orig; },1800); }); });
+</script>
+</body>
+</html>
