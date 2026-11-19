@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Loop — Two Models, One Team | 7EightMade</title>
+<meta name="description" content="Two different AI models — Claude and Grok — talking to each other, working as one team. No copy-paste. The Loop, explained. The Operator Manual: $47, 8-hour drop.">
+<style>
+  :root{--bg:#0c0e12;--panel:#12151c;--line:rgba(255,255,255,.09);--text:#e8ecf1;--muted:rgba(232,236,241,.72);--teal:#00f5e6;--teal-dark:#04211d}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  a{color:var(--teal)}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 18px 56px}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 8px}
+  h1{font-size:42px;line-height:1.05;margin:0 0 10px}
+  h2{font-size:22px;margin:34px 0 8px}
+  p{color:var(--muted);margin:0 0 14px}
+  p strong, li strong{color:var(--text)}
+  .lead{font-size:19px;color:var(--text)}
+  .pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--teal);color:var(--teal-dark)}
+  .pill.is-mid{background:#ffb020;color:#241a02}
+  .pill.is-closed{background:#3a3f47;color:#cfd4da}
+  .steps{display:grid;gap:10px;margin:14px 0 4px;padding:0;list-style:none}
+  .steps li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--muted)}
+  .steps b{color:var(--teal);margin-right:8px}
+  .offer{background:var(--panel);border:1px solid rgba(0,245,230,.35);border-radius:16px;padding:22px;margin-top:30px}
+  .offer h2{margin-top:0}
+  .price{font-size:34px;font-weight:800;margin:4px 0}
+  .price span{font-size:15px;font-weight:600;color:var(--muted)}
+  .clock{font-variant-numeric:tabular-nums;font-weight:700;color:var(--teal);font-size:18px}
+  .clock.is-mid{color:#ffb020}
+  .chapters{columns:2;gap:24px;color:var(--muted);margin:8px 0 4px;padding-left:18px}
+  form{display:grid;gap:12px;margin-top:14px}
+  label{font-size:13px;font-weight:600;letter-spacing:.02em}
+  input,textarea{width:100%;margin-top:5px;background:#0a0c10;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px 12px;font:inherit}
+  button.cta{background:var(--teal);color:var(--teal-dark);border:0;border-radius:999px;padding:13px 22px;font-weight:800;font-size:16px;cursor:pointer;width:100%}
+  button.cta[disabled]{opacity:.5;cursor:not-allowed}
+  .fine{font-size:13px;color:var(--muted)}
+  .success{display:none;background:rgba(0,245,230,.1);border:1px solid rgba(0,245,230,.4);border-radius:12px;padding:14px 16px;color:var(--text)}
+  .success.is-visible{display:block}
+  footer{margin-top:44px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+  /* intro overlay (Grandfather Paradox pattern) */
+  .intro{position:fixed;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center}
+  .intro[hidden]{display:none}
+  .intro video{height:100%;max-height:100vh;width:auto;max-width:100%;aspect-ratio:9/16;background:#000}
+  .intro__btn{position:absolute;border:1px solid rgba(255,255,255,.35);background:rgba(10,12,16,.72);color:#fff;border-radius:999px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer}
+  .intro__skip{top:calc(14px + env(safe-area-inset-top));right:14px}
+  .intro__sound{bottom:calc(16px + env(safe-area-inset-bottom));right:16px}
+  .intro__play{top:50%;left:50%;transform:translate(-50%,-50%);background:var(--teal);color:var(--teal-dark);border-color:var(--teal);padding:16px 28px;font-size:18px}
+</style>
+</head>
+<body>
+
+<div class="intro" id="loopIntro" role="dialog" aria-modal="true" aria-label="The Loop — the video">
+  <video id="loopIntroVideo" src="assets/the-loop-story.mp4" poster="assets/poster.jpg" autoplay muted playsinline preload="auto"></video>
+  <button class="intro__btn intro__play" id="loopIntroPlay" type="button" hidden>▶ Watch the video</button>
+  <button class="intro__btn intro__skip" id="loopIntroSkip" type="button">Skip intro →</button>
+  <button class="intro__btn intro__sound" id="loopIntroSound" type="button" aria-pressed="false">🔊 Sound on</button>
+</div>
+
+<main class="wrap">
+  <p class="kicker">7EightMade · AI Consulting</p>
+  <h1>The Loop</h1>
+  <p class="lead">Two different AI models. One team. <strong>No human in the middle copying and pasting.</strong></p>
+  <p>On one side: <strong>Claude</strong>. On the other: <strong>Grok</strong>. They talk to <em>each other</em> — directly, autonomously — and work a task together like a crew that never clocks out. That is the break: not one model doing tricks, but two models from two different labs running one loop.</p>
+
+  <h2>How the loop runs</h2>
+  <ol class="steps">
+    <li><b>01</b><strong>A task goes in.</strong> One instruction from the operator — that's the only hand on the wheel.</li>
+    <li><b>02</b><strong>The fleet works it.</strong> Claude and Grok pass the work between themselves, each doing what it's best at.</li>
+    <li><b>03</b><strong>It gets checked.</strong> Output is verified before it moves — stamped, not assumed.</li>
+    <li><b>04</b><strong>The decision comes back.</strong> Finished work returns to the operator. Every real call — money, publishing, sending — stays with the human.</li>
+  </ol>
+  <p>No copying. No pasting. No carrying messages between chat windows at 1 AM. The loop runs; the operator decides.</p>
+
+  <section class="offer" id="offerCard">
+    <span class="pill" id="livePill">Live — 8 hours</span>
+    <h2>The Operator Manual</h2>
+    <p>The 8-page PDF that documents the whole setup — the same loop you just watched, written down so you can run it yourself.</p>
+    <ol class="chapters">
+      <li>Boot Up</li><li>The Brief</li><li>The Muse Loop</li><li>The Grok Crew</li>
+      <li>Guardrails</li><li>Daily Run</li><li>Build Your First Bot</li><li>Level Up</li>
+    </ol>
+    <p class="price">$47 <span>/ one-time · 8-page PDF</span></p>
+    <p class="clock" id="clock">--:--:--</p>
+
+    <div id="orderBlock">
+      <h2 style="margin-top:22px">Get it</h2>
+      <ol class="steps">
+        <li><b>1</b>Send <strong>$47</strong> to Cash App <strong>$dom1w0w</strong>.</li>
+        <li><b>2</b>Submit the form below with the name on your payment — that's how we match it.</li>
+        <li><b>3</b>We reply by email with the PDF once your payment clears.</li>
+      </ol>
+      <form id="loopForm" action="https://formspree.io/f/xbldzknn" method="POST">
+        <input type="hidden" name="_subject" value="Loop Drop request — Operator Manual ($47)">
+        <div><label>Your name<input name="name" type="text" autocomplete="name" required></label></div>
+        <div><label>Your email (we reply here)<input name="email" type="email" autocomplete="email" required></label></div>
+        <div><label>Name on your Cash App payment<input name="cashapp_name" type="text" required></label></div>
+        <div><label>Message<textarea name="message" rows="3">I want The Loop Drop — the Operator Manual ($47).</textarea></label></div>
+        <button class="cta" id="loopSubmit" type="submit">Request the manual</button>
+      </form>
+      <p class="success" id="formSuccess">Request received — we'll reply by email once your payment clears.</p>
+      <p class="fine">Prefer email? Write to <a href="mailto:nuguiddom@gmail.com?subject=Loop%20Drop%20request%20%E2%80%94%20Operator%20Manual%20($47)&body=I%20want%20The%20Loop%20Drop%20%E2%80%94%20the%20Operator%20Manual%20($47).%0A%0AName%20on%20my%20Cash%20App%20payment%3A%20">nuguiddom@gmail.com</a> with the name on your Cash App payment.</p>
+    </div>
+    <div id="closedCard" hidden>
+      <p><strong>Offer ended.</strong> The 8-hour Loop Drop is over. No more requests for this promo.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="../">← 7EightMade</a> · fall down 7 stand up 8</p>
+    <p>Independent guide. Not affiliated with or endorsed by xAI or Meta.</p>
+  </footer>
+</main>
+
+<script>
+  // Window: Thu 2026-11-19 11:15 AM CST = 17:15Z → 7:15 PM CST = 01:15Z next day; mid (T+4) 3:15 PM CST = 21:15Z
+  const start = Date.parse('2026-11-19T17:15:00Z');
+  const mid = Date.parse('2026-11-19T21:15:00Z');
+  const end = Date.parse('2026-11-20T01:15:00Z');
+  const clock = document.getElementById('clock');
+  const pill = document.getElementById('livePill');
+  const offer = document.getElementById('offerCard');
+  const orderBlock = document.getElementById('orderBlock');
+  const closed = document.getElementById('closedCard');
+  function pad(n){ return String(Math.max(0,n)).padStart(2,'0'); }
+  function hms(ms){ const h=Math.floor(ms/3600000), m=Math.floor((ms%3600000)/60000), s=Math.floor((ms%60000)/1000); return pad(h)+':'+pad(m)+':'+pad(s); }
+  let timer = null;
+  function tick(){
+    const now = Date.now();
+    const ms = end - now;
+    if (ms <= 0){
+      clock.textContent = '00:00:00';
+      pill.textContent = 'Offer ended'; pill.className = 'pill is-closed';
+      orderBlock.hidden = true; closed.hidden = false;
+      if (timer) clearInterval(timer);
+      return;
+    }
+    if (now >= mid){ pill.textContent = 'Under 4 hours left'; pill.className = 'pill is-mid'; clock.classList.add('is-mid'); }
+    else { pill.textContent = 'Live — 8 hours'; pill.className = 'pill'; clock.classList.remove('is-mid'); }
+    clock.textContent = hms(ms) + ' left · closes 7:15 PM CT';
+  }
+  tick(); timer = setInterval(tick, 1000);
+
+  // Form (same pattern as the homepage contact form)
+  (function(){
+    const form = document.getElementById('loopForm');
+    const success = document.getElementById('formSuccess');
+    const btn = document.getElementById('loopSubmit');
+    if (!form) return;
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{ 'Accept':'application/json' } });
+        if (!res.ok) throw new Error('send failed');
+        form.reset();
+        success.classList.add('is-visible');
+        btn.textContent = 'Request sent';
+      } catch (err) {
+        btn.disabled = false; btn.textContent = 'Request the manual';
+        alert('Something went wrong sending that. Email nuguiddom@gmail.com instead.');
+      }
+    });
+  })();
+
+  // Intro video (Grandfather Paradox pattern)
+  (function(){
+    const intro = document.getElementById('loopIntro');
+    const video = document.getElementById('loopIntroVideo');
+    const playBtn = document.getElementById('loopIntroPlay');
+    const skipBtn = document.getElementById('loopIntroSkip');
+    const soundBtn = document.getElementById('loopIntroSound');
+    function close(){ intro.hidden = true; try { video.pause(); } catch(e){} }
+    skipBtn.addEventListener('click', close);
+    video.addEventListener('ended', close);
+    soundBtn.addEventListener('click', function(){
+      video.muted = !video.muted;
+      soundBtn.textContent = video.muted ? '🔊 Sound on' : '🔇 Sound off';
+      soundBtn.setAttribute('aria-pressed', String(!video.muted));
+    });
+    const p = video.play();
+    if (p && p.catch) p.catch(function(){ playBtn.hidden = false; });
+    playBtn.addEventListener('click', function(){ playBtn.hidden = true; video.play(); });
+  })();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_BEACON_TOKEN_PASTE_HERE"}'></script>
+</body>
+</html>
