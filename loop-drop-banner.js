@@ -19,7 +19,7 @@
   bar.setAttribute('aria-label', 'The Loop Drop');
   bar.innerHTML =
     '<div class="ldb-inner">' +
-      '<a href="muse-grok-drop/">' +
+      '<a href="the-loop/">' +
         '<span class="ldb-live">Live · 8h</span>' +
         '<span class="ldb-copy">The Loop Drop · $47 · <span>two models, one team — the operator manual</span></span>' +
         '<span class="ldb-clock" id="loopdrop-clock">--:--:--</span>' +
