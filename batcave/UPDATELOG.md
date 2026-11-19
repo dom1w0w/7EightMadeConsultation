@@ -77,3 +77,7 @@
 
 ## 2026-11-06 — Reference section on batcave workout page
 - Added "REFERENCE // FORM CHECK" below Session History: external reels linked only, nothing re-uploaded. doctor_curses bodyweight circuit (push-ups, squats, leg raises, mountain climbers, hollow hold — 3 rounds); _drzenphd 4 moves x 100 daily (knee tucks, donkey kicks, side-plank hip dips, kneeling hip extensions); @swolotips form checks mapped to program moves (pike push-ups, reverse snow angels, arms-out hold, push-up hold, stomach vacuums, leg raises, sit-ups, burpees, Bulgarian split squats, lunges). Each entry maps to the RipRight move it pairs with; legs flagged as the program's gap.
+
+
+## 2026-11-18 — Live bot map linked
+- Bat computer: added always-visible `bot-map` row (after workout) → https://dom1w0w.github.io/bot-map/ (opens in new tab). Added by Live Bot Map per Dom.
