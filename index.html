@@ -875,6 +875,18 @@
     .intro__skip:hover { color: var(--ink); border-color: var(--line-hover); background: var(--raised); }
     .intro__skip:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
+    /* Intro video — covers the stage when it can play; the CSS cinematic stays as fallback */
+    .intro__video {
+      position: absolute; inset: 0; z-index: 1;
+      width: 100%; height: 100%; object-fit: cover;
+      background: var(--paper);
+      opacity: 0; transition: opacity .3s ease;
+      pointer-events: none;
+    }
+    #intro.has-video .intro__video { opacity: 1; }
+    #intro.has-video .intro__stage { visibility: hidden; }
+    #intro.is-wiping .intro__video { animation: introContentOut .28s ease forwards; }
+
     #intro.is-playing .intro__progress { animation: introFadeIn .28s ease forwards; }
     #intro.is-playing .intro__progress::after { animation: introProg 1.05s cubic-bezier(.4,0,.2,1) .04s forwards; }
     #intro.is-playing .intro__loading { animation: introFadeIn .3s ease .04s forwards; }
@@ -1559,6 +1571,7 @@
 
   <!-- Cinematic intro — sand + cobalt; once per session via sessionStorage 78-intro-seen -->
   <div id="intro" role="dialog" aria-modal="true" aria-label="7EightMade loading" hidden>
+    <video class="intro__video" id="introVideo" muted playsinline preload="none" poster="assets/intro/intro-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/intro/intro.mp4"></video>
     <div class="intro__stage">
       <div class="intro__progress" aria-hidden="true"></div>
       <p class="intro__loading" aria-hidden="true">Loading</p>
@@ -2378,10 +2391,19 @@
           heroEnters.forEach(el => el.classList.add('is-in'));
         } else {
           const run = () => heroEnters.forEach(el => el.classList.add('is-in'));
-          // Align with intro: first visit waits for iris wipe; return visits enter immediately
+          // Align with intro: return visits enter immediately; first visits enter as the
+          // intro video ends (~5.9s) — the is-risen poll catches the shorter CSS fallback
           let introSeen = false;
           try { introSeen = sessionStorage.getItem('78-intro-seen') === '1'; } catch (e) {}
-          setTimeout(run, introSeen ? 90 : 1680);
+          if (introSeen) {
+            setTimeout(run, 90);
+          } else {
+            setTimeout(run, 5900);
+            const risenPoll = setInterval(() => {
+              if (document.body.classList.contains('is-risen')) { run(); clearInterval(risenPoll); }
+            }, 200);
+            setTimeout(() => clearInterval(risenPoll), 7000);
+          }
         }
       }
 
@@ -2543,11 +2565,52 @@
         document.body.classList.add('intro-active');
         void intro.offsetWidth;
         intro.classList.add('is-playing');
-        const wipeTimer = setTimeout(startWipe, 1400);
-        const hardTimer = setTimeout(finishIntro, 2200);
+
+        const vid = document.getElementById('introVideo');
+        let wipeTimer = null;
+        let hardTimer = setTimeout(finishIntro, 9000);
+        let videoMode = false;
+        let fellBack = false;
+
+        function armCssIntro() {
+          /* Video unavailable — run the original CSS cinematic, unchanged */
+          if (fellBack) return;
+          fellBack = true;
+          intro.classList.remove('has-video');
+          clearTimeout(hardTimer);
+          wipeTimer = setTimeout(startWipe, 1400);
+          hardTimer = setTimeout(finishIntro, 2200);
+        }
+
+        if (vid && vid.dataset.src) {
+          const loadWatchdog = setTimeout(armCssIntro, 2800);
+          vid.addEventListener('canplay', function() {
+            clearTimeout(loadWatchdog);
+            if (fellBack) return;
+            videoMode = true;
+            intro.classList.add('has-video');
+            clearTimeout(hardTimer);
+            hardTimer = setTimeout(finishIntro, 8000);
+            const p = vid.play();
+            if (p && p.catch) p.catch(armCssIntro);
+          }, { once: true });
+          vid.addEventListener('ended', function() {
+            clearTimeout(hardTimer);
+            hardTimer = setTimeout(finishIntro, 1600);
+            startWipe();
+          });
+          vid.addEventListener('error', armCssIntro);
+          vid.src = vid.dataset.src;
+          vid.load();
+        } else {
+          armCssIntro();
+        }
+
         function skip() {
           clearTimeout(wipeTimer);
           clearTimeout(hardTimer);
+          if (vid && videoMode) { try { vid.pause(); } catch (e) {} }
+          hardTimer = setTimeout(finishIntro, 1600);
           startWipe();
         }
         skipBtn.addEventListener('click', skip, { once: true });
