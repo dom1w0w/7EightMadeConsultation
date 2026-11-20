@@ -117,7 +117,8 @@
   // Window: Thu 2026-11-19 11:15 AM CST = 17:15Z → 7:15 PM CST = 01:15Z next day; mid (T+4) 3:15 PM CST = 21:15Z
   const start = Date.parse('2026-11-19T17:15:00Z');
   const mid = Date.parse('2026-11-19T21:15:00Z');
-  const end = Date.parse('2026-11-20T01:15:00Z');
+  const firstEnd = Date.parse('2026-11-20T01:15:00Z');
+  const end = Date.parse('2026-11-21T01:15:00Z');
   const clock = document.getElementById('clock');
   const pill = document.getElementById('livePill');
   const offer = document.getElementById('offerCard');
@@ -128,7 +129,8 @@
   let timer = null;
   function tick(){
     const now = Date.now();
-    const ms = end - now;
+    const target = now < firstEnd ? firstEnd : end;
+    const ms = target - now;
     if (ms <= 0){
       clock.textContent = '00:00:00';
       pill.textContent = 'Offer ended'; pill.className = 'pill is-closed';
@@ -136,8 +138,9 @@
       if (timer) clearInterval(timer);
       return;
     }
-    if (now >= mid){ pill.textContent = 'Under 4 hours left'; pill.className = 'pill is-mid'; clock.classList.add('is-mid'); }
-    else { pill.textContent = 'Live — 8 hours'; pill.className = 'pill'; clock.classList.remove('is-mid'); }
+    if (ms <= 4*3600000){ pill.textContent = 'Under 4 hours left'; pill.className = 'pill is-mid'; clock.classList.add('is-mid'); }
+    else if (now < firstEnd) { pill.textContent = 'Live — 8 hours'; pill.className = 'pill'; clock.classList.remove('is-mid'); }
+    else { pill.textContent = 'Live'; pill.className = 'pill'; clock.classList.remove('is-mid'); }
     clock.textContent = hms(ms) + ' left · closes 7:15 PM CT';
   }
   tick(); timer = setInterval(tick, 1000);
