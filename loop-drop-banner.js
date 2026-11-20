@@ -1,5 +1,6 @@
 (function () {
-  var end = Date.parse('2026-11-20T01:15:00Z');
+  var firstEnd = Date.parse('2026-11-20T01:15:00Z');
+  var end = Date.parse('2026-11-21T01:15:00Z');
   if (Date.now() >= end) return;
   if (document.getElementById('loopdrop-banner')) return;
 
@@ -29,7 +30,8 @@
 
   function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
   function tick() {
-    var ms = end - Date.now();
+    var target = Date.now() < firstEnd ? firstEnd : end;
+    var ms = target - Date.now();
     var clock = document.getElementById('loopdrop-clock');
     if (ms <= 0) {
       bar.hidden = true;
