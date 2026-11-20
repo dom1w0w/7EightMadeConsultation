@@ -12,7 +12,9 @@
     '#loopdrop-banner .ldb-live{background:#00f5e6;color:#04211d;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}' +
     '#loopdrop-banner .ldb-copy{font-size:15px}' +
     '#loopdrop-banner .ldb-copy span{opacity:.75}' +
-    '#loopdrop-banner .ldb-clock{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:700;color:#00f5e6}';
+    '#loopdrop-banner .ldb-clock{font-variant-numeric:tabular-nums;font-weight:700;color:#00f5e6}' +
+    '#loopdrop-banner .ldb-right{margin-left:auto;display:flex;align-items:center;gap:8px;white-space:nowrap}' +
+    '#loopdrop-banner .ldb-extended{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#e8ecf1;opacity:.75}';
   document.head.appendChild(style);
 
   var bar = document.createElement('aside');
@@ -21,9 +23,9 @@
   bar.innerHTML =
     '<div class="ldb-inner">' +
       '<a href="the-loop/">' +
-        '<span class="ldb-live">Live · 8h</span>' +
+        '<span class="ldb-live">Live</span>' +
         '<span class="ldb-copy">The Loop Drop · $47 · <span>two models, one team — the operator manual</span></span>' +
-        '<span class="ldb-clock" id="loopdrop-clock">--:--:--</span>' +
+        '<span class="ldb-right"><span class="ldb-extended">Extended</span><span class="ldb-clock" id="loopdrop-clock">--:--:--</span></span>' +
       '</a>' +
     '</div>';
   document.body.insertBefore(bar, document.body.firstChild);
