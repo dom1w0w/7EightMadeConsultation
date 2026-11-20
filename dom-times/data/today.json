@@ -1,80 +1,80 @@
 {
   "_meta": {
-    "note": "LIVE edition, Thursday, November 19, 2026. Locale: Carpentersville, IL. Public edition.",
-    "generated": "2026-11-19T05:58:02-06:00",
+    "note": "LIVE edition, Friday, November 20, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 17, rotated the Nov 10 @KutaTweaks post.",
+    "generated": "2026-11-20T06:04:31-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXVII",
+    "volume": "LXXVIII",
     "city": "Carpentersville, IL",
-    "asOf": "5:58 AM CT"
+    "asOf": "6:04 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Bulls Run Brooklyn Out of the Building, 137-107",
-    "subhead": "Chicago went into Barclays and never let up. Matas Buzelis scored 25 and Josh Giddey piled up 14 rebounds and 9 assists in a 30-point road win. When you've got the other side on the ropes, you keep punching.",
-    "source": "RealGM",
-    "url": "https://basketball.realgm.com/nba/scores/2026-11-18"
+    "headline": "Texans Smother the Colts, 26-3",
+    "subhead": "Houston held Indianapolis to a single field goal on Thursday Night Football. Defense that never gives an inch wins the night. Bring that energy into Friday: close the week by giving nothing away.",
+    "source": "NFL.com",
+    "url": "https://www.nfl.com/news/colts-texans-on-thursday-night-football-what-we-learned-from-houston-s-26-3-win"
   },
   "articles": [
     {
-      "hed": "Hawks Outlast SGA's 34",
-      "body": "Shai Gilgeous-Alexander scored 34, and Atlanta still beat Oklahoma City 117-112 behind Onyeka Okongwu's 28. One great player doesn't beat a team that keeps showing up every possession.",
-      "url": "https://basketball.realgm.com/nba/scores/2026-11-18"
+      "hed": "Wemby Puts Up 32 and 11",
+      "body": "Victor Wembanyama scored 32 with 11 rebounds and San Antonio beat the Clippers 124-112 to move to 13-3. Elite players stack good nights until they become a streak.",
+      "url": "https://basketball.realgm.com/nba/scores/2026-11-19"
     },
     {
-      "hed": "Flagg Takes Over in Dallas",
-      "body": "Cooper Flagg put up 33 points and 9 assists as the Mavericks beat Golden State 116-94. Young, hungry and not waiting his turn. That's the energy for a Thursday.",
-      "url": "https://basketball.realgm.com/nba/scores/2026-11-18"
+      "hed": "Bulls Host Washington Tonight",
+      "body": "Fresh off the 30-point win in Brooklyn, Chicago hosts the Wizards at the United Center at 7:00 PM CT in an NBA Cup group game. Back it up at home.",
+      "url": "https://www.nba.com/bulls/game/0022600047-wizards-vs-bulls-chicago-il-11-20-2026"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 63,
-    "low": 43,
+    "high": 66,
+    "low": 39,
     "unit": "F",
-    "summary": "Clear and about 46° at dawn, then clouds with a high near 63 and no rain. Friday stays dry near 64 with morning fog possible. Saturday is cloudy around 63, and drizzle looks likely Sunday (about 72%) before a cold turn Monday (42).",
+    "summary": "Overcast and about 40° at dawn, then a mild high near 66 and dry. Saturday is even warmer, near 67 and dry. Drizzle is likely Sunday (about 79%) with a high near 54, then a cold turn Monday (43) and Tuesday (40).",
     "days": [
       {
-        "label": "Thu",
-        "high": 63,
-        "low": 43,
-        "icon": "cloud"
-      },
-      {
         "label": "Fri",
-        "high": 64,
-        "low": 36,
+        "high": 66,
+        "low": 39,
         "icon": "cloud"
       },
       {
         "label": "Sat",
-        "high": 63,
-        "low": 48,
+        "high": 67,
+        "low": 47,
         "icon": "cloud"
       },
       {
         "label": "Sun",
-        "high": 56,
-        "low": 37,
+        "high": 54,
+        "low": 36,
         "icon": "rain"
+      },
+      {
+        "label": "Mon",
+        "high": 43,
+        "low": 29,
+        "icon": "cloud"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Clear and mild start (~46°), high near 63 and dry all day"
+      "text": "Overcast and ~40° at dawn, high near 66 and dry. Enjoy it, because Sunday turns wet and Monday cold."
     },
     {
       "type": "ACTION",
-      "text": "Thursday push: first MHCCNA call before 9, then move every open lead one step"
+      "text": "Friday close: first MHCCNA call before 9, then lock one next step for Monday before you leave."
     },
     {
       "type": "FYI",
-      "text": "Colts at Texans tonight on Thursday Night Football"
+      "text": "Bulls host the Wizards at 7 PM CT; UFC Qatar main card Saturday at noon CT."
     }
   ],
   "timeline": [
@@ -85,12 +85,12 @@
     },
     {
       "time": "~8:00 AM",
-      "event": "On-site at MHCCNA: first call before 9, then push every open lead one step forward",
+      "event": "On-site at MHCCNA: first call before 9, then turn every open lead into a Monday next step",
       "category": "focus"
     },
     {
       "time": "Lunch",
-      "event": "Ten minutes on the Tech Demo: pick one 'timing' move to use on a call this afternoon",
+      "event": "Ten minutes on the Tech Demo: one cleanup move for the gaming PC",
       "category": "focus"
     },
     {
@@ -99,8 +99,8 @@
       "category": "focus"
     },
     {
-      "time": "7:15 PM",
-      "event": "TNF: Colts at Texans (Prime Video)",
+      "time": "7:00 PM",
+      "event": "Bulls vs. Wizards, United Center (NBA Cup)",
       "category": "fyi"
     },
     {
@@ -110,16 +110,16 @@
     }
   ],
   "thisWeek": [
-    "Thu Nov 19 — dry, ~63°; Colts–Texans on TNF",
-    "Fri Nov 20 — dry, ~64°, fog possible early; Bears–Saints preview",
-    "Sat Nov 21 — cloudy, ~63°; UFC Qatar: Procházka vs. Stirling",
-    "Sun Nov 22 — drizzle likely, ~56°",
-    "Mon Nov 23 — cold turn, high ~42°"
+    "Fri Nov 20 — dry, ~66°; Bulls host the Wizards at 7 PM",
+    "Sat Nov 21 — dry, ~67°; UFC Qatar: Procházka vs. Stirling (main card noon CT)",
+    "Sun Nov 22 — drizzle likely, ~54°",
+    "Mon Nov 23 — cold turn, high ~43°",
+    "Thu Nov 26 — Thanksgiving; Fri Nov 27 — Black Friday"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Thursday, the day of Jupiter: king of the gods, expansion, big moves. Four counts in, four hold, four out, four hold. Settle the body, then think bigger than yesterday.",
+    "intro": "Friday, the day of Venus: attraction, charm, the pull that makes people say yes. Four counts in, four hold, four out, four hold. Settle the body, then go be the person they want to buy from.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -153,14 +153,14 @@
       "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go build."
     },
     "mindset": {
-      "hed": "Don't Let Up",
-      "body": "The Bulls didn't coast when they went up big in Brooklyn. They kept pushing and won by 30. Thursday is where weeks are won or lost. Friday's results get built today. Make the first call, ask for the next step, and when a lead leans your way, press. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Give Nothing Away",
+      "body": "Houston held the Colts to three points on Thursday night. No cheap yards, no lapses, no coasting into the weekend. Friday is where most people let up. You don't. Close the week the way you opened it: first call early, every lead gets a next step, and Monday already has your name on it. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Thursday, the day of Jupiter: run this right after Morning Charge. It's about 46° and clear, so the RipStick finisher can go on the porch if you want air. Big, expansive reps.",
+    "note": "Friday, the day of Venus: run this right after Morning Charge. It's about 40° and overcast, so keep the RipStick finisher inside or bundle up. Smooth, controlled reps.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -192,22 +192,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "Techmeme",
-          "hed": "Anthropic prices its IPO above range",
-          "body": "Anthropic priced its IPO above its marketed range ahead of its Nasdaq debut today, Nov 19.",
-          "url": "https://www.techmeme.com/261118/h1800"
-        },
-        {
-          "source": "9to5Mac",
-          "hed": "iOS 27.3 adds Siri AI usage limits",
-          "body": "Apple's iOS 27.3 adds daily limits for advanced Siri AI requests, with higher iCloud+ tiers getting more capacity.",
-          "url": "https://9to5mac.com/2026/11/18/ios-27-3-adds-siri-ai-usage-limits-heres-what-counts-toward-your-limit/"
-        },
-        {
           "source": "The Neuron",
-          "hed": "What OpenAI's GPT-6.2 system card says",
-          "body": "Astra is OpenAI's first released model to hit its 'High' threshold for AI self-improvement, and both new models reached the 'Critical' cybersecurity tier, so OpenAI tightened restrictions.",
-          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-18-2026/"
+          "hed": "Anthropic starts trading as ANT",
+          "body": "Anthropic priced the largest IPO in U.S. history, per Renaissance Capital, and began trading on Nasdaq under the ticker ANT.",
+          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-19-2026/"
+        },
+        {
+          "source": "Elonosphere",
+          "hed": "Grok 4.8 general release one to two weeks out",
+          "body": "Musk says Grok 4.8 has reached some Grok Bot users, with general release one to two weeks away. Grok Bot also added per-tool permissions.",
+          "url": "https://www.elonosphere.com/Articles/3274/musk-puts-grok-4-8-general-release-one-to-two-weeks-out-as-grok-bot-adds-per-tool-permissions"
+        },
+        {
+          "source": "AI.info",
+          "hed": "Apple ships FastFrames video models",
+          "body": "Apple released FastFrames-L and FastFrames-S, text-to-video models that produce 480p video at interactive speed.",
+          "url": "https://ai.info/daily/2026-11-19"
         }
       ]
     },
@@ -216,21 +216,21 @@
       "items": [
         {
           "source": "RealGM",
-          "hed": "Bulls 137, Nets 107",
-          "body": "Buzelis scored 25 and Giddey added 14 rebounds and 9 assists in a road blowout. Chicago is now 4-10.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-18"
+          "hed": "Spurs 124, Clippers 112",
+          "body": "Wembanyama put up 32 and 11 and Stephon Castle had 12 assists. San Antonio is 13-3.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-19"
         },
         {
           "source": "RealGM",
-          "hed": "Jazz end the Lakers' win streak",
-          "body": "Utah beat Los Angeles 109-97, ending the Lakers' nine-game run one night after Grimes' 47.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-18"
+          "hed": "Knicks edge Wolves 102-99",
+          "body": "Karl-Anthony Towns had 22 and 12 against his old team in Minneapolis. Jonathan Kuminga led Minnesota with 23.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-19"
         },
         {
           "source": "RealGM",
-          "hed": "Hawks top Thunder, Flagg drops 33",
-          "body": "Atlanta beat OKC 117-112 despite 34 from Gilgeous-Alexander, and Cooper Flagg's 33 led Dallas past Golden State 116-94.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-18"
+          "hed": "Lillard's 33 sinks the Bucks",
+          "body": "Damian Lillard scored 33 in Milwaukee as Portland won 124-114. The Bucks fall to 1-15. Memphis also routed Golden State 126-98.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-19"
         }
       ]
     },
@@ -239,21 +239,21 @@
       "items": [
         {
           "source": "NFL.com",
-          "hed": "Mayfield sits out Bucs practice",
-          "body": "Baker Mayfield didn't practice Wednesday with foot and thumb issues; Tampa Bay expects to decide Friday. Jets QB Geno Smith was limited with an ankle injury.",
-          "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-wednesday-nov-18"
+          "hed": "Texans 26, Colts 3 on TNF",
+          "body": "Houston's defense held Indianapolis to a field goal, and Shane Steichen says he'll 'evaluate everything.'",
+          "url": "https://www.nfl.com/news/colts-texans-on-thursday-night-football-what-we-learned-from-houston-s-26-3-win"
         },
         {
-          "source": "ESPN",
-          "hed": "Titans lose Wan'Dale Robinson for the year",
-          "body": "Tennessee's leading pass catcher by touchdowns is out for the season with an ankle injury.",
-          "url": "https://www.espn.com/nfl/story/_/id/50523261/titans-wr-wandale-robinson-season-ankle-injury"
+          "source": "NFL.com",
+          "hed": "Puka Nacua suspended three games",
+          "body": "The NFL suspended the Rams receiver for violating the personal conduct policy.",
+          "url": "https://www.nfl.com/news/puka-nacua-suspension-rams-nfl"
         },
         {
-          "source": "Philadelphia Eagles",
-          "hed": "Joe Milton gets the Eagles start",
-          "body": "Nick Sirianni confirmed Joe Milton will start at quarterback this week.",
-          "url": "https://www.philadelphiaeagles.com/news/nick-sirianni-confirms-joe-milton-will-start-at-quarterback"
+          "source": "NFL.com",
+          "hed": "Ravens send Marlon Humphrey home",
+          "body": "The cornerback won't play Sunday against the Panthers after comments about Baltimore. Separately, Denver extended CB Riley Moss for four years.",
+          "url": "https://www.nfl.com/news/ravens-cb-marlon-humphrey-sent-home-wont-play-week-11-game-baltimore-comments"
         }
       ]
     },
@@ -261,22 +261,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
+          "source": "UFC",
+          "hed": "UFC Qatar is official",
+          "body": "Procházka and Stirling both made 205 for Saturday's five-round main event in Doha; Aljamain Sterling vs. Kevin Vallejos is the co-main. Main card at noon CT on Paramount+.",
+          "url": "https://www.ufc.com/news/official-weigh-results-ufc-qatar-prochazka-vs-stirling"
+        },
+        {
+          "source": "BoxingScene",
+          "hed": "Stevenson–Muratalla heads to purse bids",
+          "body": "Shakur Stevenson and Raymond Muratalla couldn't agree on terms, so the WBO 140-pound title fight goes to purse bids on Nov 30.",
+          "url": "https://www.boxingscene.com/articles/shakur-stevenson-and-raymond-muratalla-fail-to-reach-agreement-heads-to-purse-bids"
+        },
+        {
           "source": "ESPN",
-          "hed": "Opetaia out of Wilder fight",
-          "body": "Jai Opetaia withdrew from his Dec 11 bout with Deontay Wilder on the Fury–Joshua undercard in Cardiff with a hand injury.",
-          "url": "https://www.espn.com/boxing/story/_/id/50519060/jai-opetaia-deontay-wilder-tyson-fury-anthony-joshua"
-        },
-        {
-          "source": "ONE Championship",
-          "hed": "Takeuchi KOs Hashimoto in 23 seconds",
-          "body": "At ONE SAMURAI 5 in Tokyo, Ryugo Takeuchi scored a 23-second knockout and Jarred Brooks ground out a split decision over Tatsumitsu Wada.",
-          "url": "https://www.onefc.com/news/one-samurai-5-mma-results-takeuchi-demolishes-hashimoto-brooks-and-kinoshita-grind-out-tough-wins/"
-        },
-        {
-          "source": "MMA Junkie",
-          "hed": "UFC Qatar adds a late newcomer bout",
-          "body": "John Mitchell vs. Shoaib Yousaf joins Saturday's Procházka vs. Stirling card.",
-          "url": "https://mmajunkie.usatoday.com/story/sports/ufc/2026/11/18/ufc-qatar-john-mitchell-vs-shoaib-yousaf/92849549007/"
+          "hed": "Senate passes the Ali Boxing Revival Act",
+          "body": "The Senate unanimously passed the Muhammad Ali American Boxing Revival Act.",
+          "url": "https://www.espn.com/boxing/story/_/id/50535111/senate-passes-muhammad-ali-american-boxing-revival-act"
         }
       ]
     }
@@ -286,16 +286,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "Jupiter's day",
-        "body": "Thursday comes from Thor, but in the planetary week it belongs to Jupiter: sky-king, giver of increase. Old almanacs marked it for growth, deals and asking for more. Ask big today."
+        "hed": "Venus's day",
+        "body": "Friday is Frigg's day in the north and Venus's day in the planetary week (vendredi, viernes). The old magicians worked Venus hours for love, harmony and persuasion. Charm is a force. Use it on purpose."
       },
       {
-        "hed": "Meister Eckhart on the ground",
-        "body": "The German mystic taught that 'the eye through which I see God is the same eye through which God sees me.' Attention isn't passive. What you look at closely looks back and shapes you."
+        "hed": "Hermes on the image",
+        "body": "The Corpus Hermeticum says that what you hold steadily in the mind's eye shapes what you become. The Hermeticists didn't treat imagination as fantasy. They treated it as a tool."
       },
       {
-        "hed": "Pistis Sophia",
-        "body": "In this Gnostic text, Sophia falls through the realms and keeps calling out until she's lifted back up, thirteen repentances in all. The story isn't the fall. It's that she never stops climbing."
+        "hed": "Julian of Norwich",
+        "body": "The 14th-century anchoress wrote 'All shall be well, and all shall be well, and all manner of thing shall be well' after visions during a near-fatal illness. Calm under pressure isn't denial. It's a decision."
       }
     ]
   },
@@ -303,9 +303,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Timing is a weapon",
-    "body": "Solomon wrote: 'To every thing there is a season, and a time to every purpose under the heaven' (Ecclesiastes 3:1). The same words land differently at the right moment. Read the room before you make the ask.",
-    "practice": "On each call today, wait for one clear buying signal before you ask for the next step. Then ask without hesitating."
+    "hed": "Soft words, hard results",
+    "body": "Solomon wrote: 'A soft answer turneth away wrath: but grievous words stir up anger' (Proverbs 15:1). The calm voice wins the room. Pushback is just a door that hasn't opened yet.",
+    "practice": "When you hit an objection today, slow down, lower your voice, and ask one question before you answer it."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -332,8 +332,14 @@
         "done": false
       },
       {
-        "id": "timing-ask",
-        "text": "Grimoire card: wait for a buying signal, then ask for the next step on every call",
+        "id": "monday-steps",
+        "text": "Every open lead leaves today with a Monday next step",
+        "priority": "high",
+        "done": false
+      },
+      {
+        "id": "soft-answer",
+        "text": "Grimoire card: slow down and ask one question before answering any objection",
         "priority": "high",
         "done": false
       },
@@ -359,22 +365,22 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn · from your X bookmarks",
-    "pick": "@itzsagka shared a CT-side HE grenade lineup on Anubis that chips Ts before the fight starts, and says the trick is knowing WHEN to throw it, not just the lineup.",
-    "author": "@itzsagka",
-    "url": "https://x.com/itzsagka/status/2122823345326444690",
-    "bookmarkUrl": "https://x.com/itzsagka/status/2122823345326444690",
+    "pick": "@KutaTweaks posted a PC-gamer checklist for removing Windows AI features and trimming background overhead, aiming for higher FPS and lower latency.",
+    "author": "@KutaTweaks",
+    "url": "https://x.com/KutaTweaks/status/2120212416697135588",
+    "bookmarkUrl": "https://x.com/KutaTweaks/status/2120212416697135588",
     "linkLabel": "Open bookmark",
-    "note": "New bookmark (posted Nov 17). It includes a 50-second video I haven't watched, so the details come from the post text.",
-    "skipped": "Recently used: @DanRichards0n (Nov 18), @dyfwsammy (Nov 17), @himanshubuildss (Nov 16), @hypertune_ (Nov 15), @Texas_Twins_Dad (Nov 14).",
+    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Nov 10). The full steps are behind the post's link, so the lesson stays general.",
+    "skipped": "Recently used: @itzsagka (Nov 19), @DanRichards0n (Nov 18), @dyfwsammy (Nov 17), @himanshubuildss (Nov 16), @hypertune_ (Nov 15).",
     "lesson": {
-      "oneLiner": "Utility wins rounds before the shooting starts, and timing matters more than the lineup.",
+      "oneLiner": "Fewer things running in the background means more of the machine goes to the game.",
       "beats": [
-        "Learn one lineup cold, from the same spot, every time.",
-        "Throw on the sound cue (footsteps, a pushed util) so the nade lands when they arrive, not before.",
-        "Chip damage turns a fair duel into a one-tap for your team.",
-        "Same in sales: the right ask at the wrong moment misses. Wait for the signal, then commit."
+        "Check Task Manager > Startup apps and turn off anything you don't need at boot.",
+        "Turn off AI and assistant features you don't use in Windows Settings, one at a time.",
+        "Make a restore point before any tweak pack, and change one thing at a time so you know what helped.",
+        "Same at work: cut the noise from your day and the important calls get your full speed."
       ],
-      "takeaway": "Timing turns a good move into a winning one."
+      "takeaway": "Remove the drag before you add more power."
     }
   }
 }
