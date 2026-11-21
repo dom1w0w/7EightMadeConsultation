@@ -1,6 +1,6 @@
 (function () {
   var firstEnd = Date.parse('2026-11-20T01:15:00Z');
-  var end = Date.parse('2026-11-22T01:15:00Z');
+  var end = Date.parse('2026-11-23T01:15:00Z');
   if (Date.now() >= end) return;
   if (document.getElementById('loopdrop-banner')) return;
 
