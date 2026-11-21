@@ -1,0 +1,105 @@
+/* 7EightMade Studio intro — gallery-reel cinematic.
+   Same player pattern as the consultation homepage intro: the video covers the
+   stage when it can play; this CSS cinematic is the fallback. Once per session. */
+body.intro-active { overflow: hidden; }
+#intro {
+  position: fixed; inset: 0; z-index: 100000;
+  background: var(--bg);
+  display: grid; place-items: center;
+  overflow: hidden; pointer-events: auto;
+  clip-path: circle(150% at 50% 42%);
+}
+#intro[hidden] { display: none !important; }
+#intro.is-done { pointer-events: none; visibility: hidden; }
+#intro.is-wiping { animation: studioIntroIris 0.68s cubic-bezier(0.83, 0, 0.17, 1) forwards; }
+@keyframes studioIntroIris {
+  0%   { clip-path: circle(150% at 50% 42%); }
+  100% { clip-path: circle(0% at 50% 42%); }
+}
+.intro__stage {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; position: relative;
+  padding: 24px;
+}
+.intro__eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase;
+  color: var(--ember); margin-bottom: 22px;
+  opacity: 0;
+}
+.intro__big {
+  font-family: var(--display); font-weight: 400; text-transform: uppercase;
+  font-size: clamp(64px, 13vw, 190px); line-height: .86; letter-spacing: .005em;
+  color: #DDCBB2; white-space: nowrap;
+  clip-path: inset(100% 0 0 0); opacity: 0;
+  transform: translateY(12px);
+}
+.intro__serif {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: clamp(30px, 5.5vw, 84px); line-height: 1.05;
+  color: var(--ink); margin-top: 10px;
+  opacity: 0; transform: translateY(8px);
+}
+.intro__tag {
+  margin-top: 26px; font-size: 11px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--muted);
+  opacity: 0; transform: translateY(8px);
+}
+.intro__skip {
+  position: absolute; bottom: 28px; right: 28px; z-index: 2;
+  font: 700 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); padding: 10px 18px; min-height: 44px; border-radius: 999px;
+  border: 1px solid var(--line2); background: rgba(23,21,19,.7);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+  opacity: 0;
+}
+.intro__skip:hover { color: var(--ink); border-color: rgba(242,236,226,.5); background: var(--bg3); }
+.intro__skip:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* Intro video — covers the stage when it can play; the CSS cinematic stays as fallback */
+.intro__video {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%; object-fit: cover;
+  background: var(--bg);
+  opacity: 0; transition: opacity .3s ease;
+  pointer-events: none;
+}
+#intro.has-video .intro__video { opacity: 1; }
+#intro.has-video .intro__stage { visibility: hidden; }
+#intro.is-wiping .intro__video { animation: studioIntroContentOut .28s ease forwards; }
+
+#intro.is-playing .intro__eyebrow { animation: studioIntroFadeIn .28s ease forwards; }
+#intro.is-playing .intro__big { animation: studioIntroWord .55s cubic-bezier(.22,1,.36,1) .18s forwards; }
+#intro.is-playing .intro__serif { animation: studioIntroTag .45s cubic-bezier(.22,1,.36,1) .62s forwards; }
+#intro.is-playing .intro__tag { animation: studioIntroTag .35s ease .98s forwards; }
+#intro.is-playing .intro__skip { animation: studioIntroFadeIn .32s ease .35s forwards; }
+@keyframes studioIntroFadeIn { to { opacity: 1; } }
+@keyframes studioIntroWord {
+  to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+@keyframes studioIntroTag {
+  to { opacity: 1; transform: translateY(0); }
+}
+#intro.is-wiping .intro__stage,
+#intro.is-wiping .intro__skip {
+  animation: studioIntroContentOut .28s ease forwards;
+}
+@keyframes studioIntroContentOut {
+  to { opacity: 0; transform: scale(.96); }
+}
+
+@media (max-width: 760px) {
+  .intro__big { font-size: 17vw; white-space: normal; }
+  .intro__skip { bottom: 20px; right: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #intro.is-playing .intro__eyebrow,
+  #intro.is-playing .intro__big,
+  #intro.is-playing .intro__serif,
+  #intro.is-playing .intro__tag,
+  #intro.is-playing .intro__skip,
+  #intro.is-wiping {
+    animation: none !important;
+  }
+}
