@@ -25,9 +25,21 @@
   <link rel="stylesheet" href="studio.css">
   <link rel="preload" href="fonts/anton-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="intro.css">
 </head>
 <body class="home">
   <a class="skip" href="#main">Skip to content</a>
+  <!-- Cinematic intro — gallery reel; once per session via sessionStorage 78-studio-intro-seen -->
+  <div id="intro" role="dialog" aria-modal="true" aria-label="7EightMade Studio loading" hidden>
+    <video class="intro__video" id="introVideo" muted playsinline preload="none" poster="assets/intro/intro-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/intro/intro.mp4"></video>
+    <div class="intro__stage">
+      <p class="intro__eyebrow" aria-hidden="true">7EightMade · Studio</p>
+      <div class="intro__big" role="img" aria-label="Fall down 7, and get back up">Fall down 7</div>
+      <p class="intro__serif" aria-hidden="true">and get back up</p>
+      <p class="intro__tag">Apps + art</p>
+    </div>
+    <button type="button" class="intro__skip" id="introSkip">Skip</button>
+  </div>
   <header class="snav">
     <div class="snav__in">
       <a class="snav__brand" href="./" aria-current="page"><b>7EightMade</b> Studio</a>
@@ -314,6 +326,7 @@
     </div>
   </footer>
 
+  <script src="intro.js" defer></script>
   <script src="home.js" defer></script>
 
 <!-- 7EightMade analytics: Cloudflare Web Analytics (privacy-friendly, no cookies). Token goes in on setup. -->
