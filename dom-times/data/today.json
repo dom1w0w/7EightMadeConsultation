@@ -1,80 +1,76 @@
 {
   "_meta": {
-    "note": "LIVE edition, Saturday, November 21, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: rotated an older real bookmark (no new ones since Nov 17).",
-    "generated": "2026-11-21T06:02:08-06:00",
+    "note": "LIVE edition, Sunday, November 22, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 17, rotated the Oct 26 @hypertune_ post. Public edition.",
+    "generated": "2026-11-22T05:59:32-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXIX",
+    "volume": "LXXX",
     "city": "Carpentersville, IL",
-    "asOf": "6:02 AM CT"
+    "asOf": "5:59 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Harden Drops 51, Passes Kobe",
-    "subhead": "At 37, James Harden went 15-of-26, 7-of-11 from three and 14-of-14 at the line as Cleveland beat Indiana 128-119. It was his 26th career 50-point game, third-most in NBA history behind only Wilt and Jordan. Age is a number. Output is the answer.",
-    "source": "Al Jazeera (Reuters)",
-    "url": "https://www.aljazeera.com/sports/2026/11/21/cavaliers-james-harden-closes-on-michael-jordan-in-nba-50-point-game-list"
+    "headline": "Wemby: 50 and 19",
+    "subhead": "Victor Wembanyama put up 50 points and 19 rebounds as San Antonio routed New Orleans 114-91. The Spurs are 14-3. When you are the biggest problem on the floor, act like it.",
+    "source": "RealGM",
+    "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
   },
   "articles": [
     {
-      "hed": "Bulls Drop One to Washington",
-      "body": "Chicago fell 98-94 to the Wizards at the United Center in NBA Cup group play, a night after the 30-point win in Brooklyn. Short memory. Next one.",
-      "url": "https://basketball.realgm.com/nba/scores/2026-11-20"
+      "hed": "Stirling Knocks Out Prochazka",
+      "body": "Navajo Stirling, now 12-0, ended Jiri Prochazka with a right hook at 4:58 of Round 2 in Doha. Seven straight UFC wins. Patience, then violence.",
+      "url": "https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling"
     },
     {
-      "hed": "UFC Qatar Today",
-      "body": "Former champ Jiří Procházka meets undefeated Navajo Stirling in Doha. Prelims 9 AM CT, main card noon CT on Paramount+.",
-      "url": "https://www.ufc.com/event/ufc-fight-night-november-21-2026"
+      "hed": "Herro Drops 50 in a Loss",
+      "body": "Tyler Herro scored 50 for Milwaukee, but Philadelphia held on 132-129 behind Joel Embiid (26, 17 boards, 9 assists). Big nights still need a finish.",
+      "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 66,
-    "low": 48,
+    "high": 55,
+    "low": 32,
     "unit": "F",
-    "summary": "Clear and about 49° at dawn, then cloudy with a mild high near 66 and dry (1% rain chance). Sunday turns damp: drizzle likely (about 79%), high near 55. Then the cold arrives: Monday 39, Tuesday 37.",
+    "summary": "Overcast and about 54 at dawn. Rain likely today (about 85%), high near 55, then it drops to the low 30s tonight. Monday and Tuesday stay cold and dry, highs in the 30s. Drizzle chance returns Wednesday.",
     "days": [
-      {
-        "label": "Sat",
-        "high": 66,
-        "low": 48,
-        "icon": "cloud"
-      },
       {
         "label": "Sun",
         "high": 55,
-        "low": 35,
+        "low": 32,
         "icon": "rain"
       },
       {
         "label": "Mon",
-        "high": 39,
-        "low": 26,
-        "icon": "sun"
+        "high": 37,
+        "low": 28,
+        "icon": "cloud"
       },
       {
         "label": "Tue",
         "high": 37,
-        "low": 24,
+        "low": 25,
         "icon": "cloud"
+      },
+      {
+        "label": "Wed",
+        "high": 42,
+        "low": 32,
+        "icon": "rain"
       }
     ]
   },
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Last mild day for a while: ~66° and dry. Get outside today, because Monday's high is 39."
+      "text": "Rain day (about 85%) and the cold lands tonight. Indoor build day."
     },
     {
       "type": "ACTION",
-      "text": "Saturday build block: one shipped 7EightMade or Cosmic Terminal piece before the UFC main card at noon."
-    },
-    {
-      "type": "FYI",
-      "text": "No drop requests today."
+      "text": "Sunday reset: plan the short Thanksgiving week and pick one 7EightMade piece to ship by Wednesday."
     }
   ],
   "timeline": [
@@ -85,23 +81,18 @@
     },
     {
       "time": "Morning",
-      "event": "7EightMade / Cosmic Terminal build block: ship one piece",
+      "event": "7EightMade build block: ship one piece",
       "category": "focus"
     },
     {
-      "time": "9:00 AM",
-      "event": "UFC Qatar prelims (Paramount+)",
-      "category": "fyi"
-    },
-    {
-      "time": "Noon",
-      "event": "UFC Qatar main card: Procházka vs. Stirling",
+      "time": "Noon CT",
+      "event": "NFL Week 12 Sunday slate begins",
       "category": "fyi"
     },
     {
       "time": "Afternoon",
-      "event": "Outside while it's 66° — walk, ride, or RipStick in the sun",
-      "category": "habit"
+      "event": "Sunday reset: plan the Thanksgiving week",
+      "category": "focus"
     },
     {
       "time": "Night",
@@ -110,18 +101,17 @@
     }
   ],
   "thisWeek": [
-    "Sat Nov 21 — dry, ~66°; UFC Qatar main card noon CT",
-    "Sun Nov 22 — drizzle likely, ~55°",
-    "Mon Nov 23 — cold turn, high ~39°",
-    "Tue Nov 24 — high ~37°",
-    "Wed Nov 25 — Packers at Rams opens NFL Week 12",
-    "Thu Nov 26 — Thanksgiving; Bears at Lions, 1 PM ET (noon CT)",
-    "Fri Nov 27 — Black Friday"
+    "Sun Nov 22 - rain likely, ~55, cold tonight",
+    "Mon Nov 23 - high ~37, dry",
+    "Tue Nov 24 - high ~37",
+    "Wed Nov 25 - Packers at Rams opens NFL Week 12; drizzle chance",
+    "Thu Nov 26 - Thanksgiving; Bears at Lions, noon CT",
+    "Fri Nov 27 - Black Friday"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Saturday, the day of Saturn: structure, discipline, the long game. Four counts in, four hold, four out, four hold. No boss, no clock. That's exactly when discipline counts.",
+    "intro": "Sunday, the Sun's day. Four counts in, four hold, four out, four hold. Rest is allowed. Drifting is not. Set the week before the week sets you.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -155,14 +145,14 @@
       "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go build."
     },
     "mindset": {
-      "hed": "Nobody's Watching. Win Anyway.",
-      "body": "Harden is 37 and just put up 51, passing Kobe. Nobody hands that out. It's built on thousands of reps nobody saw. Saturday is your unseen rep: no office, no quota, just you and the build. Ship one real piece of 7EightMade before noon, then enjoy the fights like someone who already won the day. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Be the Problem on the Floor",
+      "body": "Wembanyama didn't wait for the game to come to him: 50 and 19. Stirling waited all of Round 2 and then ended it. Both own the moment because they did the work before it. Sunday is your setup day: lock the week, ship one real piece of 7EightMade, and walk into Monday already ahead. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Saturday, the day of Saturn: run this right after Morning Charge. It's about 49° and clear at dawn, so take the RipStick finisher outside if you want. Smooth, controlled reps.",
+    "note": "Sunday, the Sun's day: run this right after Morning Charge. It's rainy and about 54 out, so keep the RipStick finisher in the garage or swap in 60 seconds of fast feet. Smooth, controlled reps.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -194,22 +184,22 @@
       "title": "AI Desk",
       "items": [
         {
-          "source": "Anthropic",
-          "hed": "Anthropic closes record IPO",
-          "body": "Anthropic closed its IPO at $83 a share, about $93.5 billion gross, plus a concurrent private placement with AMD, Broadcom, Google, Micron, Microsoft, NVIDIA and TSMC. Trading on Nasdaq as ANT.",
-          "url": "https://www.anthropic.com/news/ipo-close"
+          "source": "OpenAI",
+          "hed": "ChatGPT Space reaches Plus users",
+          "body": "OpenAI began rolling out ChatGPT Space to Plus users: shared pages and presentations you build with ChatGPT that can update themselves from your connected apps.",
+          "url": "https://directaisolutions.com/insights/ai-briefing-2026-11-21"
         },
         {
-          "source": "The Neuron",
-          "hed": "Apple reportedly building a computer-use agent",
-          "body": "Apple is reported to be developing an agent that can operate your computer, as Google brought Gemini computer use to the Mac.",
-          "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-20-2026/"
+          "source": "xAI / Grok",
+          "hed": "Grok Bot connects to QuickBooks",
+          "body": "Grok Bot now connects to Intuit QuickBooks to answer cash-flow and profit questions and draft invoices and reminders for approval.",
+          "url": "https://directaisolutions.com/insights/ai-briefing-2026-11-21"
         },
         {
-          "source": "OpenAI / xAI",
-          "hed": "OpenAI targets distillation; xAI retires Grok Build 0.1",
-          "body": "OpenAI published safeguards against adversarial distillation and launched MedChemBench. xAI retired the grok-build-0.1 API model as of Nov 20.",
-          "url": "https://openai.com/index/combatting-adversarial-distillation/"
+          "source": "Apple",
+          "hed": "Apple building a device-control agent",
+          "body": "Apple is reported to be working on an AI agent that can control the device, apps, browsing and coding.",
+          "url": "https://www.businesstimes.com.sg/companies-markets/apple-working-ai-agent-device-control-apps-browsing-and-coding"
         }
       ]
     },
@@ -217,22 +207,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "Al Jazeera (Reuters)",
-          "hed": "Harden 51, Cavs 128, Pacers 119",
-          "body": "Harden's 26th 50-point game moves him past Kobe into third all-time. Donovan Mitchell added 20.",
-          "url": "https://www.aljazeera.com/sports/2026/11/21/cavaliers-james-harden-closes-on-michael-jordan-in-nba-50-point-game-list"
+          "source": "RealGM",
+          "hed": "Wembanyama 50 & 19, Spurs 114-91",
+          "body": "San Antonio improved to 14-3 with a rout of New Orleans.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
         },
         {
           "source": "RealGM",
-          "hed": "Wizards 98, Bulls 94",
-          "body": "Chicago drops its NBA Cup home game to Washington a night after routing Brooklyn.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-20"
+          "hed": "Herro 50, Sixers survive 132-129",
+          "body": "Philadelphia moved to 14-3 despite Tyler Herro's 50 for Milwaukee.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
         },
         {
-          "source": "Flashscore",
-          "hed": "Raptors upset Pistons; SGA scores 40",
-          "body": "Toronto won 105-102 in Detroit behind Scottie Barnes' 29, and Shai Gilgeous-Alexander's 40 carried OKC past New Orleans 126-120.",
-          "url": "https://www.flashscore.com/news/nba-roundup-november-20-2026/COuLASMF/"
+          "source": "RealGM",
+          "hed": "Kings stun Celtics 97-96",
+          "body": "Sacramento (2-14) beat Boston; Knicks edged Portland 97-96 behind Brunson's 30.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
         }
       ]
     },
@@ -240,22 +230,22 @@
       "title": "NFL",
       "items": [
         {
+          "source": "CBS Sports",
+          "hed": "Week 12 flex: Raiders-Browns to SNF",
+          "body": "Raiders-Browns moves to Sunday Night Football; Patriots-Chargers shifts to 4:05 PM ET and Titans-Jaguars to 1 PM ET.",
+          "url": "https://scoutfly.cbsistatic.com/nfl/news/nfl-schedule-flex-week-12-sunday-night-football-patriots-chargers/"
+        },
+        {
           "source": "NFL.com",
           "hed": "Drake Maye has a fractured fibula",
-          "body": "The Patriots QB may miss the rest of the regular season, and A.J. Brown is expected to miss multiple weeks.",
+          "body": "The Patriots QB is hurt; Raiders TE Brock Bowers was listed questionable.",
           "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-20"
         },
         {
-          "source": "NFL.com",
-          "hed": "Colts waive Daniel Jones, start Richardson",
-          "body": "A day after the 26-3 loss in Houston, Indianapolis named Anthony Richardson its starting quarterback.",
-          "url": "https://www.nfl.com/news/colts-waive-daniel-jones-name-anthony-richardson-new-starting-quarterback"
-        },
-        {
-          "source": "NFL.com",
-          "hed": "Bears at Lions on Thanksgiving",
-          "body": "Week 12 opens Wednesday with Packers at Rams. Thursday: Bears at Lions (noon CT), Eagles at Cowboys, Chiefs at Bills.",
-          "url": "https://www.nfl.com/schedules/2026/by-week/week-12"
+          "source": "The Chairshot",
+          "hed": "Cowboys lose Bland; Eagles hit hard",
+          "body": "Dallas put CB DaRon Bland on IR; Philadelphia placed Zack Baun and Dontayvion Wicks on IR; Daniel Jones released by Indianapolis.",
+          "url": "https://thechairshot.com/2026/11/chairshot-nfl-news-report-11-22-2026-cowboys-lose-bland-eagles-hit-hard-jones-draws-interest/"
         }
       ]
     },
@@ -264,21 +254,15 @@
       "items": [
         {
           "source": "UFC",
-          "hed": "Procházka vs. Stirling in Doha today",
-          "body": "Five-round light heavyweight main event; Aljamain Sterling vs. Kevin Vallejos co-main, plus Hooker vs. Ortega. Main card noon CT on Paramount+.",
-          "url": "https://www.ufc.com/event/ufc-fight-night-november-21-2026"
+          "hed": "Stirling KOs Prochazka in Doha",
+          "body": "Right hook at 4:58 of Round 2; Stirling moves to 12-0.",
+          "url": "https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling"
         },
         {
-          "source": "BBC Sport",
-          "hed": "Lauren Price is undisputed",
-          "body": "Price beat Michaela Kotaskova 100-90 on all three cards in Cardiff to become Wales' first undisputed welterweight champion.",
-          "url": "https://www.bbc.com/sport/boxing/articles/cw808y2lrkzxo"
-        },
-        {
-          "source": "The Ring",
-          "hed": "Fundora stays undisputed; Jones stops Pettus",
-          "body": "In Indio, Gabriela Fundora kept her flyweight titles and Amari Jones stopped DeAundre Pettus in round 8.",
-          "url": "https://www.ringmagazine.com/news/amari-jones-batters-pettus-for-8th-round-tko-fundora-remains-undisputed-1d36mEVPz2fR5pkONPHPRv"
+          "source": "UFC",
+          "hed": "Vallejos beats Aljamain Sterling",
+          "body": "Kevin Vallejos took a unanimous decision; Aliskerov, Horiguchi and Hooker also won on the card.",
+          "url": "https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling"
         }
       ]
     }
@@ -288,16 +272,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "Saturn's day",
-        "body": "Saturday is Saturn's day, the planet the old astrologers tied to time, limits and discipline. Saturn was feared as the Great Malefic and also honored as the teacher who rewards whoever does the work."
+        "hed": "The Sun's day",
+        "body": "Sunday belongs to the Sun, which the old magicians tied to vitality, clarity and kingship. Solar work was about becoming the center of your own life instead of orbiting someone else."
       },
       {
-        "hed": "Solve et coagula",
-        "body": "The alchemists' motto: dissolve, then bind. Break the old form down, then rebuild it stronger. It's the same arc as fall down 7, stand up 8."
+        "hed": "The Hermetic Emerald Tablet",
+        "body": "\"As above, so below.\" The idea: the pattern of the big world shows up in the small one. Fix the small daily pattern and the bigger life follows."
       },
       {
-        "hed": "Meister Eckhart",
-        "body": "The 14th-century German mystic taught that the soul meets God 'in the ground' when it lets go of what it clings to. Less grasping, more clarity."
+        "hed": "Jakob Boehme",
+        "body": "The German shoemaker-mystic (1575-1624) wrote that light is born out of darkness, not in spite of it. Friction is the forge."
       }
     ]
   },
@@ -305,9 +289,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Iron sharpens iron",
-    "body": "Solomon wrote: 'Iron sharpeneth iron; so a man sharpeneth the countenance of his friend' (Proverbs 27:17). You get better by measuring yourself against people who push you.",
-    "practice": "Today, pick one person or one standard that's ahead of you and match one thing they do."
+    "hed": "Prepare in summer",
+    "body": "Solomon wrote: 'Go to the ant, thou sluggard; consider her ways, and be wise... provideth her meat in the summer, and gathereth her food in the harvest' (Proverbs 6:6-8). Nobody tells the ant what to do. It prepares before it has to.",
+    "practice": "Today, set up one thing now that makes this short holiday week easier later."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -329,26 +313,20 @@
       },
       {
         "id": "ship-one",
-        "text": "Ship one 7EightMade or Cosmic Terminal piece before noon",
+        "text": "Ship one 7EightMade piece today",
         "priority": "high",
         "done": false
       },
       {
-        "id": "iron",
-        "text": "Grimoire card: match one thing someone ahead of you does",
+        "id": "ant",
+        "text": "Grimoire card: prepare one thing now for later this week",
         "priority": "high",
         "done": false
       },
       {
-        "id": "outside",
-        "text": "Get outside while it's 66° — last mild day",
+        "id": "week-plan",
+        "text": "Plan the Thanksgiving week (3 work days)",
         "priority": "normal",
-        "done": false
-      },
-      {
-        "id": "journal-gratitude",
-        "text": "Journal + 3 lines of gratitude",
-        "priority": "habit",
         "done": false
       }
     ]
@@ -360,23 +338,23 @@
   },
   "techDemo": {
     "title": "Tech Demo",
-    "kicker": "Fast learn · from your X bookmarks",
-    "pick": "@Texas_Twins_Dad shared a way to say \"Hey Grok\" on iPhone and have Grok voice chat open, using only built-in iOS features, no extra apps.",
-    "author": "@Texas_Twins_Dad",
-    "url": "https://x.com/Texas_Twins_Dad/status/2114217410823688573",
-    "bookmarkUrl": "https://x.com/Texas_Twins_Dad/status/2114217410823688573",
+    "kicker": "Fast learn - from your X bookmarks",
+    "pick": "@hypertune_ showed how to check if your RAM runs at the speed you paid for: Task Manager, Performance, Memory, then compare \"Speed\" to the rated speed. If it is lower, the fix is usually turning on XMP/EXPO in BIOS.",
+    "author": "@hypertune_",
+    "url": "https://x.com/hypertune_/status/2114632573510918162",
+    "bookmarkUrl": "https://x.com/hypertune_/status/2114632573510918162",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Oct 25). The full steps are in the post, so the lesson stays general.",
-    "skipped": "Recently used: @KutaTweaks (Nov 20), @itzsagka (Nov 19), @DanRichards0n (Nov 18), @dyfwsammy (Nov 17), @himanshubuildss (Nov 16), @hypertune_ (Nov 15).",
+    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Oct 26). Lesson stays general; the post has the full steps.",
+    "skipped": "Recently used: @Texas_Twins_Dad (Nov 21), @KutaTweaks (Nov 20), @itzsagka (Nov 19), @DanRichards0n (Nov 18), @dyfwsammy (Nov 17).",
     "lesson": {
-      "oneLiner": "iOS lets you chain a spoken phrase to an app action without installing anything.",
+      "oneLiner": "Rated RAM speed is not automatic.",
       "beats": [
-        "The building blocks live in Settings > Accessibility and the Shortcuts app.",
-        "A shortcut can open an app straight to a specific action, like voice chat.",
-        "Test it with the phone locked and unlocked, since the behavior can differ.",
-        "Same idea for the day: cut the steps between the thought and the action."
+        "Open Task Manager, Performance, Memory.",
+        "Read \"Speed\" at the bottom.",
+        "Compare it to the speed on the RAM box or listing.",
+        "Lower? Enable XMP (Intel) or EXPO (AMD) in BIOS."
       ],
-      "takeaway": "Fewer taps between intent and action means more gets done."
+      "takeaway": "A 2-minute check can unlock performance you already paid for."
     }
   }
 }
