@@ -1,64 +1,64 @@
 {
   "_meta": {
-    "note": "LIVE edition, Sunday, November 22, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 17, rotated the Oct 26 @hypertune_ post. Public edition.",
-    "generated": "2026-11-22T05:59:32-06:00",
+    "note": "LIVE edition, Monday, November 23, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Correction: yesterday's edition called Sunday's NFL slate Week 12; it was Week 11. Tech Demo: no new bookmarks since Nov 17, rotated an older real one.",
+    "generated": "2026-11-23T06:01:35-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXX",
+    "volume": "LXXXI",
     "city": "Carpentersville, IL",
-    "asOf": "5:59 AM CT"
+    "asOf": "6:01 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Wemby: 50 and 19",
-    "subhead": "Victor Wembanyama put up 50 points and 19 rebounds as San Antonio routed New Orleans 114-91. The Spurs are 14-3. When you are the biggest problem on the floor, act like it.",
-    "source": "RealGM",
-    "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
+    "headline": "Bears Win Five Straight, Move to 8-2",
+    "subhead": "Chicago beat New Orleans 21-13 at Soldier Field. Caleb Williams threw two touchdowns, Jeffery Simmons had three of six sacks, and Montez Sweat forced a safety. Not pretty. Still a win. Stack them.",
+    "source": "ChicagoBears.com",
+    "url": "https://www.chicagobears.com/news/bears-win-fifth-straight-game-move-to-8-2-with-victory-over-saints-game-recap"
   },
   "articles": [
     {
-      "hed": "Stirling Knocks Out Prochazka",
-      "body": "Navajo Stirling, now 12-0, ended Jiri Prochazka with a right hook at 4:58 of Round 2 in Doha. Seven straight UFC wins. Patience, then violence.",
-      "url": "https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling"
+      "hed": "Murray 45, Jokic Triple-Double Sink the Bulls in OT",
+      "body": "Denver won 151-145 in overtime. Jamal Murray scored a season-high 45 with eight in OT; Nikola Jokic had 37, 18 and 11. Josh Giddey answered with 23 points, 14 boards and a career-high 22 assists for Chicago. Great nights lose to greater finishes.",
+      "url": "https://apnews.com/article/nuggets-bulls-score-023c3cf71fa7d28b4136f84718d00bcd"
     },
     {
-      "hed": "Herro Drops 50 in a Loss",
-      "body": "Tyler Herro scored 50 for Milwaukee, but Philadelphia held on 132-129 behind Joel Embiid (26, 17 boards, 9 assists). Big nights still need a finish.",
-      "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
+      "hed": "Warriors Edge Celtics 88-87",
+      "body": "Golden State beat Boston by one in a low-scoring grinder. Some days you win ugly. Take it.",
+      "url": "https://basketball.realgm.com/nba/scores/2026-11-22"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 55,
-    "low": 32,
+    "high": 37,
+    "low": 30,
     "unit": "F",
-    "summary": "Overcast and about 54 at dawn. Rain likely today (about 85%), high near 55, then it drops to the low 30s tonight. Monday and Tuesday stay cold and dry, highs in the 30s. Drizzle chance returns Wednesday.",
+    "summary": "Clear and about 31 at dawn, then overcast. Dry today (0% rain), high near 37. Tuesday stays dry and cold, high near 39. Some rain chance Wednesday (about 36%), and Thanksgiving looks wet: drizzle likely (about 73%), high near 43.",
     "days": [
-      {
-        "label": "Sun",
-        "high": 55,
-        "low": 32,
-        "icon": "rain"
-      },
       {
         "label": "Mon",
         "high": 37,
-        "low": 28,
+        "low": 30,
         "icon": "cloud"
       },
       {
         "label": "Tue",
-        "high": 37,
-        "low": 25,
+        "high": 39,
+        "low": 28,
         "icon": "cloud"
       },
       {
         "label": "Wed",
         "high": 42,
         "low": 32,
+        "icon": "cloud"
+      },
+      {
+        "label": "Thu",
+        "high": 43,
+        "low": 40,
         "icon": "rain"
       }
     ]
@@ -66,11 +66,11 @@
   "needsALook": [
     {
       "type": "FYI",
-      "text": "Rain day (about 85%) and the cold lands tonight. Indoor build day."
+      "text": "Short week: three work days, then Thanksgiving Thursday. Front-load the hard stuff today."
     },
     {
       "type": "ACTION",
-      "text": "Sunday reset: plan the short Thanksgiving week and pick one 7EightMade piece to ship by Wednesday."
+      "text": "Pick the one 7EightMade piece that ships before Wednesday night."
     }
   ],
   "timeline": [
@@ -85,14 +85,14 @@
       "category": "focus"
     },
     {
-      "time": "Noon CT",
-      "event": "NFL Week 12 Sunday slate begins",
-      "category": "fyi"
+      "time": "Afternoon",
+      "event": "Plan the 3-day week; clear anything that blocks Thursday",
+      "category": "focus"
     },
     {
-      "time": "Afternoon",
-      "event": "Sunday reset: plan the Thanksgiving week",
-      "category": "focus"
+      "time": "7:15 PM CT",
+      "event": "MNF: Bengals at Commanders (ESPN)",
+      "category": "fyi"
     },
     {
       "time": "Night",
@@ -101,17 +101,16 @@
     }
   ],
   "thisWeek": [
-    "Sun Nov 22 - rain likely, ~55, cold tonight",
-    "Mon Nov 23 - high ~37, dry",
-    "Tue Nov 24 - high ~37",
-    "Wed Nov 25 - Packers at Rams opens NFL Week 12; drizzle chance",
-    "Thu Nov 26 - Thanksgiving; Bears at Lions, noon CT",
+    "Mon Nov 23 - dry, high ~37; Bengals at Commanders on MNF",
+    "Tue Nov 24 - dry, high ~39",
+    "Wed Nov 25 - rain chance ~36%, high ~42",
+    "Thu Nov 26 - Thanksgiving; drizzle likely, high ~43",
     "Fri Nov 27 - Black Friday"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Sunday, the Sun's day. Four counts in, four hold, four out, four hold. Rest is allowed. Drifting is not. Set the week before the week sets you.",
+    "intro": "Monday, the Moon's day. Four counts in, four hold, four out, four hold. Short week, so the first day counts double. Start fast.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -145,14 +144,14 @@
       "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go build."
     },
     "mindset": {
-      "hed": "Be the Problem on the Floor",
-      "body": "Wembanyama didn't wait for the game to come to him: 50 and 19. Stirling waited all of Round 2 and then ended it. Both own the moment because they did the work before it. Sunday is your setup day: lock the week, ship one real piece of 7EightMade, and walk into Monday already ahead. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Win Ugly, Then Win Again",
+      "body": "The Bears didn't play clean yesterday. They won anyway, five in a row, 8-2. Murray put up 45 and needed every one of the eight he scored in overtime. Nobody remembers how pretty it was. They remember who finished. Three work days this week: ship one real 7EightMade piece before Wednesday ends. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Sunday, the Sun's day: run this right after Morning Charge. It's rainy and about 54 out, so keep the RipStick finisher in the garage or swap in 60 seconds of fast feet. Smooth, controlled reps.",
+    "note": "Monday, the Moon's day: run this right after Morning Charge. It's clear and about 31 out, so do the RipStick finisher in the garage or swap in 60 seconds of fast feet. Smooth, controlled reps.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -181,25 +180,31 @@
   },
   "news": {
     "ai": {
-      "title": "AI Desk",
+      "title": "AI",
       "items": [
         {
           "source": "OpenAI",
-          "hed": "ChatGPT Space reaches Plus users",
-          "body": "OpenAI began rolling out ChatGPT Space to Plus users: shared pages and presentations you build with ChatGPT that can update themselves from your connected apps.",
-          "url": "https://directaisolutions.com/insights/ai-briefing-2026-11-21"
+          "hed": "GPT-6.2 Astra and Sol",
+          "body": "Astra targets the hardest professional work; Sol is the faster, cheaper everyday model. Both are in ChatGPT, Codex and the API.",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
         },
         {
-          "source": "xAI / Grok",
-          "hed": "Grok Bot connects to QuickBooks",
-          "body": "Grok Bot now connects to Intuit QuickBooks to answer cash-flow and profit questions and draft invoices and reminders for approval.",
-          "url": "https://directaisolutions.com/insights/ai-briefing-2026-11-21"
+          "source": "Anthropic",
+          "hed": "Claude Fable 5.2 and Mythos 5.2",
+          "body": "New models for demanding technical work, with an optional fast mode.",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
         },
         {
-          "source": "Apple",
-          "hed": "Apple building a device-control agent",
-          "body": "Apple is reported to be working on an AI agent that can control the device, apps, browsing and coding.",
-          "url": "https://www.businesstimes.com.sg/companies-markets/apple-working-ai-agent-device-control-apps-browsing-and-coding"
+          "source": "Apple Developer",
+          "hed": "Siri AI opens to all developers",
+          "body": "Apps can plug into Siri through App Intents in the 27.3 betas, with public App Store submissions planned for spring.",
+          "url": "https://developer.apple.com/news/?id=gdk2umrf"
+        },
+        {
+          "source": "xAI",
+          "hed": "Grok Bot 1.0",
+          "body": "xAI's latest official product update (Nov 11): shared team bots, proactive tasks, and better browser and app work.",
+          "url": "https://x.ai/news/grok-bot-1-0"
         }
       ]
     },
@@ -207,22 +212,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "RealGM",
-          "hed": "Wembanyama 50 & 19, Spurs 114-91",
-          "body": "San Antonio improved to 14-3 with a rout of New Orleans.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
+          "source": "AP",
+          "hed": "Nuggets 151, Bulls 145 (OT)",
+          "body": "Murray 45, Jokic 37-18-11; Giddey 22 assists in the loss.",
+          "url": "https://apnews.com/article/nuggets-bulls-score-023c3cf71fa7d28b4136f84718d00bcd"
         },
         {
           "source": "RealGM",
-          "hed": "Herro 50, Sixers survive 132-129",
-          "body": "Philadelphia moved to 14-3 despite Tyler Herro's 50 for Milwaukee.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
+          "hed": "Heat beat Thunder 123-113",
+          "body": "Bam Adebayo had 24 points, 15 rebounds and 12 assists.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-22"
         },
         {
           "source": "RealGM",
-          "hed": "Kings stun Celtics 97-96",
-          "body": "Sacramento (2-14) beat Boston; Knicks edged Portland 97-96 behind Brunson's 30.",
-          "url": "https://basketball.realgm.com/nba/scores/2026-11-21/All"
+          "hed": "Knicks 113-106 Pacers; Warriors 88-87 Celtics",
+          "body": "Also: Hawks 107-97 Pistons, Wizards 116-96 Magic, Mavericks 116-114 Jazz.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-22"
         }
       ]
     },
@@ -230,22 +235,22 @@
       "title": "NFL",
       "items": [
         {
-          "source": "CBS Sports",
-          "hed": "Week 12 flex: Raiders-Browns to SNF",
-          "body": "Raiders-Browns moves to Sunday Night Football; Patriots-Chargers shifts to 4:05 PM ET and Titans-Jaguars to 1 PM ET.",
-          "url": "https://scoutfly.cbsistatic.com/nfl/news/nfl-schedule-flex-week-12-sunday-night-football-patriots-chargers/"
+          "source": "ChicagoBears.com",
+          "hed": "Bears 21, Saints 13",
+          "body": "Fifth straight win; Chicago is 8-2. Simmons with three sacks.",
+          "url": "https://www.chicagobears.com/news/bears-win-fifth-straight-game-move-to-8-2-with-victory-over-saints-game-recap"
         },
         {
           "source": "NFL.com",
-          "hed": "Drake Maye has a fractured fibula",
-          "body": "The Patriots QB is hurt; Raiders TE Brock Bowers was listed questionable.",
-          "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-20"
+          "hed": "Week 11: Cowboys 51, Titans 30",
+          "body": "Also Sunday: Bills 26-9 Dolphins, Panthers 35-33 Ravens, Chiefs 34-7 Cardinals, Eagles 19-16 Steelers, 49ers 35-10 Vikings.",
+          "url": "https://www.nfl.com/news/2026-nfl-season-week-11-what-we-learned-from-sunday-s-games"
         },
         {
-          "source": "The Chairshot",
-          "hed": "Cowboys lose Bland; Eagles hit hard",
-          "body": "Dallas put CB DaRon Bland on IR; Philadelphia placed Zack Baun and Dontayvion Wicks on IR; Daniel Jones released by Indianapolis.",
-          "url": "https://thechairshot.com/2026/11/chairshot-nfl-news-report-11-22-2026-cowboys-lose-bland-eagles-hit-hard-jones-draws-interest/"
+          "source": "USA Today",
+          "hed": "MNF tonight: Bengals at Commanders",
+          "body": "Cincinnati (7-2) visits Washington, 7:15 PM CT on ESPN.",
+          "url": "https://www.usatoday.com/story/sports/nfl/2026/11/23/bengals-commanders-where-to-watch-channel-time-monday-night-football/92907535007/"
         }
       ]
     },
@@ -253,16 +258,16 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "UFC",
-          "hed": "Stirling KOs Prochazka in Doha",
-          "body": "Right hook at 4:58 of Round 2; Stirling moves to 12-0.",
-          "url": "https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling"
+          "source": "MMA Junkie",
+          "hed": "UFC Qatar facts: Hooker rights the ship",
+          "body": "Post-event numbers from Doha, where Dan Hooker ended his losing skid.",
+          "url": "https://mmajunkie.usatoday.com/story/sports/ufc/2026/11/22/ufc-fight-night-294-post-event-facts-dan-hooker-ends-losing-skid/92878413007/"
         },
         {
-          "source": "UFC",
-          "hed": "Vallejos beats Aljamain Sterling",
-          "body": "Kevin Vallejos took a unanimous decision; Aliskerov, Horiguchi and Hooker also won on the card.",
-          "url": "https://www.ufc.com/news/ufc-qatar-results-prochazka-vs-stirling"
+          "source": "The Herald",
+          "hed": "Ngxeke KOs Malajika for IBO title",
+          "body": "Landile Ngxeke won the vacant IBO bantamweight belt.",
+          "url": "https://theherald.co.za/sport/2026-11-22-ngxeke-hails-malajika-victory-as-redemption-moment/"
         }
       ]
     }
@@ -272,16 +277,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "The Sun's day",
-        "body": "Sunday belongs to the Sun, which the old magicians tied to vitality, clarity and kingship. Solar work was about becoming the center of your own life instead of orbiting someone else."
+        "hed": "The Moon's day",
+        "body": "Monday belongs to the Moon, which the old magicians tied to cycles, tides and the hidden life of habit. Lunar work was about rhythm: what you repeat, you become."
       },
       {
-        "hed": "The Hermetic Emerald Tablet",
-        "body": "\"As above, so below.\" The idea: the pattern of the big world shows up in the small one. Fix the small daily pattern and the bigger life follows."
+        "hed": "Meister Eckhart",
+        "body": "The German mystic (c. 1260-1328) taught 'letting go' (Gelassenheit): drop the clutter and the essential shows up. Subtraction as a spiritual practice."
       },
       {
-        "hed": "Jakob Boehme",
-        "body": "The German shoemaker-mystic (1575-1624) wrote that light is born out of darkness, not in spite of it. Friction is the forge."
+        "hed": "The Gnostic spark",
+        "body": "Gnostic texts describe a divine spark asleep inside each person, waiting to be woken by knowledge (gnosis), not belief. The work is waking up."
       }
     ]
   },
@@ -289,9 +294,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Prepare in summer",
-    "body": "Solomon wrote: 'Go to the ant, thou sluggard; consider her ways, and be wise... provideth her meat in the summer, and gathereth her food in the harvest' (Proverbs 6:6-8). Nobody tells the ant what to do. It prepares before it has to.",
-    "practice": "Today, set up one thing now that makes this short holiday week easier later."
+    "hed": "Look straight ahead",
+    "body": "Solomon wrote: 'Let thine eyes look right on, and let thine eyelids look straight before thee. Ponder the path of thy feet, and let all thy ways be established' (Proverbs 4:25-26). Focus is a decision you make before the distractions arrive.",
+    "practice": "Today, name the one target for the week and say no to one thing that pulls you off it."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -313,19 +318,19 @@
       },
       {
         "id": "ship-one",
-        "text": "Ship one 7EightMade piece today",
+        "text": "Ship one 7EightMade piece before Wednesday night",
         "priority": "high",
         "done": false
       },
       {
-        "id": "ant",
-        "text": "Grimoire card: prepare one thing now for later this week",
+        "id": "one-target",
+        "text": "Grimoire card: name one target for the week, cut one distraction",
         "priority": "high",
         "done": false
       },
       {
         "id": "week-plan",
-        "text": "Plan the Thanksgiving week (3 work days)",
+        "text": "Clear anything that blocks Thanksgiving Thursday",
         "priority": "normal",
         "done": false
       }
@@ -339,22 +344,22 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn - from your X bookmarks",
-    "pick": "@hypertune_ showed how to check if your RAM runs at the speed you paid for: Task Manager, Performance, Memory, then compare \"Speed\" to the rated speed. If it is lower, the fix is usually turning on XMP/EXPO in BIOS.",
-    "author": "@hypertune_",
-    "url": "https://x.com/hypertune_/status/2114632573510918162",
-    "bookmarkUrl": "https://x.com/hypertune_/status/2114632573510918162",
+    "pick": "@himanshubuildss shared a list of 25 vibe coding resources. The first is a library of 600+ award-winning prompts with full source code for 3D and scroll-driven websites, plus 100+ 3D scenes and 200+ interactive gradients.",
+    "author": "@himanshubuildss",
+    "url": "https://x.com/himanshubuildss/status/2108633974415524057",
+    "bookmarkUrl": "https://x.com/himanshubuildss/status/2108633974415524057",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Oct 26). Lesson stays general; the post has the full steps.",
-    "skipped": "Recently used: @Texas_Twins_Dad (Nov 21), @KutaTweaks (Nov 20), @itzsagka (Nov 19), @DanRichards0n (Nov 18), @dyfwsammy (Nov 17).",
+    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Oct 9). The post has the full list of links.",
+    "skipped": "Recently used: @hypertune_ (Nov 22), @Texas_Twins_Dad (Nov 21), @KutaTweaks (Nov 20), @itzsagka (Nov 19), @DanRichards0n (Nov 18).",
     "lesson": {
-      "oneLiner": "Rated RAM speed is not automatic.",
+      "oneLiner": "Steal the structure, not just the look.",
       "beats": [
-        "Open Task Manager, Performance, Memory.",
-        "Read \"Speed\" at the bottom.",
-        "Compare it to the speed on the RAM box or listing.",
-        "Lower? Enable XMP (Intel) or EXPO (AMD) in BIOS."
+        "Open the post and pick one resource.",
+        "Find one 3D or scroll-driven site you like.",
+        "Read its source to see how the effect is built.",
+        "Rebuild just that one effect on a 7EightMade page."
       ],
-      "takeaway": "A 2-minute check can unlock performance you already paid for."
+      "takeaway": "One borrowed technique, actually shipped, beats 25 saved links."
     }
   }
 }
