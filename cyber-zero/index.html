@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Zero to Operator — Cybersecurity Field Course</title>
+<style>
+  :root{
+    --bg:#07090c; --panel:#0d1117; --panel2:#11161d; --line:#1e2836;
+    --ink:#dbe7f3; --dim:#8fa3b8; --teal:#2dd4bf; --teal-dim:#0f766e;
+    --amber:#fbbf24; --red:#f87171; --green:#4ade80; --mono:"JetBrains Mono","Fira Code",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.55}
+  a{color:var(--teal)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 18px 90px}
+  header{padding:44px 0 8px;text-align:center}
+  .kicker{color:var(--teal);letter-spacing:.35em;font-size:11px;text-transform:uppercase}
+  h1{font-size:clamp(28px,5vw,44px);margin:10px 0 6px;letter-spacing:.02em}
+  h1 .t{color:var(--teal)}
+  .sub{color:var(--dim);max-width:640px;margin:0 auto;font-size:14px}
+  .pbar{height:8px;background:var(--panel2);border:1px solid var(--line);border-radius:99px;margin:26px auto 6px;max-width:640px;overflow:hidden}
+  .pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal-dim),var(--teal));transition:width .5s}
+  .pstat{text-align:center;color:var(--dim);font-size:12px;letter-spacing:.15em}
+  nav.modules{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:26px 0 6px}
+  nav.modules a{border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none;padding:7px 12px;border-radius:6px;font-size:12.5px}
+  nav.modules a:hover{border-color:var(--teal-dim)}
+  nav.modules a.done{border-color:var(--teal-dim);color:var(--teal)}
+  section.module{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 26px 20px;margin:26px 0}
+  .mhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}
+  .mnum{color:#06281f;background:var(--teal);font-weight:700;border-radius:6px;padding:2px 10px;font-size:14px}
+  .mhead h2{margin:0;font-size:21px}
+  .mtime{color:var(--dim);font-size:12px;margin-left:auto}
+  .goal{color:var(--amber);font-size:13.5px;margin:0 0 12px}
+  h3{color:var(--teal);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:20px 0 8px}
+  p{margin:8px 0}
+  ul{margin:6px 0 10px;padding-left:20px}
+  li{margin:4px 0}
+  code{background:#0a0f16;border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:#a5f3e8;font-size:13px}
+  .cmd{color:#a5f3e8}
+  table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+  th{color:var(--teal);background:var(--panel2)}
+  .res{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+  .res a{border:1px dashed var(--teal-dim);border-radius:6px;padding:6px 11px;text-decoration:none;font-size:12.5px;color:var(--ink)}
+  .res a b{color:var(--teal)}
+  .res span{color:var(--dim);font-size:12px;align-self:center}
+  /* terminal */
+  .range{display:grid;grid-template-columns:1fr 300px;gap:14px;margin-top:12px}
+  @media(max-width:820px){.range{grid-template-columns:1fr}}
+  .term{background:#05070a;border:1px solid var(--teal-dim);border-radius:8px;display:flex;flex-direction:column;min-height:380px}
+  .term .bar{display:flex;gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);color:var(--dim);font-size:12px}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .tout{flex:1;padding:12px 14px;overflow-y:auto;max-height:420px;white-space:pre-wrap;word-break:break-word;font-size:13.5px}
+  .tout .pr{color:var(--teal)}
+  .tout .err{color:var(--red)}
+  .tout .ok{color:var(--green)}
+  .tout .warn{color:var(--amber)}
+  .tin{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+  .tin span{color:var(--teal)}
+  .tin input{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font-family:var(--mono);font-size:14px}
+  .ref{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .ref h4{margin:2px 0 10px;color:var(--teal);font-size:12px;letter-spacing:.15em}
+  .ref button{display:block;width:100%;text-align:left;background:#0a0f16;border:1px solid var(--line);color:#a5f3e8;border-radius:6px;padding:6px 9px;margin:5px 0;font-family:var(--mono);font-size:12.5px;cursor:pointer}
+  .ref button:hover{border-color:var(--teal-dim)}
+  .ref p{color:var(--dim);font-size:12px;min-height:34px;margin:8px 0 0}
+  .missions{margin-top:14px}
+  .mission{border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:6px 0;font-size:13.5px;color:var(--dim)}
+  .mission.done{border-color:var(--teal-dim);color:var(--ink)}
+  .mission .box{color:var(--teal)}
+  /* generic interactive panels */
+  .panel{background:#05070a;border:1px solid var(--line);border-radius:8px;padding:16px;margin:12px 0}
+  .btn{background:var(--teal);color:#06281f;border:0;border-radius:6px;padding:8px 16px;font-family:var(--mono);font-weight:700;font-size:13px;cursor:pointer}
+  .btn:hover{filter:brightness(1.1)}
+  .btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal-dim)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .pkt{font-size:12.5px;border:1px solid var(--line);border-radius:6px;padding:6px 10px;margin:5px 0;background:var(--panel2)}
+  .pkt b{color:var(--teal)}
+  .hidden{display:none}
+  pre{background:#05070a;border:1px solid var(--line);border-radius:8px;padding:14px;overflow-x:auto;font-size:13px;line-height:1.5}
+  pre .c{color:#5b7186}
+  pre .k{color:var(--teal)}
+  .quiz{border-top:1px solid var(--line);margin-top:20px;padding-top:14px}
+  .q{margin:12px 0}
+  .q p{margin:0 0 6px}
+  .q label{display:block;margin:4px 0;color:var(--dim);cursor:pointer;font-size:13.5px}
+  .q label:hover{color:var(--ink)}
+  .q .fb{font-size:13px;margin-top:4px}
+  .fb.good{color:var(--green)} .fb.bad{color:var(--red)}
+  .complete{margin-top:16px;display:flex;gap:10px;align-items:center}
+  .badge{color:var(--green);font-size:13px}
+  .steps{counter-reset:st;list-style:none;padding:0}
+  .steps li{margin:10px 0;padding-left:8px}
+  .flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0;font-size:13px}
+  .flow .node{border:1px solid var(--teal-dim);border-radius:6px;padding:6px 10px;background:var(--panel2)}
+  .flow .arr{color:var(--teal)}
+  footer{color:var(--dim);font-size:12px;text-align:center;margin-top:40px}
+  .skip{border:1px solid #3f2d12;background:#171106;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:13.5px}
+  .skip b{color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">[ Private course — built from the roadmap ]</div>
+  <h1>ZERO TO <span class="t">OPERATOR</span></h1>
+  <p class="sub">Cybersecurity from zero, in six modules. No fluff, no tool collecting, no certs before practice. Everything here is free. The goal is simple: <b style="color:var(--ink)">know enough to be dangerous</b> — and prove it in the terminal.</p>
+  <div class="pbar"><i id="pfill"></i></div>
+  <div class="pstat" id="pstat">0 / 6 MODULES COMPLETE</div>
+  <nav class="modules" id="modnav">
+    <a href="#m1" data-mod="1">01 · Linux</a>
+    <a href="#m2" data-mod="2">02 · Networking</a>
+    <a href="#m3" data-mod="3">03 · Web</a>
+    <a href="#m4" data-mod="4">04 · Guided Labs</a>
+    <a href="#m5" data-mod="5">05 · Your Own Lab</a>
+    <a href="#m6" data-mod="6">06 · Projects</a>
+    <a href="#range">⌨ The Range</a>
+  </nav>
+</header>
+
+<!-- ============ MODULE 1 · LINUX ============ -->
+<section class="module" id="m1">
+  <div class="mhead"><span class="mnum">01</span><h2>Linux — the ground everything stands on</h2><span class="mtime">~2–3 evenings</span></div>
+  <p class="goal">End state: you can move through a Linux box, find anything on it, read its logs, and control who can touch what — without a mouse.</p>
+  <p>Every server, every target, every lab runs Linux. Windows is where you sit; Linux is where the work happens. Four ideas carry the whole module:</p>
+  <ul>
+    <li><b>Everything is a file.</b> Configs, devices, logs — all files. If you can navigate and read files, you can read the machine.</li>
+    <li><b>The filesystem has a map.</b> <code>/etc</code> = configs, <code>/var/log</code> = logs, <code>/home</code> = users, <code>/tmp</code> = scratch space (attackers love it), <code>/usr/bin</code> = programs.</li>
+    <li><b>Permissions are three numbers.</b> Read=4, Write=2, Execute=1, for Owner/Group/Others. <code>chmod 755</code> = owner does everything, everyone else reads and runs. A file at <code>777</code> is a door left open.</li>
+    <li><b>Text pipelines are the superpower.</b> Small tools chained with <code>|</code> — <code>grep</code> filters, <code>sort</code> orders, <code>uniq -c</code> counts, <code>cut</code>/<code>awk</code> pull columns. This is how an analyst turns a million log lines into one answer.</li>
+  </ul>
+  <h3>The 15 commands that matter</h3>
+  <table>
+    <tr><th>Move &amp; see</th><th>Read &amp; search</th><th>System &amp; power</th></tr>
+    <tr>
+      <td><code>pwd</code> where am I<br><code>ls -la</code> list all, with permissions<br><code>cd</code> change directory<br><code>find / -name x 2&gt;/dev/null</code> hunt a file</td>
+      <td><code>cat</code> print a file<br><code>grep "word" file</code> filter lines<br><code>tail -f</code> watch a log live<br><code>less</code> page through</td>
+      <td><code>whoami</code> / <code>id</code> who you are<br><code>sudo</code> borrow root<br><code>chmod</code> / <code>chown</code> permissions<br><code>ps aux</code> running processes<br><code>ss -tlnp</code> open ports</td>
+    </tr>
+  </table>
+  <p><b>Your install:</b> Ubuntu in a VM (or WSL on your Windows box). Ubuntu is the training ground — free, standard, and what TryHackMe's rooms assume. Then go straight to <a href="#range">The Range</a> below and run these for real.</p>
+  <div class="res">
+    <a href="https://ubuntu.com/download" target="_blank" rel="noopener"><b>Ubuntu</b> — your OS</a>
+    <a href="https://tryhackme.com" target="_blank" rel="noopener"><b>TryHackMe</b> — Linux Fundamentals rooms</a>
+    <span>Do: Linux Fundamentals 1–3 on TryHackMe alongside this module.</span>
+  </div>
+  <div class="quiz" data-quiz="1"></div>
+  <div class="complete"><button class="btn ghost" data-complete="1">Mark module complete</button><span class="badge hidden" data-badge="1">✓ Module 01 complete</span></div>
+</section>
+
+<!-- ============ THE RANGE ============ -->
+<section class="module" id="range">
+  <div class="mhead"><span class="mnum">⌨</span><h2>The Range — your practice terminal</h2><span class="mtime">live fire</span></div>
+  <p class="goal">A real working terminal sim with a real job: this box took a beating last night. The logs are in <code>/var/log/auth.log</code>. Work the missions.</p>
+  <div class="range">
+    <div class="term">
+      <div class="bar"><span class="dot" style="background:#f87171"></span><span class="dot" style="background:#fbbf24"></span><span class="dot" style="background:#4ade80"></span>&nbsp; dom@range: ~/ — type <b style="color:var(--teal)">help</b> to see commands</div>
+      <div class="tout" id="tout"></div>
+      <div class="tin"><span id="prompt">dom@range:~$</span><input id="tin" autocomplete="off" spellcheck="false" placeholder="type a command, Enter to run"></div>
+    </div>
+    <div class="ref">
+      <h4>CORE COMMANDS — CLICK TO LOAD</h4>
+      <div id="refbtns"></div>
+      <p id="refdesc">Pick a command to see what it does, then run it. Typing them out is the training — the panel is a reference, not a crutch.</p>
+    </div>
+  </div>
+  <div class="missions" id="missions"></div>
+</section>
+
+<!-- ============ MODULE 2 · NETWORKING ============ -->
+<section class="module" id="m2">
+  <div class="mhead"><span class="mnum">02</span><h2>Networking — how machines actually talk</h2><span class="mtime">~2–3 evenings</span></div>
+  <p class="goal">End state: given any connection, you can say what it is, where it's going, and whether it should exist.</p>
+  <ul>
+    <li><b>IP + port = address + apartment number.</b> The IP finds the machine; the port finds the service on it. <code>93.184.216.34:443</code> = that building, the HTTPS door.</li>
+    <li><b>Ports worth memorizing:</b> 22 SSH · 80 HTTP · 443 HTTPS · 53 DNS · 21 FTP · 25 SMTP · 3389 RDP · 445 SMB. An open port you don't recognize is a question that needs an answer.</li>
+    <li><b>TCP vs UDP.</b> TCP = signed-for delivery: handshake, order guaranteed, resends. UDP = postcard: fast, no guarantees. DNS rides UDP; the web rides TCP.</li>
+    <li><b>DNS is the phone book — and a weapon.</b> It turns names into IPs. Whoever controls DNS controls where "the bank" points. Always ask: <i>who answered this lookup?</i></li>
+    <li><b>The handshake:</b> SYN → SYN-ACK → ACK. Three packets and a connection exists. A port scan is just knocking with SYNs and listening for who answers.</li>
+  </ul>
+  <h3>See it: a live capture (Wireshark-style)</h3>
+  <p>Wireshark is the microscope — it records every packet so you can read conversations off the wire. Filter the capture the way an analyst does:</p>
+  <div class="panel">
+    <div class="row" style="margin-bottom:10px">
+      <button class="btn ghost" data-pfilter="all">all traffic</button>
+      <button class="btn ghost" data-pfilter="dns">dns only</button>
+      <button class="btn ghost" data-pfilter="http">http only</button>
+      <button class="btn ghost" data-pfilter="tls">tls only</button>
+    </div>
+    <div id="pkts"></div>
+    <p id="pktnote" style="color:var(--dim);font-size:13px;margin:8px 0 0"></p>
+  </div>
+  <p><b>The one lesson in that capture:</b> HTTP is plaintext — the login in packet 7 can be read by anyone on the path. TLS (HTTPS) is the same conversation in a sealed envelope: you see who talked, never what was said. That difference is half of web security.</p>
+  <div class="res">
+    <a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener"><b>Wireshark</b> — the packet microscope</a>
+    <a href="https://tryhackme.com" target="_blank" rel="noopener"><b>TryHackMe</b> — Networking rooms</a>
+    <span>Do: capture your own browsing on your own machine and find one plaintext protocol.</span>
+  </div>
+  <div class="quiz" data-quiz="2"></div>
+  <div class="complete"><button class="btn ghost" data-complete="2">Mark module complete</button><span class="badge hidden" data-badge="2">✓ Module 02 complete</span></div>
+</section>
+
+<!-- ============ MODULE 3 · WEB FUNDAMENTALS ============ -->
+<section class="module" id="m3">
+  <div class="mhead"><span class="mnum">03</span><h2>Web fundamentals — where the attacks live</h2><span class="mtime">~3 evenings</span></div>
+  <p class="goal">End state: you can read an HTTP conversation like a transcript and name where it can be bent.</p>
+  <ul>
+    <li><b>HTTP is a request and an answer.</b> Method + path + headers go out; a status code + headers + body come back. <code>200</code> ok · <code>301</code> moved · <code>403</code> forbidden · <code>404</code> not here · <code>500</code> server broke.</li>
+    <li><b>Methods:</b> <code>GET</code> asks, <code>POST</code> sends, <code>PUT</code> replaces, <code>DELETE</code> removes. The method is a claim — the server decides whether to honor it.</li>
+    <li><b>HTTP forgets you.</b> It's stateless, so sites bolt memory on: <b>cookies</b>. Your session cookie <i>is</i> your login — steal the cookie, become the user. That's why session handling is a top attack class.</li>
+    <li><b>The classic breaks</b> (know the shapes, the labs teach the hands): SQL injection — input that becomes a database command · XSS — input that becomes someone else's script · IDOR — changing an ID in the URL to see someone else's data · broken access control — asking for the admin page directly. One root cause: <b>the server trusted what the browser sent.</b></li>
+  </ul>
+  <h3>Fire a request — watch the session work</h3>
+  <div class="panel">
+    <div class="row">
+      <select id="hmethod" style="background:#0a0f16;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:7px;font-family:var(--mono)">
+        <option>GET</option><option>POST</option>
+      </select>
+      <select id="hpath" style="background:#0a0f16;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:7px;font-family:var(--mono)">
+        <option>/account</option><option>/account?id=1002</option><option>/admin</option><option>/login</option>
+      </select>
+      <label style="color:var(--dim);font-size:13px"><input type="checkbox" id="hcookie" checked> send my session cookie</label>
+      <button class="btn" id="hsend">Send request</button>
+    </div>
+    <pre id="hresp" style="margin-top:12px">Pick a request and send it. Try /account with and without the cookie — then change the id.</pre>
+  </div>
+  <p><b>Where this is taught properly:</b> PortSwigger's Web Security Academy is the best free training on the internet for this module — real labs, in your browser, every major bug class. That is your homework engine for Module 3.</p>
+  <div class="res">
+    <a href="https://portswigger.net/web-security" target="_blank" rel="noopener"><b>PortSwigger Academy</b> — free web labs</a>
+    <a href="https://tryhackme.com" target="_blank" rel="noopener"><b>TryHackMe</b> — Web Fundamentals path</a>
+    <span>Do: PortSwigger's SQL injection + authentication labs first.</span>
+  </div>
+  <div class="quiz" data-quiz="3"></div>
+  <div class="complete"><button class="btn ghost" data-complete="3">Mark module complete</button><span class="badge hidden" data-badge="3">✓ Module 03 complete</span></div>
+</section>
+
+<!-- ============ MODULE 4 · GUIDED LABS ============ -->
+<section class="module" id="m4">
+  <div class="mhead"><span class="mnum">04</span><h2>Guided labs — the TryHackMe path</h2><span class="mtime">~2–4 weeks, steady pace</span></div>
+  <p class="goal">End state: the fundamentals stop being theory. You will have done them, on real machines, with a guide at your elbow.</p>
+  <p>Modules 1–3 gave you the map. This module is mileage. TryHackMe runs the machines in the cloud — you connect, follow, break, fix. Two paths, in this order, no skipping:</p>
+  <ol class="steps">
+    <li><b>Pre Security</b> — the on-ramp. Linux, networking, web basics, how the internet fits together. It overlaps Modules 1–3 on purpose: this time your hands do it. <i>Check each room off as you finish it.</i></li>
+    <li><b>Cyber Security 101</b> — the real foundation course. Security principles, offensive and defensive tooling, your first structured taste of both sides.</li>
+  </ol>
+  <div class="panel">
+    <p style="margin-top:0;color:var(--teal);letter-spacing:.1em;font-size:12px">PATH CHECKLIST — STAYS SAVED IN YOUR BROWSER</p>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm1"> Pre Security — How the web works + networking</label>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm2"> Pre Security — Linux fundamentals</label>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm3"> Pre Security — complete the path</label>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm4"> Cyber Security 101 — security principles</label>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm5"> Cyber Security 101 — offensive tooling rooms</label>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm6"> Cyber Security 101 — defensive tooling rooms</label>
+    <label style="display:block;margin:6px 0;color:var(--dim)"><input type="checkbox" data-check="thm7"> Cyber Security 101 — complete the path</label>
+  </div>
+  <p><b>How to work a room:</b> read the task, try before you hint, and when you're stuck for 20 minutes, take the hint — stuck is study, but three hours stuck is waste. Write down every command you used. That notebook becomes your playbook.</p>
+  <div class="res">
+    <a href="https://tryhackme.com/path/outline/presecurity" target="_blank" rel="noopener"><b>TryHackMe</b> — Pre Security path</a>
+    <a href="https://tryhackme.com/path/outline/cyber101" target="_blank" rel="noopener"><b>TryHackMe</b> — Cyber Security 101</a>
+    <span>Free tier covers the start of both paths.</span>
+  </div>
+  <div class="quiz" data-quiz="4"></div>
+  <div class="complete"><button class="btn ghost" data-complete="4">Mark module complete</button><span class="badge hidden" data-badge="4">✓ Module 04 complete</span></div>
+</section>
+
+<!-- ============ MODULE 5 · YOUR OWN LAB ============ -->
+<section class="module" id="m5">
+  <div class="mhead"><span class="mnum">05</span><h2>Your own lab — break things that are yours</h2><span class="mtime">one weekend to stand up</span></div>
+  <p class="goal">End state: a deliberately vulnerable web app running on your machine, and the proxy that lets you watch — and bend — every request it makes.</p>
+  <p>Guided labs end. A home lab doesn't. Two builds:</p>
+  <h3>Build 1 — OWASP Juice Shop (the target)</h3>
+  <p>Juice Shop is a modern web store riddled with real vulnerabilities on purpose — 100+ challenges, scored like a game. Docker runs it in a sealed container: up in one command, deleted in one command, nothing touches your real system.</p>
+  <pre><span class="c"># install Docker Desktop first, then:</span>
+docker pull bkimminich/juice-shop
+docker run -d -p 3000:3000 bkimminich/juice-shop
+<span class="c"># open http://localhost:3000 — the store is live, the hunt is on</span>
+<span class="c"># when you're done: docker stop $(docker ps -q)</span></pre>
+  <h3>Build 2 — Burp Suite (the intercepting proxy)</h3>
+  <p>Burp sits between your browser and the target. Every request passes through your hands — read it, change it, replay it. This is the tool Module 3 was about.</p>
+  <div class="flow">
+    <span class="node">Your browser</span><span class="arr">→</span>
+    <span class="node" style="border-color:var(--amber);color:var(--amber)">BURP — intercept, edit, replay</span><span class="arr">→</span>
+    <span class="node">Juice Shop :3000</span>
+  </div>
+  <ol class="steps">
+    <li>Install Burp Suite Community (free) from PortSwigger.</li>
+    <li>Use Burp's built-in browser — zero proxy configuration, it just works.</li>
+    <li>Browse Juice Shop normally. Watch the HTTP history fill: every request you made, recorded.</li>
+    <li>Turn Intercept on, log in, and hold the login request hostage. Read every field. Change one. Forward it.</li>
+    <li>Send a request to Repeater and fire it ten times with small changes. That loop — observe, bend, replay — is the entire offensive web skill.</li>
+  </ol>
+  <div class="skip"><b>The rule of the lab:</b> everything in this module happens on machines and apps you own, on your own network. That line — <i>yours, or explicitly permitted</i> — is the whole legal difference between a security professional and a defendant. It never moves.</div>
+  <div class="res">
+    <a href="https://owasp.org/www-project-juice-shop/" target="_blank" rel="noopener"><b>OWASP Juice Shop</b> — the target range</a>
+    <a href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener"><b>Burp Suite</b> — Community, free</a>
+    <a href="https://ubuntu.com/download" target="_blank" rel="noopener"><b>Ubuntu</b> — optional dedicated lab VM</a>
+    <span>Do: solve Juice Shop's first five challenges with Burp watching.</span>
+  </div>
+  <div class="quiz" data-quiz="5"></div>
+  <div class="complete"><button class="btn ghost" data-complete="5">Mark module complete</button><span class="badge hidden" data-badge="5">✓ Module 05 complete</span></div>
+</section>
+
+<!-- ============ MODULE 6 · PROJECTS ============ -->
+<section class="module" id="m6">
+  <div class="mhead"><span class="mnum">06</span><h2>Projects — automate it, in Bash then Python</h2><span class="mtime">the proof module</span></div>
+  <p class="goal">End state: two working tools you built yourself that do a real analyst's job — and the habit that matters: when you've done it twice by hand, script it.</p>
+  <p>Same job both times: <b>find the brute-force attack hiding in an SSH auth log</b>. First with a Bash pipeline (the Module 1 superpower), then as a Python program (the automation you'll reuse forever). The Range's <code>/var/log/auth.log</code> is the same log both projects chew on.</p>
+
+  <h3>Project A — Bash: the one-line investigation</h3>
+  <p>An analyst's question: <i>which IP is hammering this server?</i> The pipeline, piece by piece:</p>
+  <pre>grep <span class="k">"Failed password"</span> /var/log/auth.log <span class="c"># keep only the failures</span>
+  | awk <span class="k">'{print $11}'</span>                <span class="c"># column 11 = the source IP</span>
+  | sort                            <span class="c"># group identical IPs together</span>
+  | uniq -c                         <span class="c"># count each group</span>
+  | sort -nr                        <span class="c"># biggest count first</span></pre>
+  <p><b>Your move:</b> go to <a href="#range">The Range</a> and run that exact pipeline. Mission 4 completes when the terminal sees the right answer come out of your hands — not a button press.</p>
+
+  <h3>Project B — Python: the same job, as a tool</h3>
+  <p>Bash is a scalpel; Python is the workshop. This program reads the log, counts failures per IP, and prints a verdict. Read it top to bottom — every line is annotated — then run the simulation and watch it think.</p>
+  <pre><span class="k">import</span> re
+<span class="k">from</span> collections <span class="k">import</span> Counter
+
+LOG = <span class="k">"/var/log/auth.log"</span>
+THRESHOLD = 5                      <span class="c"># 5+ failures = brute force, not a typo</span>
+
+pattern = re.compile(
+    r<span class="k">"Failed password for (?:invalid user )?\w+ from (\d+\.\d+\.\d+\.\d+)"</span>)
+
+counts = Counter()
+<span class="k">with</span> open(LOG) <span class="k">as</span> f:
+    <span class="k">for</span> line <span class="k">in</span> f:
+        m = pattern.search(line)
+        <span class="k">if</span> m:
+            counts[m.group(1)] += 1   <span class="c"># tally one hit for that IP</span>
+
+<span class="k">for</span> ip, hits <span class="k">in</span> counts.most_common():
+    verdict = <span class="k">"BRUTE FORCE"</span> <span class="k">if</span> hits &gt;= THRESHOLD <span class="k">else</span> <span class="k">"watch"</span>
+    print(f<span class="k">"{ip:16} {hits:3} failed logins  {verdict}"</span>)</pre>
+  <div class="panel">
+    <div class="row"><button class="btn" id="pyrun">▶ Run parse_logins.py against the Range log</button><span style="color:var(--dim);font-size:12.5px">simulated run — same data as the terminal</span></div>
+    <pre id="pyout" class="hidden" style="margin-top:12px"></pre>
+  </div>
+  <p><b>Then make it yours:</b> retype it on your Ubuntu box against a real <code>auth.log</code>, then extend it — email yourself the report, watch the log live with a tail loop, or flag any IP that succeeds <i>after</i> failing (that's the one that got in). Each extension is a portfolio line.</p>
+
+  <h3>Project C — Python: the port scanner</h3>
+  <p>Twenty lines that knock on doors. Run the simulation, then build the real one — scanning only your own lab, always.</p>
+  <div class="panel">
+    <div class="row">
+      <span style="color:var(--dim);font-size:13px">target:</span>
+      <input id="scantarget" value="localhost (your lab)" readonly style="background:#0a0f16;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:7px;font-family:var(--mono);width:210px">
+      <button class="btn" id="scanrun">▶ Run scanner</button>
+    </div>
+    <pre id="scanout" class="hidden" style="margin-top:12px"></pre>
+  </div>
+  <div class="skip"><b>What to skip — permanently:</b> customizing Kali, collecting tools you can't explain, chasing zero-days, buying a cert before you can do the work. The roadmap is short because the fundamentals are the job.</div>
+  <div class="quiz" data-quiz="6"></div>
+  <div class="complete"><button class="btn ghost" data-complete="6">Mark module complete</button><span class="badge hidden" data-badge="6">✓ Module 06 complete</span></div>
+</section>
+
+<!-- ============ RESOURCES ============ -->
+<section class="module" id="resources">
+  <div class="mhead"><span class="mnum">▣</span><h2>The five free resources — the whole arsenal</h2></div>
+  <table>
+    <tr><th>Resource</th><th>What it is</th><th>Lives in</th></tr>
+    <tr><td><a href="https://tryhackme.com" target="_blank" rel="noopener">TryHackMe</a></td><td>Guided, hands-on rooms and paths in the cloud</td><td>Modules 1, 2, 3, 4</td></tr>
+    <tr><td><a href="https://portswigger.net/web-security" target="_blank" rel="noopener">PortSwigger Academy</a></td><td>The best free web-security labs anywhere + Burp Suite</td><td>Modules 3, 5</td></tr>
+    <tr><td><a href="https://owasp.org/www-project-juice-shop/" target="_blank" rel="noopener">OWASP Juice Shop</a></td><td>A deliberately vulnerable store to attack legally</td><td>Module 5</td></tr>
+    <tr><td><a href="https://ubuntu.com/download" target="_blank" rel="noopener">Ubuntu</a></td><td>Your operating system and lab environment</td><td>Modules 1, 5, 6</td></tr>
+    <tr><td><a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">Wireshark</a></td><td>See every packet; read conversations off the wire</td><td>Module 2</td></tr>
+  </table>
+  <p style="color:var(--dim);font-size:13.5px">Total cost of this entire course: $0. The only currency is evenings.</p>
+</section>
+
+<footer>ZERO TO OPERATOR · private study page · built for Dom · progress saves in this browser only</footer>
+</div>
+
+<script>
+/* ================= state ================= */
+var store = JSON.parse(localStorage.getItem('zo_v1') || '{}');
+store.mods = store.mods || {}; store.checks = store.checks || {}; store.missions = store.missions || {};
+function save(){ localStorage.setItem('zo_v1', JSON.stringify(store)); }
+function refreshProgress(){
+  var n = Object.keys(store.mods).filter(function(k){return store.mods[k];}).length;
+  document.getElementById('pfill').style.width = (n/6*100) + '%';
+  document.getElementById('pstat').textContent = n + ' / 6 MODULES COMPLETE';
+  document.querySelectorAll('#modnav a[data-mod]').forEach(function(a){
+    a.classList.toggle('done', !!store.mods[a.getAttribute('data-mod')]);
+  });
+  document.querySelectorAll('[data-badge]').forEach(function(b){
+    b.classList.toggle('hidden', !store.mods[b.getAttribute('data-badge')]);
+  });
+}
+document.querySelectorAll('[data-complete]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var m = btn.getAttribute('data-complete');
+    store.mods[m] = !store.mods[m]; save(); refreshProgress();
+    btn.textContent = store.mods[m] ? 'Undo — mark not complete' : 'Mark module complete';
+  });
+  if (store.mods[btn.getAttribute('data-complete')]) btn.textContent = 'Undo — mark not complete';
+});
+document.querySelectorAll('[data-check]').forEach(function(cb){
+  cb.checked = !!store.checks[cb.getAttribute('data-check')];
+  cb.addEventListener('change', function(){ store.checks[cb.getAttribute('data-check')] = cb.checked; save(); });
+});
+refreshProgress();
+
+/* ================= quizzes ================= */
+var QUIZZES = {
+ 1:[["What does chmod 755 allow?",["Owner: read+write+execute. Others: read+execute","Everyone: everything","Owner: read only, others: nothing"],0,"4+2+1=7 for the owner (rwx), 5 (r-x) for group and others."],
+    ["Where do Linux logs live?",["/etc/logs","/var/log","/home/log"],1,"/var/log — auth.log, syslog, and friends. /etc is configs."],
+    ["What does the | symbol do?",["Deletes the file","Runs a command as root","Pipes one command's output into the next command"],2,"Pipelines are the analyst's superpower: small tools, chained."]],
+ 2:[["Port 22 is…",["HTTPS","SSH","DNS"],1,"22 SSH, 80 HTTP, 443 HTTPS, 53 DNS."],
+    ["DNS usually rides…",["TCP, because accuracy matters most","UDP, because speed matters most","Neither — it has its own protocol layer"],1,"UDP: one question, one answer, no handshake overhead."],
+    ["What does TLS hide from someone watching the wire?",["That two machines talked at all","The contents of the conversation","The IP addresses involved"],1,"Metadata is visible; the contents are sealed."]],
+ 3:[["Your session cookie is…",["A convenience setting","Basically your login, in bearer form","Encrypted proof of your password"],1,"Whoever holds the cookie is you, as far as the server knows. Guard it like a password."],
+    ["A 403 response means…",["Page not found","Server error","Forbidden — you may not have this, logged in or not"],2,"404 = not here. 403 = here, but not for you. 500 = the server broke."],
+    ["An IDOR happens because…",["The database was encrypted wrong","The server trusted an ID the user supplied without checking ownership","The user had a weak password"],1,"Input the server didn't verify. The root cause of half the classics."]],
+ 4:[["You're 20 minutes stuck in a TryHackMe room. Best move?",["Grind for 3 more hours","Take the hint or read the walkthrough section, then redo it unaided","Skip the room forever"],1,"Stuck is study; three hours stuck is waste. Learn it, then prove it unaided."],
+    ["The correct order is…",["Cyber Security 101, then Pre Security","Pre Security, then Cyber Security 101","Whichever — order doesn't matter"],1,"Pre Security is the on-ramp. 101 assumes it."],
+    ["Why write down every command you use in a room?",["For the grade","It becomes your personal playbook — the thing you'll actually reuse on the job","TryHackMe requires it"],1,"Your notes are the real certificate."]],
+ 5:[["Juice Shop exists to be…",["A production store, hardened","Attacked — it's deliberately vulnerable, on your machine","A Docker advertisement"],1,"Real bug classes, zero legal risk, scored like a game."],
+    ["Burp Suite sits…",["On the target server","Between your browser and the target, intercepting requests","Inside your router"],1,"Every request passes through your hands: read, bend, replay."],
+    ["The legal line for everything in this module is…",["Don't get caught","Only systems you own or have explicit permission to test","Anything reachable from your network"],1,"Yours, or explicitly permitted. That line never moves."]],
+ 6:[["Why must sort come before uniq -c in the pipeline?",["uniq only counts identical lines that are adjacent","sort makes the output prettier","It doesn't — order is irrelevant"],0,"uniq compares neighbors. Unsrted input = wrong counts. Classic pipeline trap."],
+    ["In parse_logins.py, THRESHOLD = 5 exists because…",["Five is a lucky number","It separates a human typo from a machine guessing — signal from noise","Python requires it"],1,"Every detection rule is a judgment call written in code. Tune it, don't worship it."],
+    ["The habit this module is really teaching:",["Memorize more commands","When you've done it twice by hand, script it","Always use Python, never Bash"],1,"Bash for the one-off, Python for the repeat. Automation is the analyst's leverage."]]
+};
+document.querySelectorAll('[data-quiz]').forEach(function(box){
+  var qs = QUIZZES[box.getAttribute('data-quiz')];
+  var html = '<p style="color:var(--teal);letter-spacing:.1em;font-size:12px;margin:0">CHECK YOURSELF — INSTANT FEEDBACK</p>';
+  qs.forEach(function(q, qi){
+    html += '<div class="q"><p>' + (qi+1) + '. ' + q[0] + '</p>';
+    q[1].forEach(function(opt, oi){
+      html += '<label><input type="radio" name="q' + box.getAttribute('data-quiz') + '_' + qi + '" value="' + oi + '"> ' + opt + '</label>';
+    });
+    html += '<div class="fb"></div></div>';
+  });
+  box.innerHTML = html;
+  box.querySelectorAll('input[type=radio]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var parts = r.name.substring(1).split('_'); var mod = parts[0], qi = +parts[1];
+      var q = QUIZZES[mod][qi]; var fb = r.closest('.q').querySelector('.fb');
+      if (+r.value === q[2]) { fb.className = 'fb good'; fb.textContent = '✓ Right. ' + q[3]; }
+      else { fb.className = 'fb bad'; fb.textContent = '✗ Not quite — try another.'; }
+    });
+  });
+});
+
+/* ================= the range: terminal ================= */
+var AUTH = [
+"Nov 22 22:01:15 range sshd[1801]: Accepted password for dom from 73.44.12.9 port 51022 ssh2",
+"Nov 22 03:14:01 range sshd[2211]: Failed password for root from 45.155.204.111 port 51122 ssh2",
+"Nov 22 03:14:09 range sshd[2213]: Failed password for root from 45.155.204.111 port 51130 ssh2",
+"Nov 22 03:14:17 range sshd[2215]: Failed password for root from 45.155.204.111 port 51141 ssh2",
+"Nov 22 03:15:02 range sshd[2219]: Failed password for root from 45.155.204.111 port 51202 ssh2",
+"Nov 22 03:15:44 range sshd[2221]: Failed password for root from 45.155.204.111 port 51255 ssh2",
+"Nov 22 03:16:10 range sshd[2224]: Failed password for ubuntu from 45.155.204.111 port 51301 ssh2",
+"Nov 22 03:16:31 range sshd[2226]: Failed password for ubuntu from 45.155.204.111 port 51318 ssh2",
+"Nov 22 03:17:05 range sshd[2229]: Failed password for ubuntu from 45.155.204.111 port 51340 ssh2",
+"Nov 22 03:17:40 range sshd[2231]: Failed password for ubuntu from 45.155.204.111 port 51377 ssh2",
+"Nov 22 03:41:12 range sshd[2402]: Failed password for invalid user admin from 193.32.162.45 port 40211 ssh2",
+"Nov 22 03:41:30 range sshd[2404]: Failed password for invalid user admin from 193.32.162.45 port 40219 ssh2",
+"Nov 22 03:41:52 range sshd[2407]: Failed password for invalid user admin from 193.32.162.45 port 40231 ssh2",
+"Nov 22 03:42:08 range sshd[2410]: Failed password for admin from 193.32.162.45 port 40244 ssh2",
+"Nov 22 03:42:19 range sshd[2412]: Failed password for admin from 193.32.162.45 port 40251 ssh2",
+"Nov 22 03:58:44 range sshd[2601]: Failed password for root from 91.240.118.7 port 60112 ssh2",
+"Nov 22 03:59:02 range sshd[2603]: Failed password for root from 91.240.118.7 port 60120 ssh2",
+"Nov 22 03:59:20 range sshd[2605]: Failed password for ubuntu from 91.240.118.7 port 60131 ssh2",
+"Nov 22 03:59:41 range sshd[2608]: Accepted password for ubuntu from 91.240.118.7 port 60148 ssh2",
+"Nov 22 04:02:10 range sshd[2701]: Accepted password for dom from 73.44.12.9 port 51410 ssh2"];
+var FS = {
+  '/home/dom': {type:'dir', children:['notes.txt','parse_logins.py','scan.py','todo.txt']},
+  '/home/dom/notes.txt': {type:'file', content:'TRAINING NOTES\n- everything is a file\n- logs: /var/log/auth.log is where SSH tells the truth\n- pipeline > panic: grep, sort, uniq -c\n- threshold thinking: 1 failure = typo, 5+ = machine'},
+  '/home/dom/todo.txt': {type:'file', content:'[ ] finish Pre Security path\n[ ] stand up Juice Shop\n[ ] retype parse_logins.py from memory'},
+  '/home/dom/parse_logins.py': {type:'file', content:'# the Module 6 project — see the course page\nimport re\nfrom collections import Counter\n# (full annotated version lives in Module 6)'},
+  '/home/dom/scan.py': {type:'file', content:'# the Module 6 port scanner — see the course page\nimport socket\n# knock only on doors you own'},
+  '/var/log': {type:'dir', children:['auth.log','syslog']},
+  '/var/log/auth.log': {type:'file', content: AUTH.join('\n')},
+  '/var/log/syslog': {type:'file', content:'Nov 22 03:00:01 range CRON[991]: (root) CMD run-parts /etc/cron.daily\nNov 22 03:17:01 range CRON[1044]: (root) CMD cd / && run-parts /etc/cron.hourly\nNov 22 04:00:00 range systemd[1]: Started Daily apt download activities.'},
+  '/etc': {type:'dir', children:['passwd','hostname']},
+  '/etc/hostname': {type:'file', content:'range'},
+  '/etc/passwd': {type:'file', content:'root:x:0:0:root:/root:/bin/bash\ndom:x:1000:1000:Dom:/home/dom:/bin/bash\nubuntu:x:1001:1001::/home/ubuntu:/bin/bash\nsshd:x:110:65534::/run/sshd:/usr/sbin/nologin'}
+};
+var cwd = '/home/dom', hist = [], hi = -1;
+var tout = document.getElementById('tout'), tin = document.getElementById('tin');
+function pl(html, cls){ var d = document.createElement('div'); if(cls) d.className = cls; d.innerHTML = html; tout.appendChild(d); tout.scrollTop = tout.scrollHeight; }
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+function promptStr(){ return 'dom@range:' + (cwd === '/home/dom' ? '~' : cwd) + '$'; }
+pl('Welcome to the Range — Ubuntu 24.04 (simulated). A server took a beating at 03:14 last night.', '');
+pl('The evidence is in /var/log/auth.log. Type <span class="pr">help</span> for commands. Work the missions below.', '');
+
+var MISSIONS = [
+ {id:'m_orient', text:'Orient — run <code>pwd</code> and <code>ls</code> to see where you stand'},
+ {id:'m_read', text:'Read the evidence — <code>cat /var/log/auth.log</code>'},
+ {id:'m_count', text:'Count the attack — how many "Failed password" lines are in the log?'},
+ {id:'m_hunt', text:'Name the attacker — run the Module 6 pipeline: which IP failed the most, and how many times?'},
+ {id:'m_scan', text:'Scan the box — <code>nmap localhost</code> and see what\'s listening'}
+];
+var mbox = document.getElementById('missions');
+function renderMissions(){
+  mbox.innerHTML = MISSIONS.map(function(m){
+    var d = store.missions[m.id];
+    return '<div class="mission' + (d ? ' done' : '') + '"><span class="box">' + (d ? '☑' : '☐') + '</span> ' + m.text + '</div>';
+  }).join('') + (MISSIONS.every(function(m){return store.missions[m.id];}) ? '<div class="mission done" style="border-color:var(--teal);color:var(--teal)">★ RANGE CLEAR — you just did a real analyst\'s first hour on a real incident shape.</div>' : '');
+}
+renderMissions();
+function completeMission(id){ if(!store.missions[id]){ store.missions[id] = true; save(); renderMissions(); pl('★ mission complete: ' + id.replace('m_',''), 'ok'); } }
+
+var REF = [
+ ['pwd','Print working directory — where am I standing?'],
+ ['ls -la','List everything here, with permissions and owners.'],
+ ['cd /var/log','Change directory — walk to the logs.'],
+ ['cat auth.log','Print the SSH log. The evidence.'],
+ ['grep "Failed" auth.log','Filter: only lines containing Failed.'],
+ ['grep -c "Failed" auth.log','Count matching lines instead of printing them.'],
+ ['tail -n 5 auth.log','The last 5 lines — the most recent events.'],
+ ['grep "Failed password" /var/log/auth.log | awk \'{print $11}\' | sort | uniq -c | sort -nr','THE pipeline: failures → IPs → counted → ranked. Mission 4.'],
+ ['ss -tlnp','What is this machine listening on? Open ports = open doors.'],
+ ['nmap localhost','Port-scan this box (your own — always your own).'],
+ ['whoami','Who am I on this machine?'],
+ ['id','My user id, groups, and privileges.'],
+ ['chmod 755 parse_logins.py','Set permissions: owner rwx, everyone else r-x.'],
+ ['man grep','The manual page for a command. man is the built-in teacher.']
+];
+var refbtns = document.getElementById('refbtns'), refdesc = document.getElementById('refdesc');
+REF.forEach(function(r){
+  var b = document.createElement('button'); b.textContent = r[0];
+  b.addEventListener('click', function(){ tin.value = r[0]; refdesc.textContent = r[1]; tin.focus(); });
+  refbtns.appendChild(b);
+});
+
+function resolvePath(p){
+  if(!p) return cwd;
+  if(p === '~') return '/home/dom';
+  if(p[0] !== '/') p = (cwd === '/' ? '' : cwd) + '/' + p;
+  var parts = p.split('/').filter(Boolean), out = [];
+  parts.forEach(function(x){ if(x === '..') out.pop(); else if(x !== '.') out.push(x); });
+  return '/' + out.join('/');
+}
+function fileLines(path){ var f = FS[path]; return (f && f.type === 'file') ? f.content.split('\n') : null; }
+
+function runPipeline(cmdline){
+  var stages = cmdline.split('|').map(function(s){ return s.trim(); });
+  var data = null, err = null;
+  stages.forEach(function(st, idx){
+    if(err) return;
+    var toks = st.match(/(?:[^\s"']+|"[^"]*"|'[^']*')+/g) || [];
+    toks = toks.map(function(t){ return t.replace(/^["']|["']$/g,''); });
+    var c = toks[0], args = toks.slice(1);
+    function needFile(){ var p = resolvePath(args[args.length-1]); var L = fileLines(p); if(L === null){ err = c + ': ' + args[args.length-1] + ': No such file or directory'; } return L; }
+    if(c === 'cat'){ data = needFile(); }
+    else if(c === 'grep'){
+      var cnt = args.indexOf('-c') >= 0, ci = args.indexOf('-i') >= 0;
+      var pat = args.filter(function(a){ return a[0] !== '-'; })[0] || '';
+      var src = data; if(src === null && args.length > (cnt||ci ? 2 : 1)) src = needFile();
+      if(err) return; if(src === null) src = [];
+      var m = src.filter(function(l){ return ci ? l.toLowerCase().indexOf(pat.toLowerCase()) >= 0 : l.indexOf(pat) >= 0; });
+      data = cnt ? [String(m.length)] : m;
+    }
+    else if(c === 'sort'){
+      if(data === null) data = [];
+      var num = args.join('').indexOf('n') >= 0, rev = args.join('').indexOf('r') >= 0;
+      data = data.slice().sort(function(a,b){
+        var va = num ? (parseFloat(a.trim().split(/\s+/)[0]) || 0) : a, vb = num ? (parseFloat(b.trim().split(/\s+/)[0]) || 0) : b;
+        return va < vb ? -1 : va > vb ? 1 : 0;
+      });
+      if(rev) data.reverse();
+    }
+    else if(c === 'uniq'){
+      if(data === null) data = [];
+      var cnt2 = args.indexOf('-c') >= 0, out = [], last = null, n = 0;
+      data.concat([' ']).forEach(function(l){ if(l === last){ n++; } else { if(last !== null) out.push(cnt2 ? ('  ' + n + ' ' + last) : last); last = l; n = 1; } });
+      data = out;
+    }
+    else if(c === 'awk'){
+      if(data === null) data = [];
+      var mm = (args[0] || '').match(/\$(\d+)/); var f = mm ? +mm[1] : 0;
+      data = data.map(function(l){ var p = l.trim().split(/\s+/); return p[f-1] || ''; });
+    }
+    else if(c === 'cut'){
+      if(data === null) data = [];
+      var d = ' ', fnum = 1;
+      args.forEach(function(a, i){ if(a === '-d') d = args[i+1]; if(a.indexOf('-d') === 0 && a.length > 2) d = a.slice(2); if(a === '-f') fnum = +args[i+1]; if(a.indexOf('-f') === 0 && a.length > 2) fnum = +a.slice(2); });
+      data = data.map(function(l){ return l.split(d)[fnum-1] || ''; });
+    }
+    else if(c === 'wc'){ if(data === null) data = []; data = [String(data.length)]; }
+    else if(c === 'head' || c === 'tail'){
+      if(data === null){ var L2 = needFile(); if(err) return; data = L2; }
+      var nn = 10; args.forEach(function(a, i){ if(a === '-n') nn = +args[i+1]; if(/^-\d+$/.test(a)) nn = +a.slice(1); });
+      data = c === 'head' ? data.slice(0, nn) : data.slice(-nn);
+    }
+    else { err = c + ': command not usable in a pipeline here'; }
+  });
+  return {data: data, err: err};
+}
+
+function exec(raw){
+  var cmd = raw.trim(); if(!cmd) return;
+  hist.push(cmd); hi = hist.length;
+  pl('<span class="pr">' + esc(promptStr()) + '</span> ' + esc(cmd));
+  var lower = cmd.toLowerCase();
+  if(lower === 'clear'){ tout.innerHTML = ''; return; }
+  if(lower === 'help'){
+    pl('Commands: pwd ls cd cat grep sort uniq cut awk wc head tail echo whoami id hostname chmod ss nmap ping curl ssh sudo man history clear');
+    pl('Pipes work: cmd1 | cmd2 | cmd3. The reference panel on the right explains each one.');
+    return;
+  }
+  if(lower === 'history'){ hist.forEach(function(h, i){ pl('  ' + (i+1) + '  ' + esc(h)); }); return; }
+  if(lower === 'whoami'){ pl('dom'); completeMissionSoft('whoami'); return; }
+  if(lower === 'id'){ pl('uid=1000(dom) gid=1000(dom) groups=1000(dom),27(sudo)'); return; }
+  if(lower === 'hostname'){ pl('range'); return; }
+  if(lower.indexOf('sudo') === 0){ pl('dom is not in the sudoers file. This incident will be reported.', 'warn'); pl('(On the Range you work as a normal user — least privilege is the lesson.)', ''); return; }
+  if(lower.indexOf('man ') === 0){ var t = lower.split(/\s+/)[1]; var hit = REF.filter(function(r){ return r[0].indexOf(t) === 0; })[0]; pl(hit ? (t + ' — ' + hit[1]) : ('No manual entry for ' + t + ' in the Range set.')); return; }
+  if(lower.indexOf('echo ') === 0){ pl(esc(cmd.slice(5).replace(/^["']|["']$/g,''))); return; }
+  if(lower === 'pwd'){ pl(cwd); store._pwd = true; checkOrient(); return; }
+  if(lower.indexOf('cd') === 0){
+    var arg = cmd.split(/\s+/)[1]; var np = resolvePath(arg || '~');
+    if(FS[np] && FS[np].type === 'dir'){ cwd = np; document.getElementById('prompt').textContent = promptStr(); }
+    else if(FS[np]) pl('cd: ' + arg + ': Not a directory', 'err');
+    else pl('cd: ' + arg + ': No such file or directory', 'err');
+    return;
+  }
+  if(lower.indexOf('ls') === 0){
+    var la = lower.indexOf('-a') >= 0 || lower.indexOf('-l') >= 0;
+    var target = cmd.split(/\s+/).filter(function(x){ return x[0] !== '-' && x !== 'ls'; })[0];
+    var tp = resolvePath(target || cwd); var node = FS[tp];
+    if(node && node.type === 'dir'){
+      node.children.forEach(function(ch){
+        var cp = (tp === '/' ? '' : tp) + '/' + ch; var cn = FS[cp];
+        pl(la ? ((cn && cn.type === 'dir' ? 'drwxr-xr-x' : '-rw-r--r--') + '  dom dom  ' + ch) : ch);
+      });
+      store._ls = true; checkOrient();
+    } else if(node){ pl(target); } else pl('ls: cannot access: No such file or directory', 'err');
+    return;
+  }
+  if(lower.indexOf('chmod') === 0){ pl(''); pl('(permissions updated — on the Range, the gesture is the lesson: 755 = owner rwx, others r-x)', 'ok'); return; }
+  if(lower.indexOf('ss') === 0){ pl('LISTEN  0  4096  0.0.0.0:22    0.0.0.0:*   sshd'); pl('LISTEN  0  511   0.0.0.0:3000  0.0.0.0:*   docker (juice-shop)'); pl('LISTEN  0  511   127.0.0.1:8080  0.0.0.0:*  burp'); return; }
+  if(lower.indexOf('nmap') === 0){
+    pl('Starting Nmap scan — target: localhost');
+    pl('PORT     STATE  SERVICE'); pl('22/tcp   open   ssh'); pl('3000/tcp open   http (Juice Shop)'); pl('8080/tcp open   http-proxy (Burp)');
+    pl('Nmap done: 3 open ports. Every open port is a service with a history — and a patch level.', 'ok');
+    completeMission('m_scan'); return;
+  }
+  if(lower.indexOf('ping') === 0){ pl('PING localhost: 64 bytes from 127.0.0.1: time=0.04 ms'); pl('1 packets transmitted, 1 received, 0% packet loss'); return; }
+  if(lower.indexOf('curl') === 0){ pl('&lt;title&gt;OWASP Juice Shop&lt;/title&gt; — the lab target answers on :3000. It wants to be attacked. Politely oblige (Module 5).'); return; }
+  if(lower.indexOf('ssh') === 0){ pl('Permission denied (publickey,password).', 'err'); pl('Even the Range locks its doors. Keys, not passwords — remember that.', ''); return; }
+  if(lower === 'exit'){ pl('There is no exit. Only the work.', 'warn'); return; }
+  if(cmd.indexOf('|') >= 0 || /^(cat|grep|head|tail)\b/.test(lower)){
+    var r = runPipeline(cmd);
+    if(r.err){ pl(r.err, 'err'); return; }
+    (r.data || []).forEach(function(l){ pl(esc(l)); });
+    checkPipeMissions(cmd, r.data || []);
+    if(/cat\s+.*auth\.log/.test(lower)) completeMission('m_read');
+    return;
+  }
+  pl(cmd.split(/\s+/)[0] + ': command not found — type help', 'err');
+}
+function completeMissionSoft(){}
+function checkOrient(){ if(store._pwd && store._ls) completeMission('m_orient'); }
+function checkPipeMissions(cmd, out){
+  if(/grep/.test(cmd) && /Failed/.test(cmd)){
+    if(out.length === 1 && out[0].trim() === '17') completeMission('m_count');
+    if(out.length && out[0].indexOf('45.155.204.111') >= 0 && /(^|\s)9(\s|$)/.test(out[0])) completeMission('m_hunt');
+  }
+  if(/cat\s+.*auth\.log/.test(cmd)) completeMission('m_read');
+}
+tin.addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){ exec(tin.value); tin.value = ''; }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); if(hi > 0){ hi--; tin.value = hist[hi] || ''; } }
+  else if(e.key === 'ArrowDown'){ e.preventDefault(); if(hi < hist.length){ hi++; tin.value = hist[hi] || ''; } }
+});
+document.querySelector('.term').addEventListener('click', function(){ tin.focus(); });
+
+/* ================= module 2: packets ================= */
+var PKTS = [
+ {p:'dns', t:'192.168.1.50 → 1.1.1.1 · DNS query: example.com', d:'A name becomes an address. Plaintext — anyone on the path sees what you asked for.'},
+ {p:'tls', t:'192.168.1.50 → 93.184.216.34:443 · TLS ClientHello', d:'The sealed-envelope negotiation begins. Visible: who. Hidden: what.'},
+ {p:'tls', t:'93.184.216.34 → 192.168.1.50 · TLS Application Data (412 bytes)', d:'Encrypted payload. A watcher sees size and timing, never content.'},
+ {p:'http', t:'192.168.1.50 → 203.0.113.9:80 · GET /login HTTP/1.1', d:'Plaintext web request. Fine — until the next packet.'},
+ {p:'http', t:'192.168.1.50 → 203.0.113.9:80 · POST /login user=dom&pass=hunter2', d:'THE lesson of Module 2: credentials in the clear. This is why HTTPS won.'},
+ {p:'dns', t:'192.168.1.50 → 1.1.1.1 · DNS query: mail.bank-example.com', d:'Ask again: who answered this lookup, and do you trust them?'},
+ {p:'tls', t:'192.168.1.50 → 142.250.72.14:443 · TLS Application Data (1,204 bytes)', d:'Sealed. Move along.'}];
+var pktbox = document.getElementById('pkts'), pktnote = document.getElementById('pktnote');
+function renderPkts(f){
+  var list = PKTS.filter(function(x){ return f === 'all' || x.p === f; });
+  pktbox.innerHTML = list.map(function(x){ return '<div class="pkt"><b>' + x.p.toUpperCase() + '</b> · ' + x.t + '<br><span style="color:var(--dim)">' + x.d + '</span></div>'; }).join('');
+  pktnote.textContent = f === 'all' ? list.length + ' packets — a normal few seconds of a normal machine.' :
+    f === 'dns' ? 'DNS: names in the clear. Your questions are visible even when your reading is not.' :
+    f === 'http' ? 'HTTP: everything readable, including the password. Never log in over plain HTTP.' :
+    'TLS: the conversation is sealed. Metadata (who, when, how much) still shows.';
+}
+renderPkts('all');
+document.querySelectorAll('[data-pfilter]').forEach(function(b){ b.addEventListener('click', function(){ renderPkts(b.getAttribute('data-pfilter')); }); });
+
+/* ================= module 3: http builder ================= */
+document.getElementById('hsend').addEventListener('click', function(){
+  var m = document.getElementById('hmethod').value, p = document.getElementById('hpath').value, ck = document.getElementById('hcookie').checked;
+  var out = m + ' ' + p + ' HTTP/1.1\nHost: lab.local' + (ck ? '\nCookie: session=dom-7f3a' : '') + '\n\n— response —\n';
+  var note = '';
+  if(p === '/login' && m === 'POST'){ out += 'HTTP/1.1 302 Found\nSet-Cookie: session=dom-7f3a\nLocation: /account'; note = '▸ The server just handed you a session cookie. That cookie IS your login now — the server will trust whoever presents it.'; }
+  else if(p === '/login'){ out += 'HTTP/1.1 200 OK\n\n[login form]'; note = '▸ A form. POST is the verb that sends credentials.'; }
+  else if(!ck){ out += 'HTTP/1.1 302 Found\nLocation: /login'; note = '▸ No cookie, no memory, no entry. HTTP forgets everyone — the cookie is the memory.'; }
+  else if(p === '/account'){ out += 'HTTP/1.1 200 OK\n\nAccount #1001 — Dom — plan: Operator'; note = '▸ Your account, your cookie, all consistent.'; }
+  else if(p.indexOf('id=1002') >= 0){ out += 'HTTP/1.1 200 OK\n\nAccount #1002 — Maria — plan: Standard'; note = '▸ ⚠ IDOR. You changed one number and the server showed you someone else\'s account. It never checked the account was yours. This is the classic.'; }
+  else if(p === '/admin'){ out += 'HTTP/1.1 200 OK\n\n[admin panel — user list, settings, everything]'; note = '▸ ⚠ Broken access control. The link was hidden in the UI, but the server never checked your role. Hiding is not protecting.'; }
+  document.getElementById('hresp').textContent = out + '\n\n' + note;
+});
+
+/* ================= module 6: python sim + scanner ================= */
+document.getElementById('pyrun').addEventListener('click', function(){
+  var box = document.getElementById('pyout'); box.classList.remove('hidden'); box.textContent = '';
+  var lines = [
+    '$ python3 parse_logins.py',
+    'reading /var/log/auth.log … 20 lines',
+    'matching "Failed password" … 17 hits',
+    '',
+    'IP               FAILS  VERDICT',
+    '45.155.204.111       9  BRUTE FORCE — root + ubuntu, 03:14–03:17, machine-paced',
+    '193.32.162.45        5  BRUTE FORCE — grinding the admin account',
+    '91.240.118.7         3  watch — below threshold…',
+    '',
+    '⚠ NOTE: 91.240.118.7 has an ACCEPTED login at 03:59:41, right after its failures.',
+    '   Below threshold is not the same as safe. That one may have gotten in.',
+    '',
+    'Analyst move: block the two brute-force IPs, force a password reset on ubuntu,',
+    'and check what the 03:59 session touched. Tools find it — judgment finishes it.'];
+  var i = 0; (function step(){ if(i < lines.length){ box.textContent += lines[i++] + '\n'; setTimeout(step, 260); } })();
+});
+document.getElementById('scanrun').addEventListener('click', function(){
+  var box = document.getElementById('scanout'); box.classList.remove('hidden'); box.textContent = '$ python3 scan.py localhost\nknocking on 6 doors…\n';
+  var rows = ['  22/tcp  OPEN    ssh        ← your front door: key-only, always',
+    '  80/tcp  closed  http',
+    ' 443/tcp  closed  https',
+    '3000/tcp  OPEN    http       ← Juice Shop lab (yours — expected)',
+    '8080/tcp  OPEN    http-proxy ← Burp (yours — expected)',
+    '3306/tcp  closed  mysql',
+    '',
+    '2 expected lab services, 1 real door, 0 surprises. That is what "known state" looks like.',
+    'On a stranger\'s box you don\'t have this map — building it is called reconnaissance,',
+    'and doing it without permission is where the legal line from Module 5 applies.'];
+  var i = 0; (function step(){ if(i < rows.length){ box.textContent += rows[i++] + '\n'; setTimeout(step, 300); } })();
+});
+</script>
+</body>
+</html>
