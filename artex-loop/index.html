@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Loop That Doesn't Stop — ARTEX Extraction</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0e12; --panel: #10161d; --panel2: #141c25; --line: #22303d;
+    --teal: #2dd4bf; --teal-dim: #134e4a; --amber: #fbbf24; --red: #f87171;
+    --green: #4ade80; --violet: #a78bfa; --text: #dbe7ee; --muted: #7d93a5;
+  }
+  body { background: var(--bg); color: var(--text); font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; line-height: 1.55; padding: 24px 16px 64px; }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  header { border: 1px solid var(--line); background: var(--panel); padding: 22px 20px; margin-bottom: 18px; }
+  header .kicker { color: var(--teal); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+  header h1 { font-size: 26px; margin: 6px 0 8px; font-weight: 700; }
+  header p { color: var(--muted); font-size: 14px; max-width: 640px; }
+  section { border: 1px solid var(--line); background: var(--panel); padding: 20px; margin-bottom: 18px; }
+  section h2 { font-size: 16px; letter-spacing: 1px; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+  section .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  /* Loop simulator */
+  .board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+  .stat { background: var(--panel2); border: 1px solid var(--line); padding: 10px; text-align: center; }
+  .stat .n { font-size: 24px; font-weight: 700; }
+  .stat .l { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .stat.goals .n { color: var(--violet); } .stat.open .n { color: var(--amber); }
+  .stat.running .n { color: var(--teal); } .stat.done .n { color: var(--green); }
+  .flow { display: flex; align-items: stretch; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .node { flex: 1 1 120px; background: var(--panel2); border: 1px solid var(--line); padding: 10px; text-align: center; font-size: 12px; }
+  .node b { display: block; font-size: 13px; margin-bottom: 2px; }
+  .node.active { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal-dim), 0 0 14px rgba(45,212,191,.15); }
+  .node .tag { color: var(--muted); font-size: 11px; }
+  .arrow { align-self: center; color: var(--muted); }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  button { background: var(--panel2); color: var(--text); border: 1px solid var(--teal-dim); padding: 9px 14px; font: inherit; font-size: 13px; cursor: pointer; }
+  button:hover { border-color: var(--teal); color: var(--teal); }
+  button.danger { border-color: #5b2323; } button.danger:hover { border-color: var(--red); color: var(--red); }
+  button:disabled { opacity: .4; cursor: default; }
+  #log { background: #07090c; border: 1px solid var(--line); height: 168px; overflow-y: auto; padding: 10px 12px; font-size: 12.5px; }
+  #log div { margin-bottom: 3px; }
+  #log .t { color: var(--muted); } #log .stall { color: var(--red); } #log .good { color: var(--green); }
+  #log .warn { color: var(--amber); } #log .sys { color: var(--teal); }
+  .banner { display: none; border: 1px solid var(--red); color: var(--red); padding: 10px 12px; font-size: 13px; margin-bottom: 12px; }
+  .banner.show { display: block; }
+  /* Graphs */
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+  .tabs button.on { background: var(--teal-dim); color: #e6fffa; border-color: var(--teal); }
+  .gnodes { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+  .gnode { background: var(--panel2); border: 1px solid var(--line); padding: 12px; cursor: pointer; font-size: 13px; }
+  .gnode:hover, .gnode.sel { border-color: var(--teal); }
+  .gnode b { display: block; margin-bottom: 3px; }
+  .gnode .k { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  #gdetail { margin-top: 12px; background: #07090c; border: 1px solid var(--line); padding: 12px; font-size: 13px; min-height: 58px; color: var(--muted); }
+  #gdetail b { color: var(--text); }
+  /* Patterns */
+  .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+  .pcard { background: var(--panel2); border: 1px solid var(--line); padding: 12px; cursor: pointer; }
+  .pcard:hover { border-color: var(--teal); }
+  .pcard .grp { font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+  .pcard b { display: block; margin: 3px 0; font-size: 14px; }
+  .pcard .yours { display: none; color: var(--teal); font-size: 12.5px; margin-top: 6px; }
+  .pcard.open .yours { display: block; }
+  .pcard .hint { color: var(--muted); font-size: 11.5px; }
+  /* Build order */
+  .phase { border: 1px solid var(--line); background: var(--panel2); margin-bottom: 10px; }
+  .phase > button { width: 100%; text-align: left; border: none; background: none; padding: 13px 14px; font-size: 14px; display: flex; justify-content: space-between; }
+  .phase .items { display: none; padding: 0 14px 14px; font-size: 13px; color: var(--muted); }
+  .phase.open .items { display: block; }
+  .phase .items li { margin: 0 0 7px 16px; }
+  .phase .items b { color: var(--text); }
+  footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 8px; }
+  @media (max-width: 560px) { .board { grid-template-columns: repeat(2, 1fr); } header h1 { font-size: 21px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">[ Private study — ARTEX extraction ]</div>
+  <h1>The Loop That Doesn't Stop</h1>
+  <p>How ARTEX keeps working until the goal is proved — the planner, the two graphs, and the anti-stall machinery — plus the 12 patterns extracted for our pipeline and the build order. Everything on this page is interactive: run the loop, break it, cut it off, and watch what it does.</p>
+</header>
+
+<section>
+  <h2>1 · Run the loop</h2>
+  <p class="sub">Three goals. One planner — the only thing allowed to create work. Workers claim one intent at a time on a lease. Press things. Try to make it stall.</p>
+  <div class="board">
+    <div class="stat goals"><div class="n" id="s-goals">0 / 3</div><div class="l">Goals proved</div></div>
+    <div class="stat open"><div class="n" id="s-open">0</div><div class="l">Intents open</div></div>
+    <div class="stat running"><div class="n" id="s-running">0</div><div class="l">Running</div></div>
+    <div class="stat done"><div class="n" id="s-done">0</div><div class="l">Done / exhausted</div></div>
+  </div>
+  <div class="flow">
+    <div class="node" id="n-planner"><b>PLANNER</b><span class="tag">sole creator of work</span></div>
+    <div class="arrow">→</div>
+    <div class="node" id="n-frontier"><b>FRONTIER</b><span class="tag">open intents</span></div>
+    <div class="arrow">→</div>
+    <div class="node" id="n-workers"><b>WORKERS ×3</b><span class="tag">claim on a lease</span></div>
+    <div class="arrow">→</div>
+    <div class="node" id="n-graphs"><b>TWO GRAPHS</b><span class="tag">facts land here</span></div>
+  </div>
+  <div class="banner" id="stall-banner">STALL — goals unmet and zero work in flight. By ARTEX's rule this state is illegal: the planner is forced to emit new intents.</div>
+  <div class="controls">
+    <button id="btn-start">▶ Start the loop</button>
+    <button id="btn-kill" class="danger" disabled>Kill a worker mid-task</button>
+    <button id="btn-cut" class="danger" disabled>Cut the run (budget)</button>
+    <button id="btn-reset">Reset</button>
+  </div>
+  <div id="log"></div>
+  <p class="sub" style="margin-top:12px">What to notice: a killed worker's intent isn't lost — its lease expires and the intent returns to the frontier. A cut run doesn't drop work either — a settlement round runs with tools disabled and lands everything already found. And the moment the frontier empties with goals still open, the hard floor fires.</p>
+</section>
+
+<section>
+  <h2>2 · The two graphs</h2>
+  <p class="sub">The core design decision: the state of the world and the state of the work live in separate ledgers, and a result only counts when it's anchored to something in the world. Tap a node.</p>
+  <div class="tabs">
+    <button id="tab-asset" class="on">Asset graph — what exists</button>
+    <button id="tab-explore">Exploration graph — what was tried</button>
+  </div>
+  <div class="gnodes" id="gnodes"></div>
+  <div id="gdetail">Pick a node to see what it holds and why it lives in this graph and not the other one.</div>
+</section>
+
+<section>
+  <h2>3 · The 12 extractable patterns</h2>
+  <p class="sub">What transfers to our pipeline. Tap a card for the version we run.</p>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<section>
+  <h2>4 · Build order</h2>
+  <p class="sub">Rules before boards, boards before machinery. Tap a phase to open it.</p>
+  <div id="phases"></div>
+</section>
+
+<footer>ARTEX study · Nov 22, 2026 · private reference — not linked, not indexed by search engines · full write-ups: artex-extraction.md / artex-build-order.md</footer>
+</div>
+
+<script>
+/* ---------- 1 · Loop simulator ---------- */
+const S = { goals: 0, goalTotal: 3, open: [], running: [], doneCount: 0, exhCount: 0,
+            facts: 0, timer: null, live: false, cut: false, seq: 0 };
+const $ = id => document.getElementById(id);
+const logEl = $('log');
+function stamp() { const d = new Date(); return d.toTimeString().slice(0,8); }
+function log(msg, cls) {
+  const div = document.createElement('div');
+  div.innerHTML = '<span class="t">' + stamp() + '</span> ' + msg;
+  if (cls) div.className = cls;
+  logEl.appendChild(div); logEl.scrollTop = logEl.scrollHeight;
+}
+function render() {
+  $('s-goals').textContent = S.goals + ' / ' + S.goalTotal;
+  $('s-open').textContent = S.open.length;
+  $('s-running').textContent = S.running.length;
+  $('s-done').textContent = S.doneCount + ' / ' + S.exhCount;
+  $('n-frontier').classList.toggle('active', S.open.length > 0);
+  $('n-workers').classList.toggle('active', S.running.length > 0);
+  const stalled = S.live && !S.cut && S.goals < S.goalTotal && S.open.length === 0 && S.running.length === 0;
+  $('stall-banner').classList.toggle('show', stalled);
+  return stalled;
+}
+function plannerRound(forced) {
+  if (S.goals >= S.goalTotal || S.cut) return;
+  const need = Math.min(4, (S.goalTotal - S.goals) * 2 - S.open.length - S.running.length);
+  const n = Math.max(forced ? 1 : 0, need);
+  if (n <= 0) return;
+  $('n-planner').classList.add('active');
+  setTimeout(() => $('n-planner').classList.remove('active'), 500);
+  for (let i = 0; i < n; i++) S.open.push({ id: ++S.seq, ticks: 2 + Math.floor(Math.random() * 3), fact: false });
+  log('PLANNER emitted ' + n + ' intent' + (n > 1 ? 's' : '') + (forced ? ' — <b>hard floor: a round may not emit zero while goals are unmet</b>' : '') + '.', forced ? 'warn' : 'sys');
+}
+function tick() {
+  if (!S.live) return;
+  // workers claim
+  while (S.running.length < 3 && S.open.length > 0) {
+    const it = S.open.shift(); it.lease = 3; S.running.push(it);
+    log('Worker claimed intent #' + it.id + ' (lease granted, fencing token set).');
+  }
+  // workers progress
+  for (const it of [...S.running]) {
+    it.ticks--; it.lease--;
+    if (it.ticks <= 0) {
+      S.running.splice(S.running.indexOf(it), 1);
+      S.doneCount++; S.facts++;
+      $('n-graphs').classList.add('active'); setTimeout(() => $('n-graphs').classList.remove('active'), 400);
+      log('Intent #' + it.id + ' done — 1 fact written to the exploration graph, anchored to the asset graph. Facts landed: ' + S.facts + '.', 'good');
+      if (S.facts % 2 === 0 && S.goals < S.goalTotal) {
+        S.goals++;
+        log('<b>prove_goal:</b> goal ' + S.goals + ' of ' + S.goalTotal + ' met — verified against measured evidence, not asserted.', 'good');
+      }
+    }
+  }
+  const stalled = render();
+  if (S.goals >= S.goalTotal) { finish('All goals proved. The loop stops itself — running workers are cancelled, nothing idles.'); return; }
+  if (stalled) { log('STALL DETECTED — heartbeat + anti-stall rule fire a forced planning round.', 'stall'); plannerRound(true); render(); return; }
+  if (S.open.length === 0 && S.running.length === 0) plannerRound(false);
+  render();
+}
+function finish(msg) {
+  S.live = false; clearInterval(S.timer);
+  $('btn-start').disabled = false; $('btn-kill').disabled = true; $('btn-cut').disabled = true;
+  log(msg, 'sys'); render();
+}
+$('btn-start').onclick = () => {
+  if (S.live) return;
+  if (S.cut || S.goals >= S.goalTotal) resetSim();
+  S.live = true; $('btn-start').disabled = true; $('btn-kill').disabled = false; $('btn-cut').disabled = false;
+  log('Engine started: planner loop + claim sweep + 3 workers + deadline coordinator. Goals role already ran — constraints first (deny by default), minimal scope, then goals.', 'sys');
+  plannerRound(false); render();
+  S.timer = setInterval(tick, 1400);
+};
+$('btn-kill').onclick = () => {
+  if (!S.running.length) { log('No worker is running right now — nothing to kill.', 'warn'); return; }
+  const it = S.running.shift();
+  log('Worker on intent #' + it.id + ' died mid-task. Its claim heartbeat stops…', 'warn');
+  setTimeout(() => {
+    S.open.unshift(it);
+    log('Lease on intent #' + it.id + ' expired — the claim sweep returns it to the frontier. No work lost, no duplicate write: its late results would be discarded by the fencing token.', 'warn');
+    render();
+  }, 900);
+  render();
+};
+$('btn-cut').onclick = () => {
+  if (!S.live) return;
+  S.cut = true;
+  const inFlight = S.running.length, queued = S.open.length;
+  S.running = []; S.open = [];
+  log('BUDGET CUT — dispatch stops. In-flight: ' + inFlight + ', queued: ' + queued + ' (queued intents end as <b>exhausted</b>, not done — tried-but-unfinished is its own state).', 'stall');
+  S.exhCount += queued;
+  setTimeout(() => {
+    log('SETTLEMENT ROUND — execution tools disabled. Workers write back only what they already found: ' + S.facts + ' facts landed. A cut run lands its work; it never drops it on the floor.', 'sys');
+    finish('Run settled. Goals proved: ' + S.goals + ' of ' + S.goalTotal + '. The wrap-up reserve is what paid for this round — budget the ending first.');
+  }, 1100);
+  render();
+};
+function resetSim() {
+  S.goals = 0; S.open = []; S.running = []; S.doneCount = 0; S.exhCount = 0; S.facts = 0; S.seq = 0; S.cut = false; S.live = false;
+  clearInterval(S.timer);
+  $('btn-start').disabled = false; $('btn-kill').disabled = true; $('btn-cut').disabled = true;
+  logEl.innerHTML = ''; render();
+  log('Reset. Three goals open, frontier empty. The planner is the only thing that can change that.');
+}
+$('btn-reset').onclick = resetSim;
+resetSim();
+
+/* ---------- 2 · Two graphs ---------- */
+const GRAPHS = {
+  asset: [
+    { k: 'Asset', name: 'app.example.com', d: '<b>Asset graph — what exists.</b> A typed inventory of the world: domains, IPs, services, endpoints. Each entity has one identity and attributes, independent of who found it or why. This graph answers <b>what is out there</b>.' },
+    { k: 'Asset', name: 'api.example.com:443', d: '<b>Asset graph — what exists.</b> A service on a host. Assets are discovered by workers but owned by the world graph — if every worker died, this record would still be true.' },
+    { k: 'Scope', name: 'example.com only', d: '<b>Scope lives with the asset graph.</b> What is in-bounds is a fact about the world, registered before any goal is written — and it never widens implicitly. A subdomain named is a subdomain only.' },
+    { k: 'Asset', name: 'login endpoint', d: '<b>Asset graph — what exists.</b> The anchor. A finding in the other graph only counts when it names asset IDs from this one. No anchor, no finding — that rule is what keeps results honest.' }
+  ],
+  explore: [
+    { k: 'Goal', name: 'Prove the deliverable', d: '<b>Exploration graph — what was tried.</b> Goals are verifiable final deliverables, never process steps. A goal ends open, met, or abandoned — and "met" requires a quantitative check against measured evidence.' },
+    { k: 'Intent', name: 'Try this direction', d: '<b>Exploration graph — what was tried.</b> One unit of work, born with lineage: parent nodes and the asset IDs it touches. States: open / running / paused / done / blocked / exhausted / stopped. The terminal state teaches the planner what to do next.' },
+    { k: 'Fact', name: 'One consolidated result', d: '<b>Exploration graph — what was tried.</b> Each finished intent writes exactly one fact. Failed attempts are facts too — so "we found nothing" is permanently distinguishable from "we never looked."' },
+    { k: 'Finding', name: 'A result that counts', d: '<b>Exploration graph — what was tried.</b> A finding carries severity, confidence, and the asset IDs that justify it. It must argue its opposite case — and survive an independent retest — before it sticks.' },
+    { k: 'Digest', name: 'Cold history, folded', d: '<b>Exploration graph — what was tried.</b> Nodes idle for 6+ planner rounds get folded into digests by a background process, off the hot path. The frontier stays verbatim; settled history compresses. Memory without amnesia.' }
+  ]
+};
+let curGraph = 'asset';
+function drawGraph() {
+  const box = $('gnodes'); box.innerHTML = '';
+  GRAPHS[curGraph].forEach((n, i) => {
+    const div = document.createElement('div');
+    div.className = 'gnode' + (i === 0 ? ' sel' : '');
+    div.innerHTML = '<span class="k">' + n.k + '</span><b>' + n.name + '</b>';
+    div.onclick = () => { box.querySelectorAll('.gnode').forEach(x => x.classList.remove('sel')); div.classList.add('sel'); $('gdetail').innerHTML = n.d; };
+    box.appendChild(div);
+  });
+  $('gdetail').innerHTML = GRAPHS[curGraph][0].d;
+  $('tab-asset').classList.toggle('on', curGraph === 'asset');
+  $('tab-explore').classList.toggle('on', curGraph === 'explore');
+}
+$('tab-asset').onclick = () => { curGraph = 'asset'; drawGraph(); };
+$('tab-explore').onclick = () => { curGraph = 'explore'; drawGraph(); };
+drawGraph();
+</script>
+
+<script>
+/* ---------- 3 · The 12 patterns ---------- */
+const PATTERNS = [
+  { g: 'Core four', n: '1 · The hard floor', h: 'Goal unmet + zero active work = a stall by definition; the planner must emit.', y: 'Ours: a bot return package that neither closes an item nor leaves the board non-empty is a defect, surfaced — never a quiet state.' },
+  { g: 'Core four', n: '2 · The two boards', h: 'World state and work state in separate ledgers, results anchored to world entities.', y: 'Ours: world board = durable facts (clients, leads, content). Work board = every task, its state, its lineage. In-thread results that never land on the board don\'t exist.' },
+  { g: 'Core four', n: '3 · Settlement rounds', h: 'Any cut triggers a final tools-disabled round that writes back what\'s already known.', y: 'Ours: no run ends without landing its work — partials and dead ends included. The mechanism behind "complete packages."' },
+  { g: 'Core four', n: '4 · Five terminal states', h: 'Done / exhausted / blocked / stopped / paused — each drives a different next step.', y: 'Ours: the same five, everywhere. Exhausted ≠ done is where pipelines silently lose work.' },
+  { g: 'Discipline', n: '5 · Coverage ledger', h: 'Per target: found / checked-nothing (evidence) / ruled out (reason) / needs follow-up.', y: 'Ours: lead and content research. An absent record means unchecked — "did we look?" always has an answer.' },
+  { g: 'Discipline', n: '6 · Lessons with retraction', h: 'A lesson needs cue + action + verified outcome; reversed outcomes withdraw it.', y: 'Ours: memory and fleet lessons trace to a specific verified result, retire when it reverses, and stay capped small enough to be read.' },
+  { g: 'Discipline', n: '7 · Budget + landing reserve', h: 'Stop dispatching when the remainder can\'t cover one run plus the wrap-up reserve.', y: 'Ours: the Grok weekly pool. A pipeline that spends 100% on starting has 0% left for finishing.' },
+  { g: 'Discipline', n: '8 · Proof-gated completion', h: 'Done = a measured check passed; the producer\'s word is never the only evidence.', y: 'Ours: file renders, post live at its URL, lead record complete — plus a retester pass that argues "not done" on high-stakes items.' },
+  { g: 'Plumbing', n: '9 · Claim fencing', h: 'Work carries a lease; stale claims return to the frontier; late results are discarded.', y: 'Ours: the clean answer to two agents editing the same thing — no board-wide locks.' },
+  { g: 'Plumbing', n: '10 · Steering queue', h: 'Corrections queue onto the running item and land at its next action boundary.', y: 'Ours: mid-flight bot corrections attach to the work item — not a new thread, not a kill.' },
+  { g: 'Plumbing', n: '11 · Paused-awaiting-operator', h: 'Blocked on a human = a state: one precise question, then wait, then resume in place.', y: 'Ours: [DECISION-NEEDED] with resume discipline underneath — the run restarts where it stopped, not cold.' },
+  { g: 'Plumbing', n: '12 · Quiet mode + heartbeat', h: 'A fingerprint skips no-change cycles; a slow heartbeat forces a real check anyway.', y: 'Ours: the watchers. Cheap when nothing changed, impossible to go silently stale.' }
+];
+const pg = $('pgrid');
+PATTERNS.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'pcard';
+  div.innerHTML = '<span class="grp">' + p.g + '</span><b>' + p.n + '</b><span class="hint">' + p.h + '</span><div class="yours">' + p.y + '</div>';
+  div.onclick = () => div.classList.toggle('open');
+  pg.appendChild(div);
+});
+
+/* ---------- 4 · Build order ---------- */
+const PHASES = [
+  { t: 'Phase 0 — Words only · can be live tonight', items: [
+    '<b>Five terminal states</b> in every return package, log, and sync.',
+    '<b>SETTLED field</b> in the fleet return format — what was landed, and where.',
+    '<b>Hard-floor flag</b> in the digest and watch jobs: an open goal with an empty board surfaces as a defect.' ] },
+  { t: 'Phase 1 — The two boards, formalized', items: [
+    '<b>Work board:</b> Agent Logs + goal workspaces become canonical — state, owner, lineage on every item.',
+    '<b>World links:</b> every result names the world-board entity it concerns.',
+    '<b>Coverage ledger</b> for lead and content research, evidence attached to negative results.' ] },
+  { t: 'Phase 2 — Rigor', items: [
+    '<b>Proof-gated completion</b> everywhere; retester pass on high-stakes items.',
+    '<b>Lessons rebuilt</b> on the evidence-and-retraction contract.' ] },
+  { t: 'Phase 3 — Fleet-facing · after the Nov 29 review', items: [
+    '<b>Landing reserve</b> on the Grok pool — feeds the Dec 20 SuperGrok decision with numbers.',
+    '<b>Quiet mode + heartbeat</b> on the watchers — the fix for checks that fail blind.',
+    'Lands as one fleet package under the restate-before-run gate, not piecemeal.' ] },
+  { t: 'Phase 4 — Only if the need proves out', items: [
+    '<b>Claim fencing</b> for parallel board work.',
+    '<b>Steering queue</b> for in-flight corrections.',
+    '<b>Deliberately not scheduled:</b> full planner automation. The floor guarantees motion, not progress — Dom stays dispatch authority.' ] }
+];
+const ph = $('phases');
+PHASES.forEach((p, i) => {
+  const div = document.createElement('div');
+  div.className = 'phase' + (i === 0 ? ' open' : '');
+  div.innerHTML = '<button>' + p.t + '<span>▾</span></button><div class="items"><ul>' +
+    p.items.map(x => '<li>' + x + '</li>').join('') + '</ul></div>';
+  div.querySelector('button').onclick = () => div.classList.toggle('open');
+  ph.appendChild(div);
+});
+</script>
+</body>
+</html>
