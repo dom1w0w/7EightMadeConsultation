@@ -1,48 +1,42 @@
 {
   "_meta": {
-    "note": "LIVE edition, Tuesday, November 24, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 17, rotated the Oct 21 @goldcsnades post. Public edition.",
-    "generated": "2026-11-24T06:04:31-06:00",
+    "note": "LIVE edition, Wednesday, November 25, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: rotated a Nov 17 bookmark. PUBLIC edition.",
+    "generated": "2026-11-25T06:02:38-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXXII",
+    "volume": "LXXXIII",
     "city": "Carpentersville, IL",
-    "asOf": "6:04 AM CT"
+    "asOf": "6:02 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Bulls Bench Drops 63, Chicago Rolls Cleveland 122-108",
-    "subhead": "Jordan Hawkins scored a season-high 19, Buddy Hield added 17 and Tre Jones had 16 and nine assists. A 45-20 second quarter built a 72-50 halftime lead; when Cleveland pushed back, the Bulls closed it with a 10-0 run. Depth wins. Be the whole bench today.",
-    "source": "AP",
-    "url": "https://apnews.com/article/cavaliers-bulls-score-e87e1a81bd0b955fc7c80d2bfea17d3e"
+    "headline": "Tatum Drops 41, Celtics Hold Off Wizards 131-116",
+    "subhead": "Jayson Tatum scored 41 and Paul George added 28 with nine assists as Boston beat back a Washington comeback to go 3-0 in NBA Cup group play. When the other side makes its run, the closer answers. Be the closer today.",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
   },
   "articles": [
     {
-      "hed": "Commanders Walk Off the Bengals, 22-20",
-      "body": "Evan McPherson's 56-yarder put Cincinnati up with 46 seconds left. Jayden Daniels answered with two deep throws and Drew Stevens hit a 26-yard kick as time expired. Burrow threw for 300 and two scores and still lost. Forty-six seconds is plenty of time.",
-      "url": "https://www.bengals.com/news/bengals-commanders-recap-postgame-notes-quotes-stats-week-11-2026-monday-night-football"
+      "hed": "Bears at Lions on Thanksgiving",
+      "body": "Chicago (8-2, five straight wins) opens the Thanksgiving slate at Ford Field tomorrow at noon CT on CBS, against a Lions team that's also 8-2. First place is on the line. Packers at Rams goes tonight on Netflix.",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-12"
     },
     {
-      "hed": "Anthropic Launches Claude Ship",
-      "body": "New beta agents review pull requests, fix CI failures and, under team rules, approve routine changes, with humans still signing off where required. The bots are moving from writing code to shipping it.",
-      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
+      "hed": "OpenAI: GPT-6 Can Design Proteins",
+      "body": "OpenAI reports its GPT-6 models can design protein structures and sequences, with some binding results confirmed in the lab. AI keeps moving from text into the physical sciences.",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
     "high": 40,
-    "low": 25,
+    "low": 30,
     "unit": "F",
-    "summary": "Clear and about 26 at dawn, then clouds. Dry today (0% rain), high near 40. Wednesday stays mostly dry (rain chance about 31%), high near 40. Thanksgiving turns damp: drizzle likely (about 66%), high near 43. Friday stays gray with a rain chance near 64%, high near 45.",
+    "summary": "Overcast and about 30 at dawn. Dry today (rain chance about 5%), high near 40. Thanksgiving: cloudy with a rain chance near 41%, high near 45. Friday: gray, rain chance near 41%, high near 47. Saturday: mostly dry, high near 49.",
     "days": [
-      {
-        "label": "Tue",
-        "high": 40,
-        "low": 25,
-        "icon": "cloud"
-      },
       {
         "label": "Wed",
         "high": 40,
@@ -51,26 +45,32 @@
       },
       {
         "label": "Thu",
-        "high": 43,
-        "low": 40,
-        "icon": "rain"
+        "high": 45,
+        "low": 39,
+        "icon": "cloud"
       },
       {
         "label": "Fri",
-        "high": 45,
+        "high": 47,
         "low": 34,
+        "icon": "cloud"
+      },
+      {
+        "label": "Sat",
+        "high": 49,
+        "low": 33,
         "icon": "cloud"
       }
     ]
   },
   "needsALook": [
     {
-      "type": "FYI",
-      "text": "Three-day week: today and tomorrow, then Thanksgiving. Front-load the hard stuff."
+      "type": "ACTION",
+      "text": "Last workday before Thanksgiving: ship the one 7EightMade piece today."
     },
     {
-      "type": "ACTION",
-      "text": "Pick the one 7EightMade piece that ships before Wednesday night."
+      "type": "FYI",
+      "text": "Bears at Lions tomorrow, noon CT, CBS. Both teams are 8-2."
     }
   ],
   "timeline": [
@@ -81,13 +81,18 @@
     },
     {
       "time": "Morning",
-      "event": "7EightMade build block: ship one piece",
+      "event": "7EightMade build block: finish and ship the piece",
       "category": "focus"
     },
     {
       "time": "Afternoon",
-      "event": "Close loops before the holiday: anything that blocks Thursday",
+      "event": "Holiday prep: clear anything that blocks Thursday",
       "category": "focus"
+    },
+    {
+      "time": "Evening",
+      "event": "Packers at Rams (Netflix), optional",
+      "category": "personal"
     },
     {
       "time": "Night",
@@ -96,16 +101,16 @@
     }
   ],
   "thisWeek": [
-    "Tue Nov 24 - dry and cold, high ~40",
-    "Wed Nov 25 - mostly dry, rain chance ~31%, high ~40",
-    "Thu Nov 26 - Thanksgiving; drizzle likely, high ~43",
-    "Fri Nov 27 - Black Friday; rain chance ~64%, high ~45",
-    "Sat Nov 28 - milder, high ~51"
+    "Wed Nov 25 - dry and gray, high ~40",
+    "Thu Nov 26 - Thanksgiving; Bears at Lions noon CT (CBS); rain chance ~41%, high ~45",
+    "Fri Nov 27 - Black Friday; rain chance ~41%, high ~47",
+    "Sat Nov 28 - mostly dry, high ~49",
+    "Sun Nov 29 - rain likely (~62%), high ~41"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Tuesday, Mars's day. Four counts in, four hold, four out, four hold. Mars is the warrior's planet: you don't wait to feel ready, you move and get ready on the way.",
+    "intro": "Wednesday, Mercury's day. Four counts in, four hold, four out, four hold. Mercury is the messenger: quick mind, clean words, fast hands. Breathe slow so you can move fast.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -139,14 +144,14 @@
       "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go build."
     },
     "mindset": {
-      "hed": "Win Ugly, Then Win Again",
-      "body": "The Bears didn't play clean yesterday. They won anyway, five in a row, 8-2. Murray put up 45 and needed every one of the eight he scored in overtime. Nobody remembers how pretty it was. They remember who finished. Three work days this week: ship one real 7EightMade piece before Wednesday ends. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Answer the Run",
+      "body": "Washington made its push last night. Tatum answered with 41 and Boston never let go. Every day somebody makes a run at you: a tired body, a distraction, a doubt. You don't panic, you answer. Last workday before the holiday: finish the piece and ship it before the turkey. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Tuesday, Mars's day: run this right after Morning Charge. It's clear and about 26 out, so do the RipStick finisher in the garage or swap in 60 seconds of fast feet. Hard and clean.",
+    "note": "Wednesday, Mercury's day: quick and sharp. Run the three blocks, no rest between.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -178,22 +183,22 @@
       "title": "AI",
       "items": [
         {
-          "source": "TechCrunch",
-          "hed": "Anthropic launches Claude Ship",
-          "body": "Agents that review PRs, fix CI failures and approve routine changes under team policies. Beta for Claude Team and Enterprise on GitHub.",
-          "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
+          "source": "OpenAI",
+          "hed": "GPT-6 models design proteins",
+          "body": "OpenAI says GPT-6 can design protein structures and sequences, with some lab-validated binding results.",
+          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
         },
         {
-          "source": "xAI",
-          "hed": "Grok Bot 1.0",
-          "body": "Bots now work with whole teams, can be brought into Slack, Teams and video calls, and offer to take on work proactively.",
-          "url": "https://x.ai/news/grok-bot-1-0"
+          "source": "Axios",
+          "hed": "Lab staff worry about unreleased models",
+          "body": "Employees at Anthropic and OpenAI say some internal models may be too risky to release.",
+          "url": "https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks"
         },
         {
-          "source": "MacRumors",
-          "hed": "Apple building an agent that uses apps and code",
-          "body": "Report: Apple is developing a general-purpose agent that can browse, operate apps and write code, alongside Siri AI's opening to developers.",
-          "url": "https://www.macrumors.com/2026/11/19/apple-ai-agent-development/"
+          "source": "AI.info",
+          "hed": "Two states sue X and xAI over Grok images; Siri agent slips to late 2027",
+          "body": "Oregon and Virginia filed suits over Grok-generated sexualized images. Separately, Apple's full Siri AI agent isn't expected before late 2027.",
+          "url": "https://ai.info/daily/2026-11-24"
         }
       ]
     },
@@ -201,22 +206,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "AP",
-          "hed": "Bulls 122, Cavaliers 108",
-          "body": "63 bench points; Hawkins 19, Hield 17, Tre Jones 16 and 9. Mitchell 28 and Harden 21 for Cleveland.",
-          "url": "https://apnews.com/article/cavaliers-bulls-score-e87e1a81bd0b955fc7c80d2bfea17d3e"
+          "source": "NBA.com",
+          "hed": "Tatum 41, Celtics 131-116 Wizards",
+          "body": "Paul George added 28 and nine assists; Boston is 3-0 in Cup group play.",
+          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
         },
         {
           "source": "NBA.com",
-          "hed": "Pacers 125, Thunder 120",
-          "body": "Indiana knocked off Oklahoma City in one of Monday's 10 games.",
-          "url": "https://www.nba.com/schedule/2026"
+          "hed": "Flagg leads Mavericks past Nuggets 120-101",
+          "body": "Cooper Flagg had 24 points and 11 assists; seven Mavericks scored in double figures and Dallas is 3-0 in its Cup group.",
+          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
         },
         {
           "source": "NBA.com",
-          "hed": "Wolves drop 142 on the Nets; Suns win in OT",
-          "body": "Minnesota beat Brooklyn 142-116 and Phoenix edged New Orleans 123-119 in overtime.",
-          "url": "https://www.nba.com/schedule/2026"
+          "hed": "Pistons beat Magic 104-86",
+          "body": "Detroit's win kept Orlando from clinching in East Group A.",
+          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
         }
       ]
     },
@@ -224,22 +229,22 @@
       "title": "NFL",
       "items": [
         {
-          "source": "Bengals.com",
-          "hed": "Commanders 22, Bengals 20",
-          "body": "Drew Stevens' 26-yard walk-off after Daniels moved Washington in the final 46 seconds. Cincinnati falls to 7-3.",
-          "url": "https://www.bengals.com/news/bengals-commanders-recap-postgame-notes-quotes-stats-week-11-2026-monday-night-football"
-        },
-        {
-          "source": "The Chairshot",
-          "hed": "49ers release Brandon Aiyuk",
-          "body": "San Francisco cut the receiver; Arizona fired defensive coordinator Nick Rallis.",
-          "url": "https://thechairshot.com/2026/11/chairshot-nfl-news-report-11-24-2026-commanders-stun-bengals-49ers-release-aiyuk-cardinals-fire-rallis/"
+          "source": "NFL.com",
+          "hed": "Thanksgiving slate: Bears at Lions to open",
+          "body": "Bears-Lions at noon CT (CBS), Eagles-Cowboys at 3:30 CT (FOX), Chiefs-Bills at night (NBC). Packers-Rams goes tonight on Netflix.",
+          "url": "https://www.nfl.com/schedules/2026/by-week/week-12"
         },
         {
           "source": "NFL.com",
-          "hed": "DeVito to start for the Patriots vs. Chargers",
-          "body": "Tommy DeVito gets the start, and Micah Parsons is cleared to return against Los Angeles.",
-          "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-monday-nov-23"
+          "hed": "Broncos suspend J.K. Dobbins one game",
+          "body": "Sean Payton suspended Dobbins for Friday's game at Pittsburgh for conduct detrimental to the team. The Bears claimed DB Isaac Yiadom off waivers.",
+          "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-tuesday-nov-24"
+        },
+        {
+          "source": "The Chairshot",
+          "hed": "49ers release Aiyuk; Cardinals fire Rallis",
+          "body": "San Francisco cut WR Brandon Aiyuk and Arizona fired defensive coordinator Nick Rallis.",
+          "url": "https://thechairshot.com/2026/11/chairshot-nfl-news-report-11-24-2026-commanders-stun-bengals-49ers-release-aiyuk-cardinals-fire-rallis/"
         }
       ]
     },
@@ -247,22 +252,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "Bloody Elbow",
-          "hed": "Stirling and Vallejos jump into the top 3",
-          "body": "After UFC Qatar, Navajo Stirling (KO of Prochazka) and Kevin Vallejos (win over Aljamain Sterling) surge in the rankings.",
-          "url": "https://bloodyelbow.com/2026/11/24/two-ufc-qatar-stars-jump-into-the-top-3-of-the-rankings-following-impressive-wins/"
+          "source": "Fightnews",
+          "hed": "Adames outpoints Warburton in Riyadh",
+          "body": "Carlos Adames won a unanimous decision (100-90, 98-92, 99-91) at Zuffa 13.",
+          "url": "https://fightnews.com/results-from-riyadhs-zuffa-13-adames-vs-warburton/200453"
         },
         {
-          "source": "WBC",
-          "hed": "Lauren Price is undisputed at welterweight",
-          "body": "Price beat Michaela Kotaskova by unanimous decision to collect every belt.",
-          "url": "https://wbcboxing.com/en/lauren-price-defeats-michaela-kotaskova-to-become-undisputed-welterweight-champion/"
+          "source": "Fight Week",
+          "hed": "Ibeh out of Friday's fight with Novytskyi",
+          "body": "Kingsley Ibeh withdrew injured; Robeisy Ramirez signed with Warriors and DreamBigg and returns Dec. 10.",
+          "url": "https://www.fightweek.com/2026/11/24/"
         },
         {
-          "source": "MMA Junkie",
-          "hed": "Neil Magny books UFC fight No. 39",
-          "body": "Magny reportedly meets Daniil Donchenko at UFC Vegas 125 on Jan. 23; Gable Steveson vs. Terrance Chatman is set for UFC 336 in Toronto.",
-          "url": "https://mmajunkie.usatoday.com/story/sports/ufc/2026/11/24/ufc-neil-magny-vs-daniil-donchenko-vegas/92936891007/"
+          "source": "MMA Fighting",
+          "hed": "What's next for Jiri Prochazka?",
+          "body": "After his KO loss at UFC Qatar, the former champ's path forward is open; Josh Hokit wants a Ciryl Gane rematch.",
+          "url": "https://www.mmafighting.com/ufc/523018/between-the-links-whats-next-for-jiri-prochazka-josh-hokit-wants-ciryl-gane-rematch-more"
         }
       ]
     }
@@ -272,16 +277,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "Mars's day",
-        "body": "Tuesday is Mars's day (Tiw in the old Germanic calendar). In planetary magick Mars rules courage, cutting and decisive action: the sword that removes what doesn't belong."
+        "hed": "Mercury's day",
+        "body": "Wednesday is Mercury's day (Woden's in the old Germanic calendar, mercredi in French). Hermes-Mercury rules speech, trade, travel and quick thinking: the right day to send the message and close the deal."
       },
       {
-        "hed": "Jacob Boehme",
-        "body": "The German shoemaker-mystic (1575-1624) said he saw the hidden structure of reality in sunlight glinting off a pewter dish. His lesson: the deepest insight can arrive in the plainest moment, at work."
+        "hed": "Meister Eckhart on gratitude",
+        "body": "The 14th-century German mystic wrote: 'If the only prayer you ever say in your entire life is thank you, it will be enough.' A fitting line the day before Thanksgiving."
       },
       {
-        "hed": "The Hermetic 'As above, so below'",
-        "body": "The Emerald Tablet teaches that the small mirrors the large. Order your morning and you practice ordering your life; the pattern scales."
+        "hed": "Hermes Trismegistus",
+        "body": "The 'thrice-great' Hermes of the Hermetic texts blends the Greek Hermes and the Egyptian Thoth, god of writing. To the Hermeticists, mind came first: 'The All is Mind.' Get the thought clear and the work follows."
       }
     ]
   },
@@ -289,9 +294,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "The sluggard's lion",
-    "body": "Solomon wrote: 'The slothful man saith, There is a lion without, I shall be slain in the streets' (Proverbs 22:13). The excuse always sounds dramatic. The real danger is staying inside.",
-    "practice": "Name the one 'lion' you've been using to avoid a task, then do the first 10 minutes of that task before noon."
+    "hed": "Finish what you start",
+    "body": "Solomon wrote: 'The hand of the diligent shall bear rule: but the slothful shall be under tribute' (Proverbs 12:24). Diligence isn't busyness. It's carrying one thing all the way to done.",
+    "practice": "Before lunch, take the 7EightMade piece from 'almost' to shipped. No new starts until it's out."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -313,19 +318,19 @@
       },
       {
         "id": "ship-one",
-        "text": "Ship one 7EightMade piece before Wednesday night",
+        "text": "Ship the 7EightMade piece today, before the holiday",
         "priority": "high",
         "done": false
       },
       {
-        "id": "lion",
-        "text": "Grimoire card: 10 minutes on the task you've been dodging, before noon",
+        "id": "diligent",
+        "text": "Grimoire card: no new starts until the piece is out",
         "priority": "high",
         "done": false
       },
       {
         "id": "holiday-clear",
-        "text": "Clear anything that blocks Thanksgiving Thursday",
+        "text": "Holiday prep: clear anything that blocks Thursday",
         "priority": "normal",
         "done": false
       }
@@ -339,12 +344,12 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn - from your X bookmarks",
-    "pick": "@goldcsnades shared a CS2 utility combo to throw every round for big damage, with a clip showing the lineup.",
-    "author": "@goldcsnades",
-    "url": "https://x.com/goldcsnades/status/2112861467104137476",
-    "bookmarkUrl": "https://x.com/goldcsnades/status/2112861467104137476",
+    "pick": "@lunaonexbt posted a clip of Jensen Huang explaining recursive self-improvement to Ezra Klein: an agent runs a task, writes down what worked as a skill and a memory, gets faster next time, and that data trains the next model. His catch: Nvidia puts about 80% of its effort into verification and only ships what humans have checked.",
+    "author": "@lunaonexbt",
+    "url": "https://x.com/lunaonexbt/status/2122665572609486885",
+    "bookmarkUrl": "https://x.com/lunaonexbt/status/2122665572609486885",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Oct 21). Watch the clip before your next FACEIT match.",
-    "skipped": "Recently used: @himanshubuildss (Nov 23), @hypertune_ (Nov 22), @Texas_Twins_Dad (Nov 21), @KutaTweaks (Nov 20), @itzsagka (Nov 19)."
+    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Nov 17). The lesson for your own builds: speed up the loop, and spend the time you save on checking the work.",
+    "skipped": "Recently used: @goldcsnades (Nov 24), @himanshubuildss (Nov 23), @hypertune_ (Nov 22), @Texas_Twins_Dad (Nov 21), @KutaTweaks (Nov 20)."
   }
 }
