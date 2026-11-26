@@ -1,76 +1,76 @@
 {
   "_meta": {
-    "note": "LIVE edition, Wednesday, November 25, 2026. Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + X bookmarks + web news. Tech Demo: rotated a Nov 17 bookmark. PUBLIC edition.",
-    "generated": "2026-11-25T06:02:38-06:00",
+    "note": "LIVE edition, Thursday, November 26, 2026 (Thanksgiving). Locale: Carpentersville, IL (America/Chicago). Energy-first. Live weather (Open-Meteo) + calendar + X bookmarks + web news. Tech Demo: no new bookmarks since Nov 17, rotated the Nov 17 @itzsagka post. PUBLIC edition (private items omitted).",
+    "generated": "2026-11-26T06:05:40-06:00",
     "source": "live"
   },
   "masthead": {
     "title": "The Dom Times",
     "tagline": "We checked your phone, so you don't have to.",
-    "volume": "LXXXIII",
+    "volume": "LXXXIV",
     "city": "Carpentersville, IL",
-    "asOf": "6:02 AM CT"
+    "asOf": "6:05 AM CT"
   },
   "lead": {
     "kicker": "Front Page",
-    "headline": "Tatum Drops 41, Celtics Hold Off Wizards 131-116",
-    "subhead": "Jayson Tatum scored 41 and Paul George added 28 with nine assists as Boston beat back a Washington comeback to go 3-0 in NBA Cup group play. When the other side makes its run, the closer answers. Be the closer today.",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
+    "headline": "Thanksgiving at Ford Field: Bears at Lions for First Place",
+    "subhead": "Both teams are 8-2 and Chicago has won five straight. Kickoff is noon CT on CBS. Kyler Gordon, Elijah Hicks and Roschon Johnson are out; Tyrique Stevenson and D'Marco Jackson are questionable. Big stage, short week. Show up hungry before the turkey does.",
+    "source": "ChicagoBears.com",
+    "url": "https://www.chicagobears.com/news/bears-lions-thanksgiving-day-game-preview-2026-week-12"
   },
   "articles": [
     {
-      "hed": "Bears at Lions on Thanksgiving",
-      "body": "Chicago (8-2, five straight wins) opens the Thanksgiving slate at Ford Field tomorrow at noon CT on CBS, against a Lions team that's also 8-2. First place is on the line. Packers at Rams goes tonight on Netflix.",
-      "url": "https://www.nfl.com/schedules/2026/by-week/week-12"
+      "hed": "Bulls Edge Hornets 107-105",
+      "body": "Matas Buzelis scored 24 and Josh Giddey grabbed 11 rebounds as Chicago won a close one in Charlotte, despite 35 from Brandon Miller. Close games are won by whoever stays composed in the last two minutes.",
+      "url": "https://basketball.realgm.com/nba/scores/2026-11-25"
     },
     {
-      "hed": "OpenAI: GPT-6 Can Design Proteins",
-      "body": "OpenAI reports its GPT-6 models can design protein structures and sequences, with some binding results confirmed in the lab. AI keeps moving from text into the physical sciences.",
-      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
+      "hed": "Rams Run Over Packers 26-13",
+      "body": "Blake Corum ran 32 times for a career-high 184 yards and a touchdown as Los Angeles won its fifth straight on Thanksgiving Eve. Green Bay falls to 6-5.",
+      "url": "https://www.espn.com/nfl/recap/_/gameId/401873079"
     }
   ],
   "weather": {
     "location": "Carpentersville / Chicago Area",
-    "high": 40,
-    "low": 30,
+    "high": 45,
+    "low": 39,
     "unit": "F",
-    "summary": "Overcast and about 30 at dawn. Dry today (rain chance about 5%), high near 40. Thanksgiving: cloudy with a rain chance near 41%, high near 45. Friday: gray, rain chance near 41%, high near 47. Saturday: mostly dry, high near 49.",
+    "summary": "Overcast and about 41 at dawn. Thanksgiving: drizzle likely (about 62%), high near 45. Friday: a light rain/snow mix possible (about 59%), high near 43. Saturday: dry, high near 50. Sunday: drizzle chance near 60%, high near 44.",
     "days": [
-      {
-        "label": "Wed",
-        "high": 40,
-        "low": 30,
-        "icon": "cloud"
-      },
       {
         "label": "Thu",
         "high": 45,
         "low": 39,
-        "icon": "cloud"
+        "icon": "rain"
       },
       {
         "label": "Fri",
-        "high": 47,
-        "low": 34,
-        "icon": "cloud"
+        "high": 43,
+        "low": 32,
+        "icon": "snow"
       },
       {
         "label": "Sat",
-        "high": 49,
-        "low": 33,
+        "high": 50,
+        "low": 36,
         "icon": "cloud"
+      },
+      {
+        "label": "Sun",
+        "high": 44,
+        "low": 31,
+        "icon": "rain"
       }
     ]
   },
   "needsALook": [
     {
-      "type": "ACTION",
-      "text": "Last workday before Thanksgiving: ship the one 7EightMade piece today."
+      "type": "FYI",
+      "text": "Happy Thanksgiving. Bears at Lions, noon CT on CBS; both teams are 8-2."
     },
     {
-      "type": "FYI",
-      "text": "Bears at Lions tomorrow, noon CT, CBS. Both teams are 8-2."
+      "type": "ACTION",
+      "text": "Holiday rule: one small 7EightMade rep before kickoff, then enjoy the day and the football."
     }
   ],
   "timeline": [
@@ -81,17 +81,22 @@
     },
     {
       "time": "Morning",
-      "event": "7EightMade build block: finish and ship the piece",
+      "event": "One small 7EightMade rep (30 minutes, then done)",
       "category": "focus"
     },
     {
-      "time": "Afternoon",
-      "event": "Holiday prep: clear anything that blocks Thursday",
-      "category": "focus"
+      "time": "12:00 PM",
+      "event": "Bears at Lions (CBS)",
+      "category": "personal"
+    },
+    {
+      "time": "3:30 PM",
+      "event": "Eagles at Cowboys (FOX)",
+      "category": "personal"
     },
     {
       "time": "Evening",
-      "event": "Packers at Rams (Netflix), optional",
+      "event": "Thanksgiving dinner; Chiefs at Bills (NBC) at night",
       "category": "personal"
     },
     {
@@ -101,16 +106,16 @@
     }
   ],
   "thisWeek": [
-    "Wed Nov 25 - dry and gray, high ~40",
-    "Thu Nov 26 - Thanksgiving; Bears at Lions noon CT (CBS); rain chance ~41%, high ~45",
-    "Fri Nov 27 - Black Friday; rain chance ~41%, high ~47",
-    "Sat Nov 28 - mostly dry, high ~49",
-    "Sun Nov 29 - rain likely (~62%), high ~41"
+    "Thu Nov 26 - Thanksgiving; Bears at Lions noon CT (CBS); drizzle likely, high ~45",
+    "Fri Nov 27 - Black Friday; rain/snow mix possible (~59%), high ~43",
+    "Sat Nov 28 - dry, high ~50",
+    "Sun Nov 29 - drizzle chance ~60%, high ~44",
+    "Mon Nov 30 - dry and colder, high ~38"
   ],
   "openingBell": {
     "title": "The Opening Bell",
     "kicker": "Morning Charge",
-    "intro": "Wednesday, Mercury's day. Four counts in, four hold, four out, four hold. Mercury is the messenger: quick mind, clean words, fast hands. Breathe slow so you can move fast.",
+    "intro": "Thursday, Jupiter's day (Thor's day in the old north). Four counts in, four hold, four out, four hold. Jupiter is the king's planet: abundance, generosity, a full table. Breathe like you already have enough, then go take more ground.",
     "breathing": {
       "title": "Box Breathing — 4 · 4 · 4 · 4",
       "pattern": "4-4-4-4",
@@ -144,14 +149,14 @@
       "close": "Four rounds squares the mind. Eyes open. Shoulders down. Body next. Then go build."
     },
     "mindset": {
-      "hed": "Answer the Run",
-      "body": "Washington made its push last night. Tatum answered with 41 and Boston never let go. Every day somebody makes a run at you: a tired body, a distraction, a doubt. You don't panic, you answer. Last workday before the holiday: finish the piece and ship it before the turkey. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
+      "hed": "Win the Short Week",
+      "body": "The Bears and Lions both had three days to get ready. Nobody gets extra time today, so the edge goes to whoever prepared before they had to. Same for you: a holiday isn't a day off from who you are. Get your reps in early, be fully present with your people, and still go to bed a little sharper than you woke up. Competitive. Unbeatable. Always rising. fall down 7 stand up 8."
     }
   },
   "bodyOpener": {
     "title": "3-Minute Opener",
     "kicker": "Body Desk",
-    "note": "Wednesday, Mercury's day: quick and sharp. Run the three blocks, no rest between.",
+    "note": "Thursday, Jupiter's day. Earn the feast: three blocks, no rest between.",
     "duration": "~3:00",
     "reference": {
       "label": "RipStick form — RipRight",
@@ -183,22 +188,22 @@
       "title": "AI",
       "items": [
         {
-          "source": "OpenAI",
-          "hed": "GPT-6 models design proteins",
-          "body": "OpenAI says GPT-6 can design protein structures and sequences, with some lab-validated binding results.",
-          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
+          "source": "TechCrunch",
+          "hed": "OpenAI merges ChatGPT and Work usage limits",
+          "body": "OpenAI says a small share of heavy users may hit limits sooner under the combined allowance; Instant chats stay unlimited.",
+          "url": "https://techcrunch.com/2026/11/25/"
         },
         {
-          "source": "Axios",
-          "hed": "Lab staff worry about unreleased models",
-          "body": "Employees at Anthropic and OpenAI say some internal models may be too risky to release.",
-          "url": "https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks"
+          "source": "SiliconANGLE",
+          "hed": "Claude artifacts become desktop apps",
+          "body": "Anthropic's Install as App beta turns a Claude artifact into a standalone Windows or macOS app with its own icon and notifications.",
+          "url": "https://12pb.com/en/news/ai-daily-2026-11-25"
         },
         {
-          "source": "AI.info",
-          "hed": "Two states sue X and xAI over Grok images; Siri agent slips to late 2027",
-          "body": "Oregon and Virginia filed suits over Grok-generated sexualized images. Separately, Apple's full Siri AI agent isn't expected before late 2027.",
-          "url": "https://ai.info/daily/2026-11-24"
+          "source": "TechCrunch",
+          "hed": "Amodei: handing control to AI is 'absurd'",
+          "body": "Anthropic's CEO pushed back on claims some staff think humanity could hand authority to superintelligent systems, saying AI governing society would be a bad idea.",
+          "url": "https://techcrunch.com/2026/11/25/"
         }
       ]
     },
@@ -206,22 +211,22 @@
       "title": "NBA",
       "items": [
         {
-          "source": "NBA.com",
-          "hed": "Tatum 41, Celtics 131-116 Wizards",
-          "body": "Paul George added 28 and nine assists; Boston is 3-0 in Cup group play.",
-          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
+          "source": "RealGM",
+          "hed": "Bulls 107-105 Hornets",
+          "body": "Buzelis had 24 for Chicago (6-12); Brandon Miller scored 35 in the loss.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-25"
         },
         {
           "source": "NBA.com",
-          "hed": "Flagg leads Mavericks past Nuggets 120-101",
-          "body": "Cooper Flagg had 24 points and 11 assists; seven Mavericks scored in double figures and Dallas is 3-0 in its Cup group.",
-          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
+          "hed": "Blazers beat Spurs late, 116-111",
+          "body": "Portland closed strong for an NBA Cup win over San Antonio.",
+          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-25"
         },
         {
-          "source": "NBA.com",
-          "hed": "Pistons beat Magic 104-86",
-          "body": "Detroit's win kept Orlando from clinching in East Group A.",
-          "url": "https://www.nba.com/news/emirates-nba-cup-2026-live-updates-november-24"
+          "source": "RealGM",
+          "hed": "Knicks 121-102 Cavs; Wolves top Thunder",
+          "body": "Jose Alvarado scored 21 off the bench for New York. Jaden McDaniels had 32 as Minnesota won 113-106 in Oklahoma City.",
+          "url": "https://basketball.realgm.com/nba/scores/2026-11-25"
         }
       ]
     },
@@ -229,22 +234,22 @@
       "title": "NFL",
       "items": [
         {
+          "source": "ChicagoBears.com",
+          "hed": "Bears rule out Gordon, Hicks, Johnson",
+          "body": "Stevenson and Jackson are questionable. For Detroit, Gill-Howard and Rakestraw are out; Clark and Wonnum are questionable.",
+          "url": "https://www.chicagobears.com/news/three-bears-players-ruled-out-of-thanksgiving-game-in-detroit-injury-update"
+        },
+        {
+          "source": "ESPN",
+          "hed": "Rams 26-13 Packers",
+          "body": "Corum's career-high 184 rushing yards gave LA (7-4) its fifth straight win.",
+          "url": "https://www.espn.com/nfl/recap/_/gameId/401873079"
+        },
+        {
           "source": "NFL.com",
-          "hed": "Thanksgiving slate: Bears at Lions to open",
-          "body": "Bears-Lions at noon CT (CBS), Eagles-Cowboys at 3:30 CT (FOX), Chiefs-Bills at night (NBC). Packers-Rams goes tonight on Netflix.",
+          "hed": "Thanksgiving slate",
+          "body": "Bears-Lions at noon CT (CBS), Eagles-Cowboys at 3:30 CT (FOX), Chiefs-Bills at night (NBC).",
           "url": "https://www.nfl.com/schedules/2026/by-week/week-12"
-        },
-        {
-          "source": "NFL.com",
-          "hed": "Broncos suspend J.K. Dobbins one game",
-          "body": "Sean Payton suspended Dobbins for Friday's game at Pittsburgh for conduct detrimental to the team. The Bears claimed DB Isaac Yiadom off waivers.",
-          "url": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-tuesday-nov-24"
-        },
-        {
-          "source": "The Chairshot",
-          "hed": "49ers release Aiyuk; Cardinals fire Rallis",
-          "body": "San Francisco cut WR Brandon Aiyuk and Arizona fired defensive coordinator Nick Rallis.",
-          "url": "https://thechairshot.com/2026/11/chairshot-nfl-news-report-11-24-2026-commanders-stun-bengals-49ers-release-aiyuk-cardinals-fire-rallis/"
         }
       ]
     },
@@ -252,22 +257,22 @@
       "title": "MMA & Boxing",
       "items": [
         {
-          "source": "Fightnews",
-          "hed": "Adames outpoints Warburton in Riyadh",
-          "body": "Carlos Adames won a unanimous decision (100-90, 98-92, 99-91) at Zuffa 13.",
-          "url": "https://fightnews.com/results-from-riyadhs-zuffa-13-adames-vs-warburton/200453"
+          "source": "MMA Junkie",
+          "hed": "CSI Sports says it will block Mayweather-Garcia",
+          "body": "The company suing Mayweather says no Garcia fight on Feb. 6 or later until his obligations to CSI are met.",
+          "url": "https://mmajunkie.usatoday.com/story/sports/boxing/2026/11/25/boxing-company-suing-floyd-mayweather-block-bout-vs-ryan-garcia/92962794007/"
         },
         {
-          "source": "Fight Week",
-          "hed": "Ibeh out of Friday's fight with Novytskyi",
-          "body": "Kingsley Ibeh withdrew injured; Robeisy Ramirez signed with Warriors and DreamBigg and returns Dec. 10.",
-          "url": "https://www.fightweek.com/2026/11/24/"
+          "source": "ESPN",
+          "hed": "Chantelle Cameron extends with MVP",
+          "body": "Multi-fight deal ahead of her Dec. 24 rematch with Mikaela Mayer in Dubai.",
+          "url": "https://www.espn.com/boxing/story/_/id/50591523/jake-paul-mvp-chantelle-cameron"
         },
         {
-          "source": "MMA Fighting",
-          "hed": "What's next for Jiri Prochazka?",
-          "body": "After his KO loss at UFC Qatar, the former champ's path forward is open; Josh Hokit wants a Ciryl Gane rematch.",
-          "url": "https://www.mmafighting.com/ufc/523018/between-the-links-whats-next-for-jiri-prochazka-josh-hokit-wants-ciryl-gane-rematch-more"
+          "source": "Sherdog",
+          "hed": "Prates: interim belt isn't the 'real' title",
+          "body": "Carlos Prates says a UFC interim championship doesn't count as the real thing.",
+          "url": "https://www.sherdog.com/news/news/Carlos-Prates-says-UFC-interim-title-isnt-the-real-championship-203743"
         }
       ]
     }
@@ -277,16 +282,16 @@
     "kicker": "Gnostic · Esoteric · Forbidden",
     "items": [
       {
-        "hed": "Mercury's day",
-        "body": "Wednesday is Mercury's day (Woden's in the old Germanic calendar, mercredi in French). Hermes-Mercury rules speech, trade, travel and quick thinking: the right day to send the message and close the deal."
+        "hed": "Jupiter's day",
+        "body": "Thursday belongs to Jupiter (jeudi in French) and to Thor in the Germanic calendar. Jupiter rules expansion, generosity and good fortune: a fitting planet for a feast day."
       },
       {
-        "hed": "Meister Eckhart on gratitude",
-        "body": "The 14th-century German mystic wrote: 'If the only prayer you ever say in your entire life is thank you, it will be enough.' A fitting line the day before Thanksgiving."
+        "hed": "Eucharistia",
+        "body": "The Greek word for thanksgiving, eucharistia, became the name of the central Christian rite. In the Gnostic Gospel of Philip, gratitude is part of the soul's return: what you receive with thanks becomes your own."
       },
       {
-        "hed": "Hermes Trismegistus",
-        "body": "The 'thrice-great' Hermes of the Hermetic texts blends the Greek Hermes and the Egyptian Thoth, god of writing. To the Hermeticists, mind came first: 'The All is Mind.' Get the thought clear and the work follows."
+        "hed": "Rumi's guest house",
+        "body": "The 13th-century Sufi poet wrote that a human being is a guest house, and every arrival, joy or sorrow, should be met at the door 'laughing' and treated honorably. Welcome the whole day."
       }
     ]
   },
@@ -294,9 +299,9 @@
     "title": "Grimoire",
     "kicker": "Magick Knowledge of the Day",
     "source": "From the wisdom attributed to Solomon",
-    "hed": "Finish what you start",
-    "body": "Solomon wrote: 'The hand of the diligent shall bear rule: but the slothful shall be under tribute' (Proverbs 12:24). Diligence isn't busyness. It's carrying one thing all the way to done.",
-    "practice": "Before lunch, take the 7EightMade piece from 'almost' to shipped. No new starts until it's out."
+    "hed": "A merry heart is medicine",
+    "body": "Solomon wrote: 'A merry heart doeth good like a medicine: but a broken spirit drieth the bones' (Proverbs 17:22). Joy isn't a soft extra. It's fuel, and you can choose it on purpose.",
+    "practice": "At the table today, say one specific thing you're grateful for out loud, then name one person who made this year better and tell them."
   },
   "inboxSummary": {
     "title": "Quick Inbox Summary",
@@ -317,21 +322,27 @@
         "done": false
       },
       {
-        "id": "ship-one",
-        "text": "Ship the 7EightMade piece today, before the holiday",
+        "id": "one-rep",
+        "text": "One 30-minute 7EightMade rep before kickoff",
         "priority": "high",
         "done": false
       },
       {
-        "id": "diligent",
-        "text": "Grimoire card: no new starts until the piece is out",
+        "id": "merry-heart",
+        "text": "Grimoire card: say one specific thanks out loud at the table",
         "priority": "high",
         "done": false
       },
       {
-        "id": "holiday-clear",
-        "text": "Holiday prep: clear anything that blocks Thursday",
+        "id": "bears",
+        "text": "Bears at Lions, noon CT (CBS)",
         "priority": "normal",
+        "done": false
+      },
+      {
+        "id": "gratitude",
+        "text": "Journal + 3 lines of gratitude tonight",
+        "priority": "habit",
         "done": false
       }
     ]
@@ -344,12 +355,12 @@
   "techDemo": {
     "title": "Tech Demo",
     "kicker": "Fast learn - from your X bookmarks",
-    "pick": "@lunaonexbt posted a clip of Jensen Huang explaining recursive self-improvement to Ezra Klein: an agent runs a task, writes down what worked as a skill and a memory, gets faster next time, and that data trains the next model. His catch: Nvidia puts about 80% of its effort into verification and only ships what humans have checked.",
-    "author": "@lunaonexbt",
-    "url": "https://x.com/lunaonexbt/status/2122665572609486885",
-    "bookmarkUrl": "https://x.com/lunaonexbt/status/2122665572609486885",
+    "pick": "@itzsagka shows a CT-side HE grenade on Anubis that chips Terrorists for free damage before the first gunfight. His point: the lineup matters less than the timing. Throw it when Ts are actually stacking up to take the site, not on a timer.",
+    "author": "@itzsagka",
+    "url": "https://x.com/itzsagka/status/2122823345326444690",
+    "bookmarkUrl": "https://x.com/itzsagka/status/2122823345326444690",
     "linkLabel": "Open bookmark",
-    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Nov 17). The lesson for your own builds: speed up the loop, and spend the time you save on checking the work.",
-    "skipped": "Recently used: @goldcsnades (Nov 24), @himanshubuildss (Nov 23), @hypertune_ (Nov 22), @Texas_Twins_Dad (Nov 21), @KutaTweaks (Nov 20)."
+    "note": "No new bookmarks since Nov 17, so this rotates an older real one (posted Nov 17). Lesson for FACEIT: learn one utility throw cold, then learn when to throw it by listening for footsteps and the round clock.",
+    "skipped": "Recently used: @lunaonexbt (Nov 25), @goldcsnades (Nov 24), @himanshubuildss (Nov 23), @hypertune_ (Nov 22), @Texas_Twins_Dad (Nov 21)."
   }
 }
