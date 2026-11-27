@@ -42,6 +42,21 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
 .badge.flag{background:#3a1508;color:#fb923c}
 .note{color:#8a94a3;font-size:14px}
 .uth img{width:100%;border:1px solid #232c3d;border-radius:14px;margin:12px 0;display:block}
+.launch{margin-top:32px;background:#10151d;border:1px solid #232c3d;border-top:3px solid #2f6bff;border-radius:18px;padding:30px 24px}
+.launch h2{font-size:32px;line-height:1.15;margin:10px 0 8px}
+.launch .pitch{color:#e8ecf1;font-size:19px;margin-bottom:6px}
+.launch p,.launch li{color:#c7d3e2;font-size:16.5px}
+.launch h3{font-size:18px;margin:26px 0 10px}
+.launch ul{padding-left:22px}
+.launch li{margin-bottom:8px}
+.launch .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.launch .card{background:#0b0e13;border:1px solid #232c3d;border-radius:12px;padding:14px}
+.launch .card .k{color:#2f6bff;font-size:11px;letter-spacing:2px;font-weight:700}
+.launch .card b{display:block;color:#e8ecf1;font-size:17px;margin:4px 0 4px}
+.launch .card span{color:#aeb8c4;font-size:14px;line-height:1.45;display:block}
+.launch .phases{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.launch .close{margin-top:26px;text-align:center;font-weight:800;font-size:26px;letter-spacing:1px;color:#e8ecf1}
+@media (max-width:600px){.launch .grid,.launch .phases{grid-template-columns:1fr}.launch h2{font-size:27px}}
 .app{margin-top:52px;background:#10151d;border:1px solid #232c3d;border-radius:18px;padding:30px 24px}
 .app .kicker{display:block}
 .app h2{font-size:30px;line-height:1.15;margin:10px 0 6px}
@@ -69,6 +84,52 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
     <div class="logo">7EIGHT<span>MADE</span> — STUDIO</div>
     <div><a href="../">← 7EightMade</a> &nbsp;·&nbsp; <a href="../studio/">Studio</a></div>
   </div>
+
+  <section class="launch" id="pulse-launch" aria-labelledby="pulse-launch-title">
+    <div class="kicker">7EIGHTMADE STUDIO · HOW PULSE WAS PITCHED</div>
+    <h2 id="pulse-launch-title">Pulse launch concept</h2>
+    <p class="pitch">The 60-second calm check that lives in your phone camera.</p>
+    <p>Camera heart-rate apps already exist and most oversell. Pulse wins on three things the others skip: it labels every reading honestly, it turns a number into a ritual (check, breathe, check again), and nothing leaves the phone.</p>
+
+    <h3>Who it's for</h3>
+    <div class="grid">
+      <div class="card"><div class="k">PRIMARY</div><b>Stressed professionals &amp; students</b><span>A one-minute reset between meetings or before an exam. The Calm check is the hook.</span></div>
+      <div class="card"><div class="k">PRIMARY</div><b>Morning trackers without a wearable</b><span>A daily number and a streak without buying a watch or ring.</span></div>
+      <div class="card"><div class="k">ALSO</div><b>Breathwork &amp; meditation</b><span>Proof that breathing changes something. Curious makers and tech fans share the camera-is-the-sensor trick.</span></div>
+    </div>
+
+    <h3>Honest by design</h3>
+    <ul>
+      <li><b>Not a medical device.</b> A wellness estimate, labeled as one, with a reminder to see a doctor for health concerns.</li>
+      <li><b>No risky readings.</b> SpO2 and blood pressure are left out of the app. Phone cameras can't measure them.</li>
+      <li><b>Stays on the phone.</b> All processing on the device. No account, no upload.</li>
+    </ul>
+
+    <h3>Business model</h3>
+    <div class="grid">
+      <div class="card"><div class="k">FREE</div><b>$0</b><span>The whole core: heart rate, waveform, breathing, Calm check, streak, 7-day trend, share card.</span></div>
+      <div class="card"><div class="k">PRO YEARLY</div><b>$14.99 / yr</b><span>Recovery reading, full history, more breathing patterns and share themes.</span></div>
+      <div class="card"><div class="k">PRO LIFETIME</div><b>$24.99 once</b><span>Same as yearly, paid once.</span></div>
+    </div>
+    <p class="note" style="margin-top:10px">No ads, ever. They clash with a privacy promise.</p>
+
+    <h3>Six weeks, four phases</h3>
+    <div class="phases">
+      <div class="card"><div class="k">WEEK 1</div><b>Prep</b><span>Polish the web app: install prompt, Calm check, share card, privacy page. Shoot clips.</span></div>
+      <div class="card"><div class="k">WEEKS 2–3</div><b>Web launch</b><span>Web app live on the Studio page. First Instagram, TikTok and Shorts posts; 7-day Calm streak challenge.</span></div>
+      <div class="card"><div class="k">WEEKS 4–5</div><b>Store build</b><span>Capacitor build, TestFlight, Play closed test. Reddit build story; Product Hunt launch.</span></div>
+      <div class="card"><div class="k">WEEK 6</div><b>Store release</b><span>Store release and Pro unlock go live. Launch reel, Studio page update, creator outreach.</span></div>
+    </div>
+    <p class="note" style="margin-top:10px">Channels: Instagram · TikTok · YouTube Shorts · Product Hunt · Reddit · Studio page</p>
+
+    <h3>Roadmap</h3>
+    <div class="grid">
+      <div class="card"><div class="k">NOW</div><b>Web launch</b><span>v1 web app, free core.</span></div>
+      <div class="card"><div class="k">NEXT</div><b>Store v1.1</b><span>App Store + Google Play, native torch.</span></div>
+      <div class="card"><div class="k">THEN</div><b>Pro</b><span>Recovery reading, 90-day trends.</span></div>
+    </div>
+    <p class="close">Fall down 7, stand up 8.</p>
+  </section>
 
   <div class="hero">
     <div class="kicker">7EIGHTMADE STUDIO · NEW DEMO</div>
