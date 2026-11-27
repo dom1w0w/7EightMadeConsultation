@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/web-BwMXkLma.js","assets/index-BOhVlig0.js","assets/index-Cg18rqZv.css"])))=>i.map(i=>d[i]);
+import{a as e,i as t}from"./index-BOhVlig0.js";var n=t(`Torch`,{web:()=>e(()=>import(`./web-BwMXkLma.js`).then(e=>new e.TorchWeb),__vite__mapDeps([0,1,2]))});export{n as Torch};

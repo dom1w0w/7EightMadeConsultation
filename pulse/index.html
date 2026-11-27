@@ -42,6 +42,23 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
 .badge.flag{background:#3a1508;color:#fb923c}
 .note{color:#8a94a3;font-size:14px}
 .uth img{width:100%;border:1px solid #232c3d;border-radius:14px;margin:12px 0;display:block}
+.app{margin-top:52px;background:#10151d;border:1px solid #232c3d;border-radius:18px;padding:30px 24px}
+.app .kicker{display:block}
+.app h2{font-size:30px;line-height:1.15;margin:10px 0 6px}
+.app .pitch{color:#e8ecf1;font-size:19px;margin-bottom:10px}
+.app p{color:#c7d3e2;font-size:16.5px}
+.app h3{font-size:18px;margin:26px 0 8px}
+.app .demo-lbl{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:4px 10px;border-radius:99px;background:#3a2a08;color:#fbbf24;border:1px solid #6b4e12}
+.app .shots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 6px}
+.app .shots figure{margin:0}
+.app .shots img{width:100%;height:auto;border:1px solid #232c3d;border-radius:12px;display:block}
+.app .shots figcaption{color:#8a94a3;font-size:12px;text-align:center;margin-top:6px}
+.app .dl{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.app .btn2{display:inline-block;background:#161d29;border:1px solid #2f6bff;color:#e8ecf1!important;font-weight:700;font-size:16px;padding:13px 22px;border-radius:12px;text-decoration:none}
+.app .btn2 small{display:block;color:#8a94a3;font-weight:400;font-size:12px}
+.app code{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:14px;background:#0b0e13;border:1px solid #232c3d;border-radius:6px;padding:1px 6px;color:#e8ecf1}
+.app .disc{margin-top:22px;padding-top:16px;border-top:1px solid #1c2330;color:#8a94a3;font-size:14px}
+@media (max-width:600px){.app .shots{grid-template-columns:repeat(2,1fr)}.app h2{font-size:26px}}
 .foot{margin-top:56px;padding-top:22px;border-top:1px solid #1c2330;text-align:center;color:#525d6f;font-size:13px;letter-spacing:1px}
 .foot b{color:#8a94a3}
 </style>
@@ -116,6 +133,37 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
     <img src="under-the-hood/uth3-3-finale.png" alt="Beat 3 — Peaks become numbers">
     <a class="btn" href="demo/">Try Pulse now →</a>
   </div>
+
+  <section class="app" id="pulse-app" aria-labelledby="pulse-app-title">
+    <div class="kicker">7EIGHTMADE STUDIO · THE APP</div>
+    <h2 id="pulse-app-title">Pulse app: Demo build · Alpha v0.1.1</h2>
+    <p><span class="demo-lbl">DEMO BUILD · ALPHA</span></p>
+    <p class="pitch" style="margin-top:14px">The 60-second calm check that lives in your phone camera.</p>
+    <p>The demo above grew into a real little app. Put a fingertip over the rear camera and Pulse reads your heart rate live, with a pulse wave, a breathing-rate estimate and a guided Calm check: a reading, a minute of slow breathing, then a second reading to show the change. It installs from the browser, works offline, and everything is analyzed on your device. Nothing is recorded, uploaded or tracked. Every screen carries the "Demo build · Alpha" label.</p>
+    <a class="btn" href="app/">Try the demo app →</a>
+    <p class="note" style="margin-top:10px">Open it on your phone. iPhone: Safari › Share › Add to Home Screen. Android: Chrome › ⋮ › Install app.</p>
+
+    <h3>Screens</h3>
+    <div class="shots">
+      <figure><img src="screens/09-measuring.jpg" width="390" height="844" loading="lazy" alt="Pulse app measuring screen with live heart rate and pulse wave"><figcaption>Live reading</figcaption></figure>
+      <figure><img src="screens/10-result.jpg" width="390" height="844" loading="lazy" alt="Pulse app result screen showing beats per minute and breathing rate"><figcaption>Result</figcaption></figure>
+      <figure><img src="screens/13-calm-breathing.jpg" width="390" height="844" loading="lazy" alt="Pulse app Calm check guided breathing screen"><figcaption>Calm check</figcaption></figure>
+      <figure><img src="screens/15-history.jpg" width="390" height="844" loading="lazy" alt="Pulse app history screen with streak and trend"><figcaption>History</figcaption></figure>
+    </div>
+    <p class="note">Screens captured in the app's Demo mode, a simulated signal for presenting without a fingertip. On a phone, Demo mode is off and Pulse reads your real pulse.</p>
+
+    <h3>Download</h3>
+    <div class="dl">
+      <a class="btn2" href="downloads/pulse-v0.1.1-alpha-debug.apk" download>Android APK<small>v0.1.1-alpha · debug build · 5.4 MB</small></a>
+      <a class="btn2" href="downloads/pulse-v0.1.1-alpha-source.zip" download>Source code (.zip)<small>Full project · 3.3 MB</small></a>
+    </div>
+    <p class="note" style="margin-top:10px">The APK is a debug-signed testing build, not from the Play Store. To sideload it, download it on your Android phone, allow "Install unknown apps" for your browser, then open it. It installs as "Pulse (Demo)".</p>
+
+    <h3>Build it yourself</h3>
+    <p>Pulse is open source and built with Vite and TypeScript, with a Capacitor Android project included. Unzip the source, then run <code>npm install</code>, <code>npm test</code> and <code>npm run build</code> for the installable web app in <code>dist/</code>, or <code>npm run apk</code> for the Android app (needs a JDK and the Android SDK). The iPhone app is generated on a Mac with Xcode. Step-by-step guides are in <code>docs/BUILD.md</code> and <code>docs/SETUP.md</code> inside the zip.</p>
+
+    <p class="disc"><b>Wellness estimate. Not a medical device.</b> The Pulse app is not for diagnosing, treating or monitoring any condition, and it does not measure blood oxygen (SpO₂) or blood pressure. Readings are estimates for wellness and demonstration only. If you have a health concern, talk to a qualified healthcare professional.</p>
+  </section>
 
   <div class="sec">
     <h2>Not medical advice</h2>
