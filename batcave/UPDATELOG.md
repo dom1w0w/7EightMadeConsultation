@@ -1,5 +1,11 @@
 # BATCAVE UPDATE LOG
 
+## 2026-11-27 — One door: Dom Times goes private-only
+- Dom's ruling: one door for the paper — the private reader (dom-times-live/) is THE Dom Times; the public surfaces are retired.
+- Retired: the public edition app (dom-times/) and the DOM TIMES · PUBLIC panel in the Batcave home, including its data file (batcave/data/public.json). Backup B-07 (verified zip in ~/workspace/backups/) holds the full pre-retirement state of dom-times/, dom-times-live/, and batcave/.
+- Untouched: dom-times-live/ (the one door), the private repo (edition archive of record), and the Batcave private rows (dom-times, archive, team, watch).
+- Note for the morning press: the ~6:14 AM job that published the public edition (dom-times/data/today.json + batcave/data/public.json) needs re-pointing to the private door or stopping, or it will recreate the retired files. The private (encrypted) edition feed itself last ran Nov 16.
+
 ## 2026-10-22 — Core Burn moves renamed to stick versions
 - Core Burn steps renamed to match the workout-log app (Dom's pick): Plank Hold → Stick Plank Crush (high plank, hands crushing the pills into the floor), Mountain Climbers → Stick Climbers (high plank on the pills as handles). Cues + mechanics updated (climbers now grip); sets/durations unchanged.
 
