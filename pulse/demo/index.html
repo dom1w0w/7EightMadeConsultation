@@ -34,6 +34,7 @@
   .btn.ghost:hover{border-color:var(--blue);color:var(--blue2)}
   .btn.red{background:var(--red);border-color:var(--red)}
   .btn:disabled{opacity:.45;cursor:not-allowed}
+  .concept-banner{margin-top:16px;background:#141c26;border:1px solid var(--amber);border-radius:10px;padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink)}
   /* hero */
   .hero{padding:38px 0 8px}
   .kicker{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue2);margin:0 0 12px}
@@ -139,6 +140,8 @@
     <div class="brand">7Eight<span>Made</span> — Studio<small>Under the Hood · Interactive Exhibit</small></div>
     <a class="btn" href="https://dom1w0w.github.io/7EightMadeConsultation/" target="_blank" rel="noopener">Book a free AI audit</a>
   </div>
+
+  <div class="concept-banner" role="note">Original concept demo (sold Nov 2, 2026). It shows experimental SpO2 and blood-pressure estimates for illustration only. The <a href="../#pulse-app">Pulse app</a> (Demo build · Alpha v0.1.1) is wellness-only and drops them. Not a medical device.</div>
 
   <header class="hero">
     <p class="kicker">Camera PPG · Live in your browser · Nothing to install</p>
@@ -267,7 +270,7 @@
       <div class="card-top"><h3>Blood Oxygen (SpO<sub>2</sub>)</h3><span class="pill estimate">Estimate only</span></div>
       <div class="value">~<span id="vSpo2">—</span> <small>%</small></div>
       <div class="value-note" id="nSpo2">Waiting for a stable signal…</div>
-      <p class="desc">An estimate of oxygen saturation worked out from how your fingertip absorbs the camera's color channels as blood pulses through.</p>
+      <p class="desc"><b>Original concept demo only.</b> An estimate of oxygen saturation worked out from how your fingertip absorbs the camera's color channels as blood pulses through.</p>
       <div class="notice">
         <div><b>Accurate?</b>Estimate only — <strong>not a measurement.</strong> Real oximeters shine red <em>and infrared</em> light through the finger; a phone camera has no infrared, so this number can be off significantly, and accuracy varies across skin tones.</div>
         <div><b>More accurate with</b>Still finger, flashlight on, warm hands, averaged reads — but nothing in this app makes it a true measurement. Only a real pulse oximeter does that. Do not use this number for health decisions.</div>
@@ -278,7 +281,7 @@
       <div class="card-top"><h3>Blood Pressure</h3><span class="pill estimate">Estimate only · Not validated</span></div>
       <div class="value">~<span id="vBp">— / —</span> <small>MMHG · MODEL ESTIMATE</small></div>
       <div class="value-note" id="nBp">Waiting for a stable heart rate…</div>
-      <p class="desc">A model estimate inferred from your heart rate and the shape of your pulse wave. Shown because the technique gets asked about constantly — and labeled plainly because the honest answer matters more than the number.</p>
+      <p class="desc"><b>Original concept demo only.</b> A model estimate inferred from your heart rate and the shape of your pulse wave. Shown because the technique gets asked about constantly — and labeled plainly because the honest answer matters more than the number.</p>
       <div class="notice">
         <div><b>Accurate?</b>Estimate only — not validated, not a measurement. Camera-only blood pressure has no reliable path from a fingertip wave to real pressure numbers.</div>
         <div><b>More accurate with</b>Calibrating against a real cuff reading under consistent conditions narrows it — but without a cuff, it stays an estimate. A cuff is what makes this a measurement. Do not use this number for health decisions.</div>

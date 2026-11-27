@@ -74,6 +74,8 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
 .app code{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:14px;background:#0b0e13;border:1px solid #232c3d;border-radius:6px;padding:1px 6px;color:#e8ecf1}
 .app .disc{margin-top:22px;padding-top:16px;border-top:1px solid #1c2330;color:#8a94a3;font-size:14px}
 @media (max-width:600px){.app .shots{grid-template-columns:repeat(2,1fr)}.app h2{font-size:26px}}
+.launch .kicker,.app .kicker,.launch .card .k{color:#5b8cff}
+.cq{color:#aeb8c4;font-size:14px}
 .foot{margin-top:56px;padding-top:22px;border-top:1px solid #1c2330;text-align:center;color:#525d6f;font-size:13px;letter-spacing:1px}
 .foot b{color:#8a94a3}
 </style>
@@ -162,15 +164,15 @@ h1{font-size:64px;line-height:1;font-weight:800;margin:14px 0 10px}
   <div class="sec">
     <h2>What it is</h2>
     <p>Pulse is a 7EightMade Studio demo that turns your phone's rear camera into a heart-rate reader. No watch, no sensor band, no sign-up. Your fingertip over the lens, the flashlight on, and the camera watches the tiny color changes in your skin as blood pulses through — that's the reading.</p>
-    <p style="margin-top:12px">Seven readings, each labeled honestly for what it is:</p>
+    <p style="margin-top:12px">Seven readings in the original concept demo, each labeled honestly for what it is:</p>
     <ul>
       <li><b>Heart Rate (BPM)</b><span class="badge ok">ACCURATE AT REST</span> — the headline number, from your actual pulse.</li>
       <li><b>Live Pulse Waveform</b><span class="badge ok">RAW SIGNAL</span> — your pulse, drawn live. Not an estimate.</li>
       <li><b>HRV</b><span class="badge est">ESTIMATE · TREND ONLY</span> — the variation between beats. Camera frame rates are too coarse for clinical precision, so this is a trend across days, not a diagnosis.</li>
       <li><b>Breathing Rate</b><span class="badge est">ESTIMATE</span> — approximate, from the slow rise and fall in the signal.</li>
       <li><b>Irregular Rhythm Flag</b><span class="badge flag">FLAG ONLY</span> — it can notice an irregular pattern. It cannot diagnose anything; only an ECG and a clinician can.</li>
-      <li><b>SpO2</b><span class="badge est">ESTIMATE ONLY</span> — not a measurement. Phone cameras have no infrared sensor, and it runs worse across skin tones. Only a real pulse oximeter measures it.</li>
-      <li><b>Blood Pressure</b><span class="badge est">ESTIMATE ONLY · NOT VALIDATED</span> — not a measurement. Only a cuff makes it one.</li>
+      <li><b>SpO2</b> <i class="cq">(original concept demo)</i><span class="badge est">ESTIMATE ONLY</span> — not a measurement. Phone cameras have no infrared sensor, and it runs worse across skin tones. Only a real pulse oximeter measures it.</li>
+      <li><b>Blood Pressure</b> <i class="cq">(original concept demo)</i><span class="badge est">ESTIMATE ONLY · NOT VALIDATED</span> — not a measurement. Only a cuff makes it one.</li>
     </ul>
   </div>
 
